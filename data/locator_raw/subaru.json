@@ -1,0 +1,2658 @@
+[
+ {
+  "dealer": {
+   "id": "090796",
+   "name": "Subaru of Glendale",
+   "address": {
+    "type": "Business",
+    "street": "1308 S Brand Blvd",
+    "street2": null,
+    "city": "Glendale",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91204"
+   },
+   "phoneNumber": "8183963900",
+   "servicePhoneNumber": "8183963900",
+   "faxNumber": "8183963901",
+   "siteUrl": "https://subaruofglendale.net",
+   "types": [
+    "Evauth",
+    "Affirm",
+    "Cpo",
+    "Express",
+    "Tradeupadv",
+    "Mtl",
+    "Loveencore",
+    "Retail",
+    "Service",
+    "Active",
+    "Chase",
+    "Sched",
+    "Phevauth",
+    "Sales",
+    "Estore",
+    "Jdprivate"
+   ],
+   "location": {
+    "latitude": 34.129586,
+    "longitude": -118.254719,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 1.25
+ },
+ {
+  "dealer": {
+   "id": "404890",
+   "name": "Subaru of Downtown Los Angeles",
+   "address": {
+    "type": "Business",
+    "street": "2000 S. Figueroa Street",
+    "street2": null,
+    "city": "Los Angeles",
+    "county": null,
+    "state": "CA",
+    "zipcode": "90007"
+   },
+   "phoneNumber": "2134196376",
+   "servicePhoneNumber": "2134196376",
+   "faxNumber": "2139886394",
+   "siteUrl": "https://dtlasubaru.com",
+   "types": [
+    "Sales",
+    "Mtl",
+    "Service",
+    "Retail",
+    "Active"
+   ],
+   "location": {
+    "latitude": 34.032438,
+    "longitude": -118.273013,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 5.57
+ },
+ {
+  "dealer": {
+   "id": "090772",
+   "name": "Subaru Sherman Oaks",
+   "address": {
+    "type": "Business",
+    "street": "5747 Van Nuys Blvd",
+    "street2": null,
+    "city": "Van Nuys",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91401"
+   },
+   "phoneNumber": "8186707450",
+   "servicePhoneNumber": "8186707450",
+   "faxNumber": "8186707471",
+   "siteUrl": "https://www.subarushermanoaks.com",
+   "types": [
+    "Chase",
+    "Mtl",
+    "Lpgold",
+    "Phevauth",
+    "Active",
+    "Evauth",
+    "Sales",
+    "Cpo",
+    "Loveencore",
+    "Xtime",
+    "Retail",
+    "Express",
+    "Service",
+    "Tradeupadv",
+    "Jdprivate"
+   ],
+   "location": {
+    "latitude": 34.175188,
+    "longitude": -118.449105,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 11.54
+ },
+ {
+  "dealer": {
+   "id": "406037",
+   "name": "Santa Monica Subaru",
+   "address": {
+    "type": "Business",
+    "street": "1229 Santa Monica Blvd.",
+    "street2": null,
+    "city": "Santa Monica",
+    "county": null,
+    "state": "CA",
+    "zipcode": "90404"
+   },
+   "phoneNumber": "3107520777",
+   "servicePhoneNumber": "3107520777",
+   "faxNumber": "3103944541",
+   "siteUrl": "https://www.santamonicasubaru.com",
+   "types": [
+    "Chase",
+    "Cpo",
+    "Xtime",
+    "Service",
+    "Tradeupadv",
+    "Retail",
+    "Mtl",
+    "Sales",
+    "Active"
+   ],
+   "location": {
+    "latitude": 34.023288,
+    "longitude": -118.487157,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 14.28
+ },
+ {
+  "dealer": {
+   "id": "404362",
+   "name": "Sierra Subaru of Monrovia",
+   "address": {
+    "type": "Business",
+    "street": "735 E. Central Ave",
+    "street2": null,
+    "city": "Monrovia",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91016"
+   },
+   "phoneNumber": "6268792902",
+   "servicePhoneNumber": "6269325675",
+   "faxNumber": "6269325667",
+   "siteUrl": "https://sierrasubaru.com",
+   "types": [
+    "Phevauth",
+    "Chase",
+    "Mtl",
+    "Cpo",
+    "Service",
+    "Sched",
+    "Sales",
+    "Tradeupadv",
+    "Lpcomm",
+    "Express",
+    "Loveencore",
+    "Evauth",
+    "Estore",
+    "Active",
+    "Retail"
+   ],
+   "location": {
+    "latitude": 34.136359,
+    "longitude": -117.988436,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 15.73
+ },
+ {
+  "dealer": {
+   "id": "400572",
+   "name": "Subaru Pacific",
+   "address": {
+    "type": "Business",
+    "street": "14700 Hindry Ave",
+    "street2": null,
+    "city": "Hawthorne",
+    "county": null,
+    "state": "CA",
+    "zipcode": "90250"
+   },
+   "phoneNumber": "4245773128",
+   "servicePhoneNumber": "4245773128",
+   "faxNumber": "3109063658",
+   "siteUrl": "https://www.subarupacific.com",
+   "types": [
+    "Evauth",
+    "Jdprivate",
+    "Eco",
+    "Chase",
+    "Tradeupadv",
+    "Retail",
+    "Sales",
+    "Cpo",
+    "Express",
+    "Affirm",
+    "Xtime",
+    "Loveencore",
+    "Service",
+    "Active",
+    "Mtl",
+    "Phevauth"
+   ],
+   "location": {
+    "latitude": 33.897919,
+    "longitude": -118.37157,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 16.1
+ },
+ {
+  "dealer": {
+   "id": "090747",
+   "name": "Timmons Subaru",
+   "address": {
+    "type": "Business",
+    "street": "3700 Cherry Ave.",
+    "street2": null,
+    "city": "Long Beach",
+    "county": null,
+    "state": "CA",
+    "zipcode": "90807"
+   },
+   "phoneNumber": "5629800707",
+   "servicePhoneNumber": "5629800600",
+   "faxNumber": "5629800716",
+   "siteUrl": "https://www.timmonssubaru.com",
+   "types": [
+    "Chase",
+    "Sched",
+    "Evauth",
+    "Retail",
+    "Express",
+    "Active",
+    "Jdprivate",
+    "Mtl",
+    "Phevauth",
+    "Cpo",
+    "Eco",
+    "Estore",
+    "Tradeupadv",
+    "Sales",
+    "Loveencore",
+    "Lpgold",
+    "Service"
+   ],
+   "location": {
+    "latitude": 33.82421,
+    "longitude": -118.16705,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 20.65
+ },
+ {
+  "dealer": {
+   "id": "400106",
+   "name": "Puente Hills Subaru",
+   "address": {
+    "type": "Business",
+    "street": "17801 E Gale Ave",
+    "street2": null,
+    "city": "City of Industry",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91748"
+   },
+   "phoneNumber": "6266264800",
+   "servicePhoneNumber": "6266264800",
+   "faxNumber": "6266264882",
+   "siteUrl": "https://www.puentehillssubaru.com",
+   "types": [
+    "Express",
+    "Affirm",
+    "Sched",
+    "Service",
+    "Certifiedcoll",
+    "Phevauth",
+    "Jdrental",
+    "Evauth",
+    "Loveencore",
+    "Mtl",
+    "Chase",
+    "Cpo",
+    "Retail",
+    "Sales",
+    "Active",
+    "Pickupdel",
+    "Tradeupadv"
+   ],
+   "location": {
+    "latitude": 33.996156,
+    "longitude": -117.917396,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 21.3
+ },
+ {
+  "dealer": {
+   "id": "402395",
+   "name": "Ocean Subaru of Fullerton",
+   "address": {
+    "type": "Business",
+    "street": "1100 S. Euclid St",
+    "street2": null,
+    "city": "Fullerton",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92832"
+   },
+   "phoneNumber": "7148719300",
+   "servicePhoneNumber": "7148719300",
+   "faxNumber": "7145263174",
+   "siteUrl": "https://oceansubaruoc.com",
+   "types": [
+    "Phevauth",
+    "Sales",
+    "Sched",
+    "Service",
+    "Tradeupadv",
+    "Jdrental",
+    "Evauth",
+    "Active",
+    "Chase",
+    "Express",
+    "Loveencore",
+    "Retail",
+    "Mtl",
+    "Cpo",
+    "Lpcomm"
+   ],
+   "location": {
+    "latitude": 33.859922,
+    "longitude": -117.94137,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 25.34
+ },
+ {
+  "dealer": {
+   "id": "406031",
+   "name": "Jerry Seiner Subaru",
+   "address": {
+    "type": "Business",
+    "street": "24000 Creekside Rd",
+    "street2": null,
+    "city": "Valencia",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91355"
+   },
+   "phoneNumber": "6616705550",
+   "servicePhoneNumber": "6616705550",
+   "faxNumber": "6616705569",
+   "siteUrl": "https://jerryseinersubaru.com",
+   "types": [
+    "Service",
+    "Sales",
+    "Mtl",
+    "Cpo",
+    "Xtime",
+    "Active",
+    "Tradeupadv",
+    "Retail",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 34.418511,
+    "longitude": -118.554317,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 26.94
+ },
+ {
+  "dealer": {
+   "id": "403666",
+   "name": "DCH Subaru of Thousand Oaks",
+   "address": {
+    "type": "Business",
+    "street": "3725 Auto Mall Dr.",
+    "street2": null,
+    "city": "Thousand Oaks",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91362"
+   },
+   "phoneNumber": "8054952193",
+   "servicePhoneNumber": "8054952193",
+   "faxNumber": "8054970515",
+   "siteUrl": "https://www.dchsubaruthousandoaks.com",
+   "types": [
+    "Retail",
+    "Express",
+    "Mtl",
+    "Tradeupadv",
+    "Xtime",
+    "Loveencore",
+    "Service",
+    "Phevauth",
+    "Sales",
+    "Chase",
+    "Lpcomm",
+    "Cpo",
+    "Estore",
+    "Active",
+    "Evauth"
+   ],
+   "location": {
+    "latitude": 34.16211,
+    "longitude": -118.830184,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 32.67
+ },
+ {
+  "dealer": {
+   "id": "405800",
+   "name": "Sutherlin Subaru Huntington Beach",
+   "address": {
+    "type": "Business",
+    "street": "18801 Beach Blvd.",
+    "street2": null,
+    "city": "Huntington Beach",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92648"
+   },
+   "phoneNumber": "7148422000",
+   "servicePhoneNumber": "7148422000",
+   "faxNumber": "7148426430",
+   "siteUrl": "https://www.sutherlinsubaruhb.com",
+   "types": [
+    "Mtl",
+    "Chase",
+    "Retail",
+    "Active",
+    "Pickupdel",
+    "Sales",
+    "Express",
+    "Tradeupadv",
+    "Sched",
+    "Service",
+    "Cpo",
+    "Estore"
+   ],
+   "location": {
+    "latitude": 33.689835,
+    "longitude": -117.989249,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 33.13
+ },
+ {
+  "dealer": {
+   "id": "401850",
+   "name": "Subaru Orange Coast",
+   "address": {
+    "type": "Business",
+    "street": "1350 Auto Mall Drive",
+    "street2": null,
+    "city": "Santa Ana",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92705"
+   },
+   "phoneNumber": "6572315400",
+   "servicePhoneNumber": "6572315400",
+   "faxNumber": "7145816976",
+   "siteUrl": "https://subaruorangecoast.com",
+   "types": [
+    "Estore",
+    "Phevauth",
+    "Chase",
+    "Evauth",
+    "Cpo",
+    "Tradeupadv",
+    "Loveencore",
+    "Service",
+    "Express",
+    "Lpcomm",
+    "Sales",
+    "Active",
+    "Xtime",
+    "Retail",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 33.729635,
+    "longitude": -117.840319,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 35.84
+ },
+ {
+  "dealer": {
+   "id": "405337",
+   "name": "Trust Antelope Valley Subaru",
+   "address": {
+    "type": "Business",
+    "street": "43226 Drivers Way",
+    "street2": null,
+    "city": "Lancaster",
+    "county": null,
+    "state": "CA",
+    "zipcode": "93534"
+   },
+   "phoneNumber": "6619491535",
+   "servicePhoneNumber": "6619491535",
+   "faxNumber": "6619450751",
+   "siteUrl": "https://www.trustsubaru.com",
+   "types": [
+    "Active",
+    "Express",
+    "Lpgold",
+    "Sales",
+    "Tradeupadv",
+    "Cpo",
+    "Chase",
+    "Mtl",
+    "Loveencore",
+    "Retail",
+    "Service",
+    "Xtime"
+   ],
+   "location": {
+    "latitude": 34.668141,
+    "longitude": -118.148514,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 38.93
+ },
+ {
+  "dealer": {
+   "id": "400043",
+   "name": "Subaru of Ontario",
+   "address": {
+    "type": "Business",
+    "street": "1195 Auto Center Drive",
+    "street2": null,
+    "city": "Ontario",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91761"
+   },
+   "phoneNumber": "9096055655",
+   "servicePhoneNumber": "9096055655",
+   "faxNumber": "9093906831",
+   "siteUrl": "https://www.subaruofontario.com",
+   "types": [
+    "Active",
+    "Tradeupadv",
+    "Cpo",
+    "Mtl",
+    "Retail",
+    "Loveencore",
+    "Evauth",
+    "Service",
+    "Phevauth",
+    "Express",
+    "Sales",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 34.05236,
+    "longitude": -117.54425,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 41.28
+ },
+ {
+  "dealer": {
+   "id": "090694",
+   "name": "Frank's Irvine Subaru",
+   "address": {
+    "type": "Business",
+    "street": "23663 Rockfield Blvd",
+    "street2": null,
+    "city": "Lake Forest",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92630"
+   },
+   "phoneNumber": "9498373500",
+   "servicePhoneNumber": "9494520100",
+   "faxNumber": "9498373820",
+   "siteUrl": "https://www.irvinesubaru.com",
+   "types": [
+    "Sales",
+    "Loveencore",
+    "Cpo",
+    "Express",
+    "Certifiedcoll",
+    "Retail",
+    "Tradeupadv",
+    "Jdrental",
+    "Evauth",
+    "Affirm",
+    "Service",
+    "Phevauth",
+    "Active",
+    "Chase",
+    "Sched",
+    "Mtl",
+    "Lpcomm"
+   ],
+   "location": {
+    "latitude": 33.630153,
+    "longitude": -117.717268,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 45.69
+ },
+ {
+  "dealer": {
+   "id": "401891",
+   "name": "DCH Subaru of Riverside",
+   "address": {
+    "type": "Business",
+    "street": "8043 Indiana Ave",
+    "street2": null,
+    "city": "Riverside",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92504"
+   },
+   "phoneNumber": "9516436500",
+   "servicePhoneNumber": "9516436500",
+   "faxNumber": "9513595286",
+   "siteUrl": "https://www.dchsubaruofriverside.com",
+   "types": [
+    "Evauth",
+    "Cpo",
+    "Sched",
+    "Lpgold",
+    "Express",
+    "Tradeupadv",
+    "Loveencore",
+    "Phevauth",
+    "Service",
+    "Sales",
+    "Chase",
+    "Retail",
+    "Active",
+    "Jdrental",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 33.930008,
+    "longitude": -117.41432,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 50.16
+ },
+ {
+  "dealer": {
+   "id": "401560",
+   "name": "Kirby Subaru of Ventura",
+   "address": {
+    "type": "Business",
+    "street": "6500 Auto Center Dr",
+    "street2": null,
+    "city": "Ventura",
+    "county": null,
+    "state": "CA",
+    "zipcode": "93003"
+   },
+   "phoneNumber": "8056439259",
+   "servicePhoneNumber": "8056439259",
+   "faxNumber": "8056444866",
+   "siteUrl": "https://www.kirbysubaruofventura.com",
+   "types": [
+    "Sales",
+    "Phevauth",
+    "Express",
+    "Lpgold",
+    "Mtl",
+    "Evauth",
+    "Estore",
+    "Chase",
+    "Tradeupadv",
+    "Active",
+    "Retail",
+    "Cpo",
+    "Service",
+    "Certifiedcoll",
+    "Loveencore",
+    "Affirm"
+   ],
+   "location": {
+    "latitude": 34.244921,
+    "longitude": -119.19898,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 54.33
+ },
+ {
+  "dealer": {
+   "id": "405618",
+   "name": "Spreen Subaru",
+   "address": {
+    "type": "Business",
+    "street": "645 Auto Center Dr.",
+    "street2": null,
+    "city": "San Bernardino",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92408"
+   },
+   "phoneNumber": "9092772700",
+   "servicePhoneNumber": "9092772700",
+   "faxNumber": "9093630995",
+   "siteUrl": "https://spreensubaru.com",
+   "types": [
+    "Chase",
+    "Tradeupadv",
+    "Mtl",
+    "Active",
+    "Express",
+    "Jdrental",
+    "Sales",
+    "Estore",
+    "Service",
+    "Cpo",
+    "Loveencore",
+    "Retail",
+    "Pickupdel"
+   ],
+   "location": {
+    "latitude": 34.072567,
+    "longitude": -117.296893,
+    "region": "080",
+    "zone": "04",
+    "district": "01",
+    "sneDealer": false
+   }
+  },
+  "distance": 55.29
+ },
+ {
+  "dealer": {
+   "id": "404417",
+   "name": "Hello Subaru of Temecula",
+   "address": {
+    "type": "Business",
+    "street": "42050 DLR Drive Suite 100",
+    "street2": null,
+    "city": "Temecula",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92591"
+   },
+   "phoneNumber": "9515532000",
+   "servicePhoneNumber": "9515532000",
+   "faxNumber": "9515532001",
+   "siteUrl": "https://hellosubarutemecula.com",
+   "types": [
+    "Cpo",
+    "Mtl",
+    "Service",
+    "Chase",
+    "Sales",
+    "Lpcomm",
+    "Phevauth",
+    "Retail",
+    "Estore",
+    "Active",
+    "Express",
+    "Loveencore",
+    "Evauth",
+    "Tradeupadv",
+    "Xtime"
+   ],
+   "location": {
+    "latitude": 33.51027,
+    "longitude": -117.15178,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 76.12
+ },
+ {
+  "dealer": {
+   "id": "404924",
+   "name": "AutoNation Subaru Carlsbad",
+   "address": {
+    "type": "Business",
+    "street": "5500 Paseo Del Norte",
+    "street2": null,
+    "city": "Carlsbad",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92008"
+   },
+   "phoneNumber": "7604382200",
+   "servicePhoneNumber": "7604382200",
+   "faxNumber": "7604319264",
+   "siteUrl": "https://www.autonationsubarucarlsbad.com",
+   "types": [
+    "Retail",
+    "Express",
+    "Loveencore",
+    "Service",
+    "Chase",
+    "Sales",
+    "Eco",
+    "Cpo",
+    "Mtl",
+    "Estore",
+    "Tradeupadv",
+    "Lpgold",
+    "Active",
+    "Jdprivate"
+   ],
+   "location": {
+    "latitude": 33.129904,
+    "longitude": -117.324999,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 86.69
+ },
+ {
+  "dealer": {
+   "id": "090652",
+   "name": "Sangera Subaru",
+   "address": {
+    "type": "Business",
+    "street": "5500 Gasoline Alley Dr",
+    "street2": null,
+    "city": "Bakersfield",
+    "county": null,
+    "state": "CA",
+    "zipcode": "93313"
+   },
+   "phoneNumber": "6618363737",
+   "servicePhoneNumber": "6618363737",
+   "faxNumber": "6613233715",
+   "siteUrl": "https://www.sangerasubaru.com",
+   "types": [
+    "Estore",
+    "Affirm",
+    "Evauth",
+    "Phevauth",
+    "Loveencore",
+    "Active",
+    "Chase",
+    "Tradeupadv",
+    "Lpgold",
+    "Retail",
+    "Sales",
+    "Service",
+    "Cpo",
+    "Express",
+    "Mtl",
+    "Sched"
+   ],
+   "location": {
+    "latitude": 35.304158,
+    "longitude": -119.034063,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 93.28
+ },
+ {
+  "dealer": {
+   "id": "090670",
+   "name": "Palm Springs Subaru",
+   "address": {
+    "type": "Business",
+    "street": "67925 E Palm Canyon Dr",
+    "street2": null,
+    "city": "Cathedral City",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92234"
+   },
+   "phoneNumber": "7603184700",
+   "servicePhoneNumber": "7603184700",
+   "faxNumber": "7603286298",
+   "siteUrl": "https://www.palmspringssubaru.com",
+   "types": [
+    "Retail",
+    "Phevauth",
+    "Service",
+    "Affirm",
+    "Express",
+    "Tradeupadv",
+    "Loveencore",
+    "Lpgold",
+    "Cpo",
+    "Sales",
+    "Mtl",
+    "Evauth",
+    "Active",
+    "Chase",
+    "Xtime"
+   ],
+   "location": {
+    "latitude": 33.784438,
+    "longitude": -116.476417,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 104.82
+ },
+ {
+  "dealer": {
+   "id": "090754",
+   "name": "Kearny Mesa Subaru",
+   "address": {
+    "type": "Business",
+    "street": "4797 Convoy St",
+    "street2": null,
+    "city": "San Diego",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92111"
+   },
+   "phoneNumber": "8582787100",
+   "servicePhoneNumber": "8582787100",
+   "faxNumber": "8585609420",
+   "siteUrl": "https://kearnymesasubaru.com",
+   "types": [
+    "Sales",
+    "Active",
+    "Cpo",
+    "Chase",
+    "Express",
+    "Xtime",
+    "Estore",
+    "Loveencore",
+    "Phevauth",
+    "Simplepart",
+    "Service",
+    "Tradeupadv",
+    "Jdprivate",
+    "Mtl",
+    "Retail",
+    "Evauth"
+   ],
+   "location": {
+    "latitude": 32.828101,
+    "longitude": -117.15301,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 109.36
+ },
+ {
+  "dealer": {
+   "id": "405109",
+   "name": "Summit Subaru El Cajon",
+   "address": {
+    "type": "Business",
+    "street": "900 Arnele Avenue",
+    "street2": null,
+    "city": "El Cajon",
+    "county": null,
+    "state": "CA",
+    "zipcode": "92020"
+   },
+   "phoneNumber": "6194400404",
+   "servicePhoneNumber": "6194400404",
+   "faxNumber": "6194012338",
+   "siteUrl": "https://summitsubaru.com",
+   "types": [
+    "Sales",
+    "Active",
+    "Xtime",
+    "Tradeupadv",
+    "Loveencore",
+    "Retail",
+    "Cpo",
+    "Express",
+    "Mtl",
+    "Service",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 32.804446,
+    "longitude": -116.974035,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 116.96
+ },
+ {
+  "dealer": {
+   "id": "404696",
+   "name": "Dalton Subaru National City",
+   "address": {
+    "type": "Business",
+    "street": "2829 National City Blvd.",
+    "street2": null,
+    "city": "National City",
+    "county": null,
+    "state": "CA",
+    "zipcode": "91950"
+   },
+   "phoneNumber": "6194705600",
+   "servicePhoneNumber": "6194705600",
+   "faxNumber": "6193360596",
+   "siteUrl": "https://www.subarudalton.com",
+   "types": [
+    "Lpcomm",
+    "Eco",
+    "Estore",
+    "Express",
+    "Chase",
+    "Jdprivate",
+    "Mtl",
+    "Loveencore",
+    "Service",
+    "Cpo",
+    "Retail",
+    "Sales",
+    "Affirm",
+    "Active",
+    "Tradeupadv"
+   ],
+   "location": {
+    "latitude": 32.658156,
+    "longitude": -117.099555,
+    "region": "080",
+    "zone": "04",
+    "district": "02",
+    "sneDealer": false
+   }
+  },
+  "distance": 120.81
+ },
+ {
+  "dealer": {
+   "id": "090777",
+   "name": "Subaru of San Luis Obispo",
+   "address": {
+    "type": "Business",
+    "street": "1404 Auto Park Way",
+    "street2": null,
+    "city": "San Luis Obispo",
+    "county": null,
+    "state": "CA",
+    "zipcode": "93405"
+   },
+   "phoneNumber": "8055434745",
+   "servicePhoneNumber": "8055434745",
+   "faxNumber": "8055434956",
+   "siteUrl": "https://www.subaruofsanluisobispo.com/",
+   "types": [
+    "Sales",
+    "Mtl",
+    "Active",
+    "Express",
+    "Phevauth",
+    "Tradeupadv",
+    "Retail",
+    "Loveencore",
+    "Cpo",
+    "Chase",
+    "Evauth",
+    "Service",
+    "Jdprivate",
+    "Lpcomm"
+   ],
+   "location": {
+    "latitude": 35.251504,
+    "longitude": -120.683854,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 158.51
+ },
+ {
+  "dealer": {
+   "id": "400472",
+   "name": "Lithia Subaru of Fresno",
+   "address": {
+    "type": "Business",
+    "street": "5212 N Blackstone Ave",
+    "street2": null,
+    "city": "Fresno",
+    "county": null,
+    "state": "CA",
+    "zipcode": "93710"
+   },
+   "phoneNumber": "5594386200",
+   "servicePhoneNumber": "5594386200",
+   "faxNumber": "5594386941",
+   "siteUrl": "https://www.lithiasubarufresno.com",
+   "types": [
+    "Lpgold",
+    "Retail",
+    "Cpo",
+    "Express",
+    "Sales",
+    "Xtime",
+    "Phevauth",
+    "Chase",
+    "Active",
+    "Mtl",
+    "Evauth",
+    "Service",
+    "Tradeupadv",
+    "Loveencore"
+   ],
+   "location": {
+    "latitude": 36.812443,
+    "longitude": -119.789769,
+    "region": "080",
+    "zone": "04",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 205.4
+ },
+ {
+  "dealer": {
+   "id": "090768",
+   "name": "Subaru of Las Vegas",
+   "address": {
+    "type": "Business",
+    "street": "6455 Roy Horn Way",
+    "street2": null,
+    "city": "Las Vegas",
+    "county": null,
+    "state": "NV",
+    "zipcode": "89118"
+   },
+   "phoneNumber": "7024952100",
+   "servicePhoneNumber": "7024952100",
+   "faxNumber": "7024952110",
+   "siteUrl": "https://subaruoflasvegas.com",
+   "types": [
+    "Express",
+    "Tradeupadv",
+    "Sales",
+    "Loveencore",
+    "Service",
+    "Estore",
+    "Chase",
+    "Evauth",
+    "Cpo",
+    "Active",
+    "Lpgold",
+    "Retail",
+    "Eco",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 36.065553,
+    "longitude": -115.23295,
+    "region": "080",
+    "zone": "01",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 218.01
+ },
+ {
+  "dealer": {
+   "id": "403823",
+   "name": "Centennial Subaru",
+   "address": {
+    "type": "Business",
+    "street": "6350 Centennial Center Blvd.",
+    "street2": null,
+    "city": "Las Vegas",
+    "county": null,
+    "state": "NV",
+    "zipcode": "89149"
+   },
+   "phoneNumber": "7022077824",
+   "servicePhoneNumber": "7022077824",
+   "faxNumber": "7029426697",
+   "siteUrl": "https://www.centennialsubaru.com",
+   "types": [
+    "Retail",
+    "Eco",
+    "Express",
+    "Cpo",
+    "Sched",
+    "Sales",
+    "Chase",
+    "Tradeupadv",
+    "Mtl",
+    "Active",
+    "Service",
+    "Loveencore",
+    "Affirm",
+    "Lpgold"
+   ],
+   "location": {
+    "latitude": 36.27464,
+    "longitude": -115.267429,
+    "region": "080",
+    "zone": "01",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 225.6
+ },
+ {
+  "dealer": {
+   "id": "140514",
+   "name": "Cypress Coast Subaru",
+   "address": {
+    "type": "Business",
+    "street": "2 Geary Plaza",
+    "street2": null,
+    "city": "Seaside",
+    "county": null,
+    "state": "CA",
+    "zipcode": "93955"
+   },
+   "phoneNumber": "8313948500",
+   "servicePhoneNumber": "8313948500",
+   "faxNumber": "8318998948",
+   "siteUrl": "https://www.cypresscoastsubaru.com",
+   "types": [
+    "Express",
+    "Lpcomm",
+    "Mtl",
+    "Estore",
+    "Evauth",
+    "Loveencore",
+    "Sales",
+    "Tradeupadv",
+    "Retail",
+    "Sched",
+    "Active",
+    "Chase",
+    "Phevauth",
+    "Service",
+    "Cpo",
+    "Eco"
+   ],
+   "location": {
+    "latitude": 36.613644,
+    "longitude": -121.843783,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 265.66
+ },
+ {
+  "dealer": {
+   "id": "402953",
+   "name": "Santa Cruz Subaru",
+   "address": {
+    "type": "Business",
+    "street": "4100 Auto Plaza Dr",
+    "street2": null,
+    "city": "Capitola",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95010"
+   },
+   "phoneNumber": "8314201500",
+   "servicePhoneNumber": "8314201500",
+   "faxNumber": "8314201566",
+   "siteUrl": "https://santacruzsubaru.com",
+   "types": [
+    "Estore",
+    "Loveencore",
+    "Mtl",
+    "Sales",
+    "Active",
+    "Cpo",
+    "Jdrental",
+    "Affirm",
+    "Chase",
+    "Express",
+    "Tradeupadv",
+    "Xtime",
+    "Lpgold",
+    "Eco",
+    "Phevauth",
+    "Retail",
+    "Service",
+    "Evauth",
+    "Pickupdel"
+   ],
+   "location": {
+    "latitude": 36.981821,
+    "longitude": -121.963641,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 287.36
+ },
+ {
+  "dealer": {
+   "id": "402094",
+   "name": "Subaru of Sonora",
+   "address": {
+    "type": "Business",
+    "street": "13411 Mono Way",
+    "street2": null,
+    "city": "Sonora",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95370"
+   },
+   "phoneNumber": "2095325926",
+   "servicePhoneNumber": "2095325926",
+   "faxNumber": "2095322198",
+   "siteUrl": "https://subaruofsonora.com",
+   "types": [
+    "Cpo",
+    "Active",
+    "Chase",
+    "Express",
+    "Affirm",
+    "Evauth",
+    "Retail",
+    "Service",
+    "Sales",
+    "Phevauth",
+    "Tradeupadv",
+    "Mtl",
+    "Loveencore",
+    "Estore",
+    "Sched"
+   ],
+   "location": {
+    "latitude": 37.974502,
+    "longitude": -120.351051,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 291.22
+ },
+ {
+  "dealer": {
+   "id": "140777",
+   "name": "Modesto Subaru",
+   "address": {
+    "type": "Business",
+    "street": "4360 McHenry Avenue",
+    "street2": null,
+    "city": "Modesto",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95356"
+   },
+   "phoneNumber": "2098468500",
+   "servicePhoneNumber": "2098468500",
+   "faxNumber": "2095771204",
+   "siteUrl": "https://www.modestosubaru.com",
+   "types": [
+    "Evauth",
+    "Affirm",
+    "Lpcomm",
+    "Service",
+    "Cpo",
+    "Tradeupadv",
+    "Sched",
+    "Mtl",
+    "Sales",
+    "Eco",
+    "Express",
+    "Loveencore",
+    "Phevauth",
+    "Retail",
+    "Active",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 37.702197,
+    "longitude": -120.993971,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 291.32
+ },
+ {
+  "dealer": {
+   "id": "140717",
+   "name": "Capitol Subaru",
+   "address": {
+    "type": "Business",
+    "street": "920 Capitol Expressway Auto Mall",
+    "street2": null,
+    "city": "San Jose",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95136"
+   },
+   "phoneNumber": "4087239500",
+   "servicePhoneNumber": "4087239500",
+   "faxNumber": "4087239501",
+   "siteUrl": "https://capitolsubarusj.com",
+   "types": [
+    "Xtime",
+    "Loveencore",
+    "Retail",
+    "Mtl",
+    "Service",
+    "Tradeupadv",
+    "Evauth",
+    "Chase",
+    "Lpcomm",
+    "Sales",
+    "Express",
+    "Phevauth",
+    "Active"
+   ],
+   "location": {
+    "latitude": 37.274912,
+    "longitude": -121.872371,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 297.92
+ },
+ {
+  "dealer": {
+   "id": "140593",
+   "name": "Stevens Creek Subaru",
+   "address": {
+    "type": "Business",
+    "street": "3225 Stevens Creek Blvd",
+    "street2": null,
+    "city": "Santa Clara",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95117"
+   },
+   "phoneNumber": "4089842001",
+   "servicePhoneNumber": "4089842001",
+   "faxNumber": "4089843872",
+   "siteUrl": "https://www.stevenscreeksubaru.com",
+   "types": [
+    "Express",
+    "Sales",
+    "Active",
+    "Chase",
+    "Eco",
+    "Sched",
+    "Service",
+    "Cpo",
+    "Jdrental",
+    "Loveencore",
+    "Retail",
+    "Evauth",
+    "Mtl",
+    "Phevauth",
+    "Tradeupadv"
+   ],
+   "location": {
+    "latitude": 37.323612,
+    "longitude": -121.953627,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 303.44
+ },
+ {
+  "dealer": {
+   "id": "402007",
+   "name": "Premier Subaru of Fremont",
+   "address": {
+    "type": "Business",
+    "street": "5601 Cushing Parkway",
+    "street2": null,
+    "city": "Fremont",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94538"
+   },
+   "phoneNumber": "5103195500",
+   "servicePhoneNumber": "5103195500",
+   "faxNumber": "5103195404",
+   "siteUrl": "https://premiersubaruoffremont.com",
+   "types": [
+    "Mtl",
+    "Loveencore",
+    "Phevauth",
+    "Sales",
+    "Cpo",
+    "Jdprivate",
+    "Tradeupadv",
+    "Evauth",
+    "Xtime",
+    "Retail",
+    "Active",
+    "Chase",
+    "Express",
+    "Service"
+   ],
+   "location": {
+    "latitude": 37.498434,
+    "longitude": -121.972951,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 312.94
+ },
+ {
+  "dealer": {
+   "id": "404226",
+   "name": "Livermore Subaru",
+   "address": {
+    "type": "Business",
+    "street": "4236 Las Positas Road",
+    "street2": null,
+    "city": "Livermore",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94551"
+   },
+   "phoneNumber": "9254471102",
+   "servicePhoneNumber": "9254471102",
+   "faxNumber": "9254471179",
+   "siteUrl": "https://www.livermoresubaru.com",
+   "types": [
+    "Eco",
+    "Express",
+    "Sched",
+    "Loveencore",
+    "Evauth",
+    "Sales",
+    "Cpo",
+    "Retail",
+    "Mtl",
+    "Active",
+    "Affirm",
+    "Phevauth",
+    "Service",
+    "Chase",
+    "Tradeupadv"
+   ],
+   "location": {
+    "latitude": 37.701783,
+    "longitude": -121.749282,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 315.52
+ },
+ {
+  "dealer": {
+   "id": "405723",
+   "name": "Subaru of Hayward",
+   "address": {
+    "type": "Business",
+    "street": "25000 Mission Blvd",
+    "street2": null,
+    "city": "Hayward",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94544"
+   },
+   "phoneNumber": "5108260000",
+   "servicePhoneNumber": "5108260000",
+   "faxNumber": "5109540260",
+   "siteUrl": "https://www.subaruofhayward.com",
+   "types": [
+    "Chase",
+    "Loveencore",
+    "Sales",
+    "Express",
+    "Tradeupadv",
+    "Retail",
+    "Cpo",
+    "Active",
+    "Service",
+    "Mtl",
+    "Xtime"
+   ],
+   "location": {
+    "latitude": 37.6598,
+    "longitude": -122.072628,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 324.85
+ },
+ {
+  "dealer": {
+   "id": "140773",
+   "name": "Putnam Subaru",
+   "address": {
+    "type": "Business",
+    "street": "85 California Dr",
+    "street2": null,
+    "city": "Burlingame",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94010"
+   },
+   "phoneNumber": "6505585610",
+   "servicePhoneNumber": "6505585610",
+   "faxNumber": "6503471450",
+   "siteUrl": "https://www.putnamsubaruofburlingame.com",
+   "types": [
+    "Eco",
+    "Evauth",
+    "Express",
+    "Mtl",
+    "Lpgold",
+    "Retail",
+    "Service",
+    "Sales",
+    "Chase",
+    "Tradeupadv",
+    "Phevauth",
+    "Cpo",
+    "Active",
+    "Loveencore"
+   ],
+   "location": {
+    "latitude": 37.577632,
+    "longitude": -122.341184,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 330.86
+ },
+ {
+  "dealer": {
+   "id": "402227",
+   "name": "Findlay Subaru Prescott",
+   "address": {
+    "type": "Business",
+    "street": "3230 Willow Creek Rd.",
+    "street2": null,
+    "city": "Prescott",
+    "county": null,
+    "state": "AZ",
+    "zipcode": "86305"
+   },
+   "phoneNumber": "9287716900",
+   "servicePhoneNumber": "9287716900",
+   "faxNumber": "9284458077",
+   "siteUrl": "https://www.findlaysubaruprescott.com",
+   "types": [
+    "Evauth",
+    "Eco",
+    "Active",
+    "Tradeupadv",
+    "Service",
+    "Retail",
+    "Sales",
+    "Loveencore",
+    "Cpo",
+    "Chase",
+    "Express",
+    "Mtl",
+    "Lpgold"
+   ],
+   "location": {
+    "latitude": 34.606701,
+    "longitude": -112.453785,
+    "region": "080",
+    "zone": "01",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 332.99
+ },
+ {
+  "dealer": {
+   "id": "090787",
+   "name": "Findlay Subaru",
+   "address": {
+    "type": "Business",
+    "street": "1453 Sunland Dr",
+    "street2": null,
+    "city": "St George",
+    "county": null,
+    "state": "UT",
+    "zipcode": "84790"
+   },
+   "phoneNumber": "4357057470",
+   "servicePhoneNumber": "4357057470",
+   "faxNumber": "4357057465",
+   "siteUrl": "https://www.findlaysubaru.com/",
+   "types": [
+    "Chase",
+    "Loveencore",
+    "Retail",
+    "Eco",
+    "Lpgold",
+    "Active",
+    "Evauth",
+    "Express",
+    "Tradeupadv",
+    "Xtime",
+    "Cpo",
+    "Service",
+    "Sales"
+   ],
+   "location": {
+    "latitude": 37.08352,
+    "longitude": -113.580355,
+    "region": "080",
+    "zone": "01",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 333.57
+ },
+ {
+  "dealer": {
+   "id": "402207",
+   "name": "Subaru Superstore of Surprise",
+   "address": {
+    "type": "Business",
+    "street": "13090 N Autoshow Ave",
+    "street2": null,
+    "city": "Surprise",
+    "county": null,
+    "state": "AZ",
+    "zipcode": "85388"
+   },
+   "phoneNumber": "6235444000",
+   "servicePhoneNumber": "6232327200",
+   "faxNumber": "6232327301",
+   "siteUrl": "https://subarusuperstorewest.com",
+   "types": [
+    "Retail",
+    "Sales",
+    "Cpo",
+    "Express",
+    "Tradeupadv",
+    "Lpgold",
+    "Active",
+    "Loveencore",
+    "Evauth",
+    "Eco",
+    "Mtl",
+    "Service",
+    "Estore",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 33.60336,
+    "longitude": -112.422211,
+    "region": "080",
+    "zone": "01",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 336.86
+ },
+ {
+  "dealer": {
+   "id": "401285",
+   "name": "Diablo Subaru of Walnut Creek",
+   "address": {
+    "type": "Business",
+    "street": "2646 N Main St",
+    "street2": null,
+    "city": "Walnut Creek",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94597"
+   },
+   "phoneNumber": "9259376900",
+   "servicePhoneNumber": "9259376900",
+   "faxNumber": "9252568716",
+   "siteUrl": "https://www.diablosubaru.com",
+   "types": [
+    "Sales",
+    "Evauth",
+    "Active",
+    "Chase",
+    "Jdprivate",
+    "Loveencore",
+    "Retail",
+    "Express",
+    "Tradeupadv",
+    "Mtl",
+    "Service",
+    "Eco",
+    "Phevauth",
+    "Sched",
+    "Cpo",
+    "Lpcomm"
+   ],
+   "location": {
+    "latitude": 37.920526,
+    "longitude": -122.064165,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 338.12
+ },
+ {
+  "dealer": {
+   "id": "400992",
+   "name": "Serramonte Subaru",
+   "address": {
+    "type": "Business",
+    "street": "707 Serramonte Blvd",
+    "street2": null,
+    "city": "Colma",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94014"
+   },
+   "phoneNumber": "6505503700",
+   "servicePhoneNumber": "6505503700",
+   "faxNumber": "6509912718",
+   "siteUrl": "https://www.serramontesubaru.com",
+   "types": [
+    "Evauth",
+    "Service",
+    "Active",
+    "Tradeupadv",
+    "Retail",
+    "Loveencore",
+    "Phevauth",
+    "Cpo",
+    "Estore",
+    "Sales",
+    "Chase",
+    "Express",
+    "Sched",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 37.674672,
+    "longitude": -122.46015,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 340.2
+ },
+ {
+  "dealer": {
+   "id": "140151",
+   "name": "Downtown Subaru",
+   "address": {
+    "type": "Business",
+    "street": "4133 Broadway",
+    "street2": null,
+    "city": "Oakland",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94611"
+   },
+   "phoneNumber": "5105474424",
+   "servicePhoneNumber": "5105474436",
+   "faxNumber": "5106533181",
+   "siteUrl": "https://www.subaruofoakland.com",
+   "types": [
+    "Phevauth",
+    "Chase",
+    "Express",
+    "Evauth",
+    "Retail",
+    "Tradeupadv",
+    "Service",
+    "Sales",
+    "Eco",
+    "Xtime",
+    "Mtl",
+    "Active"
+   ],
+   "location": {
+    "latitude": 37.829183,
+    "longitude": -122.256087,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 340.26
+ },
+ {
+  "dealer": {
+   "id": "405562",
+   "name": "Elk Grove Subaru",
+   "address": {
+    "type": "Business",
+    "street": "8581 Laguna Grove Dr.",
+    "street2": null,
+    "city": "Elk Grove",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95757"
+   },
+   "phoneNumber": "9165098500",
+   "servicePhoneNumber": "9165098500",
+   "faxNumber": "9163953340",
+   "siteUrl": "https://www.elkgrovesubaru.com",
+   "types": [
+    "Tradeupadv",
+    "Jdrental",
+    "Retail",
+    "Service",
+    "Estore",
+    "Active",
+    "Loveencore",
+    "Chase",
+    "Cpo",
+    "Xtime",
+    "Sales",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 38.4029,
+    "longitude": -121.387,
+    "region": "080",
+    "zone": "04",
+    "district": "05",
+    "sneDealer": false
+   }
+  },
+  "distance": 343.73
+ },
+ {
+  "dealer": {
+   "id": "404427",
+   "name": "Albany Subaru",
+   "address": {
+    "type": "Business",
+    "street": "718 San Pablo Avenue",
+    "street2": null,
+    "city": "Albany",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94706"
+   },
+   "phoneNumber": "5105281244",
+   "servicePhoneNumber": "5105281244",
+   "faxNumber": "5105279925",
+   "siteUrl": "https://albanysubaru.com",
+   "types": [
+    "Evauth",
+    "Eco",
+    "Express",
+    "Service",
+    "Jdprivate",
+    "Mtl",
+    "Retail",
+    "Tradeupadv",
+    "Sales",
+    "Cpo",
+    "Sched",
+    "Phevauth",
+    "Loveencore",
+    "Active",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 37.893722,
+    "longitude": -122.300328,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 345.18
+ },
+ {
+  "dealer": {
+   "id": "090802",
+   "name": "Peoria Subaru",
+   "address": {
+    "type": "Business",
+    "street": "8590 W Bell Rd",
+    "street2": null,
+    "city": "Peoria",
+    "county": null,
+    "state": "AZ",
+    "zipcode": "85382"
+   },
+   "phoneNumber": "6239722300",
+   "servicePhoneNumber": "6232091911",
+   "faxNumber": "6239720289",
+   "siteUrl": "https://www.peoriasubaru.com",
+   "types": [
+    "Retail",
+    "Cpo",
+    "Estore",
+    "Lpgold",
+    "Evauth",
+    "Active",
+    "Tradeupadv",
+    "Sched",
+    "Sales",
+    "Service",
+    "Chase",
+    "Express",
+    "Loveencore",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 33.638858,
+    "longitude": -112.243598,
+    "region": "080",
+    "zone": "01",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 346.74
+ },
+ {
+  "dealer": {
+   "id": "140175",
+   "name": "Shingle Springs Subaru",
+   "address": {
+    "type": "Business",
+    "street": "4045 Wild Chaparral Dr",
+    "street2": null,
+    "city": "Shingle Springs",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95682"
+   },
+   "phoneNumber": "5306778771",
+   "servicePhoneNumber": "5306778771",
+   "faxNumber": "5306778926",
+   "siteUrl": "https://www.shinglespringssubaru.com/",
+   "types": [
+    "Active",
+    "Express",
+    "Loveencore",
+    "Evauth",
+    "Service",
+    "Mtl",
+    "Estore",
+    "Chase",
+    "Jdrental",
+    "Retail",
+    "Sales",
+    "Tradeupadv",
+    "Phevauth",
+    "Eco",
+    "Affirm",
+    "Lpgold",
+    "Cpo"
+   ],
+   "location": {
+    "latitude": 38.663102,
+    "longitude": -120.939926,
+    "region": "080",
+    "zone": "04",
+    "district": "05",
+    "sneDealer": false
+   }
+  },
+  "distance": 347.87
+ },
+ {
+  "dealer": {
+   "id": "404479",
+   "name": "Marin Subaru",
+   "address": {
+    "type": "Business",
+    "street": "595 Francisco Blvd E",
+    "street2": null,
+    "city": "San Rafael",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94901"
+   },
+   "phoneNumber": "4154506672",
+   "servicePhoneNumber": "4154506672",
+   "faxNumber": "4152574688",
+   "siteUrl": "https://www.marinsubaru.com",
+   "types": [
+    "Evauth",
+    "Eco",
+    "Cpo",
+    "Express",
+    "Retail",
+    "Loveencore",
+    "Service",
+    "Lpcust",
+    "Sales",
+    "Certifiedcoll",
+    "Mtl",
+    "Chase",
+    "Phevauth",
+    "Active",
+    "Estore",
+    "Tradeupadv"
+   ],
+   "location": {
+    "latitude": 37.965241,
+    "longitude": -122.513979,
+    "region": "080",
+    "zone": "04",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 356.7
+ },
+ {
+  "dealer": {
+   "id": "140776",
+   "name": "Fairfield Subaru",
+   "address": {
+    "type": "Business",
+    "street": "2525 Martin Road",
+    "street2": null,
+    "city": "Fairfield",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94534"
+   },
+   "phoneNumber": "7076399073",
+   "servicePhoneNumber": "7076399073",
+   "faxNumber": "7079686162",
+   "siteUrl": "https://www.fairfieldsubaru.com",
+   "types": [
+    "Service",
+    "Chase",
+    "Tradeupadv",
+    "Lpcomm",
+    "Evauth",
+    "Retail",
+    "Active",
+    "Express",
+    "Certifiedcoll",
+    "Jdrental",
+    "Cpo",
+    "Eco",
+    "Xtime",
+    "Mtl",
+    "Affirm",
+    "Phevauth",
+    "Sales",
+    "Estore"
+   ],
+   "location": {
+    "latitude": 38.276183,
+    "longitude": -122.048539,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 356.77
+ },
+ {
+  "dealer": {
+   "id": "140486",
+   "name": "Michael Hohl Subaru",
+   "address": {
+    "type": "Business",
+    "street": "2910 S Carson St",
+    "street2": null,
+    "city": "Carson City",
+    "county": null,
+    "state": "NV",
+    "zipcode": "89701"
+   },
+   "phoneNumber": "7758850400",
+   "servicePhoneNumber": "7758850400",
+   "faxNumber": "7758858572",
+   "siteUrl": "https://michaelhohlsubaru.com",
+   "types": [
+    "Active",
+    "Estore",
+    "Cpo",
+    "Lpcomm",
+    "Chase",
+    "Sales",
+    "Tradeupadv",
+    "Sched",
+    "Service",
+    "Evauth",
+    "Express",
+    "Loveencore",
+    "Retail"
+   ],
+   "location": {
+    "latitude": 39.140267,
+    "longitude": -119.769601,
+    "region": "080",
+    "zone": "01",
+    "district": "03",
+    "sneDealer": false
+   }
+  },
+  "distance": 357.29
+ },
+ {
+  "dealer": {
+   "id": "140511",
+   "name": "Maita Subaru",
+   "address": {
+    "type": "Business",
+    "street": "2912 Auburn Blvd",
+    "street2": null,
+    "city": "Sacramento",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95821"
+   },
+   "phoneNumber": "9164868500",
+   "servicePhoneNumber": "9164868500",
+   "faxNumber": "9164849320",
+   "siteUrl": "https://www.maitasubaru.com",
+   "types": [
+    "Tradeupadv",
+    "Mtl",
+    "Service",
+    "Express",
+    "Affirm",
+    "Chase",
+    "Lpcust",
+    "Retail",
+    "Active",
+    "Loveencore",
+    "Sales",
+    "Eco",
+    "Jdrental",
+    "Evauth",
+    "Sched",
+    "Phevauth",
+    "Estore",
+    "Cpo"
+   ],
+   "location": {
+    "latitude": 38.631823,
+    "longitude": -121.395121,
+    "region": "080",
+    "zone": "04",
+    "district": "05",
+    "sneDealer": false
+   }
+  },
+  "distance": 357.55
+ },
+ {
+  "dealer": {
+   "id": "090775",
+   "name": "Camelback Subaru",
+   "address": {
+    "type": "Business",
+    "street": "1521 E Camelback Rd",
+    "street2": null,
+    "city": "Phoenix",
+    "county": null,
+    "state": "AZ",
+    "zipcode": "85014"
+   },
+   "phoneNumber": "6022777171",
+   "servicePhoneNumber": "6022777171",
+   "faxNumber": "6023912050",
+   "siteUrl": "https://www.camelbacksubaru.com",
+   "types": [
+    "Xtime",
+    "Cpo",
+    "Mtl",
+    "Sales",
+    "Retail",
+    "Chase",
+    "Tradeupadv",
+    "Evauth",
+    "Loveencore",
+    "Lpcomm",
+    "Service",
+    "Express",
+    "Active",
+    "Estore"
+   ],
+   "location": {
+    "latitude": 33.508792,
+    "longitude": -112.049319,
+    "region": "080",
+    "zone": "01",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 359.03
+ },
+ {
+  "dealer": {
+   "id": "140138",
+   "name": "AutoNation Subaru Roseville",
+   "address": {
+    "type": "Business",
+    "street": "250 Automall Drive",
+    "street2": null,
+    "city": "Roseville",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95661"
+   },
+   "phoneNumber": "9167242700",
+   "servicePhoneNumber": "9167242690",
+   "faxNumber": "9167866852",
+   "siteUrl": "https://www.autonationsubaruroseville.com",
+   "types": [
+    "Active",
+    "Loveencore",
+    "Lpgold",
+    "Phevauth",
+    "Tradeupadv",
+    "Jdprivate",
+    "Sales",
+    "Express",
+    "Evauth",
+    "Retail",
+    "Service",
+    "Eco",
+    "Estore",
+    "Mtl",
+    "Cpo",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 38.749606,
+    "longitude": -121.257928,
+    "region": "080",
+    "zone": "04",
+    "district": "05",
+    "sneDealer": false
+   }
+  },
+  "distance": 361.04
+ },
+ {
+  "dealer": {
+   "id": "400064",
+   "name": "Hanlees Subaru",
+   "address": {
+    "type": "Business",
+    "street": "495 Soscol Ave",
+    "street2": null,
+    "city": "Napa",
+    "county": null,
+    "state": "CA",
+    "zipcode": "94559"
+   },
+   "phoneNumber": "7072539100",
+   "servicePhoneNumber": "7072539100",
+   "faxNumber": "7072532316",
+   "siteUrl": "https://hanleesnapasubaru.com",
+   "types": [
+    "Service",
+    "Eco",
+    "Retail",
+    "Sales",
+    "Active",
+    "Chase",
+    "Tradeupadv",
+    "Sched",
+    "Phevauth",
+    "Evauth",
+    "Estore",
+    "Mtl"
+   ],
+   "location": {
+    "latitude": 38.292098,
+    "longitude": -122.278266,
+    "region": "080",
+    "zone": "04",
+    "district": "06",
+    "sneDealer": false
+   }
+  },
+  "distance": 365.34
+ },
+ {
+  "dealer": {
+   "id": "090597",
+   "name": "AutoNation Subaru Scottsdale",
+   "address": {
+    "type": "Business",
+    "street": "15678 N. Northsight Blvd",
+    "street2": null,
+    "city": "Scottsdale",
+    "county": null,
+    "state": "AZ",
+    "zipcode": "85260"
+   },
+   "phoneNumber": "4804252800",
+   "servicePhoneNumber": "4804252800",
+   "faxNumber": "4802405061",
+   "siteUrl": "https://www.autonationsubaruscottsdale.com",
+   "types": [
+    "Evauth",
+    "Express",
+    "Retail",
+    "Sales",
+    "Tradeupadv",
+    "Service",
+    "Cpo",
+    "Active",
+    "Mtl",
+    "Loveencore",
+    "Lpgold",
+    "Chase"
+   ],
+   "location": {
+    "latitude": 33.629546,
+    "longitude": -111.898536,
+    "region": "080",
+    "zone": "01",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 366.52
+ },
+ {
+  "dealer": {
+   "id": "140555",
+   "name": "Gold Rush Subaru",
+   "address": {
+    "type": "Business",
+    "street": "670 Grass Valley Hwy",
+    "street2": null,
+    "city": "Auburn",
+    "county": null,
+    "state": "CA",
+    "zipcode": "95603"
+   },
+   "phoneNumber": "5308854019",
+   "servicePhoneNumber": "5308854019",
+   "faxNumber": "5308850791",
+   "siteUrl": "https://www.goldrushsubaru.com",
+   "types": [
+    "Retail",
+    "Eco",
+    "Chase",
+    "Express",
+    "Xtime",
+    "Evauth",
+    "Phevauth",
+    "Tradeupadv",
+    "Lpgold",
+    "Mtl",
+    "Active",
+    "Service",
+    "Sales",
+    "Jdrental",
+    "Loveencore"
+   ],
+   "location": {
+    "latitude": 38.914261,
+    "longitude": -121.077719,
+    "region": "080",
+    "zone": "04",
+    "district": "05",
+    "sneDealer": false
+   }
+  },
+  "distance": 366.72
+ },
+ {
+  "dealer": {
+   "id": "090798",
+   "name": "Subaru Superstore of Chandler",
+   "address": {
+    "type": "Business",
+    "street": "1050 S Gilbert Rd",
+    "street2": null,
+    "city": "Chandler",
+    "county": null,
+    "state": "AZ",
+    "zipcode": "85286"
+   },
+   "phoneNumber": "4802226000",
+   "servicePhoneNumber": "4802682400",
+   "faxNumber": "4806213800",
+   "siteUrl": "https://subarusuperstore.com",
+   "types": [
+    "Retail",
+    "Cpo",
+    "Tradeupadv",
+    "Service",
+    "Chase",
+    "Lpgold",
+    "Certifiedcoll",
+    "Estore",
+    "Active",
+    "Mtl",
+    "Loveencore",
+    "Sales",
+    "Eco",
+    "Evauth",
+    "Express"
+   ],
+   "location": {
+    "latitude": 33.290384,
+    "longitude": -111.791073,
+    "region": "080",
+    "zone": "01",
+    "district": "04",
+    "sneDealer": false
+   }
+  },
+  "distance": 376.2
+ }
+]

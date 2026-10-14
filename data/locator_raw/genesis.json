@@ -1,0 +1,1410 @@
+{
+ "status": {
+  "code": 200,
+  "tmstmp": "1792020258506",
+  "tt": 12
+ },
+ "result": {
+  "dealers": [
+   {
+    "cobaltDealerURL": "www.genesissantamonica.com/new-inventory/index.htm",
+    "dealerCd": "CA739",
+    "dealerNm": "GENESIS SANTA MONICA",
+    "address1": "2450 SANTA MONICA BLVD",
+    "address2": "",
+    "city": "SANTA MONICA",
+    "zipCd": "90404",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "2450 SANTA MONICA BLVD",
+    "billingCity": "SANTA MONICA",
+    "billingState": "CA",
+    "billingZipCd": "90404",
+    "phone": "4243838585",
+    "fax": "2133425785",
+    "dealerUrl": "www.genesissantamonica.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": true,
+    "latitude": 34.032267621628485,
+    "longitude": -118.47512751817703,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C2450%20SANTA%20MONICA%20BLVD,SANTA%20MONICA,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=fBi8U7ZkKBirNOFngYlUQXEFhVk=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "4243838585",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA739&theme=genesis&externalsource=email",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA739&theme=genesis",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA739&theme=genesis&externalsource=email",
+    "fullyCompliantExclusivitityDate": "2023-07-28T07:00:00",
+    "isPreferred": true,
+    "distance": "13.52",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "08:00 AM - 05:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "08:00 AM - 05:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "08:00 AM - 05:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "08:00 AM - 05:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "08:00 AM - 05:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "08:00 AM - 04:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 06:00 PM"
+     }
+    ],
+    "compareValue": "CA739",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "www.genesisofcerritos.com/new-vehicles",
+    "dealerCd": "CA737",
+    "dealerNm": "NORM REEVES GENESIS OF CERRITOS",
+    "address1": "11011 SOUTH STREET",
+    "address2": "",
+    "city": "CERRITOS",
+    "zipCd": "90703",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "11011 SOUTH STREET",
+    "billingCity": "CERRITOS",
+    "billingState": "CA",
+    "billingZipCd": "90703",
+    "phone": "5624596300",
+    "fax": "5624596300",
+    "dealerUrl": "www.genesisofcerritos.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": true,
+    "latitude": 33.85893578458941,
+    "longitude": -118.09863120317459,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C11011%20SOUTH%20STREET,CERRITOS,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=lf8rApe70yOIu5ssYY1W6ya8Z04=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "5624596300",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA737&theme=genesis&externalsource=email",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA737&theme=genesis",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA737&theme=genesis&externalsource=email",
+    "fullyCompliantExclusivitityDate": "2025-05-30T07:00:00",
+    "isPreferred": false,
+    "distance": "19.77",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "07:00 AM - 02:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "09:00 AM - 08:00 PM"
+     }
+    ],
+    "compareValue": "CA737",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "www.genesisofsouthbay.com/inventory",
+    "dealerCd": "CA721",
+    "dealerNm": "GENESIS OF SOUTH BAY",
+    "address1": "3215 PACIFIC COAST HIGHWAY",
+    "address2": "",
+    "city": "TORRANCE",
+    "zipCd": "90505",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "3215 PACIFIC COAST HIGHWAY",
+    "billingCity": "TORRANCE",
+    "billingState": "CA",
+    "billingZipCd": "90505",
+    "phone": "3109619560",
+    "fax": "4242632505",
+    "dealerUrl": "www.genesisofsouthbay.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": true,
+    "latitude": 33.79917212909452,
+    "longitude": -118.34117263555527,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C3215%20PACIFIC%20COAST%20HIGHWAY,TORRANCE,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=G7HkZTONLiPhX0_R_2bQPu0mkC8=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "3109619560",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202410030246xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA721",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://consumer.xtime.com/scheduling/?webKey=xtm202410030246xx1&variant=GENESISUSA",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202410030246xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA721",
+    "fullyCompliantExclusivitityDate": "2023-07-28T07:00:00",
+    "isPreferred": false,
+    "distance": "22.13",
+    "operations": [
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     },
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "08:00 AM - 04:00 PM"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 07:00 PM"
+     },
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 08:00 PM"
+     }
+    ],
+    "compareValue": "CA721",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "www.genesisofontario.com/searchnew.aspx",
+    "dealerCd": "CA726",
+    "dealerNm": "GENESIS OF ONTARIO",
+    "address1": "2100 INLAND EMPIRE BLVD",
+    "address2": "",
+    "city": "ONTARIO",
+    "zipCd": "91764",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "2100 INLAND EMPIRE BLVD",
+    "billingCity": "ONTARIO",
+    "billingState": "CA",
+    "billingZipCd": "91764",
+    "phone": "9096572900",
+    "fax": "9096572949",
+    "dealerUrl": "www.genesisofontario.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": true,
+    "latitude": 34.06993864749858,
+    "longitude": -117.60600060224533,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C2100%20INLAND%20EMPIRE%20BLVD,ONTARIO,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=0uE9SOe-lBBMGeDjULJAaRgl3r4=",
+    "isClickToBuy": true,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "9096572900",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA726&theme=genesis&externalsource=email",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA726&theme=genesis",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://nc-cdk-service-dealer.na.connectcdk.com/?externaldealercode=CA726&theme=genesis&externalsource=email",
+    "fullyCompliantExclusivitityDate": "2024-06-25T07:00:00",
+    "isPreferred": false,
+    "distance": "37.51",
+    "compareValue": "CA726",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "www.genesisofcorona.com/inventory",
+    "dealerCd": "CA727",
+    "dealerNm": "GENESIS OF CORONA",
+    "address1": "2683 WARDLOW ROAD",
+    "address2": "",
+    "city": "CORONA",
+    "zipCd": "92882",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "2683 WARDLOW ROAD",
+    "billingCity": "CORONA",
+    "billingState": "CA",
+    "billingZipCd": "92882",
+    "phone": "9519169630",
+    "fax": "9512713340",
+    "dealerUrl": "www.genesisofcorona.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": true,
+    "latitude": 33.88239209419793,
+    "longitude": -117.62050598859787,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C2683%20WARDLOW%20ROAD,CORONA,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=C1PYuUQL9hJs8MvsXAPZXlE_bPA=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "9519169630",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://widget.updatepromise.com/service-scheduler/?token=1eda76dd0d32fe50298b426079b4483e",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://widget.updatepromise.com/service-scheduler/?token=1eda76dd0d32fe50298b426079b4483e",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://widget.updatepromise.com/service-scheduler/?token=1eda76dd0d32fe50298b426079b4483e",
+    "fullyCompliantExclusivitityDate": "2024-04-04T07:00:00",
+    "isPreferred": false,
+    "distance": "39.9",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "7:00 AM - 6:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "7:00 AM - 6:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "7:00 AM - 6:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "7:00 AM - 6:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "7:00 AM - 6:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "8:00 AM - 5:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": ""
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "9:00 AM - 8:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "9:00 AM - 8:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "9:00 AM - 8:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "9:00 AM - 8:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "9:00 AM - 8:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "9:00 AM - 8:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 7:00 PM"
+     }
+    ],
+    "compareValue": "CA727",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "www.genesisofirvine.com/new-vehicles",
+    "dealerCd": "CA745",
+    "dealerNm": "NORM REEVES GENESIS OF IRVINE",
+    "address1": "14 AUTO CENTER DRIVE",
+    "address2": "",
+    "city": "IRVINE",
+    "zipCd": "92618",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "14 AUTO CENTER DRIVE",
+    "billingCity": "IRVINE",
+    "billingState": "CA",
+    "billingZipCd": "92618",
+    "phone": "9493566760",
+    "fax": "9493566730",
+    "dealerUrl": "www.genesisofirvine.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 33.63170563681816,
+    "longitude": -117.72111564874649,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C14%20AUTO%20CENTER%20DRIVE,IRVINE,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=8TvOAkg1cVdcFWwzp9NvV6HPtvo=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "9493566760",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://conscheduling.tekioncloud.com/consumer-scheduling/sign-in/phone?accessToken=thecargroup_829_5890&source=GENESIS",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://conscheduling.tekioncloud.com/consumer-scheduling/sign-in/phone?accessToken=thecargroup_829_5890&source=GENESIS",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://conscheduling.tekioncloud.com/consumer-scheduling/sign-in/phone?accessToken=thecargroup_829_5890&source=GENESIS",
+    "isPreferred": false,
+    "distance": "45.35",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "07:00 AM - 04:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "09:00 AM - 08:00 PM"
+     }
+    ],
+    "compareValue": "CA745",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "www.genesisofvictorville.com/new-inventory/index.htm",
+    "dealerCd": "CA705",
+    "dealerNm": "GENESIS OF VICTORVILLE",
+    "address1": "14821 PALMDALE ROAD",
+    "address2": "",
+    "city": "VICTORVILLE",
+    "zipCd": "92392",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "14821 PALMDALE ROAD",
+    "billingCity": "VICTORVILLE",
+    "billingState": "CA",
+    "billingZipCd": "92392",
+    "phone": "7603649018",
+    "fax": "7602419985",
+    "dealerUrl": "www.genesisofvictorville.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": true,
+    "latitude": 34.50610332571299,
+    "longitude": -117.34042972326279,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C14821%20PALMDALE%20ROAD,VICTORVILLE,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=aqQh62Sllpv-NF9sJCcsOC_wJjg=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "7603649018",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=hmaca253&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA705",
+    "scheduleMenuUrl": "https://consumer.xtime.com/menu/?make=GENESIS&variant=GENESISUSA_PROGRAM&company_name=GENESISUSA_PROGRAM&company_code=CA705",
+    "scheduleMobileUrl": "https://consumer.xtime.com/scheduling/?webKey=hmaca253&variant=GENESISUSA",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=hmaca253&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA705",
+    "isPreferred": false,
+    "distance": "59.11",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "08:00 AM - 01:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "10:00 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "10:00 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "10:00 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "10:00 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "10:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "10:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 07:00 PM"
+     }
+    ],
+    "compareValue": "CA705",
+    "isEVGMADealer": true,
+    "isMagma": false
+   },
+   {
+    "cobaltDealerURL": "www.genesisofescondido.com/new-vehicles",
+    "dealerCd": "CA751",
+    "dealerNm": "GENESIS OF ESCONDIDO",
+    "address1": "1502 AUTO PARK WAY NORTH",
+    "address2": "",
+    "city": "ESCONDIDO",
+    "zipCd": "92029",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "1502 AUTO PARK WAY NORTH",
+    "billingCity": "ESCONDIDO",
+    "billingState": "CA",
+    "billingZipCd": "92029",
+    "phone": "4429996001",
+    "fax": "8583273344",
+    "dealerUrl": "www.genesisofescondido.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 33.115028075698504,
+    "longitude": -117.1049639582634,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C1502%20AUTO%20PARK%20WAY%20NORTH,ESCONDIDO,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=HJna_1NomUKezk2plVYTpatIWvQ=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "4429996001",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202602261238xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA751",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://consumer.xtime.com/scheduling/?webKey=xtm202602261238xx1&variant=GENESISUSA",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202602261238xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA751",
+    "isPreferred": false,
+    "distance": "95.73",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "Closed"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 06:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 06:00 PM"
+     }
+    ],
+    "compareValue": "CA751",
+    "isEVGMADealer": true,
+    "isMagma": false
+   },
+   {
+    "cobaltDealerURL": "www.genesisofpalmsprings.com/searchnew.aspx",
+    "dealerCd": "CA749",
+    "dealerNm": "GENESIS OF PALM SPRINGS",
+    "address1": "4057 E PALM CANYON DR",
+    "address2": "",
+    "city": "PALM SPRINGS",
+    "zipCd": "92264",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "3737 EAST PALM CANYON DRIVE",
+    "billingCity": "PALM SPRINGS",
+    "billingState": "CA",
+    "billingZipCd": "92264",
+    "phone": "7608447982",
+    "fax": "7608133206",
+    "dealerUrl": "www.genesisofpalmsprings.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 33.79459442268075,
+    "longitude": -116.50260418653488,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C4057%20E%20PALM%20CANYON%20DR,PALM%20SPRINGS,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=hT_nvOS0MkrTdXfJLDvgKVBUXl4=",
+    "isClickToBuy": true,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "7608447982",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://conscheduling.tekioncloud.com/consumer-scheduling/sign-in/phone?accessToken=indigoautogroup_506_7762&source=GENESIS",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://conscheduling.tekioncloud.com/consumer-scheduling/sign-in/phone?accessToken=indigoautogroup_506_7762&source=GENESIS",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://conscheduling.tekioncloud.com/consumer-scheduling/sign-in/phone?accessToken=indigoautogroup_506_7762&source=GENESIS",
+    "fullyCompliantExclusivitityDate": "2025-06-18T07:00:00",
+    "isPreferred": false,
+    "distance": "103.08",
+    "compareValue": "CA749",
+    "isEVGMADealer": true,
+    "isMagma": false
+   },
+   {
+    "cobaltDealerURL": "www.genesisofsandiego.com/new-vehicles",
+    "dealerCd": "CA750",
+    "dealerNm": "GENESIS OF SAN DIEGO",
+    "address1": "5202A KEARNY MESA ROAD",
+    "address2": "",
+    "city": "SAN DIEGO",
+    "zipCd": "92111",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "5202A KEARNY MESA ROAD",
+    "billingCity": "SAN DIEGO",
+    "billingState": "CA",
+    "billingZipCd": "92111",
+    "phone": "8589992620",
+    "dealerUrl": "www.genesisofsandiego.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 32.83063236162067,
+    "longitude": -117.14343219995499,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C5202%20KEARNY%20MESA%20RD,SAN%20DIEGO,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=2bM_4UlLtVStbD8mii7tjVCemiE=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "8589992620",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202512120221xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA750",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://consumer.xtime.com/scheduling/?webKey=xtm202512120221xx1&variant=GENESISUSA",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202512120221xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA750",
+    "isPreferred": false,
+    "distance": "109.47",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:30 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "08:00 AM - 12:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 06:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 06:00 PM"
+     }
+    ],
+    "compareValue": "CA750",
+    "isEVGMADealer": true,
+    "isMagma": true
+   },
+   {
+    "cobaltDealerURL": "genesisoflaquinta.com/inventory",
+    "dealerCd": "CA702",
+    "dealerNm": "GENESIS OF LA QUINTA",
+    "address1": "79025 HIGHWAY 111",
+    "address2": "",
+    "city": "LA QUINTA",
+    "zipCd": "92253",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "79025 HIGHWAY 111",
+    "billingCity": "LA QUINTA",
+    "billingState": "CA",
+    "billingZipCd": "92253",
+    "phone": "7605645070",
+    "fax": "7607710519",
+    "dealerUrl": "genesisoflaquinta.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 33.70723018848182,
+    "longitude": -116.28526479005814,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C79025%20HIGHWAY%20111,LA%20QUINTA,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=y4BSvtFdqOxu7fRnNdPQHqDjEqI=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "7605645070",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202108011112xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA702",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://consumer.xtime.com/scheduling/?webKey=xtm202108011112xx1&variant=GENESISUSA",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202108011112xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=CA702",
+    "isPreferred": false,
+    "distance": "116.64",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "7:30 AM - 5:30 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "7:30 AM - 5:30 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "7:30 AM - 5:30 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "7:30 AM - 5:30 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "7:30 AM - 5:30 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "Closed"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "8:00 AM - 7:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "8:00 AM - 7:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "8:00 AM - 7:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "8:00 AM - 7:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "8:00 AM - 7:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "9:00 AM - 6:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 5:00 PM"
+     }
+    ],
+    "compareValue": "CA702",
+    "isEVGMADealer": true,
+    "isMagma": false
+   },
+   {
+    "cobaltDealerURL": "www.selmagenesis.com/new-inventory/index.htm",
+    "dealerCd": "CA709",
+    "dealerNm": "GENESIS OF SELMA",
+    "address1": "2505 HIGHLAND AVENUE",
+    "address2": "",
+    "city": "SELMA",
+    "zipCd": "93662",
+    "state": "CA",
+    "region": "WE",
+    "billingAddress1": "2755 HIGHLAND AVENUE",
+    "billingCity": "SELMA",
+    "billingState": "CA",
+    "billingZipCd": "93662",
+    "phone": "5598962277",
+    "fax": "5598960389",
+    "dealerUrl": "www.selmagenesis.com",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 36.57052218226356,
+    "longitude": -119.62975949048996,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C2505%20HIGHLAND%20AVENUE,SELMA,CA&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=eazQ2GPNqSfmEqq8Wt_2OS6O-oI=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "5598962277",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://widget.updatepromise.com/service-scheduler/?token=976d6a37b535dd39952d4721aaf3e2cd",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://widget.updatepromise.com/service-scheduler/?token=976d6a37b535dd39952d4721aaf3e2cd",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://widget.updatepromise.com/service-scheduler/?token=976d6a37b535dd39952d4721aaf3e2cd",
+    "isPreferred": false,
+    "distance": "186.64",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:00 AM - 05:30 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:00 AM - 05:30 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:00 AM - 05:30 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:00 AM - 05:30 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:00 AM - 05:30 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "08:00 AM - 01:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "08:30 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "08:30 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "08:30 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "08:30 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "08:30 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "08:30 AM - 08:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "10:00 AM - 07:00 PM"
+     }
+    ],
+    "compareValue": "CA709",
+    "isEVGMADealer": false,
+    "isMagma": false
+   },
+   {
+    "cobaltDealerURL": "www.genesisoflasvegas.net/new-inventory/index.htm",
+    "dealerCd": "NV703",
+    "dealerNm": "GENESIS OF LAS VEGAS",
+    "address1": "7150 WEST SAHARA AVENUE",
+    "address2": "",
+    "city": "LAS VEGAS",
+    "zipCd": "89117",
+    "state": "NV",
+    "region": "WE",
+    "billingAddress1": "7150 WEST SAHARA AVENUE",
+    "billingCity": "LAS VEGAS",
+    "billingState": "NV",
+    "billingZipCd": "89117",
+    "phone": "7252019561",
+    "fax": "7029381409",
+    "dealerUrl": "www.genesisoflasvegas.net",
+    "isCarCareExpress": false,
+    "isLocatorActive": true,
+    "isRoadsterDealerFlag": false,
+    "latitude": 36.14494249961055,
+    "longitude": -115.24898260831833,
+    "isAutoHookTD": false,
+    "shopperAssuranceFlag": false,
+    "staticMapDesktopVersion": "https://maps.googleapis.com/maps/api/staticmap?size=508x341&markers=size:mid%7Ccolor:red%7C7150%20WEST%20SAHARA%20AVENUE,LAS%20VEGAS,NV&key=AIzaSyBXIck_7LIFA7-AF2XejS-hHb-0uGxT1Wg&language=us&signature=cgEW1UHbhBtRlE3MiIps1yxFQTU=",
+    "isClickToBuy": false,
+    "isHomeNet": false,
+    "isDWCP": false,
+    "serviceCenterPhone": "7252019561",
+    "isEvolvePlus": false,
+    "isIoniqDealer": false,
+    "scheduleConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202105120955xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=NV703",
+    "scheduleMenuUrl": "",
+    "scheduleMobileUrl": "https://consumer.xtime.com/scheduling/?webKey=xtm202105120955xx1&variant=GENESISUSA",
+    "isAmazon": false,
+    "isEvTaxCredit": false,
+    "isDDSAEnabled": true,
+    "scheduleGConsumerUrlNonSSO": "https://consumer.xtime.com/scheduling/?webKey=xtm202105120955xx1&variant=GENESISUSA&COMPANY=20831&PROVIDER=HMA_OwnerMKTG&VARIANT=GENESISUSA&KEYWORD=PROMO1&EXTCTXT=HMA_OwnerMKTG&EXTID=PROMO1&amp;store=NV703",
+    "fullyCompliantExclusivitityDate": "2024-06-28T07:00:00",
+    "isPreferred": false,
+    "distance": "220.65",
+    "operations": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "07:00 AM - 06:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "07:00 AM - 04:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "showroom": [
+     {
+      "name": "MON",
+      "day": "MON",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "TUE",
+      "day": "TUE",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "WED",
+      "day": "WED",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "THU",
+      "day": "THU",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "FRI",
+      "day": "FRI",
+      "hour": "09:00 AM - 08:00 PM"
+     },
+     {
+      "name": "SAT",
+      "day": "SAT",
+      "hour": "09:00 AM - 07:00 PM"
+     },
+     {
+      "name": "SUN",
+      "day": "SUN",
+      "hour": "Closed"
+     }
+    ],
+    "compareValue": "NV703",
+    "isEVGMADealer": true,
+    "isMagma": false
+   }
+  ],
+  "responseEnum": {
+   "code": 0.0,
+   "desc": "SUCCESS"
+  }
+ },
+ "properties": {
+  "zipCode": "90039"
+ }
+}

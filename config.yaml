@@ -1,0 +1,125 @@
+# Search criteria for the CPO SUV finder (spec Sections 3-5, 7, 11).
+
+home:
+  zip: "90039"
+  lat: 34.1105   # 90039 (Atwater Village / Silver Lake) centroid
+  lon: -118.2600
+  radius_miles: 50
+  edge_radius_miles: 60      # dealers 50-60 mi are scraped and tagged "edge"
+
+scrape:
+  user_agent: "CarFinderRoss/0.1 (personal CPO SUV search; contact jhpd.rbl@gmail.com)"
+  min_delay_seconds: 2.0
+  max_delay_seconds: 3.0
+  cache_hours: 6
+  timeout_seconds: 30
+  max_vdps_per_dealer: 400
+
+filters:
+  min_year: 2023
+  max_mileage: 39999          # "under 40,000"
+  drivetrains: [AWD, 4WD]
+  max_rows: 2
+  price_caps:                 # total incl. dealer fees, before tax
+    gas: 35000
+    hybrid: 40000
+    phev: 40000
+    ev: null                  # EV only if exceptional_ev_deal
+  price_tolerance: 500        # "~$40,000" -> allow up to cap + tolerance for hybrid/phev
+  exceptional_ev_discount: 0.15
+  ev_min_comparables: 3
+  estimated_fees:             # used when the page shows no fee breakdown
+    doc_fee: 85               # California dealer doc-fee cap
+    other_fees: 100           # electronic filing etc.
+  sunroof_required: true
+  exterior_colors:
+    include: [black, gray, grey, silver, graphite, charcoal, gunmetal, thunder, makalu,
+              mythos, vik, onyx, daytona, carbon, obsidian, magnetic, crystal black,
+              "dark green", "autumn green", "british racing", "racing green",
+              "cypress green", "eruption green", "area 51", "shadow", "slate",
+              "manhattan", "ebony", "jet", "nebula", "smoke", "tungsten", "anthracite",
+              "storm", "asphalt", "steel", "cement", "lunar", "magnetite", "iridium",
+              "selenite", "titanium", "ash"]   # list reviewed per-run in fail_reasons
+    exclude: [white, pearl white, beige, blue, red, matte, frozen, glacier, ivory,
+              cream, champagne, bronze, orange, yellow, brown, copper, gold, tan]
+    green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
+  interior_colors:
+    include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black"]
+    exclude: [beige, brown, white, red, tan, cognac, saddle, ivory, cream, caramel,
+              chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel"]
+  carfax_exclude_accident: true
+
+scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
+  price_target: 30000
+  weights:
+    price: 30       # high
+    phev: 25        # high
+    mpg: 12         # medium
+    audio: 12       # medium
+    leather: 5      # low
+    ventilated_seats: 5
+    ground_clearance: 5
+    spare_tire: 6
+  premium_audio: ["bang & olufsen", "b&o", "lexicon", "harman/kardon", "harman kardon",
+                  "burmester", "bowers & wilkins", "bowers and wilkins", "mark levinson"]
+  fake_leather: [leatherette, "mb-tex", "mb tex", sensatec, startex, softex, "synthetic leather",
+                 "vegan leather", "nuluxe", "leather-trimmed seats with synthetic"]
+
+finance:
+  down_payment: 8000
+  term_months: 60
+  apr: 0.0534
+  sales_tax: 0.0975
+  gov_fees: 400
+
+buying_context:
+  - "$8,000 down; Bank of America pre-approval at 5.34% APR (30-day validity)"
+  - "Earliest pickup: November 14"
+  - "Insurance: AAA (bundled with renters)"
+  - "Gas-only cars capped at $35,000"
+
+# Allowed brand/model combos. CPO program = the automaker's own program.
+brands:
+  Audi:
+    cpo_programs: ["Audi Certified pre-owned", "Audi Certified", "Audi Approved"]
+    models:
+      - {model: Q5, include: ["40", "45", "55", "TFSI e", "Premium", "Prestige"], flag_if: {Sportback: "Sportback"}}
+  Genesis:
+    cpo_programs: ["Genesis Certified", "Certified Pre-Owned"]
+    models:
+      - {model: GV70, exclude_trim: ["base", "standard"], note: "Base 2.5T has no sunroof; Select or higher"}
+      - {model: "Electrified GV70", fuel: ev}
+  Subaru:
+    cpo_programs: ["Subaru Certified Pre-Owned", "Subaru Certified"]
+    models:
+      - {model: Forester, include: [Limited, Touring, Wilderness]}
+      - {model: Outback, include: [Limited, Touring, Wilderness]}
+  BMW:
+    cpo_programs: ["BMW Certified", "Certified Pre-Owned BMW"]
+    models:
+      - {model: X3, include: [xDrive30i, "30 xDrive", "xDrive30"], exclude_trim: [sDrive]}
+  Mercedes-Benz:
+    cpo_programs: ["Mercedes-Benz Certified", "MB Certified", "Certified Pre-Owned"]
+    models:
+      - {model: GLC, include: ["300 4MATIC", "4MATIC"], exclude_trim: [Coupe]}
+  Volkswagen:
+    cpo_programs: ["Volkswagen Certified", "VW Certified", "Certified Pre-Owned"]
+    models:
+      - {model: Tiguan, min_year: 2025}
+  Lexus:
+    cpo_programs: ["L/Certified", "Lexus Certified"]
+    models:
+      - {model: NX, include: ["350", "350h", "450h+"]}
+  Volvo:
+    cpo_programs: ["Volvo Certified", "Volvo Cars Certified", "Certified by Volvo"]
+    models:
+      - {model: XC60, include: [B5, B6, T8, Recharge, "Plug-In Hybrid"]}
+  Toyota:
+    cpo_programs: ["Toyota Certified", "TCUV", "Toyota Certified Used"]
+    models:
+      - {model: 4Runner, exclude_trim: ["third row", "3rd row"]}
+      - {model: "Land Cruiser", min_year: 2024}
+  Ford:
+    cpo_programs: ["Ford Blue Advantage", "Blue Advantage"]
+    models:
+      - {model: Bronco, exclude_model: ["Bronco Sport"], require: ["4-door", "4 door", "4dr"]}

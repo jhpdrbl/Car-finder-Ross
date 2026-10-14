@@ -1,0 +1,8252 @@
+{
+ "numDealer": 44,
+ "totalDealer": 44,
+ "dealers": [
+  {
+   "address1": "1260 South Brand Blvd.",
+   "city": "Glendale",
+   "code": "04649",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "TRAC",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "EXMNT",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PA"
+   ],
+   "dealerId": "04649",
+   "distance": 1.6203942073099074,
+   "email": "Ecom04649@toyota.com",
+   "encodedDashedCity": "Glendale",
+   "encodedDashedName": "Toyota-of-Glendale",
+   "fax": "(818) 241-5771",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 244-4196",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0800,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(08.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(10.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(08.00>17.00), 7(-1>-1)]",
+   "lat": 34.130207,
+   "long": -118.254733,
+   "latitude": 34.130207,
+   "longitude": -118.254733,
+   "miraiSales": true,
+   "name": "Toyota of Glendale",
+   "parts": {
+    "phone": "8182444196",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0800,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "8:00 AM to 5:00 PM"
+    }
+   },
+   "pma": true,
+   "phone": "(818) 244-4196",
+   "phoneNumberParts": "(818) 244-4196",
+   "phoneNumberService": "(818) 244-4196",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8182444196",
+    "hours": [
+     [
+      "1000,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8182444196",
+    "url": "https://www.toyotaofglendale.com/toyota-schedule-service.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0800,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "8:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "TRAC",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "EXMNT",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaofglendale.com",
+   "zip": "91204"
+  },
+  {
+   "address1": "6920 Sunset Blvd.",
+   "city": "Los Angeles",
+   "code": "54058",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "TPC",
+    "RTI",
+    "MST-C"
+   ],
+   "dealerId": "54058",
+   "distance": 3.4702796675114733,
+   "encodedDashedCity": "Los-Angeles",
+   "encodedDashedName": "Toyota-of-Hollywood",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(323) 817-0282",
+    "hours": []
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(10.00>20.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.101528,
+   "long": -118.321183,
+   "latitude": 34.101528,
+   "longitude": -118.321183,
+   "miraiSales": false,
+   "name": "Toyota of Hollywood",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(323) 817-0282",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 8:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "url": "https://api.connectcdk.com/api/nc-cosa-consumer-ui/v1/?subscriptionId=&cid=3000554",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "TPC",
+    "RTI",
+    "MST-C"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.hollywoodtoyota.com",
+   "zip": "90028"
+  },
+  {
+   "address1": "1901 S. Figueroa Street",
+   "city": "Los Angeles",
+   "code": "04739",
+   "currentDayHours": "6:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "TRAC",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "EXMNT",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04739",
+   "distance": 5.135508030176671,
+   "encodedDashedCity": "Los-Angeles",
+   "encodedDashedName": "Toyota-of-Downtown-LA",
+   "finance": {
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(213) 986-2011",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(08.00>18.00), 2(08.00>18.00), 3(08.00>18.00), 4(08.00>18.00), 5(08.00>18.00), 6(07.30>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(06.00>18.00), 2(06.00>18.00), 3(06.00>18.00), 4(06.00>18.00), 5(06.00>18.00), 6(06.00>17.00)]",
+   "lat": 34.033649,
+   "long": -118.272743,
+   "latitude": 34.033649,
+   "longitude": -118.272743,
+   "miraiSales": false,
+   "name": "Toyota of Downtown LA",
+   "parts": {
+    "phone": "8333153923",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0730,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "8:00 AM to 6:00 PM",
+     "3": "8:00 AM to 6:00 PM",
+     "4": "8:00 AM to 6:00 PM",
+     "5": "8:00 AM to 6:00 PM",
+     "6": "8:00 AM to 6:00 PM",
+     "7": "7:30 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(213) 986-2011",
+   "phoneNumberParts": "(833) 315-3923",
+   "phoneNumberService": "(833) 315-3922",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8777025632",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8333153922",
+    "url": "https://www.toyotaofdowntownla.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "0600,1700"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ],
+     [
+      "0600,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "6:00 AM to 5:00 PM",
+     "2": "6:00 AM to 6:00 PM",
+     "3": "6:00 AM to 6:00 PM",
+     "4": "6:00 AM to 6:00 PM",
+     "5": "6:00 AM to 6:00 PM",
+     "6": "6:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "TRAC",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "EXMNT",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaofdowntownla.com",
+   "zip": "90007"
+  },
+  {
+   "address1": "4606 Lankershim Boulevard",
+   "city": "North Hollywood",
+   "code": "04154",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "SS",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "EL"
+   ],
+   "dealerId": "04154",
+   "distance": 6.898127167046954,
+   "email": "Ecom04154@toyota.com",
+   "encodedDashedCity": "North-Hollywood",
+   "encodedDashedName": "Toyota-of-North-Hollywood",
+   "fax": "(818) 508-2956",
+   "finance": {
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 508-2900",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.153856,
+   "long": -118.367637,
+   "latitude": 34.153856,
+   "longitude": -118.367637,
+   "miraiSales": false,
+   "name": "Toyota of North Hollywood",
+   "parts": {
+    "phone": "8185082930",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(818) 508-2900",
+   "phoneNumberParts": "(818) 508-2930",
+   "phoneNumberService": "(818) 508-2970",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8185082967",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8185082970",
+    "url": "https://www.northhollywoodtoyota.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "SS",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.northhollywoodtoyota.com",
+   "zip": "91602"
+  },
+  {
+   "address1": "1439 West Main Street",
+   "city": "Alhambra",
+   "code": "54042",
+   "currentDayHours": "9:00 AM to 8:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "COMFLT",
+    "RTI",
+    "MST-C"
+   ],
+   "dealerId": "54042",
+   "distance": 7.057190418106488,
+   "email": "bbingham@vtcompanies.com",
+   "encodedDashedCity": "Alhambra",
+   "encodedDashedName": "Wondries-Toyota",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(626) 289-8000",
+    "hours": [
+     [
+      "0900,1600"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,1600"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 34.09172,
+   "long": -118.139042,
+   "latitude": 34.09172,
+   "longitude": -118.139042,
+   "miraiSales": false,
+   "name": "Wondries Toyota",
+   "parts": {
+    "phone": "626-884-1376",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(626) 289-8000",
+   "phoneNumberParts": "626-884-1376",
+   "phoneNumberService": "626-884-1375",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "626-546-0163",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "626-884-1375",
+    "url": "https://www.wondriestoyota.com/service-appointment/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "COMFLT",
+    "RTI",
+    "MST-C"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.wondriestoyota.com",
+   "zip": "91801"
+  },
+  {
+   "address1": "3333 Foothill Blvd.",
+   "city": "La Crescenta",
+   "code": "04094",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "TRAC",
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04094",
+   "distance": 8.604099021818998,
+   "email": "Ecom04094@toyota.com",
+   "encodedDashedCity": "La-Crescenta",
+   "encodedDashedName": "Bob-Smith-Toyota",
+   "fax": "(818) 236-3380",
+   "finance": {
+    "url": "http://www.bobsmithtoyota.com/car-loans-in-la-crescenta-ca",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 248-9363",
+    "hours": [
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>16.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>19.00), 2(08.30>19.00), 3(08.30>19.00), 4(08.30>19.00), 5(08.30>19.00), 6(09.00>19.00), 7(10.00>18.00)]",
+   "hoursService": "(Service):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 34.231604,
+   "long": -118.251556,
+   "latitude": 34.231604,
+   "longitude": -118.251556,
+   "miraiSales": false,
+   "name": "Bob Smith Toyota",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(818) 248-9363",
+   "phoneNumberService": "(818) 248-9363",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,1800"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0900,1900"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 6:00 PM",
+     "2": "8:30 AM to 7:00 PM",
+     "3": "8:30 AM to 7:00 PM",
+     "4": "8:30 AM to 7:00 PM",
+     "5": "8:30 AM to 7:00 PM",
+     "6": "8:30 AM to 7:00 PM",
+     "7": "9:00 AM to 7:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8182489363",
+    "url": "https://www.bobsmithtoyota.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "TRAC",
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.bobsmithtoyota.com",
+   "zip": "91214"
+  },
+  {
+   "address1": "9077 Washington Blvd.",
+   "city": "Culver City",
+   "code": "04772",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "EXMNT",
+    "RPSAL",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04772",
+   "distance": 9.362681766304014,
+   "encodedDashedCity": "Culver-City",
+   "encodedDashedName": "Culver-City-Toyota",
+   "espUrl": "https://www.culvercitytoyota.com/es/",
+   "finance": {
+    "phone": "3105593777",
+    "url": "https://www.culvercitytoyota.com/finance/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(310) 559-3777",
+    "hours": [
+     [
+      "0830,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(08.30>19.00), 2(08.30>19.00), 3(08.30>19.00), 4(08.30>19.00), 5(08.30>19.00), 6(08.30>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>18.00), 7(-1>-1)]",
+   "lat": 34.025498,
+   "long": -118.39131,
+   "latitude": 34.025498,
+   "longitude": -118.39131,
+   "miraiSales": false,
+   "name": "Culver City Toyota",
+   "parts": {
+    "phone": "4242986840",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1900"
+     ],
+     [
+      "0830,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "8:30 AM to 7:00 PM",
+     "3": "8:30 AM to 7:00 PM",
+     "4": "8:30 AM to 7:00 PM",
+     "5": "8:30 AM to 7:00 PM",
+     "6": "8:30 AM to 7:00 PM",
+     "7": "8:30 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(310) 559-3777",
+   "phoneNumberFinance": "(310) 559-3777",
+   "phoneNumberParts": "(424) 298-6840",
+   "phoneNumberService": "(424) 298-6830",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "4242986800",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "4242986830",
+    "url": "https://www.culvercitytoyota.com/service/schedule-service",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "EXMNT",
+    "RPSAL",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.culvercitytoyota.com",
+   "zip": "90232"
+  },
+  {
+   "address1": "3600 E. Foothill Blvd.",
+   "city": "Pasadena",
+   "code": "04283",
+   "currentDayHours": "9:00 AM to 8:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04283",
+   "distance": 11.00224293454082,
+   "email": "Ecom04283@toyota.com",
+   "encodedDashedCity": "Pasadena",
+   "encodedDashedName": "Toyota-of-Pasadena",
+   "fax": "(626) 387-5698",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(626) 795-9787",
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>16.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>20.00), 2(09.00>20.00), 3(09.00>20.00), 4(09.00>20.00), 5(09.00>20.00), 6(09.00>20.00), 7(10.00>20.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 34.150086,
+   "long": -118.075645,
+   "latitude": 34.150086,
+   "longitude": -118.075645,
+   "miraiSales": false,
+   "name": "Toyota of Pasadena",
+   "parts": {
+    "phone": "6267959787",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(626) 795-9787",
+   "phoneNumberParts": "(626) 795-9787",
+   "phoneNumberService": "(626) 795-9787",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "6264004505",
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 8:00 PM",
+     "2": "9:00 AM to 8:00 PM",
+     "3": "9:00 AM to 8:00 PM",
+     "4": "9:00 AM to 8:00 PM",
+     "5": "9:00 AM to 8:00 PM",
+     "6": "9:00 AM to 8:00 PM",
+     "7": "9:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "6267959787",
+    "url": "https://toyotapasadena.totalcustomerconnect.com/portal/app.tcc",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotapasadena.com",
+   "zip": "91107"
+  },
+  {
+   "address1": "5855 Van Nuys Blvd",
+   "city": "Van Nuys",
+   "code": "04297",
+   "currentDayHours": "7:00 AM to 5:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RPSAL",
+    "PPSAL",
+    "EXMNT",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04297",
+   "distance": 11.783208691837109,
+   "encodedDashedCity": "Van-Nuys",
+   "encodedDashedName": "Keyes-Toyota",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 305-6926",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursService": "(Service):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.176716,
+   "long": -118.449146,
+   "latitude": 34.176716,
+   "longitude": -118.449146,
+   "miraiSales": false,
+   "name": "Keyes Toyota",
+   "parts": {
+    "hours": []
+   },
+   "pma": false,
+   "phone": "(818) 305-6926",
+   "phoneNumberService": "(844) 781-4306",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "service": {
+    "phone": "8447814306",
+    "url": "https://www.keyestoyota.com/serviceappmt.aspx",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RPSAL",
+    "PPSAL",
+    "EXMNT",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.keyestoyota.com",
+   "zip": "91401"
+  },
+  {
+   "address1": "4636 Lincoln Boulevard",
+   "city": "Marina Del Rey",
+   "code": "04315",
+   "currentDayHours": "9:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04315",
+   "distance": 13.42310425894482,
+   "email": "Ecom04315@toyota.com",
+   "encodedDashedCity": "Marina-Del-Rey",
+   "encodedDashedName": "Marina-del-Rey-Toyota",
+   "espFinanceUrl": "https://www.marinadelreytoyota.com/agencia-de-autos-toyota-tienda-de-toyota-espanol-toyota-de-los-angeles/",
+   "espUrl": "https://www.marinadelreytoyota.com/agencia-de-autos-toyota-tienda-de-toyota-espanol-toyota-de-los-angeles/",
+   "fax": "(310) 821-9402",
+   "finance": {
+    "url": "https://www.marinadelreytoyota.com/finance/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(866) 823-8348",
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(08.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(08.00>18.00), 7(-1>-1)]",
+   "lat": 33.983406,
+   "long": -118.441489,
+   "latitude": 33.983406,
+   "longitude": -118.441489,
+   "miraiSales": false,
+   "name": "Marina del Rey Toyota",
+   "parts": {
+    "phone": "8883109965",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0800,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "8:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(866) 823-8348",
+   "phoneNumberParts": "(888) 310-9965",
+   "phoneNumberService": "(310) 821-8979",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8668238348",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "3108218979",
+    "url": "https://www.marinadelreytoyota.com/?schedule=true",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0800,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "8:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.marinadelreytoyota.com",
+   "zip": "90292"
+  },
+  {
+   "address1": "3534 North Peck Road",
+   "city": "El Monte",
+   "code": "04136",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "TRAC",
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "SS",
+    "EL",
+    "PACAB",
+    "PA"
+   ],
+   "dealerId": "04136",
+   "distance": 13.828298083520789,
+   "email": "Ecom04136@toyota.com",
+   "encodedDashedCity": "El-Monte",
+   "encodedDashedName": "Longo-Toyota",
+   "espUrl": "https://espanol.longotoyota.com",
+   "fax": "(626) 580-6137",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(626) 580-6000",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>20.00), 2(09.00>20.00), 3(09.00>20.00), 4(09.00>20.00), 5(09.00>20.00), 6(09.00>20.00), 7(09.00>20.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.30), 7(-1>-1)]",
+   "lat": 34.069226,
+   "long": -118.023705,
+   "latitude": 34.069226,
+   "longitude": -118.023705,
+   "miraiSales": true,
+   "name": "Longo Toyota",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(626) 580-6000",
+   "phoneNumberService": "(855) 415-6521",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8554156520",
+    "hours": [
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 8:00 PM",
+     "2": "9:00 AM to 8:00 PM",
+     "3": "9:00 AM to 8:00 PM",
+     "4": "9:00 AM to 8:00 PM",
+     "5": "9:00 AM to 8:00 PM",
+     "6": "9:00 AM to 8:00 PM",
+     "7": "9:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8554156521",
+    "url": "https://www.longotoyota.com/serviceappmt.aspx",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1730"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:30 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "TRAC",
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "SS",
+    "EL",
+    "PACAB",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.longotoyota.com",
+   "zip": "91731"
+  },
+  {
+   "address1": "1230 Santa Monica Blvd.",
+   "city": "Santa Monica",
+   "code": "04303",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "TRAC",
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04303",
+   "distance": 14.185622471979382,
+   "email": "Ecom04303@toyota.com",
+   "encodedDashedCity": "Santa-Monica",
+   "encodedDashedName": "Toyota-Santa-Monica",
+   "fax": "(310) 382-8877",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(424) 567-7599",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>20.00), 2(09.00>20.00), 3(09.00>20.00), 4(09.00>20.00), 5(09.00>20.00), 6(09.00>20.00), 7(10.00>19.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.022997,
+   "long": -118.486887,
+   "latitude": 34.022997,
+   "longitude": -118.486887,
+   "miraiSales": true,
+   "name": "Toyota Santa Monica",
+   "parts": {
+    "phone": "424-567-7599 ",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(424) 567-7599",
+   "phoneNumberParts": "424-567-7599 ",
+   "phoneNumberService": "424-567-7599 ",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "3103946744",
+    "hours": [
+     [
+      "1000,1900"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 7:00 PM",
+     "2": "9:00 AM to 8:00 PM",
+     "3": "9:00 AM to 8:00 PM",
+     "4": "9:00 AM to 8:00 PM",
+     "5": "9:00 AM to 8:00 PM",
+     "6": "9:00 AM to 8:00 PM",
+     "7": "9:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "424-567-7599 ",
+    "url": "https://www.toyotasantamonica.com/schedule-service.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "TRAC",
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotasantamonica.com",
+   "zip": "90404"
+  },
+  {
+   "address1": "9136 E. Firestone Blvd",
+   "city": "Downey",
+   "code": "04080",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "EXMNT",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04080",
+   "distance": 14.48651909849261,
+   "email": "Ecom04080@toyota.com",
+   "encodedDashedCity": "Downey",
+   "encodedDashedName": "Penske-Toyota",
+   "fax": "(562) 904-5603",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(562) 904-5600",
+    "hours": [
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>18.00), 7(07.00>17.00)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(08.30>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>18.00), 7(07.00>17.00)]",
+   "lat": 33.933314,
+   "long": -118.119847,
+   "latitude": 33.933314,
+   "longitude": -118.119847,
+   "miraiSales": false,
+   "name": "Penske Toyota",
+   "parts": {
+    "phone": "5629045600",
+    "hours": [
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "7:00 AM to 5:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(562) 904-5600",
+   "phoneNumberParts": "(562) 904-5600",
+   "phoneNumberService": "(562) 904-5600",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "5629045600",
+    "hours": [
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "8:30 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "5629045600",
+    "url": "https://www.pensketoyota.com/serviceappmt.aspx",
+    "hours": [
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "7:00 AM to 5:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "EXMNT",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.pensketoyotadowney.com",
+   "zip": "90241"
+  },
+  {
+   "address1": "11041 Sepulveda Blvd",
+   "city": "Mission Hills",
+   "code": "04013",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "TRAC",
+    "CUV",
+    "EXMNT",
+    "TPC",
+    "RPSAL",
+    "PPSAL",
+    "SS",
+    "TTC",
+    "PA"
+   ],
+   "dealerId": "04013",
+   "distance": 16.38035444001898,
+   "email": "Ecom04013@toyota.com",
+   "encodedDashedCity": "Mission-Hills",
+   "encodedDashedName": "Hamer-Toyota",
+   "finance": {
+    "url": "https://www.hamertoyota.com/finance/apply-for-financing/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 365-9621",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.271476,
+   "long": -118.4677,
+   "latitude": 34.271476,
+   "longitude": -118.4677,
+   "miraiSales": true,
+   "name": "Hamer Toyota",
+   "parts": {
+    "phone": "8007622122",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(818) 365-9621",
+   "phoneNumberParts": "(800) 762-2122",
+   "phoneNumberService": "(818) 837-6900",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8183659621",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8188376900",
+    "url": "https://www.hamertoyota.com/service/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "TRAC",
+    "CUV",
+    "EXMNT",
+    "TPC",
+    "RPSAL",
+    "PPSAL",
+    "SS",
+    "TTC",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.hamertoyota.com",
+   "zip": "91345"
+  },
+  {
+   "address1": "11404 E Imperial Highway",
+   "city": "Norwalk",
+   "code": "04285",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TPC"
+   ],
+   "dealerId": "04285",
+   "distance": 16.454205642947123,
+   "email": "sdarwich@norwalktoyota.com",
+   "encodedDashedCity": "Norwalk",
+   "encodedDashedName": "Envision-Toyota-of-Norwalk",
+   "finance": {
+    "url": "https://www.norwalktoyota.com/financing/index.htm",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(562) 574-1020",
+    "hours": []
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 33.916434,
+   "long": -118.089192,
+   "latitude": 33.916434,
+   "longitude": -118.089192,
+   "miraiSales": false,
+   "name": "Envision Toyota of Norwalk",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(562) 574-1020",
+   "phoneNumberService": "(562) 574-1022",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "5625741022",
+    "url": "https://www.norwalktoyota.com/#schedule-service",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TPC"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.norwalktoyota.com",
+   "zip": "90650"
+  },
+  {
+   "address1": "1500 N. Sepulveda Blvd",
+   "city": "Manhattan Beach",
+   "code": "04508",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "PA"
+   ],
+   "dealerId": "04508",
+   "distance": 16.8997711255384,
+   "email": "Ecom04508@toyota.com",
+   "encodedDashedCity": "Manhattan-Beach",
+   "encodedDashedName": "Manhattan-Beach-Toyota",
+   "fax": "(310) 546-6257",
+   "finance": {
+    "url": "https://www.manhattanbeachtoyota.com/finance-application/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(310) 546-4848",
+    "hours": []
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>18.00), 7(-1>-1)]",
+   "lat": 33.889706,
+   "long": -118.395578,
+   "latitude": 33.889706,
+   "longitude": -118.395578,
+   "miraiSales": false,
+   "name": "Manhattan Beach Toyota",
+   "parts": {
+    "phone": "4244002969",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(310) 546-4848",
+   "phoneNumberParts": "(424) 400-2969",
+   "phoneNumberService": "(310) 683-0041",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "3106830172",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "3106830041",
+    "url": "https://www.manhattanbeachtoyota.com/#schedule-service",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.manhattanbeachtoyota.com",
+   "zip": "90266"
+  },
+  {
+   "address1": "18416 S. Western Avenue",
+   "city": "Gardena",
+   "code": "04159",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "PPSAL",
+    "TTC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04159",
+   "distance": 17.081720505037154,
+   "email": "boconnell@southbaytoyoa.com",
+   "encodedDashedCity": "Gardena",
+   "encodedDashedName": "South-Bay-Toyota",
+   "fax": "(213) 749-8956",
+   "finance": {
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(310) 323-7800",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0730,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>19.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(10.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.30>17.00), 7(-1>-1)]",
+   "lat": 33.863338,
+   "long": -118.308931,
+   "latitude": 33.863338,
+   "longitude": -118.308931,
+   "miraiSales": false,
+   "name": "South Bay Toyota",
+   "parts": {
+    "phone": "3103237800",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 7:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(310) 323-7800",
+   "phoneNumberParts": "(310) 323-7800",
+   "phoneNumberService": "(310) 323-7800",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "4242443029",
+    "hours": [
+     [
+      "1000,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "3103237800",
+    "url": "https://www.southbaytoyota.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0730,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:30 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "PPSAL",
+    "TTC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.southbaytoyota.com",
+   "zip": "90248"
+  },
+  {
+   "address1": "14577 East Whittier Blvd.",
+   "city": "Whittier",
+   "code": "04197",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04197",
+   "distance": 17.760947562339386,
+   "encodedDashedCity": "Whittier",
+   "encodedDashedName": "Toyota-of-Whittier",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(562) 698-2591",
+    "hours": []
+   },
+   "hoursSales": "(Sales):[1(09.00>20.00), 2(09.00>20.00), 3(09.00>20.00), 4(09.00>20.00), 5(09.00>20.00), 6(09.00>20.00), 7(10.00>19.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 33.952436,
+   "long": -118.013411,
+   "latitude": 33.952436,
+   "longitude": -118.013411,
+   "miraiSales": false,
+   "name": "Toyota of Whittier",
+   "parts": {
+    "hours": []
+   },
+   "pma": false,
+   "phone": "(562) 698-2591",
+   "phoneNumberService": "(562) 698-2591",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,1900"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 7:00 PM",
+     "2": "9:00 AM to 8:00 PM",
+     "3": "9:00 AM to 8:00 PM",
+     "4": "9:00 AM to 8:00 PM",
+     "5": "9:00 AM to 8:00 PM",
+     "6": "9:00 AM to 8:00 PM",
+     "7": "9:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "5626982591",
+    "url": "https://www.toyotaofwhittier.com/service/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaofwhittier.com",
+   "zip": "90605"
+  },
+  {
+   "address1": "19550 Nordhoff Street",
+   "city": "Northridge",
+   "code": "04244",
+   "currentDayHours": "9:00 AM to 8:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04244",
+   "distance": 19.259021092091785,
+   "encodedDashedCity": "Northridge",
+   "encodedDashedName": "Northridge-Toyota",
+   "finance": {
+    "phone": "7472161254",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 734-5600",
+    "hours": [
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ]
+   },
+   "hoursSales": "(Sales):[1(09.00>20.00), 2(09.00>20.00), 3(09.00>20.00), 4(09.00>20.00), 5(09.00>20.00), 6(09.00>20.00), 7(09.00>19.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 34.235252,
+   "long": -118.560235,
+   "latitude": 34.235252,
+   "longitude": -118.560235,
+   "miraiSales": false,
+   "name": "Northridge Toyota",
+   "parts": {
+    "phone": "7472161254",
+    "hours": []
+   },
+   "pma": false,
+   "phone": "(818) 734-5600",
+   "phoneNumberFinance": "(747) 216-1254",
+   "phoneNumberParts": "(747) 216-1254",
+   "phoneNumberService": "(747) 356-8585",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "7472161254",
+    "hours": [
+     [
+      "0900,1900"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 7:00 PM",
+     "2": "9:00 AM to 8:00 PM",
+     "3": "9:00 AM to 8:00 PM",
+     "4": "9:00 AM to 8:00 PM",
+     "5": "9:00 AM to 8:00 PM",
+     "6": "9:00 AM to 8:00 PM",
+     "7": "9:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "7473568585",
+    "url": "https://www.northridgetoyota.com/service-appointment/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.northridgetoyota.com",
+   "zip": "91324"
+  },
+  {
+   "address1": "18700 Studebaker Road",
+   "city": "Cerritos",
+   "code": "04636",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PACAB",
+    "PA"
+   ],
+   "dealerId": "04636",
+   "distance": 19.319365895844893,
+   "email": "Ecom04636@toyota.com",
+   "encodedDashedCity": "Cerritos",
+   "encodedDashedName": "AutoNation-Toyota-Cerritos",
+   "fax": "(562) 865-2750",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(562) 860-6561",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.861891,
+   "long": -118.099421,
+   "latitude": 33.861891,
+   "longitude": -118.099421,
+   "miraiSales": false,
+   "name": "AutoNation Toyota Cerritos",
+   "parts": {
+    "phone": "5628606561",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(562) 860-6561",
+   "phoneNumberParts": "(562) 860-6561",
+   "phoneNumberService": "(562) 860-6561",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "5628606561",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "5628606561",
+    "url": "https://www.autonationtoyotacerritos.com/service/schedule/appointment.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PACAB",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.autonationtoyotacerritos.com",
+   "zip": "90703"
+  },
+  {
+   "address1": "1333 E 223rd Street",
+   "city": "Carson",
+   "code": "04210",
+   "dealerAttributes": [
+    "CUV",
+    "COMFLT",
+    "SS",
+    "RTI",
+    "MST-C",
+    "EXMNT"
+   ],
+   "dealerId": "04210",
+   "distance": 19.558639980657762,
+   "encodedDashedCity": "Carson",
+   "encodedDashedName": "Fletcher-Jones-Toyota-of-Carson",
+   "espFinanceUrl": "https://www.toyotacarson.com/finance/apply-for-financing/?langtarget=es",
+   "espUrl": "https://www.toyotacarson.com/?langtarget=en",
+   "finance": {
+    "phone": "3105222300",
+    "url": "https://www.toyotacarson.com/finance/apply-for-financing/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(310) 522-2300",
+    "hours": []
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(08.30>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.824426,
+   "long": -118.249488,
+   "latitude": 33.824426,
+   "longitude": -118.249488,
+   "miraiSales": false,
+   "name": "Fletcher Jones Toyota of Carson",
+   "parts": {
+    "phone": "(310) 935-1084",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(310) 522-2300",
+   "phoneNumberFinance": "(310) 522-2300",
+   "phoneNumberParts": "(310) 935-1084",
+   "phoneNumberService": "(310) 935-1084",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "(310) 507-9766",
+    "hours": [
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "8:30 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "(310) 935-1084",
+    "url": "https://www.toyotacarson.com/service/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "COMFLT",
+    "SS",
+    "RTI",
+    "MST-C",
+    "EXMNT"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotacarson.com",
+   "zip": "90745"
+  },
+  {
+   "address1": "17070 Gale Avenue",
+   "city": "City Of Industry",
+   "code": "04115",
+   "currentDayHours": "9:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "COMFLT",
+    "TCCC",
+    "SS",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "EL"
+   ],
+   "dealerId": "04115",
+   "distance": 20.170758346912447,
+   "email": "cmann@puentehillstoyota.com",
+   "encodedDashedCity": "City-Of-Industry",
+   "encodedDashedName": "Puente-Hills-Toyota",
+   "espUrl": "https://es.puentehillstoyota.com/",
+   "fax": "(626) 912-6999",
+   "finance": {
+    "phone": "6264953004",
+    "url": "https://www.puentehillstoyota.com/finance-department",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(626) 964-7100",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>17.00), 2(07.00>17.00), 3(07.00>17.00), 4(07.00>17.00), 5(07.00>17.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.999618,
+   "long": -117.933456,
+   "latitude": 33.999618,
+   "longitude": -117.933456,
+   "miraiSales": false,
+   "name": "Puente Hills Toyota",
+   "parts": {
+    "phone": "6269236450",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(626) 964-7100",
+   "phoneNumberFinance": "(626) 495-3004",
+   "phoneNumberParts": "(626) 923-6450",
+   "phoneNumberService": "(626) 964-7100",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "6266029395",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "6269647100",
+    "url": "https://www.puentehillstoyota.com/service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 5:00 PM",
+     "3": "7:00 AM to 5:00 PM",
+     "4": "7:00 AM to 5:00 PM",
+     "5": "7:00 AM to 5:00 PM",
+     "6": "7:00 AM to 5:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "COMFLT",
+    "TCCC",
+    "SS",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.puentehillstoyota.com",
+   "zip": "91748"
+  },
+  {
+   "address1": "205 N. Citrus Street",
+   "city": "West Covina",
+   "code": "04211",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC"
+   ],
+   "dealerId": "04211",
+   "distance": 20.441223346313254,
+   "encodedDashedCity": "West-Covina",
+   "encodedDashedName": "Envision-Toyota-of-West-Covina",
+   "finance": {
+    "url": "https://www.toyotawestcovina.com/financing/index.htm",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(626) 640-7450",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.070892,
+   "long": -117.906441,
+   "latitude": 34.070892,
+   "longitude": -117.906441,
+   "miraiSales": false,
+   "name": "Envision Toyota of West Covina",
+   "parts": {
+    "phone": "6266407453",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(626) 640-7450",
+   "phoneNumberParts": "(626) 640-7453",
+   "phoneNumberService": "(626) 640-7452",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "6266407451",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "6266407452",
+    "url": "https://www.toyotawestcovina.com/#schedule-service",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotawestcovina.com",
+   "zip": "91791"
+  },
+  {
+   "address1": "2849 Long Beach Blvd.",
+   "city": "Long Beach",
+   "code": "04033",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04033",
+   "distance": 21.011606101729782,
+   "email": "Ecom04033@toyota.com",
+   "encodedDashedCity": "Long-Beach",
+   "encodedDashedName": "Cabe-Toyota-Long-Beach",
+   "fax": "(562) 595-8065",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(562) 595-7411",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.00>20.00), 2(08.00>20.00), 3(08.00>20.00), 4(08.00>20.00), 5(08.00>20.00), 6(08.00>20.00), 7(09.00>19.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.809038,
+   "long": -118.189678,
+   "latitude": 33.809038,
+   "longitude": -118.189678,
+   "miraiSales": false,
+   "name": "Cabe Toyota Long Beach",
+   "parts": {
+    "phone": "5625957411",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(562) 595-7411",
+   "phoneNumberParts": "(562) 595-7411",
+   "phoneNumberService": "(562) 595-7411",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "5629978545",
+    "hours": [
+     [
+      "0900,1900"
+     ],
+     [
+      "0800,2000"
+     ],
+     [
+      "0800,2000"
+     ],
+     [
+      "0800,2000"
+     ],
+     [
+      "0800,2000"
+     ],
+     [
+      "0800,2000"
+     ],
+     [
+      "0800,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 7:00 PM",
+     "2": "8:00 AM to 8:00 PM",
+     "3": "8:00 AM to 8:00 PM",
+     "4": "8:00 AM to 8:00 PM",
+     "5": "8:00 AM to 8:00 PM",
+     "6": "8:00 AM to 8:00 PM",
+     "7": "8:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "5625957411",
+    "url": "https://www.cabetoyota.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.cabetoyota.com",
+   "zip": "90806"
+  },
+  {
+   "address1": "3399 E. Willow Street",
+   "city": "Long Beach",
+   "code": "04726",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "EXMNT",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04726",
+   "distance": 21.82305351533482,
+   "encodedDashedCity": "Long-Beach",
+   "encodedDashedName": "West-Coast-Toyota-of-Long-Beach",
+   "finance": {
+    "phone": "5627335200",
+    "url": "https://www.westcoasttoyotalb.com/finance/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(562) 494-4444",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(-1>-1)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.804587,
+   "long": -118.152444,
+   "latitude": 33.804587,
+   "longitude": -118.152444,
+   "miraiSales": false,
+   "name": "West Coast Toyota of Long Beach",
+   "parts": {
+    "phone": "5627335200",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(562) 494-4444",
+   "phoneNumberFinance": "(562) 733-5200",
+   "phoneNumberParts": "(562) 733-5200",
+   "phoneNumberService": "(562) 733-5200",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "5627335200",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "5627335200",
+    "url": "https://www.westcoasttoyotalb.com/service/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "EXMNT",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.westcoasttoyotalb.com",
+   "zip": "90806"
+  },
+  {
+   "address1": "2909 Pacific Coast Hwy",
+   "city": "Torrance",
+   "code": "04748",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC"
+   ],
+   "dealerId": "04748",
+   "distance": 21.98127851584246,
+   "encodedDashedCity": "Torrance",
+   "encodedDashedName": "DCH-Toyota-of-Torrance",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(310) 325-7500",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.30>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(10.00>20.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.795652,
+   "long": -118.337747,
+   "latitude": 33.795652,
+   "longitude": -118.337747,
+   "miraiSales": false,
+   "name": "DCH Toyota of Torrance",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0730,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:30 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(310) 325-7500",
+   "phoneNumberService": "(310) 325-7500",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 8:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "3103257500",
+    "url": "https://www.torrancetoyota.com/schedule-service.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.torrancetoyota.com",
+   "zip": "90505"
+  },
+  {
+   "address1": "6400 Beach Blvd.",
+   "city": "Buena Park",
+   "code": "04640",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "SS"
+   ],
+   "dealerId": "04640",
+   "distance": 22.46260208072085,
+   "email": "Ecom04640@toyota.com",
+   "encodedDashedCity": "Buena-Park",
+   "encodedDashedName": "AutoNation-Toyota-Buena-Park",
+   "fax": "(714) 522-7232",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(714) 627-5562",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(08.00>18.00), 2(08.00>18.00), 3(08.00>18.00), 4(08.00>18.00), 5(08.00>18.00), 6(08.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>18.00), 2(09.00>18.00), 3(09.00>18.00), 4(09.00>18.00), 5(09.00>18.00), 6(09.00>18.00), 7(-1>-1)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.866837,
+   "long": -117.997129,
+   "latitude": 33.866837,
+   "longitude": -117.997129,
+   "miraiSales": false,
+   "name": "AutoNation Toyota Buena Park",
+   "parts": {
+    "phone": "7145226144",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1800"
+     ],
+     [
+      "0800,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "8:00 AM to 6:00 PM",
+     "3": "8:00 AM to 6:00 PM",
+     "4": "8:00 AM to 6:00 PM",
+     "5": "8:00 AM to 6:00 PM",
+     "6": "8:00 AM to 6:00 PM",
+     "7": "8:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(714) 627-5562",
+   "phoneNumberParts": "(714) 522-6144",
+   "phoneNumberService": "(714) 522-6144",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "7145226144",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0900,1800"
+     ],
+     [
+      "0900,1800"
+     ],
+     [
+      "0900,1800"
+     ],
+     [
+      "0900,1800"
+     ],
+     [
+      "0900,1800"
+     ],
+     [
+      "0900,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "9:00 AM to 6:00 PM",
+     "3": "9:00 AM to 6:00 PM",
+     "4": "9:00 AM to 6:00 PM",
+     "5": "9:00 AM to 6:00 PM",
+     "6": "9:00 AM to 6:00 PM",
+     "7": "9:00 AM to 6:00 PM"
+    }
+   },
+   "service": {
+    "phone": "7145226144",
+    "url": "https://www.autonationtoyotabuenapark.com/service/schedule/appointment.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.autonationtoyotabuenapark.com",
+   "zip": "90621"
+  },
+  {
+   "address1": "1949 Auto Centre Drive",
+   "city": "Glendora",
+   "code": "04109",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "TRAC",
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "SS",
+    "PPSAL",
+    "TTC",
+    "TPC"
+   ],
+   "dealerId": "04109",
+   "distance": 24.85105939066494,
+   "email": "Ecom04109@toyota.com",
+   "encodedDashedCity": "Glendora",
+   "encodedDashedName": "Toyota-of-Glendora",
+   "fax": "(909) 305-2030",
+   "finance": {
+    "url": "https://www.toyotaofglendora.com/pre-approved/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(909) 305-2000",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(08.30>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.117854,
+   "long": -117.826725,
+   "latitude": 34.117854,
+   "longitude": -117.826725,
+   "miraiSales": false,
+   "name": "Toyota of Glendora",
+   "parts": {
+    "phone": "9093052000",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(909) 305-2000",
+   "phoneNumberParts": "(909) 305-2000",
+   "phoneNumberService": "(909) 305-2000",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "9093052000",
+    "hours": [
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "8:30 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "9093052000",
+    "url": "https://www.toyotaofglendora.com/?schedule=true",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "TRAC",
+    "COMFLT",
+    "CUV",
+    "TCCC",
+    "SS",
+    "PPSAL",
+    "TTC",
+    "TPC"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaofglendora.com",
+   "zip": "91740"
+  },
+  {
+   "address1": "1331 N. Euclid Street",
+   "city": "Anaheim",
+   "code": "04079",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "SS",
+    "PPSAL",
+    "TTC",
+    "TPC"
+   ],
+   "dealerId": "04079",
+   "distance": 25.38020199524178,
+   "email": "Ecom04079@toyota.com",
+   "encodedDashedCity": "Anaheim",
+   "encodedDashedName": "Toyota-of-Anaheim",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(714) 879-6300",
+    "hours": [
+     [
+      "0900,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>22.00), 2(09.00>22.00), 3(09.00>22.00), 4(09.00>22.00), 5(09.00>22.00), 6(09.00>22.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>18.00), 7(-1>-1)]",
+   "lat": 33.852505,
+   "long": -117.941912,
+   "latitude": 33.852505,
+   "longitude": -117.941912,
+   "miraiSales": false,
+   "name": "Toyota of Anaheim",
+   "parts": {
+    "phone": "7148796300",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(714) 879-6300",
+   "phoneNumberParts": "(714) 879-6300",
+   "phoneNumberService": "(714) 879-6300",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "7148796300",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2200"
+     ],
+     [
+      "0900,2200"
+     ],
+     [
+      "0900,2200"
+     ],
+     [
+      "0900,2200"
+     ],
+     [
+      "0900,2200"
+     ],
+     [
+      "0900,2200"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 10:00 PM",
+     "3": "9:00 AM to 10:00 PM",
+     "4": "9:00 AM to 10:00 PM",
+     "5": "9:00 AM to 10:00 PM",
+     "6": "9:00 AM to 10:00 PM",
+     "7": "9:00 AM to 10:00 PM"
+    }
+   },
+   "service": {
+    "phone": "7148796300",
+    "url": "https://www.toyotaofanaheim.com/service/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "SS",
+    "PPSAL",
+    "TTC",
+    "TPC"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaofanaheim.com",
+   "zip": "92801"
+  },
+  {
+   "address1": "23621 Creekside Road",
+   "city": "Valencia",
+   "code": "04662",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04662",
+   "distance": 27.092912686940085,
+   "email": "frontiertoyota@eleadtrack.net",
+   "encodedDashedCity": "Valencia",
+   "encodedDashedName": "Frontier-Toyota",
+   "espUrl": "https://www.frontiertoyota.com/es/",
+   "fax": "(661) 254-1913",
+   "finance": {
+    "url": "https://www.frontiertoyota.com/finance/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(661) 255-7575",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00)]",
+   "lat": 34.418263,
+   "long": -118.549957,
+   "latitude": 34.418263,
+   "longitude": -118.549957,
+   "miraiSales": false,
+   "name": "Frontier Toyota",
+   "parts": {
+    "phone": "8775999961",
+    "hours": [
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "7:00 AM to 5:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(661) 255-7575",
+   "phoneNumberParts": "(877) 599-9961",
+   "phoneNumberService": "(877) 599-9961",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "877-599-9961",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8775999961",
+    "url": "https://www.frontiertoyota.com/#schedule-service",
+    "hours": [
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "7:00 AM to 5:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.frontiertoyota.com",
+   "zip": "91355"
+  },
+  {
+   "address1": "9670 Trask Avenue",
+   "city": "Garden Grove",
+   "code": "04356",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04356",
+   "distance": 29.192204909075897,
+   "email": "Ecom04356@toyota.com",
+   "encodedDashedCity": "Garden-Grove",
+   "encodedDashedName": "Toyota-Place",
+   "espFinanceUrl": "https://www.toyotaplace.com/agencia-de-autos-toyota-espanol-ventas-servicio-tienda-de-toyota-condado-de-orange/",
+   "espUrl": "https://www.toyotaplace.com/agencia-de-autos-toyota-espanol-ventas-servicio-tienda-de-toyota-condado-de-orange/",
+   "fax": "(714) 893-8438",
+   "finance": {
+    "url": "https://www.toyotaplace.com/finance/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(877) 289-5612",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.766636,
+   "long": -117.959798,
+   "latitude": 33.766636,
+   "longitude": -117.959798,
+   "miraiSales": false,
+   "name": "Toyota Place",
+   "parts": {
+    "phone": "8008968244",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(877) 289-5612",
+   "phoneNumberParts": "(800) 896-8244",
+   "phoneNumberService": "(888) 751-1414",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8883525533",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8887511414",
+    "url": "https://www.toyotaplace.com/?schedule=true",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaplace.com",
+   "zip": "92844"
+  },
+  {
+   "address1": "15300 Beach Boulevard",
+   "city": "Westminster",
+   "code": "04108",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04108",
+   "distance": 29.757342961945632,
+   "email": "Ecom04108@toyota.com",
+   "encodedDashedCity": "Westminster",
+   "encodedDashedName": "Beach-Cities-Toyota-Westminster",
+   "fax": "(714) 903-1148",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(714) 894-3322",
+    "hours": [
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.740382,
+   "long": -117.98926,
+   "latitude": 33.740382,
+   "longitude": -117.98926,
+   "miraiSales": false,
+   "name": "Beach Cities Toyota Westminster",
+   "parts": {
+    "phone": "7148943322",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(714) 894-3322",
+   "phoneNumberParts": "(714) 894-3322",
+   "phoneNumberService": "(714) 894-3322",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "7148943322",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "7148943322",
+    "url": "https://www.beachcitiestoyotawestminster.com/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.beachcitiestoyotawestminster.com",
+   "zip": "92683"
+  },
+  {
+   "address1": "601 Auto Center Drive",
+   "city": "Claremont",
+   "code": "04284",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PA"
+   ],
+   "dealerId": "04284",
+   "distance": 30.746077082696004,
+   "encodedDashedCity": "Claremont",
+   "encodedDashedName": "Claremont-Toyota",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(909) 625-1500",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>22.00), 2(08.30>22.00), 3(08.30>22.00), 4(08.30>22.00), 5(08.30>22.00), 6(08.30>22.00), 7(09.00>10.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 34.081083,
+   "long": -117.724546,
+   "latitude": 34.081083,
+   "longitude": -117.724546,
+   "miraiSales": false,
+   "name": "Claremont Toyota",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(909) 625-1500",
+   "phoneNumberService": "(909) 542-1687",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "0900,1000"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 10:00 AM",
+     "2": "8:30 AM to 10:00 PM",
+     "3": "8:30 AM to 10:00 PM",
+     "4": "8:30 AM to 10:00 PM",
+     "5": "8:30 AM to 10:00 PM",
+     "6": "8:30 AM to 10:00 PM",
+     "7": "8:30 AM to 10:00 PM"
+    }
+   },
+   "service": {
+    "phone": "9095421687",
+    "url": "https://www.claremonttoyota.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.claremonttoyota.com",
+   "zip": "91711"
+  },
+  {
+   "address1": "1400 N Tustin",
+   "city": "Orange",
+   "code": "04247",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "EXMNT",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PA"
+   ],
+   "dealerId": "04247",
+   "distance": 31.814556370317298,
+   "email": "info@toyotaoforange.com",
+   "encodedDashedCity": "Orange",
+   "encodedDashedName": "Toyota-of-Orange",
+   "fax": "(714) 771-0363",
+   "finance": {
+    "phone": "8776979949",
+    "url": "http://www.toyotaoforange.com/financing/index.htm",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(714) 639-6750",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>22.00), 2(07.00>22.00), 3(07.00>22.00), 4(07.00>22.00), 5(07.00>22.00), 6(07.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>22.00), 2(08.30>22.00), 3(08.30>22.00), 4(08.30>22.00), 5(08.30>22.00), 6(08.30>22.00), 7(09.00>22.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>18.00), 7(-1>-1)]",
+   "lat": 33.811122,
+   "long": -117.83594,
+   "latitude": 33.811122,
+   "longitude": -117.83594,
+   "miraiSales": true,
+   "name": "Toyota of Orange",
+   "parts": {
+    "phone": "8776993645",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 10:00 PM",
+     "3": "7:00 AM to 10:00 PM",
+     "4": "7:00 AM to 10:00 PM",
+     "5": "7:00 AM to 10:00 PM",
+     "6": "7:00 AM to 10:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(714) 639-6750",
+   "phoneNumberFinance": "(877) 697-9949",
+   "phoneNumberParts": "(877) 699-3645",
+   "phoneNumberService": "(877) 863-8525",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8776994085",
+    "hours": [
+     [
+      "0900,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ],
+     [
+      "0830,2200"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 10:00 PM",
+     "2": "8:30 AM to 10:00 PM",
+     "3": "8:30 AM to 10:00 PM",
+     "4": "8:30 AM to 10:00 PM",
+     "5": "8:30 AM to 10:00 PM",
+     "6": "8:30 AM to 10:00 PM",
+     "7": "8:30 AM to 10:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8778638525",
+    "url": "https://www.toyotaoforange.com/?schedule=true",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "EXMNT",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaoforange.com",
+   "zip": "92867"
+  },
+  {
+   "address1": "2380 First Street",
+   "city": "Simi Valley",
+   "code": "04228",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04228",
+   "distance": 31.85728084990667,
+   "encodedDashedCity": "Simi-Valley",
+   "encodedDashedName": "Simi-Valley-Toyota",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(805) 526-7500",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>20.00), 2(08.30>20.00), 3(08.30>20.00), 4(08.30>20.00), 5(08.30>20.00), 6(08.30>20.00), 7(10.00>18.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>18.00), 7(-1>-1)]",
+   "lat": 34.27858,
+   "long": -118.778449,
+   "latitude": 34.27858,
+   "longitude": -118.778449,
+   "miraiSales": false,
+   "name": "Simi Valley Toyota",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(805) 526-7500",
+   "phoneNumberService": "(805) 526-7500",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,1800"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 6:00 PM",
+     "2": "8:30 AM to 8:00 PM",
+     "3": "8:30 AM to 8:00 PM",
+     "4": "8:30 AM to 8:00 PM",
+     "5": "8:30 AM to 8:00 PM",
+     "6": "8:30 AM to 8:00 PM",
+     "7": "8:30 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8055267500",
+    "url": "https://www.simivalleytoyota.com/Schedule-service.html",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.simivalleytoyota.com",
+   "zip": "93065"
+  },
+  {
+   "address1": "18881 Beach Blvd.",
+   "city": "Huntington Beach",
+   "code": "04087",
+   "currentDayHours": "8:30 AM to 9:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "PACAB",
+    "PA"
+   ],
+   "dealerId": "04087",
+   "distance": 32.915162854533534,
+   "email": "Ecom04087@toyota.com",
+   "encodedDashedCity": "Huntington-Beach",
+   "encodedDashedName": "Toyota-of-Huntington-Beach",
+   "fax": "(714) 841-9857",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(714) 594-7493",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0900,2000"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00)]",
+   "hoursSales": "(Sales):[1(08.00>21.00), 2(08.00>21.00), 3(08.00>21.00), 4(08.00>21.00), 5(08.00>21.00), 6(08.00>21.00), 7(09.00>20.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00)]",
+   "lat": 33.687844,
+   "long": -117.988985,
+   "latitude": 33.687844,
+   "longitude": -117.988985,
+   "miraiSales": false,
+   "name": "Toyota of Huntington Beach",
+   "parts": {
+    "phone": "7148478555",
+    "hours": [
+     [
+      "0700,1600"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "7:00 AM to 4:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(714) 594-7493",
+   "phoneNumberParts": "(714) 847-8555",
+   "phoneNumberService": "(714) 847-8555",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "7145819184",
+    "hours": [
+     [
+      "0900,2000"
+     ],
+     [
+      "0800,2100"
+     ],
+     [
+      "0800,2100"
+     ],
+     [
+      "0800,2100"
+     ],
+     [
+      "0800,2100"
+     ],
+     [
+      "0800,2100"
+     ],
+     [
+      "0800,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 8:00 PM",
+     "2": "8:00 AM to 9:00 PM",
+     "3": "8:00 AM to 9:00 PM",
+     "4": "8:00 AM to 9:00 PM",
+     "5": "8:00 AM to 9:00 PM",
+     "6": "8:00 AM to 9:00 PM",
+     "7": "8:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "7148478555",
+    "url": "https://www.toyotaofhb.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "0700,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "7:00 AM to 5:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "PACAB",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaofhb.com",
+   "zip": "92648"
+  },
+  {
+   "address1": "2401 E. Thousand Oaks Blvd.",
+   "city": "Thousand Oaks",
+   "code": "04167",
+   "currentDayHours": "7:30 AM to 8:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04167",
+   "distance": 33.62799558320265,
+   "email": "Ecom04167@toyota.com",
+   "encodedDashedCity": "Thousand-Oaks",
+   "encodedDashedName": "Thousand-Oaks-Toyota",
+   "finance": {
+    "url": "https://www.totoyota.com/financing/index.htm",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(818) 889-8919",
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0730,2000"
+     ],
+     [
+      "0730,2000"
+     ],
+     [
+      "0730,2000"
+     ],
+     [
+      "0730,2000"
+     ],
+     [
+      "0730,2000"
+     ],
+     [
+      "0700,2000"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.30>17.30), 2(07.30>17.30), 3(07.30>17.30), 4(07.30>17.30), 5(07.30>17.30), 6(07.00>16.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>20.00), 2(09.00>20.00), 3(09.00>20.00), 4(09.00>20.00), 5(09.00>20.00), 6(09.00>20.00), 7(10.00>19.00)]",
+   "hoursService": "(Service):[1(07.30>17.30), 2(07.30>17.30), 3(07.30>17.30), 4(07.30>17.30), 5(07.30>17.30), 6(07.00>16.00), 7(-1>-1)]",
+   "lat": 34.1742,
+   "long": -118.843368,
+   "latitude": 34.1742,
+   "longitude": -118.843368,
+   "miraiSales": false,
+   "name": "Thousand Oaks Toyota",
+   "parts": {
+    "phone": "8054972791",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:30 AM to 5:30 PM",
+     "3": "7:30 AM to 5:30 PM",
+     "4": "7:30 AM to 5:30 PM",
+     "5": "7:30 AM to 5:30 PM",
+     "6": "7:30 AM to 5:30 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(818) 889-8919",
+   "phoneNumberParts": "(805) 497-2791",
+   "phoneNumberService": "(805) 497-2791",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,1900"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ],
+     [
+      "0900,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 7:00 PM",
+     "2": "9:00 AM to 8:00 PM",
+     "3": "9:00 AM to 8:00 PM",
+     "4": "9:00 AM to 8:00 PM",
+     "5": "9:00 AM to 8:00 PM",
+     "6": "9:00 AM to 8:00 PM",
+     "7": "9:00 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8054972791",
+    "url": "https://www.totoyota.com/serviceappmt.aspx",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0730,1730"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:30 AM to 5:30 PM",
+     "3": "7:30 AM to 5:30 PM",
+     "4": "7:30 AM to 5:30 PM",
+     "5": "7:30 AM to 5:30 PM",
+     "6": "7:30 AM to 5:30 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.totoyota.com",
+   "zip": "91362"
+  },
+  {
+   "address1": "36 Auto Center Drive",
+   "city": "Tustin",
+   "code": "04543",
+   "currentDayHours": "7:00 AM to 7:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PACAB",
+    "PA"
+   ],
+   "dealerId": "04543",
+   "distance": 37.26762899729928,
+   "email": "Ecom04543@toyota.com",
+   "encodedDashedCity": "Tustin",
+   "encodedDashedName": "Tustin-Toyota",
+   "fax": "(714) 669-9047",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(714) 832-3111",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>22.00), 2(07.00>22.00), 3(07.00>22.00), 4(07.00>22.00), 5(07.00>22.00), 6(07.00>18.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(10.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>18.00), 7(-1>-1)]",
+   "lat": 33.726358,
+   "long": -117.800865,
+   "latitude": 33.726358,
+   "longitude": -117.800865,
+   "miraiSales": true,
+   "name": "Tustin Toyota",
+   "parts": {
+    "phone": "8887865981",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,2200"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 10:00 PM",
+     "3": "7:00 AM to 10:00 PM",
+     "4": "7:00 AM to 10:00 PM",
+     "5": "7:00 AM to 10:00 PM",
+     "6": "7:00 AM to 10:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(714) 832-3111",
+   "phoneNumberParts": "(888) 786-5981",
+   "phoneNumberService": "(888) 799-9601",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "8772408138",
+    "hours": [
+     [
+      "1000,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "8887999601",
+    "url": "https://www.tustintoyota.com/schedule-service.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL",
+    "PACAB",
+    "PA"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.tustintoyota.com",
+   "zip": "92782"
+  },
+  {
+   "address1": "1966 Harbor Blvd.",
+   "city": "Costa Mesa",
+   "code": "04137",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04137",
+   "distance": 37.487616336149884,
+   "email": "info@southcoasttoyota.com",
+   "encodedDashedCity": "Costa-Mesa",
+   "encodedDashedName": "South-Coast-Toyota",
+   "fax": "(949) 764-4101",
+   "finance": {
+    "url": "https://www.southcoasttoyota.com/finance-application/",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(949) 722-2000",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0730,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(08.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.30>17.00), 7(-1>-1)]",
+   "lat": 33.645263,
+   "long": -117.918475,
+   "latitude": 33.645263,
+   "longitude": -117.918475,
+   "miraiSales": false,
+   "name": "South Coast Toyota",
+   "parts": {
+    "phone": "9497222000",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0800,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "8:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(949) 722-2000",
+   "phoneNumberParts": "(949) 722-2000",
+   "phoneNumberService": "(949) 722-2000",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "9497222000",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "9497222000",
+    "url": "https://www.southcoasttoyota.com/?schedule=true",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0730,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:30 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.southcoasttoyota.com",
+   "zip": "92627"
+  },
+  {
+   "address1": "43301 12th Street West",
+   "city": "Lancaster",
+   "code": "04737",
+   "currentDayHours": "7:00 AM to 9:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "EXMNT",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04737",
+   "distance": 39.38553832249329,
+   "encodedDashedCity": "Lancaster",
+   "encodedDashedName": "Toyota-of-Lancaster",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(661) 948-0731",
+    "hours": [
+     [
+      "0800,2000"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0700,2100"
+     ],
+     [
+      "0800,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(08.00>15.00)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(10.00>20.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>16.00), 7(08.00>15.00)]",
+   "lat": 34.670263,
+   "long": -118.152551,
+   "latitude": 34.670263,
+   "longitude": -118.152551,
+   "miraiSales": false,
+   "name": "Toyota of Lancaster",
+   "parts": {
+    "hours": [
+     [
+      "0800,1500"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "8:00 AM to 3:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(661) 948-0731",
+   "phoneNumberService": "(661) 945-5505",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,2000"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 8:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "6619455505",
+    "url": "https://www.toyotaoflancaster.com/schedule-car-maintenance-or-auto-repair-lancaster-ca",
+    "hours": [
+     [
+      "0800,1500"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1600"
+     ]
+    ],
+    "hoursMap": {
+     "1": "8:00 AM to 3:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 4:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "EXMNT",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.toyotaoflancaster.com",
+   "zip": "93534"
+  },
+  {
+   "address1": "1201 Kettering Drive",
+   "city": "Ontario",
+   "code": "04101",
+   "currentDayHours": "8:30 AM to 9:00 PM",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C"
+   ],
+   "dealerId": "04101",
+   "distance": 41.047231752418206,
+   "encodedDashedCity": "Ontario",
+   "encodedDashedName": "Crown-Toyota",
+   "fax": "(909) 456-1226",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(909) 390-9700",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(06.30>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(06.30>17.00)]",
+   "lat": 34.052119,
+   "long": -117.546812,
+   "latitude": 34.052119,
+   "longitude": -117.546812,
+   "miraiSales": false,
+   "name": "Crown Toyota",
+   "parts": {
+    "phone": "9095158400",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0630,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "6:30 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(909) 390-9700",
+   "phoneNumberParts": "(909) 515-8400",
+   "phoneNumberService": "(909) 515-8402",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "9095158404",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "9095158402",
+    "url": "https://www.crowntoyota.com/serviceappmt.aspx",
+    "hours": [
+     [
+      "0630,1700"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ]
+    ],
+    "hoursMap": {
+     "1": "6:30 AM to 5:00 PM",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "EXMNT",
+    "RTI",
+    "MST-C"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.crowntoyota.com",
+   "zip": "91761"
+  },
+  {
+   "address1": "1700 West 6th Street",
+   "city": "Corona",
+   "code": "54037",
+   "dealerAttributes": [
+    "COMFLT",
+    "CUV",
+    "EXMNT"
+   ],
+   "dealerId": "54037",
+   "distance": 41.083304500764136,
+   "encodedDashedCity": "Corona",
+   "encodedDashedName": "Toyota-of-Corona",
+   "finance": {
+    "url": "https://www.coronatoyota.com/financing/index.htm",
+    "hours": []
+   },
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(951) 734-6020",
+    "hours": []
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>21.00), 2(08.30>21.00), 3(08.30>21.00), 4(08.30>21.00), 5(08.30>21.00), 6(08.30>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.878384,
+   "long": -117.599106,
+   "latitude": 33.878384,
+   "longitude": -117.599106,
+   "miraiSales": false,
+   "name": "Toyota of Corona",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(951) 734-6020",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ],
+     [
+      "0830,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "8:30 AM to 9:00 PM",
+     "3": "8:30 AM to 9:00 PM",
+     "4": "8:30 AM to 9:00 PM",
+     "5": "8:30 AM to 9:00 PM",
+     "6": "8:30 AM to 9:00 PM",
+     "7": "8:30 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "url": "https://www.coronatoyota.com/#modal-scheduleservice",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "COMFLT",
+    "CUV",
+    "EXMNT"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.CoronaToyota.com",
+   "zip": "92882"
+  },
+  {
+   "address1": "9101 Research Drive",
+   "city": "Irvine",
+   "code": "04638",
+   "currentDayHours": "7:00 AM to 6:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "EXMNT",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "dealerId": "04638",
+   "distance": 44.0972371539833,
+   "email": "Parts04638@toyota.com",
+   "encodedDashedCity": "Irvine",
+   "encodedDashedName": "AutoNation-Toyota-Irvine",
+   "fax": "(949) 597-0249",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(949) 287-8766",
+    "hours": [
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(09.00>21.00), 2(09.00>21.00), 3(09.00>21.00), 4(09.00>21.00), 5(09.00>21.00), 6(09.00>21.00), 7(09.00>21.00)]",
+   "hoursService": "(Service):[1(07.00>18.00), 2(07.00>18.00), 3(07.00>18.00), 4(07.00>18.00), 5(07.00>18.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.640481,
+   "long": -117.736842,
+   "latitude": 33.640481,
+   "longitude": -117.736842,
+   "miraiSales": false,
+   "name": "AutoNation Toyota Irvine",
+   "parts": {
+    "phone": "9497680688 ext 4008",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(949) 287-8766",
+   "phoneNumberParts": "(949) 768-0688 x 4008",
+   "phoneNumberService": "(949) 768-0688 x 3300",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "phone": "9497680688 ext 1300",
+    "hours": [
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ],
+     [
+      "0900,2100"
+     ]
+    ],
+    "hoursMap": {
+     "1": "9:00 AM to 9:00 PM",
+     "2": "9:00 AM to 9:00 PM",
+     "3": "9:00 AM to 9:00 PM",
+     "4": "9:00 AM to 9:00 PM",
+     "5": "9:00 AM to 9:00 PM",
+     "6": "9:00 AM to 9:00 PM",
+     "7": "9:00 AM to 9:00 PM"
+    }
+   },
+   "service": {
+    "phone": "9497680688 ext 3300",
+    "url": "https://www.autonationtoyotairvine.com/service/schedule/appointment.htm",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1800"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 6:00 PM",
+     "3": "7:00 AM to 6:00 PM",
+     "4": "7:00 AM to 6:00 PM",
+     "5": "7:00 AM to 6:00 PM",
+     "6": "7:00 AM to 6:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "RTI",
+    "MST-C",
+    "EXMNT",
+    "RPSAL",
+    "PPSAL",
+    "TTC",
+    "TPC",
+    "SS"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.autonationtoyotairvine.com",
+   "zip": "92618"
+  },
+  {
+   "address1": "22722 Avenida Empresa",
+   "city": "Rancho Santa Margarita",
+   "code": "04713",
+   "currentDayHours": "7:00 AM to 8:00 PM",
+   "dealerAttributes": [
+    "CUV",
+    "COMFLT",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "dealerId": "04713",
+   "distance": 49.84086405493545,
+   "encodedDashedCity": "Rancho-Santa-Margarita",
+   "encodedDashedName": "Santa-Margarita-Toyota",
+   "fmp": false,
+   "fmpt1": false,
+   "general": {
+    "phone": "(949) 766-2000",
+    "hours": [
+     [
+      "1000,1900"
+     ],
+     [
+      "0700,2000"
+     ],
+     [
+      "0700,2000"
+     ],
+     [
+      "0700,2000"
+     ],
+     [
+      "0700,2000"
+     ],
+     [
+      "0700,2000"
+     ],
+     [
+      "0700,2000"
+     ]
+    ]
+   },
+   "hoursParts": "(Parts):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "hoursSales": "(Sales):[1(08.30>20.00), 2(08.30>20.00), 3(08.30>20.00), 4(08.30>20.00), 5(08.30>20.00), 6(08.30>20.00), 7(10.00>19.00)]",
+   "hoursService": "(Service):[1(07.00>19.00), 2(07.00>19.00), 3(07.00>19.00), 4(07.00>19.00), 5(07.00>19.00), 6(07.00>17.00), 7(-1>-1)]",
+   "lat": 33.632709,
+   "long": -117.606751,
+   "latitude": 33.632709,
+   "longitude": -117.606751,
+   "miraiSales": false,
+   "name": "Santa Margarita Toyota",
+   "parts": {
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "pma": false,
+   "phone": "(949) 766-2000",
+   "phoneNumberService": "(949) 359-4160",
+   "region": {
+    "regionCode": 11,
+    "success": false
+   },
+   "regionId": "11",
+   "sales": {
+    "hours": [
+     [
+      "1000,1900"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ],
+     [
+      "0830,2000"
+     ]
+    ],
+    "hoursMap": {
+     "1": "10:00 AM to 7:00 PM",
+     "2": "8:30 AM to 8:00 PM",
+     "3": "8:30 AM to 8:00 PM",
+     "4": "8:30 AM to 8:00 PM",
+     "5": "8:30 AM to 8:00 PM",
+     "6": "8:30 AM to 8:00 PM",
+     "7": "8:30 AM to 8:00 PM"
+    }
+   },
+   "service": {
+    "phone": "9493594160",
+    "url": "https://www.santamargaritatoyota.com/service/schedule-service/",
+    "hours": [
+     [
+      "Closed"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1900"
+     ],
+     [
+      "0700,1700"
+     ]
+    ],
+    "hoursMap": {
+     "1": "Closed",
+     "2": "7:00 AM to 7:00 PM",
+     "3": "7:00 AM to 7:00 PM",
+     "4": "7:00 AM to 7:00 PM",
+     "5": "7:00 AM to 7:00 PM",
+     "6": "7:00 AM to 7:00 PM",
+     "7": "7:00 AM to 5:00 PM"
+    }
+   },
+   "serviceCenterOnly": false,
+   "services": [
+    "CUV",
+    "COMFLT",
+    "RTI",
+    "MST-C",
+    "TTC",
+    "TPC",
+    "SS",
+    "EL"
+   ],
+   "state": "CA",
+   "tdaId": "SOC10",
+   "tda": {
+    "code": "SOC10",
+    "name": "SOUTHERN CALIFORNIA"
+   },
+   "url": "https://www.santamargaritatoyota.com",
+   "zip": "92688"
+  }
+ ],
+ "code": 0,
+ "success": true
+}

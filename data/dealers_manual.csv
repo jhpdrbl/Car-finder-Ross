@@ -1,0 +1,99 @@
+brand,dealer_name,city,address,zip,lat,lon,homepage,platform,inventory_url,status,source,notes
+Audi,McKenna Audi,Norwalk,10850 Firestone Blvd,90650,33.9224679,-118.1024636,https://www.mckennaaudi.com/,,,confirmed,web research (brand locator blocked),
+Audi,Audi Beverly Hills,Beverly Hills,,,,,https://www.audibeverlyhills.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Audi,Audi Downtown LA,Los Angeles,,,,,https://www.audidtla.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Calabasas,Calabasas,,,,,https://www.audicalabasas.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Long Beach,Signal Hill,,,,,https://www.audilongbeach.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Audi,Audi Mission Viejo,Mission Viejo,,,,,https://www.audimv.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Pacific,Torrance,,,,,https://www.audipacific.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Santa Monica,Santa Monica,,,,,https://www.audisantamonica.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Valencia,Valencia,,,,,https://www.audivalencia.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Pasadena,Pasadena,,,,,https://www.audipasadena.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Fletcher Jones,Costa Mesa,,,,,https://www.audifletcherjones.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Audi,Audi North Orange County,Placentia,1275 East Yorba Linda Blvd.,92870,33.8887344,-117.8398734,https://www.audinorthoc.com/,,,unverified,web research (brand locator blocked),
+Audi,Audi West Covina,West Covina,,,,,https://www.audiwestcovina.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Westlake,Thousand Oaks,,,,,https://www.audiwestlake.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi South Coast,Santa Ana,1425 Auto Mall Drive,92705,33.729071,-117.838556,https://www.audisouthcoast.com/,,,unverified,web research (brand locator blocked),
+Audi,Audi Ontario,Ontario,,,,,https://www.audiontario.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Riverside,Riverside,,,,,https://www.audiriverside.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Oxnard,Oxnard,,,,,https://www.audioxnard.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 503)
+Audi,Audi Sherman Oaks,Sherman Oaks,,,,,https://www.audishermanoaks.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+BMW,Pacific BMW,Glendale,,,,,https://www.pacificbmw.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,BMW of Beverly Hills,Los Angeles,5070 Wilshire Blvd,90036,34.061994,-118.340132,https://www.bmwofbeverlyhills.com/,,,confirmed,web research (brand locator blocked),
+BMW,BMW Santa Monica,Santa Monica,,,,,https://www.bmwsantamonica.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,BMW of Downtown LA,Los Angeles,6333 S. Alameda Street,90001,33.982616,-118.2371295,https://www.bmwdtla.com/,,,confirmed,web research (brand locator blocked),
+BMW,Valencia BMW,Valencia,23435 Valencia Blvd,91355,34.4207534,-118.5492702,https://www.valenciabmw.com/,,,confirmed,web research (brand locator blocked),
+BMW,Bob Smith BMW,Calabasas,24500 Calabasas Rd,91302,34.1493801,-118.6612567,https://bobsmithbmw.com/,,,confirmed,web research (brand locator blocked),
+BMW,South Bay BMW,Torrance,,,,,https://www.southbaybmw.com/,,,confirmed,web research (brand locator blocked),
+BMW,Century West BMW,North Hollywood,,,,,https://www.centurywestbmw.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,BMW of Sherman Oaks,Sherman Oaks,5201 Van Nuys Blvd,91401,34.16663,-118.44878,https://www.bmwshermanoaks.com/,,,unverified,web research (brand locator blocked),
+BMW,Long Beach BMW,Long Beach,1660 E Spring St,90755,33.811529,-118.171322,https://www.longbeachbmw.com/,,,unverified,web research (brand locator blocked),
+BMW,BMW of Monrovia,Monrovia,,,,,https://www.bmwofmonrovia.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+BMW,McKenna BMW,Norwalk,,,,,https://www.mckennabmw.com/,,,unverified,web research (brand locator blocked),
+BMW,Crevier BMW,Santa Ana,,,,,https://www.crevierbmw.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,Irvine BMW,Irvine,9881 Research Dr,92618,33.6314793,-117.7256999,https://www.irvinebmw.com/,,,unverified,web research (brand locator blocked),
+BMW,Sterling BMW,Newport Beach,,,,,https://www.sterlingbmw.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,BMW of Ontario,Ontario,,,,,https://www.bmwofontario.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,BMW of Riverside,Riverside,,,,,https://www.bmwofriverside.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+BMW,Mission BMW,Mission Viejo,,,,,https://www.missionbmw.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Keyes European,Van Nuys,,,,,https://www.keyesmercedes.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Mercedes-Benz,Calstar Motors,Glendale,,,,,https://www.calstarmotors.com/,,,confirmed,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Glendale,Glendale,,,,,https://www.mbglendale.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Beverly Hills,Beverly Hills,,,,,https://www.mbbeverlyhills.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Mercedes-Benz,Mercedes-Benz of Ontario,Ontario,,,,,https://www.mbontario.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Mercedes-Benz,Mercedes-Benz of Pasadena,Pasadena,,,,,https://www.mbpasadena.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Arcadia,Arcadia,,,,,https://www.mbarcadia.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Long Beach,Signal Hill,,,,,https://www.mboflongbeach.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Valencia,Valencia,,,,,https://www.mbvalencia.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Los Angeles,Los Angeles,,,,,https://www.mbzla.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Mercedes-Benz,W.I. Simonson Mercedes-Benz,Santa Monica,,,,,https://www.wisimonson.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Mercedes-Benz,Calabasas Mercedes-Benz,Calabasas,,,,,https://www.mbcalabasas.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Encino,Encino,16721 Ventura Blvd,91436,34.158672,-118.497278,https://www.mbencino.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of South Bay,Torrance,,,,,https://www.mbsouthbay.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Anaheim,Anaheim,,,,,https://www.mbanaheim.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Fletcher Jones Motorcars,Newport Beach,,,,,https://www.fjmercedes.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Mercedes-Benz,Mercedes-Benz of Laguna Niguel,Laguna Niguel,,,,,https://www.mblagunaniguel.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Mercedes-Benz,Mercedes-Benz of West Covina,West Covina,2010 E Garvey Ave S,91791,34.0710732,-117.9024724,https://www.mbwestcovina.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Thousand Oaks,Thousand Oaks,,,,,https://www.mbthousandoaks.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Riverside,Riverside,,,,,https://www.mbriverside.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Walter's Mercedes-Benz,Riverside,,,,,https://www.waltersmercedes.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Mercedes-Benz,Mercedes-Benz of Oxnard,Oxnard,,,,,https://www.mboxnard.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Tustin,Tustin,,,,,https://www.mbtustin.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Temecula,Temecula,,,,,https://www.mbtemecula.com/,,,unverified,web research (brand locator blocked),
+Ford,Galpin Ford,North Hills,,,,,https://www.galpinford.com/,,,confirmed,web research (brand locator blocked),
+Ford,AutoNation Ford Valencia,Valencia,23920 Creekside Road,91355,34.418004,-118.55323,https://www.autonationfordvalencia.com/,,,confirmed,web research (brand locator blocked),
+Ford,Puente Hills Ford,City of Industry,,,,,https://www.puentehillsford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Star Ford Lincoln,Glendale,,,,,https://www.starford.com/,,,unverified,web research (brand locator blocked),
+Ford,Colley Ford,Glendora,,,,,https://www.colleyford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,South Bay Ford Lincoln,Hawthorne,5100 Rosecrans Avenue,90250,33.90116882324219,-118.3672103881836,https://www.southbayford.com/,,,unverified,web research (brand locator blocked),
+Ford,Diamond Ford,Lancaster,,,,,https://diamondford.com/,,,unverified,web research (brand locator blocked),
+Ford,BP Ford of Long Beach,Long Beach,2950 N Bellflower Blvd,90815,33.8097908,-118.1244289,https://www.bpfordoflongbeach.com/,,,unverified,web research (brand locator blocked),
+Ford,Caruso Ford,Long Beach,,,,,https://www.carusoford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Airport Marina Ford,Los Angeles,,,,,https://www.airportmarinaford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Ford of Downtown LA,Los Angeles,509 W. Washington Blvd,90015,34.0342596109078,-118.27106219999999,https://www.fordofdtla.com/,,,unverified,web research (brand locator blocked),
+Ford,Ford of Montebello,Montebello,2747 Via Campo,90640,34.032317,-118.126909,https://www.fordofmontebello.com/,,,unverified,web research (brand locator blocked),
+Ford,Norm Reeves Ford,Cerritos,,,,,https://www.normreevesford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Santa Monica Ford,Santa Monica,1402 Santa Monica Blvd,90404,34.0229787,-118.4868157,https://www.smford.com/,,,unverified,web research (brand locator blocked),
+Ford,AutoNation Ford Torrance,Torrance,3111 Pacific Coast Highway,90505,33.801906,-118.340895,https://www.autonationfordtorrance.com/,,,unverified,web research (brand locator blocked),
+Ford,Performance Ford West Covina,West Covina,2000 E Garvey Ave S,91791,34.0704664,-117.9037476,https://www.wcperformanceford.com/,,,unverified,web research (brand locator blocked),
+Ford,Ken Grody Ford Buena Park,Buena Park,,,,,https://www.kengrodyford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Thousand Oaks Ford,Thousand Oaks,,,,,https://www.thousandoaksford.com/,,,unverified,web research (brand locator blocked),
+Ford,Downey Ford,Downey,,,,,https://www.downeyford.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Ford,Tuttle-Click Ford,Irvine,,,,,https://www.tuttleclickford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Ford of Orange,Orange,,,,,https://www.fordoforange.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Huntington Beach Ford,Huntington Beach,18255 Beach Blvd,92648,,,https://www.huntingtonbeachford.com/,,,unverified,web research (brand locator blocked),
+Ford,Corona Ford,Corona,,,,,https://www.coronaford.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Ford,Raceway Ford,Riverside,,,,,https://www.racewayford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
+Ford,Mission Viejo Ford,Mission Viejo,,,,,https://www.missionviejoford.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Volvo,Culver City Volvo Cars,Culver City,,,,,https://www.culvercityvolvocars.com,,,confirmed,web research (brand locator blocked),
+Volvo,Rusnak Volvo Cars Pasadena,Pasadena,,,,,https://www.rusnakvolvocars.com,,,confirmed,web research (brand locator blocked),
+Volvo,Volvo Cars Santa Monica,Santa Monica,1631 Santa Monica Boulevard,90404,34.026423,-118.483431,https://www.volvocarsofsantamonica.com/,,,confirmed,web research (brand locator blocked),
+Volvo,Rusnak Volvo Cars Westlake,Thousand Oaks,3839 Auto Mall Dr.,91362,34.1614259,-118.8282045,https://www.rusnakvolvocarswestlake.com/,,,confirmed,web research (brand locator blocked),
+Volvo,Volvo Cars South Bay,Torrance,,,,,https://www.volvocarssouthbay.com/,,,confirmed,web research (brand locator blocked),
+Volvo,Penske Volvo Cars,City of Industry,,,,,https://www.penskevolvocars.com,,,confirmed,web research (brand locator blocked),
+Volvo,Volvo Cars Ontario,Ontario,1300 Auto Center Drive,91761,34.050441,-117.545668,https://www.volvocarsontario.com/,,,confirmed,web research (brand locator blocked),
+Volvo,Galpin Volvo,North Hills,,,,,https://www.galpinvolvo.com/,,,unverified,web research (brand locator blocked),
+Volvo,Volvo Cars Mission Viejo,Mission Viejo,,,,,https://www.volvocarsmissionviejo.com/,,,unverified,web research (brand locator blocked),
+Volvo,Volvo Cars Cerritos,Cerritos,,,,,https://www.volvocarscerritos.com/,,,unverified,web research (brand locator blocked),
+Volvo,Volvo Cars Orange County,Orange,,,,,https://www.volvocarsorangecounty.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Volvo,Volvo Cars Valencia,Valencia,,,,,https://www.volvocarsvalencia.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
