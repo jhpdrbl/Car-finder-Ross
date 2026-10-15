@@ -11,6 +11,7 @@ from scrapers.base import CONFIG
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "output"
 TRIM_GUIDE = ROOT / "data" / "trim_guide.json"   # hand-researched reference for the Trim guide tab
+WARRANTY = ROOT / "data" / "warranty.json"        # factory + certified pre-owned warranty terms by brand
 
 
 FUEL_LABEL = {"gas": "Gas", "hybrid": "Hybrid", "phev": "Plug-in hybrid", "ev": "Electric"}
@@ -175,7 +176,8 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                    "removed_on", "fail_reasons", "distance_mi")}
                         | {"hist": hist.get(r["vin"], [])})
     guide = json.loads(TRIM_GUIDE.read_text(encoding="utf-8")) if TRIM_GUIDE.exists() else {"models": []}
-    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide}, ensure_ascii=False).replace("</", "<\\/")
+    warranty = json.loads(WARRANTY.read_text(encoding="utf-8")) if WARRANTY.exists() else {"brands": []}
+    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
         .replace("__OK__", str(ok)).replace("__FAILED__", str(len(failed))).replace("__SKIPPED__", str(skipped)) \
         .replace("__MATCHES__", str(sum(1 for c in cars if not c["needs_call"]))) \
@@ -273,7 +275,14 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .off-chip { background:var(--bad-bg); color:var(--bad); }
 .gtools { display:grid; gap:8px; margin-bottom:12px; }
 .src { font-size:12px; color:var(--muted); margin-top:8px; overflow-wrap:anywhere; }
-.glink { font-size:12px; margin-left:6px; }
+.glink { font:600 12px system-ui, -apple-system, sans-serif; margin-left:6px; }
+.yby { margin:0 0 10px; font-size:14px; } .yby summary { cursor:pointer; color:var(--accent); font-weight:600; }
+.yby ul { margin:6px 0 0; padding-left:18px; } .yby li { margin:4px 0; }
+.wcards { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:10px; margin-top:8px; }
+.wcard { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:var(--bg); font-size:14px; }
+.wcard h3 { margin:0 0 4px; font-size:16px; } .wcard ul { margin:4px 0; padding-left:18px; } .wcard li { margin:2px 0; }
+.wline { white-space:normal; } .wline + .wline { margin-top:3px; } .wexp { color:var(--muted); text-decoration:line-through; }
+td.warr { min-width:190px; font-size:13px; }
 /* Phones: each car becomes a card, so nothing needs sideways scrolling */
 @media (max-width: 760px) {
   .phone-only { display:flex; } .sortbar select { max-width:none; }
@@ -321,11 +330,11 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
-  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option></select></div>
+  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_left:-1">Longest warranty</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="orig">Original price</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
-  <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="first_seen">First seen</th>
+  <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_left">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
 <div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
@@ -348,6 +357,9 @@ manufacturers' own press sites and brochures; dealers can add options, so check 
   <fieldset class="group" id="g-make"><legend>Make</legend></fieldset>
   <label class="pill"><input type="checkbox" id="g-only"><span>Only trims on my list</span></label>
 </div>
+<details class="gmodel" id="g-warranty" open><summary><b>Warranties by brand</b> <span class="small">(new-car and certified pre-owned)</span></summary>
+<p class="small">Each car on the Available tab also shows an estimate of the coverage it has left. The years count from the date the car was first sold new (its "in-service date"), which listings don't show, so the dates are a range: ask the dealer for the exact date.</p>
+<div class="wcards" id="wcards"></div></details>
 <div id="guide"></div>
 </div>
 <p class="small" id="footnote">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
@@ -387,6 +399,58 @@ function origCell(c) {
   if (c.orig == null) return "?";
   const save = c.dropped ? `<div class="save">${fmt$(c.orig - num(c.price_total))} less now</div>` : "";
   return `<span class="orig" title="${esc(c.histTip)}">${fmt$(c.orig)}</span>${save}`;
+}
+// ---- Warranty: what coverage a car has left (estimated) ----
+const W = {}; ((D.warranty && D.warranty.brands) || []).forEach(b => W[b.make.toLowerCase()] = b);
+const NOW = new Date(), THIS_YEAR = NOW.getFullYear();
+const kmi = n => n == null ? "unlimited miles" : (n >= 1000 ? Math.round(n / 1000) + "k" : n) + " mi";
+const yrs = (a, b) => a === b ? String(a) : a + "–" + String(b).slice(-2);
+// A model-year car is usually first sold between mid-(year-1) and the end of its model year.
+function coverLine(cov, c, label, baseEnd) {
+  const my = parseInt(c.year), mi = num(c.mileage);
+  if (cov.years == null && cov.miles == null) return "";
+  let lo, hi, when;
+  if (/purchase/i.test(cov.starts || "")) { lo = hi = THIS_YEAR + (cov.years || 0); when = "if bought now"; }
+  else if (/end of new/i.test(cov.starts || "") && baseEnd) { lo = baseEnd[0] + (cov.years || 0); hi = baseEnd[1] + (cov.years || 0); }
+  else if (my) { lo = my - 1 + (cov.years || 0); hi = my + (cov.years || 0); }
+  const milesLeft = cov.miles == null || mi == null ? null : cov.miles - mi;
+  const expired = (milesLeft != null && milesLeft <= 0) || (hi != null && hi < THIS_YEAR);
+  const until = lo != null ? `to ~${yrs(lo, hi)}${when ? " " + when : ""}` : "";
+  const text = `<b>${esc(label)}:</b> ${cov.years ? cov.years + " yr / " : ""}${kmi(cov.miles)}`;
+  if (expired) return {html: `<div class="wline wexp">${text}</div>`, left: 0};
+  const left = milesLeft == null ? "" : ` (${kmi(milesLeft)} left)`;
+  return {html: `<div class="wline">${text} · ${until}${left}</div>`, left: hi || 0};
+}
+function warrantyFor(c) {
+  const b = W[String(c.make).toLowerCase()];
+  if (!b) return {html: '<span class="muted">?</span>', left: 0};
+  const my = parseInt(c.year), lines = [];
+  const pick = re => (b.factory || []).find(f => re.test(f.name));
+  const basic = pick(/basic|bumper|limited warranty|new vehicle/i), pt = pick(/powertrain/i);
+  const hy = /hybrid|phev|ev/.test(c.fuel_type || "") ? pick(/hybrid|battery|electric|high.?voltage/i) : null;
+  const baseEnd = basic && my ? [my - 1 + basic.years, my + basic.years] : null;
+  ((b.cpo && b.cpo.coverage) || []).forEach(cv => lines.push(coverLine(cv, c, "CPO " + cv.name.toLowerCase(), baseEnd)));
+  const cpo = (b.cpo && b.cpo.coverage) || [];
+  const outdone = f => cpo.some(cv => /powertrain/i.test(cv.name) === /powertrain/i.test(f.name) && /in-service/i.test(cv.starts || "")
+    && (cv.years || 0) >= (f.years || 0) && (cv.miles == null || (f.miles != null && cv.miles >= f.miles)));   // CPO already covers it for longer
+  [[basic, "Factory basic"], [pt, "Factory powertrain"], [hy, "Hybrid battery"]].forEach(([f, l]) => {
+    if (f && !/^no/i.test(f.transfers || "") && !(f !== hy && outdone(f))) lines.push(coverLine(f, c, l, null)); });
+  const ok = lines.filter(Boolean);
+  return {html: ok.map(l => l.html).join("") || '<span class="muted">?</span>', left: Math.max(0, ...ok.map(l => l.left))};
+}
+D.cars.forEach(c => { const w = warrantyFor(c); c.warr_html = w.html; c.warr_left = w.left; });
+function renderWarranty() {
+  const brands = (D.warranty && D.warranty.brands) || [];
+  document.getElementById("g-warranty").hidden = !brands.length;
+  const line = f => `<li><b>${esc(f.name)}:</b> ${f.years ? f.years + " yr / " : ""}${kmi(f.miles)}${f.starts ? ", from " + esc(f.starts) : ""}${f.transfers && !/^yes/i.test(f.transfers) ? " (" + esc(f.transfers === "no" ? "first owner only" : f.transfers) + ")" : ""}${f.note ? " · " + esc(f.note) : ""}</li>`;
+  document.getElementById("wcards").innerHTML = brands.map(b => `<div class="wcard"><h3>${esc(b.make)}</h3>
+    ${b.cpo ? `<div><b>${esc(b.cpo.program)}</b></div><div class="small">${esc(b.cpo.summary || "")}</div><ul>${(b.cpo.coverage || []).map(line).join("")}</ul>
+      ${(b.cpo.perks || []).length ? `<div class="small">Also: ${b.cpo.perks.map(esc).join("; ")}</div>` : ""}` : ""}
+    <div style="margin-top:6px"><b>New-car warranty</b></div><ul>${(b.factory || []).map(line).join("")}</ul>
+    ${b.factory_note ? `<div class="small">${esc(b.factory_note)}</div>` : ""}
+    ${b.maintenance ? `<div class="small">Maintenance: ${esc(b.maintenance)}</div>` : ""}
+    ${(b.sources || []).length ? `<div class="src">Sources: ${b.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join(", ")}</div>` : ""}
+  </div>`).join("");
 }
 // ---- Trim guide tab ----
 const G = (D.guide && D.guide.models) || [];
@@ -428,6 +492,8 @@ function renderGuide() {
       <div class="years" role="group" aria-label="Model year">${(m.years || []).map(v =>
         `<button type="button" data-m="${m.id}" data-y="${v.year}" aria-pressed="${v.year === y.year}">${v.year}</button>`).join("")}</div>
       ${y.what_changed ? `<p class="small changed"><b>${y.year}:</b> ${esc(y.what_changed)}</p>` : ""}
+      ${(m.years || []).length > 1 ? `<details class="yby"><summary>How the years differ</summary><ul>${m.years.map(v =>
+        `<li><b>${v.year}:</b> ${esc(v.what_changed || "")}</li>`).join("")}</ul></details>` : ""}
       <div class="trims">${trims.map(trimCard).join("") || '<div class="muted">No trims on your list this year.</div>'}</div>
       ${(m.sources || []).length ? `<div class="src">Sources: ${m.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join(", ")}</div>` : ""}
     </section>`; }).join("");
@@ -480,8 +546,8 @@ function renderRows() {
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="span2" data-l="Features">${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
-    <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
-    || '<tr><td colspan="13" class="muted">No cars match these filters.</td></tr>';
+    <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
+    || '<tr><td colspan="14" class="muted">No cars match these filters.</td></tr>';
 }
 document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
@@ -515,7 +581,7 @@ function showTab(which) {
 document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
 document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
 document.getElementById("tab-guide").addEventListener("click", () => showTab("guide"));
-renderGuide();
+renderGuide(); renderWarranty();
 try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "gone" || t === "guide") showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
