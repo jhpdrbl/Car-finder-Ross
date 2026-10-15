@@ -12,13 +12,14 @@ from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup
 
 from scrapers.base import FetchError, Fetcher
+from scrapers.generic_jsonld import PARSER
 
 BRAND_WORDS = {"Audi": ["audi"], "BMW": ["bmw"], "Mercedes-Benz": ["mercedes"], "Ford": ["ford"],
                "Volvo": ["volvo"], "Volkswagen": ["volkswagen", "vw"]}
 
 
 def jsonld_address(html: str):
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, PARSER)
     for tag in soup.find_all("script", type="application/ld+json"):
         try:
             data = json.loads(tag.string or "")
@@ -52,7 +53,7 @@ def check(row: dict) -> dict:
     out["site_status"] = str(r.status_code)
     out["final_url"] = r.url
     if r.status_code == 200:
-        soup = BeautifulSoup(r.text, "lxml")
+        soup = BeautifulSoup(r.text, PARSER)
         out["title"] = (soup.title.get_text(strip=True) if soup.title else "")[:120]
         words = BRAND_WORDS.get(row["brand"], [row["brand"].lower()])
         out["brand_ok"] = str(any(w in (out["title"] + r.url).lower() for w in words))

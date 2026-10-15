@@ -8,6 +8,7 @@ Every result links to the dealer's own listing page and includes the VIN.
 - **Handoff / current state for a new Claude session:** [CLAUDE.md](CLAUDE.md)
 - **Running it with Claude Code on the laptop (recommended):** [LAPTOP-HANDOVER.md](LAPTOP-HANDOVER.md)
 - **User's step-by-step setup (Windows laptop + phone page):** [SETUP-WINDOWS.md](SETUP-WINDOWS.md)
+- **Running the search from the iPad (a-Shell app):** [IPAD.md](IPAD.md)
 
 ## Quick start on the laptop
 
@@ -67,10 +68,12 @@ python run.py diagnose --brand Audi         # how dealer sites look from this ma
 python run.py diagnose --platform dealer_inspire | --dealer "Audi Pasadena"
 python run.py dealers [--refresh-raw] [--detect]   # rebuild data/dealers.csv
 python -m tools.build_site                  # build site/ locally (what the publish workflow deploys)
+python ipad.py                              # iPad (a-Shell): update, search, upload via GitHub API (IPAD.md)
+powershell -ExecutionPolicy Bypass -File setup-schedule.ps1 [-Time 06:30] [-Remove]   # laptop: automatic daily search
 ```
 
 On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files wrap these:
-`setup.bat`, `refresh.bat` (runs, opens the dashboard, offers to publish), `share-results.bat`
+`setup.bat`, `refresh.bat` (runs, opens the dashboard, offers to publish), `scheduled-refresh.bat` (no prompts; used by the daily task; logs to `logs/`), `share-results.bat`
 (pull + commit `data/` `output/` + push), `diagnose.bat`, `update.bat` (git pull).
 
 ## Pipeline (`run.py refresh`)

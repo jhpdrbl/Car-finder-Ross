@@ -95,8 +95,27 @@ git pull --no-edit && git add data output && git commit -m "Results from laptop 
    to fix `scrapers/audi_network.py` (open item 1 below) **before** the first full refresh. Commit
    code fixes too.
 
+7. **Automatic daily search** (the user asked for it): ask what time they want (default 6:30 am), then
+   `powershell -ExecutionPolicy Bypass -File setup-schedule.ps1 -Time 06:30`. It registers a Task Scheduler
+   task that runs `scheduled-refresh.bat` (pull → pip → `run.py refresh` → pull -X ours → add data output →
+   commit → push), wakes the laptop, catches up if it was off, and logs to `logs\refresh_<stamp>.log`.
+   Tell the user to keep the laptop plugged in and, if Windows asks, allow wake timers
+   (Control Panel → Power Options → Change plan settings → Advanced → Sleep → Allow wake timers → Enable).
+   `-Remove` turns it off. Test once by running `scheduled-refresh.bat` and reading the log.
+   Before a manual refresh, check for `logs\running.lock` (a scheduled run in progress, if < 3 h old).
+
 **Things that make coverage worse on the laptop:** a VPN (looks like a datacenter again) or the
 laptop sleeping mid-run. If a big share of dealers fail as "blocked", ask whether a VPN is on.
+
+### Running from the iPad itself (a-Shell)
+
+The user can also run the full search on the iPad with the a-Shell app (`IPAD.md`, user-facing steps):
+`python ipad.py` downloads the branch zip (repo is public), runs `run.py refresh` in-process (iOS apps
+can't fork/exec), and uploads `data/` + `output/` through the GitHub Git Data API with a fine-grained
+token in `.github_token` (gitignored). `python ipad.py check` = dry run against GitHub. Limits: no
+Playwright on iPad (browser-only dealer sites fail; matters for Audi), no `lxml` (falls back to
+`html.parser`, same results in testing), a-Shell must stay in the foreground. The upload path was
+untested until the user's first iPad run (Oct 2026); if it fails, read the error and fix `ipad.py`.
 
 ### If you are a Claude session IN THE CLOUD (the user is on the iPad)
 

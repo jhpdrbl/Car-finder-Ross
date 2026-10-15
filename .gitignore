@@ -6,3 +6,5 @@ __pycache__/
 data/cache/
 site/
 data/run_state.json
+logs/
+.github_token

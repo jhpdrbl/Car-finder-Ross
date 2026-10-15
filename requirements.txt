@@ -1,9 +1,8 @@
 requests>=2.31
 requests-cache>=1.2
 beautifulsoup4>=4.12
-lxml>=5.0
+lxml>=5.0       # optional: faster page parsing; skipped where it can't install (iPad)
 pyyaml>=6.0
-jinja2>=3.1
 markdown>=3.5   # renders the digest for the phone page (tools/build_site.py)
 # Optional, only for JavaScript-only dealer sites (scrapers/playwright_fallback.py):
 # playwright>=1.48

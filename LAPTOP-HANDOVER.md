@@ -34,6 +34,7 @@ Paste this into Claude Code on the laptop:
 > 5. Then run the full refresh, publish the results to my phone page, and tell me in plain
 >    words: how many cars match, how many need a call, what's new, any price drops, and which
 >    dealers failed and why. I'm not technical, so keep it simple.
+> 6. Then set up the automatic daily search (CLAUDE.md, first-time step 7) for 6:30 am every day.
 
 What to expect:
 - **Permission prompts.** Claude asks before each command. Click **Allow**. If you see
@@ -51,6 +52,14 @@ Open the Claude app → **Code** → the **Car-finder-Ross** folder (in Document
 
 That's it. Claude gets the latest version of the tool first (in case it was improved from your
 iPad), runs the search, uploads the results, and gives you a summary.
+
+## Automatic search every morning
+
+After the first session, the laptop runs the search **by itself every morning** (6:30 am unless you
+asked for another time) and updates your phone page. Keep it **plugged in**; it can be closed or asleep,
+it wakes itself up. If it was off at that time, it runs the next time it's on.
+To change the time or stop it, ask Claude on the laptop ("run the daily search at 7 instead" / "stop the
+daily search"). You can also run the search from your iPad any time: see [IPAD.md](IPAD.md).
 
 ## Your phone page after a laptop search
 

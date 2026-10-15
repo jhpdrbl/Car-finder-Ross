@@ -10,6 +10,12 @@ from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
+try:   # lxml is faster; Python's built-in parser is the fallback where lxml can't be installed (e.g. an iPad)
+    import lxml  # noqa: F401
+    PARSER = "lxml"
+except ImportError:
+    PARSER = "html.parser"
+
 from .base import FetchError, fetcher
 from .listing import (VIN_ANY, VIN_RE, Listing, integer, money, url_condition,
                       url_matches_brand_models, url_vin, url_years)
@@ -249,7 +255,7 @@ def classify_drivetrain(s: str) -> str:
 
 def parse_vdp(html: str, url: str) -> Listing | None:
     """Parse one dealer VDP. Returns None when the page holds no vehicle."""
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, PARSER)
     vehicles = _jsonld_vehicles(soup)
     for t in soup(["script", "style", "noscript", "svg", "header", "nav", "footer"]):
         t.decompose()
@@ -389,7 +395,7 @@ def parse_vdp(html: str, url: str) -> Listing | None:
 
     # CARFAX: badge images/text on the dealer page only (never fetch carfax.com)
     badges = set()
-    for img in BeautifulSoup(html, "lxml").find_all(["img", "a"]):
+    for img in BeautifulSoup(html, PARSER).find_all(["img", "a"]):
         blob = " ".join(str(img.get(k, "")) for k in ("src", "alt", "title", "href", "aria-label", "data-src"))
         if "carfax" in blob.lower():
             for b in CARFAX_BADGE.findall(blob):
