@@ -114,7 +114,9 @@ The user can also run the full search on the iPad with the a-Shell app (`IPAD.md
 can't fork/exec), and uploads `data/` + `output/` through the GitHub Git Data API with a fine-grained
 token in `.github_token` (gitignored). `python ipad.py check` = dry run against GitHub. Limits: no
 Playwright on iPad (browser-only dealer sites fail; matters for Audi), no `lxml` (falls back to
-`html.parser`, same results in testing), a-Shell must stay in the foreground. The upload path was
+`html.parser`, same results in testing), a-Shell must stay in the foreground. **The SQLite page cache
+deadlocks in a-Shell with many threads** (first iPad run, Oct 15 2026: every dealer thread stuck in
+`requests_cache/backends/sqlite.py`), so `ipad.py` sets `CARFINDER_CACHE=memory` and `--workers 12`. The upload path was
 untested until the user's first iPad run (Oct 2026); if it fails, read the error and fix `ipad.py`.
 
 ### If you are a Claude session IN THE CLOUD (the user is on the iPad)

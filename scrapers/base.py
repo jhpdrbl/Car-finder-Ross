@@ -1,6 +1,7 @@
 """Shared fetching: caching, per-domain rate limiting, robots.txt, User-Agent."""
 from __future__ import annotations
 
+import os
 import random
 import threading
 import time
@@ -46,8 +47,11 @@ class Fetcher:
     def __init__(self, cache_name: str = ".cache/http", use_cache: bool = True):
         (ROOT / ".cache").mkdir(exist_ok=True)
         if use_cache:
+            # CARFINDER_CACHE=memory (set by ipad.py): on the iPad (a-Shell) the SQLite cache deadlocks
+            # when many threads share it, so pages are kept in memory for the run instead.
             self.session = requests_cache.CachedSession(
                 str(ROOT / cache_name),
+                backend=os.environ.get("CARFINDER_CACHE", "sqlite"),
                 expire_after=SCRAPE["cache_hours"] * 3600,
                 allowable_codes=(200, 301, 302, 404),
                 allowable_methods=("GET", "POST"),

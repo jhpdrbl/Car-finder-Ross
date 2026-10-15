@@ -133,7 +133,10 @@ def upload(dry_run: bool = False) -> None:
 # ---- the search ----
 
 def search() -> None:
-    sys.argv = ["run.py", "refresh"]
+    # a-Shell: the SQLite page cache deadlocks with many threads (seen Oct 2026), so keep pages in memory,
+    # and read fewer dealers at once (each site is still visited at the same polite pace).
+    os.environ["CARFINDER_CACHE"] = "memory"
+    sys.argv = ["run.py", "refresh", "--workers", "12"]
     try:
         runpy.run_path(str(ROOT / "run.py"), run_name="__main__")
     except SystemExit as e:              # run.py finishing normally shouldn't stop the upload
