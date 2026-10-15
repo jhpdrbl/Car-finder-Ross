@@ -368,13 +368,14 @@ render();
   try {
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const wrap = document.createElement("div"); wrap.id = "drive"; wrap.setAttribute("aria-hidden", "true");
+    // side view facing right (direction of travel): tailgate at left, hood + windshield at right
     wrap.innerHTML = `<canvas></canvas><svg class="car" viewBox="0 0 150 64">
-      <path fill="currentColor" d="M8 44 L10 30 Q12 24 20 23 L44 21 L60 9 Q64 6 70 6 L112 6 Q118 6 121 10 L132 23 L140 25 Q146 27 146 33 L146 44 Q146 47 143 47 L8 47 Q6 47 8 44 Z"/>
-      <path fill="var(--bg)" opacity=".85" d="M50 22 L63 11 Q65 10 68 10 L88 10 L88 22 Z M92 10 L110 10 Q114 10 116 13 L124 22 L92 22 Z"/>
-      <rect x="135" y="30" width="8" height="4" rx="2" fill="#f6d36b"/>
-      <rect x="9" y="31" width="5" height="4" rx="1.5" fill="#d9534f"/>
-      <g class="wheel"><circle cx="36" cy="47" r="11" fill="var(--fg)"/><circle cx="36" cy="47" r="5" fill="var(--muted)"/><rect x="35" y="38" width="2" height="18" fill="var(--fg)"/></g>
-      <g class="wheel"><circle cx="118" cy="47" r="11" fill="var(--fg)"/><circle cx="118" cy="47" r="5" fill="var(--muted)"/><rect x="117" y="38" width="2" height="18" fill="var(--fg)"/></g>
+      <path fill="currentColor" d="M6 46 L6 22 Q6 10 16 9 L96 8 Q101 8 104 11 L118 23 L138 26 Q146 28 146 35 L146 44 Q146 47 143 47 L9 47 Q6 47 6 46 Z"/>
+      <path fill="var(--bg)" opacity=".85" d="M12 21 L13 13 Q14 12 16 12 L48 12 L48 21 Z M52 12 L90 12 L90 21 L52 21 Z M94 12 L99 12 Q101 12 103 14 L111 21 L94 21 Z"/>
+      <rect x="138" y="29" width="8" height="4" rx="2" fill="#f6d36b"/>
+      <rect x="6" y="24" width="4" height="7" rx="1.5" fill="#d9534f"/>
+      <g class="wheel"><circle cx="32" cy="47" r="11" fill="var(--fg)"/><circle cx="32" cy="47" r="5" fill="var(--muted)"/><rect x="31" y="38" width="2" height="18" fill="var(--fg)"/></g>
+      <g class="wheel"><circle cx="116" cy="47" r="11" fill="var(--fg)"/><circle cx="116" cy="47" r="5" fill="var(--muted)"/><rect x="115" y="38" width="2" height="18" fill="var(--fg)"/></g>
     </svg>`;
     document.body.appendChild(wrap);
     const cv = wrap.querySelector("canvas"), car = wrap.querySelector(".car"), ctx = cv.getContext("2d");
@@ -399,7 +400,7 @@ render();
       ctx.globalCompositeOperation = "source-over";
       if (p < 1 && lastX !== null) {
         ctx.strokeStyle = mark; ctx.globalAlpha = 0.45; ctx.lineCap = "round";
-        for (const [wx, off, lw] of [[36, 0, 3.5], [118, 0, 3.5], [36, 4, 1.5], [118, 4, 1.5]]) {
+        for (const [wx, off, lw] of [[32, 0, 3.5], [116, 0, 3.5], [32, 4, 1.5], [116, 4, 1.5]]) {
           ctx.lineWidth = lw; ctx.beginPath();
           ctx.moveTo(lastX + wx, groundY + off); ctx.lineTo(x + wx, groundY + off); ctx.stroke();
         }
