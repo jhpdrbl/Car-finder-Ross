@@ -219,7 +219,9 @@ refresh: about 80 dealers will fail as "blocked". What to do:
   CARFAX listings, iSeeCars, Westlake, NetLook). Blocked in `scrapers/base.py:is_blocked_host`.
   Official brand sites (genesis.com, subaru.com CPO searches) are allowed; they're not aggregators.
 - **Never fetch carfax.com.** CARFAX status only from badges/text on the dealer page.
-- Respect robots.txt, 1 request / 2–3 s per domain, 6 h cache, honest User-Agent. (No 429s have ever been seen;
+- Respect robots.txt (`base.Robots`, RFC 9309: `*`/`$` wildcards, most specific group, longest match;
+  4xx = no file = allowed, **5xx/unreachable = whole site off limits**; replaced urllib.robotparser in Oct 2026,
+  which ignored wildcards), 1 request / 2–3 s per domain, 6 h cache, honest User-Agent. (No 429s have ever been seen;
   all blocking so far is bot protection on the first request, which delays don't affect.)
 - Ask before installing heavy things on the user's machines.
 
