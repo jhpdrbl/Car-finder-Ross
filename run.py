@@ -11,6 +11,7 @@ import argparse
 import sys
 import time
 from datetime import date, datetime
+from pathlib import Path
 
 try:  # Windows consoles default to cp1252; the digest uses emoji
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -39,25 +40,39 @@ def refresh(args) -> None:
         + (f", brands {sorted(brands)}" if brands else "")
         + ("" if playwright_fallback.available() else " (Playwright not installed: browser fallback off)"))
 
+    # Reuse last run's rows for cars excluded for permanent reasons, unless the rules changed.
+    rules_id = _rules_fingerprint()
+    state = _read_state()
+    prev_rows: dict = {}
+    if args.full:
+        log("   --full: re-reading every listing page")
+    elif state.get("rules") != rules_id:
+        log("   rules changed since the last run: re-reading every listing page this time")
+    else:
+        for r in history.read_csv(history.DATA / "listings.csv"):
+            prev_rows[r["listing_url"]] = r
+            prev_rows[r["vin"]] = r
+
     log("1/6 Brand certified-inventory feeds")
     feed_listings, feed_stats = pipeline.run_brand_feeds(brands, log) if not args.dealers else ([], {})
 
     log(f"2/6 Dealer websites ({args.workers} at a time, 1 request per 2-3 s per site)")
-    results = pipeline.scrape_all(dealers, brands, args.workers, log)
+    results = pipeline.scrape_all(dealers, brands, args.workers, log, prev_rows, today)
+    n_read = sum(r.parsed for r in results)
+    n_reused = sum(len(r.carried) for r in results)
+    n_skip = sum(r.skipped_pages for r in results)
+    log(f"   {n_read} listing pages read; {n_reused} unchanged exclusions reused; {n_skip} skipped by URL/VIN pre-filter")
 
     log("3/6 Reading dealer pages for brand-feed cars (sunroof, audio, CARFAX badges...)")
-    reachable: dict[str, bool] = {}
-    n_enriched = 0
-    for L in feed_listings:
-        if not args.enrich or (L.year or 0) < 2023 or (L.mileage or 0) >= 40000 or (L.price or 0) > 42000:
-            continue
-        d = by_name.get(L.dealer, {})
-        home = d.get("homepage", "")
-        if home not in reachable:
-            reachable[home] = pipeline.homepage_status(home)[0] if home else False
-        if reachable[home]:
-            pipeline.enrich_from_dealer_page(L)
-            n_enriched += 1
+    from concurrent.futures import ThreadPoolExecutor
+    todo = [L for L in feed_listings if args.enrich and (L.year or 0) >= 2023 and (L.mileage or 0) < 40000
+            and (L.price or 0) <= 42000]
+    homes = sorted({by_name.get(L.dealer, {}).get("homepage", "") for L in todo} - {""})
+    with ThreadPoolExecutor(max_workers=16) as ex:        # different dealer sites in parallel; same site still 2-3 s apart
+        reachable = dict(zip(homes, ex.map(lambda h: pipeline.homepage_status(h)[0], homes)))
+        ok_cars = [L for L in todo if reachable.get(by_name.get(L.dealer, {}).get("homepage", ""))]
+        list(ex.map(pipeline.enrich_from_dealer_page, ok_cars))
+    n_enriched = len(ok_cars)
     blocked_feed_dealers = sorted(h for h, ok in reachable.items() if not ok)
     log(f"   read {n_enriched} dealer pages; {len(blocked_feed_dealers)} feed dealers' sites blocked")
 
@@ -82,11 +97,13 @@ def refresh(args) -> None:
             flags = recalls.campaigns(L.make or (decodes.get(L.vin) or {}).get("Make", ""), L.model, L.year)
             fill_mpg(L)
         r = L.to_dict()
-        r.update(status=status, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
+        r.update(status=status, last_read=today, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
                  notes="; ".join(notes), recall_flags="; ".join(flags),
                  est_monthly_cost=criteria.monthly_cost(L.price_total) or "",
                  score=criteria.score(L) if not fails else "", distance_mi=dealer.get("distance_mi", ""))
         rows.append({k: ("" if v is None else v) for k, v in r.items()})
+    fresh = {r["vin"] for r in rows}
+    rows += [dict(c) for r in results for c in r.carried if c["vin"] not in fresh]   # reused exclusions
     n_match = sum(1 for r in rows if r["status"] == "active" and not r["needs_call"])
     n_call = sum(1 for r in rows if r["status"] == "active" and r["needs_call"])
     log(f"   {len(rows)} listings checked: {n_match} meet all criteria, {n_call} need a call")
@@ -109,6 +126,8 @@ def refresh(args) -> None:
     digest = outputs.write_digest(all_rows, changes, cov, today)
     dash = outputs.write_dashboard(all_rows, history.read_csv(history.DATA / "price_history.csv"), cov, today)
     _stamp_dealers({r.dealer["dealer_name"] for r in results if r.status == "success"}, today)
+    if not args.dealers and not brands:
+        _write_state({"rules": rules_id, "last_full_run": today})
 
     failed = [c for c in cov if c["status"] == "failed"]
     print()
@@ -123,6 +142,33 @@ def refresh(args) -> None:
     print(f"Dashboard: {dash}")
     print(f"Listings:  {history.DATA / 'listings.csv'}")
     print(f"Done in {(time.time() - t0) / 60:.1f} min")
+
+
+STATE = Path(__file__).resolve().parent / "data" / "run_state.json"
+
+
+def _rules_fingerprint() -> str:
+    """Changes whenever the criteria change, so reused rows never carry stale decisions."""
+    import hashlib
+    root = Path(__file__).resolve().parent
+    h = hashlib.sha256()
+    for f in ("config.yaml", "core/criteria.py", "verify/certification.py", "verify/vin_decode.py",
+              "scrapers/generic_jsonld.py"):
+        h.update((root / f).read_bytes())
+    return h.hexdigest()[:16]
+
+
+def _read_state() -> dict:
+    import json
+    try:
+        return json.loads(STATE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def _write_state(state: dict) -> None:
+    import json
+    STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
 
 
 def fill_mpg(L) -> None:
@@ -168,7 +214,9 @@ def main() -> None:
     r = sub.add_parser("refresh", help="run the whole search")
     r.add_argument("--brands", help="comma-separated, e.g. Audi,Subaru")
     r.add_argument("--dealers", help="only dealers whose name contains this text")
-    r.add_argument("--workers", type=int, default=8, help="dealer sites scraped in parallel (default 8)")
+    r.add_argument("--workers", type=int, default=24, help="dealer sites scraped in parallel (default 24; each site "
+                   "still gets at most 1 request per 2-3 s)")
+    r.add_argument("--full", action="store_true", help="re-read every listing page (don't reuse unchanged exclusions)")
     r.add_argument("--no-enrich", dest="enrich", action="store_false", help="skip reading dealer pages for brand-feed cars")
     r.set_defaults(func=refresh)
     d = sub.add_parser("dealers", help="rebuild data/dealers.csv")

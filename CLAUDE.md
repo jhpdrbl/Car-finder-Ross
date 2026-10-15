@@ -50,7 +50,7 @@ From the repo folder (PowerShell):
 ```powershell
 git pull                                   # get the latest code
 .\.venv\Scripts\python run.py diagnose --brand Audi    # first time only; read output\diagnose_<date>.md
-.\.venv\Scripts\python run.py refresh      # full search, ~20-40 min; prints the coverage report
+.\.venv\Scripts\python run.py refresh      # full search; first run ~10-20 min, repeat runs faster; prints the coverage report
 .\share-results.bat nopause                # git pull + add data output + commit + push -> publishes
 ```
 
@@ -140,6 +140,22 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 - Respect robots.txt, 1 request / 2–3 s per domain, 6 h cache, honest User-Agent.
 - Ask before installing heavy things on the user's machines.
 
+## Performance design (Oct 2026)
+
+- 24 dealers in parallel; politeness is per domain (`base.Fetcher._throttle`), so more workers never
+  hits one site faster. Up to 3 headless browsers at once (`playwright_fallback._lock`).
+- Before reading listing pages: `pipeline.prefilter` drops URLs matching `listing.URL_SKIP` and
+  batch-decodes VINs from URLs (`listing.url_vin`, which also reads Audi's `?vehicleId=`) to drop
+  off-list models/years.
+- Cars excluded last run for a **permanent** reason are reused without re-reading
+  (`pipeline.carry_forward_ok`; price-only exclusions re-read every 2 days). Reuse is disabled
+  automatically when the rules fingerprint changes (`run.py:_rules_fingerprint`, stored in the
+  gitignored `data/run_state.json`), or with `--full`.
+- Model rules are data, not code: `config.yaml: models:` (allow regex + rules with if/unless/then/min_year),
+  interpreted by `criteria.model_check`. Add a model there plus a token in `listing.MODEL_TOKENS`.
+- Coverage honesty: a dealer whose inventory couldn't be seen (browser blocked, no inventory pages)
+  is **failed**, not "no matching models".
+
 ## Gotchas
 
 - Windows consoles are cp1252; `run.py` reconfigures stdout to UTF-8. Open files with `encoding="utf-8"`.
@@ -151,5 +167,5 @@ refresh: about 80 dealers will fail as "blocked". What to do:
   the name, title, URL or page data excludes the car (`criteria.NAME_2WD`); AWD/4MATIC/xDrive/quattro passes.
 - Some sites answer bots with a "Client Challenge" page **with HTTP 200**. `generic_jsonld.CHALLENGE_PAGE`
   treats it as blocked, and a page with a VIN but no price/mileage/model/color is not a listing.
-- `data/cache/` (vPIC, recalls, EPA) is gitignored and rebuilds itself.
+- `data/cache/` (vPIC, recalls, EPA) is gitignored and rebuilds itself; writes are atomic and the vPIC cache is shared under a lock (dealer threads decode in parallel).
 - Commit trailers this project uses: `Co-Authored-By` / `Claude-Session` lines per session instructions.

@@ -88,7 +88,7 @@ def coverage_rows(results, feed_stats: dict) -> list[dict]:
                      "listings": st.get("in_area", ""), "distance_mi": "", "homepage": ""})
     for r in sorted(results, key=lambda r: (r.dealer["brand"], r.status != "success", float(r.dealer["distance_mi"] or 0))):
         rows.append({"brand": r.dealer["brand"], "dealer": r.dealer["dealer_name"], "status": r.status,
-                     "reason": r.reason, "listings": r.parsed, "distance_mi": r.dealer["distance_mi"],
+                     "reason": r.reason, "listings": r.parsed + len(r.carried), "distance_mi": r.dealer["distance_mi"],
                      "homepage": r.dealer["homepage"], "method": r.method})
     return rows
 

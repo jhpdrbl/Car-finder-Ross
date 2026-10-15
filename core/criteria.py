@@ -23,80 +23,32 @@ HOME = CONFIG["home"]
 # Model rules
 # --------------------------------------------------------------------------
 
+MODELS = CONFIG["models"]
+
+
 def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
-    """Return (fails, unknown, notes) for brand/model/trim rules."""
+    """Return (fails, unknown, notes) from the brand's rules in config.yaml `models:`."""
     fails, unknown, notes = [], [], []
-    make = (d.get("Make") or L.make or "").title()
+    spec = MODELS.get(L.dealer_brand)
+    if not spec:
+        return fails, unknown, notes
     model = f'{d.get("Model") or ""} {L.model}'.lower()
-    trim = f'{d.get("Trim") or ""} {d.get("Series") or ""} {L.trim} {L.title}'.lower()
-    year = L.year or 0
-    brand = L.dealer_brand
-    if brand == "Audi":
-        if re.search(r"\bsq[35]\b|\brs ?q", model + " " + trim):
-            fails.append("SQ3/SQ5/RS model (performance versions not on the list)")
-        elif not re.search(r"\bq[35]\b", model):
-            fails.append(f"model {L.model or d.get('Model')} not on the Audi list (Q3, Q5)")
-        if "sportback" in model + trim:
-            notes.append("Sportback")
-    elif brand == "Genesis":
-        if not re.search(r"gv70|gv80", model):
-            fails.append(f"model {L.model} not on the Genesis list (GV70, GV80)")
-        elif "gv80" in model and "coupe" in model + trim:
-            notes.append("GV80 Coupe")
-    elif brand == "Subaru":
-        if "forester" in model:
-            hybrid = "hybrid" in model + trim or (d.get("ElectrificationLevel") or "").lower().startswith("strong")
-            if not hybrid and not re.search(r"limited|touring|wilderness", trim):
-                fails.append(f"Forester trim {L.trim or '?'} (Limited/Touring/Wilderness or Hybrid only)")
-        elif "outback" in model:
-            if not re.search(r"limited|touring|wilderness", trim):
-                fails.append(f"Outback trim {L.trim or '?'} (Limited/Touring/Wilderness only)")
-        else:
-            fails.append(f"model {L.model} not on the Subaru list")
-    elif brand == "BMW":
-        if not re.search(r"\bx[35]\b", model):
-            fails.append(f"model {L.model} not on the BMW list (X3, X5)")
-        elif re.search(r"sdrive", trim):
-            fails.append("sDrive (rear-wheel drive)")
-        elif re.search(r"\bm40|\bm50|\bm60|x[35] m\b|competition", trim + " " + model):
-            fails.append("M version (only X3 xDrive30i, X5 xDrive40i/50e)")
-    elif brand == "Mercedes-Benz":
-        if not re.search(r"glc|gle", model):
-            fails.append(f"model {L.model} not on the Mercedes list (GLC 300, GLE 350/450/450e)")
-        elif re.search(r"amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580", model + " " + trim):
-            fails.append("AMG / Coupe / GLE 580 (not on the list)")
-        elif "glc" in model and re.search(r"350e", model + trim):
-            fails.append("GLC 350e (only GLC 300)")
-    elif brand == "Volkswagen":
-        if "tiguan" not in model:
-            fails.append(f"model {L.model} not on the VW list (Tiguan)")
-        elif year and year < 2025:
-            fails.append("Tiguan before 2025 (AWD versions have a third row)")
-    elif brand == "Lexus":
-        if not re.search(r"\b(nx|rx)\b", model):
-            fails.append(f"model {L.model} not on the Lexus list (NX, RX)")
-        elif re.search(r"rx ?\d{3}h?\+? ?l\b|\brx ?l\b", model + " " + trim):
-            fails.append("RX L (3-row)")
-        elif re.search(r"nx ?250|\b250\b", model + trim) and not re.search(r"350|450", model + trim):
-            fails.append("NX 250 (only NX 350 / 350h / 450h+)")
-    elif brand == "Volvo":
-        if not re.search(r"xc60|xc40|ex40", model):
-            fails.append(f"model {L.model} not on the Volvo list (XC60, XC40)")
-    elif brand == "Toyota":
-        if "4runner" in model:
-            pass
-        elif "land cruiser" in model:
-            if year and year < 2024:
-                fails.append("Land Cruiser before 2024")
-        else:
-            fails.append(f"model {L.model} not on the Toyota list (4Runner, Land Cruiser 2024+)")
-    elif brand == "Ford":
-        if "bronco" not in model or "sport" in model:
-            fails.append("not a Bronco (Bronco Sport excluded)")
-        elif re.search(r"2[- ]?door|2dr", trim):
-            fails.append("2-door Bronco")
-        elif not re.search(r"4[- ]?door|4dr", trim + " " + L.listing_url.lower()):
-            unknown.append("confirm it's a 4-door Bronco")
+    text = " ".join([model, d.get("Trim") or "", d.get("Series") or "", L.trim, L.title, L.listing_url,
+                     d.get("ElectrificationLevel") or ""]).lower()
+    if not re.search(spec["allow"], model):
+        fails.append(f"model {L.model or d.get('Model') or '?'} not on the {L.dealer_brand} list ({spec['list']})")
+        return fails, unknown, notes
+    out = {"fail": fails, "call": unknown, "note": notes}
+    for rule in spec.get("rules") or []:
+        if "if" in rule and not re.search(rule["if"], text):
+            continue
+        if "unless" in rule and re.search(rule["unless"], text):
+            continue
+        if "min_year" in rule:
+            if L.year and L.year < rule["min_year"]:
+                fails.append(rule["why"])
+            continue
+        out[rule["then"]].append(rule["why"])
     return fails, unknown, notes
 
 

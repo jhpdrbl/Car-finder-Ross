@@ -14,7 +14,7 @@ from urllib.parse import urljoin, urlparse
 from .base import CONFIG, FetchError, fetcher
 from .listing import VIN_ANY, url_condition, url_matches_brand_models, url_years
 
-_lock = threading.Lock()   # one browser page at a time keeps memory use small
+_lock = threading.BoundedSemaphore(3)   # up to 3 browsers at once (different sites); keeps memory use modest
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36 "
       + CONFIG["scrape"]["user_agent"].split(" ")[0])
 INVENTORY_HINT = re.compile(r"(used|pre-?owned|certified|cpo|inventory|search)", re.I)

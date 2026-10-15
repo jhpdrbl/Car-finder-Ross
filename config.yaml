@@ -79,57 +79,69 @@ buying_context:
   - "Insurance: AAA (bundled with renters)"
   - "Gas-only cars capped at $35,000"
 
-# Allowed brand/model combos. CPO program = the automaker's own program.
-brands:
+# Which models count, per dealer brand. Each brand has:
+#   allow: regex that the model name must match
+#   rules: checked against "model + trim + title + listing URL" (lower case);
+#          when `if` matches (and `unless` doesn't), the car is excluded (fail),
+#          sent to Needs a call (call), or just flagged (note). `min_year` adds a year rule.
+# CPO program names are in verify/certification.py.
+models:
   Audi:
-    cpo_programs: ["Audi Certified pre-owned", "Audi Certified", "Audi Approved"]
-    models:
-      - {model: Q5, include: ["40", "45", "55", "TFSI e", "Premium", "Prestige"], flag_if: {Sportback: "Sportback"}}
-      - {model: Q3, note: "added Oct 2026; SQ3/RS excluded"}
+    allow: '\bq[35]\b'
+    list: Q3, Q5
+    rules:
+      - {if: '\bsq[35]\b|\brs ?q', then: fail, why: 'SQ3/SQ5/RS model (performance versions not on the list)'}
+      - {if: 'sportback', then: note, why: 'Sportback'}
   Genesis:
-    cpo_programs: ["Genesis Certified", "Certified Pre-Owned"]
-    models:
-      - {model: GV70, exclude_trim: ["base", "standard"], note: "Base 2.5T has no sunroof; Select or higher"}
-      - {model: "Electrified GV70", fuel: ev}
-      - {model: GV80, note: "added Oct 2026; 2-row only (third-row versions excluded); GV80 Coupe flagged"}
+    allow: 'gv70|gv80'
+    list: GV70, GV80
+    rules:
+      - {if: 'gv80.*coupe', then: note, why: 'GV80 Coupe'}
   Subaru:
-    cpo_programs: ["Subaru Certified Pre-Owned", "Subaru Certified"]
-    models:
-      - {model: Forester, include: [Limited, Touring, Wilderness]}
-      - {model: Outback, include: [Limited, Touring, Wilderness]}
+    allow: 'forester|outback'
+    list: Forester, Outback
+    rules:
+      - {if: 'forester', unless: 'limited|touring|wilderness|hybrid|strong hev', then: fail,
+         why: 'Forester trim (Limited/Touring/Wilderness or Hybrid only)'}
+      - {if: 'outback', unless: 'limited|touring|wilderness', then: fail, why: 'Outback trim (Limited/Touring/Wilderness only)'}
   BMW:
-    cpo_programs: ["BMW Certified", "Certified Pre-Owned BMW"]
-    models:
-      - {model: X3, include: [xDrive30i, "30 xDrive", "xDrive30"], exclude_trim: [sDrive]}
-      - {model: X5, include: [xDrive40i, xDrive50e], exclude_trim: [sDrive, M50, M60, "X5 M"], note: "added Oct 2026"}
+    allow: '\bx[35]\b'
+    list: X3, X5
+    rules:
+      - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
+      - {if: '\bm40|\bm50|\bm60|x[35] m\b|competition', then: fail, why: 'M version (only X3 xDrive30i, X5 xDrive40i/50e)'}
   Mercedes-Benz:
-    cpo_programs: ["Mercedes-Benz Certified", "MB Certified", "Certified Pre-Owned"]
-    models:
-      - {model: GLC, include: ["300 4MATIC", "4MATIC"], exclude_trim: [Coupe]}
-      - {model: GLE, include: ["350 4MATIC", "450 4MATIC", "450e"], exclude_trim: [AMG, Coupe, "580"], note: "added Oct 2026; third-row versions excluded"}
+    allow: 'glc|gle'
+    list: GLC 300, GLE 350/450/450e
+    rules:
+      - {if: 'amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580', then: fail, why: 'AMG / Coupe / GLE 580 (not on the list)'}
+      - {if: 'glc.*350e', then: fail, why: 'GLC 350e (only GLC 300)'}
   Volkswagen:
-    cpo_programs: ["Volkswagen Certified", "VW Certified", "Certified Pre-Owned"]
-    models:
-      - {model: Tiguan, min_year: 2025}
+    allow: 'tiguan'
+    list: Tiguan 2025+
+    rules:
+      - {min_year: 2025, why: 'Tiguan before 2025 (AWD versions have a third row)'}
   Lexus:
-    cpo_programs: ["L/Certified", "Lexus Certified"]
-    models:
-      - {model: NX, include: ["350", "350h", "450h+"]}
-      - {model: RX, include: ["350", "350h", "450h+", "500h"], exclude_trim: ["RX 350L", "RX 450hL"], note: "added Oct 2026"}
+    allow: '\b(nx|rx)\b'
+    list: NX, RX
+    rules:
+      - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
+      - {if: 'nx ?250|\b250\b', unless: '350|450', then: fail, why: 'NX 250 (only NX 350 / 350h / 450h+)'}
   Volvo:
-    cpo_programs: ["Volvo Certified", "Volvo Cars Certified", "Certified by Volvo"]
-    models:
-      - {model: XC60, include: [B5, B6, T8, Recharge, "Plug-In Hybrid"]}
-      - {model: XC40, include: [B5, Recharge], note: "added Oct 2026; Recharge/EX40 is electric (exceptional-deal rule)"}
+    allow: 'xc60|xc40|ex40'
+    list: XC60, XC40
   Toyota:
-    cpo_programs: ["Toyota Certified", "TCUV", "Toyota Certified Used"]
-    models:
-      - {model: 4Runner, exclude_trim: ["third row", "3rd row"]}
-      - {model: "Land Cruiser", min_year: 2024}
+    allow: '4runner|land cruiser'
+    list: 4Runner, Land Cruiser 2024+
+    rules:
+      - {if: 'land cruiser', min_year: 2024, why: 'Land Cruiser before 2024'}
   Ford:
-    cpo_programs: ["Ford Blue Advantage", "Blue Advantage"]
-    models:
-      - {model: Bronco, exclude_model: ["Bronco Sport"], require: ["4-door", "4 door", "4dr"]}
+    allow: 'bronco'
+    list: Bronco 4-door
+    rules:
+      - {if: 'bronco sport|bronco-sport', then: fail, why: 'Bronco Sport (not on the list)'}
+      - {if: '2[- ]?door|2dr', then: fail, why: '2-door Bronco'}
+      - {if: 'bronco', unless: '4[- ]?door|4dr', then: call, why: "confirm it's a 4-door Bronco"}
 
 # Trims where a sunroof is always standard, used only when the listing doesn't say
 # (shown as "sunroof (standard on this trim)"). Edit if you know better.

@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 from .base import FetchError, fetcher
 from .listing import (VIN_ANY, VIN_RE, Listing, integer, money, url_condition,
-                      url_matches_brand_models, url_years)
+                      url_matches_brand_models, url_vin, url_years)
 
 MIN_YEAR = 2023
 
@@ -61,10 +61,9 @@ UUID_RE = re.compile(r"[0-9a-f]{32}", re.I)
 
 def looks_like_vdp(url: str) -> bool:
     """A single-car page: has a VIN, or a year plus a platform vehicle id (Dealer.com uuid, ...)."""
-    path = url.split("?")[0]
-    m = VIN_ANY.search(path)
-    if m and re.search(r"\d", m.group(1)) and re.search(r"[a-zA-Z]", m.group(1)):
+    if url_vin(url):
         return True
+    path = url.split("?")[0]
     return bool(url_years(url)) and bool(UUID_RE.search(path) or re.search(r"vehicleid=|/vdp/|/detail", url, re.I))
 
 
@@ -83,7 +82,7 @@ def discover_from_sitemaps(homepage: str, brand: str) -> tuple[list[str], str]:
             continue
         if url_condition(u) == "new":
             continue
-        if not url_matches_brand_models(u, brand):
+        if not url_matches_brand_models(u, brand) and not url_vin(u):
             continue
         yrs = url_years(u)
         if yrs and max(yrs) < MIN_YEAR:
@@ -271,9 +270,7 @@ def parse_vdp(html: str, url: str) -> Listing | None:
             vin, v = cv, cand
             break
     if not vin:
-        m = VIN_ANY.search(url.split("?")[0])
-        if m and re.search(r"\d", m.group(1)) and re.search(r"[a-zA-Z]", m.group(1)):
-            vin = m.group(1).upper()
+        vin = url_vin(url)
     if not vin:
         m = re.search(r"\bVIN\b[:#\s]*([A-HJ-NPR-Z0-9]{17})", flat)
         vin = m.group(1) if m else ""
@@ -427,11 +424,11 @@ def fetch_vdp(url: str) -> tuple[Listing | None, str]:
     L = parse_vdp(r.text, r.url)
     if L is not None and L.price is None and L.mileage is None and not L.model and not L.ext_color:
         return None, "no vehicle data on page"   # a VIN in the URL alone isn't a listing
-    want = VIN_ANY.search(url.split("?")[0])
+    want = url_vin(url)
     if L is None:
         if r.url.rstrip("/") != url.rstrip("/"):
             return None, "redirected to inventory page (sold/removed)"
         return None, "no vehicle data on page"
-    if want and want.group(1).upper() != L.vin and VIN_RE.fullmatch(want.group(1).upper()) and r.url != url:
+    if want and want != L.vin and r.url != url:
         return None, "redirected to a different vehicle (sold/removed)"
     return L, ""

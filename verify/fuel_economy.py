@@ -20,13 +20,21 @@ HDR = {"Accept": "application/json"}
 MAKE_NAMES = {"Mercedes-Benz": "Mercedes-Benz", "Volkswagen": "Volkswagen", "Bmw": "BMW", "Gmc": "GMC"}
 
 
+def _atomic_write(text: str) -> None:
+    import os
+    CACHE.parent.mkdir(parents=True, exist_ok=True)
+    tmp = CACHE.with_suffix(".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, CACHE)
+
+
 def _cache() -> dict:
     return json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
 
 
 def _save(c: dict) -> None:
     CACHE.parent.mkdir(parents=True, exist_ok=True)
-    CACHE.write_text(json.dumps(c, indent=0), encoding="utf-8")
+    _atomic_write(json.dumps(c, indent=0))
 
 
 def _items(j) -> list[dict]:

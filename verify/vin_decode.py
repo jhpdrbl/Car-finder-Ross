@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import os
+import threading
 from pathlib import Path
 
 from scrapers.base import FetchError, fetcher
@@ -12,11 +14,33 @@ KEEP = ("ModelYear", "Make", "Model", "Trim", "Series", "DriveType", "BodyClass"
         "FuelTypePrimary", "FuelTypeSecondary", "Seats", "SeatRows", "ErrorCode", "ErrorText")
 
 
+_lock = threading.Lock()      # dealer threads decode in parallel; one shared cache
+_cache: dict | None = None
+
+
 def _load() -> dict:
-    return json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+    global _cache
+    if _cache is None:
+        try:
+            _cache = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+        except ValueError:          # a damaged cache file just means re-decoding
+            _cache = {}
+    return _cache
+
+
+def _save(cache: dict) -> None:
+    CACHE.parent.mkdir(parents=True, exist_ok=True)
+    tmp = CACHE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(cache, indent=0), encoding="utf-8")
+    os.replace(tmp, CACHE)          # atomic: readers never see a half-written file
 
 
 def decode_many(vins: list[str]) -> dict[str, dict]:
+    with _lock:
+        return _decode_many(vins)
+
+
+def _decode_many(vins: list[str]) -> dict[str, dict]:
     cache = _load()
     todo = [v for v in dict.fromkeys(vins) if v not in cache]
     for i in range(0, len(todo), 50):
@@ -28,8 +52,8 @@ def decode_many(vins: list[str]) -> dict[str, dict]:
             continue
         for r in res.get("Results", []):
             cache[r["VIN"].upper()] = {k: (r.get(k) or "") for k in KEEP}
-    CACHE.parent.mkdir(parents=True, exist_ok=True)
-    CACHE.write_text(json.dumps(cache, indent=0), encoding="utf-8")
+    if todo:
+        _save(cache)
     return {v: cache.get(v, {}) for v in vins}
 
 

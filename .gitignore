@@ -5,3 +5,4 @@ __pycache__/
 .venv/
 data/cache/
 site/
+data/run_state.json

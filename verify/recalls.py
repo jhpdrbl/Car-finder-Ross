@@ -19,6 +19,14 @@ TTL = 7 * 86400
 MODEL_ALIASES = {("AUDI", "Q5 E"): "Q5", ("MERCEDES-BENZ", "GLC-CLASS"): "GLC", ("MERCEDES-BENZ", "GLC 300"): "GLC"}
 
 
+def _atomic_write(text: str) -> None:
+    import os
+    CACHE.parent.mkdir(parents=True, exist_ok=True)
+    tmp = CACHE.with_suffix(".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, CACHE)
+
+
 def campaigns(make: str, model: str, year: int | None) -> list[str]:
     if not (make and model and year):
         return []
@@ -37,5 +45,5 @@ def campaigns(make: str, model: str, year: int | None) -> list[str]:
            for r in data.get("results", [])]
     cache[key] = {"t": time.time(), "ids": ids}
     CACHE.parent.mkdir(parents=True, exist_ok=True)
-    CACHE.write_text(json.dumps(cache, indent=0), encoding="utf-8")
+    _atomic_write(json.dumps(cache, indent=0))
     return ids

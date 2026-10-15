@@ -12,7 +12,7 @@ from scrapers import audi_network, dealer_com, dealer_inspire, dealeron, playwri
 from scrapers.base import CONFIG, FetchError, fetcher
 from scrapers.brand_feeds import FEEDS
 from scrapers.generic_jsonld import discover_from_sitemaps, fetch_vdp
-from scrapers.listing import Listing
+from scrapers.listing import URL_SKIP, Listing, norm_url_text, url_vin
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -30,6 +30,8 @@ class DealerResult:
     errors: list[str] = field(default_factory=list)
     listings: list[Listing] = field(default_factory=list)
     gone: list[tuple[str, str]] = field(default_factory=list)   # (url, reason): sold/removed pages
+    carried: list[dict] = field(default_factory=list)           # previous rows reused without re-reading
+    skipped_pages: int = 0                                       # dropped by URL / VIN pre-filter
     seconds: float = 0.0
 
 
@@ -89,7 +91,48 @@ def discover(dealer: dict) -> tuple[list[str], str]:
     return list(dict.fromkeys(cands)), "; ".join(x for x in notes if x)
 
 
-def scrape_dealer(dealer: dict) -> DealerResult:
+# A fail reason that can't change while the car is listed (color, model, trim, drivetrain, rows,
+# mileage only goes up). Price, certification and CARFAX can change, so those cars get re-read.
+CHANGEABLE = re.compile(r"over the|certif|carfax|manually|new vehicle|\bEV\b|exceptional|blue advantage", re.I)
+PRICE_RECHECK_DAYS = 2
+
+
+def carry_forward_ok(prev: dict, today: str) -> bool:
+    """Reuse last run's row instead of re-reading the page?"""
+    if not prev or prev.get("status") != "excluded":
+        return False
+    reasons = [r for r in (prev.get("fail_reasons") or "").split("; ") if r]
+    if any(not CHANGEABLE.search(r) for r in reasons):
+        return True                                   # at least one permanent reason
+    if reasons and all("over the" in r for r in reasons):  # only the price: re-check every couple of days
+        last = prev.get("last_read") or prev.get("last_seen") or ""
+        try:
+            from datetime import date
+            return (date.fromisoformat(today) - date.fromisoformat(last)).days < PRICE_RECHECK_DAYS
+        except ValueError:
+            return False
+    return False
+
+
+def prefilter(cands: list[str], brand: str) -> tuple[list[str], int]:
+    """Drop listing URLs we know are off-list before reading them: by URL words, then by VIN decode."""
+    from verify.vin_decode import decode_many
+    keep = [u for u in cands if not URL_SKIP.search(norm_url_text(u))]
+    vins = {u: url_vin(u) for u in keep}
+    known = decode_many([v for v in vins.values() if v]) if any(vins.values()) else {}
+    allow = re.compile(CONFIG["models"][brand]["allow"]) if brand in CONFIG.get("models", {}) else None
+    out = []
+    for u in keep:
+        d = known.get(vins[u]) or {}
+        if d.get("Model") and allow and not allow.search(d["Model"].lower()):
+            continue                                   # e.g. an Audi A4 behind a model-less ?vehicleId= link
+        if (d.get("ModelYear") or "").isdigit() and int(d["ModelYear"]) < CONFIG["filters"]["min_year"]:
+            continue
+        out.append(u)
+    return out, len(cands) - len(out)
+
+
+def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") -> DealerResult:
     t0 = time.time()
     res = DealerResult(dealer=dealer)
     home = dealer["homepage"]
@@ -106,14 +149,24 @@ def scrape_dealer(dealer: dict) -> DealerResult:
     except Exception as e:  # one dealer's surprise must not stop the run
         res.reason = f"discovery error: {type(e).__name__}: {e}"[:200]
         return res
+    cands, res.skipped_pages = prefilter(cands, dealer["brand"])
     res.method = note
     res.candidates = len(cands)
+    if not cands and re.search(r"browser blocked|browser: 0 inventory pages|playwright not installed|no sitemap$", note):
+        res.reason = f"couldn't see this site's inventory ({note})"   # not the same as "no matching cars"
+        res.seconds = time.time() - t0
+        return res
     if not cands:
         res.status = "success"
         res.reason = f"no matching {dealer['brand']} models listed ({note})"
         res.seconds = time.time() - t0
         return res
+    prev_rows = prev_rows or {}
     for url in cands[:MAX_VDPS]:
+        prev = prev_rows.get(url) or prev_rows.get(url_vin(url) or "-")
+        if prev and prev.get("dealer") == dealer["dealer_name"] and carry_forward_ok(prev, today):
+            res.carried.append(prev)
+            continue
         L, err = fetch_vdp(url)
         if L is None and err.startswith("no vehicle data") and playwright_fallback.available():
             L, err = playwright_fallback.fetch_vdp_rendered(url)
@@ -127,9 +180,9 @@ def scrape_dealer(dealer: dict) -> DealerResult:
         L.source = L.source or (dealer["platform"] or "site")
         res.listings.append(L)
     res.parsed = len(res.listings)
-    if res.parsed or not res.errors:
+    if res.parsed or res.carried or not res.errors:
         res.status = "success"
-        res.reason = f"{res.parsed} listings read from {res.candidates} candidates"
+        res.reason = f"{res.parsed} listings read, {len(res.carried)} unchanged exclusions reused"
         if res.errors:
             res.reason += f"; {len(res.errors)} pages failed"
     else:
@@ -176,7 +229,8 @@ def run_brand_feeds(brands: set[str], log) -> tuple[list[Listing], dict[str, dic
     return out, stats
 
 
-def scrape_all(dealers: list[dict], brands: set[str], workers: int, log) -> list[DealerResult]:
+def scrape_all(dealers: list[dict], brands: set[str], workers: int, log, prev_rows: dict | None = None,
+               today: str = "") -> list[DealerResult]:
     results: list[DealerResult] = []
     todo = []
     for d in dealers:
@@ -188,9 +242,12 @@ def scrape_all(dealers: list[dict], brands: set[str], workers: int, log) -> list
             continue
         todo.append(d)
     with ThreadPoolExecutor(max_workers=workers) as ex:
-        futs = {ex.submit(scrape_dealer, d): d for d in todo}
+        futs = {ex.submit(scrape_dealer, d, prev_rows, today): d for d in todo}
         for i, fut in enumerate(as_completed(futs), 1):
-            r = fut.result()
+            try:
+                r = fut.result()
+            except Exception as e:  # report it in the coverage report and keep going
+                r = DealerResult(dealer=futs[fut], reason=f"error: {type(e).__name__}: {e}"[:200])
             results.append(r)
             mark = "ok " if r.status == "success" else "-- "
             log(f"  [{i}/{len(todo)}] {mark}{r.dealer['brand']:13} {r.dealer['dealer_name'][:34]:34} {r.reason[:90]}")

@@ -77,6 +77,25 @@ class Listing:
         return d
 
 
+VIN_PARAM = re.compile(r"[?&](?:vehicleid|vin)=([A-HJ-NPR-Z0-9]{17})(?:&|$)", re.I)
+
+
+def url_vin(url: str) -> str:
+    """The VIN a listing URL carries: in the path (most platforms) or as ?vehicleId=/?vin= (Audi's dealer sites)."""
+    m = VIN_PARAM.search(url)
+    if m:
+        return m.group(1).upper()
+    m = VIN_ANY.search(url.split("?")[0])
+    if m and re.search(r"\d", m.group(1)) and re.search(r"[a-zA-Z]", m.group(1)):
+        return m.group(1).upper()
+    return ""
+
+
+# Listing URLs we can drop without reading the page (versions that are never on the list).
+URL_SKIP = re.compile(r"sdrive|(?<![a-z])(2wd|fwd|4x2)(?![a-z])|(?<![a-z])amg(?![a-z])|(?<![a-z])m[56]0i?(?![a-z0-9])|x[35]-m(?![a-z])|"
+                      r"rx-?(350|450h)-?l(?![a-z])|gl[ce][a-z0-9-]*coupe|sq[35]|rs-?q[358]|bronco-sport|gle-?(43|53|63|580)|glc-?(43|63)")
+
+
 def norm_url_text(url: str) -> str:
     """Lower-case URL with separators normalized, for model/year matching."""
     u = unquote(unquote(url)).replace("&#x2b;", "+").replace("&#x2B;", "+").lower()

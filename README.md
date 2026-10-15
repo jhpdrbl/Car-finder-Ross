@@ -26,7 +26,8 @@ as "blocked" in the coverage report, not worked around. GitHub Actions only publ
 python run.py refresh                       # the whole search (~20-40 min from home)
 python run.py refresh --brands Audi,Subaru  # some brands only
 python run.py refresh --dealers McKenna     # dealers whose name contains the text
-python run.py refresh --workers 8 --no-enrich
+python run.py refresh --workers 24 --no-enrich
+python run.py refresh --full                # re-read every listing page (ignore reusable exclusions)
 python run.py diagnose --brand Audi         # how dealer sites look from this machine → output/diagnose_<date>.md
 python run.py diagnose --platform dealer_inspire | --dealer "Audi Pasadena"
 python run.py dealers [--refresh-raw] [--detect]   # rebuild data/dealers.csv
@@ -42,8 +43,13 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 1. **Brand certified-inventory feeds** (`scrapers/brand_feeds.py`): genesis.com and subaru.com CPO
    searches cover every Genesis and Subaru dealer, even ones whose sites block us. Each car carries
    the dealer's own listing URL. These brands' dealers are then "skipped (covered by brand feed)".
-2. **Dealer sites** (`core/pipeline.py`, 8 in parallel, polite per-domain throttle):
-   homepage check → discovery by platform → fetch each candidate listing page → parse.
+2. **Dealer sites** (`core/pipeline.py`, 24 in parallel; each site still gets ≤ 1 request per 2–3 s):
+   homepage check → discovery by platform → **pre-filter** (drop URLs that name an off-list version,
+   e.g. sDrive/AMG/RX L; batch-decode VINs found in URLs, 50 per NHTSA call, and drop off-list models/years)
+   → **reuse** last run's row for cars excluded for a permanent reason (color, model, trim, drivetrain,
+   rows, mileage; price-only exclusions are re-read every 2 days), unless the rules changed
+   (fingerprint of `config.yaml` + rule code in `data/run_state.json`) → fetch the remaining listing pages → parse.
+   A typical repeat run takes ~4 min from the cloud.
    | Platform (`dealers.csv: platform`) | Discovery |
    |---|---|
    | `dealer_com` | `scrapers/dealer_com.py`: search page JSON (`?search=<model>&start=N`) |
@@ -81,7 +87,7 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 
 | Path | What |
 |---|---|
-| `config.yaml` | Criteria, price caps + cushion, colors, trims with standard sunroof, scoring, finance, publish options |
+| `config.yaml` | Criteria, price caps + cushion, colors, **model rules (`models:`)**, trims with standard sunroof, scoring, finance, publish options |
 | `data/dealers.csv` | 204 dealers ≤ 60 mi: brand, homepage, platform, distance, source (brand locator / web research) |
 | `data/dealers_manual.csv` | Researched dealers for brands whose locators block cloud IPs (Audi, BMW, Mercedes, Ford, Volvo) |
 | `data/locator_raw/` | Raw brand-locator responses + geocode cache |
