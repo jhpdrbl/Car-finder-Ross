@@ -61,7 +61,8 @@ Double-click **`refresh.bat`**.
 
 - The first run takes roughly 30–60 minutes, because it politely waits 2–3 seconds
   between requests to each dealer site. Later runs are faster.
-- When it finishes, your **dashboard opens in your browser** automatically.
+- When it finishes, your **dashboard opens in your browser** automatically, and the window
+  asks **"Publish these results to your phone page?"** Press **Y** once you've done Part 2 below.
 - Everything it made is in the **`output`** folder:
   - `dashboard.html`: the sortable table, with price-history sparklines
   - `digest_<date>.md`: the newsletter-style summary (open with Notepad and paste into Apple Notes)
@@ -87,6 +88,63 @@ Claude uses it to tune the Audi part, because Audi's sites can't be seen from Cl
 - attach `output\digest_<date>.md` and `data\coverage.csv` in the chat, **or**
 - double-click **`share-results.bat`**, which uploads the `data` and `output`
   folders to GitHub so Claude can read them directly.
+
+---
+
+# Part 2: See your results on your phone (one time, about 15 minutes)
+
+After each laptop run, `refresh.bat` asks **"Publish these results to your phone page?"**
+Press **Y** and about 2 minutes later your phone page shows the new results.
+It always shows the last laptop run; the search itself only runs on the laptop.
+
+The published copy leaves out your down payment and pre-approval details.
+
+**You can do all of Part 2 from your iPad right now, in Safari.**
+
+### 2a. Cloudflare: make a key GitHub can use
+
+1. Go to <https://dash.cloudflare.com> and sign in (or create a free account).
+2. Top right: your profile icon → **My Profile** → **API Tokens** → **Create Token**.
+3. Scroll to **Custom token** → **Get started**.
+   - Token name: `car finder`
+   - Permissions: **Account** · **Cloudflare Pages** · **Edit**
+   - Click **Continue to summary** → **Create Token**.
+4. **Copy the token** it shows (you only see it once). Keep this tab open.
+5. Your **Account ID**: go back to the dashboard home, open **Workers & Pages**. The
+   Account ID is on the right side (or it's the long code in the address bar after
+   `dash.cloudflare.com/`). Copy it too.
+
+### 2b. GitHub: store the key
+
+1. Go to <https://github.com/jhpdrbl/Car-finder-Ross> → **Settings** → **Secrets and variables** → **Actions**.
+2. **New repository secret**: Name `CLOUDFLARE_API_TOKEN`, Secret = the token. Save.
+3. **New repository secret**: Name `CLOUDFLARE_ACCOUNT_ID`, Secret = the Account ID. Save.
+
+### 2c. Publish once to test
+
+1. In the repo, open the **Actions** tab → **Publish dashboard** (left side).
+2. **Run workflow** → choose branch `claude/la-cpo-suv-scraper-x0pl15` → **Run workflow**.
+3. After about 2 minutes it shows a green check. Your page is at
+   **<https://cpo-suv-finder.pages.dev>**. Add it to your phone's home screen
+   (Share → Add to Home Screen).
+
+If it shows a red X, tap it and send Claude a screenshot. (If the name
+`cpo-suv-finder` is taken, Claude will pick another.)
+
+### 2d. Make the page private (recommended)
+
+Without this, anyone who guesses the address could see the page.
+
+1. In Cloudflare, open **Zero Trust** (left menu). If asked, pick the **Free** plan
+   and a team name.
+2. **Access** → **Applications** → **Add an application** → **Self-hosted**.
+3. Application name `car finder`; Application domain `cpo-suv-finder.pages.dev`. Next.
+4. Add a policy: Action **Allow**; Include → **Emails** → your email address. Save.
+
+Now the page asks for your email and sends you a one-time code. Your phone
+remembers you for a while.
+
+---
 
 ## Getting updates
 

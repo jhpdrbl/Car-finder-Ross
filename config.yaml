@@ -163,3 +163,8 @@ spare_tire_typical:
   4Runner: true
   Land Cruiser: true
   Bronco: true
+
+# Phone website (Cloudflare Pages). The digest's buying-context lines (down payment,
+# pre-approval) are left off the published copy unless this is true.
+publish:
+  include_buying_context: false

@@ -1,0 +1,59 @@
+# Publishes the latest laptop run to Cloudflare Pages so you can open it on your phone.
+# Runs when results are uploaded (share-results.bat / refresh.bat "publish"), or by hand
+# from the Actions tab. It does NOT scrape: dealer sites block cloud servers, so the
+# search itself always runs on your laptop.
+name: Publish dashboard
+
+on:
+  push:
+    branches: [main, claude/la-cpo-suv-scraper-x0pl15]
+    paths: ["output/**", "data/listings.csv", "config.yaml", "tools/build_site.py"]
+  workflow_dispatch:
+
+concurrency:
+  group: publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      PROJECT: cpo-suv-finder
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build site
+        run: |
+          pip install pyyaml==6.0.2 markdown==3.7
+          python -m tools.build_site
+
+      - name: Check Cloudflare secrets
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$TOKEN" ] || [ -z "$ACCOUNT" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in Settings > Secrets and variables > Actions (see SETUP-WINDOWS.md, Part 2)."
+            exit 1
+          fi
+
+      - name: Create the Pages project (first run only)
+        uses: cloudflare/wrangler-action@v3
+        continue-on-error: true
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create ${{ env.PROJECT }} --production-branch=main
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy site --project-name=${{ env.PROJECT }} --branch=main --commit-dirty=true

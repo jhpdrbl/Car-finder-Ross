@@ -4,7 +4,12 @@ Finds certified pre-owned SUVs at franchise dealers within 50 miles of 90039 tha
 match the criteria in `car-scraper-spec.md`, and produces a digest, CSVs and a
 dashboard. Every result links to the dealer's own listing page and includes the VIN.
 
-**Windows setup:** see [SETUP-WINDOWS.md](SETUP-WINDOWS.md).
+**Windows setup and phone access:** see [SETUP-WINDOWS.md](SETUP-WINDOWS.md).
+
+The search runs on a home computer (dealer sites block cloud servers). After a run, the
+results are pushed to GitHub, and `.github/workflows/publish.yml` publishes the dashboard
+and digest to Cloudflare Pages (`tools/build_site.py` builds the site, leaving out the
+buying-context lines).
 
 ```
 python run.py refresh                 # the whole search

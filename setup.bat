@@ -23,6 +23,9 @@ if errorlevel 2 goto skipbrowser
 .venv\Scripts\python -m pip install "playwright>=1.48" --quiet
 .venv\Scripts\python -m playwright install chromium
 :skipbrowser
+REM Git needs a name to save results; set one for this folder only if none is set
+git config user.name >nul 2>nul || git config user.name "Car Finder Laptop"
+git config user.email >nul 2>nul || git config user.email "car-finder@localhost"
 echo.
 echo Setup finished. Double-click refresh.bat to run the search.
 pause
