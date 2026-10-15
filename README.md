@@ -28,7 +28,7 @@ Every result links to the dealer's own listing page and includes the VIN.
    dealer sites load from home than from the cloud); later runs are faster because cars already
    ruled out for good aren't re-read. The dashboard opens when it's done.
 3. When it asks **"Publish these results to your phone page?"**, press **Y**. About 2 minutes later
-   <https://cpo-suv-finder.pages.dev> shows the new results (sign in with your email code).
+   <https://cpo-suv-finder.pages.dev> shows the new results.
 
 **Reading the dashboard:** two tabs, **Available** and **No longer available**. A **NEW** bubble marks
 cars that appeared since the last refresh; a bold green **▼** next to a price means it dropped,
@@ -48,7 +48,7 @@ Code in the folder; it reads `CLAUDE.md` and knows how everything fits together.
 ```
 Laptop:  refresh.bat  →  python run.py refresh  →  share-results.bat (git push data/ output/)
 GitHub:  push touching output/**  →  .github/workflows/publish.yml  →  tools/build_site.py  →  wrangler pages deploy
-Phone:   https://cpo-suv-finder.pages.dev  (Cloudflare Access: email one-time code)
+Phone:   https://cpo-suv-finder.pages.dev  (public, not indexed by search engines)
 ```
 
 The search runs on a **home computer** because ~80 of the ~200 dealer sites block cloud and
