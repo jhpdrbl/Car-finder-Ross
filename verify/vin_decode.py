@@ -44,17 +44,29 @@ def _decode_many(vins: list[str]) -> dict[str, dict]:
     cache = _load()
     todo = [v for v in dict.fromkeys(vins) if v not in cache]
     for i in range(0, len(todo), 50):
-        chunk = todo[i:i + 50]
-        try:
-            res = fetcher().post_json(URL, {"format": "json", "data": ";".join(chunk)})
-        except FetchError as e:
-            print(f"  VIN decode failed for {len(chunk)} VINs: {e}")
-            continue
-        for r in res.get("Results", []):
+        for r in _post_batch(todo[i:i + 50]):
             cache[r["VIN"].upper()] = {k: (r.get(k) or "") for k in KEEP}
     if todo:
         _save(cache)
     return {v: cache.get(v, {}) for v in vins}
+
+
+def _post_batch(chunk: list[str], tries: int = 3) -> list[dict]:
+    """vPIC is sometimes slow (a 50-VIN batch timed out on the first iPad run): retry with a pause,
+    then split the batch in half, so one slow answer doesn't leave cars undecoded."""
+    import time
+    for attempt in range(tries):
+        try:
+            return fetcher().post_json(URL, {"format": "json", "data": ";".join(chunk)}).get("Results", [])
+        except FetchError as e:
+            err = e
+            if attempt < tries - 1:
+                time.sleep(5 * (attempt + 1))
+    if len(chunk) > 10:
+        half = len(chunk) // 2
+        return _post_batch(chunk[:half], 2) + _post_batch(chunk[half:], 2)
+    print(f"  VIN decode failed for {len(chunk)} VINs: {err}")
+    return []
 
 
 def fuel_class(d: dict) -> str:
