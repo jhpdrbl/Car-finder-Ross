@@ -286,7 +286,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         if fuel in ("hybrid", "phev"):
             cap = F["price_caps"][fuel] + F["price_tolerance"]
             if L.price_total > cap:
-                _over(L, cap, f"{fuel} cap (${F['price_caps'][fuel]:,})", fails, unknown)
+                _over(L, cap, f"{fuel} cap (${F['price_caps'][fuel]:,} + ${F['price_tolerance']} cushion)", fails, unknown)
         elif fuel == "ev":
             comps = ev_comparables(L, pool)
             if len(comps) < F["ev_min_comparables"]:
@@ -298,8 +298,9 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
                 else:
                     notes.append(f"exceptional EV deal: {1 - L.price_total / med:.0%} below {len(comps)} comparables")
         else:
-            if L.price_total > F["price_caps"]["gas"]:
-                _over(L, F["price_caps"]["gas"], f"gas cap (${F['price_caps']['gas']:,})", fails, unknown)
+            cap = F["price_caps"]["gas"] + F["price_tolerance"]
+            if L.price_total > cap:
+                _over(L, cap, f"gas cap (${F['price_caps']['gas']:,} + ${F['price_tolerance']} cushion)", fails, unknown)
 
     # sunroof
     if L.sunroof is False:

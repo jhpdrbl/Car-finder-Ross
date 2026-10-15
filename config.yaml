@@ -4,8 +4,8 @@ home:
   zip: "90039"
   lat: 34.1105   # 90039 (Atwater Village / Silver Lake) centroid
   lon: -118.2600
-  radius_miles: 50
-  edge_radius_miles: 60      # dealers 50-60 mi are scraped and tagged "edge"
+  radius_miles: 60          # you OK'd dealers up to 60 mi
+  edge_radius_miles: 60      # farthest dealer scraped
 
 scrape:
   user_agent: "CarFinderRoss/0.1 (personal CPO SUV search; contact jhpd.rbl@gmail.com)"
@@ -25,7 +25,7 @@ filters:
     hybrid: 40000
     phev: 40000
     ev: null                  # EV only if exceptional_ev_deal
-  price_tolerance: 500        # "~$40,000" -> allow up to cap + tolerance for hybrid/phev
+  price_tolerance: 500        # cushion over every cap (gas $35,500, hybrid/PHEV $40,500)
   exceptional_ev_discount: 0.15
   ev_min_comparables: 3
   estimated_fees:             # used when the page shows no fee breakdown
