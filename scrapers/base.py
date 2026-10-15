@@ -60,12 +60,19 @@ class Fetcher:
         })
         self._robots: dict[str, RobotFileParser | None] = {}
         self._last_hit: dict[str, float] = {}
+        self._host_locks: dict[str, threading.Lock] = {}
         self._lock = threading.Lock()
 
     # -- politeness -------------------------------------------------------
     def _robots_for(self, url: str) -> RobotFileParser | None:
         p = urlparse(url)
         base = f"{p.scheme}://{p.netloc}"
+        with self._lock:
+            lock = self._host_locks.setdefault("robots:" + base, threading.Lock())
+        with lock:
+            return self._load_robots(base)
+
+    def _load_robots(self, base: str) -> RobotFileParser | None:
         if base not in self._robots:
             rp = RobotFileParser()
             try:
@@ -74,7 +81,7 @@ class Fetcher:
                     rp = None  # no robots.txt -> everything allowed
                 else:
                     rp.parse(r.text.splitlines())
-            except requests.RequestException:
+            except (requests.RequestException, FetchError):
                 rp = None
             self._robots[base] = rp
         return self._robots[base]
@@ -87,10 +94,12 @@ class Fetcher:
         return rp.can_fetch(ua, url)
 
     def _throttle(self, host: str) -> None:
+        """One request per 2-3 s per domain; different domains don't wait on each other."""
         with self._lock:
+            lock = self._host_locks.setdefault(host, threading.Lock())
+        with lock:
             wait = random.uniform(SCRAPE["min_delay_seconds"], SCRAPE["max_delay_seconds"])
-            last = self._last_hit.get(host, 0.0)
-            delta = time.monotonic() - last
+            delta = time.monotonic() - self._last_hit.get(host, 0.0)
             if delta < wait:
                 time.sleep(wait - delta)
             self._last_hit[host] = time.monotonic()
@@ -121,6 +130,25 @@ class Fetcher:
             return self._raw_get(url, **kw)
         except requests.RequestException as e:
             raise FetchError(f"{type(e).__name__}: {e}") from e
+
+    def post_json(self, url: str, payload, **kw):
+        """POST (used for a few official JSON APIs, e.g. NHTSA batch VIN decode)."""
+        host = urlparse(url).netloc.lower()
+        if is_blocked_host(host):
+            raise FetchError(f"blocked host (aggregator/carfax): {host}")
+        if not self.allowed(url):
+            raise RobotsDisallowed(f"robots.txt disallows {url}")
+        self._throttle(host)
+        try:
+            r = self.session.post(url, data=payload, timeout=SCRAPE["timeout_seconds"], **kw)
+        except requests.RequestException as e:
+            raise FetchError(f"{type(e).__name__}: {e}") from e
+        if r.status_code != 200:
+            raise FetchError(f"HTTP {r.status_code} for {url}")
+        try:
+            return r.json()
+        except ValueError as e:
+            raise FetchError(f"non-JSON response from {url}") from e
 
     def get_json(self, url: str, **kw):
         r = self.get(url, **kw)

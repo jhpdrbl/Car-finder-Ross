@@ -123,3 +123,43 @@ brands:
     cpo_programs: ["Ford Blue Advantage", "Blue Advantage"]
     models:
       - {model: Bronco, exclude_model: ["Bronco Sport"], require: ["4-door", "4 door", "4dr"]}
+
+# Trims where a sunroof is always standard, used only when the listing doesn't say
+# (shown as "sunroof (standard on this trim)"). Edit if you know better.
+sunroof_standard:
+  - {make: Audi, model: Q5, trim_regex: ".*", note: "panoramic sunroof is standard on every Q5"}
+  - {make: Genesis, model: GV70, trim_regex: "select|advanced|prestige", note: "panoramic roof standard from Select up"}
+  - {make: Volvo, model: XC60, trim_regex: "plus|ultimate|inscription|r-design", note: "panoramic roof standard on Plus/Ultimate"}
+  - {make: Ford, model: Bronco, trim_regex: ".*", note: "removable roof panels"}
+
+# Approximate ground clearance (inches) by model; used for scoring only.
+ground_clearance_in:
+  Q5: 8.2
+  GV70: 7.1
+  Forester: 8.7
+  Forester Wilderness: 9.2
+  Outback: 8.7
+  Outback Wilderness: 9.5
+  X3: 8.0
+  GLC: 7.4
+  Tiguan: 7.9
+  NX: 8.1
+  XC60: 8.5
+  4Runner: 9.0
+  Land Cruiser: 8.7
+  Bronco: 8.4
+
+# Typical spare-tire situation by model when the listing doesn't say (scoring only).
+spare_tire_typical:
+  Q5: true
+  GV70: false
+  Forester: true
+  Outback: true
+  X3: false
+  GLC: false
+  Tiguan: true
+  NX: true
+  XC60: false
+  4Runner: true
+  Land Cruiser: true
+  Bronco: true
