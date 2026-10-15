@@ -159,6 +159,11 @@ sunroof_standard:
   - {make: Genesis, model: GV70, trim_regex: "select|advanced|prestige", note: "panoramic roof standard from Select up"}
   - {make: Volvo, model: XC60, trim_regex: "plus|ultimate|inscription|r-design", note: "panoramic roof standard on Plus/Ultimate"}
   - {make: Ford, model: Bronco, trim_regex: ".*", note: "removable roof panels"}
+  # Subaru (media.subaru.com spec sheets, Oct 2026): Forester = every trim but Base; Outback = Touring and XT
+  # every year, Limited from 2025; Outback Wilderness and the 2023-24 Outback Limited have it only as an option
+  - {make: Subaru, model: Forester, trim_regex: "premium|sport|limited|touring|wilderness|hybrid", note: "panoramic moonroof is standard on every Forester but the Base"}
+  - {make: Subaru, model: Outback, trim_regex: "touring|\\bxt\\b", note: "moonroof is standard on Outback Touring / XT"}
+  - {make: Subaru, model: Outback, trim_regex: "limited", min_year: 2025, note: "moonroof is standard on the 2025+ Outback Limited"}
 
 # Approximate ground clearance (inches) by model; used for scoring only.
 ground_clearance_in:
