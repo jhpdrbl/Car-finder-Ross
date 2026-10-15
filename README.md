@@ -34,8 +34,13 @@ cars that appeared since the last refresh; a bold green **▼** next to a price 
 and **Original price** shows what it was first listed at and how much less it is now. Tap the
 Status / Make / Fuel pills to filter (several at once), tap a column header to sort.
 
-**If something looks wrong:** take a screenshot and send it to Claude, or open Claude Code in the
-folder and describe it; it reads `CLAUDE.md` and knows how everything fits together.
+**Easiest: let Claude do it.** Open Claude Code on the laptop in the `Car-finder-Ross` folder and
+say *"run the refresh and publish it"* (or, the very first time, *"set this up and run the
+refresh"*). It reads `CLAUDE.md`, runs the commands for you (you just click **Allow** when it
+asks), and tells you the results. The double-click `.bat` files above are the manual alternative.
+
+**If something looks wrong:** take a screenshot and send it to Claude, or describe it to Claude
+Code in the folder; it reads `CLAUDE.md` and knows how everything fits together.
 
 ## How it runs
 

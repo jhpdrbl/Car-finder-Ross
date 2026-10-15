@@ -43,20 +43,48 @@ refresh.bat ──► run.py refresh ──► git push data/ output/ ──► 
 
 ## Operating it
 
-### If you are a Claude session ON THE LAPTOP (Windows)
+### If you are a Claude session ON THE LAPTOP (Windows): the main way this gets run
 
-From the repo folder (PowerShell):
+The user will **not** type commands; they ask you ("run the refresh and publish it") and approve
+your tool calls. Run everything yourself. **Don't run `setup.bat` or `refresh.bat`**: they stop at
+`choice`/`pause` prompts waiting for a keypress and will hang your shell. Use the commands below.
+Your shell may be PowerShell or Git Bash; Bash forms are shown, and in PowerShell use
+`.\.venv\Scripts\python` instead of `.venv/Scripts/python`.
 
-```powershell
-git pull                                   # get the latest code
-.\.venv\Scripts\python run.py diagnose --brand Audi    # first time only; read output\diagnose_<date>.md
-.\.venv\Scripts\python run.py refresh      # full search; first run ~10-20 min, repeat runs faster; prints the coverage report
-.\share-results.bat nopause                # git pull + add data output + commit + push -> publishes
+**Every refresh:**
+
+```bash
+git pull                                              # latest code (Claude in the cloud may have changed it)
+.venv/Scripts/python -m pip install -q -r requirements.txt   # cheap; picks up new dependencies
+.venv/Scripts/python run.py refresh                   # 5-20 min: run it in the BACKGROUND, then wait for it
+git pull --no-edit && git add data output && git commit -m "Results from laptop run" && git push
 ```
 
-If `.venv` is missing, run `setup.bat` first (it creates `.venv`, installs `requirements.txt`,
-and optionally Playwright + Chromium). Check the publish at GitHub → Actions → "Publish
-dashboard" (green check), then tell the user to refresh the page.
+- The refresh outlasts a normal command timeout: start it as a background command and wait for it to
+  finish (or pass a long timeout). Its last lines are the coverage report and RESULTS summary.
+- The push triggers GitHub Actions "Publish dashboard"; when it's green (about 2 minutes), tell the
+  user to refresh https://cpo-suv-finder.pages.dev. Summarize for them in plain words: how many
+  matches / need a call, what's NEW, price drops, and which dealers failed and why.
+- `git push` may open a browser window for GitHub sign-in the first time; tell the user to sign in
+  and click Authorize.
+
+**First time on this laptop** (check: does `.venv/Scripts/python` exist?):
+
+1. Needs Python 3.11+ and Git. If missing: `winget install -e --id Python.Python.3.13` /
+   `winget install -e --id Git.Git` (the user approves; a new shell may be needed afterwards).
+2. If the repo isn't cloned yet: `git clone -b claude/la-cpo-suv-scraper-x0pl15 https://github.com/jhpdrbl/Car-finder-Ross.git`
+   into `Documents`, and work from that folder.
+3. `py -3 -m venv .venv` (or `python -m venv .venv`), then `.venv/Scripts/python -m pip install -r requirements.txt`.
+4. **Ask the user** before the browser add-on (~150 MB; needed for some JavaScript-only sites):
+   `.venv/Scripts/python -m pip install "playwright>=1.48"` then `.venv/Scripts/python -m playwright install chromium`.
+5. `git config user.name` / `user.email`: if unset, set them for this repo (e.g. "Car Finder Laptop" /
+   "car-finder@localhost") so commits work.
+6. Run `.venv/Scripts/python run.py diagnose --brand Audi`, read `output/diagnose_<date>.md`, and use it
+   to fix `scrapers/audi_network.py` (open item 1 below) **before** the first full refresh. Commit
+   code fixes too.
+
+**Things that make coverage worse on the laptop:** a VPN (looks like a datacenter again) or the
+laptop sleeping mid-run. If a big share of dealers fail as "blocked", ask whether a VPN is on.
 
 ### If you are a Claude session IN THE CLOUD (the user is on the iPad)
 
