@@ -10165,6 +10165,2236 @@
     "https://www.fueleconomy.gov/feg/bymodel/2024_Toyota_Land_Cruiser.shtml",
     "https://www.fueleconomy.gov/feg/bymodel/2026_Toyota_Land_Cruiser.shtml"
    ]
+  },
+  {
+   "make": "Volvo",
+   "model": "XC60",
+   "on_list_rule": "Every AWD XC60 is on the list: B5 and B6 mild hybrids and the T8 plug-in hybrid (Recharge), all trims including Black Edition and Polestar Engineered; front-drive B5 (2023) is not.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "New trim names: Core / Plus / Ultimate replace Momentum / R-Design / Inscription; Plus and Ultimate come in Bright (chrome) or Dark (gloss-black) exterior themes. Seats: Core synthetic leatherette, Plus genuine leather, Ultimate perforated Nappa leather (Slate Nappa and Blond City Weave textile dropped). Engines: B5 (247 hp) and B6 (295 hp, Ultimate only) mild hybrids; T8 plug-in is now only the 455-hp extended-range version (about 36 mi electric). Screen: 9-inch Google built-in touchscreen. Air suspension now Ultimate-only. Every trim has a standard panoramic sunroof; Harman Kardon only on Ultimate. Adaptive cruise/Pilot Assist and 360-degree camera are Plus and up (not on Core). A front-drive B5 also existed (not on the list).",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "High Performance audio, 10 speakers (220 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Rear parking sensors, rear camera"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "synthetic leatherette standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "B5 AWD Plus (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Leather upholstery (Core has leatherette)",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera (front, side and rear cameras)",
+        "Front and rear parking sensors",
+        "19-inch wheels",
+        "HomeLink garage opener",
+        "Real wood interior inlays",
+        "Bright theme = chrome exterior trim; Dark theme = gloss-black trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "genuine leather standard; heated front seats; 10-way power, driver memory; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "B5 AWD Ultimate (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Adaptive cruise with Pilot Assist and 360-degree camera (as on Plus)",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Air suspension available (Ultimate only)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "B6 AWD Ultimate (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo + supercharged 4-cyl mild hybrid 'B6', 295 hp / 310 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Ultimate",
+       "highlights": [
+        "Stronger B6 engine: 295 hp turbo + supercharged (vs 247 hp)",
+        "Same equipment as B5 Ultimate",
+        "Last year for the B6"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "Recharge T8 eAWD Core (Bright theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Rear parking sensors, rear camera",
+        "High Performance audio, 11 speakers (290 W)",
+        "Plug-in battery: about 36 mi electric range; 3.6 kW onboard charger",
+        "One-pedal drive mode"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "synthetic leatherette standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Plus (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Recharge T8 eAWD Core (Bright theme)",
+       "highlights": [
+        "Leather upholstery (Core has leatherette)",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera (front, side and rear cameras)",
+        "Front and rear parking sensors",
+        "19-inch wheels",
+        "HomeLink garage opener",
+        "Real wood interior inlays"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "genuine leather standard; heated front seats; 10-way power, driver memory; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Ultimate (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Recharge T8 eAWD Plus (Bright or Dark theme)",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Adaptive cruise with Pilot Assist and 360-degree camera (as on Plus)",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Air suspension available (Ultimate only)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Polestar Engineered",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA) (Polestar calibration)",
+       "builds_on": "Recharge T8 eAWD Ultimate",
+       "highlights": [
+        "Polestar-tuned chassis with adjustable Ohlins dampers (sport suspension)",
+        "21-inch forged wheels, summer tires",
+        "Bowers & Wilkins audio, 15 speakers, 1,460 W",
+        "Front sport seats; Nappa leather with open-grid textile",
+        "Head-up display, navigation",
+        "Adaptive cruise with Pilot Assist and 360-degree camera",
+        "Heated rear seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bowers & Wilkins, standard",
+       "seats": "genuine Nappa leather with open-grid textile, leatherette rear; heated front sport seats; not ventilated; heated rear seats",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "B6 engine (295 hp) and front-wheel drive dropped: only B5 AWD and T8 remain. Core now comes with the Dark (gloss-black) exterior theme. Plus and Ultimate gain a standard cabin air purifier; Ultimate adds laminated side glass and power seat side bolsters; hands-free power tailgate listed as standard. New Ultimate Black Edition (black paint and trim, 21-inch gloss-black wheels). Seat materials, sunroof, audio, screen and safety tech unchanged from 2023. Polestar Engineered T8 continues.",
+     "trims": [
+      {
+       "name": "B5 AWD Core Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "High Performance audio, 10 speakers (220 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Rear parking sensors, rear camera",
+        "Hands-free power tailgate"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "synthetic leatherette standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/25"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core Dark Theme",
+       "highlights": [
+        "Leather upholstery (Core has leatherette)",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera (front, side and rear cameras)",
+        "Front and rear parking sensors",
+        "19-inch wheels",
+        "HomeLink garage opener",
+        "Real wood interior inlays",
+        "Cabin air purifier"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "genuine leather standard; heated front seats; 10-way power, driver memory; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/25"
+      },
+      {
+       "name": "B5 AWD Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Adaptive cruise with Pilot Assist and 360-degree camera (as on Plus)",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/25"
+      },
+      {
+       "name": "B5 AWD Ultimate Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Ultimate Dark Theme",
+       "highlights": [
+        "Black Edition: Onyx Black paint, gloss-black badges and exterior trim",
+        "21-inch gloss-black wheels",
+        "Otherwise same equipment as Ultimate"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/25"
+      },
+      {
+       "name": "Recharge T8 eAWD Core Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Rear parking sensors, rear camera",
+        "Hands-free power tailgate",
+        "High Performance audio, 11 speakers (290 W)",
+        "Plug-in battery: about 36 mi electric range; 3.6 kW onboard charger",
+        "One-pedal drive mode"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "synthetic leatherette standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Recharge T8 eAWD Core Dark Theme",
+       "highlights": [
+        "Leather upholstery (Core has leatherette)",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera (front, side and rear cameras)",
+        "Front and rear parking sensors",
+        "19-inch wheels",
+        "HomeLink garage opener",
+        "Real wood interior inlays",
+        "Cabin air purifier"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "genuine leather standard; heated front seats; 10-way power, driver memory; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Recharge T8 eAWD Plus Dark Theme",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Adaptive cruise with Pilot Assist and 360-degree camera (as on Plus)",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Ultimate Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Recharge T8 eAWD Ultimate Dark Theme",
+       "highlights": [
+        "Black Edition: Onyx Black paint, gloss-black badges and exterior trim",
+        "21-inch gloss-black wheels",
+        "Otherwise same equipment as Ultimate"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Recharge T8 eAWD Polestar Engineered",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA) (Polestar calibration)",
+       "builds_on": "Recharge T8 eAWD Ultimate Dark Theme",
+       "highlights": [
+        "Polestar-tuned chassis with adjustable Ohlins dampers (sport suspension)",
+        "21-inch forged wheels, summer tires",
+        "Bowers & Wilkins audio, 15 speakers, 1,460 W",
+        "Front sport seats; Nappa leather with open-grid textile",
+        "Head-up display, navigation",
+        "Adaptive cruise with Pilot Assist and 360-degree camera",
+        "Heated rear seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bowers & Wilkins, standard",
+       "seats": "genuine Nappa leather with open-grid textile, leatherette rear; heated front sport seats; not ventilated; heated rear seats",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Top trim renamed Ultra (was Ultimate); the plug-in drops the 'Recharge' name (now XC60 Plug-In Hybrid T8 AWD); Bright/Dark theme names dropped. Seat material: spec data list the Plus with synthetic leatherette (2024 Plus had genuine leather); some dealer listings still say leather, so confirm on the window sticker. Ultra keeps Nappa leather. Core gains front parking sensors (front and rear now standard). B5 torque rises to 266 lb-ft (from 258); EPA rating improves to 23/30/26. Polestar Engineered front sport seats now listed as ventilated. Sunroof, audio, screen unchanged.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "High Performance audio, 10 speakers (220 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Front and rear parking sensors",
+        "Hands-free power tailgate"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "synthetic leatherette standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera (front, side and rear cameras)",
+        "Front and rear parking sensors",
+        "19-inch wheels",
+        "HomeLink garage opener",
+        "Real wood interior inlays",
+        "Cabin air purifier",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "synthetic leatherette standard per spec data (some dealer listings say leather; check the window sticker); heated front seats; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Adaptive cruise with Pilot Assist and 360-degree camera (as on Plus)",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Ultra",
+       "highlights": [
+        "Black Edition: Onyx Black paint, gloss-black badges and exterior trim",
+        "21-inch gloss-black wheels",
+        "Otherwise same equipment as Ultra"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Front and rear parking sensors",
+        "Hands-free power tailgate",
+        "High Performance audio, 11 speakers (290 W)",
+        "Plug-in battery: about 36 mi electric range; 3.6 kW onboard charger",
+        "One-pedal drive mode"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "synthetic leatherette standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Plug-In Hybrid T8 AWD Core",
+       "highlights": [
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera (front, side and rear cameras)",
+        "Front and rear parking sensors",
+        "19-inch wheels",
+        "HomeLink garage opener",
+        "Real wood interior inlays",
+        "Cabin air purifier",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "synthetic leatherette standard per spec data (some dealer listings say leather; check the window sticker); heated front seats; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Plug-In Hybrid T8 AWD Plus",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Adaptive cruise with Pilot Assist and 360-degree camera (as on Plus)",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Plug-In Hybrid T8 AWD Ultra",
+       "highlights": [
+        "Black Edition: Onyx Black paint, gloss-black badges and exterior trim",
+        "21-inch gloss-black wheels",
+        "Otherwise same equipment as Ultra"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Polestar Engineered",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA) (Polestar calibration)",
+       "builds_on": "Plug-In Hybrid T8 AWD Ultra",
+       "highlights": [
+        "Polestar-tuned chassis with adjustable Ohlins dampers (sport suspension)",
+        "21-inch forged wheels, summer tires",
+        "Bowers & Wilkins audio, 15 speakers, 1,460 W",
+        "Front sport seats; Nappa leather with open-grid textile",
+        "Head-up display, navigation",
+        "Adaptive cruise with Pilot Assist and 360-degree camera",
+        "Heated rear seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bowers & Wilkins, standard",
+       "seats": "genuine Nappa leather with open-grid textile, leatherette rear; heated front sport seats; ventilated front seats (spec data); heated rear seats",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Facelift: new 11.2-inch center touchscreen (was 9 inches), new grille and darker taillights, new wheels and colors. Seat material: Core and Plus switch to Nordico (Volvo's leather-free synthetic material) from leatherette; Ultra keeps perforated Nappa leather. Core gains standard adaptive cruise with Pilot Assist and the 360-degree camera (both were Plus-and-up). Ventilated seats, head-up display and Harman Kardon remain Ultra-only. Panoramic sunroof still standard on every trim; engines unchanged.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "11.2-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "High Performance audio, 10 speakers (220 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Front and rear parking sensors",
+        "Hands-free power tailgate",
+        "Adaptive cruise with Pilot Assist and 360-degree camera now standard"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "Nordico (Volvo's leather-free synthetic material) standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "19-inch wheels",
+        "Laminated side glass (quieter cabin)",
+        "HomeLink garage opener",
+        "Front and rear parking sensors with rear camera",
+        "Cabin air purifier"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 10-speaker)",
+       "seats": "Nordico (synthetic) standard per spec data; heated front seats; 10-way power, driver memory; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 266 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Ultra",
+       "highlights": [
+        "Black Edition: Onyx Black paint, gloss-black badges and exterior trim",
+        "21-inch gloss-black wheels",
+        "Otherwise same equipment as Ultra"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic glass sunroof (both rows) with power shade",
+        "11.2-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "Heated front seats, power front seats with driver memory",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert with auto-brake, lane keeping aid",
+        "18-inch wheels; LED headlights with active bending",
+        "Front and rear parking sensors",
+        "Hands-free power tailgate",
+        "Adaptive cruise with Pilot Assist and 360-degree camera now standard",
+        "High Performance audio, 11 speakers (290 W)",
+        "Plug-in battery: about 36 mi electric range; 3.6 kW onboard charger"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "Nordico (Volvo's leather-free synthetic material) standard; heated front seats; 10-way power, driver memory; no ventilation",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Plug-In Hybrid T8 AWD Core",
+       "highlights": [
+        "19-inch wheels",
+        "Laminated side glass (quieter cabin)",
+        "HomeLink garage opener",
+        "Front and rear parking sensors with rear camera",
+        "Cabin air purifier"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Volvo High Performance 11-speaker)",
+       "seats": "Nordico (synthetic) standard per spec data; heated front seats; 10-way power, driver memory; ventilated not standard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Plug-In Hybrid T8 AWD Plus",
+       "highlights": [
+        "Perforated Nappa leather upholstery",
+        "Heated and ventilated front seats with power cushion extension, side bolsters and passenger memory",
+        "Harman Kardon premium audio, 14 speakers, 600 W",
+        "Head-up display",
+        "Built-in navigation with real-time traffic",
+        "20-inch wheels; touring suspension",
+        "Four-zone climate (rear-seat climate controls)",
+        "Leather steering wheel and door inserts, crystal gear selector",
+        "Laminated side glass"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA)",
+       "builds_on": "Plug-In Hybrid T8 AWD Ultra",
+       "highlights": [
+        "Black Edition: Onyx Black paint, gloss-black badges and exterior trim",
+        "21-inch gloss-black wheels",
+        "Otherwise same equipment as Ultra"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "perforated Nappa leather (genuine) standard; heated and ventilated front seats; 16-way power with cushion extension, memory both sides",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      },
+      {
+       "name": "Plug-In Hybrid T8 AWD Polestar Engineered",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8 plug-in hybrid: 2.0L turbo 4-cyl + rear electric motor, 455 hp / 523 lb-ft combined, 8-speed auto, electric AWD; about 36 mi electric range (EPA) (Polestar calibration)",
+       "builds_on": "Plug-In Hybrid T8 AWD Ultra",
+       "highlights": [
+        "Polestar-tuned chassis with adjustable Ohlins dampers (sport suspension)",
+        "21-inch forged wheels, summer tires",
+        "Bowers & Wilkins audio, 15 speakers, 1,460 W",
+        "Front sport seats; Nappa leather with open-grid textile",
+        "Head-up display, navigation",
+        "Adaptive cruise with Pilot Assist and 360-degree camera",
+        "Heated rear seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bowers & Wilkins, standard",
+       "seats": "genuine Nappa leather with open-grid textile, leatherette rear; heated front sport seats; ventilated front seats (spec data); heated rear seats",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "28/28/28 on gas only; 63 MPGe combined; 36 mi EV range"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/volvo/xc60/specs/2023/volvo_xc60_volvo-xc60_2023",
+    "https://www.caranddriver.com/volvo/xc60/specs/2024/volvo_xc60_volvo-xc60_2024",
+    "https://www.caranddriver.com/volvo/xc60/specs/2025/volvo_xc60_volvo-xc60_2025",
+    "https://www.caranddriver.com/volvo/xc60/specs/2026/volvo_xc60_volvo-xc60_2026",
+    "https://www.caranddriver.com/volvo/xc60-hybrid/specs/2023/volvo_xc60-hybrid_volvo-xc60-hybrid_2023",
+    "https://www.caranddriver.com/volvo/xc60-hybrid/specs/2024/volvo_xc60-hybrid_volvo-xc60-hybrid_2024",
+    "https://www.caranddriver.com/volvo/xc60-hybrid/specs/2025/volvo_xc60-hybrid_volvo-xc60-hybrid_2025",
+    "https://www.caranddriver.com/volvo/xc60-hybrid/specs/2026/volvo_xc60-hybrid_volvo-xc60-hybrid_2026",
+    "https://www.caranddriver.com/volvo/xc60-2023",
+    "https://www.caranddriver.com/volvo/xc60-2024",
+    "https://www.caranddriver.com/volvo/xc60-2025",
+    "https://www.caranddriver.com/volvo/xc60",
+    "https://www.caranddriver.com/volvo/xc60-hybrid-2023",
+    "https://www.caranddriver.com/volvo/xc60-hybrid-2024",
+    "https://www.caranddriver.com/volvo/xc60-hybrid-2025",
+    "https://www.caranddriver.com/volvo/xc60-hybrid",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46629",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49547",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA data, model years 2023-2026)"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40",
+   "on_list_rule": "Every gas AWD XC40 (B5 AWD Core / Plus / Ultimate-Ultra, any theme, Black Edition) is on the list; front-drive B4 and the electric XC40 Recharge / EX40 are not covered.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Refresh: Core / Plus / Ultimate trims replace Momentum / R-Design / Inscription; T4/T5 replaced by B4 (FWD, not on list) and B5 AWD 48-volt mild hybrids; new headlights, bumper, grille and wheels; Google built-in infotainment on the same 9-inch screen. Seats: Core City Block textile (new), Plus/Ultimate Bright genuine leather, Plus/Ultimate Dark Connect Suede textile/Microtech (synthetic). Sunroof standard on Plus and up only; Harman Kardon, Pilot Assist and 360-degree camera on Ultimate only.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Rear parking sensors and rear camera"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "Bright Theme: chrome exterior trim, leather seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "Dark Theme: gloss-black exterior trim, Connect Suede/Microtech seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Bright Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Front-drive B4 dropped; B5 AWD is the only XC40. Core can now have Bright or Dark theme and gains wireless charging and keyless entry. Plus gains the 360-degree camera, 19-inch wheels and an air purifier; Ultimate moves to 20-inch wheels, cornering lights and upgraded LED headlights. Seat materials, sunroof (Plus and up), Harman Kardon (Ultimate) and screen unchanged.",
+     "trims": [
+      {
+       "name": "B5 AWD Core (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Power tailgate",
+        "Wireless phone charging and keyless entry"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core (Bright or Dark theme)",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Bright Theme: chrome exterior trim, leather seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core (Bright or Dark theme)",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Dark Theme: gloss-black exterior trim, Connect Suede/Microtech seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Bright Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Ultimate renamed Ultra. Core loses its Dark theme but gains power-folding rear headrests; spec data now list leather for Plus/Ultra Dark Theme too (2024 Dark was Connect Suede/Microtech). Mild-hybrid battery listed as 44V (EPA); engine output and other equipment carry over. AWD only.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Power tailgate",
+        "Wireless phone charging and keyless entry",
+        "Power-folding rear headrests"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Bright Theme: chrome exterior trim, leather seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Dark Theme: gloss-black exterior trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard (spec data); heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Bright Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard (spec data); heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Front-drive B4 returns as a cheaper model (not on list); B5 AWD costs about $2,000 more. Adaptive cruise and front parking sensors now standard on every trim. Theme names dropped; new Ultra Black Edition (Connect Suede/Microtech seats per spec data). Plus adds real wood inlays and a crystal gear selector. Seat materials otherwise unchanged (Core textile, Plus/Ultra leather); sunroof still Plus and up; Harman Kardon and Pilot Assist still Ultra only.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Power tailgate",
+        "Wireless phone charging and keyless entry",
+        "Power-folding rear headrests",
+        "Adaptive cruise control and front + rear parking sensors now standard"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Real wood inlays, Orrefors crystal gear selector"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Ultra",
+       "highlights": [
+        "Black Edition: black paint, black badges and exterior trim",
+        "Unique 20-inch black wheels",
+        "Connect Suede textile / Microtech seats (spec data) instead of leather",
+        "Otherwise same equipment as Ultra"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech (synthetic) standard per spec data; heated front seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/volvo/xc40/specs/2023/volvo_xc40_volvo-xc40_2023",
+    "https://www.caranddriver.com/volvo/xc40/specs/2024/volvo_xc40_volvo-xc40_2024",
+    "https://www.caranddriver.com/volvo/xc40/specs/2025/volvo_xc40_volvo-xc40_2025",
+    "https://www.caranddriver.com/volvo/xc40/specs/2026/volvo_xc40_volvo-xc40_2026",
+    "https://www.caranddriver.com/volvo/xc40-2023",
+    "https://www.caranddriver.com/volvo/xc40-2024",
+    "https://www.caranddriver.com/volvo/xc40-2025",
+    "https://www.caranddriver.com/volvo/xc40",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA data, model years 2023-2026)"
+   ]
+  },
+  {
+   "make": "Volkswagen",
+   "model": "Tiguan",
+   "on_list_rule": "Every 2025-2026 Tiguan 4MOTION (AWD) trim is on the list; front-drive versions are not. Older (pre-2025) Tiguans are not covered here.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "All-new third-generation Tiguan (two rows only; the old third-row option is gone). New platform, 2.0L turbo up to 201 hp, new MIB4 infotainment with 12.9-inch screen (15-inch on SEL R-Line). Trims S, SE, SE R-Line Black, SEL R-Line. Seats: S cloth, SE and SE R-Line Black V-Tex leatherette (synthetic), SEL R-Line Varenna leather with ventilation and massage. Panoramic sunroof standard on SE R-Line Black and SEL R-Line; Harman Kardon only on SEL R-Line. Adaptive cruise with Travel Assist standard on every trim.",
+     "trims": [
+      {
+       "name": "S 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats, heated front seats (manual adjust)",
+        "12.9-inch touchscreen + digital driver display",
+        "Wireless Apple CarPlay / Android Auto",
+        "IQ.DRIVE: adaptive cruise with stop-and-go and Travel Assist (hands-on steering assist)",
+        "Front Assist (forward collision warning with auto-brake), Active Side Assist blind-spot monitor, Lane Assist",
+        "7-speaker audio",
+        "17-inch alloy wheels",
+        "LED headlights"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (7-speaker)",
+       "seats": "cloth standard; heated front seats; manual adjust; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      },
+      {
+       "name": "SE 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "S 4MOTION",
+       "highlights": [
+        "Perforated V-Tex leatherette (synthetic) seats",
+        "Power driver seat with power lumbar",
+        "Power liftgate",
+        "Remote start",
+        "19-inch wheels"
+       ],
+       "sunroof": "not standard (option availability not confirmed)",
+       "premium_audio": "none (7-speaker)",
+       "seats": "V-Tex leatherette (synthetic) standard; heated front seats; power driver seat; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      },
+      {
+       "name": "SE R-Line Black 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "SE 4MOTION",
+       "highlights": [
+        "Panoramic sunroof",
+        "Head-up display",
+        "R-Line Black styling: black exterior trim, 20-inch black wheels",
+        "Sport leather steering wheel"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (7-speaker)",
+       "seats": "V-Tex leatherette (synthetic) standard; heated front seats; power driver seat; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      },
+      {
+       "name": "SEL R-Line 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "SE R-Line Black 4MOTION",
+       "highlights": [
+        "Perforated Varenna leather seats (genuine leather facings, leatherette backs)",
+        "Heated AND ventilated front seats with 10-point massage; power passenger seat; driver memory",
+        "Heated rear seats; heated steering wheel; heated windshield",
+        "Harman Kardon audio, 12 speakers, 700 W",
+        "15-inch touchscreen with built-in navigation",
+        "360-degree camera and Park Assist",
+        "Rear climate controls; hands-free easy-open/close liftgate",
+        "Adaptive LED projector headlights, front fog lights, 20-inch machined wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Varenna leather (genuine, perforated) standard; heated and ventilated front seats with massage; heated rear seats",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "SEL R-Line replaced by SEL R-Line Turbo with a 268-hp version of the 2.0L (up 67 hp) and standard 4MOTION; EPA 22/29/25 for that trim. S, SE and SE R-Line Black carry over (201 hp, same seat materials, sunroof and audio as 2025); connected-services packaging renamed. Otherwise no material changes.",
+     "trims": [
+      {
+       "name": "S 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats, heated front seats (manual adjust)",
+        "12.9-inch touchscreen + digital driver display",
+        "Wireless Apple CarPlay / Android Auto",
+        "IQ.DRIVE: adaptive cruise with stop-and-go and Travel Assist (hands-on steering assist)",
+        "Front Assist (forward collision warning with auto-brake), Active Side Assist blind-spot monitor, Lane Assist",
+        "7-speaker audio",
+        "17-inch alloy wheels",
+        "LED headlights"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (7-speaker)",
+       "seats": "cloth standard; heated front seats; manual adjust; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      },
+      {
+       "name": "SE 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "S 4MOTION",
+       "highlights": [
+        "Perforated V-Tex leatherette (synthetic) seats",
+        "Power driver seat with power lumbar",
+        "Power liftgate",
+        "Remote start",
+        "19-inch wheels"
+       ],
+       "sunroof": "not standard (option availability not confirmed)",
+       "premium_audio": "none (7-speaker)",
+       "seats": "V-Tex leatherette (synthetic) standard; heated front seats; power driver seat; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      },
+      {
+       "name": "SE R-Line Black 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888), 201 hp / 221 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "SE 4MOTION",
+       "highlights": [
+        "Panoramic sunroof",
+        "Head-up display",
+        "R-Line Black styling: black exterior trim, 20-inch black wheels",
+        "Sport leather steering wheel"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (7-speaker)",
+       "seats": "V-Tex leatherette (synthetic) standard; heated front seats; power driver seat; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/30/25"
+      },
+      {
+       "name": "SEL R-Line Turbo 4MOTION",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (EA888 evo5), 268 hp / 258 lb-ft, 8-speed auto, 4MOTION AWD",
+       "builds_on": "SE R-Line Black 4MOTION",
+       "highlights": [
+        "More powerful engine: 268 hp (vs 201 hp)",
+        "Perforated Varenna leather seats (genuine leather facings, leatherette backs)",
+        "Heated AND ventilated front seats with 10-point massage; power passenger seat; driver memory",
+        "Heated rear seats; heated steering wheel; heated windshield",
+        "Harman Kardon audio, 12 speakers, 700 W",
+        "15-inch touchscreen with built-in navigation",
+        "360-degree camera and Park Assist",
+        "Rear climate controls; hands-free easy-open/close liftgate",
+        "20-inch machined wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Varenna leather (genuine, perforated) standard; heated and ventilated front seats with massage; heated rear seats",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/29/25"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/volkswagen/tiguan/specs/2025/volkswagen_tiguan_volkswagen-tiguan_2025",
+    "https://www.caranddriver.com/volkswagen/tiguan/specs/2026/volkswagen_tiguan_volkswagen-tiguan_2026",
+    "https://www.caranddriver.com/volkswagen/tiguan-2025",
+    "https://www.caranddriver.com/volkswagen/tiguan",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49060",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49545"
+   ]
+  },
+  {
+   "make": "Ford",
+   "model": "Bronco",
+   "on_list_rule": "Every Bronco 4-door trim (including Raptor and special editions) is on the list; 2-door Broncos and the Bronco Sport are not.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "New Heritage Edition (Big Bend-based, retro white grille/roof/wheels, Sasquatch package) and Heritage Limited Edition (2.7L, leather with plaid). Seat material: Base and Big Bend switched from cloth to marine-grade vinyl for builds from July 10, 2023. Raptor's Bang & Olufsen audio made optional (7-speaker standard). 8-inch screen still standard on most trims (12-inch on Raptor/Heritage Limited). No glass sunroof on any Bronco; soft top standard on most trims, hard top on Everglades, Heritage and Raptor.",
+     "trims": [
+      {
+       "name": "Base 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "",
+       "highlights": [
+        "16-inch steel wheels",
+        "8-inch SYNC 4 touchscreen (12-inch optional)",
+        "Wireless Apple CarPlay / Android Auto",
+        "Pre-Collision Assist with auto emergency braking",
+        "Terrain management (G.O.A.T. modes)",
+        "Full-size spare on swing gate",
+        "Removable doors, soft top"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "cloth (early 2023 builds) or marine-grade vinyl (builds from July 2023); not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "20/21/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Big Bend 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Base 4-Door",
+       "highlights": [
+        "17-inch alloy wheels, all-terrain tires",
+        "Leather-wrapped steering wheel",
+        "Deep-tinted rear glass",
+        "Front fog lights"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "cloth (early builds) or marine-grade vinyl (builds from July 2023); not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "20/21/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Black Diamond 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Locking rear differential",
+        "Six skid plates / rock rails",
+        "Upfitter switches",
+        "Rubber washout floor",
+        "17-inch black steel wheels, all-terrain tires"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard; not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/18/18 (2.3L auto)"
+      },
+      {
+       "name": "Outer Banks 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD; 2.7L V6 optional",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Heated leather-trimmed front seats (10-way power driver, 8-way power passenger)",
+        "Dual-zone automatic climate, push-button start with keyless entry, remote start",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear parking sensors",
+        "Body-color fenders and door handles, 18-inch machined wheels",
+        "Auto-dimming mirror, 110V outlet, built-in navigation (trial)"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "leather-trimmed (genuine leather with vinyl) standard; heated front seats; power front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "20/21/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Badlands 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD; 2.7L V6 optional",
+       "builds_on": "Black Diamond 4-Door",
+       "highlights": [
+        "Front and rear locking differentials, disconnecting front sway bar",
+        "Bilstein remote-reservoir dampers",
+        "Advanced 4x4 (auto mode) transfer case",
+        "33-inch all-terrain tires on 17-inch wheels",
+        "Rubber washout floor"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard, leather-trimmed optional; heated not standard; 6-way manual",
+       "black_interior": "yes",
+       "spare": "full-size spare",
+       "mpg": "17/17/17 (2.3L or 2.7L auto)"
+      },
+      {
+       "name": "Wildtrak 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.7L twin-turbo V6 EcoBoost, 330 hp / 415 lb-ft on premium (315 / 410 on regular), 10-speed auto, 4WD",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "2.7L twin-turbo V6 standard",
+        "Sasquatch package: 35-inch mud-terrain tires, beadlock-capable wheels, 4.7 axles",
+        "HOSS 3.0 Fox remote-reservoir dampers",
+        "Heated leather-trimmed front seats",
+        "Dual-zone automatic climate, keyless entry, remote start",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear sensors"
+       ],
+       "sunroof": "not available as glass; soft top per spec data, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "leather-trimmed standard; heated front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "17/17/17 (2.7L, Sasquatch)"
+      },
+      {
+       "name": "Everglades 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "Factory snorkel (wading up to 36.4 in)",
+        "Warn winch and steel bumper",
+        "Sasquatch-style 35-inch mud-terrain tires",
+        "Hard top standard",
+        "Heated marine-grade vinyl seats",
+        "Blind-spot monitor, cross-traffic alert, lane keeping"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard; heated front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": ""
+      },
+      {
+       "name": "Heritage Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Retro styling: white grille, white roof, 17-inch white wheels",
+        "Sasquatch package (35-inch tires, front and rear lockers, Bilstein dampers)",
+        "Hard top standard",
+        "Heated plaid cloth seats",
+        "Dual-zone automatic climate, keyless entry",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear sensors"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "plaid cloth standard; heated front seats; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/17/18 (2.3L auto, Sasquatch)"
+      },
+      {
+       "name": "Heritage Limited Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.7L twin-turbo V6 EcoBoost, 330 hp / 415 lb-ft on premium (315 / 410 on regular), 10-speed auto, 4WD",
+       "builds_on": "Heritage Edition 4-Door",
+       "highlights": [
+        "2.7L twin-turbo V6 standard",
+        "Leather-trimmed seats with perforated plaid inserts",
+        "Bang & Olufsen 10-speaker audio",
+        "Adaptive cruise control and 360-degree camera",
+        "12-inch screen",
+        "Metal Bronco fender script, unique dog-dish wheels"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "leather-trimmed with plaid inserts standard; heated front seats; 10-way power driver, 8-way power passenger",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "17/17/17 (2.7L, Sasquatch)"
+      },
+      {
+       "name": "Raptor",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L twin-turbo V6 EcoBoost, 418 hp / 440 lb-ft, 10-speed auto, 4WD with front and rear lockers",
+       "builds_on": "Wildtrak 4-Door",
+       "highlights": [
+        "3.0L twin-turbo V6, 418 hp",
+        "Fox remote-reservoir dampers, wider track and fender flares",
+        "37-inch tires on 17-inch beadlock-capable wheels",
+        "Front and rear lockers",
+        "Hard top standard",
+        "Heated marine-grade vinyl seats",
+        "360-degree camera, blind-spot monitor, lane keeping",
+        "12-inch screen"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen optional",
+       "seats": "marine-grade vinyl standard (spec data); heated front seats; leather availability not confirmed",
+       "black_interior": "yes",
+       "spare": "full-size spare (37-inch)",
+       "mpg": "15/16/15"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Base 4-door dropped. 12-inch touchscreen now standard on every trim (was 8-inch). Badlands gains a heavy-duty modular front bumper. Raptor gains standard Bang & Olufsen audio, adaptive cruise and heated steering wheel; Outer Banks adds running boards. Seat materials unchanged (Big Bend listed as marine-grade vinyl). Last year for Black Diamond, Wildtrak, Everglades and Heritage Limited.",
+     "trims": [
+      {
+       "name": "Big Bend 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "",
+       "highlights": [
+        "17-inch alloy wheels, all-terrain tires",
+        "Leather-wrapped steering wheel",
+        "Deep-tinted rear glass",
+        "Front fog lights",
+        "12-inch SYNC 4 touchscreen",
+        "Wireless Apple CarPlay / Android Auto",
+        "Pre-Collision Assist with auto emergency braking",
+        "Terrain management (G.O.A.T. modes)",
+        "Full-size spare on swing gate",
+        "Removable doors, soft top"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard (spec data); not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "20/21/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Black Diamond 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Locking rear differential",
+        "Six skid plates / rock rails",
+        "Upfitter switches",
+        "Rubber washout floor",
+        "17-inch black steel wheels, all-terrain tires"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard; not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/18/18 (2.3L auto)"
+      },
+      {
+       "name": "Outer Banks 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD; 2.7L V6 optional",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Heated leather-trimmed front seats (10-way power driver, 8-way power passenger)",
+        "Dual-zone automatic climate, push-button start with keyless entry, remote start",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear parking sensors",
+        "Body-color fenders and door handles, 18-inch machined wheels",
+        "Auto-dimming mirror, 110V outlet, built-in navigation (trial)",
+        "Running boards"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "leather-trimmed (genuine leather with vinyl) standard; heated front seats; power front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "20/21/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Badlands 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD; 2.7L V6 optional",
+       "builds_on": "Black Diamond 4-Door",
+       "highlights": [
+        "Front and rear locking differentials, disconnecting front sway bar",
+        "Bilstein remote-reservoir dampers",
+        "Advanced 4x4 (auto mode) transfer case",
+        "33-inch all-terrain tires on 17-inch wheels",
+        "Rubber washout floor",
+        "Heavy-duty modular front bumper"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard, leather-trimmed optional; heated not standard; 6-way manual",
+       "black_interior": "yes",
+       "spare": "full-size spare",
+       "mpg": "17/17/17 (2.7L auto); 16/18/17 (2.3L manual)"
+      },
+      {
+       "name": "Wildtrak 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.7L twin-turbo V6 EcoBoost, 330 hp / 415 lb-ft on premium (315 / 410 on regular), 10-speed auto, 4WD",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "2.7L twin-turbo V6 standard",
+        "Sasquatch package: 35-inch mud-terrain tires, beadlock-capable wheels, 4.7 axles",
+        "HOSS 3.0 Fox remote-reservoir dampers",
+        "Heated leather-trimmed front seats",
+        "Dual-zone automatic climate, keyless entry, remote start",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear sensors"
+       ],
+       "sunroof": "not available as glass; soft top per spec data, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "leather-trimmed standard; heated front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "17/17/17 (2.7L, Sasquatch)"
+      },
+      {
+       "name": "Everglades 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "Factory snorkel (wading up to 36.4 in)",
+        "Warn winch and steel bumper",
+        "Sasquatch-style 35-inch mud-terrain tires",
+        "Hard top standard",
+        "Heated marine-grade vinyl seats",
+        "Blind-spot monitor, cross-traffic alert, lane keeping"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard; heated front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": ""
+      },
+      {
+       "name": "Heritage Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Retro styling: white grille, white roof, 17-inch white wheels",
+        "Sasquatch package (35-inch tires, front and rear lockers, Bilstein dampers)",
+        "Hard top standard",
+        "Heated plaid cloth seats",
+        "Dual-zone automatic climate, keyless entry",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear sensors"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "plaid cloth standard; heated front seats; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/17/18 (2.3L auto, Sasquatch)"
+      },
+      {
+       "name": "Heritage Limited Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.7L twin-turbo V6 EcoBoost, 330 hp / 415 lb-ft on premium (315 / 410 on regular), 10-speed auto, 4WD",
+       "builds_on": "Heritage Edition 4-Door",
+       "highlights": [
+        "2.7L twin-turbo V6 standard",
+        "Leather-trimmed seats with perforated plaid inserts",
+        "Bang & Olufsen 10-speaker audio",
+        "Adaptive cruise control and 360-degree camera",
+        "12-inch screen",
+        "Metal Bronco fender script, unique dog-dish wheels"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "leather-trimmed with plaid inserts standard; heated front seats; 10-way power driver, 8-way power passenger",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "17/17/17 (2.7L, Sasquatch)"
+      },
+      {
+       "name": "Raptor",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L twin-turbo V6 EcoBoost, 418 hp / 440 lb-ft, 10-speed auto, 4WD with front and rear lockers",
+       "builds_on": "Wildtrak 4-Door",
+       "highlights": [
+        "3.0L twin-turbo V6, 418 hp",
+        "Fox remote-reservoir dampers, wider track and fender flares",
+        "37-inch tires on 17-inch beadlock-capable wheels",
+        "Front and rear lockers",
+        "Hard top standard",
+        "Heated marine-grade vinyl seats",
+        "360-degree camera, blind-spot monitor, lane keeping",
+        "12-inch screen",
+        "Bang & Olufsen audio and adaptive cruise standard"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen 10-speaker, standard",
+       "seats": "marine-grade vinyl standard (spec data); heated front seats; leather availability not confirmed",
+       "black_interior": "yes",
+       "spare": "full-size spare (37-inch)",
+       "mpg": "15/16/15"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Lineup trimmed: Black Diamond (now a Big Bend package), Wildtrak, Everglades and Heritage Limited dropped; Base returns (late availability); Free Wheeling package added for Big Bend; Stroppe Edition is 2-door only. Seat material: Base and Big Bend back to cloth; Badlands now has heated marine-grade vinyl seats plus proximity entry and auto-dimming mirror, and takes the Wildtrak's HOSS 3.0 suspension. Outer Banks and Heritage gain a heated steering wheel; Raptor's B&O system grows to 12 speakers and adds front parking sensors.",
+     "trims": [
+      {
+       "name": "Base 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD",
+       "builds_on": "",
+       "highlights": [
+        "16-inch steel wheels",
+        "12-inch SYNC 4 touchscreen",
+        "Wireless Apple CarPlay / Android Auto",
+        "Pre-Collision Assist with auto emergency braking",
+        "Terrain management (G.O.A.T. modes)",
+        "Full-size spare on swing gate",
+        "Removable doors, soft top"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "cloth standard; not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/22/20 (2.3L auto)"
+      },
+      {
+       "name": "Big Bend 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Base 4-Door",
+       "highlights": [
+        "17-inch alloy wheels, all-terrain tires",
+        "Leather-wrapped steering wheel",
+        "Deep-tinted rear glass",
+        "Black Diamond and Free Wheeling packages available"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "cloth standard; not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/22/20 (2.3L auto)"
+      },
+      {
+       "name": "Outer Banks 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD; 2.7L V6 optional",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Heated leather-trimmed front seats (10-way power driver, 8-way power passenger)",
+        "Dual-zone automatic climate, push-button start with keyless entry, remote start",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear parking sensors",
+        "Body-color fenders and door handles, 18-inch machined wheels",
+        "Auto-dimming mirror, 110V outlet, built-in navigation (trial)",
+        "Running boards",
+        "Heated steering wheel"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "leather-trimmed (genuine leather with vinyl) standard; heated front seats; power front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/22/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Badlands 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Front and rear locking differentials, disconnecting front sway bar",
+        "Bilstein remote-reservoir dampers",
+        "Advanced 4x4 (auto mode) transfer case",
+        "33-inch all-terrain tires on 17-inch wheels",
+        "Rubber washout floor",
+        "Heavy-duty modular front bumper",
+        "Heated marine-grade vinyl seats, proximity entry, auto-dimming mirror",
+        "HOSS 3.0 suspension (per Ford Authority)"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard, heated front seats; leather-trimmed optional",
+       "black_interior": "yes",
+       "spare": "full-size spare",
+       "mpg": "17/19/18 (2.3L auto)"
+      },
+      {
+       "name": "Heritage Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Retro styling: white grille, white roof, 17-inch white wheels",
+        "Sasquatch package (35-inch tires, front and rear lockers, Bilstein dampers)",
+        "Hard top standard",
+        "Heated plaid cloth seats",
+        "Dual-zone automatic climate, keyless entry",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear sensors",
+        "Heated steering wheel, upfitter switches"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "plaid cloth standard; heated front seats; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "17/19/18 (2.3L auto, Sasquatch)"
+      },
+      {
+       "name": "Raptor",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L twin-turbo V6 EcoBoost, 418 hp / 440 lb-ft, 10-speed auto, 4WD with front and rear lockers",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "3.0L twin-turbo V6, 418 hp",
+        "Fox remote-reservoir dampers, wider track and fender flares",
+        "37-inch tires on 17-inch beadlock-capable wheels",
+        "Front and rear lockers",
+        "Hard top standard",
+        "Heated marine-grade vinyl seats",
+        "360-degree camera, blind-spot monitor, lane keeping",
+        "12-inch screen",
+        "Bang & Olufsen audio and adaptive cruise standard"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen 12-speaker, standard",
+       "seats": "marine-grade vinyl standard (spec data); heated front seats; leather availability not confirmed",
+       "black_interior": "yes",
+       "spare": "full-size spare (37-inch)",
+       "mpg": "15/16/15"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Stroppe Edition now a 4-door (special channel). Wildtrak returns as a Badlands package (2.7L, Sasquatch, HOSS 3.0, black appearance); new 60th Anniversary package for Outer Banks (red/white, leather seats with cashmere-style inserts). Big Bend rear seat now cloth to match the front; new Ford Connectivity Package replaces the old hotspot. Engines, sunroof (none), audio and safety tech otherwise carry over per spec data.",
+     "trims": [
+      {
+       "name": "Base 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD",
+       "builds_on": "",
+       "highlights": [
+        "16-inch steel wheels",
+        "12-inch SYNC 4 touchscreen",
+        "Wireless Apple CarPlay / Android Auto",
+        "Pre-Collision Assist with auto emergency braking",
+        "Terrain management (G.O.A.T. modes)",
+        "Full-size spare on swing gate",
+        "Removable doors, soft top"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "cloth standard; not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/22/20 (2.3L auto)"
+      },
+      {
+       "name": "Big Bend 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Base 4-Door",
+       "highlights": [
+        "17-inch alloy wheels, all-terrain tires",
+        "Leather-wrapped steering wheel",
+        "Deep-tinted rear glass",
+        "Black Diamond and Free Wheeling packages available"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "cloth standard (front and rear); not heated; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/22/20 (2.3L auto)"
+      },
+      {
+       "name": "Outer Banks 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto, 4WD; 2.7L V6 optional",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Heated leather-trimmed front seats (10-way power driver, 8-way power passenger)",
+        "Dual-zone automatic climate, push-button start with keyless entry, remote start",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear parking sensors",
+        "Body-color fenders and door handles, 18-inch machined wheels",
+        "Auto-dimming mirror, 110V outlet, built-in navigation (trial)",
+        "Running boards",
+        "Heated steering wheel",
+        "60th Anniversary package available (leather seats with cashmere-style inserts)"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "leather-trimmed (genuine leather with vinyl) standard; heated front seats; power front seats",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "18/22/20 (2.3L auto); 19/21/20 (2.7L)"
+      },
+      {
+       "name": "Badlands 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Front and rear locking differentials, disconnecting front sway bar",
+        "Bilstein remote-reservoir dampers",
+        "Advanced 4x4 (auto mode) transfer case",
+        "33-inch all-terrain tires on 17-inch wheels",
+        "Rubber washout floor",
+        "Heavy-duty modular front bumper",
+        "Heated marine-grade vinyl seats, proximity entry, auto-dimming mirror",
+        "HOSS 3.0 suspension (per Ford Authority)",
+        "Wildtrak package available: 2.7L V6, Sasquatch, HOSS 3.0, black appearance"
+       ],
+       "sunroof": "not available as glass; soft top standard, hard top with removable roof panels optional",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "marine-grade vinyl standard, heated front seats; leather-trimmed optional",
+       "black_interior": "yes",
+       "spare": "full-size spare",
+       "mpg": "17/19/18 (2.3L auto)"
+      },
+      {
+       "name": "Heritage Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.3L turbo 4-cyl EcoBoost, 300 hp / 325 lb-ft on premium (275 / 315 on regular), 10-speed auto or 7-speed manual, 4WD",
+       "builds_on": "Big Bend 4-Door",
+       "highlights": [
+        "Retro styling: white grille, white roof, 17-inch white wheels",
+        "Sasquatch package (35-inch tires, front and rear lockers, Bilstein dampers)",
+        "Hard top standard",
+        "Heated plaid cloth seats",
+        "Dual-zone automatic climate, keyless entry",
+        "Blind-spot monitor, cross-traffic alert, lane keeping, rear sensors",
+        "Heated steering wheel, upfitter switches"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "none standard (7-speaker); Bang & Olufsen 10-speaker optional",
+       "seats": "plaid cloth standard; heated front seats; 6-way manual",
+       "black_interior": "unknown",
+       "spare": "full-size spare",
+       "mpg": "17/19/18 (2.3L auto, Sasquatch)"
+      },
+      {
+       "name": "Stroppe Edition 4-Door",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.7L twin-turbo V6 EcoBoost, 330 hp / 415 lb-ft on premium (315 / 410 on regular), 10-speed auto, 4WD",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "Baja-inspired special edition (limited channel; reportedly not orderable at regular dealers)",
+        "2.7L twin-turbo V6, Fox internal-bypass suspension",
+        "Hard top standard",
+        "Bang & Olufsen 12-speaker audio",
+        "Adaptive cruise, 360-degree camera, blind-spot monitor",
+        "Heated vinyl seats with orange stitching, heated steering wheel"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "vinyl (black with orange stitching) standard; heated front seats; 6-way manual",
+       "black_interior": "yes",
+       "spare": "full-size spare",
+       "mpg": ""
+      },
+      {
+       "name": "Raptor",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L twin-turbo V6 EcoBoost, 418 hp / 440 lb-ft, 10-speed auto, 4WD with front and rear lockers",
+       "builds_on": "Badlands 4-Door",
+       "highlights": [
+        "3.0L twin-turbo V6, 418 hp",
+        "Fox remote-reservoir dampers, wider track and fender flares",
+        "37-inch tires on 17-inch beadlock-capable wheels",
+        "Front and rear lockers",
+        "Hard top standard",
+        "Heated marine-grade vinyl seats",
+        "360-degree camera, blind-spot monitor, lane keeping",
+        "12-inch screen",
+        "Bang & Olufsen audio and adaptive cruise standard"
+       ],
+       "sunroof": "not available as glass; hard top with removable front roof panels standard",
+       "premium_audio": "Bang & Olufsen 12-speaker, standard",
+       "seats": "marine-grade vinyl standard (spec data); heated front seats; leather availability not confirmed",
+       "black_interior": "yes",
+       "spare": "full-size spare (37-inch)",
+       "mpg": "15/16/15"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/ford/bronco/specs/2023/ford_bronco_ford-bronco_2023",
+    "https://www.caranddriver.com/ford/bronco/specs/2024/ford_bronco_ford-bronco_2024",
+    "https://www.caranddriver.com/ford/bronco/specs/2025/ford_bronco_ford-bronco_2025",
+    "https://www.caranddriver.com/ford/bronco/specs/2026/ford_bronco_ford-bronco_2026",
+    "https://www.caranddriver.com/ford/bronco-raptor/specs/2023/ford_bronco-raptor_ford-brono-raptor_2023",
+    "https://www.caranddriver.com/ford/bronco-raptor/specs/2024/ford_bronco-raptor_ford-bronco-raptor_2024",
+    "https://www.caranddriver.com/ford/bronco-raptor/specs/2025/ford_bronco-raptor_ford-bronco-raptor_2025",
+    "https://www.caranddriver.com/ford/bronco-raptor/specs/2026/ford_bronco-raptor_ford-bronco-raptor_2026",
+    "https://www.caranddriver.com/ford/bronco-2023",
+    "https://www.caranddriver.com/ford/bronco-2024",
+    "https://www.caranddriver.com/ford/bronco-2025",
+    "https://www.caranddriver.com/ford/bronco",
+    "https://www.caranddriver.com/ford/bronco-raptor-2023",
+    "https://www.caranddriver.com/ford/bronco-raptor-2024",
+    "https://www.caranddriver.com/ford/bronco-raptor-2025",
+    "https://www.caranddriver.com/ford/bronco-raptor",
+    "https://fordauthority.com/2023/05/2023-ford-bronco-to-get-standard-marine-grade-vinyl-interior",
+    "https://fordauthority.com/2024/10/2025-ford-bronco-ditches-four-trims-including-black-diamond",
+    "https://fordauthority.com/2024/10/2025-ford-bronco-badlands-gets-wildtraks-hoss-3-0-system/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA data, model years 2023-2026)"
+   ]
   }
  ]
 }
