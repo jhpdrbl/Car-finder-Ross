@@ -65,7 +65,11 @@ def token() -> str:
     t = os.environ.get("GITHUB_TOKEN") or (TOKEN_FILE.read_text().strip() if TOKEN_FILE.exists() else "")
     if not t:
         say("To upload results this needs a GitHub token (one time). See IPAD.md, step 3.")
-        t = input("Paste your GitHub token and press return: ").strip()
+        try:                       # hide the key while it's pasted (it shouldn't end up in screenshots)
+            import getpass
+            t = getpass.getpass("Paste your GitHub token and press return (it stays hidden): ").strip()
+        except Exception:
+            t = input("Paste your GitHub token and press return: ").strip()
         TOKEN_FILE.write_text(t)
     return t
 
