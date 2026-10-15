@@ -103,6 +103,13 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
   border:1px solid var(--bad); background:var(--surface); color:var(--bad); }
 .favbtn[aria-pressed="true"] { background:var(--bad); color:var(--bg); border-color:var(--bad); }
 #fav-gone ul { margin:4px 0 12px; padding-left:18px; }
+.cmpbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--surface); border:1px solid var(--accent);
+  border-radius:8px; padding:8px 10px; font-size:14px; }
+.cmpbar[hidden] { display:none; }
+.cbtn { font:600 13px system-ui, -apple-system, sans-serif; padding:6px 12px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--accent); background:var(--accent); color:var(--bg); }
+.cbtn.ghost { background:var(--surface); color:var(--accent); }
+.cmptop { display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .cmp { background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
 .crow { display:grid; grid-template-columns:150px repeat(var(--n), minmax(0,1fr)); border-bottom:1px solid var(--line); }
 .crow:last-child { border-bottom:0; } .crow > div { padding:8px 10px; min-width:0; overflow-wrap:anywhere; font-size:14px; }
@@ -163,6 +170,9 @@ td.warr { min-width:190px; font-size:13px; }
   <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n">0</span></button>
 </div>
 <div class="filters">
+  <div class="cmpbar" id="cmpbar" hidden><span>Comparing <b id="cmpbar-n">0</b> cars</span>
+    <button type="button" class="cbtn" id="cmpbar-view">View comparison</button>
+    <button type="button" class="cbtn ghost" id="cmpbar-clear">Clear compare</button></div>
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
     <button class="clear" id="clear" type="button">Clear filters</button></div>
   <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
@@ -464,7 +474,14 @@ saveFav();
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem("cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
 function saveCmp() { try { localStorage.setItem("cmp", JSON.stringify(cmp)); } catch (e) {}
-  document.getElementById("ncmp").textContent = cmp.length; }
+  document.getElementById("ncmp").textContent = cmp.length;
+  document.getElementById("cmpbar-n").textContent = cmp.length;
+  document.getElementById("cmpbar").hidden = !cmp.length; }
+function clearCmp() {
+  cmp = []; saveCmp();
+  document.querySelectorAll(".cmpbtn").forEach(b => { b.setAttribute("aria-pressed", "false"); b.textContent = "+ Compare"; });
+  if (!document.getElementById("panel-cmp").hidden) renderCompare();
+}
 function toggleCmp(vin) {
   if (cmp.includes(vin)) cmp = cmp.filter(v => v !== vin);
   else if (cmp.length >= MAXCMP) { alert(`You can compare up to ${MAXCMP} cars. Remove one first.`); return; }
@@ -523,11 +540,15 @@ function renderCompare() {
       if (vs.length > 1 && new Set(vs).size > 1) bestV = better === "low" ? Math.min(...vs) : Math.max(...vs); }
     return `<div class="crow"><div class="clabel">${esc(label)}</div>${cars.map((c, i) =>
       `<div class="cval${bestV != null && val(c) === bestV ? " best" : ""}">${L(i)}<div>${show(c)}</div></div>`).join("")}</div>`; }).join("");
-  el.innerHTML = `<div class="cmp" style="--n:${cars.length}">${head}${rows}</div>
-    <p class="small">★ = best in that row (lowest price, miles, monthly and distance; highest score, year, MPG; latest warranty end). <button type="button" class="clear" id="cmp-clear">Remove all</button></p>`;
-  document.getElementById("cmp-clear").onclick = () => { const all = [...cmp]; all.forEach(toggleCmp); };
+  el.innerHTML = `<div class="cmptop"><span class="muted">Comparing ${cars.length} car${cars.length > 1 ? "s" : ""}</span>
+      <button type="button" class="cbtn ghost" id="cmp-clear">Clear compare</button></div>
+    <div class="cmp" style="--n:${cars.length}">${head}${rows}</div>
+    <p class="small">★ = best in that row (lowest price, miles, monthly and distance; highest score, year, MPG; latest warranty end).</p>`;
+  document.getElementById("cmp-clear").onclick = clearCmp;
 }
 saveCmp();
+document.getElementById("cmpbar-clear").addEventListener("click", clearCmp);
+document.getElementById("cmpbar-view").addEventListener("click", () => showTab("cmp"));
 let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const ex = x == null || x === "", ey = y == null || y === ""; if (ex || ey) return ex - ey;   // blanks last
