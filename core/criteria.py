@@ -101,7 +101,8 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
 DARK_GREENS = ["autumn green", "cypress green", "british racing", "racing green", "dark green", "forest green",
                "eruption green", "district green", "verde", "jungle green", "hunter green"]
 OTHER_COLOR_WORDS = ["blue", "red", "white", "beige", "brown", "orange", "yellow", "gold", "bronze", "copper",
-                     "tan", "ivory", "cream", "champagne", "purple", "pink"]
+                     "tan", "ivory", "cream", "champagne", "purple", "pink", "mahogany", "burgundy", "maroon",
+                     "wine", "garnet", "ruby", "copper", "sand", "khaki"]
 
 
 def exterior_ok(color: str) -> tuple[str, str]:
@@ -200,6 +201,15 @@ def ev_comparables(L: Listing, pool: list[Listing]) -> list[float]:
 # Main evaluation
 # --------------------------------------------------------------------------
 
+def _over(L: Listing, cap: float, label: str, fails: list, unknown: list) -> None:
+    """Over the cap. If only our *estimated* fees push it over, ask instead of excluding."""
+    if L.fees_estimated and L.price is not None and L.price <= cap:
+        unknown.append(f"${L.price:,.0f} + estimated fees = ${L.price_total:,.0f}, just over the {label}; "
+                       "confirm the real out-the-door fees")
+    else:
+        fails.append(f"${L.price_total:,.0f} over the {label}")
+
+
 def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: dict[str, str]):
     fails, unknown, notes = [], [], []
     if L.vin in excluded:
@@ -231,9 +241,17 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         fails.append(f"{L.mileage:,} miles (need under 40,000)")
 
     # body / rows
+    # vPIC SeatRows is model-level ("up to 3"); the seat count tells the configuration
     rows = (d.get("SeatRows") or "").strip()
-    if rows.isdigit() and int(rows) >= 3 or L.third_row:
-        fails.append("third-row seating")
+    seats = (d.get("Seats") or "").strip()
+    if seats.isdigit() and int(seats) >= 6:
+        fails.append(f"third-row seating ({seats} seats)")
+    elif seats.isdigit() and int(seats) <= 5:
+        pass
+    elif rows.isdigit() and int(rows) >= 3:
+        unknown.append("model offers a third row; confirm this one is 2-row")
+    elif L.third_row:
+        unknown.append("page mentions third-row seating; confirm this one is 2-row")
     if d and "sport utility" not in (d.get("BodyClass") or "").lower() and d.get("BodyClass"):
         fails.append(f"body: {d.get('BodyClass')}")
 
@@ -242,7 +260,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     dt = drive_class(d) or L.drivetrain
     if L.dealer_brand == "Subaru" and not dt:
         dt = "AWD"
-    if dt in ("FWD", "RWD"):
+    if dt in ("FWD", "RWD", "2WD"):
         fails.append(f"{dt} (AWD/4WD only)")
     elif not dt:
         unknown.append("drivetrain not shown")
@@ -268,7 +286,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         if fuel in ("hybrid", "phev"):
             cap = F["price_caps"][fuel] + F["price_tolerance"]
             if L.price_total > cap:
-                fails.append(f"${L.price_total:,.0f} over the {fuel} cap (${F['price_caps'][fuel]:,})")
+                _over(L, cap, f"{fuel} cap (${F['price_caps'][fuel]:,})", fails, unknown)
         elif fuel == "ev":
             comps = ev_comparables(L, pool)
             if len(comps) < F["ev_min_comparables"]:
@@ -281,7 +299,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
                     notes.append(f"exceptional EV deal: {1 - L.price_total / med:.0%} below {len(comps)} comparables")
         else:
             if L.price_total > F["price_caps"]["gas"]:
-                fails.append(f"${L.price_total:,.0f} over the gas cap (${F['price_caps']['gas']:,})")
+                _over(L, F["price_caps"]["gas"], f"gas cap (${F['price_caps']['gas']:,})", fails, unknown)
 
     # sunroof
     if L.sunroof is False:

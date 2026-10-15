@@ -243,6 +243,8 @@ def classify_drivetrain(s: str) -> str:
         return "FWD"
     if re.search(r"(rwd|rear[- ]wheel|sdrive)", s):
         return "RWD"
+    if re.search(r"\b2wd\b|4x2|two[- ]wheel", s):
+        return "2WD"
     return ""
 
 
@@ -327,14 +329,17 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     L.mileage = L.mileage if L.mileage is not None else integer(da.get("mileage"))
     L.trim = L.trim or da.get("trim", "")
     L.drivetrain = L.drivetrain or classify_drivetrain(da.get("drivetrain", ""))
-    if L.price is None and da.get("price"):
+    if L.price is None and da.get("price") and (money(da["price"]) or 0) >= 3000:
         L.price = money(da["price"])
     if lv.get("location"):
         L.location_note = lv["location"]
     if not L.drivetrain:
         L.drivetrain = classify_drivetrain(L.title + " " + url)
 
-    # Price: prefer an explicit "total/final/sale price" if the page shows one
+    # Price: ignore junk (ratings, monthly payments) from structured data
+    if L.price is not None and L.price < 3000:
+        L.price = None
+    # prefer an explicit "total/final/sale price" if the page shows one
     if L.price is None:
         m = re.search(r"(?:internet|sale|selling|our|final|total|e-?price|special|dealer) price\s*:?\s*\$\s?([\d,]{4,7})", flat, re.I)
         L.price = money(m.group(1)) if m else None

@@ -55,4 +55,6 @@ def drive_class(d: dict) -> str:
         return "FWD"
     if "rwd" in s or "rear" in s:
         return "RWD"
+    if "4x2" in s or "2wd" in s:
+        return "2WD"
     return ""

@@ -121,8 +121,8 @@ def subaru() -> tuple[list[Listing], dict]:
             L.packages = "" if pkg.lower().startswith("standard") else pkg
             L.price = money(v.get("internetPrice") or v.get("cpoPrice"))
             L.mileage = integer(v.get("mileage"))
-            L.ext_color = (v.get("exteriorColor") or {}).get("name", "")
-            L.int_color = (v.get("interiorColor") or {}).get("name", "")
+            L.ext_color = re.sub(r"<[^>]+>|&reg;", "", (v.get("exteriorColor") or {}).get("name", "")).strip()
+            L.int_color = re.sub(r"<[^>]+>|&reg;", "", (v.get("interiorColor") or {}).get("name", "")).strip()
             L.drivetrain = "AWD"  # every Forester/Outback has Symmetrical AWD; confirmed again by VIN decode
             L.mpg_city, L.mpg_hwy = money(v.get("cityMpg")), money(v.get("highwayMpg"))
             L.stock = v.get("stockNumber") or ""

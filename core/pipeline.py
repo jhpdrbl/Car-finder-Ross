@@ -150,8 +150,8 @@ def enrich_from_dealer_page(L: Listing) -> None:
             setattr(L, attr, val)
     if P.trim and len(P.trim) > len(L.trim or ""):
         L.trim = P.trim
-    if P.price and abs((P.price or 0) - (L.price or 0)) > 1:
-        L.price = P.price  # the dealer's own page wins
+    if P.price and L.price and abs(P.price - L.price) > 1 and abs(P.price - L.price) / L.price < 0.3:
+        L.price = P.price  # the dealer's own page wins (within reason: guards against misread numbers)
     L.features = list(dict.fromkeys(L.features + P.features))[:150]
     if P.listing_url:
         L.listing_url = P.listing_url
