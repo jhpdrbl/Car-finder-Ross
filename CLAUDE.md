@@ -39,9 +39,11 @@ refresh.bat ──► run.py refresh ──► git push data/ output/ ──► 
 - The laptop clone is `Documents\Car-finder-Ross` (per SETUP-WINDOWS.md), on that branch.
 - **Favorites sync** needs a Workers KV namespace (`cpo-suv-favorites`) bound to the Pages project as `FAVS` (Production), set up in the Cloudflare dashboard; bindings apply from the next deploy. `wrangler pages deploy` picks up `functions/` from the repo root.
 - **Cloudflare is set up and working** (done from the iPad, Oct 2026): repo secrets
-  `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` exist; Pages project `cpo-suv-finder`;
-  Cloudflare Access protects both `cpo-suv-finder.pages.dev` and `*.cpo-suv-finder.pages.dev`
-  (email one-time code). Publish runs #4–#8 succeeded.
+  `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` exist; Pages project `cpo-suv-finder`.
+  Publishing works. **Cloudflare Access (privacy) was NOT done until the user was walked through it
+  on Oct 15 2026** (SETUP-WINDOWS.md 2d); confirm with the user that both `cpo-suv-finder.pages.dev`
+  and `*.cpo-suv-finder.pages.dev` ask for the email code. Favorites saved before Access are under
+  KV key `fav:default` and are carried over to the signed-in email on first load.
 
 ## Operating it
 

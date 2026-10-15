@@ -15,7 +15,9 @@ const keyFor = request =>
 
 export async function onRequestGet({ request, env }) {
   if (!env.FAVS) return json({ error: "sync not set up" }, 503);
-  const saved = await env.FAVS.get(keyFor(request), "json");
+  let saved = await env.FAVS.get(keyFor(request), "json");
+  // favorites saved before sign-in (Cloudflare Access) was turned on live under "default"; carry them over once
+  if (saved === null && keyFor(request) !== "fav:default") saved = await env.FAVS.get("fav:default", "json");
   return json({ fav: Array.isArray(saved) ? saved : [] });
 }
 
