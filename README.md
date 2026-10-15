@@ -33,7 +33,7 @@ Every result links to the dealer's own listing page and includes the VIN.
 **Reading the dashboard:** two tabs, **Available** and **No longer available**. A **NEW** bubble marks
 cars that appeared since the last refresh; a bold green **▼** next to a price means it dropped,
 and **Original price** shows what it was first listed at and how much less it is now. Tap the
-Status / Make / Fuel pills to filter (several at once), tap a column header to sort. On a phone each car shows as a card (no sideways scrolling) and a **Sort** menu replaces the headers. **Favorites**: tap **♡ Save** on a car; the ♥ tab shows them (per device; a share link moves them to another device). **Compare**: tap **+ Compare** on up to 6 cars and open the Compare tab. **Trim guide**: what each trim includes by year, plus each brand's warranty. The **Warranty** column estimates the coverage left and when it ends.
+Status / Make / Fuel pills to filter (several at once), tap a column header to sort. On a phone each car shows as a card (no sideways scrolling) and a **Sort** menu replaces the headers. **Favorites**: tap **♡ Save** on a car; the ♥ tab shows them; they sync between devices through `functions/api/favs.js` (Cloudflare KV bound as `FAVS`), or stay on the device if that isn't set up. **Compare**: tap **+ Compare** on up to 6 cars and open the Compare tab. **Trim guide**: what each trim includes by year, plus each brand's warranty. The **Warranty** column estimates the coverage left and when it ends.
 
 **Easiest: let Claude do it.** Open Claude Code on the laptop in the `Car-finder-Ross` folder and
 say *"run the refresh and publish it"* (or, the very first time, *"set this up and run the
@@ -137,4 +137,5 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 | `output/dealers.html` | Dealer list page (`python -m tools.dealer_page`) |
 | `site/` | Built for publishing (gitignored) |
 | `tools/` | `dealer_locator.py`, `verify_dealer_sites.py`, `dealer_page.py`, `diagnose.py`, `build_site.py` |
+| `functions/api/favs.js` | Cloudflare Pages Function: stores favorites (KV binding `FAVS`) so they sync between devices |
 | `.github/workflows/publish.yml` | Publish to Cloudflare Pages (needs repo secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) |

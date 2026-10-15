@@ -356,7 +356,8 @@ td.warr { min-width:190px; font-size:13px; }
 <div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
 <div id="fav-extra" hidden>
   <p class="muted" style="margin-top:0">Your favorites. Tap <b>&#9825; Save</b> on any car to add it here, tap again to remove it.
-  Favorites are kept on this device; to see them on another device, <button type="button" class="clear" id="fav-share">copy a link with your favorites</button> and open it there.
+  <span id="fav-sync-on" hidden>They sync automatically between your iPhone, iPad and laptop.</span>
+  <span id="fav-sync-off">Favorites are kept on this device; to see them on another device, <button type="button" class="clear" id="fav-share">copy a link with your favorites</button> and open it there.</span>
   <button type="button" class="clear" id="fav-cmp">Compare these</button></p>
   <div id="fav-gone"></div>
 </div>
@@ -581,20 +582,58 @@ document.addEventListener("click", e => {      // "trim info" link on a car: ope
   showTab("guide"); renderGuide();
   const el = document.getElementById(a.dataset.gid); if (el) el.scrollIntoView({block: "start"}); });
 // ---- Favorites: tap "Save" on a car; the Favorites tab shows the Available list limited to them ----
-let fav = [], favOnly = false;
+let fav = [], favOnly = false, favImport = [];
 try { fav = JSON.parse(localStorage.getItem("fav") || "[]"); } catch (e) {}
 try { const m = location.hash.match(/fav=([A-Z0-9,]+)/i);      // a shared favorites link: #fav=VIN1,VIN2
-  if (m) { m[1].toUpperCase().split(",").forEach(v => { if (v && !fav.includes(v)) fav.push(v); });
+  if (m) { favImport = m[1].toUpperCase().split(",").filter(Boolean);
+           favImport.forEach(v => { if (!fav.includes(v)) fav.push(v); });
            history.replaceState(null, "", location.pathname + "#favorites"); } } catch (e) {}
 function saveFav() { try { localStorage.setItem("fav", JSON.stringify(fav)); } catch (e) {}
   document.getElementById("nfav").textContent = fav.filter(v => D.cars.some(c => c.vin === v)).length; }
+// Sync with the website's own storage (functions/api/favs.js) so favorites follow you between devices.
+// Without it (opened as a local file, or not set up), favorites stay on this device only.
+let favSync = false;
+function setSyncNote() {
+  document.getElementById("fav-sync-on").hidden = !favSync;
+  document.getElementById("fav-sync-off").hidden = favSync; }
+function pushFav() {
+  if (!favSync) return;
+  fetch("api/favs", {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({fav})})
+    .catch(() => {});
+}
+function paintFavButtons() {
+  document.querySelectorAll(".favbtn").forEach(b => { const on = fav.includes(b.dataset.vin);
+    b.setAttribute("aria-pressed", String(on)); b.innerHTML = on ? "&#9829; Saved" : "&#9825; Save"; });
+}
+async function pullFav() {
+  try {
+    const r = await fetch("api/favs", {cache: "no-store"});
+    if (!r.ok) throw new Error(r.status);
+    const server = (await r.json()).fav;
+    if (!Array.isArray(server)) throw new Error("bad reply");
+    let first = false; try { first = localStorage.getItem("fav_synced") !== "1"; } catch (e) {}
+    if (first) {                         // first sync on this device: keep what was saved here, too
+      fav = [...new Set(server.concat(fav))];
+      favSync = true; pushFav();
+      try { localStorage.setItem("fav_synced", "1"); } catch (e) {}
+    } else {
+      fav = [...new Set(server.concat(favImport))]; favSync = true;
+      if (favImport.some(v => !server.includes(v))) pushFav();
+    }
+    favImport = [];
+    saveFav(); paintFavButtons(); if (favOnly) render();
+  } catch (e) { favSync = false; }
+  setSyncNote();
+}
+document.addEventListener("visibilitychange", () => { if (!document.hidden) pullFav(); });   // pick up changes from the other device
 function toggleFav(vin) {
-  fav = fav.includes(vin) ? fav.filter(v => v !== vin) : fav.concat(vin); saveFav();
+  fav = fav.includes(vin) ? fav.filter(v => v !== vin) : fav.concat(vin); saveFav(); pushFav();
   document.querySelectorAll(`.favbtn[data-vin="${vin}"]`).forEach(b => { const on = fav.includes(vin);
     b.setAttribute("aria-pressed", String(on)); b.innerHTML = on ? "&#9829; Saved" : "&#9825; Save"; });
   if (favOnly) render();
 }
 document.addEventListener("click", e => { const b = e.target.closest(".favbtn"); if (b) toggleFav(b.dataset.vin); });
+pullFav();
 document.getElementById("fav-share").addEventListener("click", () => {
   const url = location.href.split("#")[0] + "#fav=" + fav.join(",");
   const done = () => alert("Link copied. Open it on your other device (phone or iPad) and your favorites will be added there.");
