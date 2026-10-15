@@ -606,6 +606,7 @@ function paintFavButtons() {
     b.setAttribute("aria-pressed", String(on)); b.innerHTML = on ? "&#9829; Saved" : "&#9825; Save"; });
 }
 async function pullFav() {
+  if (location.protocol === "file:") { setSyncNote(); return; }   // the laptop's local copy can't sync
   try {
     const r = await fetch("api/favs", {cache: "no-store"});
     if (!r.ok) throw new Error(r.status);

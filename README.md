@@ -2,7 +2,7 @@
 
 Finds certified pre-owned, 2-row, AWD/4WD SUVs at franchise dealers near ZIP 90039 that match
 the criteria in `config.yaml` (originally `car-scraper-spec.md`). It produces a newsletter-style
-digest, CSVs and a dashboard, and publishes them to a private page for viewing on a phone.
+digest, CSVs and a dashboard, and publishes them to a web page for viewing on a phone (public, not indexed).
 Every result links to the dealer's own listing page and includes the VIN.
 
 - **Handoff / current state for a new Claude session:** [CLAUDE.md](CLAUDE.md)

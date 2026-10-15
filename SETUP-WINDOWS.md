@@ -136,9 +136,10 @@ The published copy leaves out your down payment and pre-approval details.
 If it shows a red X, tap it and send Claude a screenshot. (If the name
 `cpo-suv-finder` is taken, Claude will pick another.)
 
-### 2d. Make the page private (recommended)
+### 2d. Make the page private (optional; skipped)
 
-Without this, anyone who guesses the address could see the page.
+You decided (Oct 2026) not to do this: nothing on the page is sensitive. Without it, anyone who
+guesses the address could see the page, and favorites are one shared list. Steps, if you ever want it:
 
 1. Cloudflare → **Workers & Pages** → **cpo-suv-finder** → **Settings** → **General** →
    **Access policy** → **Enable access policy**. (If asked: pick a team name and the **Free** plan.)

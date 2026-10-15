@@ -52,6 +52,15 @@ Open the Claude app → **Code** → the **Car-finder-Ross** folder (in Document
 That's it. Claude gets the latest version of the tool first (in case it was improved from your
 iPad), runs the search, uploads the results, and gives you a summary.
 
+## Your phone page after a laptop search
+
+- Same address, same tabs: **Cars**, **♥** (favorites), **Compare**, **Trims**, **Sold**. The laptop
+  search simply adds the dealers your phone couldn't reach (Audi especially).
+- **Favorites carry over.** They're saved online and tied to each car's VIN, so a new search never
+  erases them. Sold favorites show at the top of the ♥ tab. Claude's summary will mention changes to them.
+- On the laptop, look at favorites on the online page (<https://cpo-suv-finder.pages.dev>), not the
+  copy that opens after a search (that copy can't sync).
+
 ## Handy things to ask Claude on the laptop
 
 - "Why did <dealer> fail?" / "Why isn't this car on my list: <link>?"
@@ -70,3 +79,5 @@ Everything you need is in `CLAUDE.md` (state, runbook, decisions, open items) an
 (technical reference). The user is non-technical and won't run commands; you run them. Don't run
 the `.bat` files (they block on keypress prompts). First-time priority: the Audi diagnose and
 adapter (`scrapers/audi_network.py`), because Audi is a top brand and was never testable from the cloud.
+In every summary, start with the user's favorites (`curl -s https://cpo-suv-finder.pages.dev/api/favs`):
+price drops, sold, or no longer matching. See CLAUDE.md, "Every refresh".

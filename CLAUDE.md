@@ -37,7 +37,9 @@ refresh.bat ──► run.py refresh ──► git push data/ output/ ──► 
 - Repo `jhpdrbl/Car-finder-Ross`; working branch **`claude/la-cpo-suv-scraper-x0pl15`**, which is
   also the repo's **default branch** (no `main` yet; nothing merged; no PR).
 - The laptop clone is `Documents\Car-finder-Ross` (per SETUP-WINDOWS.md), on that branch.
-- **Favorites sync** needs a Workers KV namespace (`cpo-suv-favorites`) bound to the Pages project as `FAVS` (Production), set up in the Cloudflare dashboard; bindings apply from the next deploy. `wrangler pages deploy` picks up `functions/` from the repo root.
+- **Favorites sync is live** (Oct 15 2026): Workers KV namespace `cpo-suv-favorites` is bound to the
+  Pages project as `FAVS`; `GET https://cpo-suv-finder.pages.dev/api/favs` returns `{"fav": [VINs]}`.
+  `wrangler pages deploy` picks up `functions/` from the repo root (the publish workflow runs from there).
 - **Cloudflare is set up and working** (done from the iPad, Oct 2026): repo secrets
   `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` exist; Pages project `cpo-suv-finder`.
   Publishing works. **No Cloudflare Access: the user chose (Oct 2026) to keep the page public** (nothing
@@ -68,6 +70,13 @@ git pull --no-edit && git add data output && git commit -m "Results from laptop 
 - The push triggers GitHub Actions "Publish dashboard"; when it's green (about 2 minutes), tell the
   user to refresh https://cpo-suv-finder.pages.dev. Summarize for them in plain words: how many
   matches / need a call, what's NEW, price drops, and which dealers failed and why.
+- **Their favorites:** `curl -s https://cpo-suv-finder.pages.dev/api/favs` lists the VINs they saved (♥).
+  Look those up in `data/listings.csv` and lead the summary with what changed for them: price drops,
+  sold/removed (`status=sold`), or no longer matching (`status=excluded`, see `fail_reasons`).
+- The dashboard the refresh writes locally (`output/dashboard.html`, opened from disk) can't sync
+  favorites; if the user wants favorites on the laptop, have them open the online page instead.
+- `data/trim_guide.json` and `data/warranty.json` are hand-researched reference data (Trim guide tab,
+  Warranty column), not run output; a refresh doesn't change them, so `git add data` leaves them alone.
 - `git push` may open a browser window for GitHub sign-in the first time; tell the user to sign in
   and click Authorize.
 
@@ -114,8 +123,13 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 
 ## Current state (as of 2026-10-15)
 
+- **Ready for the first laptop run.** Everything since the last cloud search was dashboard/reference
+  work plus one rule fix (Q5 sunroof). Because `config.yaml` and `criteria.py` changed, the first laptop
+  run re-reads every listing page (rules fingerprint) and is slower than later runs; that's expected.
+- Dashboard (Oct 15, cloud): phone card layout, Favorites (synced), Compare, Trim guide + warranty
+  comparison, Warranty column with expected end dates. The page is public (user's choice).
 - All runs so far were **from the cloud**; the laptop hasn't been set up yet (the user has the
-  guide). Latest cloud run: 99 sources read, 80 failed, 27 covered by brand feeds;
+  guide, `LAPTOP-HANDOVER.md`). Latest cloud run: 99 sources read, 80 failed, 27 covered by brand feeds;
   19 meet all criteria, 18 need a call (after adding the new models). `data/` and `output/` hold that run.
 - **Blocked from the cloud** (expected to work from the laptop): 54 Cloudflare, 5 Akamai,
   12 Audi-platform ("site currently not available"). Audi: only McKenna Audi, Audi North
@@ -143,6 +157,17 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    dealer pages load, and `pipeline.enrich_from_dealer_page` fills it in.
 5. CARFAX is almost always `not_verified` (dealer pages rarely say "no accidents" explicitly).
    That's per spec; don't loosen it without asking.
+6. **Trim guide / warranty data** (`data/trim_guide.json`, `data/warranty.json`) were researched Oct 2026
+   by sub-agents from manufacturer press sites, brand pages/booklets and fueleconomy.gov; Volvo/VW/Ford
+   trims and some Lexus/Toyota details came from Car and Driver or search summaries because those
+   makers' sites refused the requests. Items that couldn't be confirmed say "unknown" / "confirm on
+   window sticker". 2027 model years are included only for some models (whatever was on sale). Update by
+   editing the JSON (schema: model → years → trims with name, on_list, why_not, powertrain, builds_on,
+   highlights, sunroof, premium_audio, seats, black_interior, spare, mpg) and regenerating the dashboard.
+   Same rules as everything else: no aggregators, honest requests, never carfax.com.
+7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
+   `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
+   those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.
 
 ## Decisions the user made (don't revert)
 
