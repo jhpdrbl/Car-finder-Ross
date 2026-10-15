@@ -85,7 +85,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 
 - All runs so far were **from the cloud**; the laptop hasn't been set up yet (the user has the
   guide). Latest cloud run: 99 sources read, 80 failed, 27 covered by brand feeds;
-  14 meet all criteria, 14 need a call. `data/` and `output/` hold that run.
+  19 meet all criteria, 18 need a call (after adding the new models). `data/` and `output/` hold that run.
 - **Blocked from the cloud** (expected to work from the laptop): 54 Cloudflare, 5 Akamai,
   12 Audi-platform ("site currently not available"). Audi: only McKenna Audi, Audi North
   Orange County and Audi South Coast load from the cloud; the other 16 Audi dealers don't.
@@ -122,6 +122,8 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 | Interior | **Black only**; gray interiors excluded |
 | Exterior | Black / gray / dark green. **Silver excluded** (names with gray/graphite, e.g. "Silver Gray", still count as gray) |
 | Subaru trims | Limited / Touring / Wilderness (+ Forester Hybrid). **Onyx Edition excluded** |
+| Models | Spec models **plus (Oct 2026): Audi Q3, Genesis GV80 (2-row), Lexus RX (not RX L), BMW X5 (xDrive40i/50e), Mercedes GLE (350/450/450e 4MATIC; no AMG/Coupe/580), Volvo XC40**. Rules in `core/criteria.py:model_check`, tokens in `scrapers/listing.py:MODEL_TOKENS`, notes in `config.yaml: brands` |
+| Interior colors | Light interiors (Blond, Oyster, Parchment, Amber…) excluded; list in `config.yaml` |
 | Certification | Only strong evidence counts (brand CPO feed, or URL/title/structured data says certified). Page text alone → "Needs a call" (every site has a "Certified Pre-Owned" menu) |
 | Sunroof | Inferred from trim only where standard (Q5 all, GV70 Select+, XC60 Plus/Ultimate, Bronco 4-door); see `config.yaml: sunroof_standard` |
 | Mild hybrids | Count as **gas** (fuel type from NHTSA vPIC ElectrificationLevel, not dealer wording) |
