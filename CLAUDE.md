@@ -126,7 +126,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 | Sunroof | Inferred from trim only where standard (Q5 all, GV70 Select+, XC60 Plus/Ultimate, Bronco 4-door); see `config.yaml: sunroof_standard` |
 | Mild hybrids | Count as **gas** (fuel type from NHTSA vPIC ElectrificationLevel, not dealer wording) |
 | Phone page | Private via Cloudflare Access; published digest omits buying context (`publish.include_buying_context: false`) |
-| Dashboard | Columns include Fuel and MPG (listing value, else EPA from fueleconomy.gov; PHEV = gas-only); multi-select filter pills (status, make, fuel) |
+| Dashboard | Columns include Fuel and MPG (listing value, else EPA from fueleconomy.gov; PHEV = gas-only); multi-select filter pills (status, make, fuel); a **No longer available** tab listing every car that was ever on the dashboard and later sold/was removed (`status=sold`, `removed_on`) |
 
 ## Hard rules (from the spec)
 

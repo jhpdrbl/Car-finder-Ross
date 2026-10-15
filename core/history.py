@@ -14,7 +14,7 @@ LISTING_COLS = ["vin", "status", "first_seen", "last_seen", "dealer", "dealer_ur
                 "spare_tire", "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source", "cpo_program", "cpo_warranty_terms",
                 "carfax_status", "recall_flags", "est_monthly_cost", "score", "fail_reasons",
                 # extras beyond the spec's list
-                "needs_call", "notes", "price", "fees_estimated", "dealer_brand", "distance_mi", "source", "carfax_badges"]
+                "needs_call", "notes", "removed_on", "price", "fees_estimated", "dealer_brand", "distance_mi", "source", "carfax_badges"]
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -75,7 +75,7 @@ def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[st
             continue
         if prev.get("status") == "active" and (prev.get("dealer") in scraped_dealers_ok
                                                or prev.get("listing_url") in gone_urls):
-            prev = dict(prev, status="sold")
+            prev = dict(prev, status="sold", removed_on=today)
             prev["fail_reasons"] = gone_urls.get(prev.get("listing_url"), "no longer listed by the dealer")
             changes["removed"].append(prev)
         rows.append(prev)

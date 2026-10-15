@@ -162,11 +162,21 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)
-    data = json.dumps({"cars": cars, "failed": failed}, ensure_ascii=False).replace("</", "<\\/")
+    # cars that were on the dashboard (active) and have since sold / been removed by the dealer
+    gone = []
+    for r in rows:
+        if r.get("status") == "sold":
+            gone.append({k: r.get(k, "") for k in ("vin", "dealer", "listing_url", "year", "make", "model", "trim",
+                                                   "price_total", "mileage", "ext_color", "int_color", "fuel_type",
+                                                   "mpg_combined", "needs_call", "first_seen", "last_seen",
+                                                   "removed_on", "fail_reasons", "distance_mi")}
+                        | {"hist": hist.get(r["vin"], [])})
+    data = json.dumps({"cars": cars, "gone": gone, "failed": failed}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
         .replace("__OK__", str(ok)).replace("__FAILED__", str(len(failed))).replace("__SKIPPED__", str(skipped)) \
         .replace("__MATCHES__", str(sum(1 for c in cars if not c["needs_call"]))) \
-        .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"])))
+        .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"]))) \
+        .replace("__NAVAIL__", str(len(cars))).replace("__NGONE__", str(len(gone)))
     OUT.mkdir(exist_ok=True)
     path = OUT / "dashboard.html"
     path.write_text(page, encoding="utf-8")
@@ -185,6 +195,7 @@ TEMPLATE = r"""<!doctype html>
   --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; color-scheme: dark; }
 body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; padding-block:20px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
 main { max-width:1200px; margin:0 auto; display:grid; gap:18px; }
+main > * { min-width:0; }  /* wide tables scroll inside .wrap instead of widening the page */
 h1 { margin:0; font-size:26px; letter-spacing:-.01em; } .muted { color:var(--muted); }
 .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
 .tile { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
@@ -194,6 +205,13 @@ details li { margin:3px 0; }
 .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
 input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:var(--surface); color:var(--fg); }
 .filters { display:grid; gap:8px; }
+.tabs { display:flex; gap:4px; border-bottom:1px solid var(--line); }
+.tab { font:inherit; font-weight:600; background:none; border:0; border-bottom:3px solid transparent; color:var(--muted);
+  padding:8px 12px; cursor:pointer; margin-bottom:-1px; }
+.tab[aria-selected="true"] { color:var(--fg); border-bottom-color:var(--accent); }
+.tab:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.tab .n { font-weight:500; color:var(--muted); margin-left:4px; }
+.gone td.car a { color:var(--muted); }
 .group { display:flex; flex-wrap:wrap; gap:6px; align-items:center; border:0; margin:0; padding:0; }
 .group legend { float:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-right:6px; padding:0; min-width:56px; }
 .pill { position:relative; }
@@ -225,6 +243,10 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
   <div class="tile"><b>__SKIPPED__</b><span class="muted">covered by brand feeds</span></div>
 </div>
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail">Available<span class="n">__NAVAIL__</span></button>
+  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone">No longer available<span class="n">__NGONE__</span></button>
+</div>
 <div class="filters">
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
     <button class="clear" id="clear" type="button">Clear filters</button></div>
@@ -233,11 +255,21 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
   <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
+<div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="hist">Price history</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
+</div>
+<div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
+<div class="wrap"><table class="gone"><thead><tr>
+  <th data-g="title">Car</th><th data-g="dealer">Dealer</th><th data-g="price_total">Last price</th><th data-g="hist">Price history</th>
+  <th data-g="mileage">Miles</th><th data-g="fuel">Fuel</th><th data-g="colors">Colors</th><th data-g="first_seen">First seen</th>
+  <th data-g="removed_on">Gone since</th><th data-g="days">Days listed</th><th data-g="fail_reasons">Why</th>
+</tr></thead><tbody id="gone-rows"></tbody></table></div>
+<p class="small">Cars that were on this dashboard and later disappeared from the dealer's site (sold or taken down). The link may no longer work.</p>
+</div>
 <p class="small">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
 </main>
 <script>
@@ -246,16 +278,18 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
 const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electric"};
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
-D.cars.forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean).join(" ");
+D.cars.concat(D.gone).forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
   c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio].filter(Boolean).join(", ");
   c.fuel = FUEL[c.fuel_type] || "?"; });
-const makes = [...new Set(D.cars.map(c => c.make))].sort();
+D.gone.forEach(c => { const a = Date.parse(c.first_seen), b = Date.parse(c.last_seen);
+  c.days = isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1; });
+const makes = [...new Set(D.cars.concat(D.gone).map(c => c.make))].sort();
 const pills = (id, vals) => document.getElementById(id).insertAdjacentHTML("beforeend",
   vals.map(v => `<label class="pill"><input type="checkbox" value="${esc(v)}"><span>${esc(v)}</span></label>`).join(""));
 pills("f-show", ["Meets all criteria", "Needs a call"]);
 pills("f-make", makes);
-pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.some(c => c.fuel === f)));
+pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.concat(D.gone).some(c => c.fuel === f)));
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
 document.getElementById("covlist").innerHTML = D.failed.map(f => `<li><b>${esc(f.brand)} · ${esc(f.dealer)}</b>: ${esc(f.reason)}</li>`).join("") || "<li>Nothing failed.</li>";
@@ -266,16 +300,28 @@ function spark(h) {
   const last = pts[pts.length - 1];
   return `<svg class="spark" width="${w}" height="${ht}" role="img" aria-label="price history"><title>${h.map(x => x[0] + ": " + fmt$(x[1])).join("\n")}</title><path d="M${pts.map(p => p.join(",")).join(" L")}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.5"/></svg>`;
 }
-let sortK = "score", dir = -1;
+let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
+const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
+  if (k === "hist") { x = a.hist.length; y = b.hist.length; }
+  const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
+  return String(x ?? "").localeCompare(String(y ?? "")) * d; };
 function render() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel");
-  let cars = D.cars.filter(c => (!q || JSON.stringify(c).toLowerCase().includes(q))
-    && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
-    && (!show.size || show.has(c.needs_call ? "Needs a call" : "Meets all criteria")));
-  cars.sort((a, b) => { let x = a[sortK], y = b[sortK];
-    if (sortK === "hist") { x = a.hist.length; y = b.hist.length; }
-    const nx = num(x), ny = num(y); if (nx != null && ny != null) return (nx - ny) * dir;
-    return String(x ?? "").localeCompare(String(y ?? "")) * dir; });
+  const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel));
+  const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
+  let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))));
+  cars.sort(sorter(sortK, dir));
+  const gone = D.gone.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
+  document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
+    <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
+      <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div></td>
+    <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
+    <td class="num">${fmt$(c.price_total)}</td><td>${spark(c.hist)}</td>
+    <td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td>${esc(c.fuel)}</td><td>${esc(c.colors)}</td><td class="small">${esc(c.first_seen)}</td>
+    <td class="small">${esc(c.removed_on || c.last_seen)}</td><td class="num">${esc(c.days)}</td>
+    <td class="small">${esc(c.fail_reasons)}</td></tr>`).join("")
+    || `<tr><td colspan="11" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr>
     <td class="num">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
@@ -290,8 +336,21 @@ function render() {
     <td class="num">${fmt$(c.est_monthly_cost)}</td><td class="small">${esc(c.first_seen)}</td></tr>`).join("")
     || '<tr><td colspan="13" class="muted">No cars match these filters.</td></tr>';
 }
-document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
+document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
+document.querySelectorAll("th[data-g]").forEach(th => th.addEventListener("click", () => {
+  const k = th.dataset.g; gDir = gK === k ? -gDir : (/_(seen|on)$/.test(k) ? -1 : 1); gK = k; render(); }));
+function showTab(which) {
+  const gone = which === "gone";
+  document.getElementById("tab-avail").setAttribute("aria-selected", String(!gone));
+  document.getElementById("tab-gone").setAttribute("aria-selected", String(gone));
+  document.getElementById("panel-avail").hidden = gone;
+  document.getElementById("panel-gone").hidden = !gone;
+  try { localStorage.setItem("tab", which); } catch (e) {}
+}
+document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
+document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
+try { if (localStorage.getItem("tab") === "gone" || location.hash === "#gone") showTab("gone"); } catch (e) {}
 ["q", "f-show", "f-make", "f-fuel"].forEach(id => document.getElementById(id).addEventListener("input", render));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);

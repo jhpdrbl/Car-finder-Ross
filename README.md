@@ -62,8 +62,9 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 5. **Rules** (`core/criteria.py`, driven by `config.yaml`): hard filters → `fail_reasons`
    (excluded), unknowns → `needs_call`, plus notes; nice-to-have score; monthly cost.
 6. **History** (`core/history.py`): merges into `data/listings.csv` (first/last seen, status) and
-   `data/price_history.csv`. A car is marked sold only if its dealer (or brand feed) was read
-   successfully this run, so partial runs never mark blocked dealers' cars as sold.
+   `data/price_history.csv`. A car is marked sold (with `removed_on`) only if its dealer (or brand feed)
+   was read successfully this run, so partial runs never mark blocked dealers' cars as sold.
+   Sold cars feed the dashboard's "No longer available" tab.
 7. **Outputs** (`core/outputs.py`): `output/digest_<date>.md`, `output/dashboard.html`,
    `data/coverage.csv`; coverage summary printed at the end.
 
@@ -89,7 +90,7 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 | `data/exclusions.csv` | VINs excluded by hand (VIN, reason) |
 | `data/coverage.csv` | Last run: every source, success/failed/skipped and why |
 | `output/digest_<date>.md` | Digest: coverage, matches, new, price changes, needs a call, removed |
-| `output/dashboard.html` | Sortable table, multi-select filters, price sparklines, fuel/MPG, monthly cost, light/dark |
+| `output/dashboard.html` | Tabs: **Available** (sortable table, multi-select filters, price sparklines, fuel/MPG, monthly cost) and **No longer available** (cars once shown that later sold/were removed: first seen, gone since, days listed, last price); light/dark |
 | `output/dealers.html` | Dealer list page (`python -m tools.dealer_page`) |
 | `site/` | Built for publishing (gitignored) |
 | `tools/` | `dealer_locator.py`, `verify_dealer_sites.py`, `dealer_page.py`, `diagnose.py`, `build_site.py` |
