@@ -7,7 +7,7 @@ name: Publish dashboard
 on:
   push:
     branches: [main, claude/la-cpo-suv-scraper-x0pl15]
-    paths: ["output/**", "data/listings.csv", "config.yaml", "tools/build_site.py"]
+    paths: ["output/**"]   # only new results from the laptop, not code/settings changes
   workflow_dispatch:
 
 concurrency:
@@ -22,9 +22,9 @@ jobs:
     env:
       PROJECT: cpo-suv-finder
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -34,16 +34,20 @@ jobs:
           python -m tools.build_site
 
       - name: Check Cloudflare secrets
+        id: secrets
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           if [ -z "$TOKEN" ] || [ -z "$ACCOUNT" ]; then
-            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in Settings > Secrets and variables > Actions (see SETUP-WINDOWS.md, Part 2)."
-            exit 1
+            echo "::notice::Skipped publishing: add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in Settings > Secrets and variables > Actions (SETUP-WINDOWS.md, Part 2)."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Create the Pages project (first run only)
+        if: steps.secrets.outputs.ready == 'true'
         uses: cloudflare/wrangler-action@v3
         continue-on-error: true
         with:
@@ -52,6 +56,7 @@ jobs:
           command: pages project create ${{ env.PROJECT }} --production-branch=main
 
       - name: Deploy
+        if: steps.secrets.outputs.ready == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
