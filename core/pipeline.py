@@ -275,6 +275,7 @@ def dedupe(listings: list[Listing]) -> list[Listing]:
 def location_check(L: Listing) -> str:
     loc = (L.location_note or "").strip()
     if loc and L.dealer and re.sub(r"[^a-z]", "", loc.lower()) not in re.sub(r"[^a-z]", "", L.dealer.lower()):
-        if len(loc) < 60 and not re.search(r"\d{5}|call|contact", loc, re.I):
+        junk = re.fullmatch(r"(view )?(details?|directions|map|info|more|location|here|see .*|get .*)", loc, re.I)
+        if len(loc) < 60 and not junk and len(loc) > 3 and not re.search(r"\d{5}|call|contact", loc, re.I):
             return f"car is at {loc}"
     return ""

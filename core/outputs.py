@@ -227,6 +227,10 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 table { border-collapse:collapse; width:100%; min-width:900px; }
 th { text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); padding:9px 10px;
   border-bottom:1px solid var(--line); cursor:pointer; white-space:nowrap; user-select:none; }
+/* header row stays on screen while scrolling the table (moved by stickHeads() in the script) */
+thead th { position:relative; z-index:3; background:var(--surface); will-change:transform; }
+thead.stuck th { box-shadow:0 1px 0 var(--line), 0 6px 10px -8px rgba(0,0,0,.35); }
+#safe-top { position:fixed; top:0; height:env(safe-area-inset-top, 0px); width:0; visibility:hidden; }
 th:hover { color:var(--fg); } td { padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
 td.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
 a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decoration:none; } .car a:hover { color:var(--accent); text-decoration:underline; }
@@ -246,6 +250,7 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .orig { white-space:nowrap; font-variant-numeric:tabular-nums; }
 .save { color:var(--ok); font-size:12px; font-weight:600; }
 </style></head><body><main>
+<div id="safe-top" aria-hidden="true"></div>
 <div><h1>CPO SUV Finder</h1><div class="muted">Refreshed __DATE__ · every car links to the dealer's own listing</div></div>
 <div class="tiles">
   <div class="tile"><b>__MATCHES__</b><span class="muted">meet all criteria</span></div>
@@ -324,7 +329,8 @@ let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
-function render() {
+function render() { renderRows(); stickHeads(); }
+function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel");
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
@@ -359,6 +365,22 @@ document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
 document.querySelectorAll("th[data-g]").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.g; gDir = gK === k ? -gDir : (/_(seen|on)$/.test(k) ? -1 : 1); gK = k; render(); }));
+// Keep each table's header row visible at the top of the screen while its rows scroll past.
+// (CSS position:sticky can't do this here: the table sits in a sideways-scrolling box for phones.)
+const safeTop = () => { const el = document.getElementById("safe-top"); return el ? el.getBoundingClientRect().height : 0; };
+function stickHeads() {
+  const top = safeTop();
+  document.querySelectorAll(".wrap").forEach(w => {
+    const head = w.querySelector("thead");
+    if (!head || w.offsetParent === null) return;          // hidden tab
+    const r = w.getBoundingClientRect(), h = head.getBoundingClientRect().height;
+    const off = Math.max(0, Math.min(top - r.top, r.height - h * 2));
+    head.classList.toggle("stuck", off > 0);
+    head.querySelectorAll("th").forEach(th => { th.style.transform = off > 0 ? `translateY(${off}px)` : ""; });
+  });
+}
+window.addEventListener("scroll", stickHeads, {passive: true});
+window.addEventListener("resize", stickHeads);
 function showTab(which) {
   const gone = which === "gone";
   document.getElementById("tab-avail").setAttribute("aria-selected", String(!gone));
@@ -366,6 +388,7 @@ function showTab(which) {
   document.getElementById("panel-avail").hidden = gone;
   document.getElementById("panel-gone").hidden = !gone;
   try { localStorage.setItem("tab", which); } catch (e) {}
+  stickHeads();
 }
 document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
 document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
@@ -375,6 +398,7 @@ document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; render(); });
 render();
+stickHeads();
 
 // Welcome animation: an SUV drives across the top once, laying tire marks that fade away.
 (function drive() {
