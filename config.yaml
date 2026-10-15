@@ -46,7 +46,8 @@ filters:
   interior_colors:
     include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black"]
     exclude: [beige, brown, white, red, tan, cognac, saddle, ivory, cream, caramel,
-              chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel"]
+              chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel", blond, blonde,
+              oyster, parchment, linen, "light gray", amber, cognac, mocha, espresso, sienna, "flaxen"]
   carfax_exclude_accident: true
 
 scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
