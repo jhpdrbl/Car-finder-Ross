@@ -62,6 +62,27 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .drop { color:var(--ok); font-weight:900; margin-right:3px; }
 .orig { white-space:nowrap; font-variant-numeric:tabular-nums; }
 .save { color:var(--ok); font-size:12px; font-weight:600; }
+.phone-only { display:none; }
+/* Phones: each car becomes a card, so nothing needs sideways scrolling */
+@media (max-width: 760px) {
+  .phone-only { display:flex; } .sortbar { gap:8px; align-items:center; margin-bottom:10px; }
+  .sortbar label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+  .sortbar select { flex:1; min-width:0; }
+  .wrap { overflow:visible; background:none; border:0; border-radius:0; }
+  table, tbody { display:block; min-width:0; width:auto; }
+  thead { display:none; }
+  tbody tr { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px 12px; background:var(--surface);
+    border:1px solid var(--line); border-radius:10px; padding:12px; margin-bottom:12px; }
+  td { display:block; padding:0; border:0; min-width:0; overflow-wrap:anywhere; }
+  td.num { text-align:left; white-space:normal; }
+  td[data-l]::before { content:attr(data-l); display:block; font-size:11px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--muted); margin-bottom:1px; }
+  td.car { grid-column:1 / -1; order:-3; font-size:16px; } td.car::before { display:none !important; }
+  td.wide { grid-column:1 / -1; } td.span2 { grid-column:span 2; }
+  td.p-score { order:-2; } td.p-price { order:-2; font-size:17px; font-weight:700; } td.p-mo { order:-2; }
+  td[colspan] { grid-column:1 / -1; }
+  tbody tr:has(td[colspan]) { display:block; }
+}
 </style></head><body><main>
 <div id="safe-top" aria-hidden="true"></div>
 <div><h1>CPO SUV Finder</h1><div class="muted">Refreshed 2026-10-15 · every car links to the dealer's own listing</div></div>
@@ -86,6 +107,11 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
 <div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
+<div class="sortbar phone-only"><label for="sort-a">Sort</label><select id="sort-a">
+  <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
+  <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
+  <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
+  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="orig">Original price</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
@@ -93,6 +119,9 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
 <div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
+<div class="sortbar phone-only"><label for="sort-g">Sort</label><select id="sort-g">
+  <option value="removed_on:-1">Gone most recently</option><option value="price_total:1">Lowest price</option>
+  <option value="days:1">Fewest days listed</option><option value="mileage:1">Fewest miles</option></select></div>
 <div class="wrap"><table class="gone"><thead><tr>
   <th data-g="title">Car</th><th data-g="dealer">Dealer</th><th data-g="price_total">Last price</th><th data-g="orig">Original price</th>
   <th data-g="mileage">Miles</th><th data-g="fuel">Fuel</th><th data-g="colors">Colors</th><th data-g="first_seen">First seen</th>
@@ -140,6 +169,7 @@ function origCell(c) {
 }
 let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
+  const ex = x == null || x === "", ey = y == null || y === ""; if (ex || ey) return ex - ey;   // blanks last
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
 function render() { renderRows(); stickHeads(); }
@@ -153,25 +183,25 @@ function renderRows() {
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
       <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div></td>
-    <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
-    <td class="num">${priceCell(c)}</td><td class="num">${origCell(c)}</td>
-    <td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
-    <td>${esc(c.fuel)}</td><td>${esc(c.colors)}</td><td class="small">${esc(c.first_seen)}</td>
-    <td class="small">${esc(c.removed_on || c.last_seen)}</td><td class="num">${esc(c.days)}</td>
-    <td class="small">${esc(c.fail_reasons)}</td></tr>`).join("")
+    <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
+    <td class="num p-price" data-l="Last price">${priceCell(c)}</td><td class="num" data-l="Original price">${origCell(c)}</td>
+    <td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td data-l="Fuel">${esc(c.fuel)}</td><td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="small" data-l="First seen">${esc(c.first_seen)}</td>
+    <td class="small" data-l="Gone since">${esc(c.removed_on || c.last_seen)}</td><td class="num" data-l="Days listed">${esc(c.days)}</td>
+    <td class="small wide" data-l="Why">${esc(c.fail_reasons)}</td></tr>`).join("")
     || `<tr><td colspan="11" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr>
-    <td class="num">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
+    <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}</td>
-    <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
-    <td class="num">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
-    <td class="num">${origCell(c)}</td><td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
-    <td>${esc(c.fuel)}</td>
-    <td class="num">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
-    <td>${esc(c.colors)}</td><td>${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
-    <td class="${esc(c.carfax_status)}">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
-    <td class="num">${fmt$(c.est_monthly_cost)}</td><td class="small">${esc(c.first_seen)}</td></tr>`).join("")
+    <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
+    <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
+    <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td data-l="Fuel">${esc(c.fuel)}</td>
+    <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
+    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="span2" data-l="Features">${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
+    <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
+    <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
     || '<tr><td colspan="13" class="muted">No cars match these filters.</td></tr>';
 }
 document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
@@ -185,7 +215,7 @@ function stickHeads() {
   const top = safeTop();
   document.querySelectorAll(".wrap").forEach(w => {
     const head = w.querySelector("thead");
-    if (!head || w.offsetParent === null) return;          // hidden tab
+    if (!head || w.offsetParent === null || head.offsetParent === null) return;   // hidden tab, or phone card view
     const r = w.getBoundingClientRect(), h = head.getBoundingClientRect().height;
     const off = Math.max(0, Math.min(top - r.top, r.height - h * 2));
     head.classList.toggle("stuck", off > 0);
@@ -206,6 +236,9 @@ function showTab(which) {
 document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
 document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
 try { if (localStorage.getItem("tab") === "gone" || location.hash === "#gone") showTab("gone"); } catch (e) {}
+// Phone card view has no column headers to tap, so it sorts with a menu instead.
+document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
+document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
 ["q", "f-show", "f-make", "f-fuel"].forEach(id => document.getElementById(id).addEventListener("input", render));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
