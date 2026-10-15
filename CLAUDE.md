@@ -145,5 +145,9 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 - `requests-cache` caches only 200/301/302/404; blocked (403/503) responses are retried each run.
 - vPIC `SeatRows` is model-level (4Runner says 3 rows); use `Seats` (≤5 → 2 rows).
 - Junk prices: some JSON-LD has `"price": "37.0"`; prices < $3,000 are ignored.
+- vPIC often returns no DriveType for Mercedes/VW/BMW. Then the listing decides: 2WD/RWD/FWD/4x2/sDrive in
+  the name, title, URL or page data excludes the car (`criteria.NAME_2WD`); AWD/4MATIC/xDrive/quattro passes.
+- Some sites answer bots with a "Client Challenge" page **with HTTP 200**. `generic_jsonld.CHALLENGE_PAGE`
+  treats it as blocked, and a page with a VIN but no price/mileage/model/color is not a listing.
 - `data/cache/` (vPIC, recalls, EPA) is gitignored and rebuilds itself.
 - Commit trailers this project uses: `Co-Authored-By` / `Claude-Session` lines per session instructions.
