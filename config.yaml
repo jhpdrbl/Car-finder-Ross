@@ -4,8 +4,8 @@ home:
   zip: "90039"
   lat: 34.1105   # 90039 (Atwater Village / Silver Lake) centroid
   lon: -118.2600
-  radius_miles: 60          # you OK'd dealers up to 60 mi
-  edge_radius_miles: 60      # farthest dealer scraped
+  radius_miles: 50          # dealers 50-60 mi still count, flagged "edge"
+  edge_radius_miles: 60      # farthest dealer included
 
 scrape:
   user_agent: "CarFinderRoss/0.1 (personal CPO SUV search; contact jhpd.rbl@gmail.com)"
