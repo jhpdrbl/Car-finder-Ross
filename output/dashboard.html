@@ -47,6 +47,12 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .chip { display:inline-block; font-size:12px; font-weight:600; padding:1px 7px; border-radius:999px; white-space:nowrap; }
 .match { background:var(--ok-bg); color:var(--ok); } .call { background:var(--warn-bg); color:var(--warn); }
 .clean { color:var(--ok); } .accident { color:var(--bad); } .small { font-size:12px; color:var(--muted); }
+#drive { position:fixed; left:0; top:0; width:100%; height:150px; pointer-events:none; z-index:50; }
+#drive canvas { position:absolute; inset:0; width:100%; height:100%; }
+#drive .car { position:absolute; left:0; top:44px; width:150px; height:64px; will-change:transform; color:var(--accent); }
+#drive .wheel { transform-box:fill-box; transform-origin:center; animation:spin .35s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { #drive { display:none; } }
 svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); stroke-width:1.6; } svg.spark circle { fill:var(--accent); }
 </style></head><body><main>
 <div><h1>CPO SUV Finder</h1><div class="muted">Refreshed 2026-10-15 · every car links to the dealer's own listing</div></div>
@@ -171,4 +177,53 @@ document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; render(); });
 render();
+
+// Welcome animation: an SUV drives across the top once, laying tire marks that fade away.
+(function drive() {
+  try {
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const wrap = document.createElement("div"); wrap.id = "drive"; wrap.setAttribute("aria-hidden", "true");
+    wrap.innerHTML = `<canvas></canvas><svg class="car" viewBox="0 0 150 64">
+      <path fill="currentColor" d="M8 44 L10 30 Q12 24 20 23 L44 21 L60 9 Q64 6 70 6 L112 6 Q118 6 121 10 L132 23 L140 25 Q146 27 146 33 L146 44 Q146 47 143 47 L8 47 Q6 47 8 44 Z"/>
+      <path fill="var(--bg)" opacity=".85" d="M50 22 L63 11 Q65 10 68 10 L88 10 L88 22 Z M92 10 L110 10 Q114 10 116 13 L124 22 L92 22 Z"/>
+      <rect x="135" y="30" width="8" height="4" rx="2" fill="#f6d36b"/>
+      <rect x="9" y="31" width="5" height="4" rx="1.5" fill="#d9534f"/>
+      <g class="wheel"><circle cx="36" cy="47" r="11" fill="var(--fg)"/><circle cx="36" cy="47" r="5" fill="var(--muted)"/><rect x="35" y="38" width="2" height="18" fill="var(--fg)"/></g>
+      <g class="wheel"><circle cx="118" cy="47" r="11" fill="var(--fg)"/><circle cx="118" cy="47" r="5" fill="var(--muted)"/><rect x="117" y="38" width="2" height="18" fill="var(--fg)"/></g>
+    </svg>`;
+    document.body.appendChild(wrap);
+    const cv = wrap.querySelector("canvas"), car = wrap.querySelector(".car"), ctx = cv.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    const size = () => { cv.width = innerWidth * dpr; cv.height = 150 * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    size();
+    const mark = getComputedStyle(document.documentElement).getPropertyValue("--fg").trim() || "#222";
+    const W = innerWidth, start = -170, end = W + 20, dur = Math.max(2200, W * 1.6), fade = 1800;
+    const groundY = 44 + 58;                       // where the tires meet the "road"
+    let t0 = null, lastX = null;
+    function frame(t) {
+      if (t0 === null) t0 = t;
+      const el = t - t0, p = Math.min(1, el / dur);
+      const ease = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      const x = start + (end - start) * ease;
+      const bob = Math.sin(el / 70) * 0.8;
+      car.style.transform = `translate(${x}px, ${bob}px)`;
+      // fade old marks a little every frame
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.fillStyle = "rgba(0,0,0,0.035)";
+      ctx.fillRect(0, 0, W, 150);
+      ctx.globalCompositeOperation = "source-over";
+      if (p < 1 && lastX !== null) {
+        ctx.strokeStyle = mark; ctx.globalAlpha = 0.45; ctx.lineCap = "round";
+        for (const [wx, off, lw] of [[36, 0, 3.5], [118, 0, 3.5], [36, 4, 1.5], [118, 4, 1.5]]) {
+          ctx.lineWidth = lw; ctx.beginPath();
+          ctx.moveTo(lastX + wx, groundY + off); ctx.lineTo(x + wx, groundY + off); ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+      }
+      lastX = x;
+      if (el < dur + fade) requestAnimationFrame(frame); else wrap.remove();
+    }
+    requestAnimationFrame(frame);
+  } catch (e) { document.getElementById("drive")?.remove(); }
+})();
 </script></body></html>
