@@ -4,6 +4,7 @@
     python ipad.py --no-update  # skip getting the latest version
     python ipad.py upload       # only upload results from the last search
     python ipad.py check        # list what an upload would send, without sending it
+    python ipad.py update       # only get the latest version
 
 iPad apps can't run `git` or start other programs, so this does it all in one Python process: it
 downloads the project from GitHub (public, no login), runs `run.py refresh` in-process, and uploads
@@ -147,6 +148,8 @@ def main() -> None:
         return upload()
     if args[:1] == ["check"]:
         return upload(dry_run=True)
+    if args[:1] == ["update"]:
+        return update()
     token()            # ask for the GitHub key now (first run only), not after a 20-minute search
     if "--no-update" not in args:
         update()
