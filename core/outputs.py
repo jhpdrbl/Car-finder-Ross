@@ -10,6 +10,7 @@ from scrapers.base import CONFIG
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "output"
+TRIM_GUIDE = ROOT / "data" / "trim_guide.json"   # hand-researched reference for the Trim guide tab
 
 
 FUEL_LABEL = {"gas": "Gas", "hybrid": "Hybrid", "phev": "Plug-in hybrid", "ev": "Electric"}
@@ -173,7 +174,8 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                    "mpg_combined", "needs_call", "first_seen", "last_seen",
                                                    "removed_on", "fail_reasons", "distance_mi")}
                         | {"hist": hist.get(r["vin"], [])})
-    data = json.dumps({"cars": cars, "gone": gone, "failed": failed}, ensure_ascii=False).replace("</", "<\\/")
+    guide = json.loads(TRIM_GUIDE.read_text(encoding="utf-8")) if TRIM_GUIDE.exists() else {"models": []}
+    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
         .replace("__OK__", str(ok)).replace("__FAILED__", str(len(failed))).replace("__SKIPPED__", str(skipped)) \
         .replace("__MATCHES__", str(sum(1 for c in cars if not c["needs_call"]))) \
@@ -195,6 +197,7 @@ TEMPLATE = r"""<!doctype html>
   --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; color-scheme: dark; } }
 :root[data-theme="dark"] { --bg:#121513; --surface:#1a1f1c; --fg:#e5e9e6; --muted:#9aa49e; --line:#2a312d;
   --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; color-scheme: dark; }
+[hidden] { display:none !important; }
 body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; padding-block:20px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
 main { max-width:1200px; margin:0 auto; display:grid; gap:18px; }
 main > * { min-width:0; }  /* wide tables scroll inside .wrap instead of widening the page */
@@ -249,12 +252,31 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .drop { color:var(--ok); font-weight:900; margin-right:3px; }
 .orig { white-space:nowrap; font-variant-numeric:tabular-nums; }
 .save { color:var(--ok); font-size:12px; font-weight:600; }
+.sortbar { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
+.sortbar label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+.sortbar select { flex:1; min-width:0; max-width:380px; }
 .phone-only { display:none; }
+/* Trim guide tab */
+.gmodel { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:14px; scroll-margin-top:12px; }
+.gmodel h2 { margin:0; font-size:20px; } .gmodel .rule { margin:2px 0 10px; }
+.years { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+.years button { font:inherit; font-size:14px; padding:4px 12px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--fg); cursor:pointer; }
+.years button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--bg); }
+.changed { margin:0 0 10px; }
+.trims { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:10px; }
+.trim { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:var(--bg); }
+.trim.off { opacity:.7; }
+.trim h3 { margin:0 0 4px; font-size:16px; }
+.trim dl { display:grid; grid-template-columns:auto 1fr; gap:2px 10px; margin:8px 0; font-size:13px; }
+.trim dt { color:var(--muted); } .trim dd { margin:0; }
+.trim ul { margin:4px 0 0; padding-left:18px; font-size:14px; } .trim li { margin:2px 0; }
+.off-chip { background:var(--bad-bg); color:var(--bad); }
+.gtools { display:grid; gap:8px; margin-bottom:12px; }
+.src { font-size:12px; color:var(--muted); margin-top:8px; overflow-wrap:anywhere; }
+.glink { font-size:12px; margin-left:6px; }
 /* Phones: each car becomes a card, so nothing needs sideways scrolling */
 @media (max-width: 760px) {
-  .phone-only { display:flex; } .sortbar { gap:8px; align-items:center; margin-bottom:10px; }
-  .sortbar label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
-  .sortbar select { flex:1; min-width:0; }
+  .phone-only { display:flex; } .sortbar select { max-width:none; }
   .wrap { overflow:visible; background:none; border:0; border-radius:0; }
   table, tbody { display:block; min-width:0; width:auto; }
   thead { display:none; }
@@ -284,6 +306,7 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 <div class="tabs" role="tablist">
   <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail">Available<span class="n">__NAVAIL__</span></button>
   <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone">No longer available<span class="n">__NGONE__</span></button>
+  <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide">Trim guide</button>
 </div>
 <div class="filters">
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
@@ -316,7 +339,18 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 </tr></thead><tbody id="gone-rows"></tbody></table></div>
 <p class="small">Cars that were on this dashboard and later disappeared from the dealer's site (sold or taken down). The link may no longer work.</p>
 </div>
-<p class="small">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
+<div id="panel-guide" role="tabpanel" aria-labelledby="tab-guide" hidden>
+<p class="muted" style="margin-top:0">What each trim includes, by model year, for every model your search looks for.
+Trims marked <span class="chip off-chip">not on your list</span> are shown so you can compare. Researched from the
+manufacturers' own press sites and brochures; dealers can add options, so check the window sticker.</p>
+<div class="gtools">
+  <div class="sortbar"><label for="g-jump">Jump to</label><select id="g-jump"><option value="">Choose a model…</option></select></div>
+  <fieldset class="group" id="g-make"><legend>Make</legend></fieldset>
+  <label class="pill"><input type="checkbox" id="g-only"><span>Only trims on my list</span></label>
+</div>
+<div id="guide"></div>
+</div>
+<p class="small" id="footnote">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
 </main>
 <script>
 const D = __DATA__;
@@ -354,6 +388,64 @@ function origCell(c) {
   const save = c.dropped ? `<div class="save">${fmt$(c.orig - num(c.price_total))} less now</div>` : "";
   return `<span class="orig" title="${esc(c.histTip)}">${fmt$(c.orig)}</span>${save}`;
 }
+// ---- Trim guide tab ----
+const G = (D.guide && D.guide.models) || [];
+const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+const gYear = {};   // chosen year per model
+G.forEach(m => { m.id = "g-" + slug(m.make + " " + m.model);
+  const ys = (m.years || []).map(y => y.year); gYear[m.id] = ys.includes(new Date().getFullYear() - 1) ? new Date().getFullYear() - 1 : ys[ys.length - 1]; });
+pills("g-make", [...new Set(G.map(m => m.make))]);
+document.getElementById("g-jump").insertAdjacentHTML("beforeend", G.map(m => `<option value="${m.id}">${esc(m.make)} ${esc(m.model)}</option>`).join(""));
+document.getElementById("g-jump").addEventListener("change", e => {
+  const id = e.target.value; if (!id) return;
+  document.querySelectorAll("#g-make input").forEach(i => i.checked = false); renderGuide();
+  const el = document.getElementById(id); if (el) el.scrollIntoView({block: "start"}); e.target.value = ""; });
+function guideFor(c) {      // the guide entry for a listed car: same make, longest model name contained in the car's model
+  const mk = String(c.make).toLowerCase(), md = " " + String(c.model + " " + c.trim).toLowerCase().replace(/-/g, " ") + " ";
+  return G.filter(m => m.make.toLowerCase() === mk && md.includes(String(m.model).toLowerCase().replace(/-/g, " ")))
+          .sort((a, b) => b.model.length - a.model.length)[0];
+}
+function guideLink(c) {
+  const m = guideFor(c);
+  return m ? ` <a class="glink" href="#${m.id}" data-gid="${m.id}" data-year="${esc(c.year)}">trim info</a>` : "";
+}
+const row = (k, v) => v && v !== "unknown" ? `<dt>${k}</dt><dd>${esc(v)}</dd>` : "";
+function trimCard(t) {
+  return `<div class="trim${t.on_list ? "" : " off"}"><h3>${esc(t.name)}</h3>
+    ${t.on_list ? '<span class="chip match">on your list</span>' : `<span class="chip off-chip">not on your list</span> <span class="small">${esc(t.why_not)}</span>`}
+    <dl>${row("Engine", t.powertrain)}${row("Sunroof", t.sunroof)}${row("Audio", t.premium_audio)}${row("Seats", t.seats)}
+      ${row("Black interior", t.black_interior)}${row("Spare", t.spare)}${row("MPG", t.mpg ? t.mpg + " (city/hwy/comb.)" : "")}</dl>
+    ${(t.highlights || []).length ? `<div class="small">${t.builds_on ? "Adds over " + esc(t.builds_on) + ":" : "Comes with:"}</div>
+      <ul>${t.highlights.map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}</div>`;
+}
+function renderGuide() {
+  const mk = picked("g-make"), only = document.getElementById("g-only").checked;
+  const html = G.filter(m => !mk.size || mk.has(m.make)).map(m => {
+    const y = (m.years || []).find(y => y.year === gYear[m.id]) || (m.years || [])[0] || {trims: []};
+    const trims = (y.trims || []).filter(t => !only || t.on_list);
+    return `<section class="gmodel" id="${m.id}"><h2>${esc(m.make)} ${esc(m.model)}</h2>
+      <div class="small rule">${esc(m.on_list_rule)}</div>
+      <div class="years" role="group" aria-label="Model year">${(m.years || []).map(v =>
+        `<button type="button" data-m="${m.id}" data-y="${v.year}" aria-pressed="${v.year === y.year}">${v.year}</button>`).join("")}</div>
+      ${y.what_changed ? `<p class="small changed"><b>${y.year}:</b> ${esc(y.what_changed)}</p>` : ""}
+      <div class="trims">${trims.map(trimCard).join("") || '<div class="muted">No trims on your list this year.</div>'}</div>
+      ${(m.sources || []).length ? `<div class="src">Sources: ${m.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join(", ")}</div>` : ""}
+    </section>`; }).join("");
+  document.getElementById("guide").innerHTML = html || '<p class="muted">The trim guide is empty.</p>';
+}
+document.getElementById("guide").addEventListener("click", e => {
+  const b = e.target.closest("button[data-y]"); if (!b) return;
+  gYear[b.dataset.m] = +b.dataset.y; renderGuide();
+  const btn = document.querySelector(`button[data-m="${b.dataset.m}"][data-y="${b.dataset.y}"]`); if (btn) btn.focus(); });
+["g-make", "g-only"].forEach(id => document.getElementById(id).addEventListener("input", renderGuide));
+document.addEventListener("click", e => {      // "trim info" link on a car: open its model + year in the guide
+  const a = e.target.closest("a[data-gid]"); if (!a) return;
+  e.preventDefault();
+  const m = G.find(x => x.id === a.dataset.gid), yr = +a.dataset.year;
+  if (m && m.years.some(y => y.year === yr)) gYear[m.id] = yr;
+  document.querySelectorAll("#g-make input").forEach(i => i.checked = false);
+  showTab("guide"); renderGuide();
+  const el = document.getElementById(a.dataset.gid); if (el) el.scrollIntoView({block: "start"}); });
 let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const ex = x == null || x === "", ey = y == null || y === ""; if (ex || ey) return ex - ey;   // blanks last
@@ -379,7 +471,7 @@ function renderRows() {
     || `<tr><td colspan="11" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
-    <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}</div>
+    <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}</td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
@@ -412,17 +504,19 @@ function stickHeads() {
 window.addEventListener("scroll", stickHeads, {passive: true});
 window.addEventListener("resize", stickHeads);
 function showTab(which) {
-  const gone = which === "gone";
-  document.getElementById("tab-avail").setAttribute("aria-selected", String(!gone));
-  document.getElementById("tab-gone").setAttribute("aria-selected", String(gone));
-  document.getElementById("panel-avail").hidden = gone;
-  document.getElementById("panel-gone").hidden = !gone;
+  ["avail", "gone", "guide"].forEach(t => {
+    document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which));
+    document.getElementById("panel-" + t).hidden = t !== which; });
+  document.querySelector(".filters").hidden = which === "guide";      // car filters don't apply to the guide
+  document.getElementById("footnote").hidden = which === "guide";
   try { localStorage.setItem("tab", which); } catch (e) {}
   stickHeads();
 }
 document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
 document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
-try { if (localStorage.getItem("tab") === "gone" || location.hash === "#gone") showTab("gone"); } catch (e) {}
+document.getElementById("tab-guide").addEventListener("click", () => showTab("guide"));
+renderGuide();
+try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "gone" || t === "guide") showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
