@@ -32,15 +32,17 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
     year = L.year or 0
     brand = L.dealer_brand
     if brand == "Audi":
-        if re.search(r"\bsq5\b|\brs ?q", model + " " + trim):
-            fails.append("SQ5/RS model (only Q5 40/45/55 TFSI e)")
-        elif "q5" not in model:
-            fails.append(f"model {L.model or d.get('Model')} not on the Audi list (Q5)")
+        if re.search(r"\bsq[35]\b|\brs ?q", model + " " + trim):
+            fails.append("SQ3/SQ5/RS model (performance versions not on the list)")
+        elif not re.search(r"\bq[35]\b", model):
+            fails.append(f"model {L.model or d.get('Model')} not on the Audi list (Q3, Q5)")
         if "sportback" in model + trim:
             notes.append("Sportback")
     elif brand == "Genesis":
-        if "gv70" not in model:
-            fails.append(f"model {L.model} not on the Genesis list (GV70)")
+        if not re.search(r"gv70|gv80", model):
+            fails.append(f"model {L.model} not on the Genesis list (GV70, GV80)")
+        elif "gv80" in model and "coupe" in model + trim:
+            notes.append("GV80 Coupe")
     elif brand == "Subaru":
         if "forester" in model:
             hybrid = "hybrid" in model + trim or (d.get("ElectrificationLevel") or "").lower().startswith("strong")
@@ -52,30 +54,34 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
         else:
             fails.append(f"model {L.model} not on the Subaru list")
     elif brand == "BMW":
-        if "x3" not in model:
-            fails.append(f"model {L.model} not on the BMW list (X3)")
+        if not re.search(r"\bx[35]\b", model):
+            fails.append(f"model {L.model} not on the BMW list (X3, X5)")
         elif re.search(r"sdrive", trim):
             fails.append("sDrive (rear-wheel drive)")
-        elif re.search(r"\bm40|\bm50|x3 m\b", trim + model):
-            fails.append("X3 M40i/M50/X3 M (only xDrive30i)")
+        elif re.search(r"\bm40|\bm50|\bm60|x[35] m\b|competition", trim + " " + model):
+            fails.append("M version (only X3 xDrive30i, X5 xDrive40i/50e)")
     elif brand == "Mercedes-Benz":
-        if "glc" not in model:
-            fails.append(f"model {L.model} not on the Mercedes list (GLC 300 4MATIC)")
-        elif re.search(r"amg|glc ?43|glc ?63|350e|coupe", model + trim):
-            fails.append("not a GLC 300 (AMG / 350e / Coupe)")
+        if not re.search(r"glc|gle", model):
+            fails.append(f"model {L.model} not on the Mercedes list (GLC 300, GLE 350/450/450e)")
+        elif re.search(r"amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580", model + " " + trim):
+            fails.append("AMG / Coupe / GLE 580 (not on the list)")
+        elif "glc" in model and re.search(r"350e", model + trim):
+            fails.append("GLC 350e (only GLC 300)")
     elif brand == "Volkswagen":
         if "tiguan" not in model:
             fails.append(f"model {L.model} not on the VW list (Tiguan)")
         elif year and year < 2025:
             fails.append("Tiguan before 2025 (AWD versions have a third row)")
     elif brand == "Lexus":
-        if not re.search(r"\bnx\b", model):
-            fails.append(f"model {L.model} not on the Lexus list (NX)")
+        if not re.search(r"\b(nx|rx)\b", model):
+            fails.append(f"model {L.model} not on the Lexus list (NX, RX)")
+        elif re.search(r"rx ?\d{3}h?\+? ?l\b|\brx ?l\b", model + " " + trim):
+            fails.append("RX L (3-row)")
         elif re.search(r"nx ?250|\b250\b", model + trim) and not re.search(r"350|450", model + trim):
             fails.append("NX 250 (only NX 350 / 350h / 450h+)")
     elif brand == "Volvo":
-        if "xc60" not in model:
-            fails.append(f"model {L.model} not on the Volvo list (XC60)")
+        if not re.search(r"xc60|xc40|ex40", model):
+            fails.append(f"model {L.model} not on the Volvo list (XC60, XC40)")
     elif brand == "Toyota":
         if "4runner" in model:
             pass

@@ -40,7 +40,7 @@ def _match_dealer(dealers: list[dict], name: str, url: str) -> dict | None:
 # Genesis: genesis.com/us/en/certified/inventory
 # --------------------------------------------------------------------------
 
-GENESIS_MODELS = ["gv70", "electrified-gv70"]
+GENESIS_MODELS = {"gv70": "GV70", "electrified-gv70": "Electrified GV70", "gv80": "GV80", "gv80-coupe": "GV80 Coupe"}
 
 
 def genesis() -> tuple[list[Listing], dict]:
@@ -68,7 +68,7 @@ def genesis() -> tuple[list[Listing], dict]:
             L = Listing(vin=v["VIN"].upper(), source="genesis.com CPO search")
             L.listing_url = (v.get("DealerVINUrl") or "").replace("http://", "https://")
             L.year = integer(v.get("ModelYear"))
-            L.make, L.model = "Genesis", ("Electrified GV70" if "electrified" in model else "GV70")
+            L.make, L.model = "Genesis", GENESIS_MODELS[model]
             L.trim = (v.get("TrimDesc") or "").strip()
             L.title = (v.get("ModelTitle") or "").strip().title()
             L.price = money(v.get("SortablePrice") or v.get("FormattedPrice"))

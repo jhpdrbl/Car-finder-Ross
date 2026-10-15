@@ -10,14 +10,14 @@ VIN_ANY = re.compile(r"(?<![A-Za-z0-9])([A-HJ-NPR-Za-hj-npr-z0-9]{17})(?![A-Za-z
 
 # Model words to look for in a dealer's URLs / listings, per brand (spec section 5).
 MODEL_TOKENS = {
-    "Audi": ["q5"],
-    "Genesis": ["gv70"],
+    "Audi": ["q5", "q3"],
+    "Genesis": ["gv70", "gv80"],
     "Subaru": ["forester", "outback"],
-    "BMW": ["x3"],
-    "Mercedes-Benz": ["glc"],
+    "BMW": ["x3", "x5"],
+    "Mercedes-Benz": ["glc", "gle"],
     "Volkswagen": ["tiguan"],
-    "Lexus": ["nx"],
-    "Volvo": ["xc60"],
+    "Lexus": ["nx", "rx"],
+    "Volvo": ["xc60", "xc40", "ex40"],
     "Toyota": ["4runner", "land-cruiser", "landcruiser"],
     "Ford": ["bronco"],
 }
@@ -102,9 +102,9 @@ def url_matches_brand_models(url: str, brand: str) -> bool:
     if brand == "Ford":
         return "bronco" in u and "bronco-sport" not in u
     if brand == "Lexus":
-        return re.search(r"(?<![a-z0-9])nx(?![a-z])", u) is not None
+        return re.search(r"(?<![a-z0-9])(nx|rx)(?![a-z])", u) is not None
     if brand == "BMW":
-        return re.search(r"(?<![a-z0-9])x3(?![0-9])", u) is not None
+        return re.search(r"(?<![a-z0-9])x[35](?![0-9])", u) is not None
     return any(t in u for t in toks)
 
 
