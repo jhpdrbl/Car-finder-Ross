@@ -11,8 +11,8 @@ DATA = ROOT / "data"
 LISTING_COLS = ["vin", "status", "first_seen", "last_seen", "dealer", "dealer_url", "listing_url", "year", "make",
                 "model", "trim", "packages", "fuel_type", "price_total", "price_history", "mileage", "ext_color",
                 "int_color", "drivetrain", "sunroof", "audio", "leather", "ventilated_seats", "ground_clearance_in",
-                "spare_tire", "cpo_program", "cpo_warranty_terms", "carfax_status", "recall_flags", "est_monthly_cost",
-                "score", "fail_reasons",
+                "spare_tire", "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source", "cpo_program", "cpo_warranty_terms",
+                "carfax_status", "recall_flags", "est_monthly_cost", "score", "fail_reasons",
                 # extras beyond the spec's list
                 "needs_call", "notes", "price", "fees_estimated", "dealer_brand", "distance_mi", "source", "carfax_badges"]
 

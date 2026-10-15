@@ -80,6 +80,7 @@ def refresh(args) -> None:
         flags = []
         if status == "active":
             flags = recalls.campaigns(L.make or (decodes.get(L.vin) or {}).get("Make", ""), L.model, L.year)
+            fill_mpg(L)
         r = L.to_dict()
         r.update(status=status, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
                  notes="; ".join(notes), recall_flags="; ".join(flags),
@@ -122,6 +123,19 @@ def refresh(args) -> None:
     print(f"Dashboard: {dash}")
     print(f"Listings:  {history.DATA / 'listings.csv'}")
     print(f"Done in {(time.time() - t0) / 60:.1f} min")
+
+
+def fill_mpg(L) -> None:
+    """MPG from the listing when shown, else the EPA rating from fueleconomy.gov."""
+    from verify import fuel_economy
+    if L.mpg_city and L.mpg_hwy:
+        L.mpg_combined = round(0.55 * L.mpg_city + 0.45 * L.mpg_hwy)
+        L.mpg_source = "listing"
+        return
+    epa = fuel_economy.lookup(L.year, L.make, L.model, f"{L.trim} {L.title}", L.fuel_type)
+    if epa:
+        L.mpg_city, L.mpg_hwy, L.mpg_combined = epa
+        L.mpg_source = "EPA"
 
 
 def _stamp_dealers(names: set[str], today: str) -> None:

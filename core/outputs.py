@@ -58,6 +58,9 @@ def _line(r: dict) -> str:
     colors = " / ".join(x for x in (r.get("ext_color"), r.get("int_color")) if x) or "colors ?"
     parts = [f"**{link}** at {r.get('dealer', '?')}", f"VIN {r['vin']}", _money(r.get("price_total")) +
              (" (fees est.)" if r.get("fees_estimated") == "True" else ""), _miles(r.get("mileage")), colors]
+    if r.get("mpg_combined"):
+        parts.append(f"{float(r['mpg_combined']):.0f} mpg" + (" gas-only" if r.get("fuel_type") == "phev" else "")
+                     + (" (EPA)" if r.get("mpg_source") == "EPA" else ""))
     feats = _features(r)
     if feats:
         parts.append(feats)
@@ -151,6 +154,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
         cars.append({k: r.get(k, "") for k in ("vin", "dealer", "listing_url", "year", "make", "model", "trim", "price_total",
                                                "mileage", "ext_color", "int_color", "fuel_type", "sunroof", "audio",
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
+                                               "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated")}
                     | {"hist": hist.get(r["vin"], [])})
     ok = sum(c["status"] == "success" for c in cov)
@@ -216,10 +220,10 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
 </div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="hist">Price history</th><th data-k="mileage">Miles</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
+  <th data-k="hist">Price history</th><th data-k="mileage">Miles</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
-<p class="small">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees.</p>
+<p class="small">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
 </main>
 <script>
 const D = __DATA__;
@@ -256,10 +260,11 @@ function render() {
     <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num">${fmt$(c.price_total)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td>${spark(c.hist)}</td><td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td class="num">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td>${esc(c.colors)}</td><td>${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
     <td class="${esc(c.carfax_status)}">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num">${fmt$(c.est_monthly_cost)}</td><td class="small">${esc(c.first_seen)}</td></tr>`).join("")
-    || '<tr><td colspan="11" class="muted">No cars match these filters.</td></tr>';
+    || '<tr><td colspan="12" class="muted">No cars match these filters.</td></tr>';
 }
 document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));

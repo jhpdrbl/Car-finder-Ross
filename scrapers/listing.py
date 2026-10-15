@@ -52,6 +52,8 @@ class Listing:
     fuel_type: str = ""              # gas / hybrid / phev / ev (after verification)
     mpg_city: float | None = None
     mpg_hwy: float | None = None
+    mpg_combined: float | None = None
+    mpg_source: str = ""             # "listing" (dealer page / brand feed) or "EPA" (fueleconomy.gov)
     sunroof: bool | None = None
     sunroof_note: str = ""
     audio: str = ""

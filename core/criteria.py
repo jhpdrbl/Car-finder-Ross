@@ -351,9 +351,7 @@ def score(L: Listing) -> float:
     if L.price_total:
         pts += w["price"] * max(0.0, min(1.0, 1 - (L.price_total - S["price_target"]) / 10000))
     pts += w["phev"] * (1.0 if L.fuel_type == "phev" else 0.0)
-    mpg = None
-    if L.mpg_city and L.mpg_hwy:
-        mpg = 0.55 * L.mpg_city + 0.45 * L.mpg_hwy
+    mpg = L.mpg_combined
     pts += w["mpg"] * (max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type in ("hybrid", "phev") else 0.3))
     pts += w["audio"] * (1.0 if L.audio else 0.0)
 
