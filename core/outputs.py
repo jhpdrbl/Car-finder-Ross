@@ -283,6 +283,10 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .cmpbtn { font:600 12px system-ui, -apple-system, sans-serif; margin-top:6px; padding:3px 10px; border-radius:999px; cursor:pointer;
   border:1px solid var(--accent); background:var(--surface); color:var(--accent); }
 .cmpbtn[aria-pressed="true"] { background:var(--accent); color:var(--bg); }
+.favbtn { font:600 12px system-ui, -apple-system, sans-serif; margin:6px 6px 0 0; padding:3px 10px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--bad); background:var(--surface); color:var(--bad); }
+.favbtn[aria-pressed="true"] { background:var(--bad); color:var(--bg); border-color:var(--bad); }
+#fav-gone ul { margin:4px 0 12px; padding-left:18px; }
 .cmp { background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
 .crow { display:grid; grid-template-columns:150px repeat(var(--n), minmax(0,1fr)); border-bottom:1px solid var(--line); }
 .crow:last-child { border-bottom:0; } .crow > div { padding:8px 10px; min-width:0; overflow-wrap:anywhere; font-size:14px; }
@@ -335,10 +339,11 @@ td.warr { min-width:190px; font-size:13px; }
 </div>
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
 <div class="tabs" role="tablist">
-  <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail">Available<span class="n">__NAVAIL__</span></button>
-  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold/gone</span><span class="n">__NGONE__</span></button>
+  <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail"><span class="lg">Available</span><span class="sh">Cars</span><span class="n">__NAVAIL__</span></button>
+  <button class="tab" role="tab" id="tab-fav" aria-selected="false" aria-controls="panel-avail">&#9829; <span class="lg">Favorites</span><span class="n" id="nfav">0</span></button>
   <button class="tab" role="tab" id="tab-cmp" aria-selected="false" aria-controls="panel-cmp">Compare<span class="n" id="ncmp">0</span></button>
   <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
+  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n">__NGONE__</span></button>
 </div>
 <div class="filters">
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
@@ -349,6 +354,12 @@ td.warr { min-width:190px; font-size:13px; }
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
 <div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
+<div id="fav-extra" hidden>
+  <p class="muted" style="margin-top:0">Your favorites. Tap <b>&#9825; Save</b> on any car to add it here, tap again to remove it.
+  Favorites are kept on this device; to see them on another device, <button type="button" class="clear" id="fav-share">copy a link with your favorites</button> and open it there.
+  <button type="button" class="clear" id="fav-cmp">Compare these</button></p>
+  <div id="fav-gone"></div>
+</div>
 <div class="sortbar phone-only"><label for="sort-a">Sort</label><select id="sort-a">
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
@@ -554,6 +565,29 @@ document.addEventListener("click", e => {      // "trim info" link on a car: ope
   document.querySelectorAll("#g-make input").forEach(i => i.checked = false);
   showTab("guide"); renderGuide();
   const el = document.getElementById(a.dataset.gid); if (el) el.scrollIntoView({block: "start"}); });
+// ---- Favorites: tap "Save" on a car; the Favorites tab shows the Available list limited to them ----
+let fav = [], favOnly = false;
+try { fav = JSON.parse(localStorage.getItem("fav") || "[]"); } catch (e) {}
+try { const m = location.hash.match(/fav=([A-Z0-9,]+)/i);      // a shared favorites link: #fav=VIN1,VIN2
+  if (m) { m[1].toUpperCase().split(",").forEach(v => { if (v && !fav.includes(v)) fav.push(v); });
+           history.replaceState(null, "", location.pathname + "#favorites"); } } catch (e) {}
+function saveFav() { try { localStorage.setItem("fav", JSON.stringify(fav)); } catch (e) {}
+  document.getElementById("nfav").textContent = fav.filter(v => D.cars.some(c => c.vin === v)).length; }
+function toggleFav(vin) {
+  fav = fav.includes(vin) ? fav.filter(v => v !== vin) : fav.concat(vin); saveFav();
+  document.querySelectorAll(`.favbtn[data-vin="${vin}"]`).forEach(b => { const on = fav.includes(vin);
+    b.setAttribute("aria-pressed", String(on)); b.innerHTML = on ? "&#9829; Saved" : "&#9825; Save"; });
+  if (favOnly) render();
+}
+document.addEventListener("click", e => { const b = e.target.closest(".favbtn"); if (b) toggleFav(b.dataset.vin); });
+document.getElementById("fav-share").addEventListener("click", () => {
+  const url = location.href.split("#")[0] + "#fav=" + fav.join(",");
+  const done = () => alert("Link copied. Open it on your other device (phone or iPad) and your favorites will be added there.");
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
+  else prompt("Copy this link:", url); });
+document.getElementById("fav-cmp").addEventListener("click", () => {
+  cmp = fav.filter(v => D.cars.some(c => c.vin === v)).slice(0, MAXCMP); saveCmp(); render(); showTab("cmp"); });
+saveFav();
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem("cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
@@ -632,12 +666,12 @@ function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel");
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
-  let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))));
+  let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin)));
   cars.sort(sorter(sortK, dir));
   const gone = D.gone.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
-      <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div></td>
+      <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div><button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button></td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Last price">${priceCell(c)}</td><td class="num" data-l="Original price">${origCell(c)}</td>
     <td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
@@ -649,7 +683,7 @@ function renderRows() {
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
-      <button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button></td>
+      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button></td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
@@ -658,7 +692,12 @@ function renderRows() {
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="span2" data-l="Features">${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
-    || '<tr><td colspan="14" class="muted">No cars match these filters.</td></tr>';
+    || `<tr><td colspan="14" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+  if (favOnly) {
+    const gf = D.gone.filter(c => fav.includes(c.vin));
+    document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>
+      `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a> at ${esc(c.dealer)}, last ${fmt$(c.price_total)}, gone since ${esc(c.removed_on || c.last_seen)}</li>`).join("")}</ul>` : "";
+  }
 }
 document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
@@ -681,9 +720,12 @@ function stickHeads() {
 window.addEventListener("scroll", stickHeads, {passive: true});
 window.addEventListener("resize", stickHeads);
 function showTab(which) {
-  ["avail", "gone", "cmp", "guide"].forEach(t => {
-    document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which));
-    document.getElementById("panel-" + t).hidden = t !== which; });
+  favOnly = which === "fav";
+  const panel = favOnly ? "avail" : which;
+  ["avail", "fav", "gone", "cmp", "guide"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
+  ["avail", "gone", "cmp", "guide"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
+  document.getElementById("fav-extra").hidden = !favOnly;
+  render();
   document.querySelector(".filters").hidden = which === "guide" || which === "cmp";   // car filters don't apply there
   document.getElementById("footnote").hidden = which === "guide";
   if (which === "cmp") renderCompare();
@@ -694,8 +736,9 @@ document.getElementById("tab-avail").addEventListener("click", () => showTab("av
 document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
 document.getElementById("tab-guide").addEventListener("click", () => showTab("guide"));
 document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"));
+document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"));
 renderGuide(); renderWarranty();
-try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "gone" || t === "guide" || t === "cmp") showTab(t); } catch (e) {}
+try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "favorites") showTab("fav"); else if (t === "gone" || t === "guide" || t === "cmp" || t === "fav") showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
