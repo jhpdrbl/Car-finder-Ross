@@ -4,5 +4,6 @@ beautifulsoup4>=4.12
 lxml>=5.0
 pyyaml>=6.0
 jinja2>=3.1
+markdown>=3.5   # renders the digest for the phone page (tools/build_site.py)
 # Optional, only for JavaScript-only dealer sites (scrapers/playwright_fallback.py):
 # playwright>=1.48

@@ -59,10 +59,11 @@ The tool is now in **Documents → Car-finder-Ross**.
 
 Double-click **`refresh.bat`**.
 
-- The first run takes roughly 30–60 minutes, because it politely waits 2–3 seconds
-  between requests to each dealer site. Later runs are faster.
+- A run takes roughly 20–40 minutes, because it politely waits 2–3 seconds between
+  requests to each dealer site.
 - When it finishes, your **dashboard opens in your browser** automatically, and the window
-  asks **"Publish these results to your phone page?"** Press **Y** once you've done Part 2 below.
+  asks **"Publish these results to your phone page?"** Press **Y**. About 2 minutes later your
+  phone page (cpo-suv-finder.pages.dev) shows the new results.
 - Everything it made is in the **`output`** folder:
   - `dashboard.html`: the sortable table, with price-history sparklines
   - `digest_<date>.md`: the newsletter-style summary (open with Notepad and paste into Apple Notes)
@@ -91,7 +92,11 @@ Claude uses it to tune the Audi part, because Audi's sites can't be seen from Cl
 
 ---
 
-# Part 2: See your results on your phone (one time, about 15 minutes)
+# Part 2: See your results on your phone (one time)
+
+> ✅ **Already done** (October 2026, from the iPad): Cloudflare key, GitHub secrets, first
+> publish, and the privacy lock. You don't need to repeat it. It's kept here for reference
+> or in case you ever need to redo it.
 
 After each laptop run, `refresh.bat` asks **"Publish these results to your phone page?"**
 Press **Y** and about 2 minutes later your phone page shows the new results.
@@ -135,14 +140,14 @@ If it shows a red X, tap it and send Claude a screenshot. (If the name
 
 Without this, anyone who guesses the address could see the page.
 
-1. In Cloudflare, open **Zero Trust** (left menu). If asked, pick the **Free** plan
-   and a team name.
-2. **Access** → **Applications** → **Add an application** → **Self-hosted**.
-3. Application name `car finder`; Application domain `cpo-suv-finder.pages.dev`. Next.
-4. Add a policy: Action **Allow**; Include → **Emails** → your email address. Save.
-
-Now the page asks for your email and sends you a one-time code. Your phone
-remembers you for a while.
+1. Cloudflare → **Workers & Pages** → **cpo-suv-finder** → **Settings** → **General** →
+   **Access policy** → **Enable access policy**. (If asked: pick a team name and the **Free** plan.)
+2. Next to Access policy tap **Manage** (or **Zero Trust** → **Access** → **Applications**) and open
+   the application named like **cpo-suv-finder - Cloudflare Pages** → **Edit**.
+3. Its addresses should include **both** `*.cpo-suv-finder.pages.dev` (already there) and
+   `cpo-suv-finder.pages.dev` (add it).
+4. Policy: Action **Allow**; Include → **Emails** → your email. Remove other Include rules. Save.
+5. Test in a Private Safari tab: the page should ask for your email and send a code.
 
 ---
 
@@ -150,6 +155,14 @@ remembers you for a while.
 
 When Claude says there's a new version, double-click **`update.bat`**, then run
 **`refresh.bat`** as usual.
+
+---
+
+## Using Claude on the laptop (optional)
+
+If you open Claude Code on the laptop in the `Car-finder-Ross` folder, it reads `CLAUDE.md`
+automatically and knows how to run the search and publish. You can just say
+"run the full refresh and publish it".
 
 ---
 
@@ -176,4 +189,6 @@ it with Notepad. Cars you want hidden go in **`data\exclusions.csv`** (VIN, reas
 | `'git' is not recognized` | Redo the Git part of Step 1, close and reopen PowerShell. |
 | "Windows protected your PC" | Click **More info** → **Run anyway**. |
 | A dealer shows "blocked" in the coverage report | Normal for a few sites; send Claude the coverage report. |
+| `share-results.bat` says "Upload failed" or mentions a conflict | Send Claude a screenshot. Don't delete anything; your results are still in the folder. |
+| Phone page didn't update | On github.com → repo → **Actions** → "Publish dashboard": green check = done (refresh the page); red X = send Claude a screenshot. |
 | Anything else | Take a screenshot of the window and send it to Claude. |
