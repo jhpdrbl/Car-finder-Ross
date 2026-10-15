@@ -178,6 +178,7 @@ td.warr { min-width:190px; font-size:13px; }
   <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
   <fieldset class="group" id="f-make"><legend>Make</legend></fieldset>
   <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
+  <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
 <div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
@@ -559,7 +560,9 @@ function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel");
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
-  let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin)));
+  const onlyNew = document.getElementById("only-new").checked;
+  let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
+                            && (!onlyNew || c.is_new));
   cars.sort(sorter(sortK, dir));
   const gone = D.gone.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
@@ -642,7 +645,8 @@ try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t ===
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
-["q", "f-show", "f-make", "f-fuel"].forEach(id => document.getElementById(id).addEventListener("input", render));
+document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
+["q", "f-show", "f-make", "f-fuel", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; render(); });
