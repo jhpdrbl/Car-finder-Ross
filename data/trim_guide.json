@@ -3037,6 +3037,2099 @@
    ]
   },
   {
+   "make": "Genesis",
+   "model": "GV70",
+   "on_list_rule": "Every gas GV70 trim (2.5T and 3.5T, all AWD) is on the list.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "vs 2022: 2.5T Select gained a heated steering wheel and monobloc front brakes; Lexicon premium audio moved from the Select package up to Advanced (Select no longer has it); 2.5T Sport Prestige gained the 12.3\" 3D digital cluster and 3-zone climate; Sport models got black rear calipers and physical steering-wheel buttons; 3.5T base renamed '3.5T Sport' (was '3.5T Standard'); Connected Care made standard with no expiration. Seat materials unchanged (leatherette base/Select, leather Advanced, Nappa on 3.5T Sport Advanced/Prestige).",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "18-inch alloy wheels",
+        "14.5\" navigation screen, Apple CarPlay/Android Auto (wired)",
+        "Highway Driving Assist, Smart Cruise Control with Stop & Go",
+        "Blind-spot and rear cross-traffic collision avoidance",
+        "Power hands-free liftgate",
+        "Wireless phone charger",
+        "Heated front seats, power front seats"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (9-speaker standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "19-inch alloy wheels",
+        "Panoramic sunroof",
+        "Ventilated front seats",
+        "Heated steering wheel",
+        "Spin-brushed aluminum trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (9-speaker standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Lexicon premium audio (16 speakers)",
+        "Surround View Monitor + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist",
+        "Rear parking collision-avoidance assist",
+        "Wave-line backlit trim, manual rear door shades",
+        "Advanced Rear Occupant Alert"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "21-inch sport wheels, Sport appearance",
+        "Leather seats with mesh insert",
+        "12.3\" 3D digital gauge cluster",
+        "3-zone climate control",
+        "Driver seat power bolster/cushion extension + Ergo Motion",
+        "Leatherette-wrapped dashboard, carbon-pattern aluminum trim",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim) with mesh insert; heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "19/26/22"
+      },
+      {
+       "name": "3.5T Sport AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Electronically controlled suspension with Road Preview",
+        "19-inch sport wheels, Sport appearance",
+        "Panoramic sunroof",
+        "Leather seats",
+        "Heated + ventilated front seats, heated steering wheel",
+        "Driver seat power bolster/cushion extension + Ergo Motion",
+        "Power-folding mirrors"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (9-speaker standard audio)",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "3.5T Sport Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport AWD",
+       "highlights": [
+        "Nappa leather with quilting",
+        "Lexicon premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist",
+        "Microfiber suede headliner",
+        "Leatherette dashboard, backlit trim",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "3.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport Advanced AWD",
+       "highlights": [
+        "21-inch sport wheels",
+        "Head-up display",
+        "12.3\" 3D digital cluster",
+        "3-zone climate",
+        "Heated rear seats",
+        "Carbon-fiber trim",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: 19-inch wheels and monobloc front brakes now standard on every 2.5T; Wi-Fi hotspot added. On the 2.5T, ventilated front seats were dropped from Select and Advanced, and Lexicon audio, rear door shades and Remote Smart Parking Assist were dropped from Advanced — all of these are now only on Sport Prestige (Genesis's notice phrases it as 'added to Sport Prestige'). 3.5T: Forward Collision-Avoidance Assist 2 and Highway Driving Assist 2 now standard; 21-inch wheels now on Sport Advanced. Seat materials unchanged, except the 2.5T Sport Prestige is listed as plain leather (no 'mesh insert').",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch alloy wheels (new standard)",
+        "Monobloc front brakes (new standard)",
+        "14.5\" navigation, Apple CarPlay/Android Auto (wired)",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Wi-Fi hotspot",
+        "Wireless phone charger",
+        "Heated front seats"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "Panoramic sunroof",
+        "Heated steering wheel",
+        "Spin-brushed aluminum trim",
+        "Still leatherette seats; no ventilation"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation (dropped vs 2023)",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Surround View Monitor + Blind-Spot View Monitor",
+        "Front and rear parking sensors",
+        "Rear parking collision-avoidance assist",
+        "Wave-line backlit trim",
+        "Advanced Rear Occupant Alert"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (Lexicon now Sport Prestige only)",
+       "seats": "genuine leather (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "21-inch sport wheels, Sport appearance",
+        "Ventilated front seats",
+        "Lexicon premium audio",
+        "12.3\" 3D digital cluster",
+        "3-zone climate",
+        "Remote Smart Parking Assist",
+        "Manual rear door shades",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "19/26/22"
+      },
+      {
+       "name": "3.5T Sport AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Electronically controlled suspension with Road Preview",
+        "Highway Driving Assist 2 + Forward Collision-Avoidance Assist 2 (new)",
+        "19-inch sport wheels, Sport appearance",
+        "Panoramic sunroof",
+        "Leather seats",
+        "Heated + ventilated front seats, heated steering wheel",
+        "Driver seat bolster/cushion extension + Ergo Motion"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/24/20"
+      },
+      {
+       "name": "3.5T Sport Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport AWD",
+       "highlights": [
+        "21-inch sport wheels (new for 2024)",
+        "Nappa leather seats",
+        "Lexicon premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist",
+        "Microfiber suede headliner",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/24/20"
+      },
+      {
+       "name": "3.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport Advanced AWD",
+       "highlights": [
+        "Head-up display",
+        "12.3\" 3D digital cluster",
+        "3-zone climate",
+        "Heated rear seats",
+        "Carbon-fiber trim",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/24/20"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "vs 2024: Wireless Apple CarPlay/Android Auto added (Genesis said 'coming 2025', so early builds may be wired only); Genesis Connected Services listed as standard; colors changed (Storr Green added, Cardiff/Brunswick Green dropped). No changes to seat materials, sunroof, audio, safety tech, screens or engines.",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch alloy wheels",
+        "14.5\" navigation; wireless CarPlay/Android Auto (late availability)",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Wi-Fi hotspot",
+        "Wireless phone charger",
+        "Heated front seats"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "Panoramic sunroof",
+        "Heated steering wheel",
+        "Spin-brushed aluminum trim",
+        "Still leatherette seats; no ventilation"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Surround View + Blind-Spot View Monitor",
+        "Front and rear parking sensors",
+        "Rear parking collision-avoidance assist",
+        "Wave-line backlit trim",
+        "Advanced Rear Occupant Alert"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "genuine leather (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "2.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "21-inch sport wheels, Sport appearance",
+        "Ventilated front seats",
+        "Lexicon premium audio",
+        "12.3\" 3D digital cluster",
+        "3-zone climate",
+        "Remote Smart Parking Assist",
+        "Manual rear door shades",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "19/26/22"
+      },
+      {
+       "name": "3.5T Sport AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Electronically controlled suspension with Road Preview",
+        "Highway Driving Assist 2",
+        "19-inch sport wheels, Sport appearance",
+        "Panoramic sunroof",
+        "Leather seats",
+        "Heated + ventilated front seats, heated steering wheel",
+        "Driver seat bolster/cushion extension + Ergo Motion"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/24/20"
+      },
+      {
+       "name": "3.5T Sport Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport AWD",
+       "highlights": [
+        "21-inch sport wheels",
+        "Nappa leather seats",
+        "Lexicon premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist",
+        "Microfiber suede headliner",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/24/20"
+      },
+      {
+       "name": "3.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport Advanced AWD",
+       "highlights": [
+        "Head-up display",
+        "12.3\" 3D digital cluster",
+        "3-zone climate",
+        "Heated rear seats",
+        "Carbon-fiber trim",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/24/20"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Refresh (new styling) vs 2025: new 27-inch OLED screen combining gauges and navigation replaces the 14.5\" screen + 8\"/12.3\" cluster; Bang & Olufsen audio replaces Lexicon and now comes on 2.5T Advanced and up; MLA LED matrix headlights, Terrain Mode, front + rear parking sensors and adjustable ambient lighting standard. 3.5T Sport (base V6) dropped. 2.5T Advanced regains ventilated front seats and adds the heated steering wheel; 2.5T Select loses the heated wheel (now Advanced+) and the base trim loses the wireless charger (now Select+). 2.5T Sport Prestige no longer lists rear door shades or Remote Smart Parking Assist. 3.5T Sport Advanced now has regular leather (was Nappa) — Nappa is 3.5T Sport Prestige only. Engines unchanged (300 / 375 hp). Mid-year price increase effective Aug 1, 2025.",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "27-inch OLED gauge + navigation display",
+        "Wireless Apple CarPlay/Android Auto",
+        "MLA LED matrix headlights",
+        "Front + rear parking sensors",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Terrain Mode",
+        "Heated front seats",
+        "Adjustable ambient lighting"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (9-speaker standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/28/23"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "Panoramic sunroof",
+        "Wireless phone charger",
+        "Power tilt/telescoping wheel + driver memory with Smart Posture Care",
+        "Power-folding mirrors with logo lamps",
+        "Aluminum trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (9-speaker standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation; no heated steering wheel",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/28/23"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Ventilated front seats",
+        "Heated steering wheel",
+        "Bang & Olufsen premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Front/rear/side parking sensors, rear parking collision-avoidance",
+        "Backlit trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/28/23"
+      },
+      {
+       "name": "2.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "21-inch sport wheels, Sport appearance",
+        "3-zone climate",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Leatherette-wrapped dashboard",
+        "Genesis Digital Key 2",
+        "Alloy pedals, 2nd-row AC outlet"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/26/22"
+      },
+      {
+       "name": "3.5T Sport Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Electronically controlled suspension with Road Preview",
+        "Highway Driving Assist 2",
+        "19-inch sport wheels, Sport appearance",
+        "Panoramic sunroof",
+        "Leather seats (not Nappa this year)",
+        "Bang & Olufsen premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Heated + ventilated front seats, heated steering wheel"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/25/21"
+      },
+      {
+       "name": "3.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport Advanced AWD",
+       "highlights": [
+        "21-inch wheels",
+        "Nappa leather seats",
+        "Head-up display",
+        "3-zone climate",
+        "Heated rear seats",
+        "Remote Smart Parking Assist 2",
+        "Microfiber suede headliner, carbon-fiber trim",
+        "Electronic limited-slip differential"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/25/21"
+      }
+     ]
+    },
+    {
+     "year": 2027,
+     "what_changed": "vs 2026 (Genesis calls it a carryover): 3.5T Sport Advanced dropped; new 3.5T Prestige Graphite (Nappa with suede inserts, Ultramarine Blue interior only). Heated steering wheel returns to 2.5T Select; wireless phone charger standard on all trims; 2.5T Sport Prestige gains head-up display, Forward Collision-Avoidance Assist 2 and Highway Driving Assist 2, and its seats are listed as 'Sport leather'. Rear model badges deleted; Capri Blue, Mauna Red, Makalu Gray Matte dropped. Engines unchanged.",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "27-inch OLED gauge + navigation display",
+        "Wireless phone charger (now standard)",
+        "Wireless Apple CarPlay/Android Auto",
+        "Front + rear parking sensors",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Monobloc front + rear brakes",
+        "Heated front seats"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/26/22"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "Panoramic sunroof",
+        "Heated steering wheel (returns)",
+        "Power-folding mirrors with logo lamps",
+        "Aluminum trim",
+        "New 19-inch wheel design"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/26/22"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Ventilated front seats",
+        "Bang & Olufsen premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Front/rear/side parking sensors, rear parking collision-avoidance",
+        "Front passenger power lumbar"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/26/22"
+      },
+      {
+       "name": "2.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "21-inch sport wheels, Sport appearance",
+        "Head-up display (new)",
+        "Highway Driving Assist 2 + Forward Collision-Avoidance Assist 2 (new)",
+        "3-zone climate",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Sport backlit trim, leatherette dashboard",
+        "Genesis Digital Key 2"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine 'Sport' leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/26/22"
+      },
+      {
+       "name": "3.5T Sport Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Electronically controlled suspension with Road Preview",
+        "21-inch sport wheels",
+        "Nappa leather seats",
+        "Head-up display, 3-zone climate",
+        "Heated rear seats",
+        "Remote Smart Parking Assist 2",
+        "Microfiber suede headliner",
+        "Bang & Olufsen audio"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/25/21"
+      },
+      {
+       "name": "3.5T Prestige Graphite AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Sport Prestige AWD",
+       "highlights": [
+        "Nappa leather with suede inserts",
+        "Red brake calipers, black mirror caps",
+        "Carbon-fiber trim (new pattern)",
+        "Headrest logo embossing",
+        "Unique startup animation",
+        "Ceres Blue Matte paint available"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim) with suede inserts; heated + ventilated front; heated rear outboard",
+       "black_interior": "no",
+       "spare": "compact spare",
+       "mpg": "18/25/21"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.genesisnewsusa.com/assets/documents/original/2393-2022GenesisGV70PricingAnnouncementFORRELEASEdocx.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/3425-2023GV70TechSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/3929-MY24GV70TechSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5343-2026GV70FeaturesandSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6653-2027-gv70-features-and-specs.pdf",
+    "https://www.genesisnewsusa.com/releases/422",
+    "https://www.genesisnewsusa.com/assets/documents/original/3922-MY24SummaryofChangesV2070623.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4275-42592024GenesisModelYearChangesab.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4998-2025GenesisModelYearChangesanab011625.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5656-2026GenesisModelYearChangesanab091225.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6805-2027-genesis-model-year-changes-an-ab-091826.pdf",
+    "https://www.genesisnewsusa.com/en-us/2023-genesis-model-year-changes",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2023&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2024&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2025&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2026&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2027&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2024&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2025&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2026&model=gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2027&model=gv70",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Genesis"
+   ]
+  },
+  {
+   "make": "Genesis",
+   "model": "Electrified GV70",
+   "on_list_rule": "Every Electrified GV70 trim (all AWD) is on the list.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First year of the Electrified GV70 in the US (on sale March 2023, initially in 15 states). Assembled in Alabama.",
+     "trims": [
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 77.4 kWh battery, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels, panoramic sunroof",
+        "Genuine leather seats, heated + ventilated front",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Highway Driving Assist 2",
+        "Surround View + Blind-Spot View Monitor, Remote Smart Parking Assist",
+        "Electronically controlled suspension with Road Preview",
+        "Vehicle-to-Load (V2L) power outlet",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker standard audio; Lexicon is Prestige only)",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; no heated steering wheel",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": ""
+      },
+      {
+       "name": "Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 77.4 kWh battery, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "Nappa leather with quilting",
+        "Head-up display",
+        "12.3\" 3D digital cluster",
+        "Lexicon premium audio",
+        "Active Noise Control - Road",
+        "Heated rear seats and heated steering wheel",
+        "Microfiber suede headliner, leatherette dashboard",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; heated rear",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: Wi-Fi hotspot added; new colors (Uyuni/Alta/Matterhorn White, Capri Blue, Cardiff Green), Makalu Gray Matte dropped. No changes to seats, sunroof, audio, safety tech, screens or motors.",
+     "trims": [
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 77.4 kWh battery, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels, panoramic sunroof",
+        "Genuine leather seats, heated + ventilated front",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Highway Driving Assist 2",
+        "Surround View + Blind-Spot View Monitor, Remote Smart Parking Assist",
+        "Electronically controlled suspension with Road Preview",
+        "Vehicle-to-Load (V2L) power outlet",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker standard audio; Lexicon is Prestige only)",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; no heated steering wheel",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "98/83/91 MPGe (236 mi range)"
+      },
+      {
+       "name": "Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 77.4 kWh battery, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "Nappa leather with quilting",
+        "Head-up display",
+        "12.3\" 3D digital cluster",
+        "Lexicon premium audio",
+        "Active Noise Control - Road",
+        "Heated rear seats and heated steering wheel",
+        "Microfiber suede headliner, leatherette dashboard",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; heated rear",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "98/83/91 MPGe (236 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "vs 2024: Wireless Apple CarPlay/Android Auto (Genesis said 'coming 2025') and Genesis Connected Services standard; Makalu Gray dropped. No other material changes. (Genesis's 2025 trim data lists Lexicon audio on Advanced too, but launch materials and the 2027 notice put premium audio on Prestige only — check the window sticker.)",
+     "trims": [
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 77.4 kWh battery, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels, panoramic sunroof",
+        "Genuine leather seats, heated + ventilated front",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Highway Driving Assist 2",
+        "Surround View + Blind-Spot View Monitor, Remote Smart Parking Assist",
+        "Electronically controlled suspension with Road Preview",
+        "Vehicle-to-Load (V2L) power outlet",
+        "Genesis Digital Key"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon listed in Genesis 2025 trim data but not confirmed elsewhere — check window sticker",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; no heated steering wheel",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "98/83/91 MPGe (236 mi range)"
+      },
+      {
+       "name": "Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 77.4 kWh battery, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "Nappa leather with quilting",
+        "Head-up display",
+        "12.3\" 3D digital cluster",
+        "Lexicon premium audio",
+        "Active Noise Control - Road",
+        "Heated rear seats and heated steering wheel",
+        "Microfiber suede headliner, leatherette dashboard",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; heated rear",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "98/83/91 MPGe (236 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Refresh vs 2025: larger 84.0 kWh battery (up to 263 mi), native NACS (Tesla-style) charge port, 27-inch OLED gauge + navigation display (replaces 14.5\" screen and 8\"/12.3\" clusters), Bang & Olufsen replaces Lexicon (Prestige only), MLA headlights, Terrain Mode, Forward Collision-Avoidance Assist-Advanced on Advanced, Remote Smart Parking Assist 2 on Prestige (Advanced no longer lists remote parking), hands-on-wheel detection. A new lower-priced base 'AWD' trim (19-inch wheels, heated-only leather seats) appears in Genesis's 2026 configurator; it was not in the Aug 2025 change notice, so it likely arrived later in the year.",
+     "trims": [
+      {
+       "name": "AWD (base, 19-inch)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 84.0 kWh battery, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "Panoramic sunroof",
+        "Genuine leather seats (perforated), heated front",
+        "27-inch OLED display, wireless CarPlay/Android Auto",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Electronically controlled suspension with Road Preview",
+        "Vehicle-to-Load outlet",
+        "Wireless phone charger"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "genuine leather (standard on this trim) (perforated); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "103/88/96 MPGe (263 mi range)"
+      },
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 84.0 kWh battery, AWD",
+       "builds_on": "AWD (base, 19-inch)",
+       "highlights": [
+        "20-inch wheels",
+        "Ventilated front seats",
+        "Driver seat bolster/cushion extension + Ergo Motion, memory with Smart Posture Care",
+        "Highway Driving Assist 2 + Forward Collision-Avoidance Assist-Advanced",
+        "Surround View + Blind-Spot View Monitor, rear parking collision-avoidance",
+        "Heated steering wheel, 3-zone climate (per Genesis 2027 change notice)",
+        "Genesis Digital Key 2",
+        "Power-folding mirrors, power tilt/telescoping wheel"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (B&O is Prestige only this year)",
+       "seats": "genuine leather (standard on this trim) (perforated); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "96/80/88 MPGe (243 mi range)"
+      },
+      {
+       "name": "Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 84.0 kWh battery, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "Nappa leather seats",
+        "Bang & Olufsen premium audio",
+        "Head-up display",
+        "Active Noise Control",
+        "Heated rear seats",
+        "Remote Smart Parking Assist 2, front/side/rear parking collision-avoidance",
+        "Microfiber suede headliner, leatherette dashboard",
+        "Manual rear door shades, white calipers"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "96/80/88 MPGe (243 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2027,
+     "what_changed": "vs 2026: base AWD loses the panoramic sunroof (now Advanced and Prestige only) but gains a heated steering wheel (now standard on all); Bang & Olufsen audio and Active Noise Control-Road now also on Advanced; leatherette dashboard on Advanced too; 3-zone climate now Prestige only; Havana Brown interior added; rear badges deleted. Seat materials unchanged.",
+     "trims": [
+      {
+       "name": "AWD (base, 19-inch)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 84.0 kWh battery, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "Genuine leather seats (perforated), heated front",
+        "Heated steering wheel (new standard)",
+        "27-inch OLED display, wireless CarPlay/Android Auto",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Electronically controlled suspension with Road Preview",
+        "Vehicle-to-Load outlet",
+        "Wireless phone charger"
+       ],
+       "sunroof": "not available (Advanced and Prestige only)",
+       "premium_audio": "none (standard audio)",
+       "seats": "genuine leather (standard on this trim) (perforated); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "97/84/90 MPGe (250 mi range)"
+      },
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 84.0 kWh battery, AWD",
+       "builds_on": "AWD (base, 19-inch)",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof",
+        "Ventilated front seats",
+        "Bang & Olufsen premium audio + Active Noise Control-Road (new on Advanced)",
+        "Driver seat bolster/cushion extension + Ergo Motion, memory",
+        "Highway Driving Assist 2 + Forward Collision-Avoidance Assist-Advanced",
+        "Surround View + Blind-Spot View Monitor",
+        "Genesis Digital Key 2"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim) (perforated); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "97/84/90 MPGe (250 mi range)"
+      },
+      {
+       "name": "Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 320 kW / 429 hp (483 hp in 10-sec Boost), 84.0 kWh battery, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "Nappa leather seats",
+        "Head-up display",
+        "3-zone climate",
+        "Heated rear seats",
+        "Remote Smart Parking Assist 2, front/side/rear parking collision-avoidance",
+        "Microfiber suede headliner",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "97/84/90 MPGe (250 mi range)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.genesisnewsusa.com/assets/documents/original/3798-2023GenesisElectrifiedGV70ProductReleaseFORRELEASEEmbargoeduntilMarch21at9amPT.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/3802-2023ElectrifiedGV70TechSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4032-2024ElectrifiedGV70TechSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5525-2026ElectrifiedGV70FeaturesandSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6671-2027-electrified-gv70-features-and-specs-1.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/3922-MY24SummaryofChangesV2070623.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4275-42592024GenesisModelYearChangesab.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4998-2025GenesisModelYearChangesanab011625.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5656-2026GenesisModelYearChangesanab091225.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6805-2027-genesis-model-year-changes-an-ab-091826.pdf",
+    "https://www.genesisnewsusa.com/en-us/2023-genesis-model-year-changes",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2023&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2024&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2025&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2026&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2027&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2024&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2025&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2026&model=electrified-gv70",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2027&model=electrified-gv70",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Genesis"
+   ]
+  },
+  {
+   "make": "Genesis",
+   "model": "GV80",
+   "on_list_rule": "Only 2-row (4- or 5-seat) GV80s are on the list; any 3-row (7-seat) GV80 is excluded. From 2026 most trims are 7-seat only, leaving few 2-row choices.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "vs 2022: 2.5T Advanced gained the panoramic sunroof and ventilated front seats; 2.5T RWD dropped (all US GV80s are AWD); 3.5T Prestige Signature (4-seat) dropped; redesigned infotainment controller, oil-level sensor, red SOS button. Seats unchanged: leatherette on Standard, leather on Advanced, Nappa on 3.5T Prestige.",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "14.5\" navigation screen, Apple CarPlay/Android Auto",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Heated front seats, heated power tilt/telescoping steering wheel",
+        "Manual rear door shades",
+        "Genesis Digital Key",
+        "Power-folding mirrors with logo puddle lamps"
+       ],
+       "sunroof": "not available (Advanced and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "20/24/22"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof (new for 2023)",
+        "Genuine leather seats",
+        "Ventilated front seats (new for 2023)",
+        "Lexicon premium audio (21 speakers)",
+        "Surround View + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist, parking collision-avoidance"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "20/24/22"
+      },
+      {
+       "name": "2.5T Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "22-inch wheels (a 20-inch no-cost version also existed)",
+        "12.3\" 3D digital cluster + head-up display",
+        "3-zone climate, heated rear seats",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Active Noise Control-Road, Forward Attention Warning"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated rear",
+       "black_interior": "unknown",
+       "spare": "tire repair kit / run-flats (with 22-inch wheels); compact spare with 20-inch wheels",
+       "mpg": "20/24/22"
+      },
+      {
+       "name": "3.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof",
+        "Heated + ventilated front seats",
+        "Heated power tilt/telescoping wheel",
+        "14.5\" navigation, Genesis Digital Key",
+        "Highway Driving Assist"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Advanced AWD (2-row)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Standard AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Lexicon premium audio + head-up display",
+        "3-zone climate, heated rear seats",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Surround View + Blind-Spot View Monitor, Remote Smart Parking Assist",
+        "Manual rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated rear",
+       "black_interior": "unknown",
+       "spare": "compact spare",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Advanced+ AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Advanced AWD (2-row)",
+       "highlights": [
+        "Power-folding 50/50 3rd-row seats (7 seats)",
+        "Genuine leather, heated + ventilated front",
+        "Lexicon audio, head-up display",
+        "3-zone climate, heated 2nd row"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "unknown",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Prestige AWD (2-row)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Advanced AWD (2-row)",
+       "highlights": [
+        "22-inch wheels (20-inch version also offered)",
+        "Nappa leather seats, microfiber suede headliner",
+        "12.3\" 3D digital cluster",
+        "Power and ventilated 2nd-row outboard seats",
+        "Power door closure, power rear door shades",
+        "Active Noise Control-Road",
+        "Prestige Matte version adds matte paint"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; power, heated + ventilated 2nd-row outboard",
+       "black_interior": "unknown",
+       "spare": "tire repair kit / run-flats (with 22-inch wheels); compact spare with 20-inch wheels",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Prestige AWD with optional 3rd row",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Prestige AWD (2-row)",
+       "highlights": [
+        "Power-folding 3rd row (7 seats) — option dropped for 2024",
+        "Nappa leather, suede headliner",
+        "Lexicon audio, head-up display, 12.3\" 3D cluster",
+        "Power door closure, power rear door shades"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front",
+       "black_interior": "unknown",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "18/23/20"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: 3.5T Advanced now comes only as a 3-row (power-folding 3rd row and tire repair kit standard); the 3rd-row option was dropped from 3.5T Prestige / Prestige Matte (2-row only); 3.5T Prestige Signature (4 seats, 2nd-row captain's chairs) returns; Wi-Fi hotspot added on all; Cardiff/Brunswick Green paint dropped. Seat materials unchanged.",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "14.5\" navigation, Apple CarPlay/Android Auto (wired)",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Heated front seats, heated power steering wheel",
+        "Manual rear door shades",
+        "Genesis Digital Key",
+        "Wi-Fi hotspot (new)"
+       ],
+       "sunroof": "not available (Advanced and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/24/22"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof",
+        "Genuine leather seats",
+        "Ventilated front seats",
+        "Lexicon premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist, parking collision-avoidance"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "20/24/22"
+      },
+      {
+       "name": "2.5T Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "22-inch wheels (20-inch version offered)",
+        "12.3\" 3D digital cluster + head-up display",
+        "3-zone climate, heated rear seats",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Electronically controlled suspension (per Genesis trim data)",
+        "Active Noise Control-Road"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated rear",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "20/24/22"
+      },
+      {
+       "name": "3.5T Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof",
+        "Heated + ventilated front seats",
+        "Heated power steering wheel",
+        "14.5\" navigation, Genesis Digital Key",
+        "Wi-Fi hotspot"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Advanced AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Standard AWD",
+       "highlights": [
+        "Power-folding 3rd row now standard (7 seats)",
+        "Genuine leather seats",
+        "Lexicon audio + head-up display",
+        "3-zone climate, heated 2nd row",
+        "Surround View + Blind-Spot View Monitor"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Standard AWD",
+       "highlights": [
+        "22-inch wheels",
+        "Nappa leather seats, microfiber suede headliner",
+        "Lexicon audio, head-up display, 12.3\" 3D cluster",
+        "Power and ventilated 2nd-row outboard seats",
+        "Power door closure, power rear door shades",
+        "3-zone climate, Ergo Motion driver seat",
+        "Prestige Matte version adds matte paint ($1,500)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; power, heated + ventilated 2nd-row outboard",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "18/23/20"
+      },
+      {
+       "name": "3.5T Prestige Signature AWD (4 seats)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Prestige AWD",
+       "highlights": [
+        "2nd-row power captain's chairs (4 seats total, still 2 rows)",
+        "One-touch 2nd-row Relax mode, 2nd-row wireless charging",
+        "22-inch dark-finish wheels, dark chrome trim",
+        "Nappa leather, Lexicon audio, head-up display"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Lexicon, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; power 2nd-row captain's chairs",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "18/23/20"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Refresh vs 2024: new 27-inch OLED gauge + navigation display (replaces 14.5\" screen and clusters); Bang & Olufsen audio replaces Lexicon; MLA headlights, monobloc front brakes, 10 airbags, USB-C, fingerprint start; new trim ladder: 2.5T Standard / Select / Advanced / Prestige, 3.5T Advanced (7-seat only) / Prestige. 3.5T Standard, Prestige Matte and Prestige Signature dropped. 2.5T Prestige now gets electronically controlled suspension. The 2.5T Standard was dropped in Nov 2024 (its content folded into Select). EPA mpg lower than 2024. Seat materials: leatherette Standard/Select, leather Advanced/2.5T Prestige, Nappa 3.5T Prestige.",
+     "trims": [
+      {
+       "name": "2.5T Standard AWD (early 2025 builds only)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "27-inch OLED gauge + navigation display",
+        "MLA LED headlights, monobloc front brakes",
+        "Highway Driving Assist, Smart Cruise Control",
+        "Heated front seats",
+        "Integrated memory with Smart Posture Care",
+        "Mood Curator"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (12-speaker standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation; no heated steering wheel",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Standard AWD (early 2025 builds only)",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof",
+        "Heated steering wheel",
+        "Matte-finish wood trim",
+        "Manual rear door shades",
+        "Genesis Digital Key 2",
+        "2nd-row AC outlet"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (12-speaker standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Genuine leather seats",
+        "Ventilated front seats",
+        "Bang & Olufsen premium audio",
+        "Surround View + Blind-Spot View Monitor",
+        "Remote Smart Parking Assist 2",
+        "Front/side/rear parking collision-avoidance"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "22-inch wheels",
+        "Electronically controlled suspension with Road Preview",
+        "Head-up display",
+        "3-zone climate, heated rear seats",
+        "Driver seat bolster/cushion extension + Ergo Motion",
+        "Active Noise Control"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated rear",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "3.5T Advanced AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD",
+       "highlights": [
+        "Power-folding 3rd row standard (7 seats)",
+        "Electronically controlled suspension",
+        "Head-up display, 4-zone climate, heated rear seats",
+        "Ergo Motion driver seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "16/22/19"
+      },
+      {
+       "name": "3.5T Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Advanced AWD (3-row)",
+       "highlights": [
+        "2 rows / 5 seats (no 3rd row)",
+        "22-inch wheels, rear electronic limited-slip differential",
+        "Nappa leather seats, microfiber suede headliner and pillars",
+        "Power, heated + ventilated 2nd-row seats",
+        "Heated front armrest, digital rearview mirror",
+        "Power door closure, power rear door shades",
+        "Active Noise Control"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; power, heated + ventilated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "16/22/19"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "vs 2025: 3rd row now standard on 2.5T Advanced, 2.5T Prestige, 3.5T Advanced and 3.5T Prestige (Genesis spec sheet lists them as 7-passenger), so the only 2-row AWD GV80s are 2.5T AWD, 2.5T Select and the new 3.5T Prestige Black. Power 2nd-row seats dropped from 3.5T Prestige. New Terrain Mode; rear acoustic glass on Prestige; Digital Key 2 Premium; compact spare on all 5-seat versions. Genesis data lists Forward Collision-Avoidance Assist 2 and Highway Driving Assist 2 standard.",
+     "trims": [
+      {
+       "name": "2.5T AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "27-inch OLED gauge + navigation display, wireless CarPlay/Android Auto",
+        "Highway Driving Assist 2, Forward Collision-Avoidance Assist 2",
+        "Terrain Mode (new)",
+        "Heated front seats, power tilt/telescoping wheel",
+        "Mood Curator",
+        "Wireless phone charger"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation; no heated steering wheel",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Select AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T AWD",
+       "highlights": [
+        "20-inch wheels",
+        "Panoramic sunroof",
+        "Heated steering wheel",
+        "Premium finish trim",
+        "Manual rear side window shades",
+        "Genesis Digital Key 2",
+        "2nd-row AC outlet"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Advanced AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD",
+       "highlights": [
+        "Power-folding 3rd row (7 seats)",
+        "Genuine leather, ventilated front seats",
+        "Bang & Olufsen audio",
+        "Surround View + Blind-Spot View Monitor, Remote Smart Parking Assist 2",
+        "4-zone climate"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Prestige AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD (3-row)",
+       "highlights": [
+        "7 seats",
+        "22-inch wheels, electronically controlled suspension",
+        "Head-up display, heated 2nd row",
+        "Ergo Motion driver seat, Active Noise Control"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "3.5T Advanced AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Prestige AWD (3-row)",
+       "highlights": [
+        "7 seats",
+        "3.5T V6, 20-inch wheels",
+        "Genuine leather, ventilated front, heated 2nd row",
+        "Head-up display, electronically controlled suspension"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "16/22/19"
+      },
+      {
+       "name": "3.5T Prestige AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Advanced AWD (3-row)",
+       "highlights": [
+        "7 seats",
+        "Nappa leather, suede headliner, ventilated 2nd row",
+        "22-inch wheels, rear e-LSD",
+        "Soft-close doors, digital rearview mirror (power 2nd-row seats dropped)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated + ventilated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "16/22/19"
+      },
+      {
+       "name": "3.5T Prestige Black AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Prestige AWD (3-row)",
+       "highlights": [
+        "2 rows / 5 seats (no 3rd row)",
+        "Black Nappa leather with exclusive quilting (Obsidian Black only)",
+        "Power 2nd-row recline, slide and cushion tilt; heated + ventilated 2nd row",
+        "22-inch black wheels, black calipers, black ash wood trim",
+        "Nappa, suede headliner, soft-close doors, digital rearview mirror",
+        "Head-up display, Ergo Motion driver seat, Active Noise Control"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; power, heated + ventilated 2nd row",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "16/22/19"
+      }
+     ]
+    },
+    {
+     "year": 2027,
+     "what_changed": "vs 2026: Genesis's 2027 spec sheet lists every GV80 except 3.5T Prestige Black as 7-passenger (manual-folding 3rd row added to 2.5T AWD and Select; power-folding on the others), so 3.5T Prestige Black is the only 2-row GV80. Heated steering wheel added to 2.5T AWD; Mood Curator now Prestige trims only; front passenger Ergo Motion + memory on 3.5T Prestige / Prestige Black; rear badges deleted; new colors. Seat materials unchanged.",
+     "trims": [
+      {
+       "name": "2.5T AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Manual-folding 3rd row (7 seats, new)",
+        "Heated steering wheel (new)",
+        "27-inch OLED display",
+        "Highway Driving Assist 2",
+        "Leatherette, heated front seats"
+       ],
+       "sunroof": "not available (Select and up)",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Select AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T AWD (3-row)",
+       "highlights": [
+        "Manual-folding 3rd row (7 seats)",
+        "20-inch wheels, panoramic sunroof",
+        "Premium finish trim, Digital Key 2",
+        "Manual rear side window shades, 2nd-row AC outlet"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (standard audio)",
+       "seats": "synthetic leatherette (standard on this trim); heated front; no ventilation",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Advanced AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Select AWD (3-row)",
+       "highlights": [
+        "Power-folding 3rd row (7 seats)",
+        "Genuine leather, ventilated front seats",
+        "Bang & Olufsen audio",
+        "Surround View Monitor, Remote Smart Parking Assist 2"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "2.5T Prestige AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "2.5L turbo 4-cyl, 300 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Advanced AWD (3-row)",
+       "highlights": [
+        "7 seats",
+        "22-inch wheels, electronically controlled suspension",
+        "Head-up display, heated 2nd row, Mood Curator",
+        "Ergo Motion driver seat, Active Noise Control-Road"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "19/24/21"
+      },
+      {
+       "name": "3.5T Advanced AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "2.5T Prestige AWD (3-row)",
+       "highlights": [
+        "7 seats",
+        "3.5T V6, 20-inch wheels",
+        "Genuine leather, ventilated front, heated 2nd row",
+        "Head-up display, electronically controlled suspension"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "17/22/19"
+      },
+      {
+       "name": "3.5T Prestige AWD (3-row)",
+       "on_list": false,
+       "why_not": "3-row",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Advanced AWD (3-row)",
+       "highlights": [
+        "7 seats",
+        "Nappa leather, ventilated 2nd row",
+        "Front passenger Ergo Motion + memory (new)",
+        "Suede headliner, soft-close doors, digital rearview mirror"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated + ventilated 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "17/22/19"
+      },
+      {
+       "name": "3.5T Prestige Black AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Prestige AWD (3-row)",
+       "highlights": [
+        "2 rows / 5 seats (only 2-row GV80 for 2027)",
+        "Black Nappa leather with exclusive quilting (Obsidian Black only)",
+        "Power 2nd-row recline, slide, cushion tilt; heated + ventilated 2nd row",
+        "Driver and front passenger Ergo Motion + memory",
+        "22-inch black wheels, black calipers, open-pore black ash trim",
+        "Soft-close doors, digital rearview mirror, head-up display"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; power, heated + ventilated 2nd row",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "17/22/19"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.genesisnewsusa.com/assets/documents/original/3427-2023GV80TechSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/3979-2024GV80TechSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4911-Genesis2025GV80PricingPressReleaseV2formediasite.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5529-2026GV80SUVFeaturesandSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6655-2027-gv80-suv-features-and-specs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/3922-MY24SummaryofChangesV2070623.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4275-42592024GenesisModelYearChangesab.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4998-2025GenesisModelYearChangesanab011625.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5656-2026GenesisModelYearChangesanab091225.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6805-2027-genesis-model-year-changes-an-ab-091826.pdf",
+    "https://www.genesisnewsusa.com/en-us/2023-genesis-model-year-changes",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2023&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2024&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2025&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2026&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2027&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2024&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2025&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2026&model=gv80",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2027&model=gv80",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Genesis"
+   ]
+  },
+  {
+   "make": "Genesis",
+   "model": "GV80 Coupe",
+   "on_list_rule": "Every GV80 Coupe trim is allowed but flagged (coupe body style); it is 2-row, 5-seat, AWD only.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "First year of the GV80 Coupe in the US (pricing announced June 2024).",
+     "trims": [
+      {
+       "name": "3.5T AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Coupe body (sloped roof), 5 seats",
+        "20-inch sport wheels, rear e-LSD, electronically controlled suspension",
+        "Nappa leather, microfiber suede headliner and pillars",
+        "Heated + ventilated front and rear seats, power 2nd-row seats",
+        "Bang & Olufsen audio, head-up display, 27-inch OLED display",
+        "Highway Driving Assist 2, Surround View, Remote Smart Parking Assist 2",
+        "Power door closure, digital rearview mirror, heated front armrest"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": ""
+      },
+      {
+       "name": "3.5T e-Supercharger MHEV AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6 with 48V electric supercharger (mild hybrid), 409 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T AWD",
+       "highlights": [
+        "48V electric supercharger mild hybrid (409 hp)",
+        "Sport+ drive mode",
+        "22-inch sport wheels",
+        "Dark chrome trim, carbon-fiber interior trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "18/22/20"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "vs 2025: new 3.5T e-S/C Prestige Black trim (black quilted Nappa, black wheels); Terrain Mode; Digital Key 2 Premium (rear-door unlock); manual rear side window shades on all; Storr Green dropped; Vanilla Beige/Smoky Green interior added. Seat materials unchanged (Nappa on all).",
+     "trims": [
+      {
+       "name": "3.5T AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Coupe body, 5 seats",
+        "20-inch sport wheels, electronically controlled suspension",
+        "Nappa leather, suede headliner",
+        "Heated + ventilated front and rear seats, power 2nd row",
+        "Bang & Olufsen, head-up display, 27-inch OLED",
+        "Soft-close doors, digital rearview mirror",
+        "Terrain Mode (new), manual rear side shades (new)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": ""
+      },
+      {
+       "name": "3.5T e-S/C AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6 with 48V electric supercharger (mild hybrid), 409 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T AWD",
+       "highlights": [
+        "48V electric supercharger mild hybrid (409 hp)",
+        "22-inch sport wheels, black calipers",
+        "Dark chrome exterior, carbon-fiber trim",
+        "Same Nappa, ventilated front/rear seats and B&O audio as 3.5T"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "17/22/19"
+      },
+      {
+       "name": "3.5T e-S/C Prestige Black AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6 with 48V electric supercharger (mild hybrid), 409 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T e-S/C AWD",
+       "highlights": [
+        "Black Nappa with exclusive quilting (Obsidian Black only)",
+        "22-inch black wheels, gloss-black exterior trim",
+        "Gloss black interior trim with open-pore black ash wood",
+        "Black calipers, 409-hp e-supercharged V6"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "17/22/19"
+      }
+     ]
+    },
+    {
+     "year": 2027,
+     "what_changed": "vs 2026: base renamed 3.5T Advanced and de-contented: genuine leather replaces Nappa, suede headliner removed, manual 2nd-row seats (heated only, ventilation removed), no heated front armrest, soft-close doors, digital mirror, Active Noise Control, rear e-LSD or Mood Curator; price cut to $77,200. 3.5T e-S/C renamed e-S/C Prestige (keeps Nappa, ventilated power rear seats, adds front passenger Ergo Motion + memory). Prestige Black carries over. Rear badges deleted.",
+     "trims": [
+      {
+       "name": "3.5T Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6, 375 hp, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Coupe body, 5 seats",
+        "20-inch sport wheels, electronically controlled suspension",
+        "Genuine leather (Nappa no longer on base)",
+        "Heated + ventilated front, heated rear (manual 2nd row)",
+        "Bang & Olufsen, head-up display, 27-inch OLED",
+        "Surround View, Remote Smart Parking Assist 2, Highway Driving Assist 2",
+        "Spun aluminum trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine leather (standard on this trim); heated + ventilated front; heated rear (no rear ventilation)",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": ""
+      },
+      {
+       "name": "3.5T e-S/C Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6 with 48V electric supercharger (mild hybrid), 409 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T Advanced AWD",
+       "highlights": [
+        "48V electric supercharger mild hybrid (409 hp)",
+        "Nappa leather, suede headliner",
+        "Power, heated + ventilated 2nd-row seats",
+        "Driver and front passenger Ergo Motion + memory",
+        "22-inch wheels, rear e-LSD",
+        "Soft-close doors, digital rearview mirror, Active Noise Control"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "17/22/19"
+      },
+      {
+       "name": "3.5T e-S/C Prestige Black AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.5L twin-turbo V6 with 48V electric supercharger (mild hybrid), 409 hp, 8-speed auto, AWD",
+       "builds_on": "3.5T e-S/C Prestige AWD",
+       "highlights": [
+        "Black Nappa with exclusive quilting (Obsidian Black only)",
+        "22-inch black wheels, black calipers, gloss-black trim",
+        "Open-pore black ash wood",
+        "Keeps Prestige's ventilated power rear seats and front passenger Ergo Motion"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front and rear; power 2nd row",
+       "black_interior": "yes",
+       "spare": "tire repair kit / run-flats",
+       "mpg": "17/22/19"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.genesisnewsusa.com/assets/documents/original/4571-Genesis2025GV80CoupePricingPressReleaseDRAFT5FORDISTRIBUTIONabanab.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4734-2025GV80CoupeFeaturesSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5528-2026GV80CoupeFeaturesandSpecs.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6654-2027-gv80-coupe-features-and-specs.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/4998-2025GenesisModelYearChangesanab011625.pdf",
+    "https://www.genesisnewsusa.com/assets/documents/original/5656-2026GenesisModelYearChangesanab091225.pdf",
+    "https://www.genesisnewsusa.com/assets/applications/original/6805-2027-genesis-model-year-changes-an-ab-091826.pdf",
+    "https://www.genesisnewsusa.com/en-us/2023-genesis-model-year-changes",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2025&model=gv80-coupe",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2026&model=gv80-coupe",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2027&model=gv80-coupe",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2025&model=gv80-coupe",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2026&model=gv80-coupe",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2027&model=gv80-coupe",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Genesis"
+   ]
+  },
+  {
    "make": "BMW",
    "model": "X3",
    "on_list_rule": "Only the four-cylinder xDrive30i (2023-2024) and its 2025+ replacement, the 30 xDrive, are on the list; M40i, M50 and X3 M versions are excluded and RWD sDrive models are skipped.",
