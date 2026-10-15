@@ -339,7 +339,7 @@ td.warr { min-width:190px; font-size:13px; }
     color:var(--muted); margin-bottom:1px; }
   td.car { grid-column:1 / -1; order:-3; font-size:16px; } td.car::before { display:none !important; }
   td.wide { grid-column:1 / -1; } td.span2 { grid-column:span 2; }
-  td.p-score { order:-2; } td.p-price { order:-2; font-size:17px; font-weight:700; } td.p-mo { order:-2; }
+  td.p-score { order:-2; } td.p-year { order:-1; } td.p-price { order:-2; font-size:17px; font-weight:700; } td.p-mo { order:-2; }
   td[colspan] { grid-column:1 / -1; }
   tbody tr:has(td[colspan]) { display:block; }
 }
@@ -387,7 +387,7 @@ td.warr { min-width:190px; font-size:13px; }
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
   <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
-  <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
+  <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="orig">Original price</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_end">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
@@ -397,7 +397,7 @@ td.warr { min-width:190px; font-size:13px; }
   <option value="removed_on:-1">Gone most recently</option><option value="price_total:1">Lowest price</option>
   <option value="days:1">Fewest days listed</option><option value="mileage:1">Fewest miles</option></select></div>
 <div class="wrap"><table class="gone"><thead><tr>
-  <th data-g="title">Car</th><th data-g="dealer">Dealer</th><th data-g="price_total">Last price</th><th data-g="orig">Original price</th>
+  <th data-g="title">Car</th><th data-g="year">Year</th><th data-g="dealer">Dealer</th><th data-g="price_total">Last price</th><th data-g="orig">Original price</th>
   <th data-g="mileage">Miles</th><th data-g="fuel">Fuel</th><th data-g="colors">Colors</th><th data-g="first_seen">First seen</th>
   <th data-g="removed_on">Gone since</th><th data-g="days">Days listed</th><th data-g="fail_reasons">Why</th>
 </tr></thead><tbody id="gone-rows"></tbody></table></div>
@@ -758,18 +758,20 @@ function renderRows() {
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
       <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div><button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button></td>
+    <td class="num" data-l="Year">${esc(c.year)}</td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Last price">${priceCell(c)}</td><td class="num" data-l="Original price">${origCell(c)}</td>
     <td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td data-l="Fuel">${esc(c.fuel)}</td><td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="small" data-l="First seen">${esc(c.first_seen)}</td>
     <td class="small" data-l="Gone since">${esc(c.removed_on || c.last_seen)}</td><td class="num" data-l="Days listed">${esc(c.days)}</td>
     <td class="small wide" data-l="Why">${esc(c.fail_reasons)}</td></tr>`).join("")
-    || `<tr><td colspan="11" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
+    || `<tr><td colspan="12" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
       <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button></td>
+    <td class="num p-year" data-l="Year">${esc(c.year)}</td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
@@ -778,7 +780,7 @@ function renderRows() {
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="span2" data-l="Features">${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
-    || `<tr><td colspan="14" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+    || `<tr><td colspan="15" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
   if (favOnly) {
     const gf = D.gone.filter(c => fav.includes(c.vin));
     document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>
@@ -786,7 +788,7 @@ function renderRows() {
   }
 }
 document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
-  const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
+  const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" || k === "year" || k === "warr_end" ? -1 : 1); sortK = k; render(); }));
 document.querySelectorAll("th[data-g]").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.g; gDir = gK === k ? -gDir : (/_(seen|on)$/.test(k) ? -1 : 1); gK = k; render(); }));
 // Keep each table's header row visible at the top of the screen while its rows scroll past.
