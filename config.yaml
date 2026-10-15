@@ -33,14 +33,14 @@ filters:
     other_fees: 100           # electronic filing etc.
   sunroof_required: true
   exterior_colors:
-    include: [black, gray, grey, silver, graphite, charcoal, gunmetal, thunder, makalu,
+    include: [black, gray, grey, graphite, charcoal, gunmetal, thunder, makalu,
               mythos, vik, onyx, daytona, carbon, obsidian, magnetic, crystal black,
               "dark green", "autumn green", "british racing", "racing green",
               "cypress green", "eruption green", "area 51", "shadow", "slate",
               "manhattan", "ebony", "jet", "nebula", "smoke", "tungsten", "anthracite",
               "storm", "asphalt", "steel", "cement", "lunar", "magnetite", "iridium",
               "selenite", "titanium", "ash"]   # list reviewed per-run in fail_reasons
-    exclude: [white, pearl white, beige, blue, red, matte, frozen, glacier, ivory,
+    exclude: [silver, white, pearl white, beige, blue, red, matte, frozen, glacier, ivory,
               cream, champagne, bronze, orange, yellow, brown, copper, gold, tan]
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:

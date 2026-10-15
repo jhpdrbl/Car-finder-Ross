@@ -116,7 +116,10 @@ def exterior_ok(color: str) -> tuple[str, str]:
         if any(g in c for g in DARK_GREENS):
             return "pass", ""
         return "unknown", f"green ({color}): confirm it's a dark green"
+    grayish = re.search(r"\b(gr[ae]y|graphite)\b", c)
     for w in F["exterior_colors"]["exclude"]:
+        if w == "silver" and grayish:
+            continue  # "Silver Gray" / "Silver Graphite" count as gray
         if re.search(rf"\b{re.escape(w)}\b", c):
             return "fail", f"exterior {color}"
     if any(re.search(rf"\b{re.escape(w)}", c) for w in F["exterior_colors"]["include"]):
