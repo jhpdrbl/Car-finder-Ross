@@ -68,6 +68,15 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .sortbar label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
 .sortbar select { flex:1; min-width:0; max-width:380px; }
 .phone-only { display:none; }
+/* "Back to top" button: appears after scrolling down */
+#totop { position:fixed; z-index:40; right:max(16px, env(safe-area-inset-right, 0px));
+  bottom:max(16px, calc(env(safe-area-inset-bottom, 0px) + 8px)); width:48px; height:48px; border-radius:50%;
+  border:1px solid var(--line); background:var(--accent); color:var(--bg); font-size:22px; line-height:1; cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25); opacity:0; transform:translateY(12px); pointer-events:none;
+  transition:opacity .2s, transform .2s; }
+#totop.show { opacity:1; transform:none; pointer-events:auto; }
+#totop:focus-visible { outline:3px solid var(--fg); outline-offset:2px; }
+@media (prefers-reduced-motion: reduce) { #totop { transition:none; } }
 /* Trim guide tab */
 .gmodel { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:14px; scroll-margin-top:12px; }
 .gmodel h2 { margin:0; font-size:20px; } .gmodel .rule { margin:2px 0 10px; }
@@ -136,6 +145,7 @@ td.warr { min-width:190px; font-size:13px; }
 }
 </style></head><body><main>
 <div id="safe-top" aria-hidden="true"></div>
+<button type="button" id="totop" aria-label="Back to top" title="Back to top">&#8593;</button>
 <div><h1>CPO SUV Finder</h1><div class="muted">Refreshed 2026-10-15 · every car links to the dealer's own listing</div></div>
 <div class="tiles">
   <div class="tile"><b>19</b><span class="muted">meet all criteria</span></div>
@@ -580,6 +590,11 @@ function stickHeads() {
   });
 }
 window.addEventListener("scroll", stickHeads, {passive: true});
+const toTop = document.getElementById("totop");
+const showTop = () => toTop.classList.toggle("show", window.scrollY > 600);
+window.addEventListener("scroll", showTop, {passive: true}); showTop();
+toTop.addEventListener("click", () => window.scrollTo({top: 0,
+  behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}));
 window.addEventListener("resize", stickHeads);
 function showTab(which) {
   favOnly = which === "fav";
