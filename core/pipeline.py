@@ -51,6 +51,9 @@ def homepage_status(home: str) -> tuple[bool, str]:
         return False, f"blocked: {why} (HTTP {r.status_code})"
     if r.status_code >= 400:
         return False, f"homepage HTTP {r.status_code}"
+    from scrapers.generic_jsonld import CHALLENGE_PAGE
+    if CHALLENGE_PAGE.search(r.text[:5000]):
+        return False, "blocked: bot challenge page (HTTP 200)"
     return True, ""
 
 

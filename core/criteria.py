@@ -204,6 +204,10 @@ def ev_comparables(L: Listing, pool: list[Listing]) -> list[float]:
 # Main evaluation
 # --------------------------------------------------------------------------
 
+NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
+NAME_AWD = re.compile(r"\b(awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac)\b|all[- ]wheel|four[- ]wheel|4motion")
+
+
 def _over(L: Listing, cap: float, label: str, fails: list, unknown: list) -> None:
     """Over the cap. If only our *estimated* fees push it over, ask instead of excluding."""
     if L.fees_estimated and L.price is not None and L.price <= cap:
@@ -261,10 +265,17 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     # drivetrain
     from verify.vin_decode import drive_class
     dt = drive_class(d) or L.drivetrain
+    name = f"{L.model} {L.trim} {L.title} {d.get('Trim') or ''} {L.listing_url}".lower().replace("_", " ")
+    if dt not in ("AWD", "4WD") and not drive_class(d):
+        # VIN decode silent (common for Mercedes/VW): trust what the listing's name says
+        if NAME_2WD.search(name) and not NAME_AWD.search(name):
+            dt = "2WD" if not re.search(r"\bfwd\b|front[- ]wheel", name) else "FWD"
+        elif NAME_AWD.search(name) and not dt:
+            dt = "AWD"
     if L.dealer_brand == "Subaru" and not dt:
         dt = "AWD"
     if dt in ("FWD", "RWD", "2WD"):
-        fails.append(f"{dt} (AWD/4WD only)")
+        fails.append(f"{dt} (AWD/4WD only)" + (" per the listing's name" if not drive_class(d) else ""))
     elif not dt:
         unknown.append("drivetrain not shown")
     L.drivetrain = dt or L.drivetrain

@@ -408,6 +408,10 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     return L
 
 
+CHALLENGE_PAGE = re.compile(r"<title>\s*(client challenge|just a moment|attention required|access denied|"
+                            r"security check|verify you are human|pardon our interruption)", re.I)
+
+
 def fetch_vdp(url: str) -> tuple[Listing | None, str]:
     """Fetch + parse one VDP. Second value: '' or a reason (sold/redirected/http error)."""
     try:
@@ -418,7 +422,11 @@ def fetch_vdp(url: str) -> tuple[Listing | None, str]:
         return None, "gone (HTTP %d)" % r.status_code
     if r.status_code != 200:
         return None, f"HTTP {r.status_code}"
+    if CHALLENGE_PAGE.search(r.text[:5000]):
+        return None, "blocked: bot challenge page"
     L = parse_vdp(r.text, r.url)
+    if L is not None and L.price is None and L.mileage is None and not L.model and not L.ext_color:
+        return None, "no vehicle data on page"   # a VIN in the URL alone isn't a listing
     want = VIN_ANY.search(url.split("?")[0])
     if L is None:
         if r.url.rstrip("/") != url.rstrip("/"):
