@@ -1,0 +1,813 @@
+{
+ "brands": [
+  {
+   "make": "Audi",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty; also covers the powertrain"
+    },
+    {
+     "name": "Powertrain",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "No separate powertrain warranty; part of the 4 yr/50k basic"
+    },
+    {
+     "name": "Plug-in hybrid / EV high-voltage battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Industry-standard Audi term; not confirmed from a 2023-2026 Audi booklet in this research"
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 12,
+     "miles": null,
+     "transfers": "yes",
+     "note": "12-year limited warranty against corrosion perforation, any mileage"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 4,
+     "miles": null,
+     "transfers": "yes",
+     "note": "24-hour roadside, 4 years / unlimited miles"
+    }
+   ],
+   "factory_note": "Same warranty terms for model years 2023-2026. The big change is maintenance: 2026 models come with Audi Signature Care (3 yr/30k scheduled maintenance); 2023-2025 models had no free maintenance (Audi Care was a paid plan).",
+   "maintenance": "MY2026+: Audi Signature Care included, first 3 years / 30,000 miles of scheduled maintenance (services at 1 yr/10k, 2 yr/20k, 3 yr/30k) plus one brake-fluid service; stays with the car (VIN). MY2023-2025: none included (Audi Care prepaid plans sold separately; any unused balance stays with the car).",
+   "cpo": {
+    "program": "Audi Certified pre-owned",
+    "coverage": [
+     {
+      "name": "Comprehensive (CPO Limited Warranty)",
+      "years": 1,
+      "miles": 20000,
+      "starts": "end of new-car warranty",
+      "note": "Begins when the 4 yr/50k new-car warranty runs out; if that has already expired, it runs 1 yr/20k from the CPO purchase date. Applies to CPO cars bought on/after Aug 1, 2023. Repairs free of charge ($0 deductible). It is in addition to any remaining factory warranty."
+     },
+     {
+      "name": "Corrosion perforation",
+      "years": 12,
+      "miles": null,
+      "starts": "original in-service date",
+      "note": "Remaining balance of the 12-year factory corrosion warranty"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": null,
+      "miles": null,
+      "starts": "CPO purchase date",
+      "note": "24-hour roadside included; length not stated in the CPO booklet (unknown)"
+     }
+    ],
+    "summary": "An Audi CPO car keeps whatever is left of the 4-year/50,000-mile factory warranty, then gets 1 more year or 20,000 miles of bumper-to-bumper coverage with no deductible.",
+    "perks": [
+     "Complimentary service loaner (participating dealers)",
+     "24-hour roadside assistance",
+     "Remaining Audi Care / Signature Care maintenance stays with the car",
+     "Vehicle history report",
+     "Dealer inspection (Audi cites 300+ points)"
+    ],
+    "eligibility": "5 model years old or newer and under 60,000 miles"
+   },
+   "sources": [
+    "https://nar.media.audi.com/is/content/audinar/oadd/us/assets/certified-pre-owned-program/Audi%20Certified%20Pre-Owned-Limited%20Warranty%20and%2024-Hour%20Roadside%20Assistance.pdf",
+    "https://www.audiusa.com/en/shopping-tools/certified-pre-owned/",
+    "https://media.audiusa.com/releases/641",
+    "https://www.audiusa.com/en/service/audi-care/"
+   ]
+  },
+  {
+   "make": "Genesis",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty"
+    },
+    {
+     "name": "Powertrain",
+     "years": 10,
+     "miles": 100000,
+     "transfers": "no",
+     "note": "Original owner only. Second and later owners: powertrain is covered only by the 5 yr/60k New Vehicle Limited Warranty"
+    },
+    {
+     "name": "EV battery and EV drive components",
+     "years": 10,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Electric models (e.g. Electrified GV70, GV60)"
+    },
+    {
+     "name": "Corrosion (anti-perforation)",
+     "years": 7,
+     "miles": null,
+     "transfers": "yes",
+     "note": "7 years / unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 5,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "60 months / unlimited miles from in-service date; a service benefit, not a warranty"
+    }
+   ],
+   "factory_note": "No differences found for model years 2023-2026. Key catch: the 10-yr/100k powertrain warranty does NOT pass to a second owner of a non-certified car; they get 5 yr/60k. Buying Genesis Certified brings the 10-yr/100k powertrain back.",
+   "maintenance": "Complimentary scheduled maintenance 3 yr/36k (oil and filter, inspection, tire rotation), original owner of a new car only.",
+   "cpo": {
+    "program": "Genesis Certified (Certified Pre-Owned)",
+    "coverage": [
+     {
+      "name": "Comprehensive (extended Limited Warranty)",
+      "years": 6,
+      "miles": 75000,
+      "starts": "original in-service date",
+      "note": "Extends the 5 yr/60k factory warranty to 6 yr/75k total. Transferable to the next private owner. Deductible not stated (unknown)."
+     },
+     {
+      "name": "Powertrain",
+      "years": 10,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "Full 10 yr/100k from the original owner's purchase date"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 10,
+      "miles": null,
+      "starts": "original in-service date",
+      "note": "10 years / unlimited miles, 24/7"
+     }
+    ],
+    "summary": "A Genesis Certified car is covered bumper-to-bumper until 6 years/75,000 miles and on the engine and transmission until 10 years/100,000 miles, both counted from when the car was first sold new.",
+    "perks": [
+     "10-year/unlimited-mile roadside assistance",
+     "Rental car reimbursement up to $50/day for up to 10 days",
+     "Travel (hotel/meal) reimbursement for breakdowns away from home",
+     "3 years of Genesis Connected Services",
+     "CARFAX report",
+     "191-point inspection (99-point for EVs)"
+    ],
+    "eligibility": "5 model years old or newer, under 60,000 miles, clean CARFAX"
+   },
+   "sources": [
+    "https://www.genesis.com/us/en/certified-pre-owned",
+    "https://www.genesis.com/us/en/ownership/warranty",
+    "https://owners.genesis.com/genesis/us/mygenesis/manuals/factory-warranty/2024/Genesis%20USA%20ALL%2024MY(Combined)230727.pdf"
+   ]
+  },
+  {
+   "make": "Subaru",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": "Every owner during the warranty period is covered"
+    },
+    {
+     "name": "Powertrain",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Hybrid battery / components",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Forester/Crosstrek Hybrid; commonly 10 yr/150k on the battery in California and other PZEV states. Not confirmed from a Subaru hybrid booklet in this research"
+    },
+    {
+     "name": "Rust perforation",
+     "years": 5,
+     "miles": null,
+     "transfers": "yes",
+     "note": "5 years, unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": "Free during the 3 yr/36k basic warranty"
+    }
+   ],
+   "factory_note": "No changes to the core terms across 2023-2026 found (2024 booklet checked).",
+   "maintenance": "none",
+   "cpo": {
+    "program": "Subaru Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "Powertrain (vehicle service agreement)",
+      "years": 7,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "Factory-backed powertrain service agreement, $0 deductible. Powertrain only, not bumper-to-bumper. Any remaining 3 yr/36k factory basic warranty still applies."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 7,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "24/7 roadside; the 7 yr/100k term is from secondary sources (subaru.com just says 24/7 roadside)"
+     }
+    ],
+    "summary": "A Subaru CPO car gets engine-and-transmission coverage until 7 years/100,000 miles from its original sale, with no deductible; full bumper-to-bumper coverage (Gold Plus) is an optional extra you pay for.",
+    "perks": [
+     "$0 deductible",
+     "24/7 roadside assistance",
+     "152-point inspection",
+     "CARFAX report",
+     "SiriusXM 3-month trial",
+     "$500 owner loyalty coupon",
+     "Special CPO finance rates",
+     "Optional paid upgrade: Added Security Gold Plus (comprehensive, with towing, rental and trip-interruption benefits) - NOT included by default"
+    ],
+    "eligibility": "Up to 5 years old and under 80,000 miles (from secondary sources; not stated on subaru.com)"
+   },
+   "sources": [
+    "https://www.subaru.com/vehicle-info/certified-pre-owned.html",
+    "https://techinfo.subaru.com/stis/doc/warrantyBooklet/2024_war_and_maint_041723.pdf",
+    "https://www.subaru.com/owners/benefits-of-ownership/roadside-assistance.html"
+   ]
+  },
+  {
+   "make": "BMW",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "New Vehicle/SAV Limited Warranty; includes the powertrain"
+    },
+    {
+     "name": "Powertrain",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Part of the 4 yr/50k basic warranty"
+    },
+    {
+     "name": "High-voltage battery (PHEV/EV)",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Defects; separate capacity guarantee (below 70%) for 8 yr/100k"
+    },
+    {
+     "name": "Rust perforation",
+     "years": 12,
+     "miles": null,
+     "transfers": "yes",
+     "note": "12 years / unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 4,
+     "miles": null,
+     "transfers": "yes",
+     "note": "4 years / unlimited miles"
+    }
+   ],
+   "factory_note": "No changes to the core terms across 2023-2026 found (2026 booklet matches).",
+   "maintenance": "BMW Ultimate Care: scheduled maintenance for the first 3 years / 36,000 miles; stays with the car for its term.",
+   "cpo": {
+    "program": "BMW Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "Comprehensive (CPO Limited Warranty / Protection Plan)",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "1 year / unlimited miles after the 4 yr/50k factory warranty ends; included even if the factory warranty has already expired. Transferable to a private buyer. Deductible: $0 per dealer listings (not confirmed on bmwusa.com)."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 6,
+      "miles": null,
+      "starts": "original in-service date",
+      "note": "BMW's CPO page says up to 6 years; another BMW FAQ says up to 8 - treat the length as uncertain"
+     },
+     {
+      "name": "PHEV/EV high-voltage battery",
+      "years": 8,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "Remaining factory battery warranty"
+     }
+    ],
+    "summary": "A BMW CPO car keeps the rest of its 4-year/50,000-mile factory warranty and then gets 1 more year with unlimited miles.",
+    "perks": [
+     "Roadside assistance (up to 6 years per BMW)",
+     "Trip interruption reimbursement (breakdowns 100+ miles from home)",
+     "Transferable coverage",
+     "Optional extensions available"
+    ],
+    "eligibility": "5 years old or newer, between 300 and 60,000 miles"
+   },
+   "sources": [
+    "https://www.bmwusa.com/certified-preowned.html",
+    "https://faq.bmwusa.com/s/article/BMW-Certified-Pre-Owned-Limited-Warranty-Coverage-BMW-USA-7iVXr?language=en_US",
+    "https://www.bmwusa.com/content/dam/bmw/marketUS/common/warranty-books/2026/BMW_MY26_NWLW%20Post_2025-09-11_ADA.pdf",
+    "https://www.bmwusa.com/explore/bmw-value/bmw-maintenance/ultimate-care.html"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Covers the original and each subsequent owner; includes the powertrain"
+    },
+    {
+     "name": "Powertrain",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Part of the 4 yr/50k basic warranty"
+    },
+    {
+     "name": "Plug-in hybrid high-voltage battery",
+     "years": 6,
+     "miles": 62000,
+     "transfers": "yes",
+     "note": "e.g. GLE 450e; 10 yr/150k in CA and other SULEV-emissions states"
+    },
+    {
+     "name": "Corrosion",
+     "years": null,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "No separate corrosion warranty found in the 2023/2026 booklets (unknown)"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": null,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "24-hour Roadside Assistance included; length not stated in booklet (unknown)"
+    }
+   ],
+   "factory_note": "2023 and 2026 booklets show the same terms.",
+   "maintenance": "none included (prepaid maintenance plans sold separately) - not confirmed from an official page",
+   "cpo": {
+    "program": "Mercedes-Benz Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "Comprehensive (CPO Limited Warranty)",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "12 months / unlimited miles after the 4 yr/50k factory warranty ends; if that has already expired, 1 year from purchase. Deductible $0 per dealer listings (not confirmed on mbusa.com). Optional CPO Extended Limited Warranty adds 1 or 2 more years, unlimited miles."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "Included as part of the warranty coverage"
+     }
+    ],
+    "summary": "A Mercedes CPO car keeps the rest of its 4-year/50,000-mile factory warranty and then gets 1 more year with unlimited miles.",
+    "perks": [
+     "7-day / 500-mile exchange",
+     "Roadside assistance",
+     "Trip interruption up to $300/day for 3 days (breakdowns 100+ miles from home)",
+     "165+ point inspection",
+     "CARFAX report"
+    ],
+    "eligibility": "6 years old or newer, under 75,000 miles, serviced on schedule"
+   },
+   "sources": [
+    "https://www.mbusa.com/en/cpo",
+    "https://www.mbusa.com/content/dam/mb-nafta/us/owners/manuals/2026/MY26PCWarrantyBooklet.pdf",
+    "https://www.mbusa.com/content/dam/mb-nafta/us/owners/manuals/2023/2023-warranty-booklet.pdf"
+   ]
+  },
+  {
+   "make": "Volkswagen",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty on all MY20+; includes the powertrain"
+    },
+    {
+     "name": "Powertrain",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Part of the 4 yr/50k warranty"
+    },
+    {
+     "name": "EV high-voltage battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Defects and capacity below 70%"
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": null,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "Not confirmed (unknown)"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": "Per vw.com"
+    }
+   ],
+   "factory_note": "Same terms for 2023-2026 (Carefree Coverage on all MY20 and newer).",
+   "maintenance": "Carefree Maintenance: first two scheduled services (10k and 20k miles) within 2 years.",
+   "cpo": {
+    "program": "Volkswagen Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "Comprehensive (CPO Limited Warranty)",
+      "years": 2,
+      "miles": 24000,
+      "starts": "end of new-car warranty",
+      "note": "Additional 2 yr/24k after the 4 yr/50k factory warranty ends, or from the CPO sale date if it has expired (MY20+ cars bought on/after Apr 1, 2026). $50 deductible per dealer visit."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 2,
+      "miles": null,
+      "starts": "CPO purchase date",
+      "note": "2 years of 24-hour roadside"
+     },
+     {
+      "name": "EV high-voltage battery",
+      "years": 8,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "EV models"
+     }
+    ],
+    "summary": "A VW CPO car keeps the rest of its 4-year/50,000-mile factory warranty and then gets 2 more years or 24,000 miles of coverage, with a $50 deductible per visit.",
+    "perks": [
+     "2 years of 24-hour roadside assistance",
+     "100+ point dealer inspection"
+    ],
+    "eligibility": "Current or previous 6 model years and no more than 75,000 miles (from dealer pages; not on vw.com)"
+   },
+   "sources": [
+    "https://www.vw.com/en/cpo.html",
+    "https://www.vw.com/en/owners-and-services/service-and-maintenance/maintenance-coverage.html",
+    "https://www.lindsayvolkswagen.com/vw-certified-pre-owned"
+   ]
+  },
+  {
+   "make": "Lexus",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Powertrain",
+     "years": 6,
+     "miles": 70000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Hybrid battery",
+     "years": 10,
+     "miles": 150000,
+     "transfers": "yes",
+     "note": "MY2020+; other hybrid components 8 yr/100k"
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 6,
+     "miles": null,
+     "transfers": "yes",
+     "note": "6 years / unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 4,
+     "miles": null,
+     "transfers": "yes",
+     "note": "4 years / unlimited miles"
+    }
+   ],
+   "factory_note": "No changes to the core terms found for 2023-2026.",
+   "maintenance": "Complimentary maintenance: first two scheduled services within 1 yr/10k (new-car owner).",
+   "cpo": {
+    "program": "L/Certified by Lexus",
+    "coverage": [
+     {
+      "name": "Comprehensive (L/Certified Limited Warranty)",
+      "years": 2,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "2 years / unlimited miles after the 4 yr/50k basic warranty ends, or 2 years from the L/Certified purchase date, whichever is later (up to 6 years total). NOT transferable to a later owner. Deductible $0 per dealer listings."
+     },
+     {
+      "name": "Powertrain",
+      "years": 6,
+      "miles": 70000,
+      "starts": "original in-service date",
+      "note": "Remaining factory powertrain warranty (also covered by the L/Certified warranty during its term)"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 2,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "24/7, during the L/Certified warranty period"
+     }
+    ],
+    "summary": "An L/Certified Lexus keeps the rest of its 4-year/50,000-mile factory warranty and then gets 2 more years of bumper-to-bumper coverage with unlimited miles, plus 2 years of free maintenance.",
+    "perks": [
+     "Complimentary maintenance 2 yr/20k from purchase",
+     "Loaner car if repairs take overnight",
+     "Travel protection for warranty breakdowns away from home",
+     "Roadside assistance",
+     "161-point inspection"
+    ],
+    "eligibility": "unknown (current limits not published; a dated source said 6 years or newer and under 80,000 miles)"
+   },
+   "sources": [
+    "https://www.lexus.com/lcertified/certification-warranty",
+    "https://support.lexus.com/s/article/What-is-the-L-Certified-Warranty",
+    "https://www.lexus.com/content/dam/lexus/documents/brochures/lcertified/LCertified_WSG_02242021.pdf",
+    "https://support.lexus.com/s/article/What-warranty-coverag-8315",
+    "https://www.lexus.com/warranty"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty; includes the powertrain"
+    },
+    {
+     "name": "Powertrain",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Part of the 4 yr/50k warranty"
+    },
+    {
+     "name": "Plug-in hybrid battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Confirmed in 2021 and 2023 booklets; 2024-2026 term not confirmed. Fully electric 2026 models: 10 yr/150k"
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 12,
+     "miles": null,
+     "transfers": "yes",
+     "note": "12 years / unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Volvo Roadside Assistance Plus during the 4 yr/50k warranty; limited towing remains available afterward"
+    }
+   ],
+   "factory_note": "Warranty terms unchanged 2023-2026. Free maintenance was cut for 2026: MY2023-2025 got the first 3 services, MY2026 gets the first 2.",
+   "maintenance": "MY2023-2025: first three scheduled services (10k/20k/30k, about 3 yr/30k). MY2026: first two (10k/20k, about 2 yr/20k). Fully electric 2022-2025: 4 yr/40k.",
+   "cpo": {
+    "program": "Certified by Volvo",
+    "coverage": [
+     {
+      "name": "Comprehensive (CPO Limited Warranty)",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "12 months / unlimited miles after the 4 yr/50k factory warranty ends, or 12 months from the CPO purchase date, whichever is later. $0 deductible. Optional extensions up to 5 more years, unlimited miles."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "Volvo Roadside Assistance Plus for the length of the CPO warranty"
+     }
+    ],
+    "summary": "A Certified by Volvo car keeps the rest of its 4-year/50,000-mile factory warranty and then gets 1 more year with unlimited miles and no deductible.",
+    "perks": [
+     "$0 deductible",
+     "Roadside Assistance Plus",
+     "170+ point inspection",
+     "CARFAX report"
+    ],
+    "eligibility": "No older than 5 years and 80,000 miles or fewer, clean history report"
+   },
+   "sources": [
+    "https://www.volvocars.com/us/l/certified-by-volvo/",
+    "https://www.volvocars.com/us/l/certified-by-volvo/offers/",
+    "https://www.volvocars.com/us/support/topic/blt5381ce71734e2cf7/",
+    "https://www.volvocars.com/us/l/warranty/",
+    "https://www.volvocars.com/us/l/factory-scheduled-maintenance/",
+    "https://www.volvocars.com/images/cs/v3/assets/bltccbab8edae0354cd/blt9457ec6b00ce52fa/68418a2bf08427878c2c38ac/Volvo_MY2023_Wty_Manual_WTY570_WEB_06-02-22.pdf?branch=prod_alias"
+   ]
+  },
+  {
+   "make": "Toyota",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Powertrain",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Hybrid battery",
+     "years": 10,
+     "miles": 150000,
+     "transfers": "yes",
+     "note": "MY2020+; other hybrid components 8 yr/100k"
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 5,
+     "miles": null,
+     "transfers": "yes",
+     "note": "5 years / unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 2,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "Part of ToyotaCare; 2 years unlimited miles on most models (3 years on some, e.g. C-HR BEV)"
+    }
+   ],
+   "factory_note": "No changes to the core terms found for 2023-2026.",
+   "maintenance": "ToyotaCare: scheduled maintenance 2 yr/25k (most models).",
+   "cpo": {
+    "program": "Toyota Certified Used Vehicles (TCUV) - Gold Certified",
+    "coverage": [
+     {
+      "name": "Comprehensive (Limited Comprehensive Warranty)",
+      "years": 1,
+      "miles": 12000,
+      "starts": "CPO purchase date",
+      "note": "12 months / 12,000 miles from the TCUV purchase date; $0 deductible; transferable. Runs alongside any remaining factory warranty."
+     },
+     {
+      "name": "Powertrain",
+      "years": 7,
+      "miles": 100000,
+      "starts": "CPO purchase date",
+      "note": "Ends 7 years after the TCUV sale date or when the odometer reaches 100,000 total miles; $0 deductible; transferable"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 7,
+      "miles": 100000,
+      "starts": "CPO purchase date",
+      "note": "24-hour roadside, 7 yrs from TCUV purchase or 100,000 odometer miles (some Toyota pages still say 1 year)"
+     }
+    ],
+    "summary": "A Toyota Certified (Gold) car gets 1 year/12,000 miles of bumper-to-bumper coverage from the day you buy it and engine-and-transmission coverage until 7 years after purchase or 100,000 total miles, with no deductible.",
+    "perks": [
+     "$0 deductible",
+     "7-yr/100k roadside assistance",
+     "Travel protection and substitute transportation for covered repairs",
+     "160-point inspection (174-point for hybrids)",
+     "Vehicle history report"
+    ],
+    "eligibility": "Gold: up to 6 model years old and 85,000 miles or less"
+   },
+   "sources": [
+    "https://www.toyotacertified.com/",
+    "https://www.toyotacertified.com/warranty",
+    "https://www.toyotacertified.com/content/dam/tcuv/sections/warranty/brochures/2021_tcuv_warranty_supplement.pdf",
+    "https://support.toyota.com/s/article/What-warranty-coverag-7683?language=en_US",
+    "https://www.toyota.com/owners/warranty-owners-manuals/"
+   ]
+  },
+  {
+   "make": "Ford",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Powertrain",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Hybrid/electric unique components",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 5,
+     "miles": null,
+     "transfers": "yes",
+     "note": "5 years / unlimited miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": ""
+    }
+   ],
+   "factory_note": "No changes to the core terms found for 2023-2026 (2024 and 2025 Ford Warranty Guides).",
+   "maintenance": "none",
+   "cpo": {
+    "program": "Ford Blue Advantage Gold Certified",
+    "coverage": [
+     {
+      "name": "Comprehensive Limited Warranty",
+      "years": 1,
+      "miles": 12000,
+      "starts": "end of new-car warranty",
+      "note": "12 months / 12,000 miles starting when the 3 yr/36k factory bumper-to-bumper ends or on the purchase date, whichever is later; in addition to remaining factory coverage. $100 deductible."
+     },
+     {
+      "name": "Powertrain Limited Warranty",
+      "years": 7,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "7 years from the original warranty start date or 100,000 odometer miles; $100 deductible"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": null,
+      "miles": null,
+      "starts": "CPO purchase date",
+      "note": "24/7 roadside included; length not confirmed (unknown)"
+     }
+    ],
+    "summary": "A Ford Gold Certified car gets 1 year/12,000 miles of bumper-to-bumper coverage after the factory warranty ends, plus engine-and-transmission coverage until 7 years/100,000 miles from its original sale, with a $100 deductible.",
+    "perks": [
+     "14-day / 1,000-mile money-back guarantee",
+     "24/7 roadside assistance",
+     "172-point inspection",
+     "CARFAX report",
+     "FordPass Rewards points"
+    ],
+    "eligibility": "Ford models only, up to 6 years old and under 80,000 miles"
+   },
+   "sources": [
+    "https://www.ford.com/used/about-certified/faq/",
+    "https://www.ford.com/used/about-certified/gold-certification/",
+    "https://www.ford.com/acslibs/content/dam/na/ford/en_us/documents/fba/FBLU01049_FMAR3457000_1Q25_FBA_Gold_Brochure_R03_Dig.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/2025_US_Ford_Car_LT_truck_Warranty_Guide_ENG_V1.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/24MYUS_Ford_Car_LT_truck_WTY_V6.pdf"
+   ]
+  }
+ ]
+}
