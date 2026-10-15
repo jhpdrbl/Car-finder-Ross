@@ -275,7 +275,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     if L.dealer_brand == "Subaru" and not dt:
         dt = "AWD"
     if dt in ("FWD", "RWD", "2WD"):
-        fails.append(f"{dt} (AWD/4WD only)" + (" per the listing's name" if not drive_class(d) else ""))
+        fails.append(f"{dt} (AWD/4WD only)" + (" per the listing" if not drive_class(d) else ""))
     elif not dt:
         unknown.append("drivetrain not shown")
     L.drivetrain = dt or L.drivetrain
