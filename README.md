@@ -131,6 +131,7 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 | `data/trim_guide.json` | Trim guide tab: per model / year / trim features, seat material, year-to-year changes (researched from manufacturer sources) |
 | `data/warranty.json` | Factory + certified pre-owned warranty terms per brand (Warranty column, warranty comparison) |
 | `data/exclusions.csv` | VINs excluded by hand (VIN, reason) |
+| `data/confirmed.csv` | Facts you checked by hand (VIN, trim, sunroof yes/no, note); applied before the rules on every run |
 | `data/coverage.csv` | Last run: every source, success/failed/skipped and why |
 | `output/digest_<date>.md` | Digest: coverage, matches, new, price changes, needs a call, removed |
 | `output/dashboard.html` | Tabs: **Available** (sortable table, multi-select filters, NEW bubble, green ▼ on price drops, original price, fuel/MPG, monthly cost) and **No longer available** (cars once shown that later sold/were removed: first seen, gone since, days listed, last price); light/dark |

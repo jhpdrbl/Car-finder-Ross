@@ -165,6 +165,10 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    editing the JSON (schema: model → years → trims with name, on_list, why_not, powertrain, builds_on,
    highlights, sunroof, premium_audio, seats, black_interior, spare, mpg) and regenerating the dashboard.
    Same rules as everything else: no aggregators, honest requests, never carfax.com.
+8. **Facts the user checked by hand** go in `data/confirmed.csv` (vin, trim, sunroof yes/no, note). `run.py:apply_confirmed`
+   applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
+   forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
+   out by hand, use `data/exclusions.csv`.)
 7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
    `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
    those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.

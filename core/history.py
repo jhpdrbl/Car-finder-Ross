@@ -33,6 +33,11 @@ def write_csv(path: Path, rows: list[dict], cols: list[str]) -> None:
         w.writerows(rows)
 
 
+def load_confirmed() -> dict[str, dict]:
+    """Facts the user checked by hand (data/confirmed.csv: vin, trim, sunroof yes/no, note); they win over the listing."""
+    return {r["vin"].strip().upper(): r for r in read_csv(DATA / "confirmed.csv") if r.get("vin")}
+
+
 def load_exclusions() -> dict[str, str]:
     return {r["vin"].strip().upper(): r["reason"] for r in read_csv(DATA / "exclusions.csv") if r.get("vin")}
 

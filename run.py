@@ -49,7 +49,10 @@ def refresh(args) -> None:
     elif state.get("rules") != rules_id:
         log("   rules changed since the last run: re-reading every listing page this time")
     else:
+        hand_checked = set(history.load_confirmed())     # never reuse a row the user has since confirmed facts for
         for r in history.read_csv(history.DATA / "listings.csv"):
+            if r["vin"].upper() in hand_checked:
+                continue
             prev_rows[r["listing_url"]] = r
             prev_rows[r["vin"]] = r
 
@@ -84,13 +87,17 @@ def refresh(args) -> None:
         if L.fuel_type != "ev" or d:
             L.fuel_type = vin_decode.fuel_class(d) if d else (L.fuel_type or "gas")
     excluded = history.load_exclusions()
+    confirmed = history.load_confirmed()
     rows = []
     for L in listings:
         dealer = by_name.get(L.dealer, {})
+        apply_confirmed(L, confirmed.get(L.vin.upper()))
         fails, unknown, notes = criteria.evaluate(L, decodes.get(L.vin) or {}, dealer, listings, excluded)
         loc = pipeline.location_check(L)
         if loc:
             notes.append(loc)
+        if L.vin.upper() in confirmed:
+            notes.append("checked by you: " + (confirmed[L.vin.upper()].get("note") or "details confirmed"))
         status = "excluded" if fails else "active"
         flags = []
         if status == "active":
@@ -169,6 +176,18 @@ def _read_state() -> dict:
 def _write_state(state: dict) -> None:
     import json
     STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
+
+
+def apply_confirmed(L, c: dict | None) -> None:
+    """Apply what the user confirmed by hand for this VIN (data/confirmed.csv) before the rules run."""
+    if not c:
+        return
+    if c.get("trim"):
+        L.trim = c["trim"]
+    roof = (c.get("sunroof") or "").strip().lower()
+    if roof in ("yes", "no"):
+        L.sunroof = roof == "yes"
+        L.sunroof_note = "confirmed by you"
 
 
 def fill_mpg(L) -> None:
