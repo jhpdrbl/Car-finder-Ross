@@ -151,6 +151,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     hist: dict[str, list] = {}
     for h in history:
         hist.setdefault(h["vin"], []).append([h["date"], float(h["price"])])
+    latest_run = max((r.get("seen_run") or "" for r in rows), default="")
     cars = []
     for r in active:
         cars.append({k: r.get(k, "") for k in ("vin", "dealer", "listing_url", "year", "make", "model", "trim", "price_total",
@@ -158,7 +159,8 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated")}
-                    | {"hist": hist.get(r["vin"], [])})
+                    | {"hist": hist.get(r["vin"], []),
+                       "is_new": bool(latest_run) and r.get("new_run") == latest_run})
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)
@@ -238,7 +240,11 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 #drive .wheel { transform-box:fill-box; transform-origin:center; animation:spin .35s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { #drive { display:none; } }
-svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); stroke-width:1.6; } svg.spark circle { fill:var(--accent); }
+.newchip { display:inline-block; font-size:11px; font-weight:800; letter-spacing:.06em; padding:1px 7px;
+  border-radius:999px; background:var(--accent); color:var(--bg); vertical-align:2px; margin-left:6px; }
+.drop { color:var(--ok); font-weight:900; margin-right:3px; }
+.orig { white-space:nowrap; font-variant-numeric:tabular-nums; }
+.save { color:var(--ok); font-size:12px; font-weight:600; }
 </style></head><body><main>
 <div><h1>CPO SUV Finder</h1><div class="muted">Refreshed __DATE__ · every car links to the dealer's own listing</div></div>
 <div class="tiles">
@@ -264,13 +270,13 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
 <div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="hist">Price history</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
+  <th data-k="orig">Original price</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
 <div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
 <div class="wrap"><table class="gone"><thead><tr>
-  <th data-g="title">Car</th><th data-g="dealer">Dealer</th><th data-g="price_total">Last price</th><th data-g="hist">Price history</th>
+  <th data-g="title">Car</th><th data-g="dealer">Dealer</th><th data-g="price_total">Last price</th><th data-g="orig">Original price</th>
   <th data-g="mileage">Miles</th><th data-g="fuel">Fuel</th><th data-g="colors">Colors</th><th data-g="first_seen">First seen</th>
   <th data-g="removed_on">Gone since</th><th data-g="days">Days listed</th><th data-g="fail_reasons">Why</th>
 </tr></thead><tbody id="gone-rows"></tbody></table></div>
@@ -288,6 +294,11 @@ D.cars.concat(D.gone).forEach(c => { c.title = [c.year, c.make, c.model, c.trim]
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
   c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio].filter(Boolean).join(", ");
   c.fuel = FUEL[c.fuel_type] || "?"; });
+D.cars.concat(D.gone).forEach(c => {
+  c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
+  const now = num(c.price_total);
+  c.dropped = c.orig != null && now != null && now < c.orig - 1;
+  c.histTip = (c.hist || []).map(x => x[0] + ": " + fmt$(x[1])).join("\n"); });
 D.gone.forEach(c => { const a = Date.parse(c.first_seen), b = Date.parse(c.last_seen);
   c.days = isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1; });
 const makes = [...new Set(D.cars.concat(D.gone).map(c => c.make))].sort();
@@ -299,16 +310,18 @@ pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.ca
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
 document.getElementById("covlist").innerHTML = D.failed.map(f => `<li><b>${esc(f.brand)} · ${esc(f.dealer)}</b>: ${esc(f.reason)}</li>`).join("") || "<li>Nothing failed.</li>";
-function spark(h) {
-  if (!h || h.length < 2) return h && h.length ? `<span class="small">${fmt$(h[0][1])}</span>` : "";
-  const w = 90, ht = 24, ps = h.map(x => x[1]), lo = Math.min(...ps), hi = Math.max(...ps), sp = hi - lo || 1;
-  const pts = ps.map((p, i) => [i * (w - 4) / (ps.length - 1) + 2, ht - 3 - (p - lo) / sp * (ht - 6)]);
-  const last = pts[pts.length - 1];
-  return `<svg class="spark" width="${w}" height="${ht}" role="img" aria-label="price history"><title>${h.map(x => x[0] + ": " + fmt$(x[1])).join("\n")}</title><path d="M${pts.map(p => p.join(",")).join(" L")}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.5"/></svg>`;
+function priceCell(c) {
+  return c.dropped
+    ? `<span class="drop" title="Price dropped from ${fmt$(c.orig)}" aria-label="price dropped">&#9660;</span>${fmt$(c.price_total)}`
+    : fmt$(c.price_total);
+}
+function origCell(c) {
+  if (c.orig == null) return "?";
+  const save = c.dropped ? `<div class="save">${fmt$(c.orig - num(c.price_total))} less now</div>` : "";
+  return `<span class="orig" title="${esc(c.histTip)}">${fmt$(c.orig)}</span>${save}`;
 }
 let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
-  if (k === "hist") { x = a.hist.length; y = b.hist.length; }
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
 function render() {
@@ -322,7 +335,7 @@ function render() {
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
       <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div></td>
     <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
-    <td class="num">${fmt$(c.price_total)}</td><td>${spark(c.hist)}</td>
+    <td class="num">${priceCell(c)}</td><td class="num">${origCell(c)}</td>
     <td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td>${esc(c.fuel)}</td><td>${esc(c.colors)}</td><td class="small">${esc(c.first_seen)}</td>
     <td class="small">${esc(c.removed_on || c.last_seen)}</td><td class="num">${esc(c.days)}</td>
@@ -330,11 +343,11 @@ function render() {
     || `<tr><td colspan="11" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr>
     <td class="num">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
-    <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
+    <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}</td>
     <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
-    <td class="num">${fmt$(c.price_total)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
-    <td>${spark(c.hist)}</td><td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td class="num">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
+    <td class="num">${origCell(c)}</td><td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td>${esc(c.fuel)}</td>
     <td class="num">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td>${esc(c.colors)}</td><td>${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
@@ -368,14 +381,18 @@ render();
   try {
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const wrap = document.createElement("div"); wrap.id = "drive"; wrap.setAttribute("aria-hidden", "true");
-    // side view facing right (direction of travel): tailgate at left, hood + windshield at right
+    // compact luxury SUV in side view, facing right (direction of travel): short hood, raked windshield,
+    // roofline sloping to an angled tailgate, roof rails, dark lower cladding, big wheels
     wrap.innerHTML = `<canvas></canvas><svg class="car" viewBox="0 0 150 64">
-      <path fill="currentColor" d="M6 46 L6 22 Q6 10 16 9 L96 8 Q101 8 104 11 L118 23 L138 26 Q146 28 146 35 L146 44 Q146 47 143 47 L9 47 Q6 47 6 46 Z"/>
-      <path fill="var(--bg)" opacity=".85" d="M12 21 L13 13 Q14 12 16 12 L48 12 L48 21 Z M52 12 L90 12 L90 21 L52 21 Z M94 12 L99 12 Q101 12 103 14 L111 21 L94 21 Z"/>
-      <rect x="138" y="29" width="8" height="4" rx="2" fill="#f6d36b"/>
-      <rect x="6" y="24" width="4" height="7" rx="1.5" fill="#d9534f"/>
-      <g class="wheel"><circle cx="32" cy="47" r="11" fill="var(--fg)"/><circle cx="32" cy="47" r="5" fill="var(--muted)"/><rect x="31" y="38" width="2" height="18" fill="var(--fg)"/></g>
-      <g class="wheel"><circle cx="116" cy="47" r="11" fill="var(--fg)"/><circle cx="116" cy="47" r="5" fill="var(--muted)"/><rect x="115" y="38" width="2" height="18" fill="var(--fg)"/></g>
+      <rect x="31" y="8.6" width="44" height="2" rx="1" fill="var(--fg)" opacity=".55"/>
+      <path fill="currentColor" d="M8 50 L7 38 Q7 30 12 26 L18 20 Q24 14 34 13 L76 12 Q84 12 90 16 L104 25 L132 28 Q142 30 144 35 L145 45 Q145 50 141 50 L130 50 A14 14 0 0 0 102 50 L48 50 A14 14 0 0 0 20 50 Z"/>
+      <path fill="var(--fg)" opacity=".28" d="M8 44 L20 44 A14 14 0 0 1 48 44 L102 44 A14 14 0 0 1 130 44 L145 44 L145 46 Q145 50 141 50 L130 50 A14 14 0 0 0 102 50 L48 50 A14 14 0 0 0 20 50 L8 50 Z"/>
+      <path fill="var(--bg)" opacity=".85" d="M21 25 Q25 17 33 16 L44 16 L44 25 Z M48 16 L72 16 L72 25 L48 25 Z M76 16 Q83 16 88 19 L97 25 L76 25 Z"/>
+      <path d="M46 16 L46 25 M74 16 L74 25" stroke="currentColor" stroke-width="2"/>
+      <rect x="135" y="30" width="9" height="3" rx="1.5" fill="#f6d36b"/>
+      <rect x="7" y="29" width="5" height="4" rx="1.5" fill="#d9534f"/>
+      <g class="wheel"><circle cx="34" cy="50" r="11" fill="var(--fg)"/><circle cx="34" cy="50" r="7" fill="var(--muted)"/><circle cx="34" cy="50" r="2.5" fill="var(--fg)"/><rect x="33" y="43" width="2" height="14" fill="var(--fg)"/><rect x="27" y="49" width="14" height="2" fill="var(--fg)"/></g>
+      <g class="wheel"><circle cx="116" cy="50" r="11" fill="var(--fg)"/><circle cx="116" cy="50" r="7" fill="var(--muted)"/><circle cx="116" cy="50" r="2.5" fill="var(--fg)"/><rect x="115" y="43" width="2" height="14" fill="var(--fg)"/><rect x="109" y="49" width="14" height="2" fill="var(--fg)"/></g>
     </svg>`;
     document.body.appendChild(wrap);
     const cv = wrap.querySelector("canvas"), car = wrap.querySelector(".car"), ctx = cv.getContext("2d");
@@ -384,7 +401,7 @@ render();
     size();
     const mark = getComputedStyle(document.documentElement).getPropertyValue("--fg").trim() || "#222";
     const W = innerWidth, start = -170, end = W + 20, dur = Math.max(2200, W * 1.6), fade = 1800;
-    const groundY = 44 + 58;                       // where the tires meet the "road"
+    const groundY = 44 + 61;                       // where the tires meet the "road"
     let t0 = null, lastX = null;
     function frame(t) {
       if (t0 === null) t0 = t;
@@ -400,7 +417,7 @@ render();
       ctx.globalCompositeOperation = "source-over";
       if (p < 1 && lastX !== null) {
         ctx.strokeStyle = mark; ctx.globalAlpha = 0.45; ctx.lineCap = "round";
-        for (const [wx, off, lw] of [[32, 0, 3.5], [116, 0, 3.5], [32, 4, 1.5], [116, 4, 1.5]]) {
+        for (const [wx, off, lw] of [[34, 0, 3.5], [116, 0, 3.5], [34, 4, 1.5], [116, 4, 1.5]]) {
           ctx.lineWidth = lw; ctx.beginPath();
           ctx.moveTo(lastX + wx, groundY + off); ctx.lineTo(x + wx, groundY + off); ctx.stroke();
         }

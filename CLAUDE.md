@@ -128,7 +128,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 | Sunroof | Inferred from trim only where standard (Q5 all, GV70 Select+, XC60 Plus/Ultimate, Bronco 4-door); see `config.yaml: sunroof_standard` |
 | Mild hybrids | Count as **gas** (fuel type from NHTSA vPIC ElectrificationLevel, not dealer wording) |
 | Phone page | Private via Cloudflare Access; published digest omits buying context (`publish.include_buying_context: false`) |
-| Dashboard | Columns include Fuel and MPG (listing value, else EPA from fueleconomy.gov; PHEV = gas-only); multi-select filter pills (status, make, fuel); a **No longer available** tab listing every car that was ever on the dashboard and later sold/was removed (`status=sold`, `removed_on`); a one-time **opening animation** (SUV drives across the top leaving tire marks that fade; skipped with Reduce Motion) |
+| Dashboard | Columns include Fuel and MPG (listing value, else EPA from fueleconomy.gov; PHEV = gas-only); multi-select filter pills (status, make, fuel); a **No longer available** tab listing every car that was ever on the dashboard and later sold/was removed (`status=sold`, `removed_on`); a one-time **opening animation** (compact SUV, Q5/GV70-like, drives across the top leaving tire marks that fade; skipped with Reduce Motion); **NEW** bubble (car first became available in the latest run: `new_run == max(seen_run)`); bold green **▼** when price < first recorded price, and an **Original price** column (replaced the price sparkline) |
 
 ## Hard rules (from the spec)
 
@@ -137,7 +137,8 @@ refresh: about 80 dealers will fail as "blocked". What to do:
   CARFAX listings, iSeeCars, Westlake, NetLook). Blocked in `scrapers/base.py:is_blocked_host`.
   Official brand sites (genesis.com, subaru.com CPO searches) are allowed; they're not aggregators.
 - **Never fetch carfax.com.** CARFAX status only from badges/text on the dealer page.
-- Respect robots.txt, 1 request / 2–3 s per domain, 6 h cache, honest User-Agent.
+- Respect robots.txt, 1 request / 2–3 s per domain, 6 h cache, honest User-Agent. (No 429s have ever been seen;
+  all blocking so far is bot protection on the first request, which delays don't affect.)
 - Ask before installing heavy things on the user's machines.
 
 ## Performance design (Oct 2026)

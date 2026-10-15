@@ -14,7 +14,8 @@ LISTING_COLS = ["vin", "status", "first_seen", "last_seen", "dealer", "dealer_ur
                 "spare_tire", "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source", "cpo_program", "cpo_warranty_terms",
                 "carfax_status", "recall_flags", "est_monthly_cost", "score", "fail_reasons",
                 # extras beyond the spec's list
-                "needs_call", "notes", "removed_on", "last_read", "price", "fees_estimated", "dealer_brand", "distance_mi", "source", "carfax_badges"]
+                "needs_call", "notes", "removed_on", "last_read", "seen_run", "new_run", "price", "fees_estimated",
+                "dealer_brand", "distance_mi", "source", "carfax_badges"]
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -36,7 +37,8 @@ def load_exclusions() -> dict[str, str]:
     return {r["vin"].strip().upper(): r["reason"] for r in read_csv(DATA / "exclusions.csv") if r.get("vin")}
 
 
-def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[str, str], today: str | None = None):
+def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[str, str], today: str | None = None,
+           run_id: str = ""):
     """Merge this run into listings.csv. Returns (rows, changes) where changes has new / price / removed lists.
 
     A listing that was active and is not seen again is only marked sold when its dealer
@@ -57,6 +59,10 @@ def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[st
         prev = old.get(vin)
         r["first_seen"] = prev["first_seen"] if prev else today
         r["last_seen"] = today
+        r["seen_run"] = run_id
+        # new_run marks the run in which a car first became available (drives the NEW bubble)
+        became_active = r["status"] == "active" and (not prev or prev.get("status") != "active")
+        r["new_run"] = run_id if became_active else (prev.get("new_run", "") if prev else "")
         p = r.get("price_total")
         if p not in (None, ""):
             if str(last_price.get(vin, "")) != str(p):

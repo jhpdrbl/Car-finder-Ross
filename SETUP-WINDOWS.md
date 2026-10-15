@@ -59,13 +59,13 @@ The tool is now in **Documents → Car-finder-Ross**.
 
 Double-click **`refresh.bat`**.
 
-- A run takes roughly 20–40 minutes, because it politely waits 2–3 seconds between
-  requests to each dealer site.
+- The first run takes roughly 10–20 minutes, because it politely waits 2–3 seconds between
+  requests to each dealer site. Later runs are faster (cars already ruled out aren't re-read).
 - When it finishes, your **dashboard opens in your browser** automatically, and the window
   asks **"Publish these results to your phone page?"** Press **Y**. About 2 minutes later your
   phone page (cpo-suv-finder.pages.dev) shows the new results.
 - Everything it made is in the **`output`** folder:
-  - `dashboard.html`: the sortable table, with price-history sparklines
+  - `dashboard.html`: the sortable table (NEW bubbles, green ▼ on price drops, original prices, filters)
   - `digest_<date>.md`: the newsletter-style summary (open with Notepad and paste into Apple Notes)
 - The data is in the **`data`** folder: `listings.csv`, `price_history.csv` and `coverage.csv` (which dealers worked).
 

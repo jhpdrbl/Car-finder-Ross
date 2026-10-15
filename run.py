@@ -114,7 +114,7 @@ def refresh(args) -> None:
         if st["status"] == "success":
             ok_dealers |= {d["dealer_name"] for d in by_name.values() if d["brand"] == brand}
     gone = {u: why for r in results for u, why in r.gone}
-    all_rows, changes = history.update(rows, ok_dealers, gone, today)
+    all_rows, changes = history.update(rows, ok_dealers, gone, today, run_id=datetime.now().strftime("%Y-%m-%d %H:%M"))
 
     log("6/6 Writing digest, dashboard, coverage")
     cov = outputs.coverage_rows(results, feed_stats)
