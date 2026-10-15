@@ -177,12 +177,14 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                         | {"hist": hist.get(r["vin"], [])})
     guide = json.loads(TRIM_GUIDE.read_text(encoding="utf-8")) if TRIM_GUIDE.exists() else {"models": []}
     warranty = json.loads(WARRANTY.read_text(encoding="utf-8")) if WARRANTY.exists() else {"brands": []}
-    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty}, ensure_ascii=False).replace("</", "<\\/")
+    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty,
+                       "miles_per_year": CONFIG.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
         .replace("__OK__", str(ok)).replace("__FAILED__", str(len(failed))).replace("__SKIPPED__", str(skipped)) \
         .replace("__MATCHES__", str(sum(1 for c in cars if not c["needs_call"]))) \
         .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"]))) \
-        .replace("__NAVAIL__", str(len(cars))).replace("__NGONE__", str(len(gone)))
+        .replace("__NAVAIL__", str(len(cars))) \
+        .replace("__MPY__", f'{CONFIG.get("warranty", {}).get("miles_per_year", 12000):,}').replace("__NGONE__", str(len(gone)))
     OUT.mkdir(exist_ok=True)
     path = OUT / "dashboard.html"
     path.write_text(page, encoding="utf-8")
@@ -217,6 +219,7 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
   padding:8px 12px; cursor:pointer; margin-bottom:-1px; }
 .tab[aria-selected="true"] { color:var(--fg); border-bottom-color:var(--accent); }
 .tab:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.tab .sh { display:none; }
 .tab .n { font-weight:500; color:var(--muted); margin-left:4px; }
 .gone td.car a { color:var(--muted); }
 .group { display:flex; flex-wrap:wrap; gap:6px; align-items:center; border:0; margin:0; padding:0; }
@@ -276,6 +279,25 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .gtools { display:grid; gap:8px; margin-bottom:12px; }
 .src { font-size:12px; color:var(--muted); margin-top:8px; overflow-wrap:anywhere; }
 .glink { font:600 12px system-ui, -apple-system, sans-serif; margin-left:6px; }
+/* Compare tab */
+.cmpbtn { font:600 12px system-ui, -apple-system, sans-serif; margin-top:6px; padding:3px 10px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--accent); background:var(--surface); color:var(--accent); }
+.cmpbtn[aria-pressed="true"] { background:var(--accent); color:var(--bg); }
+.cmp { background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+.crow { display:grid; grid-template-columns:150px repeat(var(--n), minmax(0,1fr)); border-bottom:1px solid var(--line); }
+.crow:last-child { border-bottom:0; } .crow > div { padding:8px 10px; min-width:0; overflow-wrap:anywhere; font-size:14px; }
+.crow .clabel { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+.crow.chead > div { font-weight:600; } .crow.chead .rm { font:inherit; font-size:12px; background:none; border:0; color:var(--accent); cursor:pointer; padding:0; text-decoration:underline; }
+.cval.best { color:var(--ok); font-weight:700; } .cval.best > div::after { content:" ★"; font-size:12px; }
+.cl { display:inline-block; min-width:18px; text-align:center; font-size:11px; font-weight:800; border-radius:999px; background:var(--accent); color:var(--bg); padding:0 5px; margin-right:6px; }
+.cval .cl { display:none; }
+@media (max-width: 760px) {
+  .crow { grid-template-columns:1fr; } .crow > div { padding:3px 12px; } .crow .clabel { padding-top:10px; }
+  .crow:not(.chead) .cval { display:flex; gap:4px; align-items:flex-start; } .cval .cl { display:inline-block; flex:none; margin-top:2px; }
+  .tabs { flex-wrap:wrap; } .tab { padding:8px 8px; } .tab .lg { display:none; } .tab .sh { display:inline; }
+  .crow.chead > div.clabel { display:none; } .crow.chead > div { padding:8px 12px; border-top:1px solid var(--line); }
+  .crow > div:last-child { padding-bottom:10px; }
+}
 .yby { margin:0 0 10px; font-size:14px; } .yby summary { cursor:pointer; color:var(--accent); font-weight:600; }
 .yby ul { margin:6px 0 0; padding-left:18px; } .yby li { margin:4px 0; }
 .wcards { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:10px; margin-top:8px; }
@@ -314,8 +336,9 @@ td.warr { min-width:190px; font-size:13px; }
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
 <div class="tabs" role="tablist">
   <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail">Available<span class="n">__NAVAIL__</span></button>
-  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone">No longer available<span class="n">__NGONE__</span></button>
-  <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide">Trim guide</button>
+  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold/gone</span><span class="n">__NGONE__</span></button>
+  <button class="tab" role="tab" id="tab-cmp" aria-selected="false" aria-controls="panel-cmp">Compare<span class="n" id="ncmp">0</span></button>
+  <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
 </div>
 <div class="filters">
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
@@ -330,11 +353,11 @@ td.warr { min-width:190px; font-size:13px; }
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
-  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_left:-1">Longest warranty</option></select></div>
+  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="orig">Original price</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
-  <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_left">Warranty</th><th data-k="first_seen">First seen</th>
+  <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_end">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
 <div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
@@ -348,6 +371,7 @@ td.warr { min-width:190px; font-size:13px; }
 </tr></thead><tbody id="gone-rows"></tbody></table></div>
 <p class="small">Cars that were on this dashboard and later disappeared from the dealer's site (sold or taken down). The link may no longer work.</p>
 </div>
+<div id="panel-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden><div id="cmp"></div></div>
 <div id="panel-guide" role="tabpanel" aria-labelledby="tab-guide" hidden>
 <p class="muted" style="margin-top:0">What each trim includes, by model year, for every model your search looks for.
 Trims marked <span class="chip off-chip">not on your list</span> are shown so you can compare. Researched from the
@@ -358,7 +382,11 @@ manufacturers' own press sites and brochures; dealers can add options, so check 
   <label class="pill"><input type="checkbox" id="g-only"><span>Only trims on my list</span></label>
 </div>
 <details class="gmodel" id="g-warranty" open><summary><b>Warranties by brand</b> <span class="small">(new-car and certified pre-owned)</span></summary>
-<p class="small">Each car on the Available tab also shows an estimate of the coverage it has left. The years count from the date the car was first sold new (its "in-service date"), which listings don't show, so the dates are a range: ask the dealer for the exact date.</p>
+<p class="small">Each car on the Available tab also shows the coverage it has left and when each part is expected to end.
+How the end date is estimated: most warranties count from the day the car was first sold new (its "in-service date"). Listings don't
+show that, so it's assumed to be about April of the model year (a car can be up to ~9 months either side; ask the dealer for the exact
+date). A warranty also ends when the car reaches its mileage limit; that date assumes you drive about __MPY__ miles a year.
+The earlier of the two is shown.</p>
 <div class="wcards" id="wcards"></div></details>
 <div id="guide"></div>
 </div>
@@ -400,45 +428,59 @@ function origCell(c) {
   const save = c.dropped ? `<div class="save">${fmt$(c.orig - num(c.price_total))} less now</div>` : "";
   return `<span class="orig" title="${esc(c.histTip)}">${fmt$(c.orig)}</span>${save}`;
 }
-// ---- Warranty: what coverage a car has left (estimated) ----
+// ---- Warranty: what coverage a car has left, and when it's expected to end (estimated) ----
 const W = {}; ((D.warranty && D.warranty.brands) || []).forEach(b => W[b.make.toLowerCase()] = b);
-const NOW = new Date(), THIS_YEAR = NOW.getFullYear();
+const NOW = new Date(), MPY = D.miles_per_year || 12000;      // assumed future driving, miles per year
 const kmi = n => n == null ? "unlimited miles" : (n >= 1000 ? Math.round(n / 1000) + "k" : n) + " mi";
-const yrs = (a, b) => a === b ? String(a) : a + "–" + String(b).slice(-2);
-// A model-year car is usually first sold between mid-(year-1) and the end of its model year.
-function coverLine(cov, c, label, baseEnd) {
-  const my = parseInt(c.year), mi = num(c.mileage);
-  if (cov.years == null && cov.miles == null) return "";
-  let lo, hi, when;
-  if (/purchase/i.test(cov.starts || "")) { lo = hi = THIS_YEAR + (cov.years || 0); when = "if bought now"; }
-  else if (/end of new/i.test(cov.starts || "") && baseEnd) { lo = baseEnd[0] + (cov.years || 0); hi = baseEnd[1] + (cov.years || 0); }
-  else if (my) { lo = my - 1 + (cov.years || 0); hi = my + (cov.years || 0); }
+const addYears = (d, y) => Number.isInteger(y) ? new Date(d.getFullYear() + y, d.getMonth(), d.getDate())
+  : new Date(d.getTime() + y * 365.25 * 864e5);
+const monthYr = d => d.toLocaleDateString("en-US", {month: "short", year: "numeric"});
+// A model-year car is usually first sold between July of the year before and December of its model year;
+// the expected in-service date is the middle of that window (about April of the model year).
+const inService = my => ({lo: new Date(my - 1, 6, 1), mid: new Date(my, 3, 1), hi: new Date(my, 11, 31)});
+// When does one coverage end? The earlier of its time limit and the date the miles run out at MPY a year.
+function coverEnd(cov, c, start) {
+  const mi = num(c.mileage);
+  const timeEnd = cov.years != null && start ? addYears(start, cov.years) : null;
   const milesLeft = cov.miles == null || mi == null ? null : cov.miles - mi;
-  const expired = (milesLeft != null && milesLeft <= 0) || (hi != null && hi < THIS_YEAR);
-  const until = lo != null ? `to ~${yrs(lo, hi)}${when ? " " + when : ""}` : "";
+  const milesEnd = milesLeft == null ? null : addYears(NOW, Math.max(0, milesLeft) / MPY);
+  let end = timeEnd, by = "time";
+  if (milesEnd && (!end || milesEnd < end)) { end = milesEnd; by = "miles"; }
+  return {end, by, milesLeft, expired: (milesLeft != null && milesLeft <= 0) || (end && end <= NOW)};
+}
+function coverLine(cov, c, label, start) {
+  if (cov.years == null && cov.miles == null) return null;
+  const e = coverEnd(cov, c, start);
   const text = `<b>${esc(label)}:</b> ${cov.years ? cov.years + " yr / " : ""}${kmi(cov.miles)}`;
-  if (expired) return {html: `<div class="wline wexp">${text}</div>`, left: 0};
-  const left = milesLeft == null ? "" : ` (${kmi(milesLeft)} left)`;
-  return {html: `<div class="wline">${text} · ${until}${left}</div>`, left: hi || 0};
+  if (e.expired) return {html: `<div class="wline wexp">${text}</div>`, end: 0, label};
+  const when = e.end ? ` · ends ~${monthYr(e.end)}${e.by === "miles" ? ` (at ${kmi(MPY)}/yr)` : ""}` : "";
+  const left = e.milesLeft == null ? "" : ` · ${kmi(e.milesLeft)} left`;
+  return {html: `<div class="wline">${text}${when}${left}</div>`, end: e.end ? e.end.getTime() : 0, label};
 }
 function warrantyFor(c) {
-  const b = W[String(c.make).toLowerCase()];
-  if (!b) return {html: '<span class="muted">?</span>', left: 0};
-  const my = parseInt(c.year), lines = [];
+  const b = W[String(c.make).toLowerCase()], my = parseInt(c.year);
+  if (!b || !my) return {html: '<span class="muted">?</span>', end: 0, fullEnd: 0};
+  const ins = inService(my).mid, lines = [];
   const pick = re => (b.factory || []).find(f => re.test(f.name));
   const basic = pick(/basic|bumper|limited warranty|new vehicle/i), pt = pick(/powertrain/i);
   const hy = /hybrid|phev|ev/.test(c.fuel_type || "") ? pick(/hybrid|battery|electric|high.?voltage/i) : null;
-  const baseEnd = basic && my ? [my - 1 + basic.years, my + basic.years] : null;
-  ((b.cpo && b.cpo.coverage) || []).forEach(cv => lines.push(coverLine(cv, c, "CPO " + cv.name.toLowerCase(), baseEnd)));
+  // coverage that "starts when the new-car warranty ends" starts now if that has already happened
+  let basicEnd = basic ? coverEnd(basic, c, ins) : null;
+  const afterBasic = basicEnd && basicEnd.end && !basicEnd.expired ? basicEnd.end : NOW;
+  const startFor = cv => /purchase/i.test(cv.starts || "") ? NOW : /end of new/i.test(cv.starts || "") ? afterBasic : ins;
   const cpo = (b.cpo && b.cpo.coverage) || [];
+  cpo.forEach(cv => lines.push(coverLine(cv, c, "CPO " + cv.name.toLowerCase(), startFor(cv))));
   const outdone = f => cpo.some(cv => /powertrain/i.test(cv.name) === /powertrain/i.test(f.name) && /in-service/i.test(cv.starts || "")
     && (cv.years || 0) >= (f.years || 0) && (cv.miles == null || (f.miles != null && cv.miles >= f.miles)));   // CPO already covers it for longer
   [[basic, "Factory basic"], [pt, "Factory powertrain"], [hy, "Hybrid battery"]].forEach(([f, l]) => {
-    if (f && !/^no/i.test(f.transfers || "") && !(f !== hy && outdone(f))) lines.push(coverLine(f, c, l, null)); });
+    if (f && !/^no/i.test(f.transfers || "") && !(f !== hy && outdone(f))) lines.push(coverLine(f, c, l, ins)); });
   const ok = lines.filter(Boolean);
-  return {html: ok.map(l => l.html).join("") || '<span class="muted">?</span>', left: Math.max(0, ...ok.map(l => l.left))};
+  const end = Math.max(0, ...ok.map(l => l.end));
+  const fullEnd = Math.max(0, ...ok.filter(l => !/powertrain|battery|hybrid/i.test(l.label)).map(l => l.end));   // bumper-to-bumper type
+  const head = end ? `<div class="wline"><b>Longest: ~${monthYr(new Date(end))}</b>${fullEnd ? ` · bumper-to-bumper ~${monthYr(new Date(fullEnd))}` : " · bumper-to-bumper over"}</div>` : "";
+  return {html: head + (ok.map(l => l.html).join("") || '<span class="muted">?</span>'), end, fullEnd};
 }
-D.cars.forEach(c => { const w = warrantyFor(c); c.warr_html = w.html; c.warr_left = w.left; });
+D.cars.forEach(c => { const w = warrantyFor(c); c.warr_html = w.html; c.warr_end = w.end; c.warr_full_end = w.fullEnd; });
 function renderWarranty() {
   const brands = (D.warranty && D.warranty.brands) || [];
   document.getElementById("g-warranty").hidden = !brands.length;
@@ -512,6 +554,74 @@ document.addEventListener("click", e => {      // "trim info" link on a car: ope
   document.querySelectorAll("#g-make input").forEach(i => i.checked = false);
   showTab("guide"); renderGuide();
   const el = document.getElementById(a.dataset.gid); if (el) el.scrollIntoView({block: "start"}); });
+// ---- Compare tab: pick cars with "+ Compare", see them field by field ----
+let cmp = []; try { cmp = JSON.parse(localStorage.getItem("cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
+const MAXCMP = 6;
+function saveCmp() { try { localStorage.setItem("cmp", JSON.stringify(cmp)); } catch (e) {}
+  document.getElementById("ncmp").textContent = cmp.length; }
+function toggleCmp(vin) {
+  if (cmp.includes(vin)) cmp = cmp.filter(v => v !== vin);
+  else if (cmp.length >= MAXCMP) { alert(`You can compare up to ${MAXCMP} cars. Remove one first.`); return; }
+  else cmp.push(vin);
+  saveCmp();
+  document.querySelectorAll(`.cmpbtn[data-vin="${vin}"]`).forEach(b => { const on = cmp.includes(vin);
+    b.setAttribute("aria-pressed", String(on)); b.textContent = on ? "✓ Comparing" : "+ Compare"; });
+  if (!document.getElementById("panel-cmp").hidden) renderCompare();
+}
+document.addEventListener("click", e => { const b = e.target.closest(".cmpbtn"); if (b) toggleCmp(b.dataset.vin);
+  const r = e.target.closest(".rm[data-vin]"); if (r) toggleCmp(r.dataset.vin); });
+function trimInfo(c) {      // this car's trim card in the Trim guide, when the trim name matches well enough
+  const m = guideFor(c); if (!m) return null;
+  const y = (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
+  const title = (" " + c.title + " ").toLowerCase();
+  let best = null, bestScore = 0;
+  (y.trims || []).forEach(t => {
+    const words = String(t.name).toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
+    const hit = words.filter(w => title.includes(" " + w + " ") || title.includes(" " + w)).length / (words.length || 1);
+    if (hit > bestScore) { bestScore = hit; best = t; } });
+  return bestScore >= 0.6 ? best : null;
+}
+const FIELDS = [
+  ["Price", c => priceCell(c) + (c.fees_estimated === "True" ? ' <span class="small">fees est.</span>' : ""), c => num(c.price_total), "low"],
+  ["Original price", c => origCell(c), null, null],
+  ["Est. monthly", c => fmt$(c.est_monthly_cost), c => num(c.est_monthly_cost), "low"],
+  ["Status", c => c.needs_call ? `<span class="chip call">needs a call</span> <span class="small">${esc(c.needs_call)}</span>` : '<span class="chip match">match</span>', null, null],
+  ["Score", c => esc(c.score), c => num(c.score), "high"],
+  ["Year", c => esc(c.year), c => num(c.year), "high"],
+  ["Miles", c => num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString(), c => num(c.mileage), "low"],
+  ["Warranty ends", c => c.warr_end ? "~" + monthYr(new Date(c.warr_end)) : "?", c => c.warr_end || null, "high"],
+  ["Bumper-to-bumper ends", c => c.warr_full_end ? "~" + monthYr(new Date(c.warr_full_end)) : (c.warr_end ? "over" : "?"), c => c.warr_full_end || null, "high"],
+  ["Warranty detail", c => c.warr_html, null, null],
+  ["Fuel", c => esc(c.fuel), null, null],
+  ["MPG", c => num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
+  ["Colors", c => esc(c.colors), null, null],
+  ["Sunroof", c => c.sunroof === "True" ? "yes" : c.sunroof === "False" ? "no" : "not shown", null, null],
+  ["Audio", c => esc(c.audio || "—"), null, null],
+  ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
+  ["CARFAX", c => esc({clean: "no accidents", accident: "accident", not_verified: "not verified"}[c.carfax_status] || c.carfax_status), null, null],
+  ["Certified program", c => esc(c.cpo_program || "?"), null, null],
+  ["Dealer", c => `${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div>`, c => num(c.distance_mi), "low"],
+  ["First seen", c => esc(c.first_seen), null, null],
+  ["Notes", c => esc(c.notes || "—"), null, null],
+  ["VIN", c => `<span class="vin">${esc(c.vin)}</span>`, null, null],
+];
+function renderCompare() {
+  const cars = cmp.map(v => D.cars.find(c => c.vin === v)).filter(Boolean), el = document.getElementById("cmp");
+  if (!cars.length) { el.innerHTML = '<p class="muted">Tap <b>+ Compare</b> on up to 6 cars in the Available tab, then come back here to see them side by side. The best value in each row gets a ★.</p>'; return; }
+  const L = i => `<span class="cl">${String.fromCharCode(65 + i)}</span>`;
+  const head = `<div class="crow chead"><div class="clabel">Car</div>${cars.map((c, i) => `<div>${L(i).replace('class="cl"', 'class="cl" style="display:inline-block"')}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
+      <div class="small">${esc(c.dealer)}</div><button type="button" class="rm" data-vin="${esc(c.vin)}">remove</button></div>`).join("")}</div>`;
+  const rows = FIELDS.map(([label, show, val, better]) => {
+    let bestV = null;
+    if (val && better && cars.length > 1) { const vs = cars.map(val).filter(v => v != null);
+      if (vs.length > 1 && new Set(vs).size > 1) bestV = better === "low" ? Math.min(...vs) : Math.max(...vs); }
+    return `<div class="crow"><div class="clabel">${esc(label)}</div>${cars.map((c, i) =>
+      `<div class="cval${bestV != null && val(c) === bestV ? " best" : ""}">${L(i)}<div>${show(c)}</div></div>`).join("")}</div>`; }).join("");
+  el.innerHTML = `<div class="cmp" style="--n:${cars.length}">${head}${rows}</div>
+    <p class="small">★ = best in that row (lowest price, miles, monthly and distance; highest score, year, MPG; latest warranty end). <button type="button" class="clear" id="cmp-clear">Remove all</button></p>`;
+  document.getElementById("cmp-clear").onclick = () => { const all = [...cmp]; all.forEach(toggleCmp); };
+}
+saveCmp();
 let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const ex = x == null || x === "", ey = y == null || y === ""; if (ex || ey) return ex - ey;   // blanks last
@@ -538,7 +648,8 @@ function renderRows() {
   document.getElementById("rows").innerHTML = cars.map(c => `<tr>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
-      ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}</td>
+      ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
+      <button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button></td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
@@ -570,19 +681,21 @@ function stickHeads() {
 window.addEventListener("scroll", stickHeads, {passive: true});
 window.addEventListener("resize", stickHeads);
 function showTab(which) {
-  ["avail", "gone", "guide"].forEach(t => {
+  ["avail", "gone", "cmp", "guide"].forEach(t => {
     document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which));
     document.getElementById("panel-" + t).hidden = t !== which; });
-  document.querySelector(".filters").hidden = which === "guide";      // car filters don't apply to the guide
+  document.querySelector(".filters").hidden = which === "guide" || which === "cmp";   // car filters don't apply there
   document.getElementById("footnote").hidden = which === "guide";
+  if (which === "cmp") renderCompare();
   try { localStorage.setItem("tab", which); } catch (e) {}
   stickHeads();
 }
 document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
 document.getElementById("tab-gone").addEventListener("click", () => showTab("gone"));
 document.getElementById("tab-guide").addEventListener("click", () => showTab("guide"));
+document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"));
 renderGuide(); renderWarranty();
-try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "gone" || t === "guide") showTab(t); } catch (e) {}
+try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "gone" || t === "guide" || t === "cmp") showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });

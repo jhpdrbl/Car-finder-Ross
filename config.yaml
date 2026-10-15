@@ -73,6 +73,10 @@ finance:
   sales_tax: 0.0975
   gov_fees: 400
 
+# Warranty end dates on the dashboard assume this much driving per year after you buy.
+warranty:
+  miles_per_year: 12000
+
 buying_context:
   - "$8,000 down; Bank of America pre-approval at 5.34% APR (30-day validity)"
   - "Earliest pickup: November 14"
