@@ -147,6 +147,7 @@ def main() -> None:
         return upload()
     if args[:1] == ["check"]:
         return upload(dry_run=True)
+    token()            # ask for the GitHub key now (first run only), not after a 20-minute search
     if "--no-update" not in args:
         update()
     search()
