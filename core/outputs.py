@@ -193,6 +193,16 @@ details { background:var(--surface); border:1px solid var(--line); border-radius
 details li { margin:3px 0; }
 .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
 input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:var(--surface); color:var(--fg); }
+.filters { display:grid; gap:8px; }
+.group { display:flex; flex-wrap:wrap; gap:6px; align-items:center; border:0; margin:0; padding:0; }
+.group legend { float:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-right:6px; padding:0; min-width:56px; }
+.pill { position:relative; }
+.pill input { position:absolute; opacity:0; width:1px; height:1px; }
+.pill span { display:inline-block; padding:4px 11px; border:1px solid var(--line); border-radius:999px; background:var(--surface);
+  font-size:14px; cursor:pointer; user-select:none; }
+.pill input:checked + span { background:var(--accent); border-color:var(--accent); color:var(--bg); }
+.pill input:focus-visible + span { outline:2px solid var(--accent); outline-offset:2px; }
+.clear { font:inherit; font-size:13px; background:none; border:0; color:var(--accent); cursor:pointer; text-decoration:underline; padding:4px; }
 .wrap { overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:8px; }
 table { border-collapse:collapse; width:100%; min-width:900px; }
 th { text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); padding:9px 10px;
@@ -215,11 +225,13 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
   <div class="tile"><b>__SKIPPED__</b><span class="muted">covered by brand feeds</span></div>
 </div>
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
-<div class="controls">
-  <input id="q" placeholder="Filter: dealer, model, color…" aria-label="Filter">
-  <select id="show" aria-label="Show"><option value="all">All</option><option value="match">Meets all criteria</option><option value="call">Needs a call</option></select>
-  <select id="make" aria-label="Make"><option value="">All makes</option></select>
-  <select id="fuel" aria-label="Fuel type"><option value="">All fuel types</option><option>Gas</option><option>Hybrid</option><option>Plug-in hybrid</option><option>Electric</option></select>
+<div class="filters">
+  <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
+    <button class="clear" id="clear" type="button">Clear filters</button></div>
+  <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
+  <fieldset class="group" id="f-make"><legend>Make</legend></fieldset>
+  <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
+  <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
@@ -239,7 +251,12 @@ D.cars.forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean
   c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio].filter(Boolean).join(", ");
   c.fuel = FUEL[c.fuel_type] || "?"; });
 const makes = [...new Set(D.cars.map(c => c.make))].sort();
-makes.forEach(m => document.getElementById("make").insertAdjacentHTML("beforeend", `<option>${esc(m)}</option>`));
+const pills = (id, vals) => document.getElementById(id).insertAdjacentHTML("beforeend",
+  vals.map(v => `<label class="pill"><input type="checkbox" value="${esc(v)}"><span>${esc(v)}</span></label>`).join(""));
+pills("f-show", ["Meets all criteria", "Needs a call"]);
+pills("f-make", makes);
+pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.some(c => c.fuel === f)));
+const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
 document.getElementById("covlist").innerHTML = D.failed.map(f => `<li><b>${esc(f.brand)} · ${esc(f.dealer)}</b>: ${esc(f.reason)}</li>`).join("") || "<li>Nothing failed.</li>";
 function spark(h) {
@@ -251,10 +268,10 @@ function spark(h) {
 }
 let sortK = "score", dir = -1;
 function render() {
-  const q = document.getElementById("q").value.toLowerCase(), show = document.getElementById("show").value,
-    mk = document.getElementById("make").value, fu = document.getElementById("fuel").value;
-  let cars = D.cars.filter(c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk || c.make === mk) && (!fu || c.fuel === fu)
-    && (show === "all" || (show === "match" ? !c.needs_call : !!c.needs_call)));
+  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel");
+  let cars = D.cars.filter(c => (!q || JSON.stringify(c).toLowerCase().includes(q))
+    && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
+    && (!show.size || show.has(c.needs_call ? "Needs a call" : "Meets all criteria")));
   cars.sort((a, b) => { let x = a[sortK], y = b[sortK];
     if (sortK === "hist") { x = a.hist.length; y = b.hist.length; }
     const nx = num(x), ny = num(y); if (nx != null && ny != null) return (nx - ny) * dir;
@@ -275,7 +292,10 @@ function render() {
 }
 document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
-["q", "show", "make", "fuel"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel"].forEach(id => document.getElementById(id).addEventListener("input", render));
+document.getElementById("clear").addEventListener("click", () => {
+  document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
+  document.getElementById("q").value = ""; render(); });
 render();
 </script></body></html>
 """
