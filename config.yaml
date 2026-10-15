@@ -150,7 +150,10 @@ models:
 # Trims where a sunroof is always standard, used only when the listing doesn't say
 # (shown as "sunroof (standard on this trim)"). Edit if you know better.
 sunroof_standard:
-  - {make: Audi, model: Q5, trim_regex: ".*", note: "panoramic sunroof is standard on every Q5"}
+  # Q5: optional on the 2023-2025 Premium (old generation and first new-generation SUVs); standard from 2026
+  - {make: Audi, model: Q5, trim_regex: "premium plus|prestige", note: "panoramic sunroof is standard on Q5 Premium Plus / Prestige"}
+  - {make: Audi, model: Q5, trim_regex: "sportback", min_year: 2025, note: "panoramic sunroof is standard on the 2025+ Q5 Sportback"}
+  - {make: Audi, model: Q5, trim_regex: ".*", min_year: 2026, note: "panoramic sunroof is standard on the 2026+ Q5"}
   - {make: Audi, model: Q3, trim_regex: ".*", note: "panoramic sunroof is standard on every Q3"}
   - {make: BMW, model: X5, trim_regex: ".*", note: "panoramic moonroof is standard on the X5"}
   - {make: Genesis, model: GV70, trim_regex: "select|advanced|prestige", note: "panoramic roof standard from Select up"}

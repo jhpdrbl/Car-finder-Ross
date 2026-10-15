@@ -111,6 +111,9 @@ def sunroof_inferred(L: Listing, d: dict) -> str:
     trim = f'{d.get("Trim") or ""} {L.trim} {L.title} {L.listing_url}'.lower()
     for row in CONFIG.get("sunroof_standard", []):
         if row["make"].lower() in make and row["model"].lower() in model and re.search(row["trim_regex"], trim):
+            year = L.year or int(d.get("ModelYear") or 0)
+            if row.get("min_year") and (not year or year < row["min_year"]):
+                continue
             if row["model"] == "GV70" and not re.search(row["trim_regex"], f"{L.trim} {L.title} {L.listing_url}".lower()):
                 continue  # vPIC's Series lists every GV70 trim; only trust the listing's own trim
             return row["note"]

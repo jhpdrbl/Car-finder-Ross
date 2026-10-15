@@ -450,10 +450,18 @@ const monthYr = d => d.toLocaleDateString("en-US", {month: "short", year: "numer
 // the expected in-service date is the middle of that window (about April of the model year).
 const inService = my => ({lo: new Date(my - 1, 6, 1), mid: new Date(my, 3, 1), hi: new Date(my, 11, 31)});
 // When does one coverage end? The earlier of its time limit and the date the miles run out at MPY a year.
+// Coverage that starts later (when the new-car warranty ends, or at purchase) with a small mile allowance
+// (e.g. Audi 1 yr/20k) counts those miles from its start; otherwise the miles are an odometer limit.
+const additive = cov => /end of new|purchase/i.test(cov.starts || "") && cov.miles != null && cov.miles <= 30000;
 function coverEnd(cov, c, start) {
   const mi = num(c.mileage);
   const timeEnd = cov.years != null && start ? addYears(start, cov.years) : null;
-  const milesLeft = cov.miles == null || mi == null ? null : cov.miles - mi;
+  let limit = cov.miles;
+  if (limit != null && mi != null && additive(cov)) {
+    const ahead = start && start > NOW ? (start - NOW) / (365.25 * 864e5) * MPY : 0;   // miles driven before it starts
+    limit = mi + ahead + cov.miles;
+  }
+  const milesLeft = limit == null || mi == null ? null : Math.round(limit - mi);
   const milesEnd = milesLeft == null ? null : addYears(NOW, Math.max(0, milesLeft) / MPY);
   let end = timeEnd, by = "time";
   if (milesEnd && (!end || milesEnd < end)) { end = milesEnd; by = "miles"; }
@@ -479,8 +487,11 @@ function warrantyFor(c) {
   let basicEnd = basic ? coverEnd(basic, c, ins) : null;
   const afterBasic = basicEnd && basicEnd.end && !basicEnd.expired ? basicEnd.end : NOW;
   const startFor = cv => /purchase/i.test(cv.starts || "") ? NOW : /end of new/i.test(cv.starts || "") ? afterBasic : ins;
-  const cpo = (b.cpo && b.cpo.coverage) || [];
-  cpo.forEach(cv => lines.push(coverLine(cv, c, "CPO " + cv.name.toLowerCase(), startFor(cv))));
+  const isHy = /hybrid|phev|ev/.test(c.fuel_type || "");
+  // repair coverage only (roadside / rust aren't what the buyer compares); battery coverage only on plug-ins/hybrids
+  const cpo = ((b.cpo && b.cpo.coverage) || []).filter(cv => !/roadside|corrosion|rust/i.test(cv.name)
+    && (isHy || !/battery|high.?voltage|electric/i.test(cv.name)));
+  cpo.forEach(cv => lines.push(coverLine(cv, c, "CPO " + cv.name.replace(/\s*\(.*\)/, "").toLowerCase(), startFor(cv))));
   const outdone = f => cpo.some(cv => /powertrain/i.test(cv.name) === /powertrain/i.test(f.name) && /in-service/i.test(cv.starts || "")
     && (cv.years || 0) >= (f.years || 0) && (cv.miles == null || (f.miles != null && cv.miles >= f.miles)));   // CPO already covers it for longer
   [[basic, "Factory basic"], [pt, "Factory powertrain"], [hy, "Hybrid battery"]].forEach(([f, l]) => {
@@ -492,6 +503,10 @@ function warrantyFor(c) {
   return {html: head + (ok.map(l => l.html).join("") || '<span class="muted">?</span>'), end, fullEnd};
 }
 D.cars.forEach(c => { const w = warrantyFor(c); c.warr_html = w.html; c.warr_end = w.end; c.warr_full_end = w.fullEnd; });
+// one link per site (the first page used from it)
+const host = u => String(u).replace(/^https?:\/\/(www\.)?/, "").split("/")[0];
+const srcLinks = urls => [...new Map((urls || []).map(u => [host(u), u])).values()]
+  .map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(host(u))}</a>`).join(", ");
 function renderWarranty() {
   const brands = (D.warranty && D.warranty.brands) || [];
   document.getElementById("g-warranty").hidden = !brands.length;
@@ -502,7 +517,7 @@ function renderWarranty() {
     <div style="margin-top:6px"><b>New-car warranty</b></div><ul>${(b.factory || []).map(line).join("")}</ul>
     ${b.factory_note ? `<div class="small">${esc(b.factory_note)}</div>` : ""}
     ${b.maintenance ? `<div class="small">Maintenance: ${esc(b.maintenance)}</div>` : ""}
-    ${(b.sources || []).length ? `<div class="src">Sources: ${b.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join(", ")}</div>` : ""}
+    ${(b.sources || []).length ? `<div class="src">Sources: ${srcLinks(b.sources)}</div>` : ""}
   </div>`).join("");
 }
 // ---- Trim guide tab ----
@@ -548,7 +563,7 @@ function renderGuide() {
       ${(m.years || []).length > 1 ? `<details class="yby"><summary>How the years differ</summary><ul>${m.years.map(v =>
         `<li><b>${v.year}:</b> ${esc(v.what_changed || "")}</li>`).join("")}</ul></details>` : ""}
       <div class="trims">${trims.map(trimCard).join("") || '<div class="muted">No trims on your list this year.</div>'}</div>
-      ${(m.sources || []).length ? `<div class="src">Sources: ${m.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join(", ")}</div>` : ""}
+      ${(m.sources || []).length ? `<div class="src">Sources: ${srcLinks(m.sources)}</div>` : ""}
     </section>`; }).join("");
   document.getElementById("guide").innerHTML = html || '<p class="muted">The trim guide is empty.</p>';
 }
