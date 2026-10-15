@@ -117,7 +117,9 @@ Playwright on iPad (browser-only dealer sites fail; matters for Audi), no `lxml`
 `html.parser`, same results in testing), a-Shell must stay in the foreground. **The SQLite page cache
 deadlocks in a-Shell with many threads** (first iPad run, Oct 15 2026: every dealer thread stuck in
 `requests_cache/backends/sqlite.py`), so `ipad.py` sets `CARFINDER_CACHE=memory` and `--workers 12`. The upload path was
-untested until the user's first iPad run (Oct 2026); if it fails, read the error and fix `ipad.py`.
+tested on the user's first iPad run (Oct 15 2026): search 11.9 min, upload worked. Coverage from the
+iPad was about the same as from the cloud (94 read / 85 failed): most blocking is bot detection of
+non-browser clients, not IP-based, so expect similar from the laptop without Playwright.
 
 ### If you are a Claude session IN THE CLOUD (the user is on the iPad)
 
@@ -239,7 +241,8 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 - Model rules are data, not code: `config.yaml: models:` (allow regex + rules with if/unless/then/min_year),
   interpreted by `criteria.model_check`. Add a model there plus a token in `listing.MODEL_TOKENS`.
 - Coverage honesty: a dealer whose inventory couldn't be seen (browser blocked, no inventory pages)
-  is **failed**, not "no matching models".
+  is **failed**, not "no matching models". Same when nothing was found and no browser is available (iPad): that
+  dealer's cars must not be marked sold (first iPad run wrongly 'sold' 2 Galpin Volvo cars; restored).
 
 ## Gotchas
 

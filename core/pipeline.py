@@ -149,9 +149,16 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
     except Exception as e:  # one dealer's surprise must not stop the run
         res.reason = f"discovery error: {type(e).__name__}: {e}"[:200]
         return res
+    found_any = bool(cands)
     cands, res.skipped_pages = prefilter(cands, dealer["brand"])
     res.method = note
     res.candidates = len(cands)
+    if not found_any and not playwright_fallback.available():
+        # Nothing found without a browser (e.g. on the iPad): the cars may only show up in one, so this
+        # is "couldn't see", not "none listed", and the dealer's cars must not be marked sold.
+        res.reason = f"couldn't see this site's inventory without the browser add-on ({note})"
+        res.seconds = time.time() - t0
+        return res
     if not cands and re.search(r"browser blocked|browser: 0 inventory pages|playwright not installed|no sitemap$", note):
         res.reason = f"couldn't see this site's inventory ({note})"   # not the same as "no matching cars"
         res.seconds = time.time() - t0
