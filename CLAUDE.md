@@ -1,6 +1,7 @@
 # CLAUDE.md: handoff notes for the CPO SUV Finder
 
-Read this first. It is the state of the project and how to operate it. `README.md` is the
+Read this first. It is the state of the project and how to operate it. The user's own laptop
+instructions (and the prompts they'll paste) are in `LAPTOP-HANDOVER.md`. `README.md` is the
 technical reference, `SETUP-WINDOWS.md` is the user's step-by-step guide, and
 `car-scraper-spec.md` is the original spec (criteria are now in `config.yaml`, which wins
 where they differ; see "Decisions" below).

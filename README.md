@@ -6,6 +6,7 @@ digest, CSVs and a dashboard, and publishes them to a private page for viewing o
 Every result links to the dealer's own listing page and includes the VIN.
 
 - **Handoff / current state for a new Claude session:** [CLAUDE.md](CLAUDE.md)
+- **Running it with Claude Code on the laptop (recommended):** [LAPTOP-HANDOVER.md](LAPTOP-HANDOVER.md)
 - **User's step-by-step setup (Windows laptop + phone page):** [SETUP-WINDOWS.md](SETUP-WINDOWS.md)
 
 ## Quick start on the laptop
