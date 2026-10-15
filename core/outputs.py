@@ -12,6 +12,9 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "output"
 
 
+FUEL_LABEL = {"gas": "Gas", "hybrid": "Hybrid", "phev": "Plug-in hybrid", "ev": "Electric"}
+
+
 def _money(v) -> str:
     try:
         return f"${float(v):,.0f}"
@@ -36,8 +39,6 @@ def _features(r: dict) -> str:
         bits.append("leather")
     if r.get("ventilated_seats") == "True":
         bits.append("ventilated seats")
-    if r.get("fuel_type") in ("hybrid", "phev", "ev"):
-        bits.append({"hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "EV"}[r["fuel_type"]])
     if r.get("cpo_program"):
         bits.append(r["cpo_program"])
     return ", ".join(bits)
@@ -58,6 +59,7 @@ def _line(r: dict) -> str:
     colors = " / ".join(x for x in (r.get("ext_color"), r.get("int_color")) if x) or "colors ?"
     parts = [f"**{link}** at {r.get('dealer', '?')}", f"VIN {r['vin']}", _money(r.get("price_total")) +
              (" (fees est.)" if r.get("fees_estimated") == "True" else ""), _miles(r.get("mileage")), colors]
+    parts.append(FUEL_LABEL.get(r.get("fuel_type", ""), "fuel ?"))
     if r.get("mpg_combined"):
         parts.append(f"{float(r['mpg_combined']):.0f} mpg" + (" gas-only" if r.get("fuel_type") == "phev" else "")
                      + (" (EPA)" if r.get("mpg_source") == "EPA" else ""))
@@ -217,10 +219,11 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
   <input id="q" placeholder="Filter: dealer, model, color…" aria-label="Filter">
   <select id="show" aria-label="Show"><option value="all">All</option><option value="match">Meets all criteria</option><option value="call">Needs a call</option></select>
   <select id="make" aria-label="Make"><option value="">All makes</option></select>
+  <select id="fuel" aria-label="Fuel type"><option value="">All fuel types</option><option>Gas</option><option>Hybrid</option><option>Plug-in hybrid</option><option>Electric</option></select>
 </div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="hist">Price history</th><th data-k="mileage">Miles</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
+  <th data-k="hist">Price history</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 <p class="small">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
@@ -229,10 +232,12 @@ svg.spark { display:block; } svg.spark path { fill:none; stroke:var(--accent); s
 const D = __DATA__;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
+const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electric"};
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
 D.cars.forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
-  c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio, {hybrid:"hybrid", phev:"plug-in hybrid", ev:"EV"}[c.fuel_type] || ""].filter(Boolean).join(", "); });
+  c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio].filter(Boolean).join(", ");
+  c.fuel = FUEL[c.fuel_type] || "?"; });
 const makes = [...new Set(D.cars.map(c => c.make))].sort();
 makes.forEach(m => document.getElementById("make").insertAdjacentHTML("beforeend", `<option>${esc(m)}</option>`));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
@@ -246,8 +251,9 @@ function spark(h) {
 }
 let sortK = "score", dir = -1;
 function render() {
-  const q = document.getElementById("q").value.toLowerCase(), show = document.getElementById("show").value, mk = document.getElementById("make").value;
-  let cars = D.cars.filter(c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk || c.make === mk)
+  const q = document.getElementById("q").value.toLowerCase(), show = document.getElementById("show").value,
+    mk = document.getElementById("make").value, fu = document.getElementById("fuel").value;
+  let cars = D.cars.filter(c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk || c.make === mk) && (!fu || c.fuel === fu)
     && (show === "all" || (show === "match" ? !c.needs_call : !!c.needs_call)));
   cars.sort((a, b) => { let x = a[sortK], y = b[sortK];
     if (sortK === "hist") { x = a.hist.length; y = b.hist.length; }
@@ -260,15 +266,16 @@ function render() {
     <td>${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num">${fmt$(c.price_total)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td>${spark(c.hist)}</td><td class="num">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td>${esc(c.fuel)}</td>
     <td class="num">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td>${esc(c.colors)}</td><td>${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
     <td class="${esc(c.carfax_status)}">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num">${fmt$(c.est_monthly_cost)}</td><td class="small">${esc(c.first_seen)}</td></tr>`).join("")
-    || '<tr><td colspan="12" class="muted">No cars match these filters.</td></tr>';
+    || '<tr><td colspan="13" class="muted">No cars match these filters.</td></tr>';
 }
 document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" ? -1 : 1); sortK = k; render(); }));
-["q", "show", "make"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "show", "make", "fuel"].forEach(id => document.getElementById(id).addEventListener("input", render));
 render();
 </script></body></html>
 """
