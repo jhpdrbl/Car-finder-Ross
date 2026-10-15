@@ -131,7 +131,7 @@ Toyota,Toyota of Glendale,Glendale,1260 South Brand Blvd.,91204,34.130207,-118.2
 Toyota,Toyota of Hollywood,Los Angeles,6920 Sunset Blvd.,90028,34.101528,-118.321183,3.6,https://www.hollywoodtoyota.com,dealer_com,,confirmed,brand locator,2026-10-15,
 Toyota,Toyota of Downtown LA,Los Angeles,1901 S. Figueroa Street,90007,34.033649,-118.272743,5.4,https://www.toyotaofdowntownla.com,team_velocity,,confirmed,brand locator,2026-10-15,
 Toyota,Toyota of North Hollywood,North Hollywood,4606 Lankershim Boulevard,91602,34.153856,-118.367637,6.8,https://www.northhollywoodtoyota.com,team_velocity,,confirmed,brand locator,2026-10-15,
-Toyota,Wondries Toyota,Alhambra,1439 West Main Street,91801,34.09172,-118.139042,7.0,https://www.wondriestoyota.com,unknown,,confirmed,brand locator,,homepage blocked (cloudflare)
+Toyota,Wondries Toyota,Alhambra,1439 West Main Street,91801,34.09172,-118.139042,7.0,https://www.wondriestoyota.com,unknown,,confirmed,brand locator,2026-10-15,homepage blocked (cloudflare)
 Toyota,Bob Smith Toyota,La Crescenta,3333 Foothill Blvd.,91214,34.231604,-118.251556,8.4,https://www.bobsmithtoyota.com,team_velocity,,confirmed,brand locator,2026-10-15,
 Toyota,Culver City Toyota,Culver City,9077 Washington Blvd.,90232,34.025498,-118.39131,9.5,https://www.culvercitytoyota.com,dealer_inspire,,confirmed,brand locator,,homepage blocked (cloudflare); has /llm/inventory
 Toyota,Toyota of Pasadena,Pasadena,3600 E. Foothill Blvd.,91107,34.150086,-118.075645,10.9,https://www.toyotapasadena.com,dealer_inspire,,confirmed,brand locator,,homepage blocked (cloudflare); has /llm/inventory
@@ -145,10 +145,10 @@ Toyota,Envision Toyota of Norwalk,Norwalk,11404 E Imperial Highway,90650,33.9164
 Toyota,Manhattan Beach Toyota,Manhattan Beach,1500 N. Sepulveda Blvd,90266,33.889706,-118.395578,17.1,https://www.manhattanbeachtoyota.com,dealer_com,,confirmed,brand locator,2026-10-15,
 Toyota,South Bay Toyota,Gardena,18416 S. Western Avenue,90248,33.863338,-118.308931,17.3,https://www.southbaytoyota.com,unknown,,confirmed,brand locator,,homepage blocked (HTTP 403)
 Toyota,Toyota of Whittier,Whittier,14577 East Whittier Blvd.,90605,33.952436,-118.013411,17.9,https://www.toyotaofwhittier.com,dealer_inspire,,confirmed,brand locator,,homepage blocked (cloudflare); has /llm/inventory
-Toyota,Northridge Toyota,Northridge,19550 Nordhoff Street,91324,34.235252,-118.560235,19.2,https://www.northridgetoyota.com,unknown,,confirmed,brand locator,,homepage blocked (cloudflare)
+Toyota,Northridge Toyota,Northridge,19550 Nordhoff Street,91324,34.235252,-118.560235,19.2,https://www.northridgetoyota.com,unknown,,confirmed,brand locator,2026-10-15,homepage blocked (cloudflare)
 Toyota,AutoNation Toyota Cerritos,Cerritos,18700 Studebaker Road,90703,33.861891,-118.099421,19.5,https://www.autonationtoyotacerritos.com,dealer_com,,confirmed,brand locator,2026-10-15,
 Toyota,Fletcher Jones Toyota of Carson,Carson,1333 E 223rd Street,90745,33.824426,-118.249488,19.8,https://www.toyotacarson.com,dealer_inspire,,confirmed,brand locator,,homepage blocked (cloudflare); has /llm/inventory
-Toyota,Puente Hills Toyota,City Of Industry,17070 Gale Avenue,91748,33.999618,-117.933456,20.2,https://www.puentehillstoyota.com,unknown,,confirmed,brand locator,,homepage blocked (cloudflare)
+Toyota,Puente Hills Toyota,City Of Industry,17070 Gale Avenue,91748,33.999618,-117.933456,20.2,https://www.puentehillstoyota.com,unknown,,confirmed,brand locator,2026-10-15,homepage blocked (cloudflare)
 Toyota,Envision Toyota of West Covina,West Covina,205 N. Citrus Street,91791,34.070892,-117.906441,20.4,https://www.toyotawestcovina.com,dealer_com,,confirmed,brand locator,2026-10-15,
 Toyota,Cabe Toyota Long Beach,Long Beach,2849 Long Beach Blvd.,90806,33.809038,-118.189678,21.2,https://www.cabetoyota.com,dealer_venom,,confirmed,brand locator,2026-10-15,
 Toyota,West Coast Toyota of Long Beach,Long Beach,3399 E. Willow Street,90806,33.804587,-118.152444,22.0,https://www.westcoasttoyotalb.com,dealer_inspire,,confirmed,brand locator,,homepage blocked (cloudflare); has /llm/inventory
@@ -175,7 +175,7 @@ Volkswagen,New Century Volkswagen,Glendale,1220 S Brand Blvd,91204,34.1314,-118.
 Volkswagen,Volkswagen of Downtown LA,Los Angeles,1900 S Figueroa St,90007,34.0337,-118.271,5.3,,,,confirmed,brand locator,,no homepage
 Volkswagen,Volkswagen Pasadena,Pasadena,130 N Sierra Madre Blvd,91107,34.1486,-118.101,9.5,https://www.volkswagenpasadena.com,dealer_com,,confirmed,brand locator,2026-10-15,
 Volkswagen,Galpin VW of San Fernando Valley,North Hills,15421 Roscoe Blvd,91343,34.2217,-118.469,14.2,https://www.galpinvolkswagenofthesanfernandovalley.com,dealer_inspire,,confirmed,brand locator,,homepage blocked (cloudflare); has /llm/inventory
-Volkswagen,Pacific Volkswagen,Hawthorne,14900 Hindry Ave,90250,33.8971,-118.371,16.1,https://www.pacificvolkswagen.com,unknown,,confirmed,brand locator,,homepage blocked (cloudflare)
+Volkswagen,Pacific Volkswagen,Hawthorne,14900 Hindry Ave,90250,33.8971,-118.371,16.1,https://www.pacificvolkswagen.com,unknown,,confirmed,brand locator,2026-10-15,homepage blocked (cloudflare)
 Volkswagen,McKenna Motors Cerritos,Cerritos,18303 Studebaker Rd,90703,33.8649,-118.101,19.3,https://www.mckennavwcerritos.com,unknown,,confirmed,brand locator,2026-10-15,platform not recognized
 Volkswagen,Winn Volkswagen of Woodland Hills,Woodland Hills,21141 Ventura Blvd,91364,34.1677,-118.594,19.5,https://www.winnvwwoodlandhills.com,team_velocity,,confirmed,brand locator,2026-10-15,
 Volkswagen,Timmons Volkswagen of Long Beach,Long Beach,3940 Cherry Ave,90807,33.8301,-118.167,20.1,https://www.timmonsvw.com,team_velocity,,confirmed,brand locator,2026-10-15,
@@ -199,7 +199,7 @@ Volvo,Penske Volvo Cars,City of Industry,,,34.0197,-117.9587,18.4,https://www.pe
 Volvo,Volvo Cars South Bay,Torrance,,,33.8358,-118.3406,19.5,https://www.volvocarssouthbay.com,dealer_com,,confirmed,web research (brand locator blocked),2026-10-15,distance from city center
 Volvo,Volvo Cars Cerritos,Cerritos,,,33.8583,-118.0648,20.7,https://www.volvocarscerritos.com,team_velocity,,unverified,web research (brand locator blocked),2026-10-15,distance from city center
 Volvo,Volvo Cars Valencia,Valencia,,,34.4436,-118.6098,30.5,https://www.volvocarsvalencia.com,unknown,,unverified,web research (brand locator blocked),,"homepage connection error from cloud; distance from city center; homepage error: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
-Volvo,Volvo Cars Orange County,Orange,,,33.7879,-117.8531,32.3,https://www.volvocarsorangecounty.com,unknown,,unverified,web research (brand locator blocked),,"homepage connection error from cloud; distance from city center; homepage error: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+Volvo,Volvo Cars Orange County,Orange,,,33.7879,-117.8531,32.3,https://www.volvocarsorangecounty.com,unknown,,unverified,web research (brand locator blocked),2026-10-15,"homepage connection error from cloud; distance from city center; homepage error: ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
 Volvo,Rusnak Volvo Cars Westlake,Thousand Oaks,3839 Auto Mall Dr.,91362,34.1614259,-118.8282045,32.7,https://www.rusnakvolvocarswestlake.com,dealer_com,,confirmed,web research (brand locator blocked),2026-10-15,
 Volvo,Volvo Cars Ontario,Ontario,1300 Auto Center Drive,91761,34.050441,-117.545668,41.1,https://www.volvocarsontario.com,dealer_com,,confirmed,web research (brand locator blocked),2026-10-15,
 Volvo,Volvo Cars Mission Viejo,Mission Viejo,,,33.6,-117.672,48.8,https://www.volvocarsmissionviejo.com,dealer_com,,unverified,web research (brand locator blocked),2026-10-15,distance from city center

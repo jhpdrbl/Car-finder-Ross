@@ -108,7 +108,7 @@ Mercedes-Benz,Keyes European,failed,blocked: Cloudflare bot protection (HTTP 403
 Mercedes-Benz,W.I. Simonson Mercedes-Benz,failed,"homepage unreachable (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection r)",0,14.7,https://www.wisimonson.com,
 Mercedes-Benz,Mercedes-Benz of Ontario,failed,blocked: Cloudflare bot protection (HTTP 403),0,35.0,https://www.mbontario.com,
 Mercedes-Benz,Fletcher Jones Motorcars,failed,blocked: Cloudflare bot protection (HTTP 403),0,38.9,https://www.fjmercedes.com,
-Mercedes-Benz,Walter's Mercedes-Benz,failed,"homepage unreachable (SSLError: HTTPSConnectionPool(host='www.waltersmercedes.com', port=443): Max ret)",0,50.6,https://www.waltersmercedes.com,
+Mercedes-Benz,Walter's Mercedes-Benz,failed,"homepage unreachable (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection r)",0,50.6,https://www.waltersmercedes.com,
 Mercedes-Benz,Mercedes-Benz of Laguna Niguel,failed,"homepage unreachable (SSLError: HTTPSConnectionPool(host='www.mblagunaniguel.com', port=443): Max retr)",0,51.5,https://www.mblagunaniguel.com,
 Subaru,Subaru of Glendale,skipped,covered by the Subaru brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,1.4,https://subaruofglendale.net,
 Subaru,Subaru of Downtown Los Angeles,skipped,covered by the Subaru brand CPO feed,0,5.4,https://dtlasubaru.com,
@@ -132,6 +132,7 @@ Subaru,Spreen Subaru,skipped,covered by the Subaru brand CPO feed (dealer site b
 Toyota,Toyota of Hollywood,success,1 listings read from 1 candidates,1,3.6,https://www.hollywoodtoyota.com,dealer.com search: 1 candidates
 Toyota,Toyota of Downtown LA,success,3 listings read from 3 candidates,3,5.4,https://www.toyotaofdowntownla.com,"sitemap: 1515 urls, 3 candidates"
 Toyota,Toyota of North Hollywood,success,"no matching Toyota models listed (sitemap: 725 urls, 0 candidates; browser: 4 inventory pages, 0 candidates)",0,6.8,https://www.northhollywoodtoyota.com,"sitemap: 725 urls, 0 candidates; browser: 4 inventory pages, 0 candidates"
+Toyota,Wondries Toyota,success,no matching Toyota models listed (no sitemap; browser: browser blocked (HTTP 403)),0,7.0,https://www.wondriestoyota.com,no sitemap; browser: browser blocked (HTTP 403)
 Toyota,Bob Smith Toyota,success,"no matching Toyota models listed (sitemap: 245 urls, 0 candidates; browser: 4 inventory pages, 0 candidates)",0,8.4,https://www.bobsmithtoyota.com,"sitemap: 245 urls, 0 candidates; browser: 4 inventory pages, 0 candidates"
 Toyota,Keyes Toyota,success,1 listings read from 1 candidates,1,11.7,https://www.keyestoyota.com,"sitemap: 762 urls, 1 candidates; dealeron search: 0 more"
 Toyota,Marina del Rey Toyota,success,"no matching Toyota models listed (sitemap: 273 urls, 0 candidates; browser: 4 inventory pages, 0 candidates)",0,13.6,https://www.marinadelreytoyota.com,"sitemap: 273 urls, 0 candidates; browser: 4 inventory pages, 0 candidates"
@@ -140,7 +141,9 @@ Toyota,Toyota Santa Monica,success,1 listings read from 1 candidates,1,14.3,http
 Toyota,Penske Toyota,success,"no matching Toyota models listed (sitemap: 781 urls, 0 candidates; dealeron search: 0 more; sitemap: 781 urls, 0 candidates; browser: browser blocked (HTTP 403))",0,14.6,https://www.pensketoyotadowney.com,"sitemap: 781 urls, 0 candidates; dealeron search: 0 more; sitemap: 781 urls, 0 candidates; browser: browser blocked (HTTP 403)"
 Toyota,Envision Toyota of Norwalk,success,6 listings read from 6 candidates,6,16.6,https://www.norwalktoyota.com,dealer.com search: 6 candidates
 Toyota,Manhattan Beach Toyota,success,1 listings read from 1 candidates,1,17.1,https://www.manhattanbeachtoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 957 urls, 1 candidates"
+Toyota,Northridge Toyota,success,no matching Toyota models listed (no sitemap; browser: browser blocked (HTTP 403)),0,19.2,https://www.northridgetoyota.com,no sitemap; browser: browser blocked (HTTP 403)
 Toyota,AutoNation Toyota Cerritos,success,8 listings read from 8 candidates,8,19.5,https://www.autonationtoyotacerritos.com,dealer.com search: 8 candidates
+Toyota,Puente Hills Toyota,success,no matching Toyota models listed (no sitemap; browser: browser blocked (HTTP 403)),0,20.2,https://www.puentehillstoyota.com,no sitemap; browser: browser blocked (HTTP 403)
 Toyota,Envision Toyota of West Covina,success,4 listings read from 4 candidates,4,20.4,https://www.toyotawestcovina.com,dealer.com search: 4 candidates
 Toyota,Cabe Toyota Long Beach,success,4 listings read from 4 candidates,4,21.2,https://www.cabetoyota.com,"sitemap: 356 urls, 4 candidates"
 Toyota,DCH Toyota of Torrance,success,4 listings read from 4 candidates,4,22.2,https://www.torrancetoyota.com,dealer.com search: 4 candidates
@@ -156,15 +159,12 @@ Toyota,South Coast Toyota,success,9 listings read from 9 candidates,9,37.6,https
 Toyota,Crown Toyota,success,7 listings read from 7 candidates,7,41.0,https://www.crowntoyota.com,"sitemap: 1498 urls, 7 candidates; dealeron search: 0 more"
 Toyota,AutoNation Toyota Irvine,success,3 listings read from 3 candidates,3,44.2,https://www.autonationtoyotairvine.com,dealer.com search: 3 candidates
 Toyota,Toyota of Glendale,failed,blocked: Cloudflare bot protection (HTTP 403),0,1.4,https://www.toyotaofglendale.com,
-Toyota,Wondries Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,7.0,https://www.wondriestoyota.com,
 Toyota,Culver City Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,9.5,https://www.culvercitytoyota.com,
 Toyota,Toyota of Pasadena,failed,blocked: Cloudflare bot protection (HTTP 403),0,10.9,https://www.toyotapasadena.com,
 Toyota,Hamer Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,16.3,https://www.hamertoyota.com,
 Toyota,South Bay Toyota,failed,blocked: Akamai bot protection (HTTP 403),0,17.3,https://www.southbaytoyota.com,
 Toyota,Toyota of Whittier,failed,blocked: Cloudflare bot protection (HTTP 403),0,17.9,https://www.toyotaofwhittier.com,
-Toyota,Northridge Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,19.2,https://www.northridgetoyota.com,
 Toyota,Fletcher Jones Toyota of Carson,failed,blocked: Cloudflare bot protection (HTTP 403),0,19.8,https://www.toyotacarson.com,
-Toyota,Puente Hills Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,20.2,https://www.puentehillstoyota.com,
 Toyota,West Coast Toyota of Long Beach,failed,blocked: Cloudflare bot protection (HTTP 403),0,22.0,https://www.westcoasttoyotalb.com,
 Toyota,Toyota of Anaheim,failed,blocked: Cloudflare bot protection (HTTP 403),0,25.5,https://www.toyotaofanaheim.com,
 Toyota,Beach Cities Toyota Westminster,failed,blocked: Cloudflare bot protection (HTTP 403),0,29.9,https://www.beachcitiestoyotawestminster.com,
@@ -174,7 +174,8 @@ Toyota,Toyota of Lancaster,failed,blocked: Cloudflare bot protection (HTTP 403),
 Toyota,Toyota of Corona,failed,blocked: Akamai bot protection (HTTP 403),0,41.1,https://www.coronatoyota.com,
 Toyota,Santa Margarita Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,49.9,https://www.santamargaritatoyota.com,
 Volkswagen,Volkswagen Pasadena,success,13 listings read from 13 candidates,13,9.5,https://www.volkswagenpasadena.com,dealer.com search: 13 candidates
-Volkswagen,McKenna Motors Cerritos,success,3 listings read from 3 candidates,3,19.3,https://www.mckennavwcerritos.com,"no sitemap; browser: 4 inventory pages, 3 candidates"
+Volkswagen,Pacific Volkswagen,success,no matching Volkswagen models listed (no sitemap; browser: browser blocked (HTTP 403)),0,16.1,https://www.pacificvolkswagen.com,no sitemap; browser: browser blocked (HTTP 403)
+Volkswagen,McKenna Motors Cerritos,success,"no matching Volkswagen models listed (no sitemap; browser: 0 inventory pages, 0 candidates)",0,19.3,https://www.mckennavwcerritos.com,"no sitemap; browser: 0 inventory pages, 0 candidates"
 Volkswagen,Winn Volkswagen of Woodland Hills,success,7 listings read from 7 candidates,7,19.5,https://www.winnvwwoodlandhills.com,"sitemap: 585 urls, 7 candidates"
 Volkswagen,Timmons Volkswagen of Long Beach,success,7 listings read from 7 candidates,7,20.1,https://www.timmonsvw.com,"sitemap: 205 urls, 7 candidates"
 Volkswagen,Volkswagen of Garden Grove,success,7 listings read from 7 candidates,7,30.0,https://www.vwofgg.com,dealer.com search: 7 candidates
@@ -182,7 +183,6 @@ Volkswagen,Riverside Volkswagen,success,6 listings read from 6 candidates,6,49.8
 Volkswagen,New Century Volkswagen,failed,blocked: Cloudflare bot protection (HTTP 403),0,1.5,https://www.newcenturyvw.com,
 Volkswagen,Volkswagen of Downtown LA,skipped,no homepage on file,0,5.3,,
 Volkswagen,Galpin VW of San Fernando Valley,failed,blocked: Cloudflare bot protection (HTTP 403),0,14.2,https://www.galpinvolkswagenofthesanfernandovalley.com,
-Volkswagen,Pacific Volkswagen,failed,blocked: Cloudflare bot protection (HTTP 403),0,16.1,https://www.pacificvolkswagen.com,
 Volkswagen,Puente Hills Volkswagen,failed,blocked: Cloudflare bot protection (HTTP 403),0,20.2,https://www.vwpuentehills.com,
 Volkswagen,Covina Volkswagen,failed,blocked: Cloudflare bot protection (HTTP 403),0,21.3,https://www.covinavolkswagen.com,
 Volkswagen,Volkswagen Thousand Oaks,failed,blocked: Cloudflare bot protection (HTTP 403),0,33.0,https://www.vwthousandoaks.com,
@@ -200,8 +200,8 @@ Volvo,Galpin Volvo,success,5 listings read from 5 candidates,5,15.5,https://www.
 Volvo,Penske Volvo Cars,success,9 listings read from 9 candidates,9,18.4,https://www.penskevolvocars.com,"dealer.com search: 0 candidates; sitemap: 413 urls, 9 candidates"
 Volvo,Volvo Cars South Bay,success,6 listings read from 6 candidates,6,19.5,https://www.volvocarssouthbay.com,"dealer.com search: 0 candidates; sitemap: 799 urls, 6 candidates"
 Volvo,Volvo Cars Cerritos,success,4 listings read from 4 candidates,4,20.7,https://www.volvocarscerritos.com,"sitemap: 530 urls, 4 candidates"
+Volvo,Volvo Cars Orange County,success,no matching Volvo models listed (no sitemap; browser: browser blocked (HTTP 502)),0,32.3,https://www.volvocarsorangecounty.com,no sitemap; browser: browser blocked (HTTP 502)
 Volvo,Rusnak Volvo Cars Westlake,success,10 listings read from 10 candidates,10,32.7,https://www.rusnakvolvocarswestlake.com,dealer.com search: 10 candidates
 Volvo,Volvo Cars Ontario,success,16 listings read from 16 candidates,16,41.1,https://www.volvocarsontario.com,dealer.com search: 16 candidates
 Volvo,Volvo Cars Mission Viejo,success,3 listings read from 3 candidates,3,48.8,https://www.volvocarsmissionviejo.com,"dealer.com search: 0 candidates; sitemap: 219 urls, 3 candidates"
 Volvo,Volvo Cars Valencia,failed,"homepage unreachable (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection r)",0,30.5,https://www.volvocarsvalencia.com,
-Volvo,Volvo Cars Orange County,failed,"homepage unreachable (ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection r)",0,32.3,https://www.volvocarsorangecounty.com,
