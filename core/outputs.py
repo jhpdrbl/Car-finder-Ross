@@ -217,7 +217,7 @@ BRAND_CPO_SEARCH = {
 def _cpo_base(d: dict) -> str:
     """The dealer's own CERTIFIED inventory page: the one on file, else the platform's standard path."""
     inv = d.get("inventory_url") or ""
-    if "certified" in inv.lower() or "tp=certified" in inv.lower():
+    if re.search(r"certified|/cpo|cpo-|type=cpo", inv, re.I):
         return inv
     home, plat = (d.get("homepage") or "").rstrip("/"), d.get("platform") or ""
     if plat == "dealer_inspire":       # Dealer Inspire's standard certified page (Lexus's own data uses it for 6 of 7 DI dealers)
