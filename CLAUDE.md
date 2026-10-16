@@ -45,6 +45,17 @@ each buyer evaluates a deep copy of the listing).
   else config `seat_material` by trim; unknown → Needs a call), **any exterior color but red/orange**, any interior,
   **sunroof nice-to-have** (scored, never excludes), **2-row only, 2023+**. Brands: Ross's + **Kia, Acura**, and (Oct 16 2026)
   **Mazda (CX-50 Hybrid) and Lincoln (Nautilus Hybrid)**. User said **no Honda or Hyundai** (don't suggest CR-V/Tucson/Santa Fe again).
+  **No white interiors** (exclude-only `interior_colors`). Her **score** (Oct 16 2026) = her nice-to-haves in her order:
+  exterior color 40 (black › gray › dark blue › brown › silver › gold › white › anything else; `criteria.color_family`,
+  first color word named wins, "Silver Gray" = gray), mileage 30 (0 mi full, 40k none), sunroof 20, real leather 10
+  (synthetic 40%). Price isn't in her score (she didn't list it). `scoring.weights` is replaced per buyer, not merged.
+- **Scores** (`criteria.score_parts`/`score`): weight × 0..1 per item, scaled to 0-100; the page's "How the score works"
+  box is generated from the buyer's weights (`outputs.score_help`). Ross's weights are the spec's (price 30, plug-in 25,
+  mpg 12, audio 12, spare 6, leather/vented/clearance 5): a gas car can't get the plug-in 25, so his scores rarely pass 75.
+- **Sticker when new** column (both pages): `Listing.msrp_new` from an explicit "original MSRP / window sticker" on the
+  dealer page, else the trim's base MSRP when new (destination included, no options) from `data/msrp.json` (`verify/msrp.py`);
+  shown with "~" when it's the trim base. `python run.py rescore` re-applies scores, color rules and sticker prices to
+  the last results without a search.
 - Search scope = union of both buyers (`profiles.could_want`, `min_year(brand)`, `model_tokens`; Ross's URL words stay in
   `listing.ROSS_TOKENS`). Reuse of last run's rows happens only when **every** buyer excluded the car for good
   (`prev_rows[key] = {profile: row}`).
