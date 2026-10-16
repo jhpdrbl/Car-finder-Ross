@@ -263,9 +263,12 @@ def scrape_all(dealers: list[dict], brands: set[str], workers: int, log, prev_ro
     covered = set(FEEDS) if covered is None else covered
     results: list[DealerResult] = []
     todo = []
+    from core.profiles import BRANDS
     for d in dealers:
         if brands and d["brand"] not in brands:
             continue
+        if d["brand"] not in BRANDS:
+            continue    # no buyer has a model from this brand yet (Acura, Oct 2026): nothing to look for
         if d["brand"] in covered:
             results.append(DealerResult(dealer=d, status="skipped",
                                         reason=f"covered by the {d['brand']} brand CPO feed"))

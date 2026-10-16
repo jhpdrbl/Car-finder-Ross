@@ -386,6 +386,72 @@ def _vw_listing(car: dict, dealers: list[dict]) -> Listing | None:
     return L
 
 
-FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw}
-# Feeds without links to the car's own page on the dealer's site: their brand's dealer sites are still read.
-SUPPLEMENT_FEEDS = {"Lexus"}
+# --------------------------------------------------------------------------
+# Kia: kia.com certified pre-owned search (POST /us/services/en/cpo/inventory/exactmatch; kia.com's robots.txt
+# only disallows /*dealer-master*, */search/ and other countries). 10 cars per page; its radius is unreliable,
+# so it asks for 100 miles and keeps cars at the dealers in dealers.csv (60 miles). Each car links to the
+# dealer's own page (vdpUrl). Not every Kia dealer is in it, so Kia dealer sites are still read too.
+# --------------------------------------------------------------------------
+
+KIA_SEARCH = "https://www.kia.com/us/services/en/cpo/inventory/exactmatch"
+
+
+def kia() -> tuple[list[Listing], dict]:
+    from core.profiles import all_profiles
+    from .generic_jsonld import FAKE_WORD, SUNROOF, seat_material
+    dealers = _dealers("Kia")
+    # Kia's search names hybrids as their own model ("Sportage Hybrid"): config `feed_models:` per buyer
+    models = list(dict.fromkeys(m for p in all_profiles() for m in ((p.models().get("Kia") or {}).get("feed_models") or [])))
+    out, stats = [], {"seen": 0, "in_area": 0}
+    for model in models:
+        start = 0
+        while True:
+            body = {"radius": 100, "zipCode": CONFIG["home"]["zip"], "model": model, "transmissions": [], "trims": [],
+                    "milesFilter": {}, "priceFilter": {}, "year": "", "dealers": [], "sortBy": "", "start": start, "end": start + 10}
+            data = fetcher().post_json(KIA_SEARCH, json.dumps(body), headers={"content-type": "application/json"})
+            rows = data.get("dealerVehicles") or []
+            for x in rows:
+                stats["seen"] += 1
+                v, dl = x.get("vehicle") or {}, x.get("dealer") or {}
+                year = integer(v.get("year"))
+                if not v.get("vin") or not could_want("Kia", f'{v.get("model") or ""} {v.get("trim") or ""}', year or 0):
+                    continue
+                d = _match_dealer(dealers, dl.get("name", ""), dl.get("url", ""))
+                if not d:
+                    continue
+                stats["in_area"] += 1
+                L = Listing(vin=v["vin"].upper(), source="kia.com CPO search")
+                L.listing_url = v.get("vdpUrl") or ""
+                if not L.listing_url:       # no link to the car's page: the dealer's certified inventory, searched by VIN
+                    inv = (d.get("inventory_url") or d["homepage"]).rstrip("?&")
+                    L.listing_url = f"{inv}{'&' if '?' in inv else '?'}search={v['vin'].upper()}"
+                    L.link_note = "link opens the dealer's certified inventory searched for this VIN"
+                L.year, L.make, L.model = year, "Kia", v.get("model") or model
+                L.trim = (v.get("trim") or v.get("cdmTrim") or "").strip()
+                L.price = money(v.get("internetPrice"))
+                L.mileage = integer(v.get("mileage"))
+                L.ext_color, L.int_color = (v.get("exteriorColor") or "").strip(), (v.get("interiorColor") or "").strip()
+                L.drivetrain = classify_drivetrain(v.get("drivetrain") or "")
+                L.mpg_city, L.mpg_hwy = money(v.get("cityEpa")), money(v.get("highwayEpa"))
+                L.stock = v.get("stockNumber") or ""
+                L.condition = "used"
+                L.cert_text = "kia certified pre-owned (kia.com CPO inventory)"
+                L.cpo_program = "Kia Certified Pre-Owned"
+                L.features = [str(e) for e in (v.get("equipment") or []) if e]
+                hay = " ".join(L.features) + " " + (v.get("dealerComments") or "")
+                if SUNROOF.search(hay):
+                    L.sunroof, L.sunroof_note = True, SUNROOF.search(hay).group(1)
+                L.seats = seat_material(hay, L.int_color)
+                L.leather = False if L.seats == "synthetic" or FAKE_WORD.search(hay) else (True if L.seats == "leather" else None)
+                L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Kia", d["homepage"]
+                out.append(L)
+            start += 10
+            if not rows or start >= (data.get("totalMatches") or 0) or start >= 1000:
+                break
+    return out, stats
+
+
+FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw, "Kia": kia}
+# Feeds that don't cover every dealer of the brand, or have no link to the car's own page on the dealer's site:
+# their brand's dealer sites are still read (dedupe keeps the best record of each car).
+SUPPLEMENT_FEEDS = {"Lexus", "Kia"}

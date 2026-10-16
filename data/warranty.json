@@ -808,6 +808,193 @@
     "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/2025_US_Ford_Car_LT_truck_Warranty_Guide_ENG_V1.pdf",
     "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/24MYUS_Ford_Car_LT_truck_WTY_V6.pdf"
    ]
+  },
+  {
+   "make": "Kia",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty, 60 months/60,000 miles from date of first service; fully transferable"
+    },
+    {
+     "name": "Powertrain",
+     "years": 10,
+     "miles": 100000,
+     "transfers": "no",
+     "note": "Original owner only. Second and later owners: 5 yr/60k. Buying Kia Certified Pre-Owned brings the 10 yr/100k powertrain back (from the original in-service date)"
+    },
+    {
+     "name": "Hybrid system (hybrid battery)",
+     "years": 10,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Hybrid battery pack, starter-generator, power control unit, traction motor/transmission, on-board charger. California-emissions vehicles: 10 yr/150k. Terms from Kia's 2018 hybrid warranty manual (no 2020+ hybrid manual found online); kia.com warranty page lists the same 10 yr/100k for the EV system"
+    },
+    {
+     "name": "EV system / high-voltage battery",
+     "years": 10,
+     "miles": 100000,
+     "transfers": "unknown",
+     "note": "Electric models (EV6, EV9, Niro EV): motor, high-voltage battery, EPCU, on-board charger; battery capacity below 70% also covered 10 yr/100k (kia.com/us/en/warranty)"
+    },
+    {
+     "name": "Anti-perforation (rust)",
+     "years": 5,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "5 years / 100,000 miles"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": "60 months/60,000 miles from delivery to the first retail buyer; includes trip-interruption reimbursement (up to $100/day, 3 days) if a warranty breakdown happens more than 150 miles from home"
+    }
+   ],
+   "factory_note": "Same terms for model years 2020-2026 (2020, 2022 and 2025 Kia Warranty and Consumer Information Manuals checked). Key catch: the 10-yr/100k powertrain warranty does NOT pass to a second owner of a non-certified Kia (they get 5 yr/60k). A Kia CPO car gets the full 10 yr/100k powertrain from the original in-service date.",
+   "maintenance": "none (no complimentary scheduled maintenance on new Kias; Kia Maintenance Plans are sold separately)",
+   "cpo": {
+    "program": "Kia Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "Powertrain (CPO Limited Powertrain Warranty)",
+      "years": 10,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "10 years / 100,000 miles from the original in-service date and 0 miles (restores the original-owner powertrain coverage). A one-time $40 fee applies to transfer the CPO warranty to a later owner."
+     },
+     {
+      "name": "Comprehensive (Platinum Coverage)",
+      "years": 1,
+      "miles": 12000,
+      "starts": "CPO purchase date",
+      "note": "1 year / 12,000 miles from the CPO purchase date and the odometer at purchase. Runs alongside whatever is left of the 5 yr/60k factory basic warranty. Deductible not stated by Kia (unknown)."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 10,
+      "miles": null,
+      "starts": "CPO purchase date",
+      "note": "24-hour, unlimited-mile roadside starts at purchase; Kia's CPO FAQ says it is available for 10 years (see dealer for details). Includes towing, rental car up to $35/day for 10 days and travel-breakdown reimbursement when more than 100 miles from home."
+     }
+    ],
+    "summary": "A Kia CPO car gets back the 10-year/100,000-mile powertrain warranty (counted from when the car was first sold), plus 1 year/12,000 miles of bumper-to-bumper Platinum Coverage from the day you buy it, on top of any factory 5-yr/60k coverage still left.",
+    "perks": [
+     "165-point inspection by a Kia-trained technician",
+     "Vehicle history report",
+     "24-hour unlimited-mile roadside assistance",
+     "Rental car allowance with a warranty repair",
+     "Travel-breakdown coverage when more than 100 miles from home"
+    ],
+    "eligibility": "Less than 6 years old and up to 80,000 miles (kia.com/us/en/cpo/benefits); must pass the 165-point inspection"
+   },
+   "sources": [
+    "https://www.kia.com/us/en/warranty",
+    "https://www.kia.com/us/en/cpo",
+    "https://www.kia.com/us/en/cpo/benefits",
+    "https://www.kia.com/us/content/dam/kia/us/en/cpo-assets/brochure/pdfs/marketing/CS11794-Kia-CPO-Brochure.pdf",
+    "https://www.kia.com/us/content/dam/kia/us/en/images/warranty/manual/warranty-manual/2018_warranty_optima_hybrid_and_plug_in_hybrid.pdf",
+    "https://pictures.dealer.com/kia/d1addfff0a0e09a70e0f8f6ced90e61d.PDF",
+    "https://pictures.dealer.com/kia/d1ae16dd0a0e09a70e0f8f6c43e63321.pdf",
+    "https://www.philsmithkia.com/resrc/media/pdf/25MY_WCIM_ICE.pdf"
+   ]
+  },
+  {
+   "make": "Acura",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty, includes the 12-volt battery; covers any owner or lessee during the term"
+    },
+    {
+     "name": "Powertrain",
+     "years": 6,
+     "miles": 70000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Hybrid powertrain / high-voltage battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Hybrids (2020 MDX Sport Hybrid, RLX Sport Hybrid, NSX): 8 yr/100k High Voltage Battery Capacity Warranty per the 2021 Acura warranty booklet; the hybrid powertrain itself is covered per the emissions parts list (often longer in California; not confirmed). No hybrid section in the 2023-2026 booklets (no hybrids sold then)."
+    },
+    {
+     "name": "Rust perforation",
+     "years": 5,
+     "miles": null,
+     "transfers": "no",
+     "note": "5 years / unlimited miles; the booklet says only the original owner or lessee can make a claim"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "unknown",
+     "note": "Acura 24-hour roadside runs with the 4 yr/50k new-car warranty; not in the warranty booklet and acura.com refused requests, so the mileage limit is not confirmed (some sources say unlimited miles)"
+    }
+   ],
+   "factory_note": "Same core terms for model years 2021-2026 (Acura warranty booklets checked; the 2020 booklet isn't online but older and newer books match). Maintenance changed: 2025+ models get a 1-yr/12k complimentary maintenance program.",
+   "maintenance": "MY2025+: complimentary Acura Maintenance Program, 1 year / 12,000 miles (oil and filter changes, tire rotation, multi-point inspection; at participating Acura dealers). MY2020-2024: none confirmed from Acura sources (one dealer page claims 2 yr/24k for 2023-24; unverified).",
+   "cpo": {
+    "program": "Acura Precision Certified",
+    "coverage": [
+     {
+      "name": "Comprehensive (non-powertrain Limited Warranty)",
+      "years": 2,
+      "miles": 100000,
+      "starts": "end of new-car warranty",
+      "note": "2 years starting when the 4 yr/50k new-car warranty ends (or from the CPO purchase date if it has already ended), up to 100,000 total odometer miles. $0 deductible."
+     },
+     {
+      "name": "Powertrain",
+      "years": 7,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "7 years from the original in-service date or 100,000 odometer miles. $0 deductible."
+     },
+     {
+      "name": "EV high-voltage battery (Precision Certified EV)",
+      "years": 8,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "Precision Certified EV tier (2024-2025 ZDX): 8 years / 100,000 miles"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 2,
+      "miles": 100000,
+      "starts": "end of new-car warranty",
+      "note": "Acura Care motor-club benefits during the non-powertrain warranty: up to 24 months or 100,000 total odometer miles"
+     }
+    ],
+    "summary": "An Acura Precision Certified car keeps the rest of the 4-year/50,000-mile factory warranty, then gets 2 more years of bumper-to-bumper coverage (up to 100,000 total miles), and the powertrain is covered for 7 years/100,000 miles from when it was first sold. No deductible.",
+    "perks": [
+     "182-point inspection (167-point for EVs)",
+     "First scheduled maintenance free (oil change and more)",
+     "7-day / 300-mile exchange policy",
+     "Trip-interruption expense reimbursement and concierge service",
+     "3-month SiriusXM and AcuraLink trials"
+    ],
+    "eligibility": "Precision Certified: up to 6 model years old (2020-2025 vehicles in Acura's July 2025 terms) with fewer than 80,000 miles. Lower tier Precision Used (since March 31, 2022): up to 10 years old, no mileage limit, only 6 months / 7,500 miles of warranty."
+   },
+   "sources": [
+    "https://owners.acura.com/Documentum/Warranty/Handbooks/2021_Acura_Warranty_Basebook.pdf",
+    "https://owners.acura.com/Documentum/Warranty/Handbooks/2023_Acura_Warranty_Basebook.pdf",
+    "https://owners.acura.com/Documentum/Warranty/Handbooks/2026_Acura_Warranty_Basebook.pdf",
+    "https://acuranews.com/en-US/releases/release-77dfefa32c6016754f9052f7ef0131b9-new-acura-precision-used-expands-availability-of-certified-used-vehicles-to-up-to-10-years-old",
+    "https://dam.coxautoinc.com/m/43dd19e0c770ebba/original/Acura-CPO-07-2025.pdf",
+    "https://www.acurainfocenter.com/2026/MDX/Feature-Guide/Acura-Maintenance-Program/",
+    "https://www.acurainfocenter.com/2025/ADX/Feature-Guide/Acura-Maintenance-Program/"
+   ]
   }
  ]
 }

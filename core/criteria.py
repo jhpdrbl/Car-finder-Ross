@@ -358,7 +358,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
 
     # seats: no cloth (Jenna)
     if F.get("no_cloth_seats"):
-        mat, how = (L.seats, "per the listing") if L.seats else seats_inferred(L, d)
+        mat, how = (L.seats, "per the listing") if L.seats else (seats_inferred(L, d)[0], "standard on this trim")
         if mat == "cloth":
             fails.append("cloth seats" + (f" ({how})" if how else ""))
         elif mat in ("leather", "synthetic"):

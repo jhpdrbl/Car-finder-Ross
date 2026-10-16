@@ -252,16 +252,77 @@ profiles:
         ventilated_seats: 5
         ground_clearance: 5
         spare_tire: 4
+    # Trim facts for Jenna's models (researched Oct 2026 from Toyota/Lexus/Subaru press sites, fueleconomy.gov,
+    # Car and Driver where makers refused). seat_material is used when a listing doesn't say: cloth / synthetic /
+    # leather, or cloth_std = cloth standard, better seats optional (asks instead of excluding).
+    # sunroof_standard here = Ross's list plus her models (only for her page; a sunroof is just nice-to-have for her).
+    seat_material:
+      - {make: Toyota, model: RAV4, trim_regex: xle premium, min_year: 2023, max_year: 2026, material: synthetic, note: 'SofTex standard on XLE Premium (2026: AWD only qualifies)'}
+      - {make: Toyota, model: RAV4, trim_regex: limited, min_year: 2023, max_year: 2026, material: synthetic, note: SofTex standard on Limited}
+      - {make: Toyota, model: RAV4, trim_regex: woodland, min_year: 2026, max_year: 2026, material: synthetic, note: 2026 Woodland has SofTex standard}
+      - {make: Toyota, model: RAV4, trim_regex: woodland, min_year: 2023, max_year: 2025, material: cloth, note: 2023-25 Woodland Edition has fabric seats}
+      - {make: Toyota, model: RAV4, trim_regex: \bxse\b, min_year: 2023, max_year: 2025, material: cloth, note: 'mixed: SofTex bolsters with fabric seat inserts (judgment call)'}
+      - {make: Toyota, model: RAV4, trim_regex: \bxse\b, min_year: 2026, max_year: 2026, material: cloth, note: 'mixed: SofTex with synthetic-suede inserts (judgment call)'}
+      - {make: Toyota, model: RAV4, trim_regex: \bse\b, min_year: 2023, max_year: 2026, material: cloth, note: fabric with blue stitching}
+      - {make: Toyota, model: RAV4, trim_regex: \bxle\b, min_year: 2023, max_year: 2025, material: cloth, note: 'plain XLE: fabric (XLE Premium matched above)'}
+      - {make: Toyota, model: RAV4, trim_regex: \ble\b, min_year: 2023, max_year: 2026, material: cloth, note: 'LE: fabric'}
+      - {make: Toyota, model: Venza, trim_regex: limited|nightshade|\bxle\b, min_year: 2023, max_year: 2024, material: synthetic, note: SofTex standard on XLE / Nightshade / Limited}
+      - {make: Toyota, model: Venza, trim_regex: \ble\b, min_year: 2023, max_year: 2024, material: cloth, note: 'LE: fabric'}
+      - {make: Toyota, model: Corolla Cross, trim_regex: \bxse\b, min_year: 2023, max_year: 2027, material: cloth, note: 'mixed: SofTex with mixed-media (fabric) inserts (judgment call)'}
+      - {make: Toyota, model: Corolla Cross, trim_regex: nightshade|\bse\b|\bs\b, min_year: 2023, max_year: 2027, material: cloth, note: 'S / SE / Nightshade: fabric'}
+      - {make: Toyota, model: Crown Signia, trim_regex: .*, min_year: 2025, max_year: 2026, material: leather, note: leather-trimmed on XLE and Limited}
+      - {make: Lexus, model: UX, trim_regex: .*, min_year: 2023, material: synthetic, note: NuLuxe synthetic standard on every UX hybrid grade}
+      - {make: Lexus, model: NX, trim_regex: luxury, min_year: 2022, material: leather, note: genuine leather on NX Luxury}
+      - {make: Lexus, model: NX, trim_regex: .*, min_year: 2022, material: synthetic, note: NuLuxe synthetic standard on NX 350h base/Premium/F SPORT}
+      - {make: Lexus, model: RX, trim_regex: '500h|premium ?(\+|plus)|luxury', min_year: 2023, material: leather, note: 'leather on RX Premium+, Luxury and 500h F SPORT Performance (500h: confirm on sticker)'}
+      - {make: Lexus, model: RX, trim_regex: .*, min_year: 2023, material: synthetic, note: NuLuxe synthetic standard on RX 350h base/Premium/F SPORT Design}
+      - {make: Kia, model: Sportage, trim_regex: 'sx ?prestige|x ?line', min_year: 2023, material: synthetic, note: premium SynTex standard on Sportage Hybrid X-Line / SX-Prestige}
+      - {make: Kia, model: Sportage, trim_regex: \bex\b, min_year: 2023, material: synthetic, note: SynTex standard on Sportage Hybrid EX}
+      - {make: Kia, model: Sportage, trim_regex: \blx\b, min_year: 2023, material: cloth, note: cloth on Sportage LX}
+      - {make: Kia, model: Sportage, trim_regex: \bhybrid s\b|\bsportage s\b|\bs (awd|fwd)\b, min_year: 2026, material: cloth, note: cloth on Sportage Hybrid S}
+      - {make: Ford, model: Escape, trim_regex: platinum, min_year: 2023, material: synthetic, note: ActiveX synthetic standard on Escape Platinum}
+      - {make: Ford, model: Escape, trim_regex: st line elite, min_year: 2023, material: cloth_std, note: partial vinyl/cloth standard on ST-Line Elite; ActiveX (2025+) or leather (2023-24) only with the Premium Technology Package}
+      - {make: Ford, model: Escape, trim_regex: st line, min_year: 2023, material: cloth, note: cloth on Escape ST-Line / ST-Line Select}
+      - {make: Subaru, model: Crosstrek, trim_regex: limited.*hybrid|hybrid.*limited, min_year: 2026, material: synthetic, note: gray StarTex on Crosstrek Limited Hybrid}
+      - {make: Subaru, model: Crosstrek, trim_regex: sport.*hybrid|hybrid.*sport, min_year: 2026, material: cloth, note: Sport cloth on Crosstrek Sport Hybrid}
+      - {make: Subaru, model: Forester, trim_regex: touring.*hybrid|hybrid.*touring, min_year: 2025, material: leather, note: leather on Forester Touring Hybrid}
+      - {make: Subaru, model: Forester, trim_regex: (limited|sport|wilderness).*hybrid|hybrid.*(limited|sport|wilderness), min_year: 2025, material: synthetic, note: StarTex on Forester Sport / Limited / Wilderness Hybrid}
+      - {make: Subaru, model: Forester, trim_regex: premium.*hybrid|hybrid.*premium, min_year: 2025, material: cloth, note: cloth on Forester Premium Hybrid}
+    sunroof_standard:
+      - {make: Audi, model: Q5, trim_regex: premium plus|prestige, note: panoramic sunroof is standard on Q5 Premium Plus / Prestige}
+      - {make: Audi, model: Q5, trim_regex: sportback, min_year: 2025, note: panoramic sunroof is standard on the 2025+ Q5 Sportback}
+      - {make: Audi, model: Q5, trim_regex: .*, min_year: 2026, note: panoramic sunroof is standard on the 2026+ Q5}
+      - {make: Audi, model: Q3, trim_regex: .*, note: panoramic sunroof is standard on every Q3}
+      - {make: BMW, model: X5, trim_regex: .*, note: panoramic moonroof is standard on the X5}
+      - {make: Genesis, model: GV70, trim_regex: select|advanced|prestige, note: panoramic roof standard from Select up}
+      - {make: Volvo, model: XC60, trim_regex: plus|ultimate|inscription|r-design, note: panoramic roof standard on Plus/Ultimate}
+      - {make: Ford, model: Bronco, trim_regex: .*, note: removable roof panels}
+      - {make: Subaru, model: Forester, trim_regex: premium|sport|limited|touring|wilderness|hybrid, note: panoramic moonroof is standard on every Forester but the Base}
+      - {make: Subaru, model: Outback, trim_regex: touring|\bxt\b, note: moonroof is standard on Outback Touring / XT}
+      - {make: Subaru, model: Outback, trim_regex: limited, min_year: 2025, note: moonroof is standard on the 2025+ Outback Limited}
+      - {make: Toyota, model: RAV4, trim_regex: xle premium|limited|\bxse\b, min_year: 2023, max_year: 2025, note: power tilt/slide moonroof standard on XLE Premium / XSE / Limited}
+      - {make: Toyota, model: RAV4, trim_regex: limited, min_year: 2026, max_year: 2026, note: panoramic glass roof standard on 2026 Limited}
+      - {make: Toyota, model: RAV4, trim_regex: \bxse\b, min_year: 2026, max_year: 2026, note: power moonroof standard on 2026 XSE}
+      - {make: Toyota, model: Crown Signia, trim_regex: limited, min_year: 2025, max_year: 2026, note: panoramic fixed-glass roof standard on Limited}
+      - {make: Lexus, model: UX, trim_regex: 'premium|f ?sport', min_year: 2023, max_year: 2026, note: 'power moonroof standard on UX Premium, F SPORT Design and F SPORT Handling'}
+      - {make: Lexus, model: NX, trim_regex: 'premium|luxury|f ?sport', min_year: 2022, max_year: 2026, note: moonroof standard on NX 350h Premium / Luxury / F SPORT Handling}
+      - {make: Lexus, model: RX, trim_regex: '500h|premium|luxury|f ?sport', min_year: 2023, max_year: 2026, note: moonroof standard on RX Premium and up; panoramic on Luxury and 500h}
+      - {make: Kia, model: Sportage, trim_regex: 'sx ?prestige|x ?line', min_year: 2023, note: panoramic sunroof standard on Sportage Hybrid SX-Prestige and X-Line}
+      - {make: Subaru, model: Crosstrek, trim_regex: sport.*hybrid|hybrid.*sport, min_year: 2026, note: power moonroof standard on Crosstrek Sport Hybrid}
+      - {make: Subaru, model: Crosstrek, trim_regex: limited.*hybrid|hybrid.*limited, min_year: 2027, note: power moonroof standard on the 2027+ Crosstrek Limited Hybrid (optional on 2026)}
+      - {make: Subaru, model: Forester, trim_regex: (premium|sport|limited|touring).*hybrid|hybrid.*(premium|sport|limited|touring), min_year: 2025, note: panoramic moonroof standard on every Forester Hybrid except possibly the 2027 Wilderness Hybrid (unconfirmed)}
+    ground_clearance_in: {Corolla Cross: 8.0, Crosstrek: 8.7, Crown Signia: 6.7, RAV4: 8.1, Sportage: 8.3, UX: 6.3, Venza: 7.8}
+    spare_tire_typical: {Corolla Cross: false, Crown Signia: false, Escape: true, RAV4: true, Sportage: true, UX: false, Venza: true}
     # Models: 2-row regular-hybrid SUVs with AWD/4WD, 2023+, from Ross's brands plus Kia and Acura. `tokens` are
     # the words looked for in dealer URLs. Gas, plug-in and mild-hybrid versions are dropped by the
     # VIN's fuel type, so rules only need to catch names.
     models:
       Toyota:
-        allow: 'rav4|venza|corolla cross|crown signia'
+        allow: 'rav ?-?4|venza|corolla ?-?cross|crown ?-?signia'
         list: RAV4 Hybrid, Venza, Corolla Cross Hybrid, Crown Signia
-        tokens: [rav4, venza, corolla-cross, crown-signia]
+        tokens: [rav4, rav-4, venza, corolla-cross, corollacross, crown-signia, crownsignia]
         rules:
-          - {if: 'prime|plug-?in', then: fail, why: 'plug-in hybrid (RAV4 Prime)'}
+          - {if: 'prime|plug-?in|\bphev\b', then: fail, why: 'plug-in hybrid (RAV4 Prime / Plug-in Hybrid)'}
       Lexus:
         allow: '\b(ux|nx|rx)\b'
         list: UX 250h/300h, NX 350h, RX 350h/500h
@@ -271,12 +332,17 @@ profiles:
           - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
       Subaru:
         allow: 'forester|crosstrek'
-        list: Forester Hybrid, Crosstrek Hybrid
+        list: Forester Hybrid 2025+, Crosstrek Hybrid 2026+
         tokens: [forester, crosstrek]
+        rules:
+          - {if: 'plug.?in|phev', then: fail, why: 'plug-in hybrid (the 2019-2023 Crosstrek Hybrid)'}
+          - {if: 'crosstrek', min_year: 2026, why: 'Crosstrek before 2026 (the older Crosstrek Hybrid was a plug-in)'}
+          - {if: 'forester', min_year: 2025, why: 'Forester before 2025 (no regular hybrid)'}
       Kia:
         allow: 'sportage'
         list: Sportage Hybrid
         tokens: [sportage]
+        feed_models: [Sportage Hybrid]      # model names in kia.com's certified search
         rules:
           - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid'}
       Ford:
@@ -285,8 +351,8 @@ profiles:
         tokens: [escape]
         rules:
           - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid (Escape PHEV)'}
-      # Acura: no 2-row regular-hybrid SUV for 2023+ (RDX is gas only, ZDX is electric, MDX has 3 rows),
-      # so no Acura models yet; add one here if Acura sells one.
+      # Acura: no 2-row regular-hybrid SUV for 2023+ (EPA data, Oct 2026: RDX/MDX/ADX gas, ZDX electric), so no
+      # Acura models yet and Acura dealers aren't searched; add a model here if Acura sells one.
 
 # Phone website (Cloudflare Pages). The digest's buying-context lines (down payment,
 # pre-approval) are left off the published copy unless this is true.
