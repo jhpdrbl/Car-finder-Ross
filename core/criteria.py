@@ -270,7 +270,9 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         unknown.append("model offers a third row; confirm this one is 2-row")
     elif L.third_row:
         unknown.append("page mentions third-row seating; confirm this one is 2-row")
-    if d and "sport utility" not in (d.get("BodyClass") or "").lower() and d.get("BodyClass"):
+    also_suv = F.get("also_suv")      # models a buyer counts as SUVs though the VIN record says otherwise (Lexus UX = "Wagon")
+    if (d and "sport utility" not in (d.get("BodyClass") or "").lower() and d.get("BodyClass")
+            and not (also_suv and re.search(also_suv, f"{L.model} {d.get('Model') or ''}".lower()))):
         fails.append(f"body: {d.get('BodyClass')}")
 
     # drivetrain

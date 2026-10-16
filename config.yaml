@@ -233,6 +233,7 @@ profiles:
       price_tolerance: 0
       sunroof_required: false     # nice to have: shown and scored, never excludes
       no_cloth_seats: true        # leather or synthetic leather only
+      also_suv: '\bux\b'          # the VIN record calls the Lexus UX a "wagon"; Lexus sells it as an SUV
       exterior_colors:            # any color except red / orange
         include: null
         describe: red/orange
