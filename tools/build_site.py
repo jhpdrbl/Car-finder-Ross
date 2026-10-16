@@ -77,10 +77,13 @@ def build() -> Path:
         raise SystemExit("output/dashboard.html not found: run `python run.py refresh` first")
     # front page: pick whose search (output/index.html); each buyer's tracker at site/<id>/ (/ross/, /jenna/)
     front = OUT / "index.html"
-    (SITE / "index.html").write_text(front.read_text(encoding="utf-8").replace(
-        '<meta name="viewport"', '<meta name="robots" content="noindex"><meta name="viewport"', 1)
-        if front.exists() else '<meta http-equiv="refresh" content="0; url=/ross/">', encoding="utf-8")
+    others = [pid for pid in (cfg.get("profiles") or {}) if pid != "ross"]
     _page(OUT, SITE / "ross", cfg)
+    if front.exists() and all((OUT / pid / "dashboard.html").exists() for pid in others):
+        (SITE / "index.html").write_text(front.read_text(encoding="utf-8").replace(
+            '<meta name="viewport"', '<meta name="robots" content="noindex"><meta name="viewport"', 1), encoding="utf-8")
+    else:                                                  # not every buyer has a page yet: Ross's page stays the front page
+        _page(OUT, SITE, cfg)
     for pid in (cfg.get("profiles") or {}):
         if pid != "ross" and (OUT / pid / "dashboard.html").exists():
             _page(OUT / pid, SITE / pid, cfg)
