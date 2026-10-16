@@ -3585,6 +3585,441 @@
    "match": {
     "model": "Escape"
    }
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50 Hybrid",
+   "match": {
+    "model": "CX-50"
+   },
+   "on_list_rule": "2025+ CX-50 Hybrid Premium and Hybrid Premium Plus (leather standard, AWD standard, regular hybrid). Not on the list: Hybrid Preferred (half-leatherette = leatherette with cloth). Gas CX-50s (2.5 S, 2.5 Turbo, any year) and 2023-24 CX-50s are not hybrids. Note: gas CX-50s also have Preferred / Premium / Premium Plus trims - only the Hybrid versions count.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "CX-50 Hybrid new for 2025 (Toyota-sourced hybrid system, 219 hp, eAWD, EPA 38 mpg combined); three hybrid trims: Preferred, Premium, Premium Plus. Red leather interior exclusive to hybrids. Built in Huntsville, Alabama.",
+     "trims": [
+      {
+       "name": "Hybrid Preferred",
+       "on_list": false,
+       "why_not": "half-leatherette seats (leatherette with cloth) standard; no all-leather option on Preferred",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, 3 electric motors, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "",
+       "highlights": [
+        "AWD standard on every CX-50 Hybrid",
+        "10.25-in. display, wireless Apple CarPlay / Android Auto, Alexa Built-in",
+        "Heated front seats, 8-way power driver's seat, power liftgate",
+        "Wireless phone charging, 17-in. black hybrid wheels"
+       ],
+       "sunroof": "not available on Preferred (Premium and up)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (leatherette + cloth), standard",
+       "black_interior": "yes (black half-leatherette)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "Hybrid Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, 3 electric motors, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "Hybrid Preferred",
+       "highlights": [
+        "Leather-trimmed seats standard (black, or hybrid-only red)",
+        "Power sliding panoramic moonroof (one-touch)",
+        "Bose 12-speaker audio with Centerpoint and AudioPilot, SiriusXM",
+        "Mazda Radar Cruise Control with Stop & Go, Traffic Sign Recognition",
+        "Black roof rails and black exhaust tips"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, standard; heated front (ventilated only on Premium Plus)",
+       "black_interior": "yes (black leather; red also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "Hybrid Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, 3 electric motors, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "Hybrid Premium",
+       "highlights": [
+        "Ventilated front seats, 6-way power passenger seat, 2-position driver memory",
+        "Auto-dimming mirror with HomeLink",
+        "Full-color Active Driving Display (head-up display)",
+        "Automatic power-folding mirrors, 19-in. split black/machine-polished wheels",
+        "Bright (silver) roof rails and exhaust tips; camel stitching available on black interior"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, standard; ventilated front",
+       "black_interior": "yes (black leather; red also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Panoramic moonroof and front/rear parking sensors now standard on Hybrid Preferred. Hybrid Premium gains ventilated front seats, 6-way power passenger seat and 2-position memory. Hybrid Premium Plus adds heated rear seats, heated steering wheel and adaptive LED headlights. Starting MSRP $34,750 (Hybrid Preferred) / $38,150 (Premium) / $40,150 (Premium Plus).",
+     "trims": [
+      {
+       "name": "Hybrid Preferred",
+       "on_list": false,
+       "why_not": "half-leatherette seats (leatherette with cloth) standard; no all-leather option on Preferred",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, 3 electric motors, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "",
+       "highlights": [
+        "AWD standard on every CX-50 Hybrid",
+        "10.25-in. display, wireless Apple CarPlay / Android Auto, Alexa Built-in",
+        "Heated front seats, 8-way power driver's seat, power liftgate",
+        "Wireless phone charging, 17-in. black hybrid wheels",
+        "Power sliding panoramic moonroof and front/rear parking sensors now standard (new for 2026)"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (leatherette + cloth), standard",
+       "black_interior": "yes (black half-leatherette)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "Hybrid Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, 3 electric motors, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "Hybrid Preferred",
+       "highlights": [
+        "Leather-trimmed seats standard (black, or hybrid-only red)",
+        "Power sliding panoramic moonroof (one-touch)",
+        "Bose 12-speaker audio with Centerpoint and AudioPilot, SiriusXM",
+        "Mazda Radar Cruise Control with Stop & Go, Traffic Sign Recognition",
+        "Black roof rails and black exhaust tips",
+        "Now also: ventilated front seats, 6-way power passenger seat, 2-position driver memory (moved down from Premium Plus for 2026)"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, standard; ventilated front",
+       "black_interior": "yes (black leather; red also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "Hybrid Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, 3 electric motors, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "Hybrid Premium",
+       "highlights": [
+        "Heated rear seats and heated steering wheel (new for 2026)",
+        "Signature LED headlights with auto-leveling, Adaptive Front-lighting System",
+        "Full-color Active Driving Display (head-up display)",
+        "Automatic power-folding mirrors, 19-in. split black/machine-polished wheels",
+        "Silver roof rails and exhaust tips"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, standard; ventilated front",
+       "black_interior": "yes (black leather; red also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://news.mazdausa.com/2024-07-09-2025-CX-50-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2025-09-16-2026-Mazda-CX-50-Pricing-and-Packaging",
+    "https://www.mazdausa.com/vehicles/cx-50-hybrid",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48924",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50010"
+   ]
+  },
+  {
+   "make": "Lincoln",
+   "model": "Nautilus Hybrid",
+   "match": {
+    "model": "Nautilus"
+   },
+   "on_list_rule": "2024+ Nautilus Hybrid (2.0L turbo full hybrid, AWD standard) in any trim: Premiere (leatherette), Reserve (leather), Black Label (leather). No cloth on any trim. Not on the list: gas Nautilus (2.0L turbo, 8-speed) and 2023 and earlier Nautilus (no hybrid). Realistically under $40,000 only as a 2024 Premiere/Reserve with higher miles - check price.",
+   "years": [
+    {
+     "year": 2024,
+     "what_changed": "All-new third-generation Nautilus; AWD now standard; V6 dropped. Hybrid (2.0L turbo + electric motors, 310 hp, eCVT) new and optional on Premiere, Reserve and Black Label. 48-in. dash-wide display.",
+     "trims": [
+      {
+       "name": "Premiere (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 310 hp combined, eCVT, AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Hybrid is a $1,500-2,000 option on every trim, incl. Premiere",
+        "48-in. panoramic dash display plus 11.1-in. touchscreen",
+        "BlueCruise hands-free highway driving, 360-degree camera",
+        "Heated front seats, heated steering wheel, dual-zone climate",
+        "Premiere II package adds Panoramic Vista Roof, 14-speaker Revel, heated/ventilated front and heated rear seats"
+       ],
+       "sunroof": "optional (Panoramic Vista Roof with Premiere II package)",
+       "premium_audio": "Revel 14-speaker optional (Premiere II); standard is 10 speakers",
+       "seats": "Luxury Soft Touch leatherette (synthetic leather), standard; no cloth",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit)",
+       "mpg": "30/31/30"
+      },
+      {
+       "name": "Reserve (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 310 hp combined, eCVT, AWD standard",
+       "builds_on": "Premiere",
+       "highlights": [
+        "Genuine leather-trimmed seats, heated rear outboard seats",
+        "21-in. wheels, adaptive suspension (Reserve II)",
+        "Digital Scent, black painted roof, aluminum roof rails",
+        "Reserve III adds 24-way Perfect Position seats with massage and 28-speaker Revel Ultima 3D"
+       ],
+       "sunroof": "optional (Panoramic Vista Roof in the Reserve equipment group, e.g. 202A; confirm on window sticker)",
+       "premium_audio": "Revel 14-speaker (in the Reserve equipment group; confirm on sticker); Revel Ultima 3D 28-speaker optional",
+       "seats": "leather-trimmed, standard",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "30/31/30"
+      },
+      {
+       "name": "Black Label (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 310 hp combined, eCVT, AWD standard",
+       "builds_on": "Reserve",
+       "highlights": [
+        "Venetian leather with micro-perforated inserts, cashmere headliner",
+        "24-way Perfect Position massaging front seats",
+        "Revel Ultima 3D 28-speaker audio",
+        "Black Label membership perks (4 yrs scheduled maintenance, annual detailing)",
+        "Usually far over a $40,000 budget even certified pre-owned"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof)",
+       "premium_audio": "Revel Ultima 3D 28-speaker, standard",
+       "seats": "Venetian leather, standard",
+       "black_interior": "depends on theme (Black Label themes include light ones; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "30/31/30"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Few changes: 4 years of BlueCruise included on all trims; Lincoln Rejuvenate standard on Reserve III and Black Label. Equipment groups renamed Premiere I/II, Reserve II/III.",
+     "trims": [
+      {
+       "name": "Premiere (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 310 hp combined, eCVT, AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Hybrid is a $1,500-2,000 option on every trim, incl. Premiere",
+        "48-in. panoramic dash display plus 11.1-in. touchscreen",
+        "BlueCruise hands-free highway driving, 360-degree camera",
+        "Heated front seats, heated steering wheel, dual-zone climate",
+        "Premiere II package adds Panoramic Vista Roof, 14-speaker Revel, heated/ventilated front and heated rear seats"
+       ],
+       "sunroof": "optional (Panoramic Vista Roof with Premiere II package)",
+       "premium_audio": "Revel 14-speaker optional (Premiere II); standard is 10 speakers",
+       "seats": "Luxury Soft Touch leatherette (synthetic leather), standard; no cloth",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit)",
+       "mpg": "30/31/30"
+      },
+      {
+       "name": "Reserve (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 310 hp combined, eCVT, AWD standard",
+       "builds_on": "Premiere",
+       "highlights": [
+        "Genuine leather-trimmed seats, heated rear outboard seats",
+        "21-in. wheels, adaptive suspension (Reserve II)",
+        "Digital Scent, black painted roof, aluminum roof rails",
+        "Reserve III adds 24-way Perfect Position seats with massage and 28-speaker Revel Ultima 3D",
+        "Lincoln Rejuvenate standard on Reserve III (2025+)"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof in Reserve II, standard on Reserve; confirm on window sticker)",
+       "premium_audio": "Revel 14-speaker standard; Revel Ultima 3D 28-speaker optional (Reserve III)",
+       "seats": "leather-trimmed, standard",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "30/31/30"
+      },
+      {
+       "name": "Black Label (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 310 hp combined, eCVT, AWD standard",
+       "builds_on": "Reserve",
+       "highlights": [
+        "Venetian leather with micro-perforated inserts, cashmere headliner",
+        "24-way Perfect Position massaging front seats",
+        "Revel Ultima 3D 28-speaker audio",
+        "Black Label membership perks (4 yrs scheduled maintenance, annual detailing)",
+        "Usually far over a $40,000 budget even certified pre-owned"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof)",
+       "premium_audio": "Revel Ultima 3D 28-speaker, standard",
+       "seats": "Venetian leather, standard",
+       "black_interior": "depends on theme (Black Label themes include light ones; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "30/31/30"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "BlueCruise 1.5 with hands-free lane change; 4-year Wi-Fi hotspot trial; new colors (Grey Matter, Medium Light Space Grey and Hot Chocolate interiors, Aurora theme on Black Label). Hybrid now quoted at 285 hp; EPA 29/31/30.",
+     "trims": [
+      {
+       "name": "Premiere (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 285 hp (as rated by Car and Driver for 2026+) combined, eCVT, AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Hybrid is a $1,500-2,000 option on every trim, incl. Premiere",
+        "48-in. panoramic dash display plus 11.1-in. touchscreen",
+        "BlueCruise hands-free highway driving, 360-degree camera",
+        "Heated front seats, heated steering wheel, dual-zone climate",
+        "Premiere II package adds Panoramic Vista Roof, 14-speaker Revel, heated/ventilated front and heated rear seats"
+       ],
+       "sunroof": "optional (Panoramic Vista Roof with Premiere II package)",
+       "premium_audio": "Revel 14-speaker optional (Premiere II); standard is 10 speakers",
+       "seats": "Luxury Soft Touch leatherette (synthetic leather), standard; no cloth",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit)",
+       "mpg": "29/31/30"
+      },
+      {
+       "name": "Reserve (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 285 hp (as rated by Car and Driver for 2026+) combined, eCVT, AWD standard",
+       "builds_on": "Premiere",
+       "highlights": [
+        "Genuine leather-trimmed seats, heated rear outboard seats",
+        "21-in. wheels, adaptive suspension (Reserve II)",
+        "Digital Scent, black painted roof, aluminum roof rails",
+        "Reserve III adds 24-way Perfect Position seats with massage and 28-speaker Revel Ultima 3D",
+        "Lincoln Rejuvenate standard on Reserve III (2025+)"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof in Reserve II, standard on Reserve; confirm on window sticker)",
+       "premium_audio": "Revel 14-speaker standard; Revel Ultima 3D 28-speaker optional (Reserve III)",
+       "seats": "leather-trimmed, standard",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "29/31/30"
+      },
+      {
+       "name": "Black Label (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 285 hp (as rated by Car and Driver for 2026+) combined, eCVT, AWD standard",
+       "builds_on": "Reserve",
+       "highlights": [
+        "Venetian leather with micro-perforated inserts, cashmere headliner",
+        "24-way Perfect Position massaging front seats",
+        "Revel Ultima 3D 28-speaker audio",
+        "Black Label membership perks (4 yrs scheduled maintenance, annual detailing)",
+        "Usually far over a $40,000 budget even certified pre-owned"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof)",
+       "premium_audio": "Revel Ultima 3D 28-speaker, standard",
+       "seats": "Venetian leather, standard",
+       "black_interior": "depends on theme (Black Label themes include light ones; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "29/31/30"
+      }
+     ]
+    },
+    {
+     "year": 2027,
+     "what_changed": "Facelift: new grille, bumpers, lighting and wheels (19-22 in.); new Eminent Hour and Elysian Light interior themes. Hybrid 285 hp. EPA figures not yet listed.",
+     "trims": [
+      {
+       "name": "Premiere (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 285 hp (as rated by Car and Driver for 2026+) combined, eCVT, AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Hybrid is a $1,500-2,000 option on every trim, incl. Premiere",
+        "48-in. panoramic dash display plus 11.1-in. touchscreen",
+        "BlueCruise hands-free highway driving, 360-degree camera",
+        "Heated front seats, heated steering wheel, dual-zone climate",
+        "Premiere II package adds Panoramic Vista Roof, 14-speaker Revel, heated/ventilated front and heated rear seats"
+       ],
+       "sunroof": "optional (Panoramic Vista Roof with Premiere II package)",
+       "premium_audio": "Revel 14-speaker optional (Premiere II); standard is 10 speakers",
+       "seats": "Luxury Soft Touch leatherette (synthetic leather), standard; no cloth",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit)",
+       "mpg": "unknown (not yet on fueleconomy.gov; 2026 was 29/31/30)"
+      },
+      {
+       "name": "Reserve (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 285 hp (as rated by Car and Driver for 2026+) combined, eCVT, AWD standard",
+       "builds_on": "Premiere",
+       "highlights": [
+        "Genuine leather-trimmed seats, heated rear outboard seats",
+        "21-in. wheels, adaptive suspension (Reserve II)",
+        "Digital Scent, black painted roof, aluminum roof rails",
+        "Reserve III adds 24-way Perfect Position seats with massage and 28-speaker Revel Ultima 3D",
+        "Lincoln Rejuvenate standard on Reserve III (2025+)"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof in Reserve II, standard on Reserve; confirm on window sticker)",
+       "premium_audio": "Revel 14-speaker standard; Revel Ultima 3D 28-speaker optional (Reserve III)",
+       "seats": "leather-trimmed, standard",
+       "black_interior": "yes (Black Onyx; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "unknown (not yet on fueleconomy.gov; 2026 was 29/31/30)"
+      },
+      {
+       "name": "Black Label (Hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl full hybrid (FHEV) with electric motors, 285 hp (as rated by Car and Driver for 2026+) combined, eCVT, AWD standard",
+       "builds_on": "Reserve",
+       "highlights": [
+        "Venetian leather with micro-perforated inserts, cashmere headliner",
+        "24-way Perfect Position massaging front seats",
+        "Revel Ultima 3D 28-speaker audio",
+        "Black Label membership perks (4 yrs scheduled maintenance, annual detailing)",
+        "Usually far over a $40,000 budget even certified pre-owned"
+       ],
+       "sunroof": "standard (Panoramic Vista Roof)",
+       "premium_audio": "Revel Ultima 3D 28-speaker, standard",
+       "seats": "Venetian leather, standard",
+       "black_interior": "depends on theme (Black Label themes include light ones; confirm)",
+       "spare": "no spare (tire mobility kit; confirm)",
+       "mpg": "unknown (not yet on fueleconomy.gov; 2026 was 29/31/30)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/lincoln/nautilus-hybrid-2024",
+    "https://www.caranddriver.com/lincoln/nautilus-hybrid-2025",
+    "https://www.caranddriver.com/lincoln/nautilus-hybrid-2026",
+    "https://www.caranddriver.com/lincoln/nautilus-hybrid-2027",
+    "https://www.caranddriver.com/lincoln/nautilus/specs/2025/lincoln_nautilus_lincoln-nautilus_2025",
+    "https://www.lincolnoflafayettein.com/2025-lincoln-nautilus-trim-levels.htm",
+    "https://www.applelincoln.net/lincoln-nautilus-trim-levels-columbia-md.htm",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47662",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48535",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49515",
+    "(media.lincoln.com, lincoln.com and media.ford.com refused requests (403); Car and Driver and Lincoln dealer trim pages used instead)"
+   ]
   }
  ]
 }

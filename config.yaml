@@ -288,6 +288,12 @@ profiles:
       - {make: Subaru, model: Forester, trim_regex: touring.*hybrid|hybrid.*touring, min_year: 2025, material: leather, note: leather on Forester Touring Hybrid}
       - {make: Subaru, model: Forester, trim_regex: (limited|sport|wilderness).*hybrid|hybrid.*(limited|sport|wilderness), min_year: 2025, material: synthetic, note: StarTex on Forester Sport / Limited / Wilderness Hybrid}
       - {make: Subaru, model: Forester, trim_regex: premium.*hybrid|hybrid.*premium, min_year: 2025, material: cloth, note: cloth on Forester Premium Hybrid}
+      - {make: Mazda, model: CX-50, trim_regex: 'premium ?(plus|\+)', min_year: 2025, max_year: 2026, material: leather, note: 'CX-50 Hybrid Premium Plus: leather-trimmed (black or red). Gas 2.5 S/Turbo Premium Plus are also leather but are dropped by the VIN fuel check'}
+      - {make: Mazda, model: CX-50, trim_regex: premium, min_year: 2025, max_year: 2026, material: leather, note: 'CX-50 Hybrid Premium: leather-trimmed (black or hybrid-only red). (2025 gas 2.5 S Premium was half-leatherette, but gas CX-50s are dropped by VIN)'}
+      - {make: Mazda, model: CX-50, trim_regex: preferred, min_year: 2025, max_year: 2026, material: cloth, note: 'CX-50 Hybrid Preferred: half leatherette = leatherette with cloth (mixed, counts as cloth)'}
+      - {make: Lincoln, model: Nautilus, trim_regex: black label, min_year: 2024, max_year: 2027, material: leather, note: 'Black Label: Venetian leather'}
+      - {make: Lincoln, model: Nautilus, trim_regex: reserve, min_year: 2024, max_year: 2027, material: leather, note: 'Reserve: leather-trimmed seats'}
+      - {make: Lincoln, model: Nautilus, trim_regex: .*, min_year: 2024, max_year: 2027, material: synthetic, note: 'Premiere: Luxury Soft Touch leatherette (synthetic, no cloth)'}
     sunroof_standard:
       - {make: Audi, model: Q5, trim_regex: premium plus|prestige, note: panoramic sunroof is standard on Q5 Premium Plus / Prestige}
       - {make: Audi, model: Q5, trim_regex: sportback, min_year: 2025, note: panoramic sunroof is standard on the 2025+ Q5 Sportback}
@@ -311,8 +317,12 @@ profiles:
       - {make: Subaru, model: Crosstrek, trim_regex: sport.*hybrid|hybrid.*sport, min_year: 2026, note: power moonroof standard on Crosstrek Sport Hybrid}
       - {make: Subaru, model: Crosstrek, trim_regex: limited.*hybrid|hybrid.*limited, min_year: 2027, note: power moonroof standard on the 2027+ Crosstrek Limited Hybrid (optional on 2026)}
       - {make: Subaru, model: Forester, trim_regex: (premium|sport|limited|touring).*hybrid|hybrid.*(premium|sport|limited|touring), min_year: 2025, note: panoramic moonroof standard on every Forester Hybrid except possibly the 2027 Wilderness Hybrid (unconfirmed)}
-    ground_clearance_in: {Corolla Cross: 8.0, Crosstrek: 8.7, Crown Signia: 6.7, RAV4: 8.1, Sportage: 8.3, UX: 6.3, Venza: 7.8}
-    spare_tire_typical: {Corolla Cross: false, Crown Signia: false, Escape: true, RAV4: true, Sportage: true, UX: false, Venza: true}
+      - {make: Mazda, model: CX-50, trim_regex: premium, min_year: 2025, max_year: 2026, note: power sliding panoramic moonroof standard on CX-50 Hybrid Premium / Premium Plus}
+      - {make: Mazda, model: CX-50, trim_regex: preferred, min_year: 2026, max_year: 2026, note: panoramic moonroof standard on 2026 Hybrid Preferred (not on 2025 Preferred)}
+      - {make: Lincoln, model: Nautilus, trim_regex: black label, min_year: 2024, max_year: 2027, note: Panoramic Vista Roof standard on Black Label}
+      - {make: Lincoln, model: Nautilus, trim_regex: reserve, min_year: 2025, max_year: 2026, note: 'Panoramic Vista Roof in Reserve II, standard on 2025+ Reserve per Lincoln dealer trim pages (2024 Reserve: optional package; confirm on sticker)'}
+    ground_clearance_in: {'CX-50': 7.8, Nautilus: 7.9, Corolla Cross: 8.0, Crosstrek: 8.7, Crown Signia: 6.7, RAV4: 8.1, Sportage: 8.3, UX: 6.3, Venza: 7.8}
+    spare_tire_typical: {'CX-50': true, Nautilus: false, Corolla Cross: false, Crown Signia: false, Escape: true, RAV4: true, Sportage: true, UX: false, Venza: true}
     # Models: 2-row regular-hybrid SUVs with AWD/4WD, 2023+, from Ross's brands plus Kia and Acura. `tokens` are
     # the words looked for in dealer URLs. Gas, plug-in and mild-hybrid versions are dropped by the
     # VIN's fuel type, so rules only need to catch names.
@@ -351,6 +361,20 @@ profiles:
         tokens: [escape]
         rules:
           - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid (Escape PHEV)'}
+      Mazda:
+        allow: '\bcx ?-?50\b'
+        list: CX-50 Hybrid 2025+
+        tokens: [cx-50, cx50]
+        rules:
+          - {if: 'cx ?-?50', min_year: 2025, why: 'CX-50 before 2025 (no hybrid)'}
+      Lincoln:
+        allow: 'nautilus|corsair'
+        list: Nautilus Hybrid 2024+, Corsair Hybrid 2027+
+        tokens: [nautilus, corsair]
+        rules:
+          - {if: 'nautilus', min_year: 2024, why: 'Nautilus before 2024 (no hybrid)'}
+          - {if: 'corsair', min_year: 2027, why: 'Corsair before 2027 (its hybrid was the Grand Touring plug-in)'}
+          - {if: 'grand touring|plug.?in|phev', then: fail, why: 'plug-in hybrid (Corsair / Aviator Grand Touring)'}
       # Acura: no 2-row regular-hybrid SUV for 2023+ (EPA data, Oct 2026: RDX/MDX/ADX gas, ZDX electric), so no
       # Acura models yet and Acura dealers aren't searched; add a model here if Acura sells one.
 
