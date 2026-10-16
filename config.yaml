@@ -240,18 +240,16 @@ profiles:
         exclude: [red, orange, ruby, crimson, cardinal, burgundy, maroon, garnet, scarlet, cherry, merlot, "wine",
                   lava, inferno, barcelona, matador, tangerine, "sunset", mango, flame, "hot pepper", "redline",
                   "rapid red", "rally red", "runway red", "supersonic", "venetian", "rosso", "rojo"]
-      interior_colors: null       # any interior color
-    scoring:
-      price_target: 32000
+      interior_colors:            # any interior except white (Oct 16 2026)
+        include: null
+        exclude: [white, ivory, cream, "off-white", snow, bianco, alabaster]
+    scoring:                      # Jenna's nice-to-haves, in her order (Oct 16 2026): exterior color, mileage, sunroof, real leather
       weights:
-        price: 30
-        mpg: 18
-        sunroof: 14
-        audio: 8
-        leather: 6
-        ventilated_seats: 5
-        ground_clearance: 5
-        spare_tire: 4
+        exterior_color: 40        # by her color order below
+        mileage: 30               # fewer miles = more points (0 mi = all, 40,000 = none)
+        sunroof: 20
+        real_leather: 10          # real leather full points, synthetic leather 40%
+      color_rank: [black, gray, dark blue, brown, silver, gold, white]   # anything else after these
     # Trim facts for Jenna's models (researched Oct 2026 from Toyota/Lexus/Subaru press sites, fueleconomy.gov,
     # Car and Driver where makers refused). seat_material is used when a listing doesn't say: cloth / synthetic /
     # leather, or cloth_std = cloth standard, better seats optional (asks instead of excluding).

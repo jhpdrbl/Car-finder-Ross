@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = ROOT / "output"
 DEFAULT = "ross"
-REPLACE = {"models", "buying_context"}     # keys a profile replaces instead of merging into
+REPLACE = {"models", "buying_context", "weights"}     # keys a profile replaces instead of merging into
 
 
 def _merge(base: dict, over: dict) -> dict:

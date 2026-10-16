@@ -59,6 +59,8 @@ class Listing:
     doc_fee: float | None = None
     other_fees: float | None = None  # filing, smog, etc.
     price_total: float | None = None
+    msrp_new: float | None = None     # original sticker price when new (dealer page, or the trim's base MSRP)
+    msrp_source: str = ""            # "listing" = the page said so; "trim base" = base price of the trim (no options)
     fees_estimated: bool = False
     mileage: int | None = None
     ext_color: str = ""

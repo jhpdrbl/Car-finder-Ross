@@ -277,6 +277,35 @@ def _mix(a: str, b: str, t: float) -> str:
     return "#" + "".join(f"{round(x * t + y * (1 - t)):02x}" for x, y in zip(pa, pb))
 
 
+def score_help(P) -> str:
+    """Plain-words explanation of this buyer's score (from config scoring.weights)."""
+    sc = P.cfg.get("scoring") or {}
+    w = sc.get("weights") or {}
+    tgt = sc.get("price_target", 30000)
+    rank = sc.get("color_rank") or []
+    label = {
+        "price": f"Price: full points at ${tgt:,} or less, none at ${tgt + 10000:,}",
+        "phev": "Plug-in hybrid: all or nothing",
+        "mpg": "Gas mileage: none at 20 mpg, full at 40 mpg",
+        "audio": "Premium sound system (Harman Kardon, B&O, Burmester…)",
+        "leather": "Real leather seats (not shown on the listing: 40%)",
+        "ventilated_seats": "Cooled seats (not shown: 40%)",
+        "ground_clearance": "Ground clearance of 8 inches or more",
+        "spare_tire": "Spare tire (not shown: 40%)",
+        "sunroof": "Sunroof (not shown: 30%)",
+        "exterior_color": "Exterior color, in this order: " + " › ".join(rank) + " › anything else" if rank else "Exterior color",
+        "mileage": "Mileage: full points at 0 miles, none at 40,000",
+        "real_leather": "Real leather seats: full points; synthetic leather 40%",
+    }
+    total = sum(w.values()) or 1
+    items = "".join(f"<li><b>{round(100 * v / total)} pts</b> · {html.escape(label.get(k, k))}</li>"
+                    for k, v in sorted(w.items(), key=lambda kv: -kv[1]))
+    return (f'<details id="scorehelp"><summary><b>How the score works</b> <span class="small">(0–100; it only ranks cars '
+            f'that already pass every rule)</span></summary><ul>{items}</ul><p class="small">Each item gives its points '
+            f'in full, in part or not at all, and the score adds them up. A car only reaches 100 if it is best on '
+            f'everything at once, so even very good matches usually land between 50 and 75.</p></details>')
+
+
 def theme_vars(P) -> dict:
     """Each buyer's color (config `theme:`): Ross British Racing Green, Jenna Cobalt Blue."""
     th = P.cfg.get("theme") or {"light": "#2c6e57", "dark": "#7cc7a8"}
@@ -301,7 +330,8 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "mileage", "ext_color", "int_color", "fuel_type", "sunroof", "audio",
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
-                                               "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats")}
+                                               "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
+                                               "msrp_new", "msrp_source")}
                     | {"hist": hist.get(r["vin"], []),
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run})
     ok = sum(c["status"] == "success" for c in cov)
@@ -333,7 +363,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
         .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"]))) \
         .replace("__NAVAIL__", str(len(cars))) \
         .replace("__MPY__", f'{P.cfg.get("warranty", {}).get("miles_per_year", 12000):,}').replace("__NGONE__", str(len(gone))) \
-        .replace("__TITLE__", f"{html.escape(P.label)}'s CPO SUV Finder")
+        .replace("__TITLE__", f"{html.escape(P.label)}'s CPO SUV Finder").replace("__SCOREHELP__", score_help(P))
     for k, v in theme_vars(P).items():
         page = page.replace(k, v)
     P.out.mkdir(parents=True, exist_ok=True)
@@ -562,6 +592,7 @@ td.warr { min-width:190px; font-size:13px; }
   <div class="tile"><b>__FAILED__</b><span class="muted">sources failed</span></div>
   <div class="tile"><b>__SKIPPED__</b><span class="muted">covered by brand feeds</span></div>
 </div>
+__SCOREHELP__
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
 <div class="tabs" role="tablist">
   <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail"><span class="lg">Available</span><span class="sh">Cars</span><span class="n">__NAVAIL__</span></button>
@@ -598,7 +629,7 @@ td.warr { min-width:190px; font-size:13px; }
   <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="orig">Original price</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
+  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_end">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
@@ -662,6 +693,7 @@ D.cars.concat(D.gone).forEach(c => { c.title = [c.year, c.make, c.model, c.trim]
   c.fuel = FUEL[c.fuel_type] || "?"; });
 D.cars.concat(D.gone).forEach(c => {
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
+  c.msrp = num(c.msrp_new);
   const now = num(c.price_total);
   c.dropped = c.orig != null && now != null && now < c.orig - 1;
   c.histTip = (c.hist || []).map(x => x[0] + ": " + fmt$(x[1])).join("\n"); });
@@ -680,6 +712,13 @@ function priceCell(c) {
   return c.dropped
     ? `<span class="drop" title="Price dropped from ${fmt$(c.orig)}" aria-label="price dropped">&#9660;</span>${fmt$(c.price_total)}`
     : fmt$(c.price_total);
+}
+function msrpCell(c) {          // original new-car sticker: the dealer's figure, or "~" = the trim's base price when new (options add to it)
+  if (c.msrp == null) return '<span class="muted">?</span>';
+  const est = c.msrp_source !== "listing";
+  const off = num(c.price_total) != null ? Math.round(100 * (1 - num(c.price_total) / c.msrp)) : null;
+  return `<span title="${est ? "Base price of this trim when new (destination included, before options)" : "Original sticker price, from the dealer's page"}">${est ? "~" : ""}${fmt$(c.msrp)}</span>`
+    + (off != null && off > 0 ? `<div class="small">${off}% below</div>` : "");
 }
 function origCell(c) {
   if (c.orig == null) return "?";
@@ -989,6 +1028,7 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
 const FIELDS = [
   ["Price", c => priceCell(c) + (c.fees_estimated === "True" ? ' <span class="small">fees est.</span>' : ""), c => num(c.price_total), "low"],
   ["Original price", c => origCell(c), null, null],
+  ["Sticker when new", c => msrpCell(c), null, null],
   ["Est. monthly", c => fmt$(c.est_monthly_cost), c => num(c.est_monthly_cost), "low"],
   ["Status", c => c.needs_call ? `<span class="chip call">needs a call</span> <span class="small">${esc(c.needs_call)}</span>` : '<span class="chip match">match</span>', null, null],
   ["Score", c => esc(c.score), c => num(c.score), "high"],
@@ -1066,13 +1106,13 @@ function renderRows() {
     <td class="num p-year" data-l="Year">${esc(c.year)}</td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
-    <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td data-l="Fuel">${esc(c.fuel)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="span2" data-l="Features">${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
-    || `<tr><td colspan="15" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+    || `<tr><td colspan="16" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
   if (favOnly) {
     const gf = D.gone.filter(c => fav.includes(c.vin));
     document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>

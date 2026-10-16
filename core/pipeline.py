@@ -225,7 +225,8 @@ def enrich_from_dealer_page(L: Listing) -> None:
     if P.vin and P.vin.upper() != L.vin.upper():
         return      # e.g. a dealer search page showing other cars: take nothing from it
     for attr in ("sunroof", "sunroof_note", "audio", "leather", "ventilated_seats", "spare_tire", "spare_note",
-                 "third_row", "carfax_badges", "carfax_status", "cpo_warranty_terms", "doc_fee", "other_fees"):
+                 "third_row", "carfax_badges", "carfax_status", "cpo_warranty_terms", "doc_fee", "other_fees",
+                 "seats", "msrp_new"):
         val = getattr(P, attr)
         if val not in (None, "", [], "not_verified"):
             setattr(L, attr, val)

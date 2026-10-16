@@ -30,7 +30,7 @@ def refresh(args) -> None:
     from core import criteria, history, outputs, pipeline, profiles
     from scrapers.brand_feeds import SUPPLEMENT_FEEDS
     from scrapers.generic_jsonld import seat_material
-    from verify import recalls, vin_decode
+    from verify import msrp, recalls, vin_decode
 
     t0 = time.time()
     today = date.today().isoformat()
@@ -104,6 +104,7 @@ def refresh(args) -> None:
                 L.fuel_type = "hybrid"          # VIN decode has no electrification data; the listing says hybrid
         if not L.seats:
             L.seats = seat_material(" ".join(L.features), L.int_color)
+        msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
     for brand, st in feed_stats.items():
         if st["status"] == "success":
@@ -255,6 +256,45 @@ def _stamp_dealers(names: set[str], today: str) -> None:
     history.write_csv(path, rows, list(rows[0].keys()))
 
 
+def rescore(args) -> None:
+    """Re-apply scores, color/interior rules and sticker prices to the last results, without searching
+    (for a rules change between searches). Only rules that need nothing beyond what listings.csv holds."""
+    from core import criteria, history, outputs, profiles
+    from scrapers.listing import Listing
+    from verify import msrp
+    b = {"True": True, "False": False}
+    f = lambda v: float(v) if v not in ("", None) else None
+    cov = history.read_csv(history.DATA / "coverage.csv")
+    for P in profiles.all_profiles():
+        criteria.use(P.cfg)
+        rows = history.read_csv(P.data / "listings.csv")
+        n_out = 0
+        for r in rows:
+            if r.get("status") != "active":
+                continue
+            L = Listing(vin=r["vin"], make=r["make"], model=r["model"], trim=r["trim"], listing_url=r["listing_url"],
+                        year=int(r["year"]) if r["year"] else None, price_total=f(r["price_total"]),
+                        mileage=int(float(r["mileage"])) if r["mileage"] else None, fuel_type=r["fuel_type"],
+                        ext_color=r["ext_color"], int_color=r["int_color"], mpg_combined=f(r["mpg_combined"]),
+                        audio=r["audio"], leather=b.get(r["leather"]), seats=r.get("seats", ""), sunroof=b.get(r["sunroof"]),
+                        ventilated_seats=b.get(r["ventilated_seats"]), spare_tire=b.get(r["spare_tire"]),
+                        ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
+                        msrp_source=r.get("msrp_source", ""))
+            msrp.fill(L)
+            r["msrp_new"], r["msrp_source"] = L.msrp_new or "", L.msrp_source
+            fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
+            if fails:
+                r.update(status="excluded", fail_reasons="; ".join(fails), needs_call="", score="")
+                n_out += 1
+            else:
+                r["score"] = criteria.score(L)
+        history.write_csv(P.data / "listings.csv", rows, history.LISTING_COLS)
+        last = max((x.get("last_seen") or "" for x in rows), default="")
+        outputs.write_dashboard(rows, history.read_csv(P.data / "price_history.csv"), cov, last, profile=P)
+        print(f"{P.label}: rescored; {n_out} now excluded by the color rules")
+    criteria.use(profiles.get().cfg)
+
+
 def dealers_cmd(args) -> None:
     from tools import dealer_locator
     rows = dealer_locator.build(args.refresh_raw, args.detect)
@@ -278,6 +318,7 @@ def main() -> None:
     r.add_argument("--full", action="store_true", help="re-read every listing page (don't reuse unchanged exclusions)")
     r.add_argument("--no-enrich", dest="enrich", action="store_false", help="skip reading dealer pages for brand-feed cars")
     r.set_defaults(func=refresh)
+    sub.add_parser("rescore", help="re-apply scores, color rules and sticker prices to the last results (no search)").set_defaults(func=rescore)
     d = sub.add_parser("dealers", help="rebuild data/dealers.csv")
     d.add_argument("--refresh-raw", action="store_true")
     d.add_argument("--detect", action="store_true")

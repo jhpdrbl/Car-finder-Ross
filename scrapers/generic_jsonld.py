@@ -233,6 +233,8 @@ def seat_material(hay: str, int_color: str) -> str:
     return ""
 
 
+ORIG_MSRP = re.compile(r"(?:original|orig\.|factory|window[- ]sticker|when new|new[- ]vehicle)\s+(?:sticker\s+)?(?:msrp|sticker price|price)"
+                       r"\s*(?:when new)?\s*[:\-]?\s*\$\s?([\d,]{5,7})", re.I)
 VENT = re.compile(r"(ventilated|cooled) (?:front )?seats?|seat ventilation|ventilated (?:driver|front)", re.I)
 SPARE_YES = re.compile(r"(full[- ]size spare|compact spare|temporary spare|spare tire|space[- ]saver spare|spare wheel)", re.I)
 SPARE_NO = re.compile(r"(tire (?:mobility|repair|inflat\w*) kit|inflator kit|tire sealant|run[- ]flat|no spare)", re.I)
@@ -368,6 +370,10 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     if L.price is None:
         m = re.search(r"(?:internet|sale|selling|our|final|total|e-?price|special|dealer) price\s*:?\s*\$\s?([\d,]{4,7})", flat, re.I)
         L.price = money(m.group(1)) if m else None
+    m = ORIG_MSRP.search(flat)          # only an explicitly ORIGINAL sticker price (a plain "MSRP" on a used car is often the dealer's)
+    if m:
+        v = money(m.group(1))
+        L.msrp_new = v if v and 15000 <= v <= 250000 else None
     m = DOC_FEE.search(flat)
     L.doc_fee = money(m.group(1)) if m else None
     others = [money(x) for x in OTHER_FEE.findall(flat)]

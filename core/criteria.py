@@ -104,8 +104,12 @@ def exterior_ok(color: str) -> tuple[str, str]:
 
 def interior_ok(color: str) -> tuple[str, str]:
     c = (color or "").lower()
-    if not F.get("interior_colors"):          # this buyer takes any interior color
+    rules = F.get("interior_colors")
+    if not rules:                              # this buyer takes any interior color
         return "pass", ""
+    if rules.get("include") is None:          # "any interior except ..." (Jenna: no white)
+        hit = next((w for w in rules.get("exclude") or [] if re.search(rf"\b{re.escape(w)}", c)), None)
+        return ("fail", f"interior {color}") if hit else ("pass", "")
     if not c.strip():
         return "unknown", "interior color not shown"
     for w in F["interior_colors"]["exclude"]:
@@ -400,7 +404,64 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     return [x for x in fails if x], [x for x in unknown if x], notes
 
 
+# Exterior color families, most specific first ("Silver Gray" is gray, "Black Sapphire" is black, "Titanium Glow" is gold)
+COLOR_FAMILIES = [
+    ("gold", r"titanium glow|champagne|\bgold"),
+    ("brown", r"sand dune|\b(brown|bronze|mocha|espresso|chestnut|coffee|tan|beige|sand|khaki|desert|earth)\b"),
+    ("black", r"\b(black|ebony|obsidian|onyx|jet|caviar|vik|panthera)\b|shadow\b(?! gray| grey)"),
+    ("gray", r"\b(gr[ae]y|graphite|gunmetal|charcoal|slate|steel|magnetic|magnetite|cement|lunar|titanium|polymetal|machine|meteor|storm|asphalt|carbon|tungsten|anthracite)\b"),
+    ("dark blue", r"\b(navy|sapphire|cobalt|indigo|nightfall|blueprint|abyss|deep ocean)\b|"
+                  r"blue(?!.*\b(sky|light|ice|horizon|cerulean|aqua|baby|powder|pale)\b)"),
+    ("silver", r"\b(silver|platinum|iridium|alloy|quicksilver)\b"),
+    ("white", r"\b(white|snow|ivory|glacier|blizzard|frost|opal|wind chill)\b"),
+    ("other", r"\b(yellow|citron|green|lime|purple|pink|orange|red|teal|turquoise|copper)\b"),
+]
+
+
+def color_family(color: str) -> str:
+    """The family of the first color word named (two-tone "Cavalry Blue/Midnight Black" = blue body)."""
+    c = (color or "").lower()
+    if "silver" in c and re.search(r"gr[ae]y|graphite", c):
+        return "gray"                          # "Silver Gray" counts as gray (same as Ross's color rule)
+    hits = [(m.start(), i, fam) for i, (fam, rx) in enumerate(COLOR_FAMILIES) if (m := re.search(rx, c))]
+    if not hits:
+        return "white" if "pearl" in c else ("other" if c.strip() else "")
+    return min(hits)[2]
+
+
+def score_parts(L: Listing) -> dict[str, float]:
+    """Each scored item as 0..1 (how good this car is on it). score() weights them; the dashboard explains them."""
+    tri = lambda v: 1.0 if v is True else (0.0 if v is False else 0.4)
+    parts = {}
+    if L.price_total:
+        parts["price"] = max(0.0, min(1.0, 1 - (L.price_total - S.get("price_target", 30000)) / 10000))
+    parts["phev"] = 1.0 if L.fuel_type == "phev" else 0.0
+    mpg = L.mpg_combined
+    parts["mpg"] = max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type in ("hybrid", "phev") else 0.3)
+    parts["audio"] = 1.0 if L.audio else 0.0
+    parts["leather"] = tri(L.leather)
+    parts["real_leather"] = 1.0 if (L.leather is True or L.seats == "leather") else (0.4 if L.seats == "synthetic" or L.leather is False else 0.2)
+    parts["ventilated_seats"] = tri(L.ventilated_seats)
+    parts["ground_clearance"] = 1.0 if (L.ground_clearance_in or 0) >= 8 else 0.0
+    parts["spare_tire"] = tri(L.spare_tire)
+    parts["sunroof"] = 1.0 if L.sunroof is True else (0.0 if L.sunroof is False else 0.3)
+    rank = S.get("color_rank") or []
+    fam = color_family(L.ext_color)
+    parts["exterior_color"] = (len(rank) - rank.index(fam)) / len(rank) if fam in rank else (0.0 if fam else 0.3)
+    cap = F.get("max_mileage") or 40000
+    parts["mileage"] = max(0.0, 1 - L.mileage / cap) if L.mileage is not None else 0.3
+    return parts
+
+
 def score(L: Listing) -> float:
+    """0-100: each item in this buyer's config `scoring.weights` counts its weight times how good the car is on it."""
+    w = S["weights"]
+    parts = score_parts(L)
+    pts = sum(wt * parts.get(k, 0.0) for k, wt in w.items())
+    return round(100 * pts / sum(w.values()), 1)
+
+
+def _old_score(L: Listing) -> float:     # kept for reference: the formula before Oct 2026 (same result as score() for Ross)
     w = S["weights"]
     pts = 0.0
     if L.price_total:
