@@ -201,6 +201,9 @@ def detect_platform(homepage: str) -> tuple[str, str]:
         why = "cloudflare" if "cloudflare" in r.text.lower() else f"HTTP {r.status_code}"
         return ("dealer_inspire" if has_llm else "unknown"), f"homepage blocked ({why})" + ("; has /llm/inventory" if has_llm else "")
     html = r.text
+    from core.pipeline import PARKED_PAGE
+    if PARKED_PAGE.search(html[:5000]):
+        return "unknown", "wrong address: parked 'domain for sale' page"
     for name, pats in PLATFORM_SIGNS:
         if any(re.search(p, html, re.I) for p in pats):
             return name, "has /llm/inventory" if has_llm else ""

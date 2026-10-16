@@ -40,6 +40,13 @@ def load_dealers() -> list[dict]:
         return list(csv.DictReader(fh))
 
 
+# A parked "domain for sale" page instead of a dealer site (seen Oct 2026: 15 researched addresses were
+# GoDaddy parking pages that redirect to /lander and have a one-URL sitemap).
+PARKED_PAGE = re.compile(r"""location\.href\s*=\s*["']/lander|forsale\.godaddy|this domain (?:is|may be) for sale|"""
+                         r"""domain is parked|sedoparking|parkingcrew|bodis\.com""", re.I)
+TINY_SITEMAP = 20       # a dealer's sitemap lists hundreds of pages; fewer than this isn't a dealer site
+
+
 def homepage_status(home: str) -> tuple[bool, str]:
     try:
         r = fetcher().get(home + "/")
@@ -56,6 +63,8 @@ def homepage_status(home: str) -> tuple[bool, str]:
     from scrapers.generic_jsonld import CHALLENGE_PAGE
     if CHALLENGE_PAGE.search(r.text[:5000]):
         return False, "blocked: bot challenge page (HTTP 200)"
+    if PARKED_PAGE.search(r.text[:5000]) or PARKED_PAGE.search(r.url or ""):
+        return False, "wrong website address: parked 'domain for sale' page, not a dealer site"
     return True, ""
 
 
@@ -161,6 +170,11 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
         return res
     if not cands and re.search(r"browser blocked|browser: 0 inventory pages|playwright not installed|no sitemap$", note):
         res.reason = f"couldn't see this site's inventory ({note})"   # not the same as "no matching cars"
+        res.seconds = time.time() - t0
+        return res
+    small = re.search(r"sitemap: (\d+) urls", note)
+    if not cands and small and int(small.group(1)) < TINY_SITEMAP:
+        res.reason = f"wrong website address? its sitemap is too small for a dealer site ({note})"
         res.seconds = time.time() - t0
         return res
     if not cands:

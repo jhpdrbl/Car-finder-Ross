@@ -154,6 +154,8 @@ TOP_BRANDS = ("Audi", "Subaru", "Genesis")
 
 def _plain_reason(reason: str) -> str:
     r = reason.lower()
+    if "wrong website address" in r:
+        return "The website address on file is wrong (tell Claude the dealer's real site)"
     if "robots.txt" in r:
         return "Its website asks automated tools not to read it"
     if "browser" in r or "couldn't see" in r:
