@@ -259,7 +259,7 @@ def check_list(cov: list[dict]) -> list[dict]:
                     "cpo": _cpo_base(d), "brand_cpo": BRAND_CPO_SEARCH.get(c["brand"], ""),
                     "homepage": d.get("homepage") or c.get("homepage", "")})
     rank = {b: i for i, b in enumerate(TOP_BRANDS)}
-    out.sort(key=lambda x: (rank.get(x["brand"], 9), float(x["distance_mi"] or 999)))
+    out.sort(key=lambda x: (rank.get(x["brand"], 9), x["brand"], float(x["distance_mi"] or 999)))   # by brand, then distance
     return out
 
 
@@ -411,7 +411,9 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .ck a.cbtn { text-decoration:none; display:inline-block; }
 .ck.done { border-color:var(--ok); } .ck.stale { border-color:var(--warn); }
 .ckstate { font-size:12px; font-weight:600; margin-left:4px; } .ck.done .ckstate { color:var(--ok); } .ck.stale .ckstate { color:var(--warn); }
-.ckbrand { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:16px 0 6px; }
+.ckgroup { margin:14px 0; background:none; border:0; padding:0; } .ckgroup[open] > summary { margin-bottom:8px; }
+.ckbrand { font-size:14px; color:var(--muted); cursor:pointer; padding:8px 10px; background:var(--surface); border:1px solid var(--line); border-radius:8px; }
+.ckbrand b { color:var(--fg); font-size:16px; }
 /* Compare tab */
 .cmpbtn { font:600 12px system-ui, -apple-system, sans-serif; margin-top:6px; padding:3px 10px; border-radius:999px; cursor:pointer;
   border:1px solid var(--accent); background:var(--surface); color:var(--accent); }
@@ -817,15 +819,26 @@ async function pullChecked() {
   } catch (e) { ckSync = false; }
   document.getElementById("chk-sync").textContent = ckSync ? "Checks sync between your devices." : "Checks are saved on this device.";
 }
+const ckClosed = new Set();      // brand sections the user collapsed
 function renderCheck() {
   const hide = document.getElementById("chk-hide").checked;
-  let html = "", lastBrand = "";
-  const open = CK.filter(d => !(checked[d.dealer] && daysAgo(checked[d.dealer]) <= 7));
-  document.getElementById("ncheck").textContent = open.length;
-  for (const d of CK) {
+  const isDone = d => checked[d.dealer] && daysAgo(checked[d.dealer]) <= 7;
+  document.getElementById("ncheck").textContent = CK.filter(d => !isDone(d)).length;
+  const brands = [...new Set(CK.map(d => d.brand))];
+  let html = "";
+  for (const b of brands) {
+    const all = CK.filter(d => d.brand === b), left = all.filter(d => !isDone(d)).length;
+    html += `<details class="ckgroup" data-brand="${esc(b)}" ${ckClosed.has(b) ? "" : "open"}><summary class="ckbrand">
+      <b>${esc(b)}</b> · ${left ? `${left} of ${all.length} to check` : `all ${all.length} checked ✓`} · looking for ${esc(all[0].models.join(", "))}</summary>`;
+    html += ckCards(all, hide) + "</details>";
+  }
+  document.getElementById("checklist").innerHTML = html || '<p class="muted">Nothing to check: every dealer was read by the search.</p>';
+}
+function ckCards(list, hide) {
+  let html = "";
+  for (const d of list) {
     const when = checked[d.dealer], age = when ? daysAgo(when) : null;
     if (hide && when && age <= 7) continue;
-    if (d.brand !== lastBrand) { html += `<div class="ckbrand">${esc(d.brand)} · looking for ${esc(d.models.join(", "))}</div>`; lastBrand = d.brand; }
     const state = when ? (age <= 7 ? "done" : "stale") : "";
     const label = when ? (age === 0 ? "checked today" : age <= 7 ? `checked ${age} day${age > 1 ? "s" : ""} ago` : `checked ${age} days ago, check again`) : "";
     html += `<div class="ck ${state}"><h3>${esc(d.dealer)} <span class="small">${esc(d.distance_mi)} mi</span>${label ? `<span class="ckstate">✓ ${label}</span>` : ""}</h3>
@@ -836,8 +849,11 @@ function renderCheck() {
         ${!d.cpo && d.brand_cpo ? `<a class="cbtn ghost" href="${esc(d.brand_cpo)}" target="_blank" rel="noopener">${esc(d.brand)} certified search</a>` : ""}
         <button type="button" class="cbtn ghost ckbtn" data-dealer="${esc(d.dealer)}">${when && age <= 7 ? "Undo" : "Mark checked"}</button></div></div>`;
   }
-  document.getElementById("checklist").innerHTML = html || '<p class="muted">Nothing to check: every dealer was read by the search.</p>';
+  return html || '<p class="small muted">All checked this week.</p>';
 }
+document.getElementById("checklist").addEventListener("toggle", e => {
+  const g = e.target.closest && e.target.closest(".ckgroup"); if (!g) return;
+  if (g.open) ckClosed.delete(g.dataset.brand); else ckClosed.add(g.dataset.brand); }, true);
 document.getElementById("checklist").addEventListener("click", e => {
   const b = e.target.closest(".ckbtn"); if (!b) return;
   const k = b.dataset.dealer, when = checked[k];
