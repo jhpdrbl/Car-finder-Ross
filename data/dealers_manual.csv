@@ -35,30 +35,25 @@ BMW,Irvine BMW,Irvine,9881 Research Dr,92618,33.6314793,-117.7256999,https://www
 BMW,Sterling BMW,Newport Beach,,,,,https://www.sterlingbmw.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 BMW,BMW of Ontario,Ontario,,,,,https://www.bmwofontario.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 BMW,BMW of Riverside,Riverside,,,,,https://www.bmwofriverside.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
-BMW,Mission BMW,Mission Viejo,,,,,https://www.missionbmw.com/,,,unverified,web research (brand locator blocked),
 Mercedes-Benz,Keyes European,Van Nuys,,,,,https://www.keyesmercedes.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
-Mercedes-Benz,Calstar Motors,Glendale,,,,,https://www.calstarmotors.com/,,,confirmed,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Glendale,Glendale,,,,,https://www.mbglendale.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Calstar Motors,Glendale,,,,,https://www.calstarmercedes.com/,,https://www.calstarmercedes.com/certified-inventory/index.htm,confirmed,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Mercedes-Benz,Mercedes-Benz of Beverly Hills,Beverly Hills,,,,,https://www.mbbeverlyhills.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 Mercedes-Benz,Mercedes-Benz of Ontario,Ontario,,,,,https://www.mbontario.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
-Mercedes-Benz,Mercedes-Benz of Pasadena,Pasadena,,,,,https://www.mbpasadena.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Arcadia,Arcadia,,,,,https://www.mbarcadia.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Long Beach,Signal Hill,,,,,https://www.mboflongbeach.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Valencia,Valencia,,,,,https://www.mbvalencia.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Arcadia,Arcadia,,,,,https://www.rusnakarcadia.com/,,https://www.rusnakarcadia.com/used-vehicles/certified-pre-owned-vehicles/,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
+Mercedes-Benz,Mercedes-Benz of Long Beach,Signal Hill,,,,,https://www.mbzlongbeach.com/,,,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
+Mercedes-Benz,Mercedes-Benz of Valencia,Valencia,,,,,https://www.mbzvalencia.com/,,https://www.mbzvalencia.com/inventory/?condition=certified,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Mercedes-Benz,Mercedes-Benz of Los Angeles,Los Angeles,,,,,https://www.mbzla.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 Mercedes-Benz,W.I. Simonson Mercedes-Benz,Santa Monica,,,,,https://www.wisimonson.net,,https://www.wisimonson.net/certified-pre-owned/mercedes-benz.htm,unverified,web research (brand locator blocked),"homepage connection error from cloud; CPO page from search results (seen, Oct 2026)"
-Mercedes-Benz,Calabasas Mercedes-Benz,Calabasas,,,,,https://www.mbcalabasas.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Calabasas,Calabasas,,,,,https://www.mercedesofcalabasas.com/,,https://www.mercedesofcalabasas.com/certified-pre-owned/mercedes-benz.htm,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Mercedes-Benz,Mercedes-Benz of Encino,Encino,16721 Ventura Blvd,91436,34.158672,-118.497278,https://www.mbencino.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of South Bay,Torrance,,,,,https://www.mbsouthbay.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Anaheim,Anaheim,,,,,https://www.mbanaheim.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of South Bay,Torrance,,,,,https://www.sbmercedes.com/,,https://www.sbmercedes.com/certified-inventory/index.htm,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
+Mercedes-Benz,Mercedes-Benz of Anaheim,Anaheim,,,,,https://www.mercedesbenzofanaheim.com/,,https://www.mercedesbenzofanaheim.com/certified-inventory/index.htm,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Mercedes-Benz,Fletcher Jones Motorcars,Newport Beach,,,,,https://www.fjmercedes.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 Mercedes-Benz,Mercedes-Benz of Laguna Niguel,Laguna Niguel,,,,,https://www.mblaguna.com,,https://www.mblaguna.com/used-vehicles/certified-pre-owned-vehicles/,unverified,web research (brand locator blocked),"homepage connection error from cloud; CPO page from search results (inferred, Oct 2026)"
 Mercedes-Benz,Mercedes-Benz of West Covina,West Covina,2010 E Garvey Ave S,91791,34.0710732,-117.9024724,https://www.mbwestcovina.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Thousand Oaks,Thousand Oaks,,,,,https://www.mbthousandoaks.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Riverside,Riverside,,,,,https://www.mbriverside.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Thousand Oaks,Thousand Oaks,,,,,https://www.mbzthousandoaks.com/,,https://www.mbzthousandoaks.com/certified-pre-owned.html,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Mercedes-Benz,Walter's Mercedes-Benz,Riverside,,,,,https://www.waltersmercedesbenzofriverside.com,,https://www.waltersmercedesbenzofriverside.com/used-vehicles/certified-pre-owned-vehicles/,unverified,web research (brand locator blocked),"homepage connection error from cloud; CPO page from search results (seen, Oct 2026)"
-Mercedes-Benz,Mercedes-Benz of Oxnard,Oxnard,,,,,https://www.mboxnard.com/,,,unverified,web research (brand locator blocked),
-Mercedes-Benz,Mercedes-Benz of Tustin,Tustin,,,,,https://www.mbtustin.com/,,,unverified,web research (brand locator blocked),
+Mercedes-Benz,Mercedes-Benz of Oxnard,Oxnard,,,,,https://www.mbofoxnard.com/,,https://www.mbofoxnard.com/used-vehicles/certified-pre-owned-vehicles/,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Mercedes-Benz,Mercedes-Benz of Temecula,Temecula,,,,,https://www.mbtemecula.com/,,,unverified,web research (brand locator blocked),
 Ford,Galpin Ford,North Hills,,,,,https://www.galpinford.com/,,,confirmed,web research (brand locator blocked),
 Ford,AutoNation Ford Valencia,Valencia,23920 Creekside Road,91355,34.418004,-118.55323,https://www.autonationfordvalencia.com/,,,confirmed,web research (brand locator blocked),
@@ -77,7 +72,7 @@ Ford,Santa Monica Ford,Santa Monica,1402 Santa Monica Blvd,90404,34.0229787,-118
 Ford,AutoNation Ford Torrance,Torrance,3111 Pacific Coast Highway,90505,33.801906,-118.340895,https://www.autonationfordtorrance.com/,,,unverified,web research (brand locator blocked),
 Ford,Performance Ford West Covina,West Covina,2000 E Garvey Ave S,91791,34.0704664,-117.9037476,https://www.wcperformanceford.com/,,,unverified,web research (brand locator blocked),
 Ford,Ken Grody Ford Buena Park,Buena Park,,,,,https://www.kengrodyford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
-Ford,Thousand Oaks Ford,Thousand Oaks,,,,,https://www.thousandoaksford.com/,,,unverified,web research (brand locator blocked),
+Ford,DCH Ford of Thousand Oaks,Thousand Oaks,,,,,https://www.dchfordofthousandoaks.com/,,https://www.dchfordofthousandoaks.com/certified-inventory/index.htm,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
 Ford,Tuttle-Click Ford,Irvine,,,,,https://www.tuttleclickford.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 Ford,Ford of Orange,Orange,,,,,https://www.fordoforange.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 Ford,Huntington Beach Ford,Huntington Beach,18255 Beach Blvd,92648,,,https://www.huntingtonbeachford.com/,,,unverified,web research (brand locator blocked),
@@ -92,4 +87,5 @@ Volvo,Volvo Cars Ontario,Ontario,1300 Auto Center Drive,91761,34.050441,-117.545
 Volvo,Galpin Volvo,North Hills,,,,,https://www.galpinvolvo.com/,,,unverified,web research (brand locator blocked),
 Volvo,Volvo Cars Mission Viejo,Mission Viejo,,,,,https://www.volvocarsmissionviejo.com/,,,unverified,web research (brand locator blocked),
 Volvo,Volvo Cars Cerritos,Cerritos,,,,,https://www.volvocarscerritos.com/,,,unverified,web research (brand locator blocked),
-Volvo,Volvo Cars Orange County,Orange,,,,,https://www.volvocarsorangecounty.com,,,unverified,web research (brand locator blocked),homepage connection error from cloud
+Volvo,Volvo Cars Orange County,Santa Ana,,,,,https://www.volvo-oc.com/,,https://www.volvo-oc.com/certified-inventory/index.htm,unverified,web research (brand locator blocked),real site found Oct 16 2026 (old address was a parked 'for sale' domain)
+Mercedes-Benz,Mercedes-Benz of Foothill Ranch,Foothill Ranch,,,,,https://www.mbfoothill.com/,,https://www.mbfoothill.com/used-vehicles/certified-pre-owned-vehicles/,unverified,web research (brand locator blocked),added Oct 16 2026 (found while fixing parked addresses); distance from city center

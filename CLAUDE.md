@@ -162,6 +162,13 @@ refresh: about 80 dealers will fail as "blocked". What to do:
   MB Laguna Niguel = mblaguna.com. Removed 4 dealers that don't exist (research errors): Downey Ford (closed 2009),
   Corona Ford, Mission Viejo Ford, Volvo Cars Valencia. 29 dealers got their certified-inventory page as
   `inventory_url` (notes say seen/inferred from search results); the Audi adapter starts from it on the laptop.
+- **Parked domains fixed (Oct 16 2026)**: 15 researched homepages (most Mercedes dealers, Mission BMW, Thousand Oaks Ford)
+  were GoDaddy "for sale" pages (JS redirect to `/lander`, one-URL sitemap) and had been counted as *success, no matching
+  models*. Real sites found for 11 (+ Volvo Cars Orange County = volvo-oc.com); removed Mission BMW, MB of Tustin (don't
+  exist), MB of Glendale (= Calstar), MB of Pasadena (= Rusnak Arcadia), MB of Riverside (= Walter's); added MB of Foothill
+  Ranch. `pipeline.PARKED_PAGE` now fails such homepages ("wrong website address") and a sitemap under `TINY_SITEMAP`
+  (20) URLs with no candidates is failed too, so this can't hide as "no cars" again.
+- Partial runs (`--brands` / `--dealers`) now keep the previous coverage rows for dealers they didn't re-read.
 
 ## Open items / next steps
 
