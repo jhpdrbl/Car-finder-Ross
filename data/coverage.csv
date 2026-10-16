@@ -7,7 +7,7 @@ Audi,Audi South Coast,success,"12 listings read, 0 unchanged exclusions reused",
 Audi,Audi Downtown LA,failed,blocked: site says unavailable (HTTP 503),0,4.1,https://www.audidtla.com,
 Audi,Audi Pasadena,failed,blocked: site says unavailable (HTTP 503),0,7.1,https://www.audipasadena.com,
 Audi,Audi Beverly Hills,failed,blocked: HTTP 403 (HTTP 403),0,8.4,https://www.audibeverlyhills.com,
-Audi,Audi Sherman Oaks,failed,"homepage unreachable (ConnectTimeout: HTTPSConnectionPool(host='www.audishermanoaks.com', port=443): M)",0,11.2,https://www.audishermanoaks.com,
+Audi,Audi Van Nuys,failed,"homepage unreachable (ConnectTimeout: HTTPSConnectionPool(host='www.audishermanoaks.com', port=443): M)",0,11.2,https://www.audivannuys.com,
 Audi,Audi Santa Monica,failed,blocked: site says unavailable (HTTP 503),0,14.7,https://www.audisantamonica.com,
 Audi,Audi West Covina,failed,blocked: site says unavailable (HTTP 503),0,18.6,https://www.audiwestcovina.com,
 Audi,Audi Pacific,failed,blocked: site says unavailable (HTTP 503),0,19.5,https://www.audipacific.com,
@@ -52,7 +52,6 @@ Ford,Huntington Beach Ford,success,"6 listings read, 0 unchanged exclusions reus
 Ford,Thousand Oaks Ford,success,"no matching Ford models listed (sitemap: 1 urls, 0 candidates)",0,33.3,https://www.thousandoaksford.com,"sitemap: 1 urls, 0 candidates"
 Ford,Diamond Ford,success,"no matching Ford models listed (sitemap: 51 urls, 0 candidates)",0,40.3,https://diamondford.com,"sitemap: 51 urls, 0 candidates"
 Ford,Airport Marina Ford,failed,blocked: Akamai bot protection (HTTP 403),0,4.1,https://www.airportmarinaford.com,
-Ford,Downey Ford,failed,"homepage unreachable (SSLError: HTTPSConnectionPool(host='www.downeyford.com', port=443): Max retries )",0,13.8,https://www.downeyford.com,
 Ford,Puente Hills Ford,failed,blocked: HTTP 403 (HTTP 403),0,18.4,https://www.puentehillsford.com,
 Ford,Norm Reeves Ford,failed,blocked: HTTP 403 (HTTP 403),0,20.7,https://www.normreevesford.com,
 Ford,Ken Grody Ford Buena Park,failed,blocked: HTTP 403 (HTTP 403),0,22.5,https://www.kengrodyford.com,
@@ -60,8 +59,6 @@ Ford,Colley Ford,failed,blocked: Cloudflare bot protection (HTTP 403),0,22.6,htt
 Ford,Caruso Ford,failed,blocked: HTTP 403 (HTTP 403),0,23.8,https://www.carusoford.com,
 Ford,Ford of Orange,failed,blocked: HTTP 403 (HTTP 403),0,32.3,https://www.fordoforange.com,
 Ford,Tuttle-Click Ford,failed,blocked: HTTP 403 (HTTP 403),0,38.5,https://www.tuttleclickford.com,
-Ford,Corona Ford,failed,"homepage unreachable (ConnectTimeout: HTTPSConnectionPool(host='www.coronaford.com', port=443): Max re)",0,42.9,https://www.coronaford.com,
-Ford,Mission Viejo Ford,failed,"homepage unreachable (ConnectTimeout: HTTPSConnectionPool(host='www.missionviejoford.com', port=443): )",0,48.8,https://www.missionviejoford.com,
 Ford,Raceway Ford,failed,blocked: Cloudflare bot protection (HTTP 403),0,50.6,https://www.racewayford.com,
 Genesis,Genesis Santa Monica,skipped,covered by the Genesis brand CPO feed,0,13.4,https://www.genesissantamonica.com,
 Genesis,Norm Reeves Genesis Of Cerritos,skipped,covered by the Genesis brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,19.7,https://www.genesisofcerritos.com,
@@ -204,4 +201,3 @@ Volvo,Volvo Cars Orange County,success,"no matching Volvo models listed (sitemap
 Volvo,Rusnak Volvo Cars Westlake,success,"22 listings read, 0 unchanged exclusions reused",22,32.7,https://www.rusnakvolvocarswestlake.com,dealer.com search: 22 candidates
 Volvo,Volvo Cars Ontario,success,"25 listings read, 0 unchanged exclusions reused",25,41.1,https://www.volvocarsontario.com,dealer.com search: 25 candidates
 Volvo,Volvo Cars Mission Viejo,success,"9 listings read, 0 unchanged exclusions reused",9,48.8,https://www.volvocarsmissionviejo.com,"dealer.com search: 0 candidates; sitemap: 221 urls, 34 candidates"
-Volvo,Volvo Cars Valencia,failed,"homepage unreachable (ConnectTimeout: HTTPSConnectionPool(host='www.volvocarsvalencia.com', port=443):)",0,30.5,https://www.volvocarsvalencia.com,

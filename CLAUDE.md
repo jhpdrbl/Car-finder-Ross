@@ -157,10 +157,11 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 - **Blocked from the cloud** (expected to work from the laptop): 54 Cloudflare, 5 Akamai,
   12 Audi-platform ("site currently not available"). Audi: only McKenna Audi, Audi North
   Orange County and Audi South Coast load from the cloud; the other 16 Audi dealers don't.
-- **Connection errors** (likely wrong homepage guesses in `data/dealers_manual.csv`, check
-  from the laptop and fix the URL): Audi Sherman Oaks, BMW of Monrovia, Downey Ford, Corona
-  Ford, Mission Viejo Ford, W.I. Simonson Mercedes-Benz, Walter's Mercedes-Benz,
-  Mercedes-Benz of Laguna Niguel, Volvo Cars Valencia.
+- **Connection errors fixed (Oct 16 2026)** from search results: Audi Sherman Oaks is really Audi Van Nuys
+  (audivannuys.com, renamed), W.I. Simonson and BMW of Monrovia are `.net`, Walter's = waltersmercedesbenzofriverside.com,
+  MB Laguna Niguel = mblaguna.com. Removed 4 dealers that don't exist (research errors): Downey Ford (closed 2009),
+  Corona Ford, Mission Viejo Ford, Volvo Cars Valencia. 29 dealers got their certified-inventory page as
+  `inventory_url` (notes say seen/inferred from search results); the Audi adapter starts from it on the laptop.
 
 ## Open items / next steps
 

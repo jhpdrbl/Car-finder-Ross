@@ -250,13 +250,16 @@ def check_list(cov: list[dict]) -> list[dict]:
     for c in cov:
         if c["status"] != "failed" or c["dealer"].endswith("brand CPO feed") or c["brand"] in fed:
             continue   # a brand feed that worked already brings in that brand's certified cars
-        d = dealers.get(c["dealer"], {"homepage": c.get("homepage", "")})
+        if c["dealer"] not in dealers:
+            continue   # dealer since removed from the list (e.g. one that turned out not to exist)
+        d = dealers[c["dealer"]]
         models = _model_words(c["brand"])
         links = [{"label": f"{m} (certified)", "url": u} for m in models if (u := _model_link(d, c["brand"], m))]
         out.append({"dealer": c["dealer"], "brand": c["brand"], "distance_mi": c.get("distance_mi", ""),
                     "why": _plain_reason(c.get("reason", "")), "detail": c.get("reason", "")[:140],
                     "models": models, "links": links,
                     "cpo": _cpo_base(d), "brand_cpo": BRAND_CPO_SEARCH.get(c["brand"], ""),
+                    "guess": "(inferred" in (d.get("notes") or ""),
                     "homepage": d.get("homepage") or c.get("homepage", "")})
     rank = {b: i for i, b in enumerate(TOP_BRANDS)}
     out.sort(key=lambda x: (rank.get(x["brand"], 9), x["brand"], float(x["distance_mi"] or 999)))   # by brand, then distance
@@ -842,11 +845,11 @@ function ckCards(list, hide) {
     const state = when ? (age <= 7 ? "done" : "stale") : "";
     const label = when ? (age === 0 ? "checked today" : age <= 7 ? `checked ${age} day${age > 1 ? "s" : ""} ago` : `checked ${age} days ago, check again`) : "";
     html += `<div class="ck ${state}"><h3>${esc(d.dealer)} <span class="small">${esc(d.distance_mi)} mi</span>${label ? `<span class="ckstate">✓ ${label}</span>` : ""}</h3>
-      <div class="small why" title="${esc(d.detail)}">${esc(d.why)}</div>
+      <div class="small why" title="${esc(d.detail)}">${esc(d.why)}${d.guess ? ". Its certified-inventory address is a best guess; if it doesn't load, use the brand's certified search" : ""}</div>
       <div class="btns">${d.links.map(l => `<a class="cbtn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}
         ${d.cpo ? `<a class="cbtn ghost" href="${esc(d.cpo)}" target="_blank" rel="noopener">All certified inventory</a>`
                 : `<a class="cbtn ghost" href="${esc(d.homepage)}" target="_blank" rel="noopener">Open their website</a>`}
-        ${!d.cpo && d.brand_cpo ? `<a class="cbtn ghost" href="${esc(d.brand_cpo)}" target="_blank" rel="noopener">${esc(d.brand)} certified search</a>` : ""}
+        ${(!d.cpo || d.guess) && d.brand_cpo ? `<a class="cbtn ghost" href="${esc(d.brand_cpo)}" target="_blank" rel="noopener">${esc(d.brand)} certified search</a>` : ""}
         <button type="button" class="cbtn ghost ckbtn" data-dealer="${esc(d.dealer)}">${when && age <= 7 ? "Undo" : "Mark checked"}</button></div></div>`;
   }
   return html || '<p class="small muted">All checked this week.</p>';
