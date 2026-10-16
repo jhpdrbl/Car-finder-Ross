@@ -995,6 +995,180 @@
     "https://www.acurainfocenter.com/2026/MDX/Feature-Guide/Acura-Maintenance-Program/",
     "https://www.acurainfocenter.com/2025/ADX/Feature-Guide/Acura-Maintenance-Program/"
    ]
+  },
+  {
+   "make": "Mazda",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty, 36 months/36,000 miles from the Date of First Service; transferable to later owners"
+    },
+    {
+     "name": "Powertrain",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "yes",
+     "note": "Powertrain Limited Warranty, 60 months/60,000 miles"
+    },
+    {
+     "name": "Hybrid / PHEV high-voltage battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "High Voltage Battery Limited Warranty 96 months/100,000 miles (plus HV battery capacity warranty, same term) for the CX-50 Hybrid (2025+) and CX-70/CX-90 PHEV. In California the CX-50 Hybrid's hybrid parts are also on the 7 yr/70k emission-defect list; PHEV (TZEV/ZEV) emission parts get 15 yr/150k. Mild-hybrid (48V) parts are covered under powertrain/emission terms."
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 5,
+     "miles": null,
+     "transfers": "yes",
+     "note": "Anti-Perforation Limited Warranty 60 months, unlimited miles (holes rusted through body panels only)"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 3,
+     "miles": 36000,
+     "transfers": "yes",
+     "note": "24-hour Emergency Roadside Assistance for the New Vehicle Limited Warranty period (3 yr/36k), per mazdausa.com warranty page; not restated in the booklets"
+    }
+   ],
+   "factory_note": "Same core terms in the 2023, 2024, 2025 and 2026 Mazda warranty booklets (3 yr/36k basic, 5 yr/60k powertrain, 5 yr/unlimited perforation, 8 yr/100k high-voltage battery where fitted). Changes are only which electrified models are covered: CX-90 PHEV and mild hybrid from 2024, CX-70 from 2025, CX-50 Hybrid from MY2025 (the 2026 booklet adds a 'Hybrid model' column).",
+   "maintenance": "none (no complimentary scheduled maintenance found for 2023-2026; Mazda sells prepaid maintenance plans, 1-5 years)",
+   "cpo": {
+    "program": "Mazda Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "CPO Limited Vehicle Warranty (comprehensive)",
+      "years": 1,
+      "miles": 12000,
+      "starts": "end of new-car warranty",
+      "note": "12 months/12,000 miles after the original 3 yr/36k New Vehicle Limited Warranty ends; if that has already expired, it takes effect at the CPO purchase date. $0 deductible. Transferable at no cost."
+     },
+     {
+      "name": "CPO Limited Powertrain Warranty",
+      "years": 7,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "7 years/100,000 miles from when the car was first sold new. $0 deductible. Transferable at no cost."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 7,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "24-hour Emergency Roadside Assistance for the duration of the 7 yr/100k CPO powertrain warranty (U.S. and Canada)"
+     }
+    ],
+    "summary": "A Mazda CPO car keeps what's left of the 3-year/36,000-mile factory warranty, then gets 12 more months/12,000 miles of bumper-to-bumper coverage, plus engine-and-transmission coverage until 7 years/100,000 miles from its original sale, all with no deductible.",
+    "perks": [
+     "$0 deductible on covered repairs",
+     "24-hour roadside assistance for the CPO powertrain term",
+     "160-point inspection by a factory-trained technician",
+     "CARFAX Vehicle History Report with one-year Buyback Guarantee",
+     "Warranties transferable to later owners at no cost",
+     "3-month SiriusXM All Access trial (equipped cars)"
+    ],
+    "eligibility": "Must pass the 160-point inspection; Mazda's site doesn't state the age/mileage limits (unknown, ask the dealer)"
+   },
+   "sources": [
+    "https://www.mazdausa.com/certified-pre-owned",
+    "https://www.mazdausa.com/owners/warranty",
+    "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2023/2023-warranty-information.pdf",
+    "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2024/2024-warranty-information.pdf",
+    "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2025/2025-warranty-information.pdf",
+    "https://www.mazdausa.com/siteassets/global-resources/vehicle-resources/owner-manuals/2026/2026-warranty-information.pdf"
+   ]
+  },
+  {
+   "make": "Lincoln",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "New Vehicle Limited Warranty"
+    },
+    {
+     "name": "Powertrain",
+     "years": 6,
+     "miles": 70000,
+     "transfers": "yes",
+     "note": ""
+    },
+    {
+     "name": "Hybrid/electric unique components",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "Covers the high-voltage battery and hybrid parts (Nautilus Hybrid 2024+, Corsair Grand Touring PHEV, Aviator Grand Touring PHEV). California emission coverage of hybrid parts may run longer (confirm in the Warranty Guide)."
+    },
+    {
+     "name": "Corrosion perforation",
+     "years": 5,
+     "miles": null,
+     "transfers": "yes",
+     "note": "5 years / unlimited miles; non-perforating corrosion falls under the 4 yr/50k basic warranty"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 6,
+     "miles": 70000,
+     "transfers": "yes",
+     "note": "6 years/70,000 miles from the warranty start date for any owner within that window; Lincoln's pages say the original owner of a 2013+ Lincoln keeps roadside for as long as they own it (not passed to a second owner)"
+    }
+   ],
+   "factory_note": "Same core terms for model years 2023-2026 (lincoln.com coverage table; Lincoln Warranty Guides 2024-2026 on fordservicecontent.com, which refused direct download from here, so terms were read from lincoln.com and search summaries). Black Label trims include 4 yr/50k Premium Maintenance (per lincoln.com; which years not confirmed).",
+   "maintenance": "none standard (Black Label trims: Premium Maintenance 4 yr/50k). New 2020+ Lincolns with an activated modem earn Lincoln Access Rewards points that can pay for the first three maintenance visits (7.5k/15k/22.5k), original owner only. Pickup & Delivery service during the 4 yr/50k warranty.",
+   "cpo": {
+    "program": "Lincoln Certified Pre-Owned (two tiers: Signature and Select)",
+    "coverage": [
+     {
+      "name": "Signature tier: Comprehensive Limited Warranty",
+      "years": 6,
+      "miles": 100000,
+      "starts": "original in-service date",
+      "note": "6 years/100,000 miles from the original new-vehicle warranty start date (in place of, not on top of, the 4 yr/50k basic). Car must be up to 5 model years old, under 60,000 miles, 200-point inspection. $100 deductible per lincoln.com CPO FAQ."
+     },
+     {
+      "name": "Select tier: Comprehensive Limited Warranty",
+      "years": 1,
+      "miles": 12000,
+      "starts": "CPO purchase date",
+      "note": "12 months/12,000 miles from the CPO purchase date; car up to 7 model years old, under 80,000 miles, 139-point inspection. $100 deductible."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": null,
+      "miles": null,
+      "starts": "CPO purchase date",
+      "note": "24/7 roadside included with both tiers (towing up to $100, flat tire, fuel, jump start, lockout); length not stated (unknown); trip-interruption up to $1,000 if more than 100 miles from home"
+     }
+    ],
+    "summary": "A Signature-tier Lincoln CPO car is covered bumper-to-bumper until 6 years/100,000 miles from its original sale; a Select-tier car (older or higher-mileage) gets 12 months/12,000 miles from the day you buy it. Both have a $100 deductible.",
+    "perks": [
+     "24/7 roadside assistance with trip-interruption benefit",
+     "Remaining comprehensive coverage transfers to a later owner (Subsequent Owner Warranty)",
+     "200-point (Signature) or 139-point (Select) inspection",
+     "Vehicle history report",
+     "Optional Lincoln Protect service plans"
+    ],
+    "eligibility": "Signature: up to 5 model years old and under 60,000 miles; Select: up to 7 model years old and under 80,000 miles"
+   },
+   "sources": [
+    "https://www.lincoln.com/certified-used/about-certified/faq/",
+    "https://www.lincoln.com/certified-used/about-certified/comprehensive/",
+    "https://www.lincoln.com/certified-used/about-certified/roadside-assistance/",
+    "https://www.lincoln.com/certified-used/search/nautilus/",
+    "https://www.lincoln.com/support/how-tos/warranty/warranties-and-coverage/new-vehicle-limited-warranty/",
+    "https://www.lincoln.com/support/how-tos/warranty/warranties-and-coverage/what-is-the-lincoln-warranty-on-corrosion/",
+    "https://www.lincoln.com/support/how-tos/lincoln-app/lincoln-access-rewards/what-is-lincoln-access-rewards-complimentary-maintenance/",
+    "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/25MY_US_Lincoln_Car_LT_truck_WGuide_v2.pdf",
+    "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/26MY_US_Lincoln_WTY_ENG_V1.pdf"
+   ]
   }
  ]
 }

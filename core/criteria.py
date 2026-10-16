@@ -38,7 +38,8 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
     """Return (fails, unknown, notes) from the brand's rules in config.yaml `models:`."""
     fails, unknown, notes = [], [], []
     spec = MODELS.get(L.dealer_brand)
-    if not spec:
+    if not spec:       # a brand only another buyer searches (e.g. Jenna's Kia for Ross before Kia was added for him)
+        fails.append(f"{L.dealer_brand or L.make} isn't one of this buyer's brands")
         return fails, unknown, notes
     model = f'{d.get("Model") or ""} {L.model}'.lower()
     text = " ".join([model, d.get("Trim") or "", d.get("Series") or "", L.trim, L.title, L.listing_url,

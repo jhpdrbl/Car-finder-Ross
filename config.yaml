@@ -363,6 +363,7 @@ profiles:
         allow: '\bcx ?-?50\b'
         list: CX-50 Hybrid 2025+
         tokens: [cx-50, cx50]
+        feed_models: [50H]                  # mazdausa.com carline code: CX-50 Hybrid
         rules:
           - {if: 'cx ?-?50', min_year: 2025, why: 'CX-50 before 2025 (no hybrid)'}
       Lincoln:

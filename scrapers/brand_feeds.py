@@ -8,6 +8,7 @@ block automated access, so they are the primary source for these brands.
 from __future__ import annotations
 
 import csv
+from datetime import date
 import json
 import re
 from pathlib import Path
@@ -451,7 +452,99 @@ def kia() -> tuple[list[Listing], dict]:
     return out, stats
 
 
-FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw, "Kia": kia}
+# --------------------------------------------------------------------------
+# Mazda: mazdausa.com certified search (GET /api/inv/search, cond=c; robots.txt's * group only blocks /EPiServer/CMS/,
+# /Util/, /component-library/). Needs Mazda's dealer ids (from its dealer locator) and a carline code per model
+# (CX5, C50 = CX-50, 50H = CX-50 Hybrid, C70 = CX-70, C7P = CX-70 PHEV; config `feed_models:`). Trims come as codes
+# ("PP" = Premium Plus). The link to the car's page on the dealer's own site comes from /api/inv/detail, asked only
+# for cars some buyer could want (year, miles, price), since each one is another request.
+# --------------------------------------------------------------------------
+
+MAZDA = "https://www.mazdausa.com"
+MAZDA_ZIPS = ("90039", "92701", "91761", "93030", "91355")     # LA, Santa Ana, Ontario, Oxnard, Valencia: Mazda's radius is by driving
+MAZDA_TRIMS = {"PP": "Premium Plus", "PR": "Premium", "PF": "Preferred", "SE": "Select", "CE": "Carbon Edition",
+               "MR": "Meridian", "SG": "Signature", "TS": "Turbo Signature", "SPR": "S Premium", "SPP": "S Premium Plus",
+               "BS": "Base", "PS": "Preferred", "CT": "Carbon Turbo", "TP": "Turbo Premium", "TPP": "Turbo Premium Plus"}
+
+
+def mazda() -> tuple[list[Listing], dict]:
+    from core.profiles import MAX_PRICE, all_profiles, min_year
+    from .generic_jsonld import FAKE_WORD, SUNROOF, seat_material
+    dealers = _dealers("Mazda")
+    ids: dict[str, dict] = {}
+    for z in MAZDA_ZIPS:
+        loc = fetcher().get_json(f"{MAZDA}/handlers/dealer.ajax?zip={z}&radius=60")
+        for r in (loc.get("body") or {}).get("results") or []:
+            d = _match_dealer(dealers, r.get("name", ""), r.get("webUrl", ""))
+            if d:
+                ids[str(r["id"])] = d
+    if not ids:
+        raise FetchError("no Mazda dealers matched the locator")
+    codes = list(dict.fromkeys(c for p in all_profiles() for c in ((p.models().get("Mazda") or {}).get("feed_models") or [])))
+    years = ",".join(str(y) for y in range(min_year("Mazda"), date.today().year + 2))
+    out, stats = [], {"seen": 0, "in_area": 0}
+    for vc in codes:
+        page = 1
+        while True:
+            data = fetcher().get_json(f"{MAZDA}/api/inv/search?cond=c&dlrId={','.join(ids)}&zip={CONFIG['home']['zip']}"
+                                      f"&yr={years}&vc={vc}&p={page}&ps=20&s=d")
+            if (data.get("header") or {}).get("status") == "error":
+                raise FetchError(f"Mazda search error for {vc}")
+            body = data.get("body") or {}
+            rows = body.get("results") or []
+            for v in rows:
+                stats["seen"] += 1
+                d = ids.get(str(v.get("dealerId")))
+                year, miles, price = integer(v.get("year")), integer(v.get("mileage")), money(v.get("cpoPrice"))
+                if not d or not v.get("vin") or (miles or 0) >= 40000 or (price and price > MAX_PRICE + 1500):
+                    continue
+                words = " ".join(MAZDA_TRIMS.get(t, t) for t in (v.get("carlineName") or "").split())
+                if not could_want("Mazda", words, year or 0):
+                    continue
+                stats["in_area"] += 1
+                L = Listing(vin=v["vin"].upper(), source="mazdausa.com CPO search")
+                m = re.match(r"(CX-\d+)", v.get("carlineName") or "")
+                L.year, L.make = year, "Mazda"
+                L.model = (m.group(1) if m else "") + (" Hybrid" if "HYBRID" in (v.get("carlineName") or "") else "") \
+                    + (" PHEV" if "PHEV" in (v.get("carlineName") or "") else "")
+                L.trim = MAZDA_TRIMS.get(v.get("trimName") or "", v.get("trimName") or "")
+                L.title = words.title()
+                L.price, L.mileage = price, miles
+                L.ext_color = ((v.get("extColor") or {}).get("description") or "").title()
+                L.int_color = ((v.get("intColor") or {}).get("description") or "").title()
+                it = (v.get("intType") or "").lower()
+                L.seats = "leather" if "leather" in it and "leatherette" not in it else ("synthetic" if "leatherette" in it else
+                          ("cloth" if "cloth" in it else ""))
+                L.leather = True if L.seats == "leather" else (False if L.seats == "synthetic" else None)
+                L.drivetrain = "AWD" if "AWD" in (v.get("carlineName") or "") or "HYBRID" in (v.get("carlineName") or "") or "CX-70" in (v.get("carlineName") or "") else ""
+                L.condition = "used"
+                L.cert_text = "mazda certified pre-owned (mazdausa.com CPO inventory)"
+                L.cpo_program = "Mazda Certified Pre-Owned"
+                L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Mazda", d["homepage"]
+                try:      # the car's page on the dealer's own site, plus its feature list
+                    det = (fetcher().get_json(f"{MAZDA}/api/inv/detail?vin={L.vin}").get("body") or {}).get("vehicle") or {}
+                except (FetchError, AttributeError):
+                    det = {}
+                L.listing_url = det.get("dealerSiteUrl") or ""
+                feats = [x for k in ("standardFeatures", "hiddenStandardFeatureList", "engineFeaturesList") for x in (det.get(k) or [])]
+                L.features = [t for x in feats if (t := re.sub(r"<[^>]+>", "", str(x)).strip())][:150]
+                hay = " ".join(L.features)
+                if SUNROOF.search(hay):
+                    L.sunroof, L.sunroof_note = True, SUNROOF.search(hay).group(1)
+                if not L.seats:
+                    L.seats = seat_material(hay, L.int_color)
+                if not L.listing_url:
+                    inv = (d.get("inventory_url") or d["homepage"]).rstrip("?&")
+                    L.listing_url = f"{inv}{'&' if '?' in inv else '?'}search={L.vin}"
+                    L.link_note = "link opens the dealer's certified inventory searched for this VIN"
+                out.append(L)
+            page += 1
+            if not rows or (page - 1) * 20 >= (body.get("total") or 0) or page > 30:
+                break
+    return out, stats
+
+
+FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw, "Kia": kia, "Mazda": mazda}
 # Feeds that don't cover every dealer of the brand, or have no link to the car's own page on the dealer's site:
 # their brand's dealer sites are still read (dedupe keeps the best record of each car).
-SUPPLEMENT_FEEDS = {"Lexus", "Kia"}
+SUPPLEMENT_FEEDS = {"Lexus", "Kia"}       # Mazda's covers every Mazda dealer on our list (its dealer locator), so their sites are skipped
