@@ -22,8 +22,9 @@ def check(listing, dealer_brand: str) -> tuple[str, str, str]:
     """Return (cpo_program or '', reason it fails, reason it is uncertain).
 
     Strong evidence: the brand's own CPO feed, or the listing URL / title / structured
-    data saying certified. Page text alone is weak, because nearly every dealer site
-    has a "Certified Pre-Owned" menu link, so it only earns "needs a call".
+    data saying certified. Page text alone doesn't count: nearly every dealer site has a
+    "Certified Pre-Owned" menu link, and all 9 such cars the user checked (Oct 2026) were not
+    certified. User's rule: if the listing itself doesn't say certified, it's not CPO.
     """
     make = (listing.make or "").lower()
     if dealer_brand.lower().split("-")[0] not in make and not (dealer_brand == "Mercedes-Benz" and "mercedes" in make):
@@ -40,9 +41,11 @@ def check(listing, dealer_brand: str) -> tuple[str, str, str]:
         if "blue advantage" not in text:
             return "", "no Ford Blue Advantage certification shown", ""
         tier = "Gold" if "gold" in text else ("Blue" if re.search(r"advantage blue|blue advantage blue", text) else "")
-        return f"{name} {tier}".strip(), "", ("" if strong else "Blue Advantage only mentioned in page text")
+        if not strong:
+            return "", "Blue Advantage not shown on the listing itself (only elsewhere on the dealer's site)", ""
+        return f"{name} {tier}".strip(), "", ""
     if strong:
         return name, "", ""
     if re.search(pat, text):
-        return name, "", "certification only mentioned in page text; confirm it's a CPO car"
+        return "", "certification not shown on the listing itself (only elsewhere on the dealer's site)", ""
     return "", "no automaker certification shown on the listing", ""
