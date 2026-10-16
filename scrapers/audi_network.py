@@ -14,6 +14,7 @@ from urllib.parse import urljoin, urlparse
 from . import playwright_fallback
 from .base import FetchError, fetcher
 from .generic_jsonld import discover_from_sitemaps
+from core.profiles import min_year
 from .listing import VIN_ANY, url_condition, url_matches_brand_models, url_years
 
 INVENTORY_PATHS = ["/en/inventory/used/", "/en/inventory/certified/", "/en/used-vehicles/",
@@ -49,7 +50,7 @@ def discover(homepage: str, brand: str = "Audi", inventory_url: str = "") -> tup
         for u in _links(r.text, r.url):
             vdp = VIN_ANY.search(u.split("?")[0]) or "vehicleid=" in u.lower()
             if vdp and url_condition(u) != "new" and (url_matches_brand_models(u, brand) or "vehicleid=" in u.lower()):
-                if not url_years(u) or max(url_years(u)) >= 2023:
+                if not url_years(u) or max(url_years(u)) >= min_year(brand):
                     found.append(u)
     found = list(dict.fromkeys(found))
     if found:

@@ -32,6 +32,28 @@ refresh.bat ──► run.py refresh ──► git push data/ output/ ──► 
   noindex) and deploys with wrangler. Triggers: a push that changes `output/**`, or
   **Run workflow** in the Actions tab.
 
+## Two buyers: Ross and Jenna (Oct 16 2026)
+
+The tracker serves two buyers ("profiles", `core/profiles.py`, config.yaml `profiles:`). **The dealer search runs
+once**; every car found is checked against each buyer's rules separately (`criteria.use(cfg)` switches the rules;
+each buyer evaluates a deep copy of the listing).
+- **Ross** = the original top-level settings; results in `data/` and `output/` (paths unchanged); page `/`.
+- **Jenna** = `profiles.jenna` merged over the top-level settings (`models`/`buying_context` replaced, not merged);
+  results in `data/jenna/` (listings, price_history, exclusions.csv) and `output/jenna/`; page **`/jenna/`**.
+  Her rules: CPO, SUV, **regular hybrid only** (no plug-ins; mild hybrids count as gas), AWD/4WD, < 40k miles,
+  **< $40,000** incl. fees (no cushion), **no cloth seats** (leather or synthetic; `Listing.seats` from the page,
+  else config `seat_material` by trim; unknown → Needs a call), **any exterior color but red/orange**, any interior,
+  **sunroof nice-to-have** (scored, never excludes), 3 rows OK, 2020+ (assumed: CPO age limits). Brands: Ross's + **Kia, Acura**.
+- Search scope = union of both buyers (`profiles.could_want`, `min_year(brand)`, `model_tokens`; Ross's URL words stay in
+  `listing.ROSS_TOKENS`). Reuse of last run's rows happens only when **every** buyer excluded the car for good
+  (`prev_rows[key] = {profile: row}`).
+- Each page has its own favorites / compare / checked marks: localStorage keys prefixed `jenna:`; KV keys
+  `fav:jenna`, `checked:jenna` via `/api/favs?p=jenna` (Ross keeps `fav:default`). `tools/build_site.py` publishes
+  `output/<id>/` to `site/<id>/`. The pill switch at the top links the pages.
+- Facts the user confirms (`data/confirmed.csv`) apply to both buyers; ruling a car out (`exclusions.csv`) is per buyer
+  (Jenna's: `data/jenna/exclusions.csv`). When the user reports something about a car, ask whose list if unclear.
+- Jenna's trim guide: `data/jenna/trim_guide.json` (config `trim_guide:`); warranty table filtered to her brands.
+
 ## Where things are
 
 - Repo `jhpdrbl/Car-finder-Ross`; working branch **`claude/la-cpo-suv-scraper-x0pl15`**, which is

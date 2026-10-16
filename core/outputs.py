@@ -96,7 +96,13 @@ def coverage_rows(results, feed_stats: dict) -> list[dict]:
     return rows
 
 
-def write_digest(rows: list[dict], changes: dict, cov: list[dict], today: str | None = None) -> Path:
+def _profile(profile=None):
+    from core import profiles
+    return profile or profiles.get()
+
+
+def write_digest(rows: list[dict], changes: dict, cov: list[dict], today: str | None = None, profile=None) -> Path:
+    P = _profile(profile)
     today = today or date.today().isoformat()
     active = [r for r in rows if r.get("status") == "active"]
     matches = sorted([r for r in active if not r.get("needs_call")], key=lambda r: -float(r.get("score") or 0))
@@ -104,8 +110,8 @@ def write_digest(rows: list[dict], changes: dict, cov: list[dict], today: str | 
     ok = [c for c in cov if c["status"] == "success"]
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = [c for c in cov if c["status"] == "skipped"]
-    L = [f"# CPO SUV digest — {today}", ""]
-    L += [f"- {b}" for b in CONFIG["buying_context"]]
+    L = [f"# CPO SUV digest — {today}" + ("" if P.is_default else f" — {P.label}"), ""]
+    L += [f"- {b}" for b in P.cfg.get("buying_context") or []]
     L += ["", "## Coverage report", "",
           f"{len(ok)} sources read · {len(failed)} failed · {len(skipped)} skipped (covered by a brand feed)", ""]
     if failed:
@@ -142,14 +148,15 @@ def write_digest(rows: list[dict], changes: dict, cov: list[dict], today: str | 
         L.append("- none")
     L += ["", "_Every result links to the dealer's own listing page. CARFAX status comes from the dealer page's badge only. "
           "Recalls are model-level campaigns; check the VIN at https://www.nhtsa.gov/recalls._", ""]
-    OUT.mkdir(exist_ok=True)
-    path = OUT / f"digest_{today}.md"
+    P.out.mkdir(parents=True, exist_ok=True)
+    path = P.out / f"digest_{today}.md"
     path.write_text("\n".join(L), encoding="utf-8")
     return path
 
 
 # ---- "Check yourself": dealers no method could read, with links to look at them by hand ----
-TOP_BRANDS = ("Audi", "Subaru", "Genesis")
+TOP_BRANDS = ("Audi", "Subaru", "Genesis")      # Ross's; another buyer sets `top_brands:` in config.yaml
+_CFG = CONFIG                                     # the buyer whose page is being written (set by write_dashboard)
 
 
 def _plain_reason(reason: str) -> str:
@@ -174,8 +181,8 @@ def _model_words(brand: str) -> list[str]:
 
 def _model_years(brand: str) -> dict[str, int]:
     """{model word: earliest model year} from config.yaml's list (e.g. 'Tiguan 2025+' -> {'Tiguan': 2025})."""
-    lst = (CONFIG.get("models", {}).get(brand) or {}).get("list", "")
-    base = int(CONFIG.get("filters", {}).get("min_year") or CONFIG.get("min_year") or 2023)
+    lst = (_CFG.get("models", {}).get(brand) or {}).get("list", "")
+    base = int(_CFG.get("filters", {}).get("min_year") or _CFG.get("min_year") or 2023)
     out: dict[str, int] = {}
     for part in lst.split(","):
         part = part.strip()
@@ -189,7 +196,12 @@ def _model_years(brand: str) -> dict[str, int]:
 # Dealer Inspire filters, checked by the user on a real DI site (Oct 2026): year and ext_color_generic work;
 # drivetrain values are spelled out, so several spellings are listed (any one matching is enough).
 DI_DRIVES = ("All-Wheel Drive", "All Wheel Drive", "AWD", "Four-Wheel Drive", "Four Wheel Drive", "4WD", "4x4")
-DI_COLORS = ("Black", "Gray", "Green")      # your exterior rule: black / gray / dark green (light greens filtered by eye)
+DI_COLORS = ("Black", "Gray", "Green")      # Ross's exterior rule: black / gray / dark green (light greens filtered by eye)
+
+
+def _di_colors() -> tuple:
+    """Color filter for the links: Ross's black/gray/green; none for a buyer who takes most colors."""
+    return DI_COLORS if (_CFG.get("filters", {}).get("exterior_colors") or {}).get("include") else ()
 
 
 def _di_filters(model: str, min_year: int) -> str:
@@ -198,7 +210,7 @@ def _di_filters(model: str, min_year: int) -> str:
     parts = [f"_dFR%5Bmodel%5D%5B0%5D={quote(model)}"]
     parts += [f"_dFR%5Byear%5D%5B{i}%5D={y}" for i, y in enumerate(range(min_year, _d.today().year + 2))]
     parts += [f"_dFR%5Bdrivetrain%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(DI_DRIVES)]
-    parts += [f"_dFR%5Bext_color_generic%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(DI_COLORS)]
+    parts += [f"_dFR%5Bext_color_generic%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(_di_colors())]
     return "&".join(parts)
 
 
@@ -230,14 +242,19 @@ def _model_link(d: dict, brand: str, model: str) -> str:
     return ""
 
 
-def check_list(cov: list[dict]) -> list[dict]:
+def check_list(cov: list[dict], profile=None) -> list[dict]:
     import csv
+    global _CFG
+    P = _profile(profile)
+    _CFG = P.cfg
     dealers = {r["dealer_name"]: r for r in csv.DictReader((ROOT / "data" / "dealers.csv").open(encoding="utf-8"))}
     fed = {c["brand"] for c in cov if c["dealer"].endswith("brand CPO feed") and c["status"] == "success"}
     out = []
     for c in cov:
         if c["status"] != "failed" or c["dealer"].endswith("brand CPO feed") or c["brand"] in fed:
             continue   # a brand feed that worked already brings in that brand's certified cars
+        if c["brand"] not in P.models():
+            continue   # a brand this buyer has no models from
         if c["dealer"] not in dealers:
             continue   # dealer since removed from the list (e.g. one that turned out not to exist)
         d = dealers[c["dealer"]]
@@ -249,12 +266,14 @@ def check_list(cov: list[dict]) -> list[dict]:
                     "cpo": _cpo_base(d),
                     "guess": "(inferred" in (d.get("notes") or ""),
                     "homepage": d.get("homepage") or c.get("homepage", "")})
-    rank = {b: i for i, b in enumerate(TOP_BRANDS)}
+    rank = {b: i for i, b in enumerate(P.cfg.get("top_brands", TOP_BRANDS) or [])}
     out.sort(key=lambda x: (rank.get(x["brand"], 9), x["brand"], float(x["distance_mi"] or 999)))   # by brand, then distance
     return out
 
 
-def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None) -> Path:
+def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None, profile=None) -> Path:
+    from core import profiles
+    P = _profile(profile)
     today = today or date.today().isoformat()
     active = [r for r in rows if r.get("status") == "active"]
     hist: dict[str, list] = {}
@@ -267,7 +286,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "mileage", "ext_color", "int_color", "fuel_type", "sunroof", "audio",
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
-                                               "cpo_program", "first_seen", "distance_mi", "fees_estimated")}
+                                               "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats")}
                     | {"hist": hist.get(r["vin"], []),
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run})
     ok = sum(c["status"] == "success" for c in cov)
@@ -282,25 +301,33 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                    "mpg_combined", "needs_call", "first_seen", "last_seen",
                                                    "removed_on", "fail_reasons", "distance_mi")}
                         | {"hist": hist.get(r["vin"], [])})
-    guide = json.loads(TRIM_GUIDE.read_text(encoding="utf-8")) if TRIM_GUIDE.exists() else {"models": []}
+    gfile = ROOT / P.cfg["trim_guide"] if P.cfg.get("trim_guide") else TRIM_GUIDE
+    guide = json.loads(gfile.read_text(encoding="utf-8")) if gfile.exists() else {"models": []}
     warranty = json.loads(WARRANTY.read_text(encoding="utf-8")) if WARRANTY.exists() else {"brands": []}
-    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov),
-                       "miles_per_year": CONFIG.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
+    makes = {m.lower() for m in P.models()}          # warranty table: only the brands this buyer looks at
+    warranty = {"brands": [b for b in warranty.get("brands", []) if b.get("make", "").lower() in makes]}
+    people = [{"id": q.id, "label": q.label, "href": q.href,
+               "local": ("" if P.is_default else "../") + ("dashboard.html" if q.is_default else f"{q.id}/dashboard.html")}
+              for q in profiles.all_profiles()]
+    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
+                       "profile": {"id": P.id, "label": P.label, "default": P.is_default}, "people": people,
+                       "miles_per_year": P.cfg.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
         .replace("__OK__", str(ok)).replace("__FAILED__", str(len(failed))).replace("__SKIPPED__", str(skipped)) \
         .replace("__MATCHES__", str(sum(1 for c in cars if not c["needs_call"]))) \
         .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"]))) \
         .replace("__NAVAIL__", str(len(cars))) \
-        .replace("__MPY__", f'{CONFIG.get("warranty", {}).get("miles_per_year", 12000):,}').replace("__NGONE__", str(len(gone)))
-    OUT.mkdir(exist_ok=True)
-    path = OUT / "dashboard.html"
+        .replace("__MPY__", f'{P.cfg.get("warranty", {}).get("miles_per_year", 12000):,}').replace("__NGONE__", str(len(gone))) \
+        .replace("__TITLE__", "CPO SUV Finder" + ("" if P.is_default else f" · {html.escape(P.label)}"))
+    P.out.mkdir(parents=True, exist_ok=True)
+    path = P.out / "dashboard.html"
     path.write_text(page, encoding="utf-8")
     return path
 
 
 TEMPLATE = r"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CPO SUV Finder</title>
+<title>__TITLE__</title>
 <style>
 :root { --bg:#f5f6f4; --surface:#fff; --fg:#1d211f; --muted:#5f6862; --line:#dde2de; --accent:#2c6e57;
   --ok:#1f7a4d; --ok-bg:#e2f2e9; --warn:#7a5a00; --warn-bg:#fbf1d6; --bad:#a3361f; --bad-bg:#f7e4df; --checked:#e6e8e6; color-scheme: light; }
@@ -312,7 +339,10 @@ TEMPLATE = r"""<!doctype html>
 body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; padding-block:20px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
 main { max-width:1200px; margin:0 auto; display:grid; gap:18px; }
 main > * { min-width:0; }  /* wide tables scroll inside .wrap instead of widening the page */
-h1 { margin:0; font-size:26px; letter-spacing:-.01em; } .muted { color:var(--muted); }
+h1 { margin:0; font-size:26px; letter-spacing:-.01em; }
+.people { display:flex; gap:6px; margin-bottom:8px; font-size:14px; font-weight:600; }
+.people a, .people span { padding:4px 12px; border-radius:999px; border:1px solid var(--line); text-decoration:none; }
+.people a { color:var(--accent); background:var(--surface); } .people span { background:var(--accent); color:var(--surface); border-color:var(--accent); } .muted { color:var(--muted); }
 .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
 .tile { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
 .tile b { display:block; font-size:24px; font-variant-numeric:tabular-nums; }
@@ -463,7 +493,7 @@ td.warr { min-width:190px; font-size:13px; }
 </style></head><body><main>
 <div id="safe-top" aria-hidden="true"></div>
 <button type="button" id="totop" aria-label="Back to top" title="Back to top">&#8593;</button>
-<div><h1>CPO SUV Finder</h1><div class="muted">Refreshed __DATE__ · every car links to the dealer's own listing</div></div>
+<div><nav class="people" id="people" aria-label="Whose cars"></nav><h1>__TITLE__</h1><div class="muted">Refreshed __DATE__ · every car links to the dealer's own listing</div></div>
 <div class="tiles">
   <div class="tile"><b>__MATCHES__</b><span class="muted">meet all criteria</span></div>
   <div class="tile"><b>__CALLS__</b><span class="muted">need a call</span></div>
@@ -553,13 +583,24 @@ The earlier of the two is shown.</p>
 </main>
 <script>
 const D = __DATA__;
+// Each buyer has their own favorites, compare list and "checked" marks: saved under their own keys here and online.
+const PK = D.profile.default ? "" : D.profile.id + ":";
+const API = name => "/api/" + name + (D.profile.default ? "" : "?p=" + encodeURIComponent(D.profile.id));
+const SEATS = {leather: "leather", synthetic: "synthetic leather", cloth: "cloth"};
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+(function people() {             // switch between buyers' pages
+  const el = document.getElementById("people"); if (!el || (D.people || []).length < 2) return;
+  const local = location.protocol === "file:";
+  el.innerHTML = D.people.map(q => q.id === D.profile.id
+    ? `<span aria-current="page">${esc(q.label)}'s cars</span>`
+    : `<a href="${esc(local ? q.local : q.href)}">${esc(q.label)}'s cars</a>`).join("");
+})();
 const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
 const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electric"};
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
 D.cars.concat(D.gone).forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
-  c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio].filter(Boolean).join(", ");
+  c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio, D.profile.default ? "" : (SEATS[c.seats] ? SEATS[c.seats] + " seats" : "")].filter(Boolean).join(", ");
   c.fuel = FUEL[c.fuel_type] || "?"; });
 D.cars.concat(D.gone).forEach(c => {
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
@@ -733,12 +774,12 @@ document.addEventListener("click", e => {      // "trim info" link on a car: ope
   const el = document.getElementById(a.dataset.gid); if (el) el.scrollIntoView({block: "start"}); });
 // ---- Favorites: tap "Save" on a car; the Favorites tab shows the Available list limited to them ----
 let fav = [], favOnly = false, favImport = [];
-try { fav = JSON.parse(localStorage.getItem("fav") || "[]"); } catch (e) {}
+try { fav = JSON.parse(localStorage.getItem(PK + "fav") || "[]"); } catch (e) {}
 try { const m = location.hash.match(/fav=([A-Z0-9,]+)/i);      // a shared favorites link: #fav=VIN1,VIN2
   if (m) { favImport = m[1].toUpperCase().split(",").filter(Boolean);
            favImport.forEach(v => { if (!fav.includes(v)) fav.push(v); });
            history.replaceState(null, "", location.pathname + "#favorites"); } } catch (e) {}
-function saveFav() { try { localStorage.setItem("fav", JSON.stringify(fav)); } catch (e) {}
+function saveFav() { try { localStorage.setItem(PK + "fav", JSON.stringify(fav)); } catch (e) {}
   document.getElementById("nfav").textContent = fav.filter(v => D.cars.some(c => c.vin === v)).length; }
 // Sync with the website's own storage (functions/api/favs.js) so favorites follow you between devices.
 // Without it (opened as a local file, or not set up), favorites stay on this device only.
@@ -748,7 +789,7 @@ function setSyncNote() {
   document.getElementById("fav-sync-off").hidden = favSync; }
 function pushFav() {
   if (!favSync) return;
-  fetch("api/favs", {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({fav})})
+  fetch(API("favs"), {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({fav})})
     .catch(() => {});
 }
 function paintFavButtons() {
@@ -758,15 +799,15 @@ function paintFavButtons() {
 async function pullFav() {
   if (location.protocol === "file:") { setSyncNote(); return; }   // the laptop's local copy can't sync
   try {
-    const r = await fetch("api/favs", {cache: "no-store"});
+    const r = await fetch(API("favs"), {cache: "no-store"});
     if (!r.ok) throw new Error(r.status);
     const server = (await r.json()).fav;
     if (!Array.isArray(server)) throw new Error("bad reply");
-    let first = false; try { first = localStorage.getItem("fav_synced") !== "1"; } catch (e) {}
+    let first = false; try { first = localStorage.getItem(PK + "fav_synced") !== "1"; } catch (e) {}
     if (first) {                         // first sync on this device: keep what was saved here, too
       fav = [...new Set(server.concat(fav))];
       favSync = true; pushFav();
-      try { localStorage.setItem("fav_synced", "1"); } catch (e) {}
+      try { localStorage.setItem(PK + "fav_synced", "1"); } catch (e) {}
     } else {
       fav = [...new Set(server.concat(favImport))]; favSync = true;
       if (favImport.some(v => !server.includes(v))) pushFav();
@@ -796,17 +837,17 @@ saveFav();
 // ---- Check yourself tab: dealers we couldn't read; the user checks them by hand ----
 const CK = D.check || [];
 let checked = {}, ckSync = false;
-try { checked = JSON.parse(localStorage.getItem("checked") || "{}") || {}; } catch (e) {}
+try { checked = JSON.parse(localStorage.getItem(PK + "checked") || "{}") || {}; } catch (e) {}
 const todayISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
 const daysAgo = iso => Math.round((Date.parse(todayISO()) - Date.parse(iso)) / 864e5);
 function saveChecked() {
-  try { localStorage.setItem("checked", JSON.stringify(checked)); } catch (e) {}
-  if (ckSync) fetch("api/checked", {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({checked})}).catch(() => {});
+  try { localStorage.setItem(PK + "checked", JSON.stringify(checked)); } catch (e) {}
+  if (ckSync) fetch(API("checked"), {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({checked})}).catch(() => {});
 }
 async function pullChecked() {
   if (location.protocol === "file:") return;
   try {
-    const r = await fetch("api/checked", {cache: "no-store"}); if (!r.ok) throw 0;
+    const r = await fetch(API("checked"), {cache: "no-store"}); if (!r.ok) throw 0;
     const server = (await r.json()).checked || {};
     for (const [k, v] of Object.entries(checked)) if (!server[k] || server[k] < v) server[k] = v;   // keep the newest of both
     checked = server; ckSync = true; saveChecked(); renderCheck();
@@ -854,9 +895,9 @@ document.getElementById("checklist").addEventListener("click", e => {
   saveChecked(); renderCheck(); });
 document.getElementById("chk-hide").addEventListener("input", renderCheck);
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
-let cmp = []; try { cmp = JSON.parse(localStorage.getItem("cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
+let cmp = []; try { cmp = JSON.parse(localStorage.getItem(PK + "cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
-function saveCmp() { try { localStorage.setItem("cmp", JSON.stringify(cmp)); } catch (e) {}
+function saveCmp() { try { localStorage.setItem(PK + "cmp", JSON.stringify(cmp)); } catch (e) {}
   document.getElementById("ncmp").textContent = cmp.length;
   document.getElementById("cmpbar-n").textContent = cmp.length;
   document.getElementById("cmpbar").hidden = !cmp.length; }
@@ -902,6 +943,7 @@ const FIELDS = [
   ["MPG", c => num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
   ["Colors", c => esc(c.colors), null, null],
   ["Sunroof", c => c.sunroof === "True" ? "yes" : c.sunroof === "False" ? "no" : "not shown", null, null],
+  ["Seats", c => SEATS[c.seats] || "not shown", null, null],
   ["Audio", c => esc(c.audio || "—"), null, null],
   ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
   ["CARFAX", c => esc({clean: "no accidents", accident: "accident", not_verified: "not verified"}[c.carfax_status] || c.carfax_status), null, null],
@@ -1014,7 +1056,7 @@ function showTab(which) {
   document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check";   // car filters don't apply there
   document.getElementById("footnote").hidden = which === "guide" || which === "check";
   if (which === "cmp") renderCompare();
-  try { localStorage.setItem("tab", which); } catch (e) {}
+  try { localStorage.setItem(PK + "tab", which); } catch (e) {}
   stickHeads();
 }
 document.getElementById("tab-avail").addEventListener("click", () => showTab("avail"));
@@ -1024,7 +1066,7 @@ document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"
 document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"));
 document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
 renderGuide(); renderWarranty(); renderCheck(); pullChecked();
-try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check"].includes(t)) showTab(t); } catch (e) {}
+try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });

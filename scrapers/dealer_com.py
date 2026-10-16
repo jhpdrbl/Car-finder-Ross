@@ -6,6 +6,7 @@ from __future__ import annotations
 import re
 
 from .base import FetchError, fetcher
+from core.profiles import min_year
 from .listing import MODEL_TOKENS, url_matches_brand_models, url_years
 
 CAR = re.compile(r'"link":"([^"]+)"[^{}]{0,600}?"vin":"([A-HJ-NPR-Z0-9]{17})"')
@@ -35,7 +36,7 @@ def discover(homepage: str, brand: str, inventory_url: str = "") -> tuple[list[s
                 cars = CAR.findall(r.text)
                 for link, vin in cars:
                     link = link if link.startswith("http") else homepage + link
-                    if url_matches_brand_models(link, brand) and (not url_years(link) or max(url_years(link)) >= 2023):
+                    if url_matches_brand_models(link, brand) and (not url_years(link) or max(url_years(link)) >= min_year(brand)):
                         found[vin] = link
                 total = re.search(r'"totalCount"\s*:\s*(\d+)', r.text)
                 size = re.search(r'"pageSize"\s*:\s*(\d+)', r.text)

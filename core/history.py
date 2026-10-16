@@ -15,7 +15,7 @@ LISTING_COLS = ["vin", "status", "first_seen", "last_seen", "dealer", "dealer_ur
                 "carfax_status", "recall_flags", "est_monthly_cost", "score", "fail_reasons",
                 # extras beyond the spec's list
                 "needs_call", "notes", "removed_on", "last_read", "seen_run", "new_run", "price", "fees_estimated",
-                "dealer_brand", "distance_mi", "source", "carfax_badges"]
+                "dealer_brand", "distance_mi", "source", "carfax_badges", "seats"]
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -33,25 +33,30 @@ def write_csv(path: Path, rows: list[dict], cols: list[str]) -> None:
         w.writerows(rows)
 
 
-def load_confirmed() -> dict[str, dict]:
-    """Facts the user checked by hand (data/confirmed.csv: vin, trim, sunroof yes/no, note); they win over the listing."""
-    return {r["vin"].strip().upper(): r for r in read_csv(DATA / "confirmed.csv") if r.get("vin")}
+def load_confirmed(data: Path = DATA) -> dict[str, dict]:
+    """Facts the user checked by hand (confirmed.csv: vin, trim, sunroof yes/no, note); they win over the listing.
+    Facts about a car are the same for every buyer, so another buyer's folder adds to (and overrides) data/confirmed.csv."""
+    out = {r["vin"].strip().upper(): r for r in read_csv(DATA / "confirmed.csv") if r.get("vin")}
+    if data != DATA:
+        out.update({r["vin"].strip().upper(): r for r in read_csv(data / "confirmed.csv") if r.get("vin")})
+    return out
 
 
-def load_exclusions() -> dict[str, str]:
-    return {r["vin"].strip().upper(): r["reason"] for r in read_csv(DATA / "exclusions.csv") if r.get("vin")}
+def load_exclusions(data: Path = DATA) -> dict[str, str]:
+    """Cars a buyer ruled out by hand (exclusions.csv in that buyer's data folder)."""
+    return {r["vin"].strip().upper(): r["reason"] for r in read_csv(data / "exclusions.csv") if r.get("vin")}
 
 
 def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[str, str], today: str | None = None,
-           run_id: str = ""):
+           run_id: str = "", data: Path = DATA):
     """Merge this run into listings.csv. Returns (rows, changes) where changes has new / price / removed lists.
 
     A listing that was active and is not seen again is only marked sold when its dealer
     (or brand feed) was read successfully this run; otherwise it stays as it was.
     """
     today = today or date.today().isoformat()
-    old = {r["vin"]: r for r in read_csv(DATA / "listings.csv")}
-    hist = read_csv(DATA / "price_history.csv")
+    old = {r["vin"]: r for r in read_csv(data / "listings.csv")}
+    hist = read_csv(data / "price_history.csv")
     last_price = {}
     for h in hist:
         last_price[h["vin"]] = h["price"]
@@ -90,6 +95,6 @@ def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[st
             prev["fail_reasons"] = gone_urls.get(prev.get("listing_url"), "no longer listed by the dealer")
             changes["removed"].append(prev)
         rows.append(prev)
-    write_csv(DATA / "listings.csv", rows, LISTING_COLS)
-    write_csv(DATA / "price_history.csv", hist, ["vin", "date", "price"])
+    write_csv(data / "listings.csv", rows, LISTING_COLS)
+    write_csv(data / "price_history.csv", hist, ["vin", "date", "price"])
     return rows, changes

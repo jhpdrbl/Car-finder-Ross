@@ -12,6 +12,7 @@ import threading
 from urllib.parse import urljoin, urlparse
 
 from .base import CONFIG, FetchError, fetcher
+from core.profiles import min_year
 from .listing import VIN_ANY, url_condition, url_matches_brand_models, url_years
 
 _lock = threading.BoundedSemaphore(3)   # up to 3 browsers at once (different sites); keeps memory use modest
@@ -64,7 +65,7 @@ def _vdp_links(html: str, base: str, brand: str) -> list[str]:
         if host not in u or url_condition(u) == "new":
             continue
         has_id = VIN_ANY.search(u.split("?")[0]) or re.search(r"vehicleid=|/vdp/|[0-9a-f]{32}", u, re.I)
-        if has_id and url_matches_brand_models(u, brand) and (not url_years(u) or max(url_years(u)) >= 2023):
+        if has_id and url_matches_brand_models(u, brand) and (not url_years(u) or max(url_years(u)) >= min_year(brand)):
             out.append(u)
     return list(dict.fromkeys(out))
 

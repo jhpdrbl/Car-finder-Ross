@@ -8,6 +8,7 @@ from urllib.parse import urljoin
 
 from .base import FetchError, fetcher
 from .generic_jsonld import discover_from_sitemaps
+from core.profiles import min_year
 from .listing import MODEL_TOKENS, VIN_ANY, url_condition, url_matches_brand_models, url_years
 
 SEARCH_PAGES = ["/searchused.aspx", "/certified-pre-owned.html", "/used-vehicles/"]
@@ -30,7 +31,7 @@ def discover(homepage: str, brand: str, inventory_url: str = "") -> tuple[list[s
             for href in re.findall(r'href="([^"#]+)"', r.text):
                 u = urljoin(r.url, href.replace("&amp;", "&").replace("&#x2B;", "+"))
                 if VIN_ANY.search(u.split("?")[0]) and url_condition(u) != "new" and url_matches_brand_models(u, brand):
-                    if not url_years(u) or max(url_years(u)) >= 2023:
+                    if not url_years(u) or max(url_years(u)) >= min_year(brand):
                         found.setdefault(u)
         if len(found) > len(cands):
             break

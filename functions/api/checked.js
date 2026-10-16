@@ -4,8 +4,12 @@
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
-const keyFor = request =>
-  "checked:" + (request.headers.get("cf-access-authenticated-user-email") || "default").toLowerCase();
+// ?p=jenna: another buyer's page keeps its own marks (checked:jenna); Ross's page keeps checked:default
+const keyFor = request => {
+  const who = (request.headers.get("cf-access-authenticated-user-email") || "default").toLowerCase();
+  const p = (new URL(request.url).searchParams.get("p") || "").toLowerCase();
+  return /^[a-z]{1,20}$/.test(p) && p !== "ross" ? `checked:${p}${who === "default" ? "" : ":" + who}` : "checked:" + who;
+};
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 

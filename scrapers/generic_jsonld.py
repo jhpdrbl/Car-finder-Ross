@@ -20,7 +20,7 @@ from .base import FetchError, fetcher
 from .listing import (VIN_ANY, VIN_RE, Listing, integer, money, url_condition,
                       url_matches_brand_models, url_vin, url_years)
 
-MIN_YEAR = 2023
+from core.profiles import min_year   # earliest model year any buyer wants, per brand
 
 # --------------------------------------------------------------------------
 # Discovery: sitemaps
@@ -91,7 +91,7 @@ def discover_from_sitemaps(homepage: str, brand: str) -> tuple[list[str], str]:
         if not url_matches_brand_models(u, brand) and not url_vin(u):
             continue
         yrs = url_years(u)
-        if yrs and max(yrs) < MIN_YEAR:
+        if yrs and max(yrs) < min_year(brand):
             continue
         if not looks_like_vdp(u):
             continue
@@ -211,6 +211,28 @@ FAKE_LEATHER = re.compile(rf"({_FAKE}[^.;|\n]{{0,30}}{_SEAT}|{_SEAT}[^.;|\n]{{0,
 FAKE_WORD = re.compile(_FAKE, re.I)
 LEATHER = re.compile(rf"((?:genuine |nappa |perforated |real )?leather[- ](?:trimmed |appointed )?{_SEAT}|"
                      rf"{_SEAT}[^.;|\n]{{0,20}}(?<!synthetic )leather(?!ette)|nappa leather)", re.I)
+CLOTH = re.compile(rf"((?:cloth|fabric|tweed|woven|knit) (?:trimmed |covered )?{_SEAT}|{_SEAT}[^.;|\n]{{0,15}}(?:cloth|fabric)(?! headliner)|"
+                   rf"(?:cloth|fabric) (?:interior|upholstery|seat trim))", re.I)
+CLOTH_WORD = re.compile(r"\b(cloth|fabric|tweed)\b", re.I)
+
+
+def seat_material(hay: str, int_color: str) -> str:
+    """leather / synthetic / cloth from the interior color name first (most specific), then the page text."""
+    if FAKE_WORD.search(int_color):
+        return "synthetic"
+    if CLOTH_WORD.search(int_color):
+        return "cloth"
+    if "leather" in int_color.lower():
+        return "leather"
+    if FAKE_LEATHER.search(hay):
+        return "synthetic"
+    if LEATHER.search(hay):
+        return "leather"
+    if CLOTH.search(hay):
+        return "cloth"
+    return ""
+
+
 VENT = re.compile(r"(ventilated|cooled) (?:front )?seats?|seat ventilation|ventilated (?:driver|front)", re.I)
 SPARE_YES = re.compile(r"(full[- ]size spare|compact spare|temporary spare|spare tire|space[- ]saver spare|spare wheel)", re.I)
 SPARE_NO = re.compile(r"(tire (?:mobility|repair|inflat\w*) kit|inflator kit|tire sealant|run[- ]flat|no spare)", re.I)
@@ -370,6 +392,7 @@ def parse_vdp(html: str, url: str) -> Listing | None:
         L.leather = False
     elif LEATHER.search(hay) or "leather" in L.int_color.lower():
         L.leather = True
+    L.seats = seat_material(hay, L.int_color)
     if VENT.search(hay):
         L.ventilated_seats = True
     if SPARE_NO.search(hay):

@@ -17,6 +17,14 @@ F = CONFIG["filters"]
 S = CONFIG["scoring"]
 FIN = CONFIG["finance"]
 HOME = CONFIG["home"]
+CFG = CONFIG
+
+
+def use(cfg: dict) -> None:
+    """Switch every rule below to one buyer's settings (core/profiles.py). Evaluation runs one buyer at a time."""
+    global F, S, FIN, HOME, MODELS, CFG
+    CFG = cfg
+    F, S, FIN, HOME, MODELS = cfg["filters"], cfg["scoring"], cfg["finance"], cfg["home"], cfg.get("models") or {}
 
 
 # --------------------------------------------------------------------------
@@ -66,6 +74,13 @@ OTHER_COLOR_WORDS = ["blue", "red", "white", "beige", "brown", "orange", "yellow
 def exterior_ok(color: str) -> tuple[str, str]:
     """('pass'|'fail'|'unknown', reason)."""
     c = (color or "").lower()
+    rules = F.get("exterior_colors") or {}
+    if rules.get("include") is None:          # "any color except ..." (e.g. Jenna: no red/orange)
+        bad = rules.get("exclude") or []
+        if not c.strip():
+            return ("unknown", f"exterior color not shown; confirm it isn't {rules.get('describe') or '/'.join(bad[:2])}") if bad else ("pass", "")
+        hit = next((w for w in bad if re.search(rf"\b{re.escape(w)}", c)), None)
+        return ("fail", f"exterior {color}") if hit else ("pass", "")
     if not c.strip():
         return "unknown", "exterior color not shown"
     if any(w in c for w in ("matte", "frozen")):
@@ -89,6 +104,8 @@ def exterior_ok(color: str) -> tuple[str, str]:
 
 def interior_ok(color: str) -> tuple[str, str]:
     c = (color or "").lower()
+    if not F.get("interior_colors"):          # this buyer takes any interior color
+        return "pass", ""
     if not c.strip():
         return "unknown", "interior color not shown"
     for w in F["interior_colors"]["exclude"]:
@@ -109,10 +126,12 @@ def sunroof_inferred(L: Listing, d: dict) -> str:
     make = (d.get("Make") or L.make or "").lower()
     model = f'{d.get("Model") or ""} {L.model}'.lower()
     trim = f'{d.get("Trim") or ""} {L.trim} {L.title} {L.listing_url}'.lower()
-    for row in CONFIG.get("sunroof_standard", []):
+    for row in CFG.get("sunroof_standard", []):
         if row["make"].lower() in make and row["model"].lower() in model and re.search(row["trim_regex"], trim):
             year = L.year or int(d.get("ModelYear") or 0)
             if row.get("min_year") and (not year or year < row["min_year"]):
+                continue
+            if row.get("max_year") and year and year > row["max_year"]:
                 continue
             if row["model"] == "GV70" and not re.search(row["trim_regex"], f"{L.trim} {L.title} {L.listing_url}".lower()):
                 continue  # vPIC's Series lists every GV70 trim; only trust the listing's own trim
@@ -120,8 +139,25 @@ def sunroof_inferred(L: Listing, d: dict) -> str:
     return ""
 
 
+def seats_inferred(L: Listing, d: dict) -> tuple[str, str]:
+    """(material, note) from config `seat_material` when the listing doesn't say: cloth / synthetic / leather,
+    or cloth_std = cloth standard with leather(ette) optional (can't tell from the trim)."""
+    make = (d.get("Make") or L.make or "").lower()
+    model = f'{d.get("Model") or ""} {L.model}'.lower()
+    trim = f'{L.model} {L.trim} {L.title} {L.listing_url}'.lower().replace("-", " ")
+    year = L.year or int(d.get("ModelYear") or 0)
+    for row in CFG.get("seat_material", []):
+        if row["make"].lower() in make and row["model"].lower() in model and re.search(row["trim_regex"], trim):
+            if row.get("min_year") and (not year or year < row["min_year"]):
+                continue
+            if row.get("max_year") and year and year > row["max_year"]:
+                continue
+            return row["material"], row.get("note", "")
+    return "", ""
+
+
 def typical(table: str, L: Listing):
-    t = CONFIG.get(table, {})
+    t = CFG.get(table, {})
     model = (L.model or "").title()
     trim = L.trim or ""
     for key in (f"{model} {'Wilderness' if 'wilderness' in trim.lower() else ''}".strip(), model):
@@ -169,6 +205,18 @@ NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|fron
 NAME_AWD = re.compile(r"\b(awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac)\b|all[- ]wheel|four[- ]wheel|4motion")
 
 
+def _cap_label(fuel: str) -> str:
+    cap, tol = F["price_caps"][fuel], F.get("price_tolerance") or 0
+    if fuels_one_cap():
+        return f"${cap:,} limit"
+    return f"{fuel} cap (${cap:,}" + (f" + ${tol} cushion)" if tol else ")")
+
+
+def fuels_one_cap() -> bool:
+    caps = {v for v in F["price_caps"].values() if v}
+    return len(caps) == 1
+
+
 def _over(L: Listing, cap: float, label: str, fails: list, unknown: list) -> None:
     """Over the cap. If only our *estimated* fees push it over, ask instead of excluding."""
     if L.fees_estimated and L.price is not None and L.price <= cap:
@@ -212,7 +260,9 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     # vPIC SeatRows is model-level ("up to 3"); the seat count tells the configuration
     rows = (d.get("SeatRows") or "").strip()
     seats = (d.get("Seats") or "").strip()
-    if seats.isdigit() and int(seats) >= 6:
+    if not F.get("max_rows"):
+        pass                                   # this buyer is fine with a third row
+    elif seats.isdigit() and int(seats) >= 6:
         fails.append(f"third-row seating ({seats} seats)")
     elif seats.isdigit() and int(seats) <= 5:
         pass
@@ -250,6 +300,14 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     if unsure:
         unknown.append(unsure)
 
+    # fuel: some buyers take only certain kinds (Jenna: regular hybrids; mild hybrids count as gas)
+    fuels = F.get("fuels")
+    if fuels and L.fuel_type and L.fuel_type not in fuels:
+        fails.append({"gas": "not a hybrid (gas only)", "phev": "plug-in hybrid (regular hybrids only)",
+                      "ev": "electric (regular hybrids only)"}.get(L.fuel_type, f"{L.fuel_type} (hybrids only)"))
+    elif fuels and not L.fuel_type:
+        unknown.append("fuel type not shown; confirm it's a hybrid")
+
     # price
     price_total(L)
     if L.price_total is None:
@@ -261,7 +319,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         if fuel in ("hybrid", "phev"):
             cap = F["price_caps"][fuel] + F["price_tolerance"]
             if L.price_total > cap:
-                _over(L, cap, f"{fuel} cap (${F['price_caps'][fuel]:,} + ${F['price_tolerance']} cushion)", fails, unknown)
+                _over(L, cap, _cap_label(fuel), fails, unknown)
         elif fuel == "ev":
             comps = ev_comparables(L, pool)
             if len(comps) < F["ev_min_comparables"]:
@@ -275,10 +333,16 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         else:
             cap = F["price_caps"]["gas"] + F["price_tolerance"]
             if L.price_total > cap:
-                _over(L, cap, f"gas cap (${F['price_caps']['gas']:,} + ${F['price_tolerance']} cushion)", fails, unknown)
+                _over(L, cap, _cap_label("gas"), fails, unknown)
 
     # sunroof
-    if L.sunroof is False:
+    if not F.get("sunroof_required", True):    # nice to have: shown and scored, never excludes
+        if L.sunroof is None:
+            why = sunroof_inferred(L, d)
+            if why:
+                L.sunroof, L.sunroof_note = True, f"standard on this trim ({why})"
+                notes.append("sunroof inferred from trim")
+    elif L.sunroof is False:
         fails.append(f"no sunroof ({L.sunroof_note})")
     elif L.sunroof is None:
         why = sunroof_inferred(L, d)
@@ -289,6 +353,20 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
             unknown.append("GV70 2.5T: base has no sunroof, Select+ does; confirm trim/roof")
         else:
             unknown.append("sunroof not shown")
+
+    # seats: no cloth (Jenna)
+    if F.get("no_cloth_seats"):
+        mat, how = (L.seats, "per the listing") if L.seats else seats_inferred(L, d)
+        if mat == "cloth":
+            fails.append("cloth seats" + (f" ({how})" if how else ""))
+        elif mat in ("leather", "synthetic"):
+            if not L.seats:
+                L.seats = mat
+                notes.append(f"{'synthetic leather' if mat == 'synthetic' else 'leather'} seats inferred from trim")
+        elif mat == "cloth_std":
+            unknown.append("cloth seats are standard on this trim (leather/synthetic optional); confirm the seats")
+        else:
+            unknown.append("seat material not shown; confirm leather or synthetic leather (no cloth)")
 
     # colors
     for st, why in (exterior_ok(L.ext_color), interior_ok(L.int_color)):
@@ -307,7 +385,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     # CARFAX
     from verify.carfax_badge import status
     L.carfax_status = status(L)
-    if L.carfax_status == "accident" and F["carfax_exclude_accident"]:
+    if L.carfax_status == "accident" and F.get("carfax_exclude_accident", True):
         fails.append("CARFAX: accident reported")
 
     # nice-to-have defaults
@@ -325,14 +403,15 @@ def score(L: Listing) -> float:
     pts = 0.0
     if L.price_total:
         pts += w["price"] * max(0.0, min(1.0, 1 - (L.price_total - S["price_target"]) / 10000))
-    pts += w["phev"] * (1.0 if L.fuel_type == "phev" else 0.0)
+    pts += w.get("phev", 0) * (1.0 if L.fuel_type == "phev" else 0.0)
     mpg = L.mpg_combined
     pts += w["mpg"] * (max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type in ("hybrid", "phev") else 0.3))
     pts += w["audio"] * (1.0 if L.audio else 0.0)
 
     def tri(v):
         return 1.0 if v is True else (0.0 if v is False else 0.4)
-    pts += w["leather"] * tri(L.leather)
+    pts += w.get("leather", 0) * tri(L.leather)
+    pts += w.get("sunroof", 0) * tri(L.sunroof)
     pts += w["ventilated_seats"] * tri(L.ventilated_seats)
     pts += w["ground_clearance"] * (1.0 if (L.ground_clearance_in or 0) >= 8 else 0.0)
     pts += w["spare_tire"] * tri(L.spare_tire)

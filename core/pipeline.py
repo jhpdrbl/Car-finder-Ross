@@ -9,6 +9,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from scrapers import audi_network, dealer_com, dealer_inspire, dealeron, playwright_fallback
+from core.profiles import could_want
 from scrapers.base import CONFIG, FetchError, fetcher
 from scrapers.brand_feeds import FEEDS
 from scrapers.generic_jsonld import discover_from_sitemaps, fetch_vdp
@@ -30,7 +31,7 @@ class DealerResult:
     errors: list[str] = field(default_factory=list)
     listings: list[Listing] = field(default_factory=list)
     gone: list[tuple[str, str]] = field(default_factory=list)   # (url, reason): sold/removed pages
-    carried: list[dict] = field(default_factory=list)           # previous rows reused without re-reading
+    carried: list[dict] = field(default_factory=list)           # previous rows reused without re-reading: {profile: row}
     skipped_pages: int = 0                                       # dropped by URL / VIN pre-filter
     seconds: float = 0.0
 
@@ -125,18 +126,18 @@ def carry_forward_ok(prev: dict, today: str) -> bool:
 
 def prefilter(cands: list[str], brand: str) -> tuple[list[str], int]:
     """Drop listing URLs we know are off-list before reading them: by URL words, then by VIN decode."""
-    from verify.vin_decode import decode_many
+    from verify.vin_decode import decode_many, fuel_class
     keep = [u for u in cands if not URL_SKIP.search(norm_url_text(u))]
     vins = {u: url_vin(u) for u in keep}
     known = decode_many([v for v in vins.values() if v]) if any(vins.values()) else {}
-    allow = re.compile(CONFIG["models"][brand]["allow"]) if brand in CONFIG.get("models", {}) else None
     out = []
     for u in keep:
         d = known.get(vins[u]) or {}
-        if d.get("Model") and allow and not allow.search(d["Model"].lower()):
-            continue                                   # e.g. an Audi A4 behind a model-less ?vehicleId= link
-        if (d.get("ModelYear") or "").isdigit() and int(d["ModelYear"]) < CONFIG["filters"]["min_year"]:
-            continue
+        if d:   # skip what no buyer wants: an Audi A4 behind a model-less ?vehicleId= link, a gas RAV4 for a hybrid-only buyer...
+            year = int(d["ModelYear"]) if (d.get("ModelYear") or "").isdigit() else None
+            fuel = fuel_class(d) if d.get("ElectrificationLevel") else None   # no electrification data: don't guess
+            if not could_want(brand, d.get("Model") or "", year, fuel):
+                continue
         out.append(u)
     return out, len(cands) - len(out)
 
@@ -184,8 +185,9 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
         return res
     prev_rows = prev_rows or {}
     for url in cands[:MAX_VDPS]:
+        # prev = last run's row for this car per buyer ({profile: row}); reuse only if every buyer excluded it for good
         prev = prev_rows.get(url) or prev_rows.get(url_vin(url) or "-")
-        if prev and prev.get("dealer") == dealer["dealer_name"] and carry_forward_ok(prev, today):
+        if prev and all(r.get("dealer") == dealer["dealer_name"] and carry_forward_ok(r, today) for r in prev.values()):
             res.carried.append(prev)
             continue
         L, err = fetch_vdp(url)

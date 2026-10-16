@@ -8,7 +8,8 @@ from urllib.parse import unquote
 VIN_RE = re.compile(r"\b([A-HJ-NPR-Z0-9]{17})\b")
 VIN_ANY = re.compile(r"(?<![A-Za-z0-9])([A-HJ-NPR-Za-hj-npr-z0-9]{17})(?![A-Za-z0-9])")
 
-# Model words to look for in a dealer's URLs / listings, per brand (spec section 5).
+# Model words to look for in a dealer's URLs / listings, per brand (spec section 5): Ross's models here,
+# plus every other buyer's `tokens:` from config.yaml (core/profiles.py), added below.
 MODEL_TOKENS = {
     "Audi": ["q5", "q3"],
     "Genesis": ["gv70", "gv80"],
@@ -21,6 +22,20 @@ MODEL_TOKENS = {
     "Toyota": ["4runner", "land-cruiser", "landcruiser"],
     "Ford": ["bronco"],
 }
+
+
+ROSS_TOKENS = {b: list(t) for b, t in MODEL_TOKENS.items()}
+
+
+def _add_profile_tokens() -> None:
+    from core.profiles import BRANDS, model_tokens
+    for b in BRANDS:
+        for t in model_tokens(b):
+            if t not in MODEL_TOKENS.setdefault(b, []):
+                MODEL_TOKENS[b].append(t)
+
+
+_add_profile_tokens()
 
 
 @dataclass
@@ -57,7 +72,8 @@ class Listing:
     sunroof: bool | None = None
     sunroof_note: str = ""
     audio: str = ""
-    leather: bool | None = None
+    leather: bool | None = None      # True = genuine leather, False = synthetic leather, None = not shown
+    seats: str = ""                  # seat material: leather / synthetic / cloth ("" = not shown)
     ventilated_seats: bool | None = None
     spare_tire: bool | None = None
     spare_note: str = ""
@@ -94,7 +110,7 @@ def url_vin(url: str) -> str:
 
 # Listing URLs we can drop without reading the page (versions that are never on the list).
 URL_SKIP = re.compile(r"sdrive|(?<![a-z])(2wd|fwd|4x2)(?![a-z])|(?<![a-z])amg(?![a-z])|(?<![a-z])m[56]0i?(?![a-z0-9])|x[35]-m(?![a-z])|"
-                      r"rx-?(350|450h)-?l(?![a-z])|gl[ce][a-z0-9-]*coupe|sq[35]|rs-?q[358]|bronco-sport|gle-?(43|53|63|580)|glc-?(43|63)")
+                      r"rx-?350-?l(?![a-z])|gl[ce][a-z0-9-]*coupe|sq[35]|rs-?q[358]|bronco-sport|gle-?(43|53|63|580)|glc-?(43|63)")
 
 
 def norm_url_text(url: str) -> str:
@@ -116,16 +132,23 @@ def url_years(url: str) -> list[int]:
     return [int(y) for y in re.findall(r"(?<!\d)(20[12]\d)(?!\d)", norm_url_text(url))]
 
 
-def url_matches_brand_models(url: str, brand: str) -> bool:
-    u = norm_url_text(url)
-    toks = MODEL_TOKENS.get(brand, [])
+def _ross_match(u: str, brand: str) -> bool:
     if brand == "Ford":
         return "bronco" in u and "bronco-sport" not in u
     if brand == "Lexus":
         return re.search(r"(?<![a-z0-9])(nx|rx)(?![a-z])", u) is not None
     if brand == "BMW":
         return re.search(r"(?<![a-z0-9])x[35](?![0-9])", u) is not None
-    return any(t in u for t in toks)
+    return any(t in u for t in ROSS_TOKENS.get(brand, []))
+
+
+def url_matches_brand_models(url: str, brand: str) -> bool:
+    """Could this URL be a car some buyer wants? Ross's model words, then other buyers' (whole words)."""
+    u = norm_url_text(url)
+    if _ross_match(u, brand):
+        return True
+    extra = [t for t in MODEL_TOKENS.get(brand, []) if t not in ROSS_TOKENS.get(brand, [])]
+    return any(re.search(rf"(?<![a-z0-9]){re.escape(t)}(?![a-z])", u) for t in extra)
 
 
 def money(s) -> float | None:

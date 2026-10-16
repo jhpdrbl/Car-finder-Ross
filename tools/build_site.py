@@ -1,6 +1,6 @@
 """Build the phone-friendly website (site/) from the latest laptop run's output/.
 
-  index.html   the dashboard
+  index.html   Ross's dashboard (and <id>/index.html for each other buyer in config.yaml `profiles:`, e.g. jenna/)
   digest.html  the latest digest, rendered, WITHOUT the buying-context lines
                (down payment, pre-approval) unless config publish.include_buying_context
   _headers     tells search engines not to index the site
@@ -36,8 +36,8 @@ li {{ margin:6px 0; }} em {{ color:var(--muted); }} nav {{ margin-bottom:12px; }
 </body></html>"""
 
 
-def latest_digest() -> Path | None:
-    files = sorted(OUT.glob("digest_*.md"))
+def latest_digest(out: Path = OUT) -> Path | None:
+    files = sorted(out.glob("digest_*.md"))
     return files[-1] if files else None
 
 
@@ -48,17 +48,12 @@ def strip_buying_context(md: str, cfg: dict) -> str:
     return "\n".join(l for l in md.splitlines() if l.strip() not in private)
 
 
-def build() -> Path:
-    cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
-    if SITE.exists():
-        shutil.rmtree(SITE)
-    SITE.mkdir()
-    dash = OUT / "dashboard.html"
-    if not dash.exists():
-        raise SystemExit("output/dashboard.html not found: run `python run.py refresh` first")
-    page = dash.read_text(encoding="utf-8")
+def _page(out: Path, dest: Path, cfg: dict) -> None:
+    """One buyer's dashboard (+ digest) from out/ into dest/."""
+    dest.mkdir(parents=True, exist_ok=True)
+    page = (out / "dashboard.html").read_text(encoding="utf-8")
     page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex"><meta name="viewport"', 1)
-    dg = latest_digest()
+    dg = latest_digest(out)
     if dg:
         page = page.replace("every car links to the dealer's own listing</div>",
                             "every car links to the dealer's own listing · <a href=\"digest.html\">Read the digest</a></div>", 1)
@@ -69,8 +64,21 @@ def build() -> Path:
         except ImportError:
             body = "<pre>" + html.escape(md) + "</pre>"
         body = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', body)
-        (SITE / "digest.html").write_text(PAGE.format(body=body), encoding="utf-8")
-    (SITE / "index.html").write_text(page, encoding="utf-8")
+        (dest / "digest.html").write_text(PAGE.format(body=body), encoding="utf-8")
+    (dest / "index.html").write_text(page, encoding="utf-8")
+
+
+def build() -> Path:
+    cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+    if SITE.exists():
+        shutil.rmtree(SITE)
+    SITE.mkdir()
+    if not (OUT / "dashboard.html").exists():
+        raise SystemExit("output/dashboard.html not found: run `python run.py refresh` first")
+    _page(OUT, SITE, cfg)                                  # Ross: the site's front page
+    for pid in (cfg.get("profiles") or {}):                # other buyers: site/<id>/ (e.g. /jenna/)
+        if pid != "ross" and (OUT / pid / "dashboard.html").exists():
+            _page(OUT / pid, SITE / pid, cfg)
     (SITE / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n", encoding="utf-8")
     return SITE
 

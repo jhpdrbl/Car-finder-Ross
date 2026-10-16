@@ -10,14 +10,23 @@ const MAX = 300;
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
-const keyFor = request =>
-  "fav:" + (request.headers.get("cf-access-authenticated-user-email") || "default").toLowerCase();
+// ?p=jenna: another buyer's page keeps its own list (fav:jenna); Ross's page (no p) keeps fav:default
+const buyer = request => {
+  const p = (new URL(request.url).searchParams.get("p") || "").toLowerCase();
+  return /^[a-z]{1,20}$/.test(p) && p !== "ross" ? p : "";
+};
+
+const keyFor = request => {
+  const who = (request.headers.get("cf-access-authenticated-user-email") || "default").toLowerCase();
+  const p = buyer(request);
+  return p ? `fav:${p}${who === "default" ? "" : ":" + who}` : "fav:" + who;
+};
 
 export async function onRequestGet({ request, env }) {
   if (!env.FAVS) return json({ error: "sync not set up" }, 503);
   let saved = await env.FAVS.get(keyFor(request), "json");
   // favorites saved before sign-in (Cloudflare Access) was turned on live under "default"; carry them over once
-  if (saved === null && keyFor(request) !== "fav:default") saved = await env.FAVS.get("fav:default", "json");
+  if (saved === null && !buyer(request) && keyFor(request) !== "fav:default") saved = await env.FAVS.get("fav:default", "json");
   return json({ fav: Array.isArray(saved) ? saved : [] });
 }
 

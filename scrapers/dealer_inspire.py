@@ -13,6 +13,7 @@ import re
 from urllib.parse import urljoin
 
 from .base import FetchError, fetcher
+from core.profiles import min_year
 from .listing import MODEL_TOKENS, VIN_ANY, url_matches_brand_models, url_years
 
 LINK = re.compile(r'href="([^"]+)"', re.I)
@@ -34,7 +35,7 @@ def discover(homepage: str, brand: str) -> tuple[list[str], str]:
         model = token.replace("-", " ")
         for page in range(1, 11):
             url = (f"{homepage}/llm/inventory/?type=used&make={brand.replace(' ', '+')}&model={model.replace(' ', '+')}"
-                   f"&year_min=2023&limit=100&page={page}")
+                   f"&year_min={min_year(brand)}&limit=100&page={page}")
             try:
                 r = f.get(url)
             except FetchError as e:
@@ -49,7 +50,7 @@ def discover(homepage: str, brand: str) -> tuple[list[str], str]:
                 m = VIN_ANY.search(full.split("?")[0])
                 if not m or "/llm/" in full:
                     continue
-                if url_matches_brand_models(full, brand) and (not url_years(full) or max(url_years(full)) >= 2023):
+                if url_matches_brand_models(full, brand) and (not url_years(full) or max(url_years(full)) >= min_year(brand)):
                     found.setdefault(m.group(1).upper(), full)
             # stop paging once a page adds nothing new
             if len(found) == before:

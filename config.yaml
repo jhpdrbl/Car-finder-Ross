@@ -205,6 +205,87 @@ spare_tire_typical:
   Land Cruiser: true
   Bronco: true
 
+# "Check yourself" tab: these brands are listed first (Ross's top brands)
+top_brands: [Audi, Subaru, Genesis]
+
+# ---------------------------------------------------------------------------------------------
+# Buyers. The search runs once; every car is checked against each buyer's rules separately.
+# Ross uses the settings above (results in data/ and output/). Each other buyer's settings are
+# merged over the ones above (`models` and `buying_context` are replaced, not merged); their
+# results go to data/<id>/ and output/<id>/, and their page is cpo-suv-finder.pages.dev/<id>/.
+# ---------------------------------------------------------------------------------------------
+profiles:
+  ross:
+    label: Ross
+  jenna:
+    label: Jenna
+    buying_context: []
+    top_brands: [Toyota, Lexus, Subaru, Kia]
+    trim_guide: data/jenna/trim_guide.json
+    filters:
+      min_year: 2020              # certified programs mostly cover cars up to ~6 years old
+      max_mileage: 39999          # "under 40,000"
+      max_rows: null              # any number of rows (3-row SUVs are fine)
+      fuels: [hybrid]             # regular hybrids only: no plug-ins, no mild hybrids (those count as gas)
+      price_caps: {gas: 40000, hybrid: 40000, phev: 40000, ev: null}   # "under $40,000", incl. dealer fees, before tax
+      price_tolerance: 0
+      sunroof_required: false     # nice to have: shown and scored, never excludes
+      no_cloth_seats: true        # leather or synthetic leather only
+      exterior_colors:            # any color except red / orange
+        include: null
+        describe: red/orange
+        exclude: [red, orange, ruby, crimson, cardinal, burgundy, maroon, garnet, scarlet, cherry, merlot, "wine",
+                  lava, inferno, barcelona, matador, tangerine, "sunset", mango, flame, "hot pepper", "redline",
+                  "rapid red", "rally red", "runway red", "supersonic", "venetian", "rosso", "rojo"]
+      interior_colors: null       # any interior color
+    scoring:
+      price_target: 32000
+      weights:
+        price: 30
+        mpg: 18
+        sunroof: 14
+        audio: 8
+        leather: 6
+        ventilated_seats: 5
+        ground_clearance: 5
+        spare_tire: 4
+    # Models: regular-hybrid SUVs with AWD/4WD from Ross's brands plus Kia and Acura. `tokens` are
+    # the words looked for in dealer URLs. Gas, plug-in and mild-hybrid versions are dropped by the
+    # VIN's fuel type, so rules only need to catch names.
+    models:
+      Toyota:
+        allow: 'rav4|highlander|venza|corolla cross|crown signia'
+        list: RAV4 Hybrid, Venza, Highlander Hybrid, Grand Highlander Hybrid, Corolla Cross Hybrid, Crown Signia
+        tokens: [rav4, highlander, venza, corolla-cross, crown-signia, grand-highlander]
+        rules:
+          - {if: 'prime|plug-?in', then: fail, why: 'plug-in hybrid (RAV4 Prime)'}
+      Lexus:
+        allow: '\b(ux|nx|rx|tx)\b'
+        list: UX 250h/300h, NX 300h/350h, RX 450h/350h/500h, TX 500h
+        tokens: [ux, nx, rx, tx]
+        rules:
+          - {if: '450h\+|plug-?in', then: fail, why: 'plug-in hybrid (450h+)'}
+      Subaru:
+        allow: 'forester|crosstrek'
+        list: Forester Hybrid, Crosstrek Hybrid
+        tokens: [forester, crosstrek]
+      Kia:
+        allow: 'sportage|sorento'
+        list: Sportage Hybrid, Sorento Hybrid
+        tokens: [sportage, sorento]
+        rules:
+          - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid'}
+      Ford:
+        allow: 'escape|explorer'
+        list: Escape Hybrid, Explorer Hybrid
+        tokens: [escape, explorer]
+        rules:
+          - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid (Escape PHEV)'}
+      Acura:
+        allow: 'mdx'
+        list: MDX Sport Hybrid
+        tokens: [mdx]
+
 # Phone website (Cloudflare Pages). The digest's buying-context lines (down payment,
 # pre-approval) are left off the published copy unless this is true.
 publish:

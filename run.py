@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 import time
 from datetime import date, datetime
@@ -24,8 +25,11 @@ def log(msg: str) -> None:
 
 
 def refresh(args) -> None:
-    from core import criteria, history, outputs, pipeline
+    import copy
+
+    from core import criteria, history, outputs, pipeline, profiles
     from scrapers.brand_feeds import SUPPLEMENT_FEEDS
+    from scrapers.generic_jsonld import seat_material
     from verify import recalls, vin_decode
 
     t0 = time.time()
@@ -37,25 +41,31 @@ def refresh(args) -> None:
         dealers = [d for d in dealers if want in d["dealer_name"].lower()]
     by_name = {d["dealer_name"]: d for d in pipeline.load_dealers()}
     from scrapers import playwright_fallback
-    log(f"Refresh {today}: {len(dealers)} dealers"
+    buyers = profiles.all_profiles()
+    log(f"Refresh {today}: {len(dealers)} dealers, for {' and '.join(b.label for b in buyers)}"
         + (f", brands {sorted(brands)}" if brands else "")
         + ("" if playwright_fallback.available() else " (Playwright not installed: browser fallback off)"))
 
-    # Reuse last run's rows for cars excluded for permanent reasons, unless the rules changed.
+    # Reuse last run's rows for cars every buyer excluded for permanent reasons, unless the rules changed.
     rules_id = _rules_fingerprint()
     state = _read_state()
-    prev_rows: dict = {}
+    prev_rows: dict = {}       # listing URL or VIN -> {profile id: last run's row}
     if args.full:
         log("   --full: re-reading every listing page")
     elif state.get("rules") != rules_id:
         log("   rules changed since the last run: re-reading every listing page this time")
     else:
-        hand_checked = set(history.load_confirmed())     # never reuse a row the user has since confirmed facts for
-        for r in history.read_csv(history.DATA / "listings.csv"):
-            if r["vin"].upper() in hand_checked:
-                continue
-            prev_rows[r["listing_url"]] = r
-            prev_rows[r["vin"]] = r
+        per = {}
+        for P in buyers:
+            hand_checked = set(history.load_confirmed(P.data))     # never reuse a row the user has since confirmed facts for
+            m = {}
+            for r in history.read_csv(P.data / "listings.csv"):
+                if r["vin"].upper() not in hand_checked:
+                    m[r["listing_url"]] = m[r["vin"]] = r
+            per[P.id] = m
+        for key in per[buyers[0].id]:
+            if all(key in per[P.id] for P in buyers):
+                prev_rows[key] = {P.id: per[P.id][key] for P in buyers}
 
     log("1/6 Brand certified-inventory feeds")
     feed_listings, feed_stats = pipeline.run_brand_feeds(brands, log) if not args.dealers else ([], {})
@@ -70,8 +80,8 @@ def refresh(args) -> None:
 
     log("3/6 Reading dealer pages for brand-feed cars (sunroof, audio, CARFAX badges...)")
     from concurrent.futures import ThreadPoolExecutor
-    todo = [L for L in feed_listings if args.enrich and (L.year or 0) >= 2023 and (L.mileage or 0) < 40000
-            and (L.price or 0) <= 42000]
+    todo = [L for L in feed_listings if args.enrich and (L.year or 0) >= profiles.MIN_YEAR and (L.mileage or 0) < 40000
+            and (L.price or 0) <= profiles.MAX_PRICE + 1500]
     homes = sorted({by_name.get(L.dealer, {}).get("homepage", "") for L in todo} - {""})
     with ThreadPoolExecutor(max_workers=16) as ex:        # different dealer sites in parallel; same site still 2-3 s apart
         reachable = dict(zip(homes, ex.map(lambda h: pipeline.homepage_status(h)[0], homes)))
@@ -88,44 +98,59 @@ def refresh(args) -> None:
         d = decodes.get(L.vin) or {}
         if L.fuel_type != "ev" or d:
             L.fuel_type = vin_decode.fuel_class(d) if d else (L.fuel_type or "gas")
-    excluded = history.load_exclusions()
-    confirmed = history.load_confirmed()
-    rows = []
-    for L in listings:
-        dealer = by_name.get(L.dealer, {})
-        apply_confirmed(L, confirmed.get(L.vin.upper()))
-        fails, unknown, notes = criteria.evaluate(L, decodes.get(L.vin) or {}, dealer, listings, excluded)
-        loc = pipeline.location_check(L)
-        if loc:
-            notes.append(loc)
-        if L.link_note:
-            notes.append(L.link_note)
-        if L.vin.upper() in confirmed:
-            notes.append("checked by you: " + (confirmed[L.vin.upper()].get("note") or "details confirmed"))
-        status = "excluded" if fails else "active"
-        flags = []
-        if status == "active":
-            flags = recalls.campaigns(L.make or (decodes.get(L.vin) or {}).get("Make", ""), L.model, L.year)
-            fill_mpg(L)
-        r = L.to_dict()
-        r.update(status=status, last_read=today, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
-                 notes="; ".join(notes), recall_flags="; ".join(flags),
-                 est_monthly_cost=criteria.monthly_cost(L.price_total) or "",
-                 score=criteria.score(L) if not fails else "", distance_mi=dealer.get("distance_mi", ""))
-        rows.append({k: ("" if v is None else v) for k, v in r.items()})
-    fresh = {r["vin"] for r in rows}
-    rows += [dict(c) for r in results for c in r.carried if c["vin"] not in fresh]   # reused exclusions
-    n_match = sum(1 for r in rows if r["status"] == "active" and not r["needs_call"])
-    n_call = sum(1 for r in rows if r["status"] == "active" and r["needs_call"])
-    log(f"   {len(rows)} listings checked: {n_match} meet all criteria, {n_call} need a call")
-
-    log("5/6 Comparing with the last run")
+            name = f"{L.model} {L.trim} {L.title}".lower()
+            if (d and not d.get("ElectrificationLevel") and L.fuel_type == "gas" and "hybrid" in name
+                    and not re.search(r"plug-?in|phev|mild|\bprime\b|\d+h\+|\be-?hybrid", name)):
+                L.fuel_type = "hybrid"          # VIN decode has no electrification data; the listing says hybrid
+        if not L.seats:
+            L.seats = seat_material(" ".join(L.features), L.int_color)
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
     for brand, st in feed_stats.items():
         if st["status"] == "success":
             ok_dealers |= {d["dealer_name"] for d in by_name.values() if d["brand"] == brand}
     gone = {u: why for r in results for u, why in r.gone}
-    all_rows, changes = history.update(rows, ok_dealers, gone, today, run_id=datetime.now().strftime("%Y-%m-%d %H:%M"))
+    run_id = datetime.now().strftime("%Y-%m-%d %H:%M")
+    per_buyer = {}
+    for P in buyers:
+        criteria.use(P.cfg)
+        excluded = history.load_exclusions(P.data)
+        confirmed = history.load_confirmed(P.data)
+        rows = []
+        for L0 in listings:
+            L = copy.deepcopy(L0)          # each buyer's rules fill in their own copy
+            dealer = by_name.get(L.dealer, {})
+            apply_confirmed(L, confirmed.get(L.vin.upper()))
+            fails, unknown, notes = criteria.evaluate(L, decodes.get(L.vin) or {}, dealer, listings, excluded)
+            loc = pipeline.location_check(L)
+            if loc:
+                notes.append(loc)
+            if L.link_note:
+                notes.append(L.link_note)
+            if L.vin.upper() in confirmed:
+                notes.append("checked by you: " + (confirmed[L.vin.upper()].get("note") or "details confirmed"))
+            status = "excluded" if fails else "active"
+            flags = []
+            if status == "active":
+                flags = recalls.campaigns(L.make or (decodes.get(L.vin) or {}).get("Make", ""), L.model, L.year)
+                fill_mpg(L)
+            r = L.to_dict()
+            r.update(status=status, last_read=today, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
+                     notes="; ".join(notes), recall_flags="; ".join(flags),
+                     est_monthly_cost=criteria.monthly_cost(L.price_total) or "",
+                     score=criteria.score(L) if not fails else "", distance_mi=dealer.get("distance_mi", ""))
+            rows.append({k: ("" if v is None else v) for k, v in r.items()})
+        fresh = {r["vin"] for r in rows}
+        rows += [dict(c[P.id]) for r in results for c in r.carried if P.id in c and c[P.id]["vin"] not in fresh]   # reused exclusions
+        n_match = sum(1 for r in rows if r["status"] == "active" and not r["needs_call"])
+        n_call = sum(1 for r in rows if r["status"] == "active" and r["needs_call"])
+        log(f"   {P.label}: {len(rows)} listings checked: {n_match} meet all criteria, {n_call} need a call")
+        per_buyer[P.id] = (rows, n_match, n_call)
+    criteria.use(profiles.get().cfg)
+
+    log("5/6 Comparing with the last run")
+    updated = {}
+    for P in buyers:
+        updated[P.id] = history.update(per_buyer[P.id][0], ok_dealers, gone, today, run_id=run_id, data=P.data)
 
     log("6/6 Writing digest, dashboard, coverage")
     cov = outputs.coverage_rows(results, feed_stats)
@@ -141,8 +166,11 @@ def refresh(args) -> None:
         cov.sort(key=lambda c: (c["brand"], c["status"] != "success", float(c.get("distance_mi") or 0)))
     history.write_csv(history.DATA / "coverage.csv", cov,
                       ["brand", "dealer", "status", "reason", "listings", "distance_mi", "homepage", "method"])
-    digest = outputs.write_digest(all_rows, changes, cov, today)
-    dash = outputs.write_dashboard(all_rows, history.read_csv(history.DATA / "price_history.csv"), cov, today)
+    out_files = {}
+    for P in buyers:
+        all_rows, changes = updated[P.id]
+        out_files[P.id] = (outputs.write_digest(all_rows, changes, cov, today, profile=P),
+                           outputs.write_dashboard(all_rows, history.read_csv(P.data / "price_history.csv"), cov, today, profile=P))
     _stamp_dealers({r.dealer["dealer_name"] for r in results if r.status == "success"}, today)
     if not args.dealers and not brands:
         _write_state({"rules": rules_id, "last_full_run": today})
@@ -154,11 +182,12 @@ def refresh(args) -> None:
           f"{sum(c['status'] == 'skipped' for c in cov)} skipped (covered by brand feeds)")
     for c in failed:
         print(f"  FAILED  {c['brand']:13} {c['dealer'][:34]:34} {c['reason'][:100]}")
-    print(f"RESULTS:  {n_match} meet all criteria · {n_call} need a call · "
-          f"{len(changes['new'])} new · {len(changes['price'])} price changes · {len(changes['removed'])} sold/removed")
-    print(f"Digest:    {digest}")
-    print(f"Dashboard: {dash}")
-    print(f"Listings:  {history.DATA / 'listings.csv'}")
+    for P in buyers:
+        _, n_match, n_call = per_buyer[P.id]
+        changes = updated[P.id][1]
+        print(f"RESULTS for {P.label}:  {n_match} meet all criteria · {n_call} need a call · "
+              f"{len(changes['new'])} new · {len(changes['price'])} price changes · {len(changes['removed'])} sold/removed")
+        print(f"   Dashboard: {out_files[P.id][1]}   Listings: {P.data / 'listings.csv'}")
     print(f"Done in {(time.time() - t0) / 60:.1f} min")
 
 

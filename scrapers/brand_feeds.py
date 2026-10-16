@@ -12,6 +12,7 @@ import json
 import re
 from pathlib import Path
 
+from core.profiles import could_want
 from .base import CONFIG, FetchError, fetcher
 from .generic_jsonld import classify_drivetrain
 from .listing import Listing, integer, money
@@ -105,7 +106,7 @@ def subaru() -> tuple[list[Listing], dict]:
         w = data["pagedListWrapper"]
         for v in w["items"]:
             stats["seen"] += 1
-            if v.get("modelName") not in ("Forester", "Outback") or (v.get("year") or 0) < 2023:
+            if not could_want("Subaru", f'{v.get("modelName") or ""} {v.get("trimName") or ""}', v.get("year") or 0):
                 continue
             dd = by_code.get(v.get("dealerCode"), {})
             d = _match_dealer(dealers, v.get("dealership") or dd.get("name", ""), v.get("detailsUrl") or dd.get("siteUrl", ""))
@@ -123,7 +124,7 @@ def subaru() -> tuple[list[Listing], dict]:
             L.mileage = integer(v.get("mileage"))
             L.ext_color = re.sub(r"<[^>]+>|&reg;", "", (v.get("exteriorColor") or {}).get("name", "")).strip()
             L.int_color = re.sub(r"<[^>]+>|&reg;", "", (v.get("interiorColor") or {}).get("name", "")).strip()
-            L.drivetrain = "AWD"  # every Forester/Outback has Symmetrical AWD; confirmed again by VIN decode
+            L.drivetrain = "AWD"  # every Subaru SUV has Symmetrical AWD; confirmed again by VIN decode
             L.mpg_city, L.mpg_hwy = money(v.get("cityMpg")), money(v.get("highwayMpg"))
             L.stock = v.get("stockNumber") or ""
             L.condition = "used"
@@ -273,7 +274,7 @@ def lexus() -> tuple[list[Listing], dict]:
 def _lexus_listing(doc: dict, dealers: list[dict]) -> Listing | None:
     ov, di = doc.get("overview") or {}, doc.get("dealerInfo") or {}
     series, year = (ov.get("series") or "").upper(), integer(ov.get("year"))
-    if series not in ("NX", "RX") or (year or 0) < 2023 or not ov.get("vin"):
+    if not could_want("Lexus", series, year or 0) or not ov.get("vin"):
         return None
     d = _match_dealer(dealers, di.get("name", ""), di.get("webUrl", ""))
     inv = (di.get("dealerPreOwnedInventoryUrl") or di.get("webUrl") or "").rstrip("?&")
