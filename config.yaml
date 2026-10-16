@@ -116,10 +116,9 @@ models:
       - {if: '\bm40|\bm50|\bm60|x[35] m\b|competition', then: fail, why: 'M version (only X3 xDrive30i, X5 xDrive40i/50e)'}
   Mercedes-Benz:
     allow: 'glc|gle'
-    list: GLC 300, GLE 350/450/450e
+    list: GLC 300/350e, GLE 350/450/450e
     rules:
       - {if: 'amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580', then: fail, why: 'AMG / Coupe / GLE 580 (not on the list)'}
-      - {if: 'glc.*350e', then: fail, why: 'GLC 350e (only GLC 300)'}
   Volkswagen:
     allow: 'tiguan'
     list: Tiguan 2025+

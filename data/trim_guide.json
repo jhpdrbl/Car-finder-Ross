@@ -5779,7 +5779,7 @@
   {
    "make": "Mercedes-Benz",
    "model": "GLC",
-   "on_list_rule": "Only the GLC 300 4MATIC SUV (Premium, Exclusive or Pinnacle) is on the list; GLC 350e, AMG GLC 43/63, Coupes and rear-drive GLC 300 are not.",
+   "on_list_rule": "The GLC 300 4MATIC SUV (Premium, Exclusive or Pinnacle) and the GLC 350e 4MATIC SUV (plug-in hybrid, 2025+) are on the list; AMG GLC 43/63, Coupes and rear-drive GLC 300 are not.",
    "years": [
     {
      "year": 2023,
@@ -6067,8 +6067,8 @@
       },
       {
        "name": "GLC 350e 4MATIC SUV",
-       "on_list": false,
-       "why_not": "GLC 350e excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo 4-cyl plug-in hybrid with 161-hp electric motor, 28.6 kWh battery, 9-speed auto, 4MATIC AWD",
        "builds_on": "",
        "highlights": [
@@ -6214,8 +6214,8 @@
       },
       {
        "name": "GLC 350e 4MATIC SUV",
-       "on_list": false,
-       "why_not": "GLC 350e excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo 4-cyl plug-in hybrid with 161-hp electric motor, 9-speed auto, 4MATIC AWD",
        "builds_on": "",
        "highlights": [

@@ -226,7 +226,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 | Interior | **Black only**; gray interiors excluded |
 | Exterior | Black / gray / dark green. **Silver excluded** (names with gray/graphite, e.g. "Silver Gray", still count as gray) |
 | Subaru trims | Limited / Touring / Wilderness (+ Forester Hybrid). **Onyx Edition excluded** |
-| Models | Spec models **plus (Oct 2026): Audi Q3, Genesis GV80 (2-row), Lexus RX (not RX L), BMW X5 (xDrive40i/50e), Mercedes GLE (350/450/450e 4MATIC; no AMG/Coupe/580), Volvo XC40**. Rules in `core/criteria.py:model_check`, tokens in `scrapers/listing.py:MODEL_TOKENS`, notes in `config.yaml: brands` |
+| Models | Spec models **plus (Oct 2026): Audi Q3, Genesis GV80 (2-row), Lexus RX (not RX L), BMW X5 (xDrive40i/50e), Mercedes GLE (350/450/450e 4MATIC; no AMG/Coupe/580), Volvo XC40**; **GLC 350e 4MATIC** added Oct 16 2026 (user: "I love that model"; plug-in hybrid cap applies). Rules in `core/criteria.py:model_check`, tokens in `scrapers/listing.py:MODEL_TOKENS`, notes in `config.yaml: brands` |
 | Interior colors | Light interiors (Blond, Oyster, Parchment, Amber…) excluded; list in `config.yaml` |
 | Certification | Only strong evidence counts (brand CPO feed, or URL/title/structured data says certified). Page text alone → "Needs a call" (every site has a "Certified Pre-Owned" menu) |
 | Sunroof | Inferred from trim only where standard (Subaru: Forester all but Base, Outback Touring/XT, Outback Limited 2025+; Q5 Premium Plus/Prestige, 2025+ Sportback, all 2026+ (corrected Oct 2026: optional on 2023–25 Premium), GV70 Select+, XC60 Plus/Ultimate, Bronco 4-door); see `config.yaml: sunroof_standard` |

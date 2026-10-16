@@ -132,6 +132,13 @@ def refresh(args) -> None:
     for c in cov:
         if c["homepage"] in blocked_feed_dealers:
             c["reason"] += " (dealer site blocked; cars still covered by the brand feed)"
+    if args.dealers or brands:          # partial run: keep last run's report for everything not re-read
+        names = {(d["brand"], d["dealer_name"]) for d in pipeline.load_dealers()}
+        redone = {(c["brand"], c["dealer"]) for c in cov}
+        cov += [c for c in history.read_csv(history.DATA / "coverage.csv")
+                if (c["brand"], c["dealer"]) not in redone
+                and ((c["brand"], c["dealer"]) in names or c["dealer"].endswith("brand CPO feed"))]
+        cov.sort(key=lambda c: (c["brand"], c["status"] != "success", float(c.get("distance_mi") or 0)))
     history.write_csv(history.DATA / "coverage.csv", cov,
                       ["brand", "dealer", "status", "reason", "listings", "distance_mi", "homepage", "method"])
     digest = outputs.write_digest(all_rows, changes, cov, today)
