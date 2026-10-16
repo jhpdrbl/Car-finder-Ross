@@ -305,6 +305,86 @@ def _lexus_listing(doc: dict, dealers: list[dict]) -> Listing | None:
     return L
 
 
-FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus}
+# --------------------------------------------------------------------------
+# Volkswagen: vw.com certified inventory (VW's own inventory service, *.gsl.feature-app.io)
+# --------------------------------------------------------------------------
+# The search is a plain GET that vw.com's page makes with a public key and a signed "endpoint" from
+# vw.com's own page settings (en.global-config.json). Those can change, so they're read fresh each run.
+# Each car carries the dealer's own listing URL (onlineSalesUrl). Works without a browser (iPad too).
+
+VW_CONFIG = "https://www.vw.com/en.global-config.json"
+
+
+def _vw_settings() -> dict:
+    t = fetcher().get(VW_CONFIG).text
+    host = re.search(r"https://v[\w-]+\.gsl\.feature-app\.io", t)
+    ep = re.search(r'\{"endpoint":\{[^{}]*"type":"publish"[^{}]*\},"signature":"[^"]+"\}', t)
+    key = re.search(r'"trackingId":"GSL-[^"]*"[^{}]*?"featureAppApiKey":"(\w+)"', t) or re.search(r'"featureAppApiKey":"(\w+)"', t)
+    ver = re.search(r'"serviceConfigsVersion":"(\w+)"', t)
+    if not (host and ep and key):
+        raise FetchError("vw.com page settings changed (couldn't find the inventory service settings)")
+    return {"host": host.group(0), "endpoint": ep.group(0), "key": key.group(1), "version": ver.group(1) if ver else ""}
+
+
+def vw() -> tuple[list[Listing], dict]:
+    from urllib.parse import urlencode
+    cfg = _vw_settings()
+    dealers = _dealers("Volkswagen")
+    home = CONFIG["home"]
+    out, stats, page = [], {"seen": 0, "in_area": 0}, 1
+    while True:
+        q = {"t_cartype": "U", "t_manuf": "BQ", "t_geo": f'{home["lat"]},{home["lon"]},{home["edge_radius_miles"]}',
+             "sort": "DISTANCE", "sortdirection": "ASC", "pageitems": 48, "page": page, "country": "US",
+             "endpoint": cfg["endpoint"], "language": "en", "market": "passenger", "oneapiKey": cfg["key"],
+             "dataVersion": cfg["version"]}
+        data = fetcher().get_json(f'{cfg["host"]}/bff/car/search?{urlencode(q)}', headers={"Referer": "https://www.vw.com/"})
+        for car in data.get("cars") or []:
+            stats["seen"] += 1
+            L = _vw_listing(car, dealers)
+            if L:
+                stats["in_area"] += 1
+                out.append(L)
+        meta = data.get("meta") or {}
+        if page >= (meta.get("pageMax") or 0) or page >= 40 or not data.get("cars"):
+            break
+        page += 1
+    return out, stats
+
+
+def _val(d, *keys):
+    for k in keys:
+        d = d.get(k) if isinstance(d, dict) else None
+    return d
+
+
+def _vw_listing(car: dict, dealers: list[dict]) -> Listing | None:
+    model = (car.get("modelKtText") or car.get("basemodelKtText") or "").strip()
+    year = integer(_val(car, "modelyear", "value"))
+    url = _val(car, "buildMyDealLinks", "onlineSalesUrl") or ""
+    if _val(car, "cartype", "code") != "U" or "certified" not in (car.get("carTypeLabel") or "").lower():
+        return None
+    if "tiguan" not in model.lower() or (year or 0) < 2025 or not car.get("vin") or not url:
+        return None
+    d = _match_dealer(dealers, _val(car, "dealer", "name", "value") or "", url)
+    if not d:
+        return None
+    L = Listing(vin=car["vin"].upper(), source="vw.com certified inventory")
+    L.listing_url = url                                   # the dealer's own listing page
+    L.year, L.make, L.model = year, "Volkswagen", model
+    L.trim = " ".join(x for x in (car.get("trimName") or "", _val(car, "subtitle", "value") or "") if x).strip()
+    L.price = money(_val(car, "parsedPrice", "value"))
+    L.mileage = integer(_val(car, "mileage", "raw_value"))
+    L.ext_color = _val(car, "color", "out", "value") or ""
+    inside = _val(car, "color", "in")
+    L.int_color = (inside.get("value") if isinstance(inside, dict) else "") or ""
+    L.drivetrain = classify_drivetrain(_val(car, "drive", "value") or L.trim)
+    L.condition = "used"
+    L.cert_text = "volkswagen certified pre-owned (vw.com CPO inventory)"
+    L.cpo_program = "Volkswagen Certified Pre-Owned"
+    L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Volkswagen", d["homepage"]
+    return L
+
+
+FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw}
 # Feeds without links to the car's own page on the dealer's site: their brand's dealer sites are still read.
 SUPPLEMENT_FEEDS = {"Lexus"}

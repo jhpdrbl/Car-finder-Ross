@@ -193,7 +193,8 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
    forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
    out by hand, use `data/exclusions.csv`.)
-9. **Brand-wide CPO searches** (user found them, Oct 15 2026; checked robots.txt + network calls):
+9. **Brand-wide CPO searches** (user found them, Oct 15 2026; checked robots.txt + network calls). Feeds now: Genesis, Subaru,
+   Volvo (browser only), Lexus (supplement), Volkswagen:
    Audi audiusa.com = 403 even from the iPad on home Wi-Fi (no Audi feed). Toyota toyotacertified.com =
    data under `/rest/*`, which its robots.txt disallows (no feed). Mercedes = `nafta-service.mbusa.com/api/inv/...`
    but that host's robots.txt returns 5xx, so off limits (RFC 9309). Volvo = Codeweavers API
@@ -206,7 +207,11 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    page, so it's a SUPPLEMENT feed (`SUPPLEMENT_FEEDS`): Lexus dealer sites are still read and their real links win in
    `dedupe` (which keeps the feed's proof of certification); cars at blocked dealers link to the dealer's certified
    inventory `?search=VIN` with `Listing.link_note` shown as a note. Enrichment only takes data from a page whose VIN
-   matches. VW = cars load only after a ZIP is entered; not yet explored. BMW bmwusa.com didn't connect from the cloud; try from the iPad.
+   matches. VW = **feed built** (`brand_feeds.vw`): plain GET to VW's inventory service
+   (`https://v*.gsl.feature-app.io/bff/car/search`, t_cartype=U = certified, its robots.txt is 401 = no rules) with the
+   public key + signed endpoint + data version read fresh each run from `www.vw.com/en.global-config.json`; each car has
+   the dealer's own listing URL (`onlineSalesUrl`). Works on the iPad. Keeps 2025+ Tiguans. VW dealer sites are skipped
+   when it succeeds. BMW bmwusa.com didn't connect from the cloud; try from the iPad.
 7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
    `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
    those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.
