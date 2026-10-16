@@ -43,7 +43,7 @@ each buyer evaluates a deep copy of the listing).
   Her rules: CPO, SUV, **regular hybrid only** (no plug-ins; mild hybrids count as gas), AWD/4WD, < 40k miles,
   **< $40,000** incl. fees (no cushion), **no cloth seats** (leather or synthetic; `Listing.seats` from the page,
   else config `seat_material` by trim; unknown → Needs a call), **any exterior color but red/orange**, any interior,
-  **sunroof nice-to-have** (scored, never excludes), 3 rows OK, 2020+ (assumed: CPO age limits). Brands: Ross's + **Kia, Acura**.
+  **sunroof nice-to-have** (scored, never excludes), **2-row only, 2023+**. Brands: Ross's + **Kia, Acura**.
 - Search scope = union of both buyers (`profiles.could_want`, `min_year(brand)`, `model_tokens`; Ross's URL words stay in
   `listing.ROSS_TOKENS`). Reuse of last run's rows happens only when **every** buyer excluded the car for good
   (`prev_rows[key] = {profile: row}`).
@@ -53,6 +53,13 @@ each buyer evaluates a deep copy of the listing).
 - Facts the user confirms (`data/confirmed.csv`) apply to both buyers; ruling a car out (`exclusions.csv`) is per buyer
   (Jenna's: `data/jenna/exclusions.csv`). When the user reports something about a car, ask whose list if unclear.
 - Jenna's trim guide: `data/jenna/trim_guide.json` (config `trim_guide:`); warranty table filtered to her brands.
+- **Website:** `/` = start page "Whose search?" (`outputs.write_chooser` → `output/index.html`); `/ross/` and `/jenna/`
+  are the trackers, each in its own color (config `theme:`: Ross British Racing Green #004225, Jenna Cobalt Blue #0047ab;
+  `outputs.theme_vars`). The user wants them kept apart (no mixed views); the header has only a "← Ross or Jenna" link.
+  `build_site` keeps Ross's page at `/` too until every buyer's dashboard exists in `output/`.
+- Jenna's rules were updated Oct 16 2026: **2023+ and no third row** (so no Highlander/Grand Highlander/Sorento/TX/
+  Explorer/RX L/MDX); the Lexus UX counts as an SUV (`filters.also_suv`; vPIC says "Wagon"). Acura has no 2-row regular
+  hybrid SUV, so Acura has no models yet.
 
 ## Where things are
 

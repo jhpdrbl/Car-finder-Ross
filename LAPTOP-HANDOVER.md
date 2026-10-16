@@ -90,3 +90,5 @@ the `.bat` files (they block on keypress prompts). First-time priority: the Audi
 adapter (`scrapers/audi_network.py`), because Audi is a top brand and was never testable from the cloud.
 In every summary, start with the user's favorites (`curl -s https://cpo-suv-finder.pages.dev/api/favs`):
 price drops, sold, or no longer matching. See CLAUDE.md, "Every refresh".
+There are two buyers (Ross and Jenna, CLAUDE.md "Two buyers"): one run updates both. Summarize each separately;
+Jenna's favorites are `curl -s "https://cpo-suv-finder.pages.dev/api/favs?p=jenna"`, her results `data/jenna/listings.csv`.
