@@ -72,6 +72,17 @@ OTHER_COLOR_WORDS = ["blue", "red", "white", "beige", "brown", "orange", "yellow
                      "wine", "garnet", "ruby", "copper", "sand", "khaki"]
 
 
+# Paint names some brands' feeds shorten (Kia's certified search says just "Shadow" for Shadow Matte Gray)
+FULL_COLOR_NAMES = {("kia", r"^\s*shadow\s*$"): "Shadow Matte Gray"}
+
+
+def full_color_name(make: str, color: str) -> str:
+    for (mk, rx), full in FULL_COLOR_NAMES.items():
+        if mk in (make or "").lower() and re.search(rx, color or "", re.I):
+            return full
+    return color
+
+
 def exterior_ok(color: str) -> tuple[str, str]:
     """('pass'|'fail'|'unknown', reason)."""
     c = (color or "").lower()
@@ -233,6 +244,7 @@ def _over(L: Listing, cap: float, label: str, fails: list, unknown: list) -> Non
 
 def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: dict[str, str]):
     fails, unknown, notes = [], [], []
+    L.ext_color = full_color_name(L.make or L.dealer_brand, L.ext_color)
     if L.vin in excluded:
         fails.append(f"manually excluded: {excluded[L.vin]}")
 
@@ -409,8 +421,8 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
 COLOR_FAMILIES = [
     ("gold", r"titanium glow|champagne|\bgold"),
     ("brown", r"sand dune|\b(brown|bronze|mocha|espresso|chestnut|coffee|tan|beige|sand|khaki|desert|earth)\b"),
-    ("black", r"\b(black|ebony|obsidian|onyx|jet|caviar|vik|panthera)\b|shadow\b(?! gray| grey)"),
-    ("gray", r"\b(gr[ae]y|graphite|gunmetal|charcoal|slate|steel|magnetic|magnetite|cement|lunar|titanium|polymetal|machine|meteor|storm|asphalt|carbon|tungsten|anthracite)\b"),
+    ("black", r"\b(black|ebony|obsidian|onyx|jet|caviar|vik|panthera)\b|shadow black"),
+    ("gray", r"\b(gr[ae]y|shadow|graphite|gunmetal|charcoal|slate|steel|magnetic|magnetite|cement|lunar|titanium|polymetal|machine|meteor|storm|asphalt|carbon|tungsten|anthracite)\b"),
     ("dark blue", r"\b(navy|sapphire|cobalt|indigo|nightfall|blueprint|abyss|deep ocean)\b|"
                   r"blue(?!.*\b(sky|light|ice|horizon|cerulean|aqua|baby|powder|pale)\b)"),
     ("silver", r"\b(silver|platinum|iridium|alloy|quicksilver)\b"),

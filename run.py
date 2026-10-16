@@ -281,7 +281,8 @@ def rescore(args) -> None:
                         ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
                         msrp_source=r.get("msrp_source", ""))
             msrp.fill(L)
-            r["msrp_new"], r["msrp_source"] = L.msrp_new or "", L.msrp_source
+            L.ext_color = criteria.full_color_name(L.make, L.ext_color)
+            r["msrp_new"], r["msrp_source"], r["ext_color"] = L.msrp_new or "", L.msrp_source, L.ext_color
             fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
             if fails:
                 r.update(status="excluded", fail_reasons="; ".join(fails), needs_call="", score="")
