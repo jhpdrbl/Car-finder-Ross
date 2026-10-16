@@ -239,4 +239,72 @@ def _volvo_listing(grp: dict, dealers: list[dict]) -> Listing | None:
     return L
 
 
-FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo}
+# --------------------------------------------------------------------------
+# Lexus: lexus.com L/Certified search (/rest/lexus/inventorySearch/cpo; robots.txt allows /rest/)
+# --------------------------------------------------------------------------
+# It gives no link to the car's page on the dealer's site, only the dealer's certified inventory, so
+# this feed SUPPLEMENTS the dealer sites (see SUPPLEMENT_FEEDS): dealer sites that load keep their real
+# listing links (dedupe prefers them); cars at dealers whose sites refuse us still show up, linked to
+# the dealer's own certified inventory searched for the VIN (and labelled that way).
+
+LEXUS_SEARCH = ("https://www.lexus.com/rest/lexus/inventorySearch/cpo?zip={zip}&limit=50&offset={offset}"
+                "&experience=offers&sortOrder=lotPrice:asc&radius={radius}&minPrice=0&maxPrice=100000")
+
+
+def lexus() -> tuple[list[Listing], dict]:
+    dealers = _dealers("Lexus")
+    home = CONFIG["home"]
+    out, stats, offset = [], {"seen": 0, "in_area": 0}, 0
+    while True:
+        data = fetcher().get_json(LEXUS_SEARCH.format(zip=home["zip"], offset=offset, radius=home["edge_radius_miles"]))
+        docs = data.get("docs") or []
+        for doc in docs:
+            stats["seen"] += 1
+            L = _lexus_listing(doc, dealers)
+            if L:
+                stats["in_area"] += 1
+                out.append(L)
+        offset += len(docs)
+        if not docs or offset >= (data.get("numFound") or 0) or offset >= 2000:
+            break
+    return out, stats
+
+
+def _lexus_listing(doc: dict, dealers: list[dict]) -> Listing | None:
+    ov, di = doc.get("overview") or {}, doc.get("dealerInfo") or {}
+    series, year = (ov.get("series") or "").upper(), integer(ov.get("year"))
+    if series not in ("NX", "RX") or (year or 0) < 2023 or not ov.get("vin"):
+        return None
+    d = _match_dealer(dealers, di.get("name", ""), di.get("webUrl", ""))
+    inv = (di.get("dealerPreOwnedInventoryUrl") or di.get("webUrl") or "").rstrip("?&")
+    if not d or not inv:
+        return None
+    vin = ov["vin"].upper()
+    L = Listing(vin=vin, source="lexus.com L/Certified search")
+    L.listing_url = f"{inv}{'&' if '?' in inv else '?'}search={vin}"
+    L.link_note = "link opens the dealer's certified inventory searched for this VIN"
+    L.year, L.make, L.model = year, "Lexus", series
+    L.trim = re.sub(rf"^{series}\s*", "", (ov.get("modelname") or "").strip(), flags=re.I)   # e.g. "350h PREMIUM AWD"
+    L.price = money(ov.get("lotPrice"))
+    L.mileage = integer(ov.get("miles"))
+    col = doc.get("color") or {}
+    L.ext_color = (col.get("exteriorcolorname") or "").title()
+    L.int_color = (col.get("interiorcolorname") or "").title()
+    L.drivetrain = classify_drivetrain((doc.get("spec") or {}).get("drivetrain") or ov.get("modelname") or "")
+    perf = doc.get("performance") or {}
+    city, hwy = money(perf.get("mpgCity")), money(perf.get("mpgHwy"))
+    if city and hwy and city < 80 and hwy < 80:          # plug-ins report MPGe-like numbers; leave those to EPA
+        L.mpg_city, L.mpg_hwy = city, hwy
+    L.stock = ov.get("stockId") or ""
+    L.condition = "used"
+    L.cert_text = "lexus l/certified (lexus.com CPO inventory)"
+    L.cpo_program = "L/Certified"
+    acc = (doc.get("inventoryData") or {}).get("accessory") or []
+    L.features = [a.get("description", "") for a in acc if isinstance(a, dict) and a.get("description")]
+    L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Lexus", d["homepage"]
+    return L
+
+
+FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus}
+# Feeds without links to the car's own page on the dealer's site: their brand's dealer sites are still read.
+SUPPLEMENT_FEEDS = {"Lexus"}

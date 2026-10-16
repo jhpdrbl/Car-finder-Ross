@@ -25,6 +25,7 @@ def log(msg: str) -> None:
 
 def refresh(args) -> None:
     from core import criteria, history, outputs, pipeline
+    from scrapers.brand_feeds import SUPPLEMENT_FEEDS
     from verify import recalls, vin_decode
 
     t0 = time.time()
@@ -60,7 +61,7 @@ def refresh(args) -> None:
     feed_listings, feed_stats = pipeline.run_brand_feeds(brands, log) if not args.dealers else ([], {})
 
     log(f"2/6 Dealer websites ({args.workers} at a time, 1 request per 2-3 s per site)")
-    covered = {b for b, st in feed_stats.items() if st.get("status") == "success"}
+    covered = {b for b, st in feed_stats.items() if st.get("status") == "success" and b not in SUPPLEMENT_FEEDS}
     results = pipeline.scrape_all(dealers, brands, args.workers, log, prev_rows, today, covered)
     n_read = sum(r.parsed for r in results)
     n_reused = sum(len(r.carried) for r in results)
@@ -97,6 +98,8 @@ def refresh(args) -> None:
         loc = pipeline.location_check(L)
         if loc:
             notes.append(loc)
+        if L.link_note:
+            notes.append(L.link_note)
         if L.vin.upper() in confirmed:
             notes.append("checked by you: " + (confirmed[L.vin.upper()].get("note") or "details confirmed"))
         status = "excluded" if fails else "active"

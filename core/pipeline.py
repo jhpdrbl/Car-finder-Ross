@@ -206,6 +206,8 @@ def enrich_from_dealer_page(L: Listing) -> None:
     if P is None:
         L.location_note = L.location_note or ""
         return
+    if P.vin and P.vin.upper() != L.vin.upper():
+        return      # e.g. a dealer search page showing other cars: take nothing from it
     for attr in ("sunroof", "sunroof_note", "audio", "leather", "ventilated_seats", "spare_tire", "spare_note",
                  "third_row", "carfax_badges", "carfax_status", "cpo_warranty_terms", "doc_fee", "other_fees"):
         val = getattr(P, attr)
@@ -218,6 +220,8 @@ def enrich_from_dealer_page(L: Listing) -> None:
     L.features = list(dict.fromkeys(L.features + P.features))[:150]
     if P.listing_url:
         L.listing_url = P.listing_url
+        if "search=" not in P.listing_url:
+            L.link_note = ""        # landed on the car's own page: a real listing link now
 
 
 def run_brand_feeds(brands: set[str], log) -> tuple[list[Listing], dict[str, dict]]:
@@ -275,10 +279,14 @@ def dedupe(listings: list[Listing]) -> list[Listing]:
 
         def rank(x: Listing):
             same_brand = (x.make or "").lower().startswith(x.dealer_brand.lower()[:4])
+            own_page = not x.link_note          # a real link to the car's own page beats a dealer search link
             filled = sum(1 for v in (x.price, x.mileage, x.ext_color, x.int_color, x.sunroof, x.trim) if v not in (None, ""))
-            return (same_brand, filled)
-        if rank(L) > rank(cur):
-            best[L.vin] = L
+            return (same_brand, own_page, filled)
+        keep, other = (L, cur) if rank(L) > rank(cur) else (cur, L)
+        if "cpo inventory)" in (other.cert_text or "") and "cpo inventory)" not in (keep.cert_text or ""):
+            keep.cert_text = f"{keep.cert_text}; {other.cert_text}".strip("; ")   # keep the brand feed's proof of certification
+            keep.cpo_program = keep.cpo_program or other.cpo_program
+        best[L.vin] = keep
     return list(best.values())
 
 

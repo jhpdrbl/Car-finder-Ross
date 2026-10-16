@@ -201,8 +201,12 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    Playwright, then queries the store's search from inside that page (it needs the store's own session, a
    plain request gets 401); certified (`IsFranchiseApproved`) XC40/XC60 within edge radius, listing URL =
    the dealer's own link. Needs Playwright: without it (iPad) the feed fails and Volvo dealer sites are
-   read instead (`scrape_all(covered=...)` only skips brands whose feed succeeded this run). Lexus/VW = cars load only after a ZIP
-   is entered; not yet explored. BMW bmwusa.com didn't connect from the cloud; try from the iPad.
+   read instead (`scrape_all(covered=...)` only skips brands whose feed succeeded this run). Lexus = **feed built** (`brand_feeds.lexus`,
+   `lexus.com/rest/lexus/inventorySearch/cpo`, plain requests, works on the iPad too) but it has no link to the car's
+   page, so it's a SUPPLEMENT feed (`SUPPLEMENT_FEEDS`): Lexus dealer sites are still read and their real links win in
+   `dedupe` (which keeps the feed's proof of certification); cars at blocked dealers link to the dealer's certified
+   inventory `?search=VIN` with `Listing.link_note` shown as a note. Enrichment only takes data from a page whose VIN
+   matches. VW = cars load only after a ZIP is entered; not yet explored. BMW bmwusa.com didn't connect from the cloud; try from the iPad.
 7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
    `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
    those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.

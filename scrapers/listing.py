@@ -69,6 +69,7 @@ class Listing:
     carfax_badges: str = ""
     carfax_status: str = "not_verified"
     location_note: str = ""          # e.g. car is at a sister store
+    link_note: str = ""              # when the link isn't the car's own page (e.g. dealer inventory searched by VIN)
     features: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
