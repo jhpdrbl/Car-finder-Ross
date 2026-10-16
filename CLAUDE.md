@@ -58,7 +58,8 @@ each buyer evaluates a deep copy of the listing).
   `outputs.theme_vars`). The user wants them kept apart (no mixed views); the header has only a "← Ross or Jenna" link.
   `build_site` keeps Ross's page at `/` too until every buyer's dashboard exists in `output/`.
 - Jenna's rules were updated Oct 16 2026: **2023+ and no third row** (so no Highlander/Grand Highlander/Sorento/TX/
-  Explorer/RX L/MDX); the Lexus UX counts as an SUV (`filters.also_suv`; vPIC says "Wagon"). Acura has no 2-row regular
+  Explorer/RX L/MDX); **mixed seats (leatherette with cloth/fabric/suede inserts, e.g. RAV4 XSE, Corolla Cross XSE) count as cloth**
+  (user, Oct 16 2026: "No cloth allowed"), so the Corolla Cross has no qualifying trim; the Lexus UX counts as an SUV (`filters.also_suv`; vPIC says "Wagon"). Acura has no 2-row regular
   hybrid SUV, so Acura has no models yet.
 
 ## Where things are
