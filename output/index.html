@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPO SUV Finder</title>
+<style>
+:root { --bg:#f6f6f5; --fg:#1d211f; --muted:#5f6862; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111312; --fg:#e5e9e6; --muted:#9aa49e; color-scheme: dark; } }
+body { margin:0; min-height:100vh; background:var(--bg); color:var(--fg); font:16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  display:grid; place-items:center; padding:24px 16px; box-sizing:border-box; }
+main { width:100%; max-width:520px; display:grid; gap:16px; }
+h1 { margin:0; font-size:26px; } p { margin:0; color:var(--muted); }
+.who { display:grid; gap:4px; text-decoration:none; color:#fff; background:var(--a); border-radius:14px; padding:22px 20px; }
+.who b { font-size:28px; } .who span { font-size:15px; opacity:.92; } .who small { font-size:12px; opacity:.75; }
+.who:focus-visible { outline:3px solid var(--fg); outline-offset:3px; }
+</style></head><body><main>
+<h1>CPO SUV Finder</h1><p>Whose search do you want to see?</p>
+<a class="who" data-local="dashboard.html" href="/ross/" style="--a:#004225;--ad:#5fae84"><b>Ross</b><span>30 meet all criteria · 0 need a call</span><small>British Racing Green</small></a>
+<a class="who" data-local="jenna/dashboard.html" href="/jenna/" style="--a:#0047ab;--ad:#7aa5ff"><b>Jenna</b><span>23 meet all criteria · 0 need a call</span><small>Cobalt Blue</small></a>
+<p style="font-size:13px">Last search 2026-10-16</p>
+</main>
+<script>
+if (location.protocol === "file:") document.querySelectorAll("a.who").forEach(a => a.href = a.dataset.local);
+</script>
+</body></html>
