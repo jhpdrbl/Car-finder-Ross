@@ -142,4 +142,101 @@ def subaru() -> tuple[list[Listing], dict]:
     return out, stats
 
 
-FEEDS = {"Genesis": genesis, "Subaru": subaru}
+# --------------------------------------------------------------------------
+# Volvo: cpo.volvocars.us (Volvo's certified store, run for Volvo by Codeweavers)
+# --------------------------------------------------------------------------
+# The store's car search (services.codeweavers.net, robots.txt allows /api/) only answers inside the
+# store's own session, so this opens the store page in a real browser (honest User-Agent, robots.txt
+# checked) and asks the store's search for certified XC40/XC60 near home from inside that page.
+# Without the browser add-on (e.g. on the iPad) this feed fails and Volvo dealer sites are read instead.
+
+VOLVO_STORE = "https://cpo.volvocars.us/en-US/store/all/vehicles"
+VOLVO_SEARCH = "https://services.codeweavers.net/api/vehicles/search-with-facets/groups"
+_FETCH_JS = ("async ([u, h, b]) => { const r = await fetch(u, {method: 'POST', headers: h, body: b, credentials: 'omit'});"
+             " return {status: r.status, text: await r.text()}; }")
+
+
+def volvo() -> tuple[list[Listing], dict]:
+    from urllib.parse import urlparse
+    from . import playwright_fallback as pw
+    if not pw.available():
+        raise FetchError("needs the browser add-on (Playwright); reading Volvo dealer sites instead")
+    f = fetcher()
+    for u in (VOLVO_STORE, VOLVO_SEARCH):
+        if not f.allowed(u):
+            raise FetchError(f"robots.txt disallows {u}")
+    dealers = _dealers("Volvo")
+    home = CONFIG["home"]
+    search_host = urlparse(VOLVO_SEARCH).netloc
+    out, stats = [], {"seen": 0, "in_area": 0}
+    from playwright.sync_api import sync_playwright
+    with pw._lock, sync_playwright() as p:
+        browser = p.chromium.launch()
+        try:
+            page = browser.new_context(user_agent=pw.UA, locale="en-US").new_page()
+            first: dict = {}
+            page.on("request", lambda r: first.setdefault("req", r)
+                    if "search-with-facets" in r.url and r.method == "POST" else None)
+            f._throttle(urlparse(VOLVO_STORE).netloc)
+            page.goto(VOLVO_STORE, wait_until="domcontentloaded", timeout=60000)
+            for _ in range(60):
+                if "req" in first:
+                    break
+                page.wait_for_timeout(500)
+            if "req" not in first:
+                raise FetchError("Volvo's store page didn't start its car search")
+            req = first["req"]
+            headers = {k: v for k, v in req.headers.items() if k.lower().startswith("x-cw-") or k.lower() == "content-type"}
+            body = json.loads(req.post_data)
+            body.update(SortBy="Distance", ResultsPerPage=50, Page=1)
+            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "XC40"]
+            body["Filters"]["Location"] = {"Latitude": home["lat"], "Longitude": home["lon"],
+                                           "Distance": home["edge_radius_miles"]}
+            while True:
+                f._throttle(search_host)
+                res = page.evaluate(_FETCH_JS, [VOLVO_SEARCH, headers, json.dumps(body)])
+                if res["status"] != 200:
+                    raise FetchError(f"Volvo store search answered HTTP {res['status']}")
+                data = json.loads(res["text"])
+                for grp in data.get("Groups") or []:
+                    stats["seen"] += 1
+                    L = _volvo_listing(grp, dealers)
+                    if L:
+                        stats["in_area"] += 1
+                        out.append(L)
+                if body["Page"] >= (data.get("TotalPages") or 0) or body["Page"] >= 20:
+                    break
+                body["Page"] += 1
+        finally:
+            browser.close()
+    return out, stats
+
+
+def _volvo_listing(grp: dict, dealers: list[dict]) -> Listing | None:
+    v = (grp.get("HeadlineVehicle") or {}).get("Vehicle") or {}
+    ph, sp, rt = v.get("Physical") or {}, v.get("Specification") or {}, v.get("Retailer") or {}
+    year = integer(sp.get("ModelYear"))
+    if not ph.get("IsFranchiseApproved") or ph.get("NoLongerAvailable") or (year or 0) < 2023:
+        return None
+    d = _match_dealer(dealers, rt.get("Name", ""), rt.get("Website", ""))
+    if not d or not ph.get("Vin") or not ph.get("ExternalVehicleLink"):
+        return None
+    L = Listing(vin=ph["Vin"].upper(), source="Volvo certified store (cpo.volvocars.us)")
+    L.listing_url = ph["ExternalVehicleLink"]        # a link on the dealer's own website
+    L.year, L.make, L.model = year, "Volvo", sp.get("Model") or ""
+    variant = (sp.get("Variant") or "").strip()
+    L.trim = re.sub(rf"^{re.escape(L.model)}\s*", "", variant)       # e.g. "Plus, B5 AWD, Mild Hybrid, Bright"
+    L.price = money(ph.get("OnTheRoadPrice") or sp.get("OnTheRoadPrice"))
+    L.mileage = integer(ph.get("Mileage"))
+    L.ext_color = ((ph.get("ExteriorColour") or {}).get("Description") or "").strip()
+    L.int_color = ((ph.get("InteriorColour") or {}).get("Description") or "").strip()
+    L.drivetrain = classify_drivetrain(sp.get("Drive") or variant)
+    L.condition = "used"
+    L.cert_text = "certified by volvo (cpo.volvocars.us CPO inventory)"   # brand feed = strong evidence
+    L.cpo_program = "Volvo Certified by Volvo"
+    L.features = [x for x in (ph.get("EquipmentOptions") or []) if isinstance(x, str)]
+    L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Volvo", d["homepage"]
+    return L
+
+
+FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo}

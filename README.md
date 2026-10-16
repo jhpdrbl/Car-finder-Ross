@@ -79,7 +79,7 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 ## Pipeline (`run.py refresh`)
 
 1. **Brand certified-inventory feeds** (`scrapers/brand_feeds.py`): genesis.com and subaru.com CPO
-   searches cover every Genesis and Subaru dealer, even ones whose sites block us. Each car carries
+   searches, and Volvo's certified store (needs the browser add-on), cover every Genesis, Subaru and Volvo dealer, even ones whose sites block us. Each car carries
    the dealer's own listing URL. These brands' dealers are then "skipped (covered by brand feed)".
 2. **Dealer sites** (`core/pipeline.py`, 24 in parallel; each site still gets ≤ 1 request per 2–3 s):
    homepage check → discovery by platform → **pre-filter** (drop URLs that name an off-list version,

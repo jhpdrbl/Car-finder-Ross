@@ -193,6 +193,16 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
    forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
    out by hand, use `data/exclusions.csv`.)
+9. **Brand-wide CPO searches** (user found them, Oct 15 2026; checked robots.txt + network calls):
+   Audi audiusa.com = 403 even from the iPad on home Wi-Fi (no Audi feed). Toyota toyotacertified.com =
+   data under `/rest/*`, which its robots.txt disallows (no feed). Mercedes = `nafta-service.mbusa.com/api/inv/...`
+   but that host's robots.txt returns 5xx, so off limits (RFC 9309). Volvo = Codeweavers API
+   (`services.codeweavers.net`, robots allows) -> **feed built** (`brand_feeds.volvo`): opens the store page in
+   Playwright, then queries the store's search from inside that page (it needs the store's own session, a
+   plain request gets 401); certified (`IsFranchiseApproved`) XC40/XC60 within edge radius, listing URL =
+   the dealer's own link. Needs Playwright: without it (iPad) the feed fails and Volvo dealer sites are
+   read instead (`scrape_all(covered=...)` only skips brands whose feed succeeded this run). Lexus/VW = cars load only after a ZIP
+   is entered; not yet explored. BMW bmwusa.com didn't connect from the cloud; try from the iPad.
 7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
    `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
    those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.

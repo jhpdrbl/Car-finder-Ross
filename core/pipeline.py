@@ -230,20 +230,23 @@ def run_brand_feeds(brands: set[str], log) -> tuple[list[Listing], dict[str, dic
             out += ls
             stats[brand] = {"status": "success", **st}
             log(f"  {brand} brand feed: {st['in_area']} certified {brand} listings at our dealers")
-        except (FetchError, KeyError, ValueError) as e:
-            stats[brand] = {"status": "failed", "reason": str(e)[:200]}
+        except Exception as e:  # a feed that breaks must not stop the run; its dealer sites get read instead
+            stats[brand] = {"status": "failed", "reason": f"{type(e).__name__}: {e}"[:200]}
             log(f"  {brand} brand feed FAILED: {e}")
     return out, stats
 
 
 def scrape_all(dealers: list[dict], brands: set[str], workers: int, log, prev_rows: dict | None = None,
-               today: str = "") -> list[DealerResult]:
+               today: str = "", covered: set[str] | None = None) -> list[DealerResult]:
+    """`covered`: brands whose brand feed worked this run; their dealer sites are skipped. A brand whose
+    feed failed (or needs the browser add-on that isn't installed) gets its dealer sites read instead."""
+    covered = set(FEEDS) if covered is None else covered
     results: list[DealerResult] = []
     todo = []
     for d in dealers:
         if brands and d["brand"] not in brands:
             continue
-        if d["brand"] in FEEDS:
+        if d["brand"] in covered:
             results.append(DealerResult(dealer=d, status="skipped",
                                         reason=f"covered by the {d['brand']} brand CPO feed"))
             continue

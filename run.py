@@ -60,7 +60,8 @@ def refresh(args) -> None:
     feed_listings, feed_stats = pipeline.run_brand_feeds(brands, log) if not args.dealers else ([], {})
 
     log(f"2/6 Dealer websites ({args.workers} at a time, 1 request per 2-3 s per site)")
-    results = pipeline.scrape_all(dealers, brands, args.workers, log, prev_rows, today)
+    covered = {b for b, st in feed_stats.items() if st.get("status") == "success"}
+    results = pipeline.scrape_all(dealers, brands, args.workers, log, prev_rows, today, covered)
     n_read = sum(r.parsed for r in results)
     n_reused = sum(len(r.carried) for r in results)
     n_skip = sum(r.skipped_pages for r in results)
