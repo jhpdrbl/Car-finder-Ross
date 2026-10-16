@@ -5778,8 +5778,8 @@
   },
   {
    "make": "Mercedes-Benz",
-   "model": "GLC",
-   "on_list_rule": "The GLC 300 4MATIC SUV (Premium, Exclusive or Pinnacle) and the GLC 350e 4MATIC SUV (plug-in hybrid, 2025+) are on the list; AMG GLC 43/63, Coupes and rear-drive GLC 300 are not.",
+   "model": "GLC 300",
+   "on_list_rule": "The GLC 300 4MATIC SUV (Premium, Exclusive or Pinnacle) is on the list; AMG GLC 43/63, Coupes and rear-drive GLC 300 are not. The plug-in GLC 350e has its own entry.",
    "years": [
     {
      "year": 2023,
@@ -6066,67 +6066,6 @@
        "mpg": "23/31/26"
       },
       {
-       "name": "GLC 350e 4MATIC SUV (base)",
-       "builds_on": "",
-       "highlights": [
-        "Plug-in hybrid: 54 miles electric (EPA), then a regular hybrid",
-        "11 kW home/AC charging (about 3 hours at 240 V) and standard 60 kW DC fast charging (10–80% about 30 min)",
-        "Self-leveling rear air suspension standard",
-        "12.3-in digital gauges + 11.9-in MBUX touchscreen, navigation, wireless CarPlay / Android Auto",
-        "Power front seats with memory, heated front seats, power liftgate (hands-free)",
-        "Blind Spot Assist with Exit Warning, Active Brake Assist, PARKTRONIC with Active Parking Assist",
-        "Adaptive cruise / lane-centering NOT standard (Driver Assistance Package $1,950)",
-        "Cargo about 24 cu ft behind the rear seat, 56 folded (Car and Driver); about 870 lb heavier than a GLC 300"
-       ],
-       "premium_audio": "none (standard 8-speaker system; Burmester comes with Exclusive)",
-       "on_list": true,
-       "why_not": "",
-       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
-       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
-       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
-       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
-       "spare": "tire repair kit (TIREFIT sealant + pump), no spare",
-       "mpg": "23/28/25 gas-only; 64 MPGe on electricity"
-      },
-      {
-       "name": "GLC 350e 4MATIC Exclusive",
-       "builds_on": "GLC 350e 4MATIC SUV (base)",
-       "highlights": [
-        "Burmester 3D surround sound (15 speakers)",
-        "Surround View cameras + 'Transparent Hood' view",
-        "Enhanced ambient lighting, illuminated door sills",
-        "Sound Personalization",
-        "Navigation map updates + Live Traffic, Car-to-X, GUARD 360 security"
-       ],
-       "premium_audio": "Burmester 3D surround sound, included",
-       "on_list": true,
-       "why_not": "",
-       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
-       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
-       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
-       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
-       "spare": "tire repair kit (TIREFIT sealant + pump), no spare",
-       "mpg": "23/28/25 gas-only; 64 MPGe on electricity"
-      },
-      {
-       "name": "GLC 350e 4MATIC Pinnacle",
-       "builds_on": "GLC 350e 4MATIC Exclusive",
-       "highlights": [
-        "DIGITAL LIGHT headlamps",
-        "Head-Up Display",
-        "Heat- and noise-insulating glass"
-       ],
-       "premium_audio": "Burmester 3D surround sound, included",
-       "on_list": true,
-       "why_not": "",
-       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
-       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
-       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
-       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
-       "spare": "tire repair kit (TIREFIT sealant + pump), no spare",
-       "mpg": "23/28/25 gas-only; 64 MPGe on electricity"
-      },
-      {
        "name": "GLC 300 4MATIC Coupe",
        "on_list": false,
        "why_not": "Coupe body style excluded",
@@ -6187,7 +6126,7 @@
     },
     {
      "year": 2026,
-     "what_changed": "Exclusive and Pinnacle now include MBUX Entertainment Plus (online music and video streaming). 19-in wheels now a no-cost option. New AMG Lite Plus Package bundles 19- or 20-in AMG wheels, Panorama roof and rear spoiler. New no-cost Black Fine Structure center-console trim. No change found to seat materials, engine, screens or driver-assist. GLC 350e: no meaningful changes (MSRP $59,900 → $60,300; Exclusive adds MBUX Entertainment Package Plus, Pinnacle adds Augmented Video navigation; GUARD 360, Digital Key and heated washers now standard).",
+     "what_changed": "Exclusive and Pinnacle now include MBUX Entertainment Plus (online music and video streaming). 19-in wheels now a no-cost option. New AMG Lite Plus Package bundles 19- or 20-in AMG wheels, Panorama roof and rear spoiler. New no-cost Black Fine Structure center-console trim. No change found to seat materials, engine, screens or driver-assist.",
      "trims": [
       {
        "name": "GLC 300 4MATIC Premium",
@@ -6253,69 +6192,6 @@
        "black_interior": "yes",
        "spare": "compact spare",
        "mpg": "23/31/26"
-      },
-      {
-       "name": "GLC 350e 4MATIC SUV (base)",
-       "builds_on": "",
-       "highlights": [
-        "Plug-in hybrid: 54 miles electric (EPA), then a regular hybrid",
-        "11 kW home/AC charging (about 3 hours at 240 V) and standard 60 kW DC fast charging (10–80% about 30 min)",
-        "Self-leveling rear air suspension standard",
-        "12.3-in digital gauges + 11.9-in MBUX touchscreen, navigation, wireless CarPlay / Android Auto",
-        "Power front seats with memory, heated front seats, power liftgate (hands-free)",
-        "Blind Spot Assist with Exit Warning, Active Brake Assist, PARKTRONIC with Active Parking Assist",
-        "Adaptive cruise / lane-centering NOT standard (Driver Assistance Package $1,950)",
-        "Cargo about 24 cu ft behind the rear seat, 56 folded (Car and Driver); about 870 lb heavier than a GLC 300",
-        "New standard for 2026: GUARD 360 security, Digital Vehicle Key, heated washers"
-       ],
-       "premium_audio": "none (standard 8-speaker system; Burmester comes with Exclusive)",
-       "on_list": true,
-       "why_not": "",
-       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
-       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
-       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
-       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
-       "spare": "probably a tire repair kit (TIREFIT), no spare; not confirmed for 2026",
-       "mpg": "23/28/25 gas-only and 64 MPGe (2025 EPA figures; 2026 not published yet)"
-      },
-      {
-       "name": "GLC 350e 4MATIC Exclusive",
-       "builds_on": "GLC 350e 4MATIC SUV (base)",
-       "highlights": [
-        "Burmester 3D surround sound (15 speakers)",
-        "Surround View cameras + 'Transparent Hood' view",
-        "Enhanced ambient lighting, illuminated door sills",
-        "Sound Personalization",
-        "MBUX Entertainment Package Plus (new for 2026)"
-       ],
-       "premium_audio": "Burmester 3D surround sound, included",
-       "on_list": true,
-       "why_not": "",
-       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
-       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
-       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
-       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
-       "spare": "probably a tire repair kit (TIREFIT), no spare; not confirmed for 2026",
-       "mpg": "23/28/25 gas-only and 64 MPGe (2025 EPA figures; 2026 not published yet)"
-      },
-      {
-       "name": "GLC 350e 4MATIC Pinnacle",
-       "builds_on": "GLC 350e 4MATIC Exclusive",
-       "highlights": [
-        "DIGITAL LIGHT headlamps",
-        "Head-Up Display",
-        "Heat- and noise-insulating glass",
-        "MBUX Augmented Video for Navigation"
-       ],
-       "premium_audio": "Burmester 3D surround sound, included",
-       "on_list": true,
-       "why_not": "",
-       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
-       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
-       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
-       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
-       "spare": "probably a tire repair kit (TIREFIT), no spare; not confirmed for 2026",
-       "mpg": "23/28/25 gas-only and 64 MPGe (2025 EPA figures; 2026 not published yet)"
       },
       {
        "name": "GLC 300 4MATIC Coupe",
@@ -6392,6 +6268,162 @@
     "https://www.caranddriver.com/mercedes-benz/glc-class-2025",
     "https://www.caranddriver.com/mercedes-benz/glc-class-2026",
     "https://mercedesbenzofatlantane.com/blog/mercedes-benz-seat-ventilation-which-2026-model-gets-you-cool-in-atlanta"
+   ],
+   "match": {
+    "model": "GLC"
+   }
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "GLC 350e",
+   "match": {
+    "model": "GLC",
+    "fuel": "phev"
+   },
+   "on_list_rule": "The GLC 350e 4MATIC SUV (plug-in hybrid, sold from 2025) is on the list in all three versions: base, Exclusive and Pinnacle. Plug-in hybrid price cap applies ($40,500 with fees).",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "New model: GLC 350e 4MATIC plug-in hybrid (313 hp combined, 54 miles electric range, standard rear air suspension and DC fast charging), sold as base, Exclusive or Pinnacle. Same body and interior as the GLC 300, with the third-generation MBUX that all 2025 GLCs got.",
+     "trims": [
+      {
+       "name": "GLC 350e 4MATIC SUV (base)",
+       "builds_on": "",
+       "highlights": [
+        "Plug-in hybrid: 54 miles electric (EPA), then a regular hybrid",
+        "11 kW home/AC charging (about 3 hours at 240 V) and standard 60 kW DC fast charging (10–80% about 30 min)",
+        "Self-leveling rear air suspension standard",
+        "12.3-in digital gauges + 11.9-in MBUX touchscreen, navigation, wireless CarPlay / Android Auto",
+        "Power front seats with memory, heated front seats, power liftgate (hands-free)",
+        "Blind Spot Assist with Exit Warning, Active Brake Assist, PARKTRONIC with Active Parking Assist",
+        "Adaptive cruise / lane-centering NOT standard (Driver Assistance Package $1,950)",
+        "Cargo about 24 cu ft behind the rear seat, 56 folded (Car and Driver); about 870 lb heavier than a GLC 300"
+       ],
+       "premium_audio": "none (standard 8-speaker system; Burmester comes with Exclusive)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
+       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
+       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
+       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
+       "spare": "tire repair kit (TIREFIT sealant + pump), no spare",
+       "mpg": "23/28/25 gas-only; 64 MPGe on electricity"
+      },
+      {
+       "name": "GLC 350e 4MATIC Exclusive",
+       "builds_on": "GLC 350e 4MATIC SUV (base)",
+       "highlights": [
+        "Burmester 3D surround sound (15 speakers)",
+        "Surround View cameras + 'Transparent Hood' view",
+        "Enhanced ambient lighting, illuminated door sills",
+        "Sound Personalization",
+        "Navigation map updates + Live Traffic, Car-to-X, GUARD 360 security"
+       ],
+       "premium_audio": "Burmester 3D surround sound, included",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
+       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
+       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
+       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
+       "spare": "tire repair kit (TIREFIT sealant + pump), no spare",
+       "mpg": "23/28/25 gas-only; 64 MPGe on electricity"
+      },
+      {
+       "name": "GLC 350e 4MATIC Pinnacle",
+       "builds_on": "GLC 350e 4MATIC Exclusive",
+       "highlights": [
+        "DIGITAL LIGHT headlamps",
+        "Head-Up Display",
+        "Heat- and noise-insulating glass"
+       ],
+       "premium_audio": "Burmester 3D surround sound, included",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
+       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
+       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
+       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
+       "spare": "tire repair kit (TIREFIT sealant + pump), no spare",
+       "mpg": "23/28/25 gas-only; 64 MPGe on electricity"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "No meaningful changes for the 350e: MSRP $59,900 → $60,300; Exclusive adds MBUX Entertainment Package Plus, Pinnacle adds Augmented Video navigation; GUARD 360 security, Digital Vehicle Key and heated washers now standard; new Black Fine Structure console trim; new optional dashcam.",
+     "trims": [
+      {
+       "name": "GLC 350e 4MATIC SUV (base)",
+       "builds_on": "",
+       "highlights": [
+        "Plug-in hybrid: 54 miles electric (EPA), then a regular hybrid",
+        "11 kW home/AC charging (about 3 hours at 240 V) and standard 60 kW DC fast charging (10–80% about 30 min)",
+        "Self-leveling rear air suspension standard",
+        "12.3-in digital gauges + 11.9-in MBUX touchscreen, navigation, wireless CarPlay / Android Auto",
+        "Power front seats with memory, heated front seats, power liftgate (hands-free)",
+        "Blind Spot Assist with Exit Warning, Active Brake Assist, PARKTRONIC with Active Parking Assist",
+        "Adaptive cruise / lane-centering NOT standard (Driver Assistance Package $1,950)",
+        "Cargo about 24 cu ft behind the rear seat, 56 folded (Car and Driver); about 870 lb heavier than a GLC 300",
+        "New standard for 2026: GUARD 360 security, Digital Vehicle Key, heated washers"
+       ],
+       "premium_audio": "none (standard 8-speaker system; Burmester comes with Exclusive)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
+       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
+       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
+       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
+       "spare": "probably a tire repair kit (TIREFIT), no spare; not confirmed for 2026",
+       "mpg": "23/28/25 gas-only and 64 MPGe (2025 EPA figures; 2026 not published yet)"
+      },
+      {
+       "name": "GLC 350e 4MATIC Exclusive",
+       "builds_on": "GLC 350e 4MATIC SUV (base)",
+       "highlights": [
+        "Burmester 3D surround sound (15 speakers)",
+        "Surround View cameras + 'Transparent Hood' view",
+        "Enhanced ambient lighting, illuminated door sills",
+        "Sound Personalization",
+        "MBUX Entertainment Package Plus (new for 2026)"
+       ],
+       "premium_audio": "Burmester 3D surround sound, included",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
+       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
+       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
+       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
+       "spare": "probably a tire repair kit (TIREFIT), no spare; not confirmed for 2026",
+       "mpg": "23/28/25 gas-only and 64 MPGe (2025 EPA figures; 2026 not published yet)"
+      },
+      {
+       "name": "GLC 350e 4MATIC Pinnacle",
+       "builds_on": "GLC 350e 4MATIC Exclusive",
+       "highlights": [
+        "DIGITAL LIGHT headlamps",
+        "Head-Up Display",
+        "Heat- and noise-insulating glass",
+        "MBUX Augmented Video for Navigation"
+       ],
+       "premium_audio": "Burmester 3D surround sound, included",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (201 hp) + 134-hp electric motor = 313 hp / 406 lb-ft combined; plug-in hybrid, about 24.8 kWh battery (23.3 usable per Car and Driver); 9-speed auto, 4MATIC AWD; EPA 54 miles electric range",
+       "sunroof": "optional on every level (Panorama roof, $1,500); not part of Exclusive or Pinnacle, so check the listing or window sticker",
+       "seats": "MB-Tex synthetic leatherette standard; leather ($1,620) and Nappa leather ($2,590) optional; heated front standard; ventilated front a $450 option on every level",
+       "black_interior": "yes (Black MB-Tex standard; black leather or Nappa optional)",
+       "spare": "probably a tire repair kit (TIREFIT), no spare; not confirmed for 2026",
+       "mpg": "23/28/25 gas-only and 64 MPGe (2025 EPA figures; 2026 not published yet)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.mbusa.com/content/mb-vehicles-data/en_us/models/2025/glc/glc350e4.html",
+    "https://www.mbusa.com/content/mb-vehicles-data/en_us/models/2026/glc/glc350e4.html",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48674",
+    "https://www.caranddriver.com/mercedes-benz/glc-class-hybrid"
    ]
   },
   {

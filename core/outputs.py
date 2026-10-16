@@ -682,8 +682,11 @@ document.getElementById("g-jump").addEventListener("change", e => {
   const el = document.getElementById(id); if (el) el.scrollIntoView({block: "start"}); e.target.value = ""; });
 function guideFor(c) {      // the guide entry for a listed car: same make, longest model name contained in the car's model
   const mk = String(c.make).toLowerCase(), md = " " + String(c.model + " " + c.trim).toLowerCase().replace(/-/g, " ") + " ";
-  return G.filter(m => m.make.toLowerCase() === mk && md.includes(String(m.model).toLowerCase().replace(/-/g, " ")))
-          .sort((a, b) => b.model.length - a.model.length)[0];
+  const has = w => md.includes(String(w).toLowerCase().replace(/-/g, " "));
+  // an entry's optional "match" ({model, fuel}) also catches cars listed under the base name, e.g. a GLC that's a plug-in = GLC 350e
+  const fits = m => has(m.model) || (m.match && has(m.match.model) && (!m.match.fuel || String(c.fuel_type).toLowerCase().includes(m.match.fuel)));
+  return G.filter(m => m.make.toLowerCase() === mk && fits(m))
+          .sort((a, b) => (b.match && b.match.fuel ? 1 : 0) - (a.match && a.match.fuel ? 1 : 0) || b.model.length - a.model.length)[0];
 }
 function guideLink(c) {
   const m = guideFor(c);

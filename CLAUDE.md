@@ -195,7 +195,8 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    makers' sites refused the requests. Items that couldn't be confirmed say "unknown" / "confirm on
    window sticker". 2027 model years are included only for some models (whatever was on sale). Update by
    editing the JSON (schema: model → years → trims with name, on_list, why_not, powertrain, builds_on,
-   highlights, sunroof, premium_audio, seats, black_interior, spare, mpg) and regenerating the dashboard.
+   highlights, sunroof, premium_audio, seats, black_interior, spare, mpg; optional per model `match: {model, fuel}` so a car
+   listed under a base name finds its entry, e.g. a `GLC` with fuel `phev` → the separate "GLC 350e" entry) and regenerating the dashboard.
    Same rules as everything else: no aggregators, honest requests, never carfax.com.
 8. **Facts the user checked by hand** go in `data/confirmed.csv` (vin, trim, sunroof yes/no, note). `run.py:apply_confirmed`
    applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
