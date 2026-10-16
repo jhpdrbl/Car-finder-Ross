@@ -372,8 +372,8 @@ def parse_vdp(html: str, url: str) -> Listing | None:
         L.price = money(m.group(1)) if m else None
     m = ORIG_MSRP.search(flat)          # only an explicitly ORIGINAL sticker price (a plain "MSRP" on a used car is often the dealer's)
     if m:
-        v = money(m.group(1))
-        L.msrp_new = v if v and 15000 <= v <= 250000 else None
+        sticker = money(m.group(1))
+        L.msrp_new = sticker if sticker and 15000 <= sticker <= 250000 else None
     m = DOC_FEE.search(flat)
     L.doc_fee = money(m.group(1)) if m else None
     others = [money(x) for x in OTHER_FEE.findall(flat)]

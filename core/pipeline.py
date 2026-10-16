@@ -190,7 +190,10 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
         if prev and all(r.get("dealer") == dealer["dealer_name"] and carry_forward_ok(r, today) for r in prev.values()):
             res.carried.append(prev)
             continue
-        L, err = fetch_vdp(url)
+        try:
+            L, err = fetch_vdp(url)
+        except Exception as e:     # one odd page: note it and keep reading this dealer's other cars
+            L, err = None, f"page error: {type(e).__name__}: {e}"[:150]
         if L is None and err.startswith("no vehicle data") and playwright_fallback.available():
             L, err = playwright_fallback.fetch_vdp_rendered(url)
         if L is None:
@@ -218,7 +221,10 @@ def enrich_from_dealer_page(L: Listing) -> None:
     """Brand-feed cars: read the dealer's own page (when reachable) for sunroof, audio, seats, CARFAX..."""
     if not L.listing_url:
         return
-    P, err = fetch_vdp(L.listing_url)
+    try:
+        P, err = fetch_vdp(L.listing_url)
+    except Exception:   # one odd page must not stop the run: the car keeps what its brand feed said
+        return
     if P is None:
         L.location_note = L.location_note or ""
         return
