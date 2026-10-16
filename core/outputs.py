@@ -176,17 +176,44 @@ def _model_words(brand: str) -> list[str]:
     return out
 
 
-def _model_link(d: dict, brand: str, model: str) -> str:
-    """The dealer's own used-inventory search for one model, in the URL style of its website platform."""
-    from urllib.parse import quote
+# The brands' own certified searches (the links the user found, Oct 2026), for dealers whose own
+# certified-inventory address isn't known.
+BRAND_CPO_SEARCH = {
+    "Audi": "https://www.audiusa.com/en/inventory/?entry=true&type=cpo",
+    "Mercedes-Benz": "https://www.mbusa.com/en/inventory/search?stockCategory=cpo",
+    "BMW": "https://www.bmwusa.com/certified-preowned-search/results",
+    "Volkswagen": "https://www.vw.com/en/cpo.html",
+    "Lexus": "https://www.lexus.com/lcertified/search-inventory",
+    "Toyota": "https://www.toyotacertified.com/inventory?zipCode=90039&radius=50",
+    "Volvo": "https://cpo.volvocars.us/en-US/store/all/vehicles",
+    "Genesis": "https://www.genesis.com/us/en/certified/inventory",
+}
+
+
+def _cpo_base(d: dict) -> str:
+    """The dealer's own CERTIFIED inventory page: the one on file, else the platform's standard path."""
+    inv = d.get("inventory_url") or ""
+    if "certified" in inv.lower() or "tp=certified" in inv.lower():
+        return inv
     home, plat = (d.get("homepage") or "").rstrip("/"), d.get("platform") or ""
-    m = quote(model)
-    if plat == "dealer_inspire":
-        return f"{home}/used-vehicles/?_dFR%5Bmodel%5D%5B0%5D={m}"
+    if plat == "dealer_inspire":       # Dealer Inspire's standard certified page (Lexus's own data uses it for 6 of 7 DI dealers)
+        return f"{home}/used-vehicles/certified-pre-owned-vehicles/"
     if plat == "dealer_com":
-        return f"{home}/used-inventory/index.htm?search={m}"
-    if plat == "dealeron":
-        return f"{home}/searchused.aspx?Model={m}"
+        return f"{home}/certified-inventory/index.htm"
+    return ""
+
+
+def _model_link(d: dict, brand: str, model: str) -> str:
+    """The dealer's certified inventory filtered to one model, where the platform's filter format is known."""
+    from urllib.parse import quote
+    base, plat = _cpo_base(d), d.get("platform") or ""
+    if not base:
+        return ""
+    sep = "&" if "?" in base else "?"
+    if plat == "dealer_inspire" and "/certified" in base:
+        return f"{base}{sep}_dFR%5Bmodel%5D%5B0%5D={quote(model)}"
+    if plat == "dealer_com":
+        return f"{base}{sep}search={quote(model)}"
     return ""
 
 
@@ -200,11 +227,11 @@ def check_list(cov: list[dict]) -> list[dict]:
             continue   # a brand feed that worked already brings in that brand's certified cars
         d = dealers.get(c["dealer"], {"homepage": c.get("homepage", "")})
         models = _model_words(c["brand"])
-        links = [{"label": m, "url": u} for m in models if (u := _model_link(d, c["brand"], m))]
+        links = [{"label": f"{m} (certified)", "url": u} for m in models if (u := _model_link(d, c["brand"], m))]
         out.append({"dealer": c["dealer"], "brand": c["brand"], "distance_mi": c.get("distance_mi", ""),
                     "why": _plain_reason(c.get("reason", "")), "detail": c.get("reason", "")[:140],
                     "models": models, "links": links,
-                    "inventory": d.get("inventory_url") or d.get("homepage") or c.get("homepage", ""),
+                    "cpo": _cpo_base(d), "brand_cpo": BRAND_CPO_SEARCH.get(c["brand"], ""),
                     "homepage": d.get("homepage") or c.get("homepage", "")})
     rank = {b: i for i, b in enumerate(TOP_BRANDS)}
     out.sort(key=lambda x: (rank.get(x["brand"], 9), float(x["distance_mi"] or 999)))
@@ -480,8 +507,8 @@ td.warr { min-width:190px; font-size:13px; }
 <div id="panel-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden><div id="cmp"></div></div>
 <div id="panel-check" role="tabpanel" aria-labelledby="tab-check" hidden>
 <p class="muted" style="margin-top:0">Dealers the search couldn't read by any method, so their cars may be missing from this page.
-Tap a model to open that dealer's own used inventory (filtered when their website allows it), have a look, then tap
-<b>Mark checked</b>. Checks older than a week turn yellow as a reminder. Dealers covered by a brand-wide certified search aren't listed.</p>
+Tap a model to open that dealer's own <b>certified</b> inventory for it. Where the dealer's certified page isn't known,
+open their website or the brand's own certified search instead. Have a look, then tap <b>Mark checked</b>. Checks older than a week turn yellow as a reminder. Dealers covered by a brand-wide certified search aren't listed.</p>
 <div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="chk-hide"><span>Hide ones I checked this week</span></label>
 <span class="small" id="chk-sync"></span></div>
 <div id="checklist"></div>
@@ -779,7 +806,9 @@ function renderCheck() {
     html += `<div class="ck ${state}"><h3>${esc(d.dealer)} <span class="small">${esc(d.distance_mi)} mi</span>${label ? `<span class="ckstate">✓ ${label}</span>` : ""}</h3>
       <div class="small why" title="${esc(d.detail)}">${esc(d.why)}</div>
       <div class="btns">${d.links.map(l => `<a class="cbtn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}
-        <a class="cbtn ghost" href="${esc(d.inventory)}" target="_blank" rel="noopener">${d.links.length ? "All used inventory" : "Open their website"}</a>
+        ${d.cpo ? `<a class="cbtn ghost" href="${esc(d.cpo)}" target="_blank" rel="noopener">All certified inventory</a>`
+                : `<a class="cbtn ghost" href="${esc(d.homepage)}" target="_blank" rel="noopener">Open their website</a>`}
+        ${!d.cpo && d.brand_cpo ? `<a class="cbtn ghost" href="${esc(d.brand_cpo)}" target="_blank" rel="noopener">${esc(d.brand)} certified search</a>` : ""}
         <button type="button" class="cbtn ghost ckbtn" data-dealer="${esc(d.dealer)}">${when && age <= 7 ? "Undo" : "Mark checked"}</button></div></div>`;
   }
   document.getElementById("checklist").innerHTML = html || '<p class="muted">Nothing to check: every dealer was read by the search.</p>';
