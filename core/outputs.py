@@ -353,8 +353,7 @@ def write_chooser(today: str = "") -> Path:
         th = theme_vars(q)
         local = "dashboard.html" if q.is_default else f"{q.id}/dashboard.html"
         cards.append(f'<a class="who" data-local="{local}" href="{q.href}" style="--a:{th["__ACC_L__"]};--ad:{th["__ACC_D__"]}">'
-                     f'<b>{html.escape(q.label)}</b><span>{n_ok} meet all criteria · {n_call} need a call</span>'
-                     f'<small>{html.escape((q.cfg.get("theme") or {}).get("name", ""))}</small></a>')
+                     f'<b>{html.escape(q.label)}</b><span>{n_ok} meet all criteria · {n_call} need a call</span></a>')
     page = CHOOSER.replace("__CARDS__", "\n".join(cards)).replace("__DATE__", html.escape(today))
     path = profiles.OUT / "index.html"
     path.write_text(page, encoding="utf-8")
