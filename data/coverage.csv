@@ -1,6 +1,4 @@
 brand,dealer,status,reason,listings,distance_mi,homepage,method
-Genesis,Genesis brand CPO feed,success,81 certified listings at our dealers,81,,,
-Subaru,Subaru brand CPO feed,success,204 certified listings at our dealers,204,,,
 Audi,McKenna Audi,success,"26 listings read, 0 unchanged exclusions reused",26,15.8,https://www.mckennaaudi.com,dealer.com search: 26 candidates
 Audi,Audi North Orange County,success,"13 listings read, 0 unchanged exclusions reused",13,28.5,https://www.audinorthoc.com,dealer.com search: 13 candidates
 Audi,Audi South Coast,success,"12 listings read, 0 unchanged exclusions reused",12,35.8,https://www.audisouthcoast.com,dealer.com search: 12 candidates
@@ -29,7 +27,6 @@ BMW,Long Beach BMW,success,"7 listings read, 0 unchanged exclusions reused",7,21
 BMW,Bob Smith BMW,success,"14 listings read, 0 unchanged exclusions reused",14,23.1,https://bobsmithbmw.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 706 urls, 107 candidates"
 BMW,Valencia BMW,success,"31 listings read, 0 unchanged exclusions reused",31,27.1,https://www.valenciabmw.com,dealer.com search: 31 candidates
 BMW,Irvine BMW,success,"61 listings read, 0 unchanged exclusions reused",61,45.1,https://www.irvinebmw.com,dealer.com search: 61 candidates
-BMW,Mission BMW,success,"no matching BMW models listed (sitemap: 1 urls, 0 candidates)",0,48.8,https://www.missionbmw.com,"sitemap: 1 urls, 0 candidates"
 BMW,Pacific BMW,failed,blocked: HTTP 403 (HTTP 403),0,2.2,https://www.pacificbmw.com,
 BMW,Century West BMW,failed,blocked: HTTP 403 (HTTP 403),0,8.7,https://www.centurywestbmw.com,
 BMW,BMW Santa Monica,failed,blocked: HTTP 403 (HTTP 403),0,14.7,https://www.bmwsantamonica.com,
@@ -49,7 +46,6 @@ Ford,AutoNation Ford Torrance,success,"2 listings read, 0 unchanged exclusions r
 Ford,BP Ford of Long Beach,success,"3 listings read, 0 unchanged exclusions reused",3,22.2,https://www.bpfordoflongbeach.com,dealer.com search: 3 candidates
 Ford,AutoNation Ford Valencia,success,"4 listings read, 0 unchanged exclusions reused",4,27.1,https://www.autonationfordvalencia.com,dealer.com search: 4 candidates
 Ford,Huntington Beach Ford,success,"6 listings read, 0 unchanged exclusions reused",6,32.5,https://www.huntingtonbeachford.com,"sitemap: 762 urls, 58 candidates; dealeron search: 0 more"
-Ford,Thousand Oaks Ford,success,"no matching Ford models listed (sitemap: 1 urls, 0 candidates)",0,33.3,https://www.thousandoaksford.com,"sitemap: 1 urls, 0 candidates"
 Ford,Diamond Ford,success,"no matching Ford models listed (sitemap: 51 urls, 0 candidates)",0,40.3,https://diamondford.com,"sitemap: 51 urls, 0 candidates"
 Ford,Airport Marina Ford,failed,blocked: Akamai bot protection (HTTP 403),0,4.1,https://www.airportmarinaford.com,
 Ford,Puente Hills Ford,failed,blocked: HTTP 403 (HTTP 403),0,18.4,https://www.puentehillsford.com,
@@ -60,6 +56,7 @@ Ford,Caruso Ford,failed,blocked: HTTP 403 (HTTP 403),0,23.8,https://www.carusofo
 Ford,Ford of Orange,failed,blocked: HTTP 403 (HTTP 403),0,32.3,https://www.fordoforange.com,
 Ford,Tuttle-Click Ford,failed,blocked: HTTP 403 (HTTP 403),0,38.5,https://www.tuttleclickford.com,
 Ford,Raceway Ford,failed,blocked: Cloudflare bot protection (HTTP 403),0,50.6,https://www.racewayford.com,
+Genesis,Genesis brand CPO feed,success,81 certified listings at our dealers,81,,,
 Genesis,Genesis Santa Monica,skipped,covered by the Genesis brand CPO feed,0,13.4,https://www.genesissantamonica.com,
 Genesis,Norm Reeves Genesis Of Cerritos,skipped,covered by the Genesis brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,19.7,https://www.genesisofcerritos.com,
 Genesis,Genesis Of South Bay,skipped,covered by the Genesis brand CPO feed,0,22.0,https://www.genesisofsouthbay.com,
@@ -84,29 +81,27 @@ Lexus,Lexus of Westminster,failed,blocked: HTTP 403 (HTTP 403),0,28.4,https://ww
 Lexus,Tustin Lexus,failed,blocked: HTTP 403 (HTTP 403),0,37.6,https://www.tustinlexus.com,
 Lexus,Newport Lexus,failed,blocked: HTTP 403 (HTTP 403),0,38.6,https://www.newportlexus.com,
 Lexus,Lexus of Oxnard,failed,blocked: HTTP 403 (HTTP 403),0,51.7,https://www.lexusofoxnard.com,
-Mercedes-Benz,Calstar Motors,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,2.2,https://www.calstarmotors.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Glendale,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,2.2,https://www.mbglendale.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Pasadena,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,7.1,https://www.mbpasadena.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Arcadia,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,13.0,https://www.mbarcadia.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Encino,success,"34 listings read, 0 unchanged exclusions reused",34,14.0,https://www.mbencino.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2047 urls, 230 candidates"
-Mercedes-Benz,Mercedes-Benz of South Bay,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,19.5,https://www.mbsouthbay.com,"sitemap: 1 urls, 0 candidates"
+Mercedes-Benz,Calstar Motors,success,"4 listings read, 0 unchanged exclusions reused",4,2.2,https://www.calstarmercedes.com,dealer.com search: 4 candidates
+Mercedes-Benz,Mercedes-Benz of Encino,success,"35 listings read, 0 unchanged exclusions reused",35,14.0,https://www.mbencino.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2073 urls, 240 candidates"
+Mercedes-Benz,W.I. Simonson Mercedes-Benz,success,"43 listings read, 0 unchanged exclusions reused",43,14.7,https://www.wisimonson.net,"sitemap: 2095 urls, 45 candidates"
+Mercedes-Benz,Mercedes-Benz of South Bay,success,"7 listings read, 0 unchanged exclusions reused",7,19.5,https://www.sbmercedes.com,dealer.com search: 7 candidates
 Mercedes-Benz,Mercedes-Benz of West Covina,success,"44 listings read, 0 unchanged exclusions reused",44,20.6,https://www.mbwestcovina.com,dealer.com search: 44 candidates
-Mercedes-Benz,Mercedes-Benz of Long Beach,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,21.8,https://www.mboflongbeach.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Calabasas Mercedes-Benz,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,23.0,https://www.mbcalabasas.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Anaheim,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,27.4,https://www.mbanaheim.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Valencia,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,30.5,https://www.mbvalencia.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Thousand Oaks,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,33.3,https://www.mbthousandoaks.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Tustin,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,35.4,https://www.mbtustin.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Riverside,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,50.6,https://www.mbriverside.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Oxnard,success,"no matching Mercedes-Benz models listed (sitemap: 1 urls, 0 candidates)",0,52.8,https://www.mboxnard.com,"sitemap: 1 urls, 0 candidates"
-Mercedes-Benz,Mercedes-Benz of Los Angeles,failed,blocked: HTTP 403 (HTTP 403),0,4.1,https://www.mbzla.com,
-Mercedes-Benz,Mercedes-Benz of Beverly Hills,failed,blocked: HTTP 403 (HTTP 403),0,8.4,https://www.mbbeverlyhills.com,
-Mercedes-Benz,Keyes European,failed,blocked: HTTP 403 (HTTP 403),0,12.2,https://www.keyesmercedes.com,
-Mercedes-Benz,W.I. Simonson Mercedes-Benz,failed,"homepage unreachable (ConnectTimeout: HTTPSConnectionPool(host='www.wisimonson.com', port=443): Max re)",0,14.7,https://www.wisimonson.com,
-Mercedes-Benz,Mercedes-Benz of Ontario,failed,blocked: HTTP 403 (HTTP 403),0,35.0,https://www.mbontario.com,
-Mercedes-Benz,Fletcher Jones Motorcars,failed,blocked: HTTP 403 (HTTP 403),0,38.9,https://www.fjmercedes.com,
-Mercedes-Benz,Walter's Mercedes-Benz,failed,"homepage unreachable (SSLError: HTTPSConnectionPool(host='www.waltersmercedes.com', port=443): Max ret)",0,50.6,https://www.waltersmercedes.com,
-Mercedes-Benz,Mercedes-Benz of Laguna Niguel,failed,"homepage unreachable (SSLError: HTTPSConnectionPool(host='www.mblagunaniguel.com', port=443): Max retr)",0,51.5,https://www.mblagunaniguel.com,
+Mercedes-Benz,Mercedes-Benz of Calabasas,success,"29 listings read, 0 unchanged exclusions reused",29,23.0,https://www.mercedesofcalabasas.com,dealer.com search: 30 candidates
+Mercedes-Benz,Mercedes-Benz of Anaheim,success,"32 listings read, 0 unchanged exclusions reused",32,27.4,https://www.mercedesbenzofanaheim.com,dealer.com search: 32 candidates
+Mercedes-Benz,Mercedes-Benz of Valencia,success,"35 listings read, 0 unchanged exclusions reused",35,30.5,https://www.mbzvalencia.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2073 urls, 240 candidates"
+Mercedes-Benz,Mercedes-Benz of Thousand Oaks,success,"41 listings read, 0 unchanged exclusions reused; 1 pages failed",41,33.3,https://www.mbzthousandoaks.com,"sitemap: 1289 urls, 247 candidates; dealeron search: 0 more"
+Mercedes-Benz,Mercedes-Benz of Los Angeles,failed,blocked: Cloudflare bot protection (HTTP 403),0,4.1,https://www.mbzla.com,
+Mercedes-Benz,Mercedes-Benz of Beverly Hills,failed,blocked: Cloudflare bot protection (HTTP 403),0,8.4,https://www.mbbeverlyhills.com,
+Mercedes-Benz,Keyes European,failed,blocked: Cloudflare bot protection (HTTP 403),0,12.2,https://www.keyesmercedes.com,
+Mercedes-Benz,Mercedes-Benz of Arcadia,failed,blocked: Cloudflare bot protection (HTTP 403),0,13.0,https://www.rusnakarcadia.com,
+Mercedes-Benz,Mercedes-Benz of Long Beach,failed,blocked: Cloudflare bot protection (HTTP 403),0,21.8,https://www.mbzlongbeach.com,
+Mercedes-Benz,Mercedes-Benz of Ontario,failed,blocked: Cloudflare bot protection (HTTP 403),0,35.0,https://www.mbontario.com,
+Mercedes-Benz,Fletcher Jones Motorcars,failed,blocked: Cloudflare bot protection (HTTP 403),0,38.9,https://www.fjmercedes.com,
+Mercedes-Benz,Mercedes-Benz of Foothill Ranch,failed,blocked: Cloudflare bot protection (HTTP 403),0,45.2,https://www.mbfoothill.com,
+Mercedes-Benz,Walter's Mercedes-Benz,failed,blocked: Cloudflare bot protection (HTTP 403),0,50.6,https://www.waltersmercedesbenzofriverside.com,
+Mercedes-Benz,Mercedes-Benz of Laguna Niguel,failed,blocked: Cloudflare bot protection (HTTP 403),0,51.5,https://www.mblaguna.com,
+Mercedes-Benz,Mercedes-Benz of Oxnard,failed,blocked: Cloudflare bot protection (HTTP 403),0,52.8,https://www.mbofoxnard.com,
+Subaru,Subaru brand CPO feed,success,204 certified listings at our dealers,204,,,
 Subaru,Subaru of Glendale,skipped,covered by the Subaru brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,1.4,https://subaruofglendale.net,
 Subaru,Subaru of Downtown Los Angeles,skipped,covered by the Subaru brand CPO feed,0,5.4,https://dtlasubaru.com,
 Subaru,Subaru Sherman Oaks,skipped,covered by the Subaru brand CPO feed,0,11.7,https://www.subarushermanoaks.com,
