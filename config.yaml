@@ -146,6 +146,33 @@ models:
       - {if: '2[- ]?door|2dr', then: fail, why: '2-door Bronco'}
       - {if: 'bronco', unless: '4[- ]?door|4dr', then: call, why: "confirm it's a 4-door Bronco"}
 
+  Mazda:
+    allow: '\bcx ?-?(5|50|70)\b'
+    list: CX-5, CX-50 (incl. Hybrid 2025+), CX-70 2025+
+    tokens: [cx-5, cx5, cx-50, cx50, cx-70, cx70]
+    feed_models: [CX5, C50, 50H, C70, C7P]       # mazdausa.com carline codes: CX-5, CX-50, CX-50 Hybrid, CX-70, CX-70 PHEV
+    rules:
+      - {if: turbo signature, then: fail, why: 'CX-5 Turbo Signature: Caturra Brown Nappa interior only (no black)'}
+      - {if: carbon turbo, then: fail, why: 'CX-5 Carbon Turbo: Terracotta interior only (paint Zircon Sand / Rhodium White)'}
+      - {if: turbo.*meridian|meridian.*turbo, then: fail, why: 'CX-50 Turbo Meridian Edition: Terracotta leather only (no black)'}
+      - {if: meridian, unless: turbo|\bs meridian, then: call, why: 'CX-50 Meridian Edition: 2023-25 (all Turbo) are Terracotta-only; the 2026 2.5 S Meridian is black - confirm which'}
+      - {if: 'turbo s premium ?plus', then: fail, why: 'CX-70 Turbo S Premium Plus: quilted Tan Nappa only (no black)'}
+      - {if: phev sc|\bsc plus\b, then: fail, why: '2026 CX-70 PHEV SC / SC Plus: no sunroof offered'}
+      - {if: \bs select\b|select package, then: fail, why: 'CX-5 / CX-50 Select: no sunroof (any year)'}
+      - {if: carbon edition, then: note, why: 'CX-5 Carbon Edition: Polymetal Gray; black (red-stitched) or red leather - check interior'}
+      - {if: terracotta|caturra|parchment|greige|sport tan|tan nappa|tan leather|white leather|red leather, then: fail, why: non-black Mazda interior named in the listing}
+
+  Kia:
+    allow: 'sportage'
+    list: Sportage (gas SX-Prestige/X-Pro/X-Pro Prestige, Hybrid SX-Prestige/X-Line, Plug-in Hybrid)
+    tokens: [sportage]
+    feed_models: [Sportage, Sportage Hybrid, Sportage Plug-in Hybrid]   # names in kia.com's certified search
+    rules:
+      - {min_year: 2023, why: Sportage before 2023 (older generation)}
+      - {if: \blx\b, then: fail, why: 'Sportage LX: no sunroof offered (cloth seats)'}
+      - {if: \bhybrid s\b|\bsportage s\b|\bs (awd|fwd)\b, then: fail, why: 'Sportage Hybrid S: no sunroof offered (cloth seats)'}
+      - {if: 'plug ?in|phev', then: note, why: plug-in hybrid (plug-in price cap applies)}
+
 # Trims where a sunroof is always standard, used only when the listing doesn't say
 # (shown as "sunroof (standard on this trim)"). Edit if you know better.
 sunroof_standard:
@@ -164,8 +191,29 @@ sunroof_standard:
   - {make: Subaru, model: Outback, trim_regex: "touring|\\bxt\\b", note: "moonroof is standard on Outback Touring / XT"}
   - {make: Subaru, model: Outback, trim_regex: "limited", min_year: 2025, note: "moonroof is standard on the 2025+ Outback Limited"}
 
+  # Mazda (news.mazdausa.com spec decks, Oct 2026)
+  - {make: Mazda, model: CX-5, trim_regex: preferred|carbon|premium|turbo|signature, min_year: 2023, max_year: 2025, note: 'power moonroof is standard on CX-5 Preferred, Carbon Edition, Premium, Premium Plus and every Turbo (not on 2.5 S / Select)'}
+  - {make: Mazda, model: CX-5, trim_regex: premium, min_year: 2026, max_year: 2026, note: panoramic sunroof is standard on the 2026 CX-5 Premium / Premium Plus only (not on Preferred)}
+  - {make: Mazda, model: CX-50, trim_regex: preferred plus|premium|turbo|meridian, min_year: 2023, max_year: 2023, note: panoramic moonroof is standard on the 2023 CX-50 from Preferred Plus up and on every Turbo}
+  - {make: Mazda, model: CX-50, trim_regex: premium|turbo|meridian, min_year: 2024, max_year: 2025, note: panoramic moonroof is standard on the 2024-25 CX-50 (and Hybrid) Premium / Premium Plus and every Turbo (not on Select / Preferred)}
+  - {make: Mazda, model: CX-50, trim_regex: preferred|meridian|premium|turbo, min_year: 2026, max_year: 2026, note: panoramic moonroof is standard on every 2026 CX-50 but the Select (gas and Hybrid)}
+  - {make: Mazda, model: CX-70, trim_regex: preferred|premium, min_year: 2025, max_year: 2026, note: sunroof is standard on every CX-70 Turbo and the 2025 PHEV (panoramic from Premium Plus up); not on the 2026 PHEV SC / SC Plus}
+
+  # Kia Sportage (Kia pricing/feature tables, Oct 2026)
+  - {make: Kia, model: Sportage, trim_regex: 'plug ?in|phev', min_year: 2023, note: 'panoramic sunroof is standard on both Sportage Plug-in Hybrid trims (X-Line, X-Line Prestige)'}
+  - {make: Kia, model: Sportage, trim_regex: 'x ?pro ?prestige', min_year: 2023, max_year: 2026, note: panoramic sunroof is standard on the Sportage X-Pro Prestige}
+  - {make: Kia, model: Sportage, trim_regex: 'x ?pro', min_year: 2023, max_year: 2025, note: panoramic sunroof is standard on the 2023-25 Sportage X-Pro (2027 X-Pro unconfirmed)}
+  - {make: Kia, model: Sportage, trim_regex: 'sx ?prestige', min_year: 2023, note: panoramic sunroof is standard on the Sportage SX-Prestige (gas and hybrid)}
+  - {make: Kia, model: Sportage, trim_regex: 'hybrid.*x ?line|x ?line.*hybrid', min_year: 2026, note: panoramic sunroof is standard on the 2026+ Sportage Hybrid X-Line}
+  - {make: Kia, model: Sportage, trim_regex: 'x ?line', min_year: 2027, note: panoramic sunroof is standard on the 2027+ gas Sportage X-Line (optional package 2023-26)}
+  - {make: Kia, model: Sportage, trim_regex: \bsx\b, min_year: 2023, note: panoramic sunroof is standard on the gas Sportage SX (AWD version offered only in 2023)}
+
 # Approximate ground clearance (inches) by model; used for scoring only.
 ground_clearance_in:
+  Sportage: 8.3
+  CX-5: 7.6
+  CX-50: 8.3
+  CX-70: 8.0
   Q5: 8.2
   Q3: 6.9
   GV80: 7.9
@@ -189,6 +237,10 @@ ground_clearance_in:
 
 # Typical spare-tire situation by model when the listing doesn't say (scoring only).
 spare_tire_typical:
+  Sportage: true
+  CX-5: true
+  CX-50: true
+  CX-70: true
   Q5: true
   Q3: true
   X5: false

@@ -12513,6 +12513,2941 @@
     "https://fordauthority.com/2024/10/2025-ford-bronco-badlands-gets-wildtraks-hoss-3-0-system/",
     "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA data, model years 2023-2026)"
    ]
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-5",
+   "on_list_rule": "2023-25: every CX-5 from 2.5 S Preferred up has a power moonroof as standard (2.5 S and Select have none). Not on the list: Carbon Turbo (Terracotta interior only) and Turbo Signature (Caturra Brown Nappa only). 2026 (all-new 3rd generation): the panoramic sunroof is standard only on 2.5 S Premium and Premium Plus. AWD standard on every US CX-5. Gas car: Ross's $35,500 cap applies.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Second-generation CX-5 (2017-2025 design). Vs 2022: Rhodium White paint added; AWD standard on every trim; otherwise carryover. Eight trims: 2.5 S, Select, Preferred, Carbon Edition, Premium, Premium Plus, 2.5 Turbo, Turbo Signature. MSRP $26,700 (2.5 S) to $39,650 (Turbo Signature) + $1,275 destination (raised to $1,375 from Apr 2 2023).",
+     "trims": [
+      {
+       "name": "2.5 S",
+       "on_list": false,
+       "why_not": "no sunroof (power moonroof starts at Preferred)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "AWD standard",
+        "10.25-in. display, Apple CarPlay / Android Auto (wired)",
+        "Radar cruise with Stop & Go, blind-spot monitoring, lane-keep assist",
+        "LED headlights, rain-sensing wipers"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (4 speakers)",
+       "seats": "black cloth",
+       "black_interior": "yes (black cloth only)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (power moonroof starts at Preferred)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S",
+       "highlights": [
+        "Half-leatherette seats (black or silk beige), heated front seats",
+        "6-way power driver's seat",
+        "Dual-zone automatic climate, rear vents",
+        "Mazda Advanced Keyless Entry, 6 speakers"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (6 speakers)",
+       "seats": "half leatherette (leatherette + cloth), heated front",
+       "black_interior": "yes (black; silk beige also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Power moonroof (standard)",
+        "Leather-trimmed seats (black or silk beige/parchment)",
+        "8-way power driver's seat with 2-position memory, 6-way power passenger",
+        "Auto-dimming mirror with HomeLink",
+        "Bose 10-speaker audio (2024 spec deck lists Bose as dropped from Preferred for 2024, i.e. standard on 2023 Preferred; confirm on window sticker)"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard (unconfirmed for this trim; confirm on sticker)",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; silk beige/parchment also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Carbon Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Polymetal Gray paint only (a gray Ross accepts)",
+        "Black leather with red stitching, or red leather",
+        "Black 19-in. wheels, gloss-black mirrors and grille wing",
+        "Power moonroof and Bose 10-speaker"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black with red stitching; red leather also offered - check listing)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Mi-Drive drive modes (Normal/Off-Road/Sport)",
+        "Adaptive Front-lighting System, LED DRLs and taillights",
+        "19-in. black machine-cut wheels, 7-in. digital gauge display",
+        "Paddle shifters",
+        "Bose 10-speaker audio"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; parchment also offered - unconfirmed)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "Ventilated front seats",
+        "Heated steering wheel and heated rear seats",
+        "Full-color head-up display (Active Driving Display)",
+        "Auto power-folding mirrors, wiper de-icer",
+        "Bose 10-speaker, power liftgate"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; parchment also offered - unconfirmed)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 Turbo",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium Plus",
+       "highlights": [
+        "256-hp turbo engine",
+        "Black or parchment leather with red accents/stitching",
+        "Gloss-black grille, mirrors and cladding; black 19-in. wheels",
+        "Wireless phone charger",
+        "Ventilated seats, head-up display, Bose (Premium Plus content)"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; parchment also offered)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "2.5 Turbo Signature",
+       "on_list": false,
+       "why_not": "no black interior (Caturra Brown Nappa leather only)",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "Caturra Brown Nappa leather, genuine woodgrain",
+        "360-degree camera, front/rear parking sensors",
+        "Navigation with Traffic Sign Recognition",
+        "Silver 19-in. wheels, body-color cladding",
+        "LED interior and ambient lighting"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "no (Caturra Brown only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Base 2.5 S and plain 2.5 Turbo dropped; new Carbon Turbo (Terracotta interior, Zircon Sand / Rhodium White paint) and 2.5 Turbo Premium. Select gets full (not half) leatherette. Bose dropped from Preferred (still on Carbon Edition and up). Wireless CarPlay/Android Auto and wireless charging on Premium Plus and up; touchscreen for CarPlay on all. Body-color cladding on S trims. i-Stop + cylinder deactivation (26/31/28 mpg) at launch, but removed from Oct-Nov 2023 production (23/29/25 mpg) for a parts shortage. MSRP $29,300-$40,600 + $1,375 destination ($1,420 from Apr 3 2024).",
+     "trims": [
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (power moonroof starts at Preferred)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Full black leatherette seats, heated front",
+        "6-way power driver's seat",
+        "Dual-zone climate, 6 speakers",
+        "Touchscreen Apple CarPlay / Android Auto"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (6 speakers)",
+       "seats": "leatherette (full), heated front",
+       "black_interior": "yes (black only)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/31/28 (early builds with i-Stop) or 23/29/25 (from Oct 2023 production)"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Power moonroof (standard)",
+        "Power liftgate (new for Preferred)",
+        "Black or parchment leather; 8-way power driver's seat with memory and power lumbar",
+        "Auto-dimming mirror with HomeLink",
+        "No Bose for 2024 (6 speakers)"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "not available (6 speakers; Bose dropped from Preferred for 2024)",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; parchment also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/31/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 S Carbon Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Polymetal Gray paint only",
+        "Black leather with red stitching, or red leather",
+        "Bose 10-speaker (now with USB-C)",
+        "Black 19-in. wheels, gloss-black trim"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black with red stitching; red also offered - check listing)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/31/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Bose 10-speaker, SiriusXM",
+        "Mi-Drive drive modes, paddle shifters",
+        "Adaptive headlights, 19-in. gray wheels",
+        "7-in. digital gauge display"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; parchment also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/31/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Head-up display",
+        "Wireless Apple CarPlay / Android Auto and wireless charging (new)",
+        "Auto power-folding mirrors"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; parchment also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/31/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 Carbon Turbo",
+       "on_list": false,
+       "why_not": "no black interior (Terracotta leather with black suede inserts only); paint Zircon Sand or Rhodium White only",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium Plus",
+       "highlights": [
+        "256-hp turbo",
+        "Terracotta leather with black synthetic-suede inserts",
+        "Black 19-in. wheels and black exterior trim",
+        "Ventilated seats, Bose, head-up display"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "Terracotta leather with synthetic suede inserts; ventilated front",
+       "black_interior": "no (Terracotta only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "2.5 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium Plus",
+       "highlights": [
+        "256-hp turbo",
+        "Black leather with red stitching",
+        "Gloss-black grille; heated steering wheel and rear seats",
+        "Traffic Jam Assist (new), head-up display",
+        "Ventilated seats, Bose 10-speaker"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "2.5 Turbo Signature",
+       "on_list": false,
+       "why_not": "no black interior (Caturra Brown Nappa leather only)",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo Premium",
+       "highlights": [
+        "Caturra Brown Nappa leather, real wood trim",
+        "360-degree camera, parking sensors",
+        "Navigation with off-road navigation",
+        "Frameless auto-dimming mirror, LED ambient lighting"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "no (Caturra Brown only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Last year of the second-generation CX-5. Base 2.5 S (cloth) returns; 2.5 S Premium dropped. Premium Plus gains 360-degree camera and front/rear parking sensors; Carbon Edition gains wireless charging and wireless CarPlay/Android Auto. Preferred gets 19-in. wheels from Dec 2024 production. Mid-year MSRP increases Mar 1 2025 (+$200) and Sep 3 2025. Destination $1,420 ($1,495 from Jul 2 2025).",
+     "trims": [
+      {
+       "name": "2.5 S",
+       "on_list": false,
+       "why_not": "no sunroof (power moonroof starts at Preferred)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Base trim returns for 2025",
+        "10.25-in. display, Apple CarPlay / Android Auto",
+        "4 speakers, HD Radio",
+        "Radar cruise, blind-spot monitoring"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (4 speakers)",
+       "seats": "black cloth",
+       "black_interior": "yes (black cloth only)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/30/28 (with cylinder deactivation) or 23/29/25"
+      },
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (power moonroof starts at Preferred)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S",
+       "highlights": [
+        "Black leatherette, heated front seats",
+        "6-way power driver's seat",
+        "Dual-zone climate, 6 speakers",
+        "Privacy glass, auto-leveling headlights"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (6 speakers)",
+       "seats": "leatherette, heated front",
+       "black_interior": "yes (black only)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/30/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Power moonroof (standard)",
+        "Power liftgate",
+        "Black or parchment leather; memory driver's seat",
+        "19-in. black machine-cut wheels from Dec 2024 production"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "not available (6 speakers)",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; parchment also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/30/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 S Carbon Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Polymetal Gray paint only",
+        "Black leather with red stitching, or red leather",
+        "Bose 10-speaker with Centerpoint/AudioPilot",
+        "Wireless charging and wireless CarPlay/Android Auto (new)"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black with red stitching; red also offered - check listing)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/30/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Carbon Edition",
+       "highlights": [
+        "360-degree camera and front/rear parking sensors (new)",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Head-up display, Mi-Drive, paddle shifters",
+        "Bose 10-speaker, SiriusXM"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; parchment also offered)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "26/30/28 or 23/29/25"
+      },
+      {
+       "name": "2.5 Carbon Turbo",
+       "on_list": false,
+       "why_not": "no black interior (Terracotta leather with black suede inserts only); paint Zircon Sand or Rhodium White only",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium Plus",
+       "highlights": [
+        "256-hp turbo",
+        "Terracotta leather with suede-like inserts",
+        "Black wheels and exterior trim",
+        "Ventilated seats, 360 camera, Bose"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "Terracotta leather with synthetic suede inserts; ventilated front",
+       "black_interior": "no (Terracotta only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "2.5 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 Carbon Turbo",
+       "highlights": [
+        "256-hp turbo",
+        "Black leather, red-stitched heated steering wheel",
+        "Traffic Jam Assist, heated rear seats",
+        "Ventilated seats, head-up display, Bose"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "2.5 Turbo Signature",
+       "on_list": false,
+       "why_not": "no black interior (Caturra Brown Nappa leather only)",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo Premium",
+       "highlights": [
+        "Caturra Brown Nappa leather, real wood trim",
+        "Navigation with off-road navigation",
+        "Silver wheels and bumper trim",
+        "Driver Attention Alert, rear Smart City Brake Support"
+       ],
+       "sunroof": "standard (power sliding-glass moonroof)",
+       "premium_audio": "Bose 10-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "no (Caturra Brown only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "22/27/24"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "All-new third-generation CX-5 (on sale early 2026): bigger rear seat, 12.9-in. or 15.6-in. touchscreen with Google built-in, more standard safety (front/rear parking sensors on all). Turbo engine dropped; only the 2.5 S. Five trims. The sunroof is now a panoramic one and only on Premium / Premium Plus (Preferred no longer has one). Hybrid (Skyactiv-Z) promised for 2027. MSRP $29,990-$38,990 + $1,595 destination.",
+     "trims": [
+      {
+       "name": "2.5 S",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic sunroof only on Premium / Premium Plus)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard (no turbo for 2026)",
+       "builds_on": "",
+       "highlights": [
+        "12.9-in. touchscreen with Google built-in, wired CarPlay / Android Auto",
+        "8 speakers, dual-zone climate",
+        "Front/rear parking sensors, full safety suite standard",
+        "17-in. wheels"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "black cloth",
+       "black_interior": "yes (black cloth)",
+       "spare": "T145/90D16 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic sunroof only on Premium / Premium Plus)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard (no turbo for 2026)",
+       "builds_on": "2.5 S",
+       "highlights": [
+        "Leatherette with microsuede/cloth center inserts",
+        "Wireless CarPlay / Android Auto, wireless charging",
+        "Keyless entry, privacy glass, auto-folding heated mirrors",
+        "Frameless auto-dimming mirror"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leatherette with microsuede (cloth) inserts",
+       "black_interior": "yes (black; pure white also offered per dealer guide - unconfirmed)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic sunroof only on Premium / Premium Plus)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard (no turbo for 2026)",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Heated front seats and heated steering wheel",
+        "Head-up display",
+        "10-way power driver's seat with memory",
+        "Power liftgate, 19-in. wheels, roof rails"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leatherette with microsuede inserts (per spec deck); heated front",
+       "black_interior": "yes (black; pure white also offered per dealer guide - unconfirmed)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard (no turbo for 2026)",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Leather seats, ventilated front, heated rear",
+        "Bose 12-speaker audio, SiriusXM",
+        "Black exterior trim and black 19-in. wheels",
+        "Ambient lighting, 6-way power passenger seat"
+       ],
+       "sunroof": "standard (panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Sport Tan also offered per dealer listings - unconfirmed)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard (no turbo for 2026)",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "15.6-in. touchscreen",
+        "360-degree camera, Cruising & Traffic Support with lane-change assist",
+        "Hands-free power liftgate, adaptive headlights",
+        "Driver Personalization System, paddle shifters"
+       ],
+       "sunroof": "standard (panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Sport Tan also offered per dealer listings - unconfirmed)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/26"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://news.mazdausa.com/2022-07-26-2023-Mazda-CX-5-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2023-08-01-2024-Mazda-CX-5-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2024-07-16-2025-Mazda-CX-5-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2026-01-13-Mazda-Announces-Pricing-and-Packaging-for-All-New-2026-Mazda-CX-5",
+    "https://news.mazdausa.com/download/2024_CX-5+Spec+Deck.pdf",
+    "https://news.mazdausa.com/download/2025+CX-5+Spec+Deck.pdf",
+    "https://news.mazdausa.com/download/26MY+CX5+Spec+Deck+FINAL.pdf",
+    "https://www.mazdausa.com/vehicles/cx-5/compare-vehicle-specs-and-trims",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45829",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47152",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48538",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50290"
+   ]
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "on_list_rule": "Every CX-50 is AWD. The power panoramic moonroof is standard from Preferred Plus up in 2023, from Premium up (and on every Turbo) in 2024-25, and on every trim but Select in 2026. Not on the list: Select and Preferred without the moonroof (2023-25), and every Turbo Meridian Edition (Terracotta interior only). Gas CX-50 = $35,500 cap; CX-50 Hybrid (2025+, regular hybrid) = $40,500 cap. Gas and Hybrid share trim names (Preferred / Premium / Premium Plus): check the listing says Hybrid.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "All-new model (built in Huntsville, Alabama), more rugged sibling of the CX-5. Ten trims: 2.5 S, Select, Preferred, Preferred Plus, Premium, Premium Plus, 2.5 Turbo, Turbo Meridian Edition (added Aug 2022), Turbo Premium, Turbo Premium Plus. Mazda's first panoramic moonroof (Preferred Plus and up). Prices rose $750 on Aug 2 2022; MSRP after that $27,550-$42,300 + $1,275 destination.",
+     "trims": [
+      {
+       "name": "2.5 S",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Preferred Plus)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "AWD standard",
+        "8.8-in. display, wireless Apple CarPlay / Android Auto",
+        "8 speakers",
+        "Blind-spot monitoring, lane-keep assist"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "cloth (unconfirmed)",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Preferred Plus)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S",
+       "highlights": [
+        "10.25-in. display, HD Radio",
+        "Dual-zone automatic climate, rear vents",
+        "Leather-wrapped steering wheel and shifter",
+        "Black 17-in. wheels, privacy glass"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "cloth or half leatherette (unconfirmed)",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Preferred Plus)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Heated front seats",
+        "8-way power driver's seat with power lumbar",
+        "Power liftgate",
+        "Heated mirrors and wipers"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (unconfirmed), heated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Preferred Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Power sliding panoramic moonroof (standard)",
+        "Heated front seats, power liftgate",
+        "8-way power driver's seat",
+        "10.25-in. display, wireless CarPlay"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (unconfirmed; leather starts at Premium), heated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred Plus",
+       "highlights": [
+        "Leather seats",
+        "Bose 12-speaker with Centerpoint and AudioPilot, SiriusXM",
+        "6-way power passenger seat",
+        "Auto-dimming mirror with HomeLink"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "Ventilated front seats",
+        "Full-color head-up display",
+        "20-in. black machine-cut wheels",
+        "Auto power-folding mirrors"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 Turbo",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred Plus",
+       "highlights": [
+        "256-hp turbo, 3,500-lb towing",
+        "Leather in black or Turbo-only Terracotta",
+        "Adaptive LED headlights, LED taillights",
+        "Panoramic moonroof (standard, per 2024 spec deck which lists no change)"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available (Bose starts at Turbo Premium)",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; Terracotta also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Meridian Edition",
+       "on_list": false,
+       "why_not": "no black interior (Terracotta leather only); paint Polymetal Gray or Zircon Sand only",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "18-in. black wheels with Falken all-terrain tires",
+        "Rocker garnish, matte-black hood graphic",
+        "Terracotta leather with black accents only",
+        "Optional Apex Package (roof platform, crossbars)"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available",
+       "seats": "Terracotta leather, heated front",
+       "black_interior": "no (Terracotta only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "Bose 12-speaker, SiriusXM",
+        "Ventilated front seats, heated steering wheel",
+        "Head-up display",
+        "Black or Terracotta leather"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Terracotta also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo Premium",
+       "highlights": [
+        "Heated rear seats",
+        "Navigation, head-up display with Traffic Sign Recognition",
+        "Frameless auto-dimming mirror with HomeLink",
+        "Wireless phone charger"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Terracotta also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Base 2.5 S and Preferred Plus dropped; 2.5 S Premium is now the cheapest moonroof trim and gains Bose 12-speaker (leather moves to Premium Plus). Wireless charging on Premium and up and all Turbos. New dampers and steering tuning for ride. MSRP $30,300-$43,300 + $1,375 destination ($1,420 from Apr 3 2024).",
+     "trims": [
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Premium)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Half leatherette seats",
+        "10.25-in. display, 4 USB ports, wireless CarPlay",
+        "Radar cruise with Stop & Go",
+        "Roof rails, 17-in. black wheels"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (leatherette + cloth)",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Premium)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Heated front seats",
+        "8-way power driver's seat",
+        "Power liftgate",
+        "Heated mirrors, wiper de-icer"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette, heated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Power sliding panoramic moonroof (standard)",
+        "Bose 12-speaker (new for 2024), SiriusXM",
+        "Wireless phone charging (new)",
+        "Auto-dimming mirror with HomeLink"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "half leatherette (leatherette + cloth), heated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "Black leather (camel stitching optional)",
+        "Ventilated front seats, 6-way power passenger seat, memory",
+        "Head-up display",
+        "20-in. wheels, power-folding mirrors"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/27"
+      },
+      {
+       "name": "2.5 Turbo",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "256-hp turbo, 3,500-lb towing",
+        "Leather in black or Terracotta",
+        "Adaptive LED headlights",
+        "Panoramic moonroof, wireless charging"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; Terracotta also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Meridian Edition",
+       "on_list": false,
+       "why_not": "no black interior (Terracotta leather only)",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "18-in. wheels with all-terrain tires",
+        "Rocker garnish, hood graphic",
+        "Terracotta leather with orange stitching",
+        "3,500-lb towing"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available",
+       "seats": "Terracotta leather, heated front",
+       "black_interior": "no (Terracotta only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "Bose 12-speaker",
+        "Ventilated front seats, heated steering wheel",
+        "Head-up display, power-folding mirrors with memory",
+        "Black or Terracotta leather"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Terracotta also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo Premium",
+       "highlights": [
+        "360-degree camera with parking sensors",
+        "Traffic Jam Assist, Blind Spot Assist, rear auto-braking",
+        "Heated rear seats, navigation",
+        "Frameless auto-dimming mirrors"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Terracotta also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "CX-50 Hybrid added (Toyota hybrid system, 219 hp, eAWD, 38 mpg; Preferred / Premium / Premium Plus, red leather option). Plain 2.5 Turbo dropped (Turbo starts at Meridian Edition, which gains ventilated and heated rear seats). 2.5 S engine updated (25/31/28 mpg). Radar cruise, Traffic Sign Recognition on Premium; Alexa built-in, rear seat alert, vehicle exit warning on all. Gas MSRPs +$200 on Mar 1 2025. Destination $1,420 ($1,495 from Jul 2 2025).",
+     "trims": [
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Premium)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Leatherette (half) seats",
+        "Alexa built-in, 4 USB-C ports",
+        "Rear seat alert, vehicle exit warning",
+        "Wireless CarPlay with touch"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "25/31/28"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Premium)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Heated front seats",
+        "Wireless phone charging (new)",
+        "Power liftgate",
+        "8-way power driver's seat"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette, heated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "25/31/28"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Power sliding panoramic moonroof (standard)",
+        "Bose 12-speaker, SiriusXM",
+        "Radar cruise with Stop & Go, Speed Limit Assist, Traffic Sign Recognition",
+        "Wireless charging"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "half leatherette (leatherette + cloth), heated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "25/31/28"
+      },
+      {
+       "name": "2.5 S Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "Black leather with camel stitching inserts",
+        "Ventilated front seats, memory, 6-way power passenger",
+        "Head-up display",
+        "20-in. wheels"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "25/31/28"
+      },
+      {
+       "name": "CX-50 Hybrid Preferred",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic moonroof starts at Hybrid Premium) (2025)",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "",
+       "highlights": [
+        "Regular hybrid, eAWD standard, 38 mpg combined",
+        "10.25-in. display, wireless CarPlay, Alexa",
+        "Heated front seats, power liftgate",
+        "Wireless charging, 17-in. black hybrid wheels"
+       ],
+       "sunroof": "not available on 2025 Hybrid Preferred",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette, heated front",
+       "black_interior": "yes (black)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "CX-50 Hybrid Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "CX-50 Hybrid Preferred",
+       "highlights": [
+        "Power sliding panoramic moonroof (standard)",
+        "Leather in black or hybrid-only red",
+        "Bose 12-speaker, SiriusXM",
+        "Radar cruise with Stop & Go, Traffic Sign Recognition"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, heated front; ventilated only on Premium Plus",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "CX-50 Hybrid Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "CX-50 Hybrid Premium",
+       "highlights": [
+        "Ventilated front seats, 6-way power passenger, memory",
+        "Head-up display",
+        "19-in. split black/machined wheels, power-folding mirrors",
+        "Camel stitching available on black interior"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "2.5 Turbo Meridian Edition",
+       "on_list": false,
+       "why_not": "no black interior (Terracotta leather only)",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium Plus",
+       "highlights": [
+        "18-in. wheels with all-terrain tires",
+        "Ventilated front and heated rear seats, heated steering wheel (new)",
+        "Online navigation with off-road trails",
+        "Terracotta leather"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard (per 2025 spec deck)",
+       "seats": "Terracotta leather; heated and ventilated front",
+       "black_interior": "no (Terracotta only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo Meridian Edition",
+       "highlights": [
+        "20-in. black machine-cut wheels",
+        "Head-up display with Traffic Sign Recognition",
+        "Cruising & Traffic Support (lane centering)",
+        "Ventilated seats, Bose"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Terracotta likely also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo Premium",
+       "highlights": [
+        "360-degree camera with See-Through View",
+        "Front Cross Traffic Alert, Blind Spot Assist",
+        "Frameless auto-dimming mirrors with HomeLink",
+        "Heated rear seats"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; Terracotta likely also offered - check listing)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Panoramic moonroof and front/rear parking sensors now standard from Preferred up (gas and hybrid). New 2.5 S Meridian Edition (black half leatherette). 2.5 S Premium gains leather, ventilated seats, memory; 2.5 S Premium Plus and Turbo Premium dropped; plain 2.5 Turbo returns (builds on 2.5 S Premium). New $200 White Interior Option (Preferred, Premium, Turbo, Turbo Premium Plus). Hybrid Premium gains ventilated seats. MSRP $29,900-$42,900 + $1,595 destination.",
+     "trims": [
+      {
+       "name": "2.5 S Select",
+       "on_list": false,
+       "why_not": "no sunroof (the only 2026 CX-50 without the panoramic moonroof)",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Half leatherette seats",
+        "Wireless charging, Alexa built-in",
+        "10.25-in. display, 4 USB-C",
+        "Rear seat alert, vehicle exit warning"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette",
+       "black_interior": "yes (black)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Select",
+       "highlights": [
+        "Power sliding panoramic moonroof (new for 2026)",
+        "Front/rear parking sensors (new)",
+        "Heated front seats, power liftgate",
+        "White interior option ($200)"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (leatherette + cloth), heated front",
+       "black_interior": "yes (black; white also offered)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Meridian Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "New for 2026: Meridian look on the non-turbo engine",
+        "18-in. wheels with all-terrain tires, black roof rails",
+        "Black half leatherette only",
+        "Jet Black, Polymetal Gray or Zircon Sand paint"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette (black), heated front",
+       "black_interior": "yes (black only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "2.5 S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl (Skyactiv-G), 187 hp, 6-speed automatic, i-Activ AWD standard",
+       "builds_on": "2.5 S Preferred",
+       "highlights": [
+        "Leather seats (black, or white with the White Interior Option)",
+        "Ventilated front seats, 6-way power passenger, memory (new)",
+        "Bose 12-speaker",
+        "20-in. wheels, radar cruise with Stop & Go"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; white also offered)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "CX-50 Hybrid Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "",
+       "highlights": [
+        "Regular hybrid, eAWD, 38 mpg",
+        "Panoramic moonroof and parking sensors now standard",
+        "Heated front seats, power liftgate",
+        "Wireless charging, Alexa"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof, new for 2026)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "half leatherette, heated front",
+       "black_interior": "yes (black)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "CX-50 Hybrid Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "CX-50 Hybrid Preferred",
+       "highlights": [
+        "Leather in black or hybrid-only red",
+        "Ventilated front seats, power passenger seat, memory (new)",
+        "Bose 12-speaker",
+        "Black roof rails and exhaust tips"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "CX-50 Hybrid Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (Toyota Hybrid System), 219 hp combined, eCVT, electric AWD (eAWD) standard",
+       "builds_on": "CX-50 Hybrid Premium",
+       "highlights": [
+        "Heated rear seats and heated steering wheel (new)",
+        "Adaptive LED headlights",
+        "Head-up display, power-folding mirrors",
+        "19-in. split black/machined wheels"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "39/37/38"
+      },
+      {
+       "name": "2.5 Turbo",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 S Premium",
+       "highlights": [
+        "256-hp turbo (returns as its own trim)",
+        "Head-up display, adaptive LED headlights",
+        "Black leather (white option)",
+        "Ventilated seats, Bose"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; white also offered)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Meridian Edition",
+       "on_list": false,
+       "why_not": "no black interior (Terracotta leather only)",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "18-in. all-terrain wheels and tires",
+        "Heated rear seats and steering wheel",
+        "Online navigation",
+        "Terracotta leather only"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "Terracotta leather; ventilated front",
+       "black_interior": "no (Terracotta only)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      },
+      {
+       "name": "2.5 Turbo Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L turbo 4-cyl, 256 hp on 93 octane (227 hp on 87), 6-speed automatic with paddles, i-Activ AWD standard",
+       "builds_on": "2.5 Turbo",
+       "highlights": [
+        "360-degree camera with See-Through View",
+        "Traffic Jam Assist, Blind Spot Assist, Front Cross Traffic Alert",
+        "Frameless auto-dimming mirrors",
+        "Black leather (white option)"
+       ],
+       "sunroof": "standard (power sliding panoramic moonroof)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; white also offered)",
+       "spare": "T155/90D17 temporary (compact) spare",
+       "mpg": "23/29/25"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://news.mazdausa.com/2022-02-22-Mazda-Announces-Pricing-and-Packaging-for-2023-CX-50",
+    "https://news.mazdausa.com/2022-08-02-2023-Mazda-CX-50-Meridian-Edition-Furthers-the-Outdoor-Experience",
+    "https://news.mazdausa.com/2023-07-18-2024-CX-50-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2024-07-09-2025-CX-50-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2025-09-16-2026-Mazda-CX-50-Pricing-and-Packaging",
+    "https://news.mazdausa.com/download/2024_CX-50_Spec_Deck.pdf",
+    "https://news.mazdausa.com/download/2025-CX-50+Spec+Deck.pdf",
+    "https://news.mazdausa.com/download/2026+Mazda+CX-50+Spec+Deck.pdf",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45250",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48273",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48924",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50011"
+   ]
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-70",
+   "on_list_rule": "Two-row version of the CX-90 (2025+). Every CX-70 is AWD and every one has a sunroof as standard except the 2026 PHEV SC / SC Plus (no sunroof offered). Turbo Preferred / Premium: regular power sunroof (Mazda sources disagree whether the 2025-26 Premium has the panoramic one); Premium Plus and up: panoramic. Not on the list: Turbo S Premium Plus (quilted Tan Nappa only) and 2026 PHEV SC / SC Plus. The 3.3 Turbo is a mild hybrid, which counts as gas ($35,500 cap); the PHEV gets the $40,500 cap. New-car prices are far above the caps, so only older/higher-mileage CPO cars will fit.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "All-new model (two-row CX-90): 3.3 Turbo (280 hp), 3.3 Turbo S (340 hp) and PHEV (323 hp, 26 mi EV range). Seven trims. Remote-folding rear seats, big under-floor cargo bin, Alexa built-in. MSRP $40,445-$57,450 + destination ($1,375 at launch Feb 2024; $1,455 from Apr 3 2024, when the 3.3 Turbo arrived in fall 2024; $1,530 from Jul 2 2025).",
+     "trims": [
+      {
+       "name": "3.3 Turbo Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 280 hp on regular, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Power sunroof (standard; conventional size, not panoramic)",
+        "Black leather seats, heated front",
+        "12.3-in. display, wireless CarPlay / Android Auto, wireless charging",
+        "19-in. gray wheels, blacked-out exterior trim",
+        "Radar cruise with Stop & Go, blind-spot monitoring"
+       ],
+       "sunroof": "standard (power sliding sunroof, not panoramic)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; spec deck also lists greige)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/28/25"
+      },
+      {
+       "name": "3.3 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 280 hp on regular, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo Preferred",
+       "highlights": [
+        "Bose 12-speaker, SiriusXM",
+        "12.3-in. digital gauges, head-up display",
+        "Hands-free power liftgate, 21-in. wheels, 5,000-lb towing",
+        "Cruising & Traffic Support, parking sensors",
+        "Sunroof standard (press release says panoramic; spec deck says regular power sunroof)"
+       ],
+       "sunroof": "standard (press release: power panoramic; spec deck: regular power sunroof - confirm)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated (per spec deck)",
+       "black_interior": "yes (black; greige also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/28/25"
+      },
+      {
+       "name": "3.3 Turbo Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 280 hp on regular, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo Premium",
+       "highlights": [
+        "Nappa leather (black or red), leather-trimmed dash",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Power panoramic sunroof",
+        "360-degree camera with See-Through and Trailer Hitch View",
+        "8-way power passenger seat"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/28/25"
+      },
+      {
+       "name": "3.3 Turbo S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 340 hp on premium, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo Premium Plus",
+       "highlights": [
+        "340-hp high-output engine (premium fuel)",
+        "Nappa leather in black or red",
+        "Power panoramic sunroof, adaptive headlights",
+        "Heated/ventilated front, heated rear seats",
+        "Full safety suite incl. 360 camera"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "23/28/25"
+      },
+      {
+       "name": "3.3 Turbo S Premium Plus",
+       "on_list": false,
+       "why_not": "no black interior (quilted Tan Nappa only)",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 340 hp on premium, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo S Premium",
+       "highlights": [
+        "Quilted Tan Nappa leather",
+        "Two-tone steering wheel, suede dash inserts",
+        "150-watt cargo outlet, wiper de-icer",
+        "340-hp engine"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "quilted Nappa leather (Tan); heated and ventilated front",
+       "black_interior": "no (Tan only)",
+       "spare": "temporary (compact) spare",
+       "mpg": "23/28/25"
+      },
+      {
+       "name": "PHEV Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl plug-in hybrid, 17.8-kWh battery, 323 hp combined, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Plug-in hybrid, 26 mi EPA electric range",
+        "Power panoramic sunroof",
+        "Bose 12-speaker, head-up display, digital gauges",
+        "Black or greige leather, heated front seats",
+        "1,500-watt cargo outlet, 3-zone climate"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed, heated front; not ventilated",
+       "black_interior": "yes (black; greige also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/27/25 on gas; 56 MPGe"
+      },
+      {
+       "name": "PHEV Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl plug-in hybrid, 17.8-kWh battery, 323 hp combined, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "PHEV Premium",
+       "highlights": [
+        "Nappa leather in black or red",
+        "Ventilated front, heated rear seats, heated steering wheel",
+        "360-degree camera",
+        "8-way power passenger seat"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/27/25 on gas; 56 MPGe"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "More standard gear: Turbo Preferred gets ventilated front seats, heated rear seats, heated steering wheel, memory and 21-in. wheels; gloss-black badges on all. PHEV redone as cheaper PHEV SC / SC Plus (30 mi EV range per Mazda, 32 per EPA) - neither has a sunroof or Bose. MSRP + $1,645 destination; Mazda raised most prices May 4 2026 (Preferred $42,250 -> $42,750; Premium Plus not affected).",
+     "trims": [
+      {
+       "name": "3.3 Turbo Preferred",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 280 hp on regular, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "",
+       "highlights": [
+        "Power sunroof (standard; not panoramic)",
+        "Ventilated front seats, heated rear seats, heated steering wheel (new)",
+        "Black or greige leather, memory driver's seat, 8-way power passenger",
+        "21-in. black wheels, power liftgate",
+        "Retractable rear sunshades"
+       ],
+       "sunroof": "standard (power sliding sunroof, not panoramic)",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; greige also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/28/25"
+      },
+      {
+       "name": "3.3 Turbo Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 280 hp on regular, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo Preferred",
+       "highlights": [
+        "Bose 12-speaker",
+        "Digital gauges and head-up display",
+        "Hands-free liftgate, power-folding auto-dimming mirrors",
+        "Cruising & Traffic Support, 5,000-lb towing",
+        "Sunroof standard (mazdausa.com: panoramic; spec deck: regular power sunroof)"
+       ],
+       "sunroof": "standard (mazdausa.com says power panoramic; spec deck says regular power sunroof - confirm)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; greige also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/28/25"
+      },
+      {
+       "name": "3.3 Turbo Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 280 hp on regular, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo Premium",
+       "highlights": [
+        "Nappa leather in black or red",
+        "Power panoramic sunroof with tilt",
+        "360-degree camera, adaptive headlights",
+        "150-watt outlet, wiper de-icer"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "24/28/25"
+      },
+      {
+       "name": "3.3 Turbo S Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 340 hp on premium, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo Premium Plus",
+       "highlights": [
+        "340-hp engine",
+        "Power tilt/telescoping wheel with memory, Driver Personalization System",
+        "Nappa leather in black or red",
+        "Power panoramic sunroof",
+        "Machine-cut 21-in. wheels"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "Nappa leather; heated and ventilated front",
+       "black_interior": "yes (black; red also offered - check listing)",
+       "spare": "temporary (compact) spare",
+       "mpg": "23/28/25"
+      },
+      {
+       "name": "3.3 Turbo S Premium Plus",
+       "on_list": false,
+       "why_not": "no black interior (quilted Tan Nappa only)",
+       "powertrain": "3.3L turbo inline-6 with 48V M Hybrid Boost (mild hybrid = counts as gas), 340 hp on premium, 8-speed automatic, i-Activ AWD standard",
+       "builds_on": "3.3 Turbo S Premium",
+       "highlights": [
+        "Quilted Tan Nappa leather",
+        "Two-tone wheel, suede dash inserts",
+        "150-watt cargo outlet",
+        "340-hp engine"
+       ],
+       "sunroof": "standard (power panoramic)",
+       "premium_audio": "Bose 12-speaker, standard",
+       "seats": "quilted Nappa leather (Tan); heated and ventilated front",
+       "black_interior": "no (Tan only)",
+       "spare": "temporary (compact) spare",
+       "mpg": "23/28/25"
+      },
+      {
+       "name": "PHEV SC",
+       "on_list": false,
+       "why_not": "no sunroof (not offered on 2026 PHEV SC)",
+       "powertrain": "2.5L 4-cyl plug-in hybrid, 17.8-kWh battery, 323 hp combined, 8-speed automatic, i-Activ AWD standard, 30-mi EV range (Mazda)",
+       "builds_on": "",
+       "highlights": [
+        "Plug-in hybrid at a much lower price than the 2025 PHEV",
+        "Leatherette seats, 8-way power driver's seat",
+        "12.3-in. display (wired CarPlay), digital gauges",
+        "19-in. gray wheels, power liftgate"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leatherette; no seat heating",
+       "black_interior": "yes (black leatherette)",
+       "spare": "none listed in spec deck (likely tire repair kit - unconfirmed)",
+       "mpg": "25/28/26 on gas; 61 MPGe"
+      },
+      {
+       "name": "PHEV SC Plus",
+       "on_list": false,
+       "why_not": "no sunroof (not offered on 2026 PHEV SC Plus)",
+       "powertrain": "2.5L 4-cyl plug-in hybrid, 17.8-kWh battery, 323 hp combined, 8-speed automatic, i-Activ AWD standard, 30-mi EV range (Mazda)",
+       "builds_on": "PHEV SC",
+       "highlights": [
+        "Leather seats (black or greige)",
+        "Ventilated front, heated rear seats, heated steering wheel",
+        "Head-up display, memory driver's seat",
+        "Front/rear parking sensors"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "not available (8 speakers)",
+       "seats": "leather-trimmed; heated and ventilated front",
+       "black_interior": "yes (black; greige also offered)",
+       "spare": "temporary (compact) spare",
+       "mpg": "25/28/26 on gas; 61 MPGe"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://news.mazdausa.com/2024-02-21-Mazda-Announces-Pricing-and-Packaging-For-All-New-2025-Mazda-CX-70",
+    "https://news.mazdausa.com/2025-10-07-2026-Mazda-CX-70-Pricing-and-Packaging",
+    "https://news.mazdausa.com/2026-05-04-Mazda-Adjusts-Pricing-on-Select-2026-Models,-Effective-May-4,-2026",
+    "https://news.mazdausa.com/download/2025_CX-70_Spec_Deck.pdf",
+    "https://news.mazdausa.com/download/2026+CX-70+Spec+Deck.pdf",
+    "https://www.mazdausa.com/vehicles/cx-70/compare-vehicle-specs-and-trims",
+    "https://www.mazdausa.com/vehicles/cx-70-phev/compare-vehicle-specs-and-trims",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48293",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48672",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50171",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50266"
+   ]
+  },
+  {
+   "make": "Kia",
+   "model": "Sportage",
+   "on_list_rule": "For Ross: AWD trims with a standard panoramic sunroof: gas SX-Prestige, X-Pro, X-Pro Prestige (and 2023 SX AWD, 2027+ X-Line); Hybrid SX-Prestige and 2026+ Hybrid X-Line; both Plug-in Hybrid trims. EX and 2023-26 gas X-Line have the roof only as an option (check the listing). LX/S have no roof; SX is FWD only from 2024. Black (Saturn Black) interior is offered on every trim. Plug-ins must be under $40,500, gas under $35,500.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "New fifth generation (bigger, roomier). Gas: LX, EX, X-Line (AWD), SX, SX-Prestige, X-Pro and X-Pro Prestige (AWD, all-terrain tires); AWD on every gas trim. Panoramic roof standard on SX, SX-Prestige, X-Pro, X-Pro Prestige; optional on EX ($1,000 package) and X-Line ($1,500 package). First Sportage Hybrid (LX/EX/SX-Prestige) and, later in 2023, the Plug-in Hybrid (X-Line, X-Line Prestige; panoramic roof standard on both).",
+     "trims": [
+      {
+       "name": "Sportage Plug-in Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 261 hp total, 6-speed auto, AWD; 13.8 kWh battery, EPA 34 mi electric",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "SynTex seats, heated front",
+        "~33-34 mi electric range; Level 2 charging",
+        "Dual 12.3-in. displays",
+        "X-Line styling, 19-in. wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+      },
+      {
+       "name": "Sportage Plug-in Hybrid X-Line Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 261 hp total, 6-speed auto, AWD; 13.8 kWh battery, EPA 34 mi electric",
+       "builds_on": "Sportage Plug-in Hybrid X-Line",
+       "highlights": [
+        "Harman Kardon audio with subwoofer",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Premium SynTex, power passenger seat",
+        "Surround-view and blind-spot view monitors",
+        "Usually over Ross's $40,500 plug-in cap: check price"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+      },
+      {
+       "name": "Sportage Hybrid LX",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 226 hp total, 6-speed auto, AWD (FWD or AWD)",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "12.3-in. digital gauges",
+        "Dual-zone climate"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth",
+       "black_interior": "yes",
+       "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
+       "mpg": "AWD 38/38/38; FWD 42/44/43"
+      },
+      {
+       "name": "Sportage Hybrid EX",
+       "on_list": false,
+       "why_not": "sunroof optional (Premium / Panoramic Sunroof Package) — check listing",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 226 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid LX",
+       "highlights": [
+        "SynTex synthetic leather seats, heated front",
+        "12.3-in. touchscreen",
+        "Wireless phone charger",
+        "Panoramic sunroof in the optional Premium Package ($1,000-$1,500)"
+       ],
+       "sunroof": "optional (Premium Package)",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "38/38/38"
+      },
+      {
+       "name": "Sportage Hybrid SX-Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 226 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid EX",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Premium SynTex seats, heated and ventilated front",
+        "Curved dual 12.3-in. displays, navigation",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "38/38/38"
+      },
+      {
+       "name": "Sportage LX AWD",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "8-in. touchscreen, wireless CarPlay/Android Auto",
+        "Forward collision avoidance, lane keeping, smart cruise (2026+ standard adaptive)",
+        "Dual-zone climate (confirm by year)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; not heated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/28/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage EX AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage LX AWD",
+       "highlights": [
+        "SynTex synthetic-leather seats, heated front",
+        "12.3-in. touchscreen with navigation (curved dual screens)",
+        "Wireless phone charger",
+        "Blind-spot and rear cross-traffic alerts",
+        "Power liftgate (2026+ per Motor1)"
+       ],
+       "sunroof": "optional (EX Panoramic Sunroof Package, $1,000)",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/28/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage X-Line AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (X-Line Premium Package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock)",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Gloss-black exterior trim, roof rails, 19-in. wheels",
+        "AWD with locking center differential (standard)",
+        "SynTex Premium seats",
+        "Panoramic sunroof in the X-Line Premium Package",
+        "Sage Green interior option (2025+)"
+       ],
+       "sunroof": "optional (X-Line Premium Package, $1,500: panoramic roof, smart power liftgate, LED interior lights)",
+       "premium_audio": "none standard",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/28/25"
+      },
+      {
+       "name": "Sportage SX AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Smart power liftgate",
+        "Navigation-based smart cruise, rain-sensing wipers",
+        "SynTex Premium seats optional"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/28/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage SX-Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage SX AWD",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Premium SynTex seats, power passenger seat",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "LED headlights/fog lights, 19-in. wheels",
+        "Surround-view and blind-spot view monitors"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/28/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage X-Pro AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Line AWD",
+       "highlights": [
+        "17-in. wheels with BFGoodrich all-terrain tires",
+        "Panoramic sunroof (standard)",
+        "Harman Kardon audio (standard)",
+        "Heated rear seats / heated windshield (confirm)",
+        "X-Terrain mode, roof rails"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/28/25 (EPA lists X-Pro with AWD; all-terrain tires, confirm)"
+      },
+      {
+       "name": "Sportage X-Pro Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Pro AWD",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "Surround-view camera, parking sensors, LED headlights/fog lights",
+        "Premium SynTex, power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/28/25 (EPA lists X-Pro with AWD; all-terrain tires, confirm)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Gas SX AWD dropped (SX is FWD only); LED projector headlights standard; rear-seat side airbags. Prices up ~$800. Hybrid and plug-in carry over.",
+     "trims": [
+      {
+       "name": "Sportage Plug-in Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 261 hp total, 6-speed auto, AWD; 13.8 kWh battery, EPA 34 mi electric",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "SynTex seats, heated front",
+        "~33-34 mi electric range; Level 2 charging",
+        "Dual 12.3-in. displays",
+        "X-Line styling, 19-in. wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+      },
+      {
+       "name": "Sportage Plug-in Hybrid X-Line Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 261 hp total, 6-speed auto, AWD; 13.8 kWh battery, EPA 34 mi electric",
+       "builds_on": "Sportage Plug-in Hybrid X-Line",
+       "highlights": [
+        "Harman Kardon audio with subwoofer",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Premium SynTex, power passenger seat",
+        "Surround-view and blind-spot view monitors",
+        "Usually over Ross's $40,500 plug-in cap: check price"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+      },
+      {
+       "name": "Sportage Hybrid LX",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 226 hp total, 6-speed auto, AWD (FWD or AWD)",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "12.3-in. digital gauges",
+        "Dual-zone climate"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth",
+       "black_interior": "yes",
+       "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
+       "mpg": "AWD 38/38/38; FWD 42/44/43"
+      },
+      {
+       "name": "Sportage Hybrid EX",
+       "on_list": false,
+       "why_not": "sunroof optional (Premium / Panoramic Sunroof Package) — check listing",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 226 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid LX",
+       "highlights": [
+        "SynTex synthetic leather seats, heated front",
+        "12.3-in. touchscreen",
+        "Wireless phone charger",
+        "Panoramic sunroof in the optional Premium Package ($1,000-$1,500)"
+       ],
+       "sunroof": "optional (Premium Package)",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "38/38/38"
+      },
+      {
+       "name": "Sportage Hybrid SX-Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 226 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid EX",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Premium SynTex seats, heated and ventilated front",
+        "Curved dual 12.3-in. displays, navigation",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "38/38/38"
+      },
+      {
+       "name": "Sportage LX AWD",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "8-in. touchscreen, wireless CarPlay/Android Auto",
+        "Forward collision avoidance, lane keeping, smart cruise (2026+ standard adaptive)",
+        "Dual-zone climate (confirm by year)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; not heated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/26/25; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage EX AWD",
+       "on_list": false,
+       "why_not": "sunroof not standard (2024 table shows none) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage LX AWD",
+       "highlights": [
+        "SynTex synthetic-leather seats, heated front",
+        "12.3-in. touchscreen with navigation (curved dual screens)",
+        "Wireless phone charger",
+        "Blind-spot and rear cross-traffic alerts",
+        "Power liftgate (2026+ per Motor1)"
+       ],
+       "sunroof": "not listed for the 2024 EX in Kia's feature table (confirm on sticker)",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/26/25; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage X-Line AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (X-Line Premium Package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock)",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Gloss-black exterior trim, roof rails, 19-in. wheels",
+        "AWD with locking center differential (standard)",
+        "SynTex Premium seats",
+        "Panoramic sunroof in the X-Line Premium Package",
+        "Sage Green interior option (2025+)"
+       ],
+       "sunroof": "optional (X-Line Premium Package, $1,500: panoramic roof, smart power liftgate, LED interior lights)",
+       "premium_audio": "none standard",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/26/25"
+      },
+      {
+       "name": "Sportage SX (FWD)",
+       "on_list": false,
+       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Smart power liftgate",
+        "Highway Driving Assist, 360 camera (confirm by year)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "FWD 25/33/28"
+      },
+      {
+       "name": "Sportage SX-Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage SX",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Premium SynTex seats, power passenger seat",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "LED headlights/fog lights, 19-in. wheels",
+        "Surround-view and blind-spot view monitors"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/26/25; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage X-Pro AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Line AWD",
+       "highlights": [
+        "17-in. wheels with BFGoodrich all-terrain tires",
+        "Panoramic sunroof (standard)",
+        "Harman Kardon audio (standard)",
+        "Heated rear seats / heated windshield (confirm)",
+        "X-Terrain mode, roof rails"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "Sportage X-Pro Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Pro AWD",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "Surround-view camera, parking sensors, LED headlights/fog lights",
+        "Premium SynTex, power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Minor: new EX Premium Package (panoramic roof, smart power liftgate); dark exterior accents on X-Line/X-Pro; Sage Green (X-Line/X-Pro) and Carmine Red (SX/SX-Prestige) interior options. Same trims.",
+     "trims": [
+      {
+       "name": "Sportage Plug-in Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 261 hp total, 6-speed auto, AWD; 13.8 kWh battery, EPA 34 mi electric",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "SynTex seats, heated front",
+        "~33-34 mi electric range; Level 2 charging",
+        "Dual 12.3-in. displays",
+        "X-Line styling, 19-in. wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+      },
+      {
+       "name": "Sportage Plug-in Hybrid X-Line Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 261 hp total, 6-speed auto, AWD; 13.8 kWh battery, EPA 34 mi electric",
+       "builds_on": "Sportage Plug-in Hybrid X-Line",
+       "highlights": [
+        "Harman Kardon audio with subwoofer",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Premium SynTex, power passenger seat",
+        "Surround-view and blind-spot view monitors",
+        "Usually over Ross's $40,500 plug-in cap: check price"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+      },
+      {
+       "name": "Sportage Hybrid LX",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 227 hp total, 6-speed auto, AWD (FWD or AWD)",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "12.3-in. digital gauges",
+        "Dual-zone climate"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth",
+       "black_interior": "yes",
+       "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
+       "mpg": "AWD 38/38/38; FWD 42/44/43"
+      },
+      {
+       "name": "Sportage Hybrid EX",
+       "on_list": false,
+       "why_not": "sunroof optional (Premium / Panoramic Sunroof Package) — check listing",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 227 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid LX",
+       "highlights": [
+        "SynTex synthetic leather seats, heated front",
+        "12.3-in. touchscreen",
+        "Wireless phone charger",
+        "Panoramic sunroof in the optional Premium Package ($1,000-$1,500)"
+       ],
+       "sunroof": "optional (Premium Package)",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs)",
+       "mpg": "38/38/38"
+      },
+      {
+       "name": "Sportage Hybrid SX-Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 227 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid EX",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Premium SynTex seats, heated and ventilated front",
+        "Curved dual 12.3-in. displays, navigation",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs)",
+       "mpg": "38/38/38"
+      },
+      {
+       "name": "Sportage LX AWD",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "8-in. touchscreen, wireless CarPlay/Android Auto",
+        "Forward collision avoidance, lane keeping, smart cruise (2026+ standard adaptive)",
+        "Dual-zone climate (confirm by year)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; not heated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/27/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage EX AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (Premium Package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage LX AWD",
+       "highlights": [
+        "SynTex synthetic-leather seats, heated front",
+        "12.3-in. touchscreen with navigation (curved dual screens)",
+        "Wireless phone charger",
+        "Blind-spot and rear cross-traffic alerts",
+        "Power liftgate (2026+ per Motor1)"
+       ],
+       "sunroof": "optional (new EX Premium Package, $1,500: panoramic roof + smart power liftgate)",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/27/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage X-Line AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (X-Line Premium Package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock)",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Gloss-black exterior trim, roof rails, 19-in. wheels",
+        "AWD with locking center differential (standard)",
+        "SynTex Premium seats",
+        "Panoramic sunroof in the X-Line Premium Package",
+        "Sage Green interior option (2025+)"
+       ],
+       "sunroof": "optional (X-Line Premium Package, $1,500: panoramic roof, smart power liftgate, LED interior lights)",
+       "premium_audio": "none standard",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/27/25"
+      },
+      {
+       "name": "Sportage SX (FWD)",
+       "on_list": false,
+       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Smart power liftgate",
+        "Highway Driving Assist, 360 camera (confirm by year)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "FWD 25/32/28"
+      },
+      {
+       "name": "Sportage SX-Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage SX",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Premium SynTex seats, power passenger seat",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "LED headlights/fog lights, 19-in. wheels",
+        "Surround-view and blind-spot view monitors"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 23/27/25; FWD 25/32/28"
+      },
+      {
+       "name": "Sportage X-Pro AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Line AWD",
+       "highlights": [
+        "17-in. wheels with BFGoodrich all-terrain tires",
+        "Panoramic sunroof (standard)",
+        "Harman Kardon audio (standard)",
+        "Heated rear seats / heated windshield (confirm)",
+        "X-Terrain mode, roof rails"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "Sportage X-Pro Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Pro AWD",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "Surround-view camera, parking sensors, LED headlights/fog lights",
+        "Premium SynTex, power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Refresh: new face and lights, new dashboard with dual 12.3-in. screens and wireless CarPlay/Android Auto on every trim. Gas trims: LX, EX, X-Line, SX (FWD), SX-Prestige, X-Pro Prestige (plain X-Pro gone). Hybrid adds S and X-Line (X-Line Hybrid has a standard panoramic roof). Plug-in: stronger motor, 268 hp.",
+     "trims": [
+      {
+       "name": "Sportage Plug-in Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 268 hp total, 6-speed auto, AWD; EPA 33 mi electric (stronger 72 kW motor)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "SynTex seats, heated front",
+        "~33-34 mi electric range; Level 2 charging",
+        "Dual 12.3-in. displays",
+        "X-Line styling, 19-in. wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric"
+      },
+      {
+       "name": "Sportage Plug-in Hybrid X-Line Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 268 hp total, 6-speed auto, AWD; EPA 33 mi electric (stronger 72 kW motor)",
+       "builds_on": "Sportage Plug-in Hybrid X-Line",
+       "highlights": [
+        "Harman Kardon audio with subwoofer",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Premium SynTex, power passenger seat",
+        "Surround-view and blind-spot view monitors",
+        "Usually over Ross's $40,500 plug-in cap: check price"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric"
+      },
+      {
+       "name": "Sportage Hybrid LX",
+       "on_list": false,
+       "why_not": "FWD only (2026+); no sunroof; cloth",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, FWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "12.3-in. digital gauges",
+        "Dual-zone climate"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth",
+       "black_interior": "yes",
+       "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
+       "mpg": "41/44/42"
+      },
+      {
+       "name": "Sportage Hybrid S",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid LX",
+       "highlights": [
+        "10-way power heated driver's seat",
+        "Cloth seats",
+        "12.3-in. touchscreen standard (2026 refresh)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; heated front",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage Hybrid EX",
+       "on_list": false,
+       "why_not": "sunroof optional (Premium / Panoramic Sunroof Package) — check listing",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid S",
+       "highlights": [
+        "SynTex synthetic leather seats, heated front",
+        "12.3-in. touchscreen",
+        "Wireless phone charger",
+        "Panoramic sunroof in the optional Premium Package ($1,000-$1,500)"
+       ],
+       "sunroof": "optional (Premium Package)",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid EX",
+       "highlights": [
+        "New for the hybrid in 2026",
+        "Panoramic sunroof (standard)",
+        "Premium SynTex seats with tread-pattern stitching",
+        "Terrain Mode (Snow/Mud/Sand), black exterior accents",
+        "Harman Kardon: available (confirm on window sticker)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon available (confirm on window sticker)",
+       "seats": "premium SynTex synthetic, standard; heated front",
+       "black_interior": "unknown (unique X-Line colors; confirm)",
+       "spare": "unknown",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage Hybrid SX-Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid X-Line",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Premium SynTex seats, heated and ventilated front",
+        "Curved dual 12.3-in. displays, navigation",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage LX AWD",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "Dual 12.3-in. displays (2026+; 8-in. touchscreen before)",
+        "Forward collision avoidance, lane keeping, smart cruise (2026+ standard adaptive)",
+        "Dual-zone climate (confirm by year)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; not heated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage EX AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage LX AWD",
+       "highlights": [
+        "SynTex synthetic-leather seats, heated front",
+        "12.3-in. touchscreen with navigation (curved dual screens)",
+        "Wireless phone charger",
+        "Blind-spot and rear cross-traffic alerts",
+        "Power liftgate (2026+ per Motor1)"
+       ],
+       "sunroof": "optional (Panoramic Sunroof Package, $1,000)",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage X-Line AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (X-Line Premium Package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock)",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Gloss-black exterior trim, roof rails, 19-in. wheels",
+        "AWD with locking center differential (standard)",
+        "SynTex Premium seats",
+        "Panoramic sunroof in the X-Line Premium Package",
+        "Sage Green interior option (2025+)"
+       ],
+       "sunroof": "optional (X-Line Premium Package, $1,500: panoramic roof, smart power liftgate, LED interior lights)",
+       "premium_audio": "Harman Kardon in the optional Technology Package (2026+; confirm on sticker)",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26"
+      },
+      {
+       "name": "Sportage SX (FWD)",
+       "on_list": false,
+       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Smart power liftgate",
+        "Highway Driving Assist, 360 camera (confirm by year)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "FWD 25/33/28"
+      },
+      {
+       "name": "Sportage SX-Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage SX",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Premium SynTex seats, power passenger seat",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "LED headlights/fog lights, 19-in. wheels",
+        "Surround-view and blind-spot view monitors"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage X-Pro Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Line AWD",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "Surround-view camera, parking sensors, LED headlights/fog lights",
+        "17-in. all-terrain tires, heated windshield",
+        "Only X-Pro trim in 2026"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/26/24"
+      }
+     ]
+    },
+    {
+     "year": 2027,
+     "what_changed": "Gas X-Line gets the panoramic roof and smart power liftgate as standard; X-Pro Prestige renamed/replaced by a single X-Pro ($39,890, equipment unconfirmed); new Road Rider Brown paint. Hybrid adds FWD S/EX and an X-Line Technology Package (Harman Kardon). Plug-in unchanged.",
+     "trims": [
+      {
+       "name": "Sportage Plug-in Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 268 hp total, 6-speed auto, AWD; EPA 33 mi electric (stronger 72 kW motor)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "SynTex seats, heated front",
+        "~33-34 mi electric range; Level 2 charging",
+        "Dual 12.3-in. displays",
+        "X-Line styling, 19-in. wheels"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric"
+      },
+      {
+       "name": "Sportage Plug-in Hybrid X-Line Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl plug-in hybrid, 268 hp total, 6-speed auto, AWD; EPA 33 mi electric (stronger 72 kW motor)",
+       "builds_on": "Sportage Plug-in Hybrid X-Line",
+       "highlights": [
+        "Harman Kardon audio with subwoofer",
+        "Ventilated front seats, heated rear seats, heated steering wheel",
+        "Premium SynTex, power passenger seat",
+        "Surround-view and blind-spot view monitors",
+        "Usually over Ross's $40,500 plug-in cap: check price"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
+       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric"
+      },
+      {
+       "name": "Sportage Hybrid LX",
+       "on_list": false,
+       "why_not": "FWD only (2026+); no sunroof; cloth",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, FWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "12.3-in. digital gauges",
+        "Dual-zone climate"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth",
+       "black_interior": "yes",
+       "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
+       "mpg": "40/42/41"
+      },
+      {
+       "name": "Sportage Hybrid S",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD (FWD or AWD)",
+       "builds_on": "Sportage Hybrid LX",
+       "highlights": [
+        "10-way power heated driver's seat",
+        "Cloth seats",
+        "12.3-in. touchscreen standard (2026 refresh)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; heated front",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "AWD 35/36/35; FWD 40/42/41"
+      },
+      {
+       "name": "Sportage Hybrid EX",
+       "on_list": false,
+       "why_not": "sunroof optional (Premium / Panoramic Sunroof Package) — check listing",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD (FWD also offered from 2027)",
+       "builds_on": "Sportage Hybrid S",
+       "highlights": [
+        "SynTex synthetic leather seats, heated front",
+        "12.3-in. touchscreen",
+        "Wireless phone charger",
+        "Panoramic sunroof in the optional Premium Package ($1,000-$1,500)"
+       ],
+       "sunroof": "optional (Premium Package)",
+       "premium_audio": "none standard",
+       "seats": "SynTex synthetic leather, standard; heated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage Hybrid X-Line",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid EX",
+       "highlights": [
+        "New for the hybrid in 2026",
+        "Panoramic sunroof (standard)",
+        "Premium SynTex seats with tread-pattern stitching",
+        "Terrain Mode (Snow/Mud/Sand), black exterior accents",
+        "Harman Kardon: optional Technology package (2027)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon optional",
+       "seats": "premium SynTex synthetic, standard; heated front",
+       "black_interior": "unknown (unique X-Line colors; confirm)",
+       "spare": "unknown",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage Hybrid SX-Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, AWD",
+       "builds_on": "Sportage Hybrid X-Line",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Premium SynTex seats, heated and ventilated front",
+        "Curved dual 12.3-in. displays, navigation",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes",
+       "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
+       "mpg": "35/36/35"
+      },
+      {
+       "name": "Sportage LX AWD",
+       "on_list": false,
+       "why_not": "no sunroof offered; cloth seats",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "Dual 12.3-in. displays (2026+; 8-in. touchscreen before)",
+        "Forward collision avoidance, lane keeping, smart cruise (2026+ standard adaptive)",
+        "Dual-zone climate (confirm by year)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none",
+       "seats": "cloth; not heated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage EX AWD",
+       "on_list": false,
+       "why_not": "sunroof optional (package) — check listing",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage LX AWD",
+       "highlights": [
+        "SynTex synthetic-leather seats, heated front",
+        "12.3-in. touchscreen with navigation (curved dual screens)",
+        "Wireless phone charger",
+        "Blind-spot and rear cross-traffic alerts",
+        "Power liftgate (2026+ per Motor1)"
+       ],
+       "sunroof": "optional (Panoramic Sunroof Package, $1,000)",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage X-Line AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock)",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Gloss-black exterior trim, roof rails, 19-in. wheels",
+        "AWD with locking center differential (standard)",
+        "SynTex Premium seats",
+        "Panoramic sunroof standard",
+        "Sage Green interior option (2025+)"
+       ],
+       "sunroof": "standard panoramic (made standard for 2027)",
+       "premium_audio": "Harman Kardon in the optional Technology Package (2026+; confirm on sticker)",
+       "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26"
+      },
+      {
+       "name": "Sportage SX (FWD)",
+       "on_list": false,
+       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
+       "builds_on": "Sportage EX AWD",
+       "highlights": [
+        "Panoramic sunroof (standard)",
+        "Harman Kardon 8-speaker audio (standard)",
+        "Smart power liftgate",
+        "Highway Driving Assist, 360 camera (confirm by year)"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "FWD 25/33/28"
+      },
+      {
+       "name": "Sportage SX-Prestige AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD or AWD",
+       "builds_on": "Sportage SX",
+       "highlights": [
+        "Ventilated front seats, heated steering wheel",
+        "Premium SynTex seats, power passenger seat",
+        "Panoramic sunroof and Harman Kardon (standard)",
+        "LED headlights/fog lights, 19-in. wheels",
+        "Surround-view and blind-spot view monitors"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "AWD 24/30/26; FWD 25/33/28"
+      },
+      {
+       "name": "Sportage X-Pro AWD",
+       "on_list": false,
+       "why_not": "sunroof standard unconfirmed for 2027 X-Pro — check listing (very likely standard)",
+       "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, AWD (Active AWD with center lock), all-terrain tires",
+       "builds_on": "Sportage X-Line AWD",
+       "highlights": [
+        "The only 2027 X-Pro ($39,890), priced like the 2026 X-Pro Prestige: equipment assumed similar (unconfirmed)",
+        "17-in. all-terrain tires",
+        "AWD with locking center differential"
+       ],
+       "sunroof": "unconfirmed (standard on every earlier X-Pro)",
+       "premium_audio": "Harman Kardon likely standard (unconfirmed)",
+       "seats": "premium SynTex synthetic leather (ventilated unconfirmed)",
+       "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
+       "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
+       "mpg": "23/26/24"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.kiamedia.com/us/en/models/sportage/2023/features",
+    "https://www.kiamedia.com/us/en/models/sportage/2024/features",
+    "https://www.kiamedia.com/us/en/models/sportage/2025/features",
+    "https://www.kiamedia.com/us/en/models/sportage/2026/pricing",
+    "https://www.kiamedia.com/us/en/models/sportage-phev/2026/features",
+    "https://www.motor1.com/news/681100/2024-kia-sportage-loses-sx-awd-most-expensive-trim-is-over-39-thousand/",
+    "https://motorweek.org/this-just-in/2025-kia-sportage-starts-under-30k-pricing-detailed/",
+    "https://www.motor1.com/news/758904/2026-kia-sportage-price/",
+    "https://www.motor1.com/news/764547/2026-kia-sportage-phev-price-trims/",
+    "https://www.autoguide.com/auto/manufacturers/kia/kia-announces-pricing-for-2027-sportage-44637490",
+    "https://www.theautochannel.com/news/2026/07/20/1693929-kia-announces-pricing-for-2027-sportage-hybrid-and-sportage-plug.html",
+    "https://www.fueleconomy.gov/"
+   ]
   }
  ]
 }
