@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from datetime import date
 from pathlib import Path
 
@@ -147,6 +148,69 @@ def write_digest(rows: list[dict], changes: dict, cov: list[dict], today: str | 
     return path
 
 
+# ---- "Check yourself": dealers no method could read, with links to look at them by hand ----
+TOP_BRANDS = ("Audi", "Subaru", "Genesis")
+
+
+def _plain_reason(reason: str) -> str:
+    r = reason.lower()
+    if "robots.txt" in r:
+        return "Its website asks automated tools not to read it"
+    if "browser" in r or "couldn't see" in r:
+        return "Its cars only show up in a full web browser"
+    if "unreachable" in r or "timeout" in r or "sslerror" in r or "connection" in r:
+        return "Its website didn't respond (the address may be wrong)"
+    if "blocked" in r or "403" in r or "503" in r or "challenge" in r or "bot" in r:
+        return "Its website blocks automated searches"
+    return "Couldn't read its website"
+
+
+def _model_words(brand: str) -> list[str]:
+    """Search words for a brand's models from config.yaml (e.g. 'GLE 350/450/450e' -> 'GLE')."""
+    lst = (CONFIG.get("models", {}).get(brand) or {}).get("list", "")
+    out = []
+    for part in lst.split(","):
+        w = re.sub(r"\s*(\d{3}\b.*|\d{4}\+.*|4-door.*)$", "", part.strip()).strip()
+        if w and w not in out:
+            out.append(w)
+    return out
+
+
+def _model_link(d: dict, brand: str, model: str) -> str:
+    """The dealer's own used-inventory search for one model, in the URL style of its website platform."""
+    from urllib.parse import quote
+    home, plat = (d.get("homepage") or "").rstrip("/"), d.get("platform") or ""
+    m = quote(model)
+    if plat == "dealer_inspire":
+        return f"{home}/used-vehicles/?_dFR%5Bmodel%5D%5B0%5D={m}"
+    if plat == "dealer_com":
+        return f"{home}/used-inventory/index.htm?search={m}"
+    if plat == "dealeron":
+        return f"{home}/searchused.aspx?Model={m}"
+    return ""
+
+
+def check_list(cov: list[dict]) -> list[dict]:
+    import csv
+    dealers = {r["dealer_name"]: r for r in csv.DictReader((ROOT / "data" / "dealers.csv").open(encoding="utf-8"))}
+    fed = {c["brand"] for c in cov if c["dealer"].endswith("brand CPO feed") and c["status"] == "success"}
+    out = []
+    for c in cov:
+        if c["status"] != "failed" or c["dealer"].endswith("brand CPO feed") or c["brand"] in fed:
+            continue   # a brand feed that worked already brings in that brand's certified cars
+        d = dealers.get(c["dealer"], {"homepage": c.get("homepage", "")})
+        models = _model_words(c["brand"])
+        links = [{"label": m, "url": u} for m in models if (u := _model_link(d, c["brand"], m))]
+        out.append({"dealer": c["dealer"], "brand": c["brand"], "distance_mi": c.get("distance_mi", ""),
+                    "why": _plain_reason(c.get("reason", "")), "detail": c.get("reason", "")[:140],
+                    "models": models, "links": links,
+                    "inventory": d.get("inventory_url") or d.get("homepage") or c.get("homepage", ""),
+                    "homepage": d.get("homepage") or c.get("homepage", "")})
+    rank = {b: i for i, b in enumerate(TOP_BRANDS)}
+    out.sort(key=lambda x: (rank.get(x["brand"], 9), float(x["distance_mi"] or 999)))
+    return out
+
+
 def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None) -> Path:
     today = today or date.today().isoformat()
     active = [r for r in rows if r.get("status") == "active"]
@@ -177,7 +241,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                         | {"hist": hist.get(r["vin"], [])})
     guide = json.loads(TRIM_GUIDE.read_text(encoding="utf-8")) if TRIM_GUIDE.exists() else {"models": []}
     warranty = json.loads(WARRANTY.read_text(encoding="utf-8")) if WARRANTY.exists() else {"brands": []}
-    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty,
+    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov),
                        "miles_per_year": CONFIG.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
         .replace("__OK__", str(ok)).replace("__FAILED__", str(len(failed))).replace("__SKIPPED__", str(skipped)) \
@@ -288,6 +352,14 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .gtools { display:grid; gap:8px; margin-bottom:12px; }
 .src { font-size:12px; color:var(--muted); margin-top:8px; overflow-wrap:anywhere; }
 .glink { font:600 12px system-ui, -apple-system, sans-serif; margin-left:6px; }
+/* Check yourself tab */
+.ck { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px; margin-bottom:10px; }
+.ck h3 { margin:0; font-size:16px; } .ck .why { margin:2px 0 8px; }
+.ck .btns { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.ck a.cbtn { text-decoration:none; display:inline-block; }
+.ck.done { border-color:var(--ok); } .ck.stale { border-color:var(--warn); }
+.ckstate { font-size:12px; font-weight:600; margin-left:4px; } .ck.done .ckstate { color:var(--ok); } .ck.stale .ckstate { color:var(--warn); }
+.ckbrand { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:16px 0 6px; }
 /* Compare tab */
 .cmpbtn { font:600 12px system-ui, -apple-system, sans-serif; margin-top:6px; padding:3px 10px; border-radius:999px; cursor:pointer;
   border:1px solid var(--accent); background:var(--surface); color:var(--accent); }
@@ -360,6 +432,7 @@ td.warr { min-width:190px; font-size:13px; }
   <button class="tab" role="tab" id="tab-fav" aria-selected="false" aria-controls="panel-avail">&#9829; <span class="lg">Favorites</span><span class="n" id="nfav">0</span></button>
   <button class="tab" role="tab" id="tab-cmp" aria-selected="false" aria-controls="panel-cmp">Compare<span class="n" id="ncmp">0</span></button>
   <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
+  <button class="tab" role="tab" id="tab-check" aria-selected="false" aria-controls="panel-check"><span class="lg">Check yourself</span><span class="sh">Check</span><span class="n" id="ncheck">0</span></button>
   <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n">__NGONE__</span></button>
 </div>
 <div class="filters">
@@ -405,6 +478,14 @@ td.warr { min-width:190px; font-size:13px; }
 <p class="small">Cars that were on this dashboard and later disappeared from the dealer's site (sold or taken down). The link may no longer work.</p>
 </div>
 <div id="panel-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden><div id="cmp"></div></div>
+<div id="panel-check" role="tabpanel" aria-labelledby="tab-check" hidden>
+<p class="muted" style="margin-top:0">Dealers the search couldn't read by any method, so their cars may be missing from this page.
+Tap a model to open that dealer's own used inventory (filtered when their website allows it), have a look, then tap
+<b>Mark checked</b>. Checks older than a week turn yellow as a reminder. Dealers covered by a brand-wide certified search aren't listed.</p>
+<div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="chk-hide"><span>Hide ones I checked this week</span></label>
+<span class="small" id="chk-sync"></span></div>
+<div id="checklist"></div>
+</div>
 <div id="panel-guide" role="tabpanel" aria-labelledby="tab-guide" hidden>
 <p class="muted" style="margin-top:0">What each trim includes, by model year, for every model your search looks for.
 Trims marked <span class="chip off-chip">not on your list</span> are shown so you can compare. Researched from the
@@ -664,6 +745,51 @@ document.getElementById("fav-share").addEventListener("click", () => {
 document.getElementById("fav-cmp").addEventListener("click", () => {
   cmp = fav.filter(v => D.cars.some(c => c.vin === v)).slice(0, MAXCMP); saveCmp(); render(); showTab("cmp"); });
 saveFav();
+// ---- Check yourself tab: dealers we couldn't read; the user checks them by hand ----
+const CK = D.check || [];
+let checked = {}, ckSync = false;
+try { checked = JSON.parse(localStorage.getItem("checked") || "{}") || {}; } catch (e) {}
+const todayISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+const daysAgo = iso => Math.round((Date.parse(todayISO()) - Date.parse(iso)) / 864e5);
+function saveChecked() {
+  try { localStorage.setItem("checked", JSON.stringify(checked)); } catch (e) {}
+  if (ckSync) fetch("api/checked", {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({checked})}).catch(() => {});
+}
+async function pullChecked() {
+  if (location.protocol === "file:") return;
+  try {
+    const r = await fetch("api/checked", {cache: "no-store"}); if (!r.ok) throw 0;
+    const server = (await r.json()).checked || {};
+    for (const [k, v] of Object.entries(checked)) if (!server[k] || server[k] < v) server[k] = v;   // keep the newest of both
+    checked = server; ckSync = true; saveChecked(); renderCheck();
+  } catch (e) { ckSync = false; }
+  document.getElementById("chk-sync").textContent = ckSync ? "Checks sync between your devices." : "Checks are saved on this device.";
+}
+function renderCheck() {
+  const hide = document.getElementById("chk-hide").checked;
+  let html = "", lastBrand = "";
+  const open = CK.filter(d => !(checked[d.dealer] && daysAgo(checked[d.dealer]) <= 7));
+  document.getElementById("ncheck").textContent = open.length;
+  for (const d of CK) {
+    const when = checked[d.dealer], age = when ? daysAgo(when) : null;
+    if (hide && when && age <= 7) continue;
+    if (d.brand !== lastBrand) { html += `<div class="ckbrand">${esc(d.brand)} · looking for ${esc(d.models.join(", "))}</div>`; lastBrand = d.brand; }
+    const state = when ? (age <= 7 ? "done" : "stale") : "";
+    const label = when ? (age === 0 ? "checked today" : age <= 7 ? `checked ${age} day${age > 1 ? "s" : ""} ago` : `checked ${age} days ago, check again`) : "";
+    html += `<div class="ck ${state}"><h3>${esc(d.dealer)} <span class="small">${esc(d.distance_mi)} mi</span>${label ? `<span class="ckstate">✓ ${label}</span>` : ""}</h3>
+      <div class="small why" title="${esc(d.detail)}">${esc(d.why)}</div>
+      <div class="btns">${d.links.map(l => `<a class="cbtn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}
+        <a class="cbtn ghost" href="${esc(d.inventory)}" target="_blank" rel="noopener">${d.links.length ? "All used inventory" : "Open their website"}</a>
+        <button type="button" class="cbtn ghost ckbtn" data-dealer="${esc(d.dealer)}">${when && age <= 7 ? "Undo" : "Mark checked"}</button></div></div>`;
+  }
+  document.getElementById("checklist").innerHTML = html || '<p class="muted">Nothing to check: every dealer was read by the search.</p>';
+}
+document.getElementById("checklist").addEventListener("click", e => {
+  const b = e.target.closest(".ckbtn"); if (!b) return;
+  const k = b.dataset.dealer, when = checked[k];
+  if (when && daysAgo(when) <= 7) delete checked[k]; else checked[k] = todayISO();
+  saveChecked(); renderCheck(); });
+document.getElementById("chk-hide").addEventListener("input", renderCheck);
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem("cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
@@ -818,12 +944,12 @@ window.addEventListener("resize", stickHeads);
 function showTab(which) {
   favOnly = which === "fav";
   const panel = favOnly ? "avail" : which;
-  ["avail", "fav", "gone", "cmp", "guide"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
-  ["avail", "gone", "cmp", "guide"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
+  ["avail", "fav", "gone", "cmp", "guide", "check"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
+  ["avail", "gone", "cmp", "guide", "check"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
   document.getElementById("fav-extra").hidden = !favOnly;
   render();
-  document.querySelector(".filters").hidden = which === "guide" || which === "cmp";   // car filters don't apply there
-  document.getElementById("footnote").hidden = which === "guide";
+  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check";   // car filters don't apply there
+  document.getElementById("footnote").hidden = which === "guide" || which === "check";
   if (which === "cmp") renderCompare();
   try { localStorage.setItem("tab", which); } catch (e) {}
   stickHeads();
@@ -833,8 +959,9 @@ document.getElementById("tab-gone").addEventListener("click", () => showTab("gon
 document.getElementById("tab-guide").addEventListener("click", () => showTab("guide"));
 document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"));
 document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"));
-renderGuide(); renderWarranty();
-try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "favorites") showTab("fav"); else if (t === "gone" || t === "guide" || t === "cmp" || t === "fav") showTab(t); } catch (e) {}
+document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
+renderGuide(); renderWarranty(); renderCheck(); pullChecked();
+try { const t = location.hash.slice(1) || localStorage.getItem("tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });

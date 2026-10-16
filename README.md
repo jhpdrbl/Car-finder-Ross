@@ -143,5 +143,6 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 | `output/dealers.html` | Dealer list page (`python -m tools.dealer_page`) |
 | `site/` | Built for publishing (gitignored) |
 | `tools/` | `dealer_locator.py`, `verify_dealer_sites.py`, `dealer_page.py`, `diagnose.py`, `build_site.py` |
+| `functions/api/checked.js` | Cloudflare Pages Function: the Check yourself tab's "checked" dates (same KV binding `FAVS`) |
 | `functions/api/favs.js` | Cloudflare Pages Function: stores favorites (KV binding `FAVS`) so they sync between devices |
 | `.github/workflows/publish.yml` | Publish to Cloudflare Pages (needs repo secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) |
