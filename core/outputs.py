@@ -167,13 +167,37 @@ def _plain_reason(reason: str) -> str:
 
 def _model_words(brand: str) -> list[str]:
     """Search words for a brand's models from config.yaml (e.g. 'GLE 350/450/450e' -> 'GLE')."""
+    return list(_model_years(brand))
+
+
+def _model_years(brand: str) -> dict[str, int]:
+    """{model word: earliest model year} from config.yaml's list (e.g. 'Tiguan 2025+' -> {'Tiguan': 2025})."""
     lst = (CONFIG.get("models", {}).get(brand) or {}).get("list", "")
-    out = []
+    base = int(CONFIG.get("filters", {}).get("min_year") or CONFIG.get("min_year") or 2023)
+    out: dict[str, int] = {}
     for part in lst.split(","):
-        w = re.sub(r"\s*(\d{3}\b.*|\d{4}\+.*|4-door.*)$", "", part.strip()).strip()
+        part = part.strip()
+        y = re.search(r"(\d{4})\+", part)
+        w = re.sub(r"\s*(\d{3}\b.*|\d{4}\+.*|4-door.*)$", "", part).strip()
         if w and w not in out:
-            out.append(w)
+            out[w] = int(y.group(1)) if y else base
     return out
+
+
+# Dealer Inspire filters, checked by the user on a real DI site (Oct 2026): year and ext_color_generic work;
+# drivetrain values are spelled out, so several spellings are listed (any one matching is enough).
+DI_DRIVES = ("All-Wheel Drive", "All Wheel Drive", "AWD", "Four-Wheel Drive", "Four Wheel Drive", "4WD", "4x4")
+DI_COLORS = ("Black", "Gray", "Green")      # your exterior rule: black / gray / dark green (light greens filtered by eye)
+
+
+def _di_filters(model: str, min_year: int) -> str:
+    from urllib.parse import quote
+    from datetime import date as _d
+    parts = [f"_dFR%5Bmodel%5D%5B0%5D={quote(model)}"]
+    parts += [f"_dFR%5Byear%5D%5B{i}%5D={y}" for i, y in enumerate(range(min_year, _d.today().year + 2))]
+    parts += [f"_dFR%5Bdrivetrain%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(DI_DRIVES)]
+    parts += [f"_dFR%5Bext_color_generic%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(DI_COLORS)]
+    return "&".join(parts)
 
 
 # The brands' own certified searches (the links the user found, Oct 2026), for dealers whose own
@@ -204,14 +228,15 @@ def _cpo_base(d: dict) -> str:
 
 
 def _model_link(d: dict, brand: str, model: str) -> str:
-    """The dealer's certified inventory filtered to one model, where the platform's filter format is known."""
+    """The dealer's certified inventory filtered to one model (and, on Dealer Inspire, to your year, AWD and
+    color rules), where the platform's filter format is known."""
     from urllib.parse import quote
     base, plat = _cpo_base(d), d.get("platform") or ""
     if not base:
         return ""
     sep = "&" if "?" in base else "?"
     if plat == "dealer_inspire" and "/certified" in base:
-        return f"{base}{sep}_dFR%5Bmodel%5D%5B0%5D={quote(model)}"
+        return f"{base}{sep}{_di_filters(model, _model_years(brand).get(model, 2023))}"
     if plat == "dealer_com":
         return f"{base}{sep}search={quote(model)}"
     return ""
