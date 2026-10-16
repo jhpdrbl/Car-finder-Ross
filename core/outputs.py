@@ -303,11 +303,11 @@ TEMPLATE = r"""<!doctype html>
 <title>CPO SUV Finder</title>
 <style>
 :root { --bg:#f5f6f4; --surface:#fff; --fg:#1d211f; --muted:#5f6862; --line:#dde2de; --accent:#2c6e57;
-  --ok:#1f7a4d; --ok-bg:#e2f2e9; --warn:#7a5a00; --warn-bg:#fbf1d6; --bad:#a3361f; --bad-bg:#f7e4df; color-scheme: light; }
+  --ok:#1f7a4d; --ok-bg:#e2f2e9; --warn:#7a5a00; --warn-bg:#fbf1d6; --bad:#a3361f; --bad-bg:#f7e4df; --checked:#e6e8e6; color-scheme: light; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#121513; --surface:#1a1f1c; --fg:#e5e9e6; --muted:#9aa49e; --line:#2a312d;
-  --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; color-scheme: dark; } }
+  --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; --checked:#2b302d; color-scheme: dark; } }
 :root[data-theme="dark"] { --bg:#121513; --surface:#1a1f1c; --fg:#e5e9e6; --muted:#9aa49e; --line:#2a312d;
-  --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; color-scheme: dark; }
+  --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; --checked:#2b302d; color-scheme: dark; }
 [hidden] { display:none !important; }
 body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; padding-block:20px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
 main { max-width:1200px; margin:0 auto; display:grid; gap:18px; }
@@ -400,7 +400,7 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .ck h3 { margin:0; font-size:16px; } .ck .why { margin:2px 0 8px; }
 .ck .btns { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .ck a.cbtn { text-decoration:none; display:inline-block; }
-.ck.done { border-color:var(--ok); } .ck.stale { border-color:var(--warn); }
+.ck.done { border-color:var(--ok); background:var(--checked); } .ck.stale { border-color:var(--warn); }  /* checked in the last 7 days = gray fill */
 .ckstate { font-size:12px; font-weight:600; margin-left:4px; } .ck.done .ckstate { color:var(--ok); } .ck.stale .ckstate { color:var(--warn); }
 .ckgroup { margin:14px 0; background:none; border:0; padding:0; } .ckgroup[open] > summary { margin-bottom:8px; }
 .ckbrand { font-size:14px; color:var(--muted); cursor:pointer; padding:8px 10px; background:var(--surface); border:1px solid var(--line); border-radius:8px; }
