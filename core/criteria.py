@@ -84,7 +84,7 @@ def exterior_ok(color: str) -> tuple[str, str]:
         return ("fail", f"exterior {color}") if hit else ("pass", "")
     if not c.strip():
         return "unknown", "exterior color not shown"
-    if any(w in c for w in ("matte", "frozen")):
+    if re.search(r"matte|frozen|magno|\bsatin\b|\bmatt\b", c):     # matte finishes (Ross: never; BMW Frozen, Mercedes magno)
         return "fail", f"matte paint ({color})"
     if "green" in c:
         if any(g in c for g in DARK_GREENS):

@@ -274,7 +274,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 | Radius | Include dealers up to **60 mi**; 50–60 mi get an **"edge" note** (`home.radius_miles: 50`, `edge_radius_miles: 60`) |
 | Price | **$500 cushion** on every cap: gas ≤ $35,500, hybrid/PHEV ≤ $40,500 (incl. dealer fees, before tax). If only *estimated* fees push a car over, it goes to "Needs a call", not excluded |
 | Interior | **Black only**; gray interiors excluded |
-| Exterior | Black / gray / dark green. **Silver excluded** (names with gray/graphite, e.g. "Silver Gray", still count as gray) |
+| Exterior | Black / gray / dark green. **Silver excluded** (names with gray/graphite, e.g. "Silver Gray", still count as gray). **No matte paint** (user, Oct 16 2026: "matte", BMW "Frozen", Mercedes "magno", "satin"; Ross only) |
 | Subaru trims | Limited / Touring / Wilderness (+ Forester Hybrid). **Onyx Edition excluded** |
 | Models | Spec models **plus (Oct 2026): Audi Q3, Genesis GV80 (2-row), Lexus RX (not RX L), BMW X5 (xDrive40i/50e), Mercedes GLE (350/450/450e 4MATIC; no AMG/Coupe/580), Volvo XC40**; **GLC 350e 4MATIC** added Oct 16 2026 (user: "I love that model"; plug-in hybrid cap applies). **Mazda (CX-5, CX-50 incl. Hybrid, CX-70 incl. PHEV) and Kia Sportage (gas/hybrid/plug-in)** added Oct 16 2026 (user asked; models picked to fit his rules: no CX-30 = too small, no CX-90/Sorento/Telluride = 3 rows, no Niro = FWD); trim rules for sunroof/black interior in config `models: Mazda/Kia`. Rules in `core/criteria.py:model_check`, tokens in `scrapers/listing.py:MODEL_TOKENS`, notes in `config.yaml: brands` |
 | Interior colors | Light interiors (Blond, Oyster, Parchment, Amber…) excluded; list in `config.yaml` |
