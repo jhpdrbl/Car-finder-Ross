@@ -217,15 +217,17 @@ top_brands: [Audi, Subaru, Genesis]
 profiles:
   ross:
     label: Ross
+    theme: {name: British Racing Green, light: "#004225", dark: "#5fae84"}
   jenna:
     label: Jenna
+    theme: {name: Cobalt Blue, light: "#0047ab", dark: "#7aa5ff"}
     buying_context: []
     top_brands: [Toyota, Lexus, Subaru, Kia]
     trim_guide: data/jenna/trim_guide.json
     filters:
-      min_year: 2020              # certified programs mostly cover cars up to ~6 years old
+      min_year: 2023              # "2023 or newer"
       max_mileage: 39999          # "under 40,000"
-      max_rows: null              # any number of rows (3-row SUVs are fine)
+      max_rows: 2                 # no third row
       fuels: [hybrid]             # regular hybrids only: no plug-ins, no mild hybrids (those count as gas)
       price_caps: {gas: 40000, hybrid: 40000, phev: 40000, ev: null}   # "under $40,000", incl. dealer fees, before tax
       price_tolerance: 0
@@ -249,42 +251,41 @@ profiles:
         ventilated_seats: 5
         ground_clearance: 5
         spare_tire: 4
-    # Models: regular-hybrid SUVs with AWD/4WD from Ross's brands plus Kia and Acura. `tokens` are
+    # Models: 2-row regular-hybrid SUVs with AWD/4WD, 2023+, from Ross's brands plus Kia and Acura. `tokens` are
     # the words looked for in dealer URLs. Gas, plug-in and mild-hybrid versions are dropped by the
     # VIN's fuel type, so rules only need to catch names.
     models:
       Toyota:
-        allow: 'rav4|highlander|venza|corolla cross|crown signia'
-        list: RAV4 Hybrid, Venza, Highlander Hybrid, Grand Highlander Hybrid, Corolla Cross Hybrid, Crown Signia
-        tokens: [rav4, highlander, venza, corolla-cross, crown-signia, grand-highlander]
+        allow: 'rav4|venza|corolla cross|crown signia'
+        list: RAV4 Hybrid, Venza, Corolla Cross Hybrid, Crown Signia
+        tokens: [rav4, venza, corolla-cross, crown-signia]
         rules:
           - {if: 'prime|plug-?in', then: fail, why: 'plug-in hybrid (RAV4 Prime)'}
       Lexus:
-        allow: '\b(ux|nx|rx|tx)\b'
-        list: UX 250h/300h, NX 300h/350h, RX 450h/350h/500h, TX 500h
-        tokens: [ux, nx, rx, tx]
+        allow: '\b(ux|nx|rx)\b'
+        list: UX 250h/300h, NX 350h, RX 350h/500h
+        tokens: [ux, nx, rx]
         rules:
           - {if: '450h\+|plug-?in', then: fail, why: 'plug-in hybrid (450h+)'}
+          - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
       Subaru:
         allow: 'forester|crosstrek'
         list: Forester Hybrid, Crosstrek Hybrid
         tokens: [forester, crosstrek]
       Kia:
-        allow: 'sportage|sorento'
-        list: Sportage Hybrid, Sorento Hybrid
-        tokens: [sportage, sorento]
+        allow: 'sportage'
+        list: Sportage Hybrid
+        tokens: [sportage]
         rules:
           - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid'}
       Ford:
-        allow: 'escape|explorer'
-        list: Escape Hybrid, Explorer Hybrid
-        tokens: [escape, explorer]
+        allow: 'escape'
+        list: Escape Hybrid
+        tokens: [escape]
         rules:
           - {if: 'plug-?in|phev', then: fail, why: 'plug-in hybrid (Escape PHEV)'}
-      Acura:
-        allow: 'mdx'
-        list: MDX Sport Hybrid
-        tokens: [mdx]
+      # Acura: no 2-row regular-hybrid SUV for 2023+ (RDX is gas only, ZDX is electric, MDX has 3 rows),
+      # so no Acura models yet; add one here if Acura sells one.
 
 # Phone website (Cloudflare Pages). The digest's buying-context lines (down payment,
 # pre-approval) are left off the published copy unless this is true.

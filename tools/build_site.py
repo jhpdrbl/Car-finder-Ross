@@ -1,6 +1,6 @@
 """Build the phone-friendly website (site/) from the latest laptop run's output/.
 
-  index.html   Ross's dashboard (and <id>/index.html for each other buyer in config.yaml `profiles:`, e.g. jenna/)
+  index.html   the start page: pick whose search (Ross / Jenna); ross/index.html, jenna/index.html = their dashboards
   digest.html  the latest digest, rendered, WITHOUT the buying-context lines
                (down payment, pre-approval) unless config publish.include_buying_context
   _headers     tells search engines not to index the site
@@ -75,8 +75,13 @@ def build() -> Path:
     SITE.mkdir()
     if not (OUT / "dashboard.html").exists():
         raise SystemExit("output/dashboard.html not found: run `python run.py refresh` first")
-    _page(OUT, SITE, cfg)                                  # Ross: the site's front page
-    for pid in (cfg.get("profiles") or {}):                # other buyers: site/<id>/ (e.g. /jenna/)
+    # front page: pick whose search (output/index.html); each buyer's tracker at site/<id>/ (/ross/, /jenna/)
+    front = OUT / "index.html"
+    (SITE / "index.html").write_text(front.read_text(encoding="utf-8").replace(
+        '<meta name="viewport"', '<meta name="robots" content="noindex"><meta name="viewport"', 1)
+        if front.exists() else '<meta http-equiv="refresh" content="0; url=/ross/">', encoding="utf-8")
+    _page(OUT, SITE / "ross", cfg)
+    for pid in (cfg.get("profiles") or {}):
         if pid != "ross" and (OUT / pid / "dashboard.html").exists():
             _page(OUT / pid, SITE / pid, cfg)
     (SITE / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n", encoding="utf-8")

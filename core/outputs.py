@@ -271,6 +271,21 @@ def check_list(cov: list[dict], profile=None) -> list[dict]:
     return out
 
 
+def _mix(a: str, b: str, t: float) -> str:
+    """Hex color a mixed into b by fraction t."""
+    pa, pb = [int(a[i:i + 2], 16) for i in (1, 3, 5)], [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{round(x * t + y * (1 - t)):02x}" for x, y in zip(pa, pb))
+
+
+def theme_vars(P) -> dict:
+    """Each buyer's color (config `theme:`): Ross British Racing Green, Jenna Cobalt Blue."""
+    th = P.cfg.get("theme") or {"light": "#2c6e57", "dark": "#7cc7a8"}
+    return {"__ACC_L__": th["light"], "__ACC_D__": th["dark"],
+            "__BG_L__": _mix(th["light"], "#f6f6f5", .06), "__LINE_L__": _mix(th["light"], "#dde0de", .12),
+            "__BG_D__": _mix(th["dark"], "#111312", .06), "__SURF_D__": _mix(th["dark"], "#191b1a", .08),
+            "__LINE_D__": _mix(th["dark"], "#2a2e2c", .12)}
+
+
 def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None, profile=None) -> Path:
     from core import profiles
     P = _profile(profile)
@@ -318,31 +333,78 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
         .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"]))) \
         .replace("__NAVAIL__", str(len(cars))) \
         .replace("__MPY__", f'{P.cfg.get("warranty", {}).get("miles_per_year", 12000):,}').replace("__NGONE__", str(len(gone))) \
-        .replace("__TITLE__", "CPO SUV Finder" + ("" if P.is_default else f" · {html.escape(P.label)}"))
+        .replace("__TITLE__", f"{html.escape(P.label)}'s CPO SUV Finder")
+    for k, v in theme_vars(P).items():
+        page = page.replace(k, v)
     P.out.mkdir(parents=True, exist_ok=True)
     path = P.out / "dashboard.html"
     path.write_text(page, encoding="utf-8")
+    write_chooser(today)
     return path
+
+
+def write_chooser(today: str = "") -> Path:
+    """The start page: pick whose search to see. Each buyer's tracker is separate, in its own color."""
+    from core import history, profiles
+    cards = []
+    for q in profiles.all_profiles():
+        rows = [r for r in history.read_csv(q.data / "listings.csv") if r.get("status") == "active"]
+        n_ok, n_call = sum(1 for r in rows if not r.get("needs_call")), sum(1 for r in rows if r.get("needs_call"))
+        th = theme_vars(q)
+        local = "dashboard.html" if q.is_default else f"{q.id}/dashboard.html"
+        cards.append(f'<a class="who" data-local="{local}" href="{q.href}" style="--a:{th["__ACC_L__"]};--ad:{th["__ACC_D__"]}">'
+                     f'<b>{html.escape(q.label)}</b><span>{n_ok} meet all criteria · {n_call} need a call</span>'
+                     f'<small>{html.escape((q.cfg.get("theme") or {}).get("name", ""))}</small></a>')
+    page = CHOOSER.replace("__CARDS__", "\n".join(cards)).replace("__DATE__", html.escape(today))
+    path = profiles.OUT / "index.html"
+    path.write_text(page, encoding="utf-8")
+    return path
+
+
+CHOOSER = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPO SUV Finder</title>
+<style>
+:root { --bg:#f6f6f5; --fg:#1d211f; --muted:#5f6862; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111312; --fg:#e5e9e6; --muted:#9aa49e; color-scheme: dark; } }
+body { margin:0; min-height:100vh; background:var(--bg); color:var(--fg); font:16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  display:grid; place-items:center; padding:24px 16px; box-sizing:border-box; }
+main { width:100%; max-width:520px; display:grid; gap:16px; }
+h1 { margin:0; font-size:26px; } p { margin:0; color:var(--muted); }
+.who { display:grid; gap:4px; text-decoration:none; color:#fff; background:var(--a); border-radius:14px; padding:22px 20px; }
+.who b { font-size:28px; } .who span { font-size:15px; opacity:.92; } .who small { font-size:12px; opacity:.75; }
+.who:focus-visible { outline:3px solid var(--fg); outline-offset:3px; }
+</style></head><body><main>
+<h1>CPO SUV Finder</h1><p>Whose search do you want to see?</p>
+__CARDS__
+<p style="font-size:13px">Last search __DATE__</p>
+</main>
+<script>
+if (location.protocol === "file:") document.querySelectorAll("a.who").forEach(a => a.href = a.dataset.local);
+</script>
+</body></html>
+"""
 
 
 TEMPLATE = r"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
 <style>
-:root { --bg:#f5f6f4; --surface:#fff; --fg:#1d211f; --muted:#5f6862; --line:#dde2de; --accent:#2c6e57;
+:root { --bg:__BG_L__; --surface:#fff; --fg:#1d211f; --muted:#5f6862; --line:__LINE_L__; --accent:__ACC_L__; --on-accent:#fff;
   --ok:#1f7a4d; --ok-bg:#e2f2e9; --warn:#7a5a00; --warn-bg:#fbf1d6; --bad:#a3361f; --bad-bg:#f7e4df; --checked:#e6e8e6; color-scheme: light; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#121513; --surface:#1a1f1c; --fg:#e5e9e6; --muted:#9aa49e; --line:#2a312d;
-  --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; --checked:#2b302d; color-scheme: dark; } }
-:root[data-theme="dark"] { --bg:#121513; --surface:#1a1f1c; --fg:#e5e9e6; --muted:#9aa49e; --line:#2a312d;
-  --accent:#7cc7a8; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; --checked:#2b302d; color-scheme: dark; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:__BG_D__; --surface:__SURF_D__; --fg:#e5e9e6; --muted:#9aa49e; --line:__LINE_D__;
+  --accent:__ACC_D__; --on-accent:#0d1110; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; --checked:#2b302d; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg:__BG_D__; --surface:__SURF_D__; --fg:#e5e9e6; --muted:#9aa49e; --line:__LINE_D__;
+  --accent:__ACC_D__; --on-accent:#0d1110; --ok:#7fd4a6; --ok-bg:#173226; --warn:#e8c766; --warn-bg:#33290f; --bad:#f0a08c; --bad-bg:#3a1f19; --checked:#2b302d; color-scheme: dark; }
 [hidden] { display:none !important; }
 body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; padding-block:20px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
 main { max-width:1200px; margin:0 auto; display:grid; gap:18px; }
 main > * { min-width:0; }  /* wide tables scroll inside .wrap instead of widening the page */
 h1 { margin:0; font-size:26px; letter-spacing:-.01em; }
-.people { display:flex; gap:6px; margin-bottom:8px; font-size:14px; font-weight:600; }
-.people a, .people span { padding:4px 12px; border-radius:999px; border:1px solid var(--line); text-decoration:none; }
-.people a { color:var(--accent); background:var(--surface); } .people span { background:var(--accent); color:var(--surface); border-color:var(--accent); } .muted { color:var(--muted); }
+.hero { background:__ACC_L__; color:#fff; border-radius:12px; padding:14px 16px; }   /* the buyer's deep color, light or dark mode */
+.hero h1 { color:#fff; } .hero .sub { opacity:.85; } .hero a { color:#fff; }
+.hero .switch { display:inline-block; font-size:13px; font-weight:600; opacity:.9; margin-bottom:6px; text-decoration:none;
+  border:1px solid currentColor; border-radius:999px; padding:2px 10px; } .muted { color:var(--muted); }
 .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
 .tile { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
 .tile b { display:block; font-size:24px; font-variant-numeric:tabular-nums; }
@@ -493,7 +555,7 @@ td.warr { min-width:190px; font-size:13px; }
 </style></head><body><main>
 <div id="safe-top" aria-hidden="true"></div>
 <button type="button" id="totop" aria-label="Back to top" title="Back to top">&#8593;</button>
-<div><nav class="people" id="people" aria-label="Whose cars"></nav><h1>__TITLE__</h1><div class="muted">Refreshed __DATE__ · every car links to the dealer's own listing</div></div>
+<header class="hero"><a class="switch" id="switch" href="/">&#8592; Ross or Jenna</a><h1>__TITLE__</h1><div class="sub">Refreshed __DATE__ · every car links to the dealer's own listing</div></header>
 <div class="tiles">
   <div class="tile"><b>__MATCHES__</b><span class="muted">meet all criteria</span></div>
   <div class="tile"><b>__CALLS__</b><span class="muted">need a call</span></div>
@@ -588,12 +650,9 @@ const PK = D.profile.default ? "" : D.profile.id + ":";
 const API = name => "/api/" + name + (D.profile.default ? "" : "?p=" + encodeURIComponent(D.profile.id));
 const SEATS = {leather: "leather", synthetic: "synthetic leather", cloth: "cloth"};
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-(function people() {             // switch between buyers' pages
-  const el = document.getElementById("people"); if (!el || (D.people || []).length < 2) return;
-  const local = location.protocol === "file:";
-  el.innerHTML = D.people.map(q => q.id === D.profile.id
-    ? `<span aria-current="page">${esc(q.label)}'s cars</span>`
-    : `<a href="${esc(local ? q.local : q.href)}">${esc(q.label)}'s cars</a>`).join("");
+(function chooser() {           // back to the start page, where you pick whose search to see
+  const a = document.getElementById("switch"); if (!a) return;
+  a.href = location.protocol === "file:" ? (D.profile.default ? "index.html" : "../index.html") : "/";
 })();
 const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
 const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electric"};

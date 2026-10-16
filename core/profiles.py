@@ -46,8 +46,8 @@ class Profile:
 
     @property
     def href(self) -> str:
-        """Where this buyer's page lives on the website."""
-        return "/" if self.is_default else f"/{self.id}/"
+        """Where this buyer's page lives on the website (the front page "/" asks whose search to show)."""
+        return f"/{self.id}/"
 
     def models(self) -> dict:
         return self.cfg.get("models") or {}
