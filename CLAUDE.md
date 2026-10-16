@@ -43,7 +43,8 @@ each buyer evaluates a deep copy of the listing).
   Her rules: CPO, SUV, **regular hybrid only** (no plug-ins; mild hybrids count as gas), AWD/4WD, < 40k miles,
   **< $40,000** incl. fees (no cushion), **no cloth seats** (leather or synthetic; `Listing.seats` from the page,
   else config `seat_material` by trim; unknown → Needs a call), **any exterior color but red/orange**, any interior,
-  **sunroof nice-to-have** (scored, never excludes), **2-row only, 2023+**. Brands: Ross's + **Kia, Acura**.
+  **sunroof nice-to-have** (scored, never excludes), **2-row only, 2023+**. Brands: Ross's + **Kia, Acura**, and (Oct 16 2026)
+  **Mazda (CX-50 Hybrid) and Lincoln (Nautilus Hybrid)**. User said **no Honda or Hyundai** (don't suggest CR-V/Tucson/Santa Fe again).
 - Search scope = union of both buyers (`profiles.could_want`, `min_year(brand)`, `model_tokens`; Ross's URL words stay in
   `listing.ROSS_TOKENS`). Reuse of last run's rows happens only when **every** buyer excluded the car for good
   (`prev_rows[key] = {profile: row}`).
