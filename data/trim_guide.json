@@ -12515,6 +12515,431 @@
    ]
   },
   {
+   "make": "Ford",
+   "model": "Bronco Sport",
+   "on_list_rule": "Every Bronco Sport is a 2-row 4x4. On the list only where a sunroof can be had and the seats can be all black (Ebony): Big Bend (sunroof optional; 2025+ black only with the Black Appearance Package) and Free Wheeling (Ebony with a patterned seat, check photos). Heritage (Navy Pier), Heritage Limited (Norias brown), Outer Banks (Ebony/Roast, Navy Pier, Platinum Blue) and Badlands (sunroof only with Roast leather 2023-24; Dark Space Gray seats 2025+) are not. Base (2023) has no sunroof.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "New Heritage (Big Bend-based, Oxford White roof/grille/wheels, Navy Pier plaid cloth) and Heritage Limited (Badlands-based, 2.0L, moonroof and B&O standard, Norias brown interior) editions. Black Diamond Off-Road Package (skid plates, A/T tires, graphics) added for Big Bend and Outer Banks (also Base in the first order guide). New paints Atlas Blue, Eruption Green, Robin's Egg Blue (Heritage), Peak Blue and Yellowstone (Heritage Limited); Velocity Blue and Bronze Smoke dropped. 8-inch SYNC 3 screen. Last year of the Base trim.",
+     "trims": [
+      {
+       "name": "Base",
+       "on_list": false,
+       "why_not": "no sunroof offered on the Base trim",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4 (standard 4x4 on every Bronco Sport)",
+       "builds_on": "",
+       "highlights": [
+        "17-inch Sparkle Silver wheels",
+        "8-inch SYNC 3 touchscreen, Apple CarPlay/Android Auto",
+        "Co-Pilot360 (auto emergency braking, blind-spot, lane-keeping)",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "cloth (Ebony); no ventilated seats on any Bronco Sport",
+       "black_interior": "yes (Ebony cloth only)",
+       "spare": "compact temporary (mini) spare",
+       "mpg": "25/28/26 (1.5L)"
+      },
+      {
+       "name": "Big Bend",
+       "on_list": true,
+       "why_not": "sunroof optional, check the car (Power Moonroof 17B needs the Convenience Package 96B); pick the Ebony interior (Medium Dark Slate also offered)",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4 (standard 4x4 on every Bronco Sport)",
+       "builds_on": "Base",
+       "highlights": [
+        "17-inch Carbonized Gray wheels",
+        "Rubberized cargo floor, privacy glass",
+        "Optional Convenience Package: power driver seat, heated seats, fog lamps, rear parking sensors, wireless charging",
+        "Optional Black Diamond Off-Road Package",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package)",
+       "premium_audio": "not offered (6 speakers)",
+       "seats": "cloth ('unique cloth with easy-to-clean'); no ventilated seats on any Bronco Sport",
+       "black_interior": "yes (Ebony cloth; Medium Dark Slate also offered - check listing)",
+       "spare": "compact temporary (mini) spare; full-size with the Class II Trailer Tow Package (53B), but Black Diamond package uses that slot for an A/T tire",
+       "mpg": "25/28/26 (1.5L)"
+      },
+      {
+       "name": "Heritage",
+       "on_list": false,
+       "why_not": "Navy Pier (blue) plaid cloth interior only, no black interior",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4 (standard 4x4 on every Bronco Sport)",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "Oxford White roof, grille and 17-inch wheels; red BRONCO lettering",
+        "All-terrain tires",
+        "Class II trailer tow package standard",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Heritage Convenience Package 96C)",
+       "premium_audio": "not offered",
+       "seats": "plaid cloth (Navy Pier with red stitching); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Navy Pier plaid)",
+       "spare": "full-size spare (comes with the standard Class II Trailer Tow Package)",
+       "mpg": "25/28/26 (1.5L)"
+      },
+      {
+       "name": "Outer Banks",
+       "on_list": false,
+       "why_not": "no black interior: Ebony/Roast (black with brown) or Navy Pier only",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4 (standard 4x4 on every Bronco Sport)",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "18-inch machined wheels, black roof",
+        "Heated leather-trimmed seats, 8-way power driver / 6-way power passenger, memory",
+        "Dual-zone climate, remote start, heated steering wheel",
+        "Optional Tech Package: B&O audio",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Tech Package 96D)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96D)",
+       "seats": "leather-trimmed (leather seating surfaces, vinyl backs); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Ebony/Roast two-tone or Navy Pier)",
+       "spare": "compact temporary (mini) spare; full-size with Trailer Tow Package 53B",
+       "mpg": "25/28/26 (1.5L)"
+      },
+      {
+       "name": "Badlands",
+       "on_list": false,
+       "why_not": "a sunroof needs the Premium Package, whose seats are Ebony/Roast (black with brown); the cloth seats (no sunroof) are Ebony with Active Orange or Area 51 accents",
+       "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "2.0L turbo 4-cyl, Advanced 4x4 with differential lock, 7 G.O.A.T. modes",
+        "Off-road suspension, metal bash plates, 17-inch wheels, A/T tires",
+        "Rubberized floor, 400W outlet",
+        "Premium Package: leather, B&O, dual-zone, remote start",
+        "Ground clearance 8.6 in (Car and Driver spec; Ford advertises about 8.8 in)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Premium Package 96Q)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Premium Package 96Q)",
+       "seats": "cloth with color accents standard; leather-trimmed two-tone (mini-perforated) with Premium Package; no ventilated seats on any Bronco Sport",
+       "black_interior": "partial (Ebony cloth with Active Orange or Area 51 accents; Premium leather is Ebony/Roast)",
+       "spare": "full-size spare",
+       "mpg": "21/26/23 (2.0L)"
+      },
+      {
+       "name": "Heritage Limited",
+       "on_list": false,
+       "why_not": "Norias (brown) interior only; MSRP above $45k",
+       "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
+       "builds_on": "Badlands",
+       "highlights": [
+        "Moonroof, B&O audio, adaptive cruise and navigation standard (Journey Package)",
+        "Oxford White roof/grille/wheels, Heritage badges",
+        "235/65R17 off-road A/T tires",
+        "Ground clearance 8.6 in (Car and Driver spec; Ford advertises about 8.8 in)"
+       ],
+       "sunroof": "standard (Power Moonroof, Journey Package)",
+       "premium_audio": "Bang & Olufsen 10-speaker standard",
+       "seats": "leather-trimmed/vinyl with perforated plaid inserts (mixed); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Norias brown)",
+       "spare": "full-size spare",
+       "mpg": "21/26/23 (2.0L)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Base trim dropped (Big Bend is the entry trim). New Free Wheeling edition (Big Bend-based, 1970s sunset graphics, Ebony Sunset Weave cloth). New Black Appearance Package on Big Bend (Ebony premium-trimmed seats, matte black wheels/graphics). New paints Azure Gray Tri-Coat and Desert Sand; Alto Blue, Area 51, Cyber Orange, Iconic Silver, Peak Blue, Yellowstone dropped. Outer Banks seats changed from leather-trimmed to 'Premium-Trimmed' (synthetic). Heritage Limited dropped. Prices cut in April 2024.",
+     "trims": [
+      {
+       "name": "Big Bend",
+       "on_list": true,
+       "why_not": "sunroof optional, check the car (Power Moonroof 17B needs the Convenience Package 96B); pick the Ebony interior (Medium Dark Slate also offered) or the Black Appearance Package",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "",
+       "highlights": [
+        "17-inch Carbonized Gray wheels",
+        "8-inch SYNC 3, Co-Pilot360",
+        "Optional Black Appearance Package (Ebony premium-trimmed sport seats, black roof, matte black wheels)",
+        "Optional Black Diamond Off-Road Package",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package)",
+       "premium_audio": "not offered (6 speakers)",
+       "seats": "cloth standard; premium-trimmed (synthetic) with Black Appearance Package; no ventilated seats on any Bronco Sport",
+       "black_interior": "yes (Ebony cloth, or Ebony premium-trimmed with Black Appearance Package; Medium Dark Slate also offered - check listing)",
+       "spare": "compact temporary (mini) spare; full-size with Class II Trailer Tow Package 53B",
+       "mpg": "25/29/26 (1.5L)"
+      },
+      {
+       "name": "Heritage",
+       "on_list": false,
+       "why_not": "Navy Pier (blue) plaid cloth interior only",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "Oxford White roof, grille and wheels",
+        "A/T tires, trailer tow package standard",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Heritage Convenience Package 96C)",
+       "premium_audio": "not offered",
+       "seats": "plaid cloth (Navy Pier); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Navy Pier plaid)",
+       "spare": "full-size spare (standard Class II Trailer Tow Package)",
+       "mpg": "25/29/26 (1.5L)"
+      },
+      {
+       "name": "Free Wheeling",
+       "on_list": true,
+       "why_not": "sunroof optional, check the car (Power Moonroof needs the Convenience Package 96B); interior is Ebony but the seats have a multicolor Sunset Weave pattern - check photos",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "Sunset-stripe graphics, silver grille, 17-inch black wheels with red accents",
+        "Black roof (not with Shadow Black paint)",
+        "Floor liners and cargo mat",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package)",
+       "premium_audio": "not offered",
+       "seats": "cloth (Sunset Weave with ombre stitching); no ventilated seats on any Bronco Sport",
+       "black_interior": "partial (Ebony with multicolor Sunset Weave seat pattern and Race Red door rings)",
+       "spare": "compact temporary (mini) spare; full-size with Trailer Tow Package 53B",
+       "mpg": "25/29/26 (1.5L)"
+      },
+      {
+       "name": "Outer Banks",
+       "on_list": false,
+       "why_not": "no black interior: Ebony/Roast (black with brown) standard, Navy Pier extra-cost",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "18-inch machined wheels, black roof",
+        "Heated premium-trimmed seats, power driver/passenger, memory",
+        "Dual-zone climate, remote start, heated wheel",
+        "Optional Tech Package: B&O",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Tech Package 96D)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96D)",
+       "seats": "premium-trimmed (synthetic); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Ebony/Roast or Navy Pier)",
+       "spare": "compact temporary (mini) spare; full-size with Trailer Tow Package 53B",
+       "mpg": "25/29/26 (1.5L)"
+      },
+      {
+       "name": "Badlands",
+       "on_list": false,
+       "why_not": "a sunroof needs the Premium Package, whose leather seats are Ebony/Roast (black with brown); standard cloth is Ebony with Area 51 accents",
+       "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "2.0L turbo 4-cyl, Advanced 4x4, differential lock, 7 G.O.A.T. modes",
+        "Off-road suspension, bash plates, A/T tires",
+        "Optional Premium Package: leather, B&O, dual-zone",
+        "Ground clearance 8.6 in (Car and Driver spec; Ford advertises about 8.8 in)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Premium Package 96Q)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Premium Package 96Q)",
+       "seats": "cloth with Area 51 color accents; leather-trimmed two-tone with Premium Package; no ventilated seats on any Bronco Sport",
+       "black_interior": "partial (Ebony/Area 51 cloth; Premium leather is Ebony/Roast)",
+       "spare": "full-size spare",
+       "mpg": "21/26/23 (2.0L)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Refresh: new front/rear styling, 13.2-inch SYNC 4 touchscreen and 12.3-inch digital cluster standard, Co-Pilot360 Assist+ (adaptive cruise) standard. New Sasquatch package on Outer Banks and Badlands (29-inch A/T tires, HOSS suspension, steel bumpers; ~0.6-1 in more clearance, figures unconfirmed). Black Diamond became a fuller off-road package on Big Bend. Badlands seats now leather-trimmed standard (Dark Space Gray). Big Bend standard seats now Medium Light Smoked Truffle; Ebony only with Black Appearance Package. Non-Badlands trims lost the spare (tire inflator kit). New paints Velocity Blue and Ruby Red; Atlas Blue, Cactus Gray and Hot Pepper Red dropped. Free Wheeling deleted mid-year.",
+     "trims": [
+      {
+       "name": "Big Bend",
+       "on_list": true,
+       "why_not": "sunroof optional, check the car (Power Moonroof 17B needs the Convenience Package 96P); black interior only with the Black Appearance Package (standard seats are Medium Light Smoked Truffle)",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "",
+       "highlights": [
+        "13.2-inch SYNC 4, 12.3-inch cluster, adaptive cruise",
+        "Optional Black Appearance Package (Ebony premium-trimmed sport seats)",
+        "Optional Black Diamond Off-Road Package (steel bumpers, brush guard, A/T tires, full-size spare)",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package)",
+       "premium_audio": "not offered (6 speakers)",
+       "seats": "cloth standard; premium-trimmed (synthetic) with Black Appearance Package; no ventilated seats on any Bronco Sport",
+       "black_interior": "only with Black Appearance Package (Ebony); standard is Medium Light Smoked Truffle",
+       "spare": "none (tire inflator and sealant kit); full-size spare with Black Diamond Off-Road Package (trailer tow)",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Heritage",
+       "on_list": false,
+       "why_not": "Navy Pier plaid cloth interior only",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "Oxford White roof, grille and wheels",
+        "A/T tires",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package 96P)",
+       "premium_audio": "not offered",
+       "seats": "plaid cloth (Navy Pier); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Navy Pier plaid)",
+       "spare": "none (tire inflator kit)",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Free Wheeling",
+       "on_list": true,
+       "why_not": "sunroof optional, check the car (unconfirmed for 2025; was with the Convenience Package in 2024); seats are Ebony with a multicolor Sunset Weave pattern - check photos; dropped mid-2025",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "Sunset graphics, silver grille, red-accent wheels",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (unconfirmed for 2025; Convenience Package 96P listed for Free Wheeling)",
+       "premium_audio": "not offered",
+       "seats": "cloth (Sunset Weave); no ventilated seats on any Bronco Sport",
+       "black_interior": "partial (Ebony with multicolor Sunset Weave pattern) - unconfirmed for 2025",
+       "spare": "none (tire inflator kit) - unconfirmed",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Outer Banks",
+       "on_list": false,
+       "why_not": "no black interior: Ebony/Roast (black with brown) or Platinum Blue",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "18-inch machined wheels",
+        "Heated premium-trimmed power seats, memory, heated wheel",
+        "Optional Tech Package (B&O, 360 camera); optional Sasquatch package",
+        "Ground clearance 7.8 in (Car and Driver spec) (Sasquatch adds about 0.6-1 in, unconfirmed)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Outer Banks Tech Package 96T)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96T)",
+       "seats": "premium-trimmed (synthetic); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Ebony/Roast or Platinum Blue)",
+       "spare": "none (tire inflator kit); full-size A/T spare with Sasquatch package",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Badlands",
+       "on_list": false,
+       "why_not": "seats are Dark Space Gray (gray, not black) in an Ebony cabin; Sasquatch adds Dove Gray inserts with Orchid Yellow accents",
+       "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "2.0L turbo 4-cyl, Advanced 4x4, HOSS 2.0 suspension, 360 camera",
+        "Leather-trimmed heated power seats standard",
+        "Optional Tech Package (B&O); optional Sasquatch package",
+        "Ground clearance 8.6 in (Car and Driver spec; Ford advertises about 8.8 in) (Sasquatch about 8.7 in per press, unconfirmed)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Badlands Tech Package 96X)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96X)",
+       "seats": "leather-trimmed with mini-perforation; no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Dark Space Gray seats; Sasquatch: Dove Gray/Orchid Yellow) - confirm in photos",
+       "spare": "full-size spare (A/T, with standard trailer tow package)",
+       "mpg": "21/27/23 (2.0L)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Free Wheeling deleted. New Bronze Package (Big Bend, later Badlands): Sinister Bronze wheels, Bronze Fire premium-trimmed seats. Big Bend/Heritage/Outer Banks get an 8-inch cluster (12.3-inch on Badlands). Mini spare and trailer-tow (full-size spare) now standalone options on Big Bend/Heritage/Outer Banks. Mid-year ('Job 2') Badlands was decontented: ActiveX seats replace leather, manual passenger seat, no heated wheel/memory/remote start; the Tech Package now adds leather with Dove Gray/Orchid Yellow inserts. New paints Orange Fury Tri-Coat and Space White; Eruption Green and Desert Sand dropped. Wireless charging pad and garage-door opener deleted.",
+     "trims": [
+      {
+       "name": "Big Bend",
+       "on_list": true,
+       "why_not": "sunroof optional, check the car (Power Moonroof 17B needs the Convenience Package 96P); black interior only with the Black Appearance Package (standard Medium Light Smoked Truffle; Bronze Package = Bronze Fire)",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "",
+       "highlights": [
+        "13.2-inch SYNC 4, adaptive cruise",
+        "Optional Black Appearance, Bronze, Black Diamond Off-Road packages",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package)",
+       "premium_audio": "not offered (6 speakers)",
+       "seats": "cloth standard; premium-trimmed (synthetic) with Black Appearance or Bronze Package; no ventilated seats on any Bronco Sport",
+       "black_interior": "only with Black Appearance Package (Ebony); standard Medium Light Smoked Truffle, Bronze Package Bronze Fire",
+       "spare": "none (tire inflator kit); optional mini spare (19U) or full-size with Trailer Tow (59B) / Black Diamond",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Heritage",
+       "on_list": false,
+       "why_not": "Navy Pier plaid cloth interior only",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "Oxford White roof, grille and wheels",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Convenience Package 96P)",
+       "premium_audio": "not offered",
+       "seats": "plaid cloth (Navy Pier); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Navy Pier plaid)",
+       "spare": "none (tire inflator kit); optional mini spare or full-size with Trailer Tow",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Outer Banks",
+       "on_list": false,
+       "why_not": "no black interior: Ebony/Roast (black with brown) or Platinum Blue",
+       "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "18-inch machined wheels, heated premium-trimmed power seats",
+        "Optional Tech Package (B&O, 360 camera), Sasquatch package",
+        "Ground clearance 7.8 in (Car and Driver spec)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Outer Banks Tech Package 96T)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96T)",
+       "seats": "premium-trimmed (synthetic); no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Ebony/Roast or Platinum Blue)",
+       "spare": "none (tire inflator kit); optional mini spare or full-size with Trailer Tow; full-size A/T with Sasquatch",
+       "mpg": "25/30/27 (1.5L)"
+      },
+      {
+       "name": "Badlands",
+       "on_list": false,
+       "why_not": "seats are Dark Space Gray, not black; the sunroof needs the Tech Package, which adds Dove Gray inserts with Orchid Yellow accents",
+       "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
+       "builds_on": "Big Bend",
+       "highlights": [
+        "2.0L turbo 4-cyl, Advanced 4x4, 360 camera",
+        "Early builds: leather-trimmed seats; later builds: ActiveX (synthetic) seats",
+        "Optional Tech Package (B&O, leather with Dove Gray inserts), Sasquatch, Bronze packages",
+        "Ground clearance 8.6 in (Car and Driver spec; Ford advertises about 8.8 in)"
+       ],
+       "sunroof": "optional (Power Moonroof, requires Badlands Tech Package 96X)",
+       "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96X)",
+       "seats": "leather-trimmed (early 2026) or ActiveX synthetic with perforation (after mid-year change); Tech Package: leather-trimmed with Dove Gray inserts; no ventilated seats on any Bronco Sport",
+       "black_interior": "no (Dark Space Gray; Tech Package Dove Gray/Orchid Yellow)",
+       "spare": "full-size spare (A/T, with standard trailer tow package)",
+       "mpg": "21/27/23 (2.0L)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.broncosportforum.com/forum/attachments/12-1-22-bronco-sport-order-guide-pdf.33223/ (Ford 2023 Bronco Sport order guide, pages dated 08/11/22-11/01/22)",
+    "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2024/order-guides/2024_Ford_Bronco_Sport_Order_Guide.pdf",
+    "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2025/order-guides/2025_Ford_Bronco_Sport_Order_Guide.pdf",
+    "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/order-guides/2026_Ford_Bronco_Sport_Order_Guide.pdf",
+    "https://www.broncosportforum.com/forum/attachments/8-4-22-2023-bronco-sport-order-guide-pdf.28948/ (Ford 2023 order guide, first edition 08/04/22)",
+    "https://www.caranddriver.com/ford/bronco-sport/specs/2023/ford_bronco-sport_ford-bronco-sport_2023",
+    "https://www.caranddriver.com/ford/bronco-sport/specs/2024/ford_bronco-sport_ford-bronco-sport_2024",
+    "https://www.caranddriver.com/ford/bronco-sport/specs/2025/ford_bronco-sport_ford-bronco-sport_2025",
+    "https://www.caranddriver.com/ford/bronco-sport/specs/2026/ford_bronco-sport_ford-bronco-sport_2026",
+    "https://www.caranddriver.com/ford/bronco-sport-2023",
+    "https://www.caranddriver.com/ford/bronco-sport-2024",
+    "https://www.caranddriver.com/ford/bronco-sport-2025",
+    "https://www.caranddriver.com/ford/bronco-sport",
+    "https://motorweek.org/this-just-in/2025-ford-bronco-sport-sasquatch-pack-priced",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA ids 46385/46386, 47375/47376, 48916/48917, 50117/50118)"
+   ]
+  },
+  {
    "make": "Mazda",
    "model": "CX-5",
    "on_list_rule": "2023-25: every CX-5 from 2.5 S Preferred up has a power moonroof as standard (2.5 S and Select have none). Not on the list: Carbon Turbo (Terracotta interior only) and Turbo Signature (Caturra Brown Nappa only). 2026 (all-new 3rd generation): the panoramic sunroof is standard only on 2.5 S Premium and Premium Plus. AWD standard on every US CX-5. Gas car: Ross's $35,500 cap applies.",
