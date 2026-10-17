@@ -143,6 +143,8 @@ def sunroof_inferred(L: Listing, d: dict) -> str:
     model = f'{d.get("Model") or ""} {L.model}'.lower()
     trim = f'{d.get("Trim") or ""} {L.trim} {L.title} {L.listing_url}'.lower()
     for row in CFG.get("sunroof_standard", []):
+        if row.get("not_model") and row["not_model"] in model:
+            continue   # e.g. the Bronco's roof panels don't apply to the Bronco Sport
         if row["make"].lower() in make and row["model"].lower() in model and re.search(row["trim_regex"], trim):
             year = L.year or int(d.get("ModelYear") or 0)
             if row.get("min_year") and (not year or year < row["min_year"]):
@@ -163,6 +165,8 @@ def seats_inferred(L: Listing, d: dict) -> tuple[str, str]:
     trim = f'{L.model} {L.trim} {L.title} {L.listing_url}'.lower().replace("-", " ")
     year = L.year or int(d.get("ModelYear") or 0)
     for row in CFG.get("seat_material", []):
+        if row.get("not_model") and row["not_model"] in model:
+            continue   # e.g. the Bronco's roof panels don't apply to the Bronco Sport
         if row["make"].lower() in make and row["model"].lower() in model and re.search(row["trim_regex"], trim):
             if row.get("min_year") and (not year or year < row["min_year"]):
                 continue

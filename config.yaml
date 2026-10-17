@@ -141,11 +141,10 @@ models:
       - {if: 'land cruiser', min_year: 2024, why: 'Land Cruiser before 2024'}
   Ford:
     allow: 'bronco'
-    list: Bronco 4-door
-    rules:
-      - {if: 'bronco sport|bronco-sport', then: fail, why: 'Bronco Sport (not on the list)'}
-      - {if: '2[- ]?door|2dr', then: fail, why: '2-door Bronco'}
-      - {if: 'bronco', unless: '4[- ]?door|4dr', then: call, why: "confirm it's a 4-door Bronco"}
+    list: Bronco 4-door, Bronco Sport
+    rules:                         # Bronco Sport added Oct 17 2026 (user asked); every Bronco Sport is a 2-row 4x4
+      - {if: '2[- ]?door|2dr', unless: 'bronco[ -]?sport', then: fail, why: '2-door Bronco'}
+      - {if: 'bronco', unless: '4[- ]?door|4dr|bronco[ -]?sport', then: call, why: "confirm it's a 4-door Bronco"}
 
   Mazda:
     allow: '\bcx ?-?(5|50|70)\b'
@@ -185,7 +184,7 @@ sunroof_standard:
   - {make: BMW, model: X5, trim_regex: ".*", note: "panoramic moonroof is standard on the X5"}
   - {make: Genesis, model: GV70, trim_regex: "select|advanced|prestige", note: "panoramic roof standard from Select up"}
   - {make: Volvo, model: XC60, trim_regex: "plus|ultimate|inscription|r-design", note: "panoramic roof standard on Plus/Ultimate"}
-  - {make: Ford, model: Bronco, trim_regex: ".*", note: "removable roof panels"}
+  - {make: Ford, model: Bronco, not_model: "bronco sport", trim_regex: ".*", note: "removable roof panels"}
   # Subaru (media.subaru.com spec sheets, Oct 2026): Forester = every trim but Base; Outback = Touring and XT
   # every year, Limited from 2025; Outback Wilderness and the 2023-24 Outback Limited have it only as an option
   - {make: Subaru, model: Forester, trim_regex: "premium|sport|limited|touring|wilderness|hybrid", note: "panoramic moonroof is standard on every Forester but the Base"}
@@ -234,6 +233,7 @@ ground_clearance_in:
   XC60: 8.5
   4Runner: 9.0
   Land Cruiser: 8.7
+  Bronco Sport: 7.8
   Bronco: 8.4
 
 # Typical spare-tire situation by model when the listing doesn't say (scoring only).
@@ -256,6 +256,7 @@ spare_tire_typical:
   XC60: false
   4Runner: true
   Land Cruiser: true
+  Bronco Sport: true
   Bronco: true
 
 # "Check yourself" tab: these brands are listed first (Ross's top brands)
