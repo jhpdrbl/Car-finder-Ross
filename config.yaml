@@ -48,7 +48,10 @@ filters:
     exclude: [beige, brown, white, red, tan, cognac, saddle, ivory, cream, caramel,
               chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel", blond, blonde,
               oyster, parchment, linen, "light gray", amber, cognac, mocha, espresso, sienna, "flaxen",
-              greige, griege, terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire", hazel, "misty gray"]
+              greige, griege, terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire", hazel, "misty gray",
+              castanea, amido, stonegray, "stone gray", "stone grey", "rose gold", "space gray", "performance gray",
+              "blue leather", "gray startex", "gray and blue", dapple, grayscale, macadamia, "torrent navy", "aqua green",
+              "sky blue", "glacier white", cinnamon, fjord]
   carfax_exclude_accident: true
 
 scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
@@ -96,7 +99,8 @@ models:
     list: Q3, Q5, electric Q4 / Q6 / Q8 e-tron
     tokens: [q4, q6, q8, e-tron]
     rules:
-      - {if: '\bsq[3568]\b|\brs ?q|\brs ?e-?tron', then: fail, why: 'SQ / RS model (performance versions not on the list)'}
+      - {if: '\bsq[3568]\b|\brs ?q|\brs ?e-?tron|e-?tron s\b', then: fail, why: 'SQ / RS / e-tron S (performance versions not on the list)'}
+      - {if: 'q4 (sportback )?(40|45) e-?tron', then: fail, why: 'Q4 40 / 45 e-tron (rear-wheel drive; only the quattro qualifies)'}
       - {if: 'e-?tron gt', then: fail, why: 'e-tron GT (a sedan)'}
       - {if: 'sportback', then: note, why: 'Sportback'}
   Genesis:
@@ -113,25 +117,30 @@ models:
       - {if: 'forester', unless: 'limited|touring|wilderness|hybrid|strong hev', then: fail,
          why: 'Forester trim (Limited/Touring/Wilderness or Hybrid only)'}
       - {if: 'outback', unless: 'limited|touring|wilderness', then: fail, why: 'Outback trim (Limited/Touring/Wilderness only)'}
+      - {if: 'solterra', unless: 'touring', then: fail, why: 'Solterra Premium / Limited: no sunroof offered (Touring only)'}
   BMW:
     allow: '\bx[35]\b|\bix\b'
     list: X3, X5, iX (electric)
     tokens: [ix]
     rules:
       - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
-      - {if: '\bm40|\bm50|\bm60|x[35] m\b|competition', then: fail, why: 'M version (only X3 xDrive30i, X5 xDrive40i/50e)'}
+      - {if: '\bm40|\bm50|\bm60|\bm70|x[35] m\b|competition', then: fail, why: 'M version (only X3 xDrive30i, X5 xDrive40i/50e)'}
   Mercedes-Benz:
     allow: 'glc|gle|eqb|eqe|eqs'
     list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV
     tokens: [eqb, eqe, eqs]
     rules:
-      - {if: 'amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580', then: fail, why: 'AMG / Coupe / GLE 580 (not on the list)'}
+      - {if: 'amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580|maybach', then: fail, why: 'AMG / Maybach / Coupe / GLE 580 (not on the list)'}
+      - {if: 'eqb ?250', then: fail, why: 'EQB 250 (front-wheel drive)'}
+      - {if: 'eq[es] ?(320|350|450) ?(\+|plus)(?! ?4matic)', then: fail, why: 'EQE / EQS SUV "+" (rear-wheel drive)'}
+      - {if: 'eq[bs]', then: note, why: 'EQB / EQS SUV can have a third row: confirm it has 5 seats'}
   Volkswagen:
     allow: 'tiguan|\bid\.? ?-?4\b'
     list: Tiguan 2025+, ID.4 AWD (electric)
     tokens: [id.4, id-4]
     rules:
       - {if: tiguan, min_year: 2025, why: 'Tiguan before 2025 (AWD versions have a third row)'}
+      - {if: 'id\.? ?-?4.*\bpro\b(?! ?s\b)', then: fail, why: 'ID.4 AWD Pro (not Pro S): no glass roof, cloth seats'}
   Lexus:
     allow: '\b(nx|rx|rz)\b'
     list: NX, RX, RZ (electric)
@@ -139,16 +148,21 @@ models:
     rules:
       - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
       - {if: 'nx ?250|\b250\b', unless: '350|450', then: fail, why: 'NX 250 (only NX 350 / 350h / 450h+)'}
+      - {if: '\brz ?(300e|350e)\b', then: fail, why: 'RZ 300e / 350e (front-wheel drive)'}
   Volvo:
     allow: 'xc60|xc40|ex40|\be?c40\b'
     list: XC60, XC40 (incl. Recharge / EX40), C40 Recharge / EC40
     tokens: [c40, ec40]
+    rules:
+      - {if: '(xc40|ex40|c40).*(recharge|electric|twin|single motor)|ex40|ec40', unless: 'twin', then: call, why: 'electric Volvo: confirm Twin Motor (single-motor versions are rear-wheel drive)'}
+      - {if: '(?=.*\bcore\b)(?=.*(electric|recharge|twin|ex40))', then: fail, why: 'electric XC40 / EX40 Core: no sunroof'}
   Toyota:
     allow: '4runner|land cruiser|bz4x|\bbz\b'
     list: 4Runner, Land Cruiser 2024+, bZ4X / bZ (electric)
     tokens: [bz4x, bz]
     rules:
       - {if: 'land cruiser', min_year: 2024, why: 'Land Cruiser before 2024'}
+      - {if: '\bbz\b.*woodland', unless: 'premium', then: fail, why: 'bZ Woodland without the Premium Package: no glass roof'}
   Ford:
     allow: 'bronco|mach[ -]?e'
     list: Bronco 4-door, Bronco Sport, Mustang Mach-E (electric)
@@ -161,6 +175,9 @@ models:
       - {if: 'bronco[ -]?sport[ -]base\b', then: fail, why: 'Bronco Sport Base: no sunroof offered'}
       - {if: 'bronco[ -]?sport', unless: 'big[ -]?bend|free[ -]?wheeling|outer[ -]?banks|badlands|heritage|sasquatch|[ -]base\b', then: call, why: 'confirm the Bronco Sport trim (only Big Bend / Free Wheeling can have a sunroof with black seats)'}
       - {if: 'bronco[ -]?sport.*big[ -]?bend', then: note, why: 'Big Bend: sunroof only with the Convenience Package; 2025+ black seats only with the Black Appearance Package'}
+      - {if: 'mach[ -]?e.*\b(select|rally)\b', then: fail, why: 'Mach-E Select / Rally: no glass roof offered'}
+      - {if: 'mach[ -]?e.*(\bgt\b|performance edition)', from_year: 2024, then: fail, why: 'Mach-E GT 2024+: Performance Gray interior only'}
+      - {if: 'mach[ -]?e.*performance edition', then: fail, why: 'Mach-E GT Performance Edition: Performance Gray interior only'}
       - {if: 'bronco[ -]?sport.*free[ -]?wheeling', then: note, why: 'Free Wheeling: Ebony cabin but multicolor Sunset Weave seat pattern - check photos'}
 
   Mazda:
@@ -189,6 +206,7 @@ models:
       - {if: \blx\b, then: fail, why: 'Sportage LX: no sunroof offered (cloth seats)'}
       - {if: \bhybrid s\b|\bsportage s\b|\bs (awd|fwd)\b, then: fail, why: 'Sportage Hybrid S: no sunroof offered (cloth seats)'}
       - {if: 'plug ?in|phev', then: note, why: plug-in hybrid (plug-in price cap applies)}
+      - {if: '\bev6\b.*\b(light|wind)\b', unless: '\bgt\b', then: fail, why: 'EV6 Light / Wind: no sunroof offered (GT-Line / GT only)'}
 
 # Trims where a sunroof is always standard, used only when the listing doesn't say
 # (shown as "sunroof (standard on this trim)"). Edit if you know better.
@@ -207,6 +225,30 @@ sunroof_standard:
   - {make: Subaru, model: Forester, trim_regex: "premium|sport|limited|touring|wilderness|hybrid", note: "panoramic moonroof is standard on every Forester but the Base"}
   - {make: Subaru, model: Outback, trim_regex: "touring|\\bxt\\b", note: "moonroof is standard on Outback Touring / XT"}
   - {make: Subaru, model: Outback, trim_regex: "limited", min_year: 2025, note: "moonroof is standard on the 2025+ Outback Limited"}
+
+  # Electric SUVs (researched Oct 18 2026 from makers' press sites, Car and Driver, fueleconomy.gov; fixed glass roofs count)
+  - {make: "Audi", model: "Q4 e-tron", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "panoramic sunroof (opens) is standard on every Q4 e-tron / Q4 Sportback e-tron"}
+  - {make: "Audi", model: "Q8 e-tron", trim_regex: ".*", min_year: 2024, max_year: 2025, note: "opening panoramic glass roof is standard on the Q8 e-tron"}
+  - {make: "Audi", model: "e-tron", trim_regex: ".*", min_year: 2023, max_year: 2023, note: "unconfirmed: panoramic sunroof believed standard on every 2023 e-tron (not checked in an Audi 2023 sheet); remove if a Premium shows up without it"}
+  - {make: "Audi", model: "Q6 e-tron", trim_regex: "premium plus|prestige", min_year: 2025, max_year: 2025, note: "panoramic sunroof (opens) is standard on Q6 e-tron Premium Plus / Prestige (not Premium)"}
+  - {make: "BMW", model: "iX", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "fixed panoramic glass roof with electrochromic shading is standard on every 2023-25 iX (does not open; counts)"}
+  - {make: "BMW", model: "iX", trim_regex: "xdrive ?60|\\b60\\b", min_year: 2026, max_year: 2026, note: "fixed Panoramic Eclipsing Roof is standard on the 2026 iX xDrive60 (optional on xDrive45)"}
+  - {make: "Mercedes-Benz", model: "EQE SUV", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQE SUV"}
+  - {make: "Mercedes-Benz", model: "EQS SUV", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQS SUV"}
+  - {make: "Genesis", model: "GV60", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "fixed panoramic glass \"Vision Roof\" with power shade is standard on every GV60 (does not open)"}
+  - {make: "Volkswagen", model: "ID.4", trim_regex: "pro s", min_year: 2023, max_year: 2026, note: "panoramic fixed glass roof is standard on ID.4 Pro S / Pro S Plus (does not open)"}
+  - {make: "Volvo", model: "XC40", trim_regex: "(?=.*(recharge|electric|twin|single motor|pure electric|\\bbev\\b))(?=.*(\\bplus\\b|ultimate|ultra))", min_year: 2023, max_year: 2024, note: "opening panoramic sunroof is standard on XC40 Recharge Plus / Ultimate (electric; trim text says Recharge / Twin / Electric). Gas XC40 Plus/Ultimate also have it"}
+  - {make: "Volvo", model: "EX40", trim_regex: "\\bplus\\b|ultimate|ultra", min_year: 2025, max_year: 2026, note: "opening panoramic sunroof is standard on EX40 Plus / Ultra"}
+  - {make: "Volvo", model: "C40", not_model: "xc40", trim_regex: ".*", min_year: 2023, max_year: 2024, note: "fixed panoramic glass roof is standard on every C40 Recharge (does not open)"}
+  - {make: "Volvo", model: "EC40", trim_regex: ".*", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof on every EC40 (carried over from C40; unconfirmed for 2025-26)"}
+  - {make: "Lexus", model: "RZ", trim_regex: ".*", min_year: 2023, max_year: 2024, note: "fixed panoramic glass roof is standard on every 2023-24 RZ (Premium / Luxury; does not open)"}
+  - {make: "Lexus", model: "RZ", trim_regex: "premium|luxury|f ?sport|550e", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on RZ Premium / Luxury / 550e F SPORT, not on the 2025+ entry grade"}
+  - {make: "Toyota", model: "bZ4X", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "panoramic fixed-glass roof (doesn't open) is standard on every 2023-2025 bZ4X"}
+  - {make: "Toyota", model: "bZ", trim_regex: "limited", min_year: 2026, note: "panoramic fixed-glass roof (doesn't open) is standard on the 2026+ bZ Limited (optional on XLE)"}
+  - {make: "Toyota", model: "bZ", trim_regex: "woodland.*premium|premium.*woodland", min_year: 2026, note: "panoramic fixed-glass roof is part of the bZ Woodland Premium"}
+  - {make: "Subaru", model: "Solterra", trim_regex: "touring", min_year: 2023, note: "panoramic glass moonroof (fixed glass) is standard on Solterra Touring / Touring Onyx / Touring XT only"}
+  - {make: "Ford", model: "Mustang Mach-E", trim_regex: "premium|california route 1|route 1|\\bgt\\b", min_year: 2023, max_year: 2023, note: "panoramic fixed-glass roof is standard on the 2023 Mach-E Premium, California Route 1 and GT (optional from 2024; never on Select)"}
+  - {make: "Kia", model: "EV6", trim_regex: "gt line|\\bgt\\b", min_year: 2023, note: "power tilt/slide sunroof is standard on EV6 GT-Line and GT (not on Light or Wind); 2026 GT-Line assumed"}
 
   # Mazda (news.mazdausa.com spec decks, Oct 2026)
   - {make: Mazda, model: CX-5, trim_regex: preferred|carbon|premium|turbo|signature, min_year: 2023, max_year: 2025, note: 'power moonroof is standard on CX-5 Preferred, Carbon Edition, Premium, Premium Plus and every Turbo (not on 2.5 S / Select)'}

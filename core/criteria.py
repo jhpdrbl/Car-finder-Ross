@@ -53,6 +53,8 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
             continue
         if "unless" in rule and re.search(rule["unless"], text):
             continue
+        if L.year and (L.year < rule.get("from_year", 0) or L.year > rule.get("to_year", 9999)):
+            continue   # rule only for some model years
         if "min_year" in rule:
             if L.year and L.year < rule["min_year"]:
                 fails.append(rule["why"])

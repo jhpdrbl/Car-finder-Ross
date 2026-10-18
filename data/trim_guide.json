@@ -15873,6 +15873,4051 @@
     "https://www.theautochannel.com/news/2026/07/20/1693929-kia-announces-pricing-for-2027-sportage-hybrid-and-sportage-plug.html",
     "https://www.fueleconomy.gov/"
    ]
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "on_list_rule": "Every quattro (AWD) Q4 e-tron and Q4 Sportback e-tron is on the list; the rear-wheel-drive Q4 40 / 45 e-tron is not. Panoramic sunroof (opens) is standard on every trim.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Q4 50 e-tron quattro (295 hp). Prices: Premium $55,200, Premium Plus $61,400, Prestige $62,900 + $1,195.",
+     "trims": [
+      {
+       "name": "40 / 45 e-tron (RWD)",
+       "on_list": false,
+       "why_not": "rear-wheel drive (no quattro)",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "see quattro trims",
+       "seats": "leatherette (unconfirmed)",
+       "black_interior": "yes (unconfirmed)",
+       "spare": "unknown",
+       "mpg": ""
+      },
+      {
+       "name": "Premium quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 295 hp (50), 82 kWh gross / 77 net",
+       "builds_on": "",
+       "highlights": [
+        "panoramic sunroof",
+        "heated front seats",
+        "8-way power driver seat with 4-way lumbar"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "none standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "97/87/93 MPGe (236 mi range)"
+      },
+      {
+       "name": "Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 295 hp (50), 82 kWh gross / 77 net",
+       "builds_on": "Premium quattro",
+       "highlights": [
+        "Convenience package content (power passenger seat, memory, power tailgate, acoustic front glass)",
+        "adaptive cruise assist",
+        "heated steering wheel"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS optional (Technology package) on Premium Plus, standard on Prestige",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "97/87/93 MPGe (236 mi range)"
+      },
+      {
+       "name": "Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 295 hp (50), 82 kWh gross / 77 net",
+       "builds_on": "Premium Plus quattro",
+       "highlights": [
+        "augmented-reality head-up display",
+        "matrix-design LED headlights",
+        "Technology package (virtual cockpit plus, navigation, SONOS)"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "97/87/93 MPGe (236 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Mid-year the 50 (295 hp) became the 55 (335 hp, 258 mi, faster charging) at the same price. Adaptive cruise with lane guidance and regen paddles standard.",
+     "trims": [
+      {
+       "name": "40 / 45 e-tron (RWD)",
+       "on_list": false,
+       "why_not": "rear-wheel drive (no quattro)",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "see quattro trims",
+       "seats": "leatherette (unconfirmed)",
+       "black_interior": "yes (unconfirmed)",
+       "spare": "unknown",
+       "mpg": ""
+      },
+      {
+       "name": "Premium quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "",
+       "highlights": [
+        "panoramic sunroof",
+        "heated front seats",
+        "8-way power driver seat with 4-way lumbar"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "none standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)"
+      },
+      {
+       "name": "Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "Premium quattro",
+       "highlights": [
+        "Convenience package content (power passenger seat, memory, power tailgate, acoustic front glass)",
+        "adaptive cruise assist",
+        "heated steering wheel"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS optional (Technology package) on Premium Plus, standard on Prestige",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)"
+      },
+      {
+       "name": "Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "Premium Plus quattro",
+       "highlights": [
+        "augmented-reality head-up display",
+        "matrix-design LED headlights",
+        "Technology package (virtual cockpit plus, navigation, SONOS)"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "All AWD cars are the 55. Technology package (virtual cockpit plus, navigation) made standard; RWD 40 became the 45.",
+     "trims": [
+      {
+       "name": "40 / 45 e-tron (RWD)",
+       "on_list": false,
+       "why_not": "rear-wheel drive (no quattro)",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "see quattro trims",
+       "seats": "leatherette (unconfirmed)",
+       "black_interior": "yes (unconfirmed)",
+       "spare": "unknown",
+       "mpg": ""
+      },
+      {
+       "name": "Premium quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "",
+       "highlights": [
+        "panoramic sunroof",
+        "heated front seats",
+        "8-way power driver seat with 4-way lumbar"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "none standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "107/92/100 MPGe (258 mi range)"
+      },
+      {
+       "name": "Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "Premium quattro",
+       "highlights": [
+        "Convenience package content (power passenger seat, memory, power tailgate, acoustic front glass)",
+        "adaptive cruise assist",
+        "heated steering wheel"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS: unconfirmed which trims (standard on Premium Plus from 2026)",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "107/92/100 MPGe (258 mi range)"
+      },
+      {
+       "name": "Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "Premium Plus quattro",
+       "highlights": [
+        "augmented-reality head-up display",
+        "matrix-design LED headlights",
+        "Technology package (virtual cockpit plus, navigation, SONOS)"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "107/92/100 MPGe (258 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Premium Plus adds standard Park assist plus, top view camera and SONOS; no Prestige trim listed for 2026.",
+     "trims": [
+      {
+       "name": "40 / 45 e-tron (RWD)",
+       "on_list": false,
+       "why_not": "rear-wheel drive (no quattro)",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "see quattro trims",
+       "seats": "leatherette (unconfirmed)",
+       "black_interior": "yes (unconfirmed)",
+       "spare": "unknown",
+       "mpg": ""
+      },
+      {
+       "name": "Premium quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "",
+       "highlights": [
+        "panoramic sunroof",
+        "heated front seats",
+        "8-way power driver seat with 4-way lumbar"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "none standard",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "105/89/97 MPGe (251 mi range)"
+      },
+      {
+       "name": "Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD, 335 hp (55), 82 kWh gross / 77 net",
+       "builds_on": "Premium quattro",
+       "highlights": [
+        "Convenience package content (power passenger seat, memory, power tailgate, acoustic front glass)",
+        "adaptive cruise assist",
+        "heated steering wheel"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
+       "premium_audio": "SONOS standard on Premium Plus",
+       "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
+       "black_interior": "yes (black available; full interior color list unconfirmed)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "105/89/97 MPGe (251 mi range)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.audiusa.com/releases/518",
+    "https://media.audiusa.com/releases/573",
+    "https://media.audiusa.com/releases/597",
+    "https://media.audiusa.com/releases/612",
+    "https://media.audiusa.com/releases/641",
+    "https://media.audiusa.com/releases/491",
+    "https://electrichasgoneaudi.net/models/q4-e-tron/exterior/panoramicroof/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Audi",
+   "model": "Q8 e-tron",
+   "on_list_rule": "Every 2023 e-tron quattro / e-tron Sportback and 2024-25 Q8 e-tron / Q8 Sportback e-tron (all AWD) is on the list; e-tron S, SQ8 e-tron and RS models are not. Standard opening panoramic roof.",
+   "match_note": "2023 cars are listed as \"e-tron\" or \"e-tron quattro\"; match them to this entry (not e-tron GT).",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Sold as \"e-tron\" / \"e-tron Sportback\" (95 kWh, 355/402 hp). Black headliner standard on Sportback; Prestige adds 22-inch wheels. e-tron S models are excluded. Prices: Premium $70,800 / Premium Plus $77,800 / Prestige $86,400 (Sportback $74,000/$81,000/$89,300) + $1,195",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "",
+       "highlights": [
+        "standard panoramic glass roof",
+        "four-zone climate with heat pump"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "leather (unconfirmed for Premium); not ventilated",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)"
+      },
+      {
+       "name": "Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "Premium",
+       "highlights": [
+        "three-stage ventilated front seats"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "leather; ventilated front seats",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)"
+      },
+      {
+       "name": "Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "Premium Plus",
+       "highlights": [
+        "head-up display",
+        "individual contour seats in Valcona leather with massage"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "Valcona/Milano leather; ventilated + massage",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)"
+      },
+      {
+       "name": "SQ8 / e-tron S (all)",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "tri-motor",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Renamed Q8 e-tron: 114 kWh battery, 402 hp, more range, faster charging, new design. SQ8 excluded. Prices: Premium $74,400 / PP $78,800 / Prestige $84,800 (Sportback S line $77,800/$82,200/$88,200) + $1,195",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "",
+       "highlights": [
+        "standard panoramic glass roof",
+        "four-zone climate with heat pump"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "leather (unconfirmed for Premium); not ventilated",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)"
+      },
+      {
+       "name": "Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "Premium",
+       "highlights": [
+        "three-stage ventilated front seats"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "leather; ventilated front seats",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)"
+      },
+      {
+       "name": "Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "Premium Plus",
+       "highlights": [
+        "head-up display",
+        "individual contour seats in Valcona leather with massage"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "Valcona/Milano leather; ventilated + massage",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)"
+      },
+      {
+       "name": "SQ8 / e-tron S (all)",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "tri-motor",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Traffic sign recognition, LED interior lighting, HomeLink in mirror, Remote park assist plus; new Magnesium package. Last US model year (no 2026 in Audi lineup or EPA). Prices: Premium $74,800 / PP $79,200 / Prestige $85,200 (Sportback $78,200/$82,600/$88,600) + $1,295",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "",
+       "highlights": [
+        "standard panoramic glass roof",
+        "four-zone climate with heat pump"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "leather (unconfirmed for Premium); not ventilated",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)"
+      },
+      {
+       "name": "Premium Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "Premium",
+       "highlights": [
+        "three-stage ventilated front seats"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "leather; ventilated front seats",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)"
+      },
+      {
+       "name": "Prestige",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, quattro AWD (2023: 95 kWh, 355 hp / 402 boost; 2024-25: 114 kWh, 402 hp)",
+       "builds_on": "Premium Plus",
+       "highlights": [
+        "head-up display",
+        "individual contour seats in Valcona leather with massage"
+       ],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "Bang & Olufsen available (trim/package unconfirmed)",
+       "seats": "Valcona/Milano leather; ventilated + massage",
+       "black_interior": "yes (black available; full list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)"
+      },
+      {
+       "name": "SQ8 / e-tron S (all)",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "tri-motor",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic, opens (two-part glass roof opens and closes electronically, Audi)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.audiusa.com/releases/518",
+    "https://media.audiusa.com/releases/573",
+    "https://media.audiusa.com/releases/612",
+    "https://media.audiusa.com/releases/566",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Audi",
+   "model": "Q6 e-tron",
+   "on_list_rule": "Q6 e-tron quattro and Q6 Sportback e-tron quattro are on the list (Premium needs a sunroof check); the rear-wheel-drive Q6 e-tron and SQ6 are not. No US 2026 model year was found (2025 then 2027).",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "All-new (PPE platform, 100 kWh, 800 V). Q6 e-tron quattro: Premium $65,800 / PP $70,600 / Prestige $72,600; Sportback (from July 2025) $69,600/$73,400/$75,400; + $1,295. RWD Q6 e-tron also offered (not on list).",
+     "trims": [
+      {
+       "name": "Q6 e-tron (RWD)",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, 322 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "Premium: not standard (optional package unconfirmed -> Needs a call); Premium Plus / Prestige: standard panoramic, front panel tilts/slides (dealer window-sticker wording \"sliding and tilting glass panoramic sunroof\")",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "106/93/100 MPGe (310 mi range)"
+      },
+      {
+       "name": "Premium quattro",
+       "on_list": true,
+       "why_not": "needs a sunroof check: panoramic sunroof is not standard on Premium",
+       "powertrain": "dual motors, quattro AWD, 456 hp (launch control), 100 kWh gross / 94.4 net",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels, run-flat all-season tires",
+        "adaptive cruise control",
+        "14.5-inch MMI touch display"
+       ],
+       "sunroof": "Premium: not standard (optional package unconfirmed -> Needs a call); Premium Plus / Prestige: standard panoramic, front panel tilts/slides (dealer window-sticker wording \"sliding and tilting glass panoramic sunroof\")",
+       "premium_audio": "none standard",
+       "seats": "leatherette standard; leather available (C&D)",
+       "black_interior": "yes (unconfirmed list)",
+       "spare": "none: run-flat tires",
+       "mpg": "105/93/99 MPGe (307 mi range) (19-in); Sportback 103 MPGe, 319 mi"
+      },
+      {
+       "name": "Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "same",
+       "builds_on": "Premium quattro",
+       "highlights": [
+        "panoramic sunroof",
+        "Bang & Olufsen 3D sound",
+        "AR head-up display",
+        "heated rear seats and steering wheel"
+       ],
+       "sunroof": "Premium: not standard (optional package unconfirmed -> Needs a call); Premium Plus / Prestige: standard panoramic, front panel tilts/slides (dealer window-sticker wording \"sliding and tilting glass panoramic sunroof\")",
+       "premium_audio": "Bang & Olufsen standard",
+       "seats": "leatherette standard; leather available; ventilation unconfirmed",
+       "black_interior": "yes (unconfirmed list)",
+       "spare": "none: run-flat tires",
+       "mpg": "105/93/99 MPGe (307 mi range)"
+      },
+      {
+       "name": "Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "same",
+       "builds_on": "Premium Plus quattro",
+       "highlights": [
+        "adaptive air suspension",
+        "10.9-inch passenger display",
+        "acoustic front door glass"
+       ],
+       "sunroof": "Premium: not standard (optional package unconfirmed -> Needs a call); Premium Plus / Prestige: standard panoramic, front panel tilts/slides (dealer window-sticker wording \"sliding and tilting glass panoramic sunroof\")",
+       "premium_audio": "Bang & Olufsen standard",
+       "seats": "leatherette standard; leather available; ventilation unconfirmed",
+       "black_interior": "yes (unconfirmed list)",
+       "spare": "none: run-flat tires",
+       "mpg": "105/93/99 MPGe (307 mi range)"
+      },
+      {
+       "name": "SQ6 e-tron",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.audiusa.com/releases/618",
+    "https://media.audiusa.com/releases/638",
+    "https://media.audiusa.com/releases/612",
+    "https://media.audiusa.com/releases/683",
+    "https://www.caranddriver.com/audi/q6-e-tron",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "on_list_rule": "iX xDrive50 (2023-25) and xDrive45 / xDrive60 (2026) are on the list (all AWD, 5 seats); M60 / M70 are not. The glass roof is fixed (does not open) but counts.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "xDrive50 only on the list (M60 excluded). Price $84,100 + $995 (BMWBlog).",
+     "trims": [
+      {
+       "name": "xDrive50",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD, 516 hp, ~105 kWh net, air suspension (+0.8 in lift)",
+       "builds_on": "",
+       "highlights": [
+        "panoramic glass roof with electrochromic shading",
+        "Harman Kardon audio",
+        "Sensatec (synthetic) seats in Black, Oyster or Mocha"
+       ],
+       "sunroof": "standard panoramic glass roof with electrochromic shading; FIXED (does not open) - counts as a sunroof",
+       "premium_audio": "Harman Kardon 18-speaker standard; Bowers & Wilkins 30-speaker optional",
+       "seats": "Sensatec standard; Stonegray microfiber/wool cloth or Castanea/Amido natural leather optional; ventilation optional",
+       "black_interior": "yes (Black Sensatec); Oyster/Mocha/Stonegray/Castanea/Amido are not black",
+       "spare": "unknown",
+       "mpg": "xDrive50: 86/87/86 MPGe (324 mi range) (20-in); 305-315 on 21/22-in"
+      },
+      {
+       "name": "M60",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic glass roof with electrochromic shading; FIXED (does not open) - counts as a sunroof",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "xDrive50 $87,100 + $995 (InsideEVs). EPA also lists an xDrive40 (217 mi); US sale unconfirmed.",
+     "trims": [
+      {
+       "name": "xDrive50",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD, 516 hp, ~105 kWh net, air suspension (+0.8 in lift)",
+       "builds_on": "",
+       "highlights": [
+        "panoramic glass roof with electrochromic shading",
+        "Harman Kardon audio",
+        "Sensatec (synthetic) seats in Black, Oyster or Mocha"
+       ],
+       "sunroof": "standard panoramic glass roof with electrochromic shading; FIXED (does not open) - counts as a sunroof",
+       "premium_audio": "Harman Kardon 18-speaker standard; Bowers & Wilkins 30-speaker optional",
+       "seats": "Sensatec standard; Stonegray microfiber/wool cloth or Castanea/Amido natural leather optional; ventilation optional",
+       "black_interior": "yes (Black Sensatec); Oyster/Mocha/Stonegray/Castanea/Amido are not black",
+       "spare": "unknown",
+       "mpg": "xDrive50: 83/82/83 MPGe (307 mi range)"
+      },
+      {
+       "name": "M60",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic glass roof with electrochromic shading; FIXED (does not open) - counts as a sunroof",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "xDrive50 $87,250 + $1,175 (InsideEVs).",
+     "trims": [
+      {
+       "name": "xDrive50",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD, 516 hp, ~105 kWh net, air suspension (+0.8 in lift)",
+       "builds_on": "",
+       "highlights": [
+        "panoramic glass roof with electrochromic shading",
+        "Harman Kardon audio",
+        "Sensatec (synthetic) seats in Black, Oyster or Mocha"
+       ],
+       "sunroof": "standard panoramic glass roof with electrochromic shading; FIXED (does not open) - counts as a sunroof",
+       "premium_audio": "Harman Kardon 18-speaker standard; Bowers & Wilkins 30-speaker optional",
+       "seats": "Sensatec standard; Stonegray microfiber/wool cloth or Castanea/Amido natural leather optional; ventilation optional",
+       "black_interior": "yes (Black Sensatec); Oyster/Mocha/Stonegray/Castanea/Amido are not black",
+       "spare": "unknown",
+       "mpg": "xDrive50: 82/84/83 MPGe (309 mi range) (20-in)"
+      },
+      {
+       "name": "M60",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard panoramic glass roof with electrochromic shading; FIXED (does not open) - counts as a sunroof",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Refresh: xDrive45 (402 hp, 312 mi) $75,150 and xDrive60 (364 mi) $88,500, + $1,175. The roof becomes optional on the xDrive45.",
+     "trims": [
+      {
+       "name": "xDrive45",
+       "on_list": true,
+       "why_not": "needs a sunroof check: Panoramic Eclipsing Roof is optional on the xDrive45",
+       "powertrain": "dual motors, AWD, 402 hp",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels",
+        "ground clearance 8.8 in"
+       ],
+       "sunroof": "optional (Panoramic Eclipsing Roof, one-piece electrochromic glass, FIXED - counts)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "microfiber/Sensatec standard; Amido or Castanea leather optional; ventilation optional",
+       "black_interior": "yes (black available, unconfirmed list)",
+       "spare": "unknown",
+       "mpg": "94/93/94 MPGe (312 mi range) (20-in)"
+      },
+      {
+       "name": "xDrive60",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD",
+       "builds_on": "xDrive45",
+       "highlights": [
+        "Panoramic Eclipsing Roof standard",
+        "ground clearance 8.8 in"
+       ],
+       "sunroof": "standard Panoramic Eclipsing Roof (one-piece glass, FIXED - counts)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "microfiber/Sensatec standard; leather optional; ventilation optional",
+       "black_interior": "yes (black available, unconfirmed list)",
+       "spare": "unknown",
+       "mpg": "99/94/97 MPGe (364 mi range) (20-in)"
+      },
+      {
+       "name": "M70 xDrive",
+       "on_list": false,
+       "why_not": "performance model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.press.bmwgroup.com/usa/article/detail/T0447721EN_US/the-new-bmw-ix",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0334227EN_US/the-new-2022-bmw-ix-xdrive50",
+    "https://www.caranddriver.com/bmw/ix-2024",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "on_list_rule": "EQB 300 / 350 4MATIC with the panorama sunroof and 5 seats are on the list; the FWD EQB 250(+) and any 7-seat EQB are not. No 2026 US EQB found (no EPA 2026 listing).",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "2023 prices for the 4MATIC models were \"TBA\" in Mercedes’ guide; EPA has no 2023 EQB listing. EQB 250+ (FWD) added.",
+     "trims": [
+      {
+       "name": "EQB 250 / 250+",
+       "on_list": false,
+       "why_not": "front-wheel drive",
+       "powertrain": "single front motor, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "114/100/107 MPGe (251 mi range)"
+      },
+      {
+       "name": "EQB 300 4MATIC",
+       "on_list": true,
+       "why_not": "needs a sunroof check (optional) and a 2-row check (optional 3rd row)",
+       "powertrain": "dual motors, 4MATIC AWD, 225 hp, 66.5 kWh net",
+       "builds_on": "",
+       "highlights": [
+        "5 seats standard; optional 2-seat third row (7 seats) - excluded",
+        "10.25-in screens"
+       ],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "mid-line sound standard (2024+); Burmester optional (Pinnacle 2022-23, Exclusive 2025)",
+       "seats": "MB-Tex (synthetic) standard; multicontour seats with ventilation optional (2023 guide)",
+       "black_interior": "yes (black MB-Tex available; list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "89/85/87 MPGe (205 mi range) (2024 EPA figures)"
+      },
+      {
+       "name": "EQB 350 4MATIC",
+       "on_list": true,
+       "why_not": "needs a sunroof check (optional) and a 2-row check (optional 3rd row)",
+       "powertrain": "dual motors, 4MATIC AWD, 288 hp",
+       "builds_on": "EQB 300 4MATIC",
+       "highlights": [
+        "more power"
+       ],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "same as EQB 300",
+       "seats": "same as EQB 300",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "89/85/87 MPGe (207 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Facelift: AR navigation, KEYLESS-GO, wireless charging, mid-line sound standard. EQB 300 4MATIC $57,000, EQB 350 4MATIC $60,650 + $1,150.",
+     "trims": [
+      {
+       "name": "EQB 250 / 250+",
+       "on_list": false,
+       "why_not": "front-wheel drive",
+       "powertrain": "single front motor, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "114/100/107 MPGe (251 mi range)"
+      },
+      {
+       "name": "EQB 300 4MATIC",
+       "on_list": true,
+       "why_not": "needs a sunroof check (optional) and a 2-row check (optional 3rd row)",
+       "powertrain": "dual motors, 4MATIC AWD, 225 hp, 66.5 kWh net",
+       "builds_on": "",
+       "highlights": [
+        "5 seats standard; optional 2-seat third row (7 seats) - excluded",
+        "10.25-in screens"
+       ],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "mid-line sound standard (2024+); Burmester optional (Pinnacle 2022-23, Exclusive 2025)",
+       "seats": "MB-Tex (synthetic) standard; multicontour seats with ventilation optional (2023 guide)",
+       "black_interior": "yes (black MB-Tex available; list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "89/85/87 MPGe (205 mi range)"
+      },
+      {
+       "name": "EQB 350 4MATIC",
+       "on_list": true,
+       "why_not": "needs a sunroof check (optional) and a 2-row check (optional 3rd row)",
+       "powertrain": "dual motors, 4MATIC AWD, 288 hp",
+       "builds_on": "EQB 300 4MATIC",
+       "highlights": [
+        "more power"
+       ],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "same as EQB 300",
+       "seats": "same as EQB 300",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "89/85/87 MPGe (207 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "New optional Exclusive trim (360 camera, Burmester, heated seats); Design Package with gray/rose-gold upholstery (not black); Mountain Grey Magno (matte) paint. 2025 prices not found.",
+     "trims": [
+      {
+       "name": "EQB 250 / 250+",
+       "on_list": false,
+       "why_not": "front-wheel drive",
+       "powertrain": "single front motor, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "114/100/107 MPGe (251 mi range)"
+      },
+      {
+       "name": "EQB 300 4MATIC",
+       "on_list": true,
+       "why_not": "needs a sunroof check (optional) and a 2-row check (optional 3rd row)",
+       "powertrain": "dual motors, 4MATIC AWD, 225 hp, 66.5 kWh net",
+       "builds_on": "",
+       "highlights": [
+        "5 seats standard; optional 2-seat third row (7 seats) - excluded",
+        "10.25-in screens"
+       ],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "mid-line sound standard (2024+); Burmester optional (Pinnacle 2022-23, Exclusive 2025)",
+       "seats": "MB-Tex (synthetic) standard; multicontour seats with ventilation optional (2023 guide)",
+       "black_interior": "yes (black MB-Tex available; list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "89/85/87 MPGe (205 mi range)"
+      },
+      {
+       "name": "EQB 350 4MATIC",
+       "on_list": true,
+       "why_not": "needs a sunroof check (optional) and a 2-row check (optional 3rd row)",
+       "powertrain": "dual motors, 4MATIC AWD, 288 hp",
+       "builds_on": "EQB 300 4MATIC",
+       "highlights": [
+        "more power"
+       ],
+       "sunroof": "optional Panorama Sunroof (part of the Pinnacle trim at launch); opening front panel likely (GLB-based) but unconfirmed",
+       "premium_audio": "same as EQB 300",
+       "seats": "same as EQB 300",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "89/85/87 MPGe (207 mi range)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.mbusa.com/news/2024-eqb-suv-quick-reference-guide",
+    "https://media.mbusa.com/news/2023-eqb-suv-quick-reference-guide",
+    "https://media.mbusa.com/news/mercedes-benz-usa-announces-pricing-and-packaging-structures-for-the-all-new-all-electric-eqb-suv",
+    "https://media.mbusa.com/news/2025-mercedes-benz-model-line-updates",
+    "https://www.caranddriver.com/mercedes-benz/eqb-2024",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE SUV",
+   "on_list_rule": "Every 4MATIC (AWD) EQE SUV is on the list (all have 2 rows and an opening panorama roof); RWD EQE 350+/320+ and AMG are not.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Launch (Alabama-built). 350+/350 4MATIC $77,900, 500 4MATIC $89,500 + $1,150 (Premium; Exclusive/Pinnacle cost more). EPA has no 2023 listing.",
+     "trims": [
+      {
+       "name": "EQE 350+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQE 350 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, 4MATIC AWD, 288 hp, ~90 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Burmester 3D sound with Dolby Atmos",
+        "Surround View camera",
+        "12.8-in OLED screen",
+        "5 seats only (no third row)"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard (2023 MB guide; C&D 2026 page says optional - unconfirmed for 2026)",
+       "seats": "MB-Tex (synthetic) standard; leather / Nappa optional; ventilated front seats optional",
+       "black_interior": "yes (black available, list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "88/82/85 MPGe (265 mi range) (2024 EPA)"
+      },
+      {
+       "name": "EQE 500 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD, 402 hp",
+       "builds_on": "EQE 350 4MATIC",
+       "highlights": [
+        "leather standard",
+        "AMG Line exterior",
+        "20-inch wheels",
+        "rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard",
+       "seats": "leather standard; ventilation optional",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "88/83/86 MPGe (282 mi range) (2024 EPA)"
+      },
+      {
+       "name": "AMG EQE SUV",
+       "on_list": false,
+       "why_not": "AMG model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Carry-over; prices assumed unchanged (unconfirmed).",
+     "trims": [
+      {
+       "name": "EQE 350+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQE 350 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, 4MATIC AWD, 288 hp, ~90 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Burmester 3D sound with Dolby Atmos",
+        "Surround View camera",
+        "12.8-in OLED screen",
+        "5 seats only (no third row)"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard (2023 MB guide; C&D 2026 page says optional - unconfirmed for 2026)",
+       "seats": "MB-Tex (synthetic) standard; leather / Nappa optional; ventilated front seats optional",
+       "black_interior": "yes (black available, list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "88/82/85 MPGe (265 mi range)"
+      },
+      {
+       "name": "EQE 500 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD, 402 hp",
+       "builds_on": "EQE 350 4MATIC",
+       "highlights": [
+        "leather standard",
+        "AMG Line exterior",
+        "20-inch wheels",
+        "rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard",
+       "seats": "leather standard; ventilation optional",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "88/83/86 MPGe (282 mi range)"
+      },
+      {
+       "name": "AMG EQE SUV",
+       "on_list": false,
+       "why_not": "AMG model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Rear headrest pillows and center airbag standard; soft-close doors optional. Prices not found.",
+     "trims": [
+      {
+       "name": "EQE 350+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQE 350 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, 4MATIC AWD, 288 hp, ~90 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Burmester 3D sound with Dolby Atmos",
+        "Surround View camera",
+        "12.8-in OLED screen",
+        "5 seats only (no third row)"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard (2023 MB guide; C&D 2026 page says optional - unconfirmed for 2026)",
+       "seats": "MB-Tex (synthetic) standard; leather / Nappa optional; ventilated front seats optional",
+       "black_interior": "yes (black available, list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "84/78/81 MPGe (253 mi range)"
+      },
+      {
+       "name": "EQE 500 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, AWD, 402 hp",
+       "builds_on": "EQE 350 4MATIC",
+       "highlights": [
+        "leather standard",
+        "AMG Line exterior",
+        "20-inch wheels",
+        "rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard",
+       "seats": "leather standard; ventilation optional",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "83/78/81 MPGe (264 mi range)"
+      },
+      {
+       "name": "AMG EQE SUV",
+       "on_list": false,
+       "why_not": "AMG model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "EQE 320+ / EQE 320 4MATIC replace the 350 versions (315 hp); NACS adapter; no EQE 500 SUV in EPA 2026 list. Prices not found (C&D shows a much lower base, ~$66,200).",
+     "trims": [
+      {
+       "name": "EQE 320+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQE 320 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motors, 4MATIC AWD, 315 hp, ~90 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Burmester 3D sound with Dolby Atmos",
+        "Surround View camera",
+        "12.8-in OLED screen",
+        "5 seats only (no third row)"
+       ],
+       "sunroof": "standard Power Tilt and Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester standard (2023 MB guide; C&D 2026 page says optional - unconfirmed for 2026)",
+       "seats": "MB-Tex (synthetic) standard; leather / Nappa optional; ventilated front seats optional",
+       "black_interior": "yes (black available, list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "84/78/81 MPGe (253 mi range)"
+      },
+      {
+       "name": "AMG EQE SUV",
+       "on_list": false,
+       "why_not": "AMG model not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.mbusa.com/news/mercedes-benz-usa-announces-pricing-and-packaging-structures-for-alabama-built-eqe-suv",
+    "https://media.mbusa.com/news/2023-eqe-suv-quick-reference-guide",
+    "https://media.mbusa.com/news/2025-mercedes-benz-model-line-updates",
+    "https://media.mbusa.com/news/2026-mercedes-benz-model-line-updates",
+    "https://www.caranddriver.com/mercedes-benz/eqe-suv-2024",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS SUV",
+   "on_list_rule": "EQS 450 / 580 4MATIC (2023-25) and EQS 400 / 550 4MATIC (2026) with 5 seats are on the list; RWD EQS 450+, 7-seat cars and Maybach are not. Used prices rarely fit the $40,500 cap.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Launch. 450 4MATIC $107,400, 580 4MATIC $125,950 + $1,150 (Premium). Optional third row (7 seats).",
+     "trims": [
+      {
+       "name": "EQS 450+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row (7 seats) excluded",
+       "powertrain": "dual motors, 4MATIC AWD, 355 hp, 108-118 kWh",
+       "builds_on": "",
+       "highlights": [
+        "leather, heated + ventilated front seats",
+        "Burmester 3D sound",
+        "air suspension, rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather standard; ventilated front seats standard",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "79/77/78 MPGe (285 mi range)"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row excluded",
+       "powertrain": "dual motors, AWD, 536 hp",
+       "builds_on": "EQS 450 4MATIC",
+       "highlights": [
+        "MBUX Hyperscreen",
+        "21-inch wheels"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather; ventilated",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "79/74/77 MPGe (285 mi range)"
+      },
+      {
+       "name": "Maybach EQS SUV",
+       "on_list": false,
+       "why_not": "not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Carry-over (prices not found).",
+     "trims": [
+      {
+       "name": "EQS 450+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row (7 seats) excluded",
+       "powertrain": "dual motors, 4MATIC AWD, 355 hp, 108-118 kWh",
+       "builds_on": "",
+       "highlights": [
+        "leather, heated + ventilated front seats",
+        "Burmester 3D sound",
+        "air suspension, rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather standard; ventilated front seats standard",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "84/82/83 MPGe (330 mi range)"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row excluded",
+       "powertrain": "dual motors, AWD, 536 hp",
+       "builds_on": "EQS 450 4MATIC",
+       "highlights": [
+        "MBUX Hyperscreen",
+        "21-inch wheels"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather; ventilated",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "85/81/83 MPGe (330 mi range)"
+      },
+      {
+       "name": "Maybach EQS SUV",
+       "on_list": false,
+       "why_not": "not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Four-zone climate, soft-close doors, front headrest cushions standard. Prices not found.",
+     "trims": [
+      {
+       "name": "EQS 450+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single rear motor, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      },
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row (7 seats) excluded",
+       "powertrain": "dual motors, 4MATIC AWD, 355 hp, 108-118 kWh",
+       "builds_on": "",
+       "highlights": [
+        "leather, heated + ventilated front seats",
+        "Burmester 3D sound",
+        "air suspension, rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather standard; ventilated front seats standard",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "80/78/79 MPGe (312 mi range)"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row excluded",
+       "powertrain": "dual motors, AWD, 536 hp",
+       "builds_on": "EQS 450 4MATIC",
+       "highlights": [
+        "MBUX Hyperscreen",
+        "21-inch wheels"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather; ventilated",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "82/78/80 MPGe (317 mi range)"
+      },
+      {
+       "name": "Maybach EQS SUV",
+       "on_list": false,
+       "why_not": "not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "EQS 400 4MATIC and EQS 550 4MATIC replace 450/580; heated rear seats standard. No RWD 450+ in EPA 2026.",
+     "trims": [
+      {
+       "name": "EQS 400 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row (7 seats) excluded",
+       "powertrain": "dual motors, 4MATIC AWD, 355 hp, 108-118 kWh",
+       "builds_on": "",
+       "highlights": [
+        "leather, heated + ventilated front seats",
+        "Burmester 3D sound",
+        "air suspension, rear-axle steering"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather standard; ventilated front seats standard",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "80/78/79 MPGe (312 mi range)"
+      },
+      {
+       "name": "EQS 550 4MATIC",
+       "on_list": true,
+       "why_not": "2-row check needed: optional third row excluded",
+       "powertrain": "dual motors, AWD, 536 hp",
+       "builds_on": "EQS 400 4MATIC",
+       "highlights": [
+        "MBUX Hyperscreen",
+        "21-inch wheels"
+       ],
+       "sunroof": "standard Power Tilt/Sliding Panorama Roof (opens)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "leather; ventilated",
+       "black_interior": "yes (list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "82/78/80 MPGe (317 mi range)"
+      },
+      {
+       "name": "Maybach EQS SUV",
+       "on_list": false,
+       "why_not": "not on the list",
+       "powertrain": "",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "",
+       "premium_audio": "",
+       "seats": "",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.mbusa.com/news/mercedes-benz-usa-announces-pricing-and-packaging-structures-for-all-new-eqs-suv",
+    "https://media.mbusa.com/news/2023-eqs-suv-quick-reference-guide",
+    "https://media.mbusa.com/news/2026-mercedes-benz-model-line-updates",
+    "https://www.caranddriver.com/mercedes-benz/eqs-suv-2025",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "on_list_rule": "Every AWD GV60 (Advanced AWD, Performance AWD, and the 2025+ base \"Standard AWD\"/\"AWD\") is on the list: all have the fixed Vision Roof and offer Obsidian Black. RWD GV60s (2024 \"Standard\" is RWD only; 2025 \"Standard RWD\"; 2026 \"RWD\") are not. The roof is fixed glass, not an opening sunroof.",
+   "listing_names": [
+    "GV60 Advanced AWD",
+    "GV60 Performance AWD",
+    "GV60 Standard AWD",
+    "GV60 AWD",
+    "GV60 Standard RWD"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First US year; AWD only (Advanced, Performance). 77.4 kWh battery.",
+     "trims": [
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 74 kW front / 160 kW rear (314 hp), 77.4 kWh, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels",
+        "Vision Roof (fixed glass) with power shade",
+        "Leather seats, heated + ventilated front",
+        "Bang & Olufsen 17-speaker audio",
+        "Head-up display, Face Connect + fingerprint start",
+        "Highway Driving Assist, Surround View, Remote Smart Parking Assist"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen 17 speakers, standard",
+       "seats": "genuine leather standard; heated + ventilated front",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/86/95 MPGe, 248 mi range"
+      },
+      {
+       "name": "Performance AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 160 kW + 160 kW (429 hp, 483 hp Boost), 77.4 kWh, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "21-inch wheels",
+        "Nappa leather, heated rear seats",
+        "Electronically controlled suspension, e-LSD",
+        "Microfiber suede headliner",
+        "Boost mode"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen 17 speakers, standard",
+       "seats": "Nappa leather standard; heated + ventilated front, heated rear",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "97/82/90 MPGe, 235 mi range"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Standard RWD added (RWD only in 2024, not on list). Advanced/Performance unchanged in features.",
+     "trims": [
+      {
+       "name": "Standard RWD",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive only)",
+       "powertrain": "168 kW rear motor, 77.4 kWh, RWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "Leatherette seats, heated front",
+        "Vision Roof"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leatherette; heated front, no ventilation",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "125/99/112 MPGe, 294 mi"
+      },
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 74 kW front / 160 kW rear (314 hp), 77.4 kWh, AWD",
+       "builds_on": "",
+       "highlights": [
+        "20-inch wheels",
+        "Leather, heated + ventilated front",
+        "Bang & Olufsen audio",
+        "HUD, Surround View, Remote Smart Parking Assist"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen 17 speakers, standard",
+       "seats": "genuine leather; heated + ventilated front",
+       "black_interior": "yes (Obsidian Black; also Ash Gray/Glacier White)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/86/95 MPGe, 248 mi (EPA also lists a 19-inch-wheel version: 110/90/100, 264 mi)"
+      },
+      {
+       "name": "Performance AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 160 kW + 160 kW (429 hp, 483 hp Boost), 77.4 kWh, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "21-inch wheels",
+        "Nappa leather, heated rear seats, heated wheel",
+        "Electronically controlled suspension, e-LSD"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen 17 speakers, standard",
+       "seats": "Nappa leather; heated + ventilated front, heated rear",
+       "black_interior": "yes (Obsidian Black; also Ash Gray/Glacier White, Torrent Navy)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "97/82/90 MPGe, 235 mi"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Standard AWD added (base equipment with dual motors). Destination $1,495.",
+     "trims": [
+      {
+       "name": "Standard RWD",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "168 kW rear motor, 77.4 kWh, RWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "Leatherette, heated front",
+        "Vision Roof"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leatherette; heated front, no ventilation",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "125/99/112 MPGe, 294 mi"
+      },
+      {
+       "name": "Standard AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 74 kW front / 160 kW rear (314 hp), 77.4 kWh, AWD",
+       "builds_on": "Standard RWD",
+       "highlights": [
+        "Dual-motor AWD",
+        "19-inch wheels",
+        "Leatherette, heated front (no ventilation)",
+        "Vision Roof"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leatherette (synthetic); heated front, no ventilation",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "110/90/100 MPGe, 264 mi"
+      },
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 74 kW front / 160 kW rear (314 hp), 77.4 kWh, AWD",
+       "builds_on": "Standard AWD",
+       "highlights": [
+        "20-inch wheels",
+        "Leather, heated + ventilated front, heated wheel",
+        "Bang & Olufsen audio",
+        "HUD, Surround View"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen 17 speakers, standard",
+       "seats": "genuine leather; heated + ventilated front",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/86/95 MPGe, 248 mi"
+      },
+      {
+       "name": "Performance AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 160 kW + 160 kW (429 hp, 483 hp Boost), 77.4 kWh, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "21-inch wheels",
+        "Nappa leather, heated rear seats",
+        "Electronically controlled suspension"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen 17 speakers, standard",
+       "seats": "Nappa leather; heated + ventilated front, heated rear",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "97/82/90 MPGe, 235 mi"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Refresh: 84 kWh battery, NACS charge port, new screens/styling; trims renamed RWD / AWD / Advanced AWD / Performance AWD. Genesis lists Bang & Olufsen on Performance only for 2026 (Advanced = 8-speaker \"Premium Audio\").",
+     "trims": [
+      {
+       "name": "RWD",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "168 kW rear motor (225 hp), 84 kWh, RWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "Leatherette, heated front",
+        "Vision Roof"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leatherette; heated front",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "119/101/110 MPGe, 306 mi"
+      },
+      {
+       "name": "AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 74 kW front / 160 kW rear (314 hp), 84 kWh, AWD",
+       "builds_on": "RWD",
+       "highlights": [
+        "Dual-motor AWD",
+        "19-inch wheels",
+        "Leatherette, heated front (no ventilation)"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leatherette (synthetic); heated front, no ventilation",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "107/93/100 MPGe, 282 mi"
+      },
+      {
+       "name": "Advanced AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 74 kW front / 160 kW rear (314 hp), 84 kWh, AWD",
+       "builds_on": "AWD",
+       "highlights": [
+        "20-inch wheels",
+        "Leather, ventilated front seats, heated wheel",
+        "Leatherette dash/door uppers"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "none listed (8-speaker Premium Audio; B&O not listed for 2026 Advanced on genesis.com)",
+       "seats": "genuine leather; heated + ventilated front",
+       "black_interior": "yes (Obsidian Black; also Ash Gray/Glacier White, Aqua Green)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "102/89/96 MPGe, 267 mi"
+      },
+      {
+       "name": "Performance AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors 160 kW + 160 kW with Boost, 84 kWh, AWD",
+       "builds_on": "Advanced AWD",
+       "highlights": [
+        "21-inch wheels",
+        "Nappa leather, heated rear seats",
+        "Electronically controlled suspension with Road Preview",
+        "Bang & Olufsen"
+       ],
+       "sunroof": "standard fixed panoramic glass \"Vision Roof\" with power shade (does not open; counts as a sunroof)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "Nappa leather; heated + ventilated front, heated rear",
+       "black_interior": "yes (Obsidian Black; also Ash Gray/Glacier White, Aqua Green, Sky Blue)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "97/83/90 MPGe, 252 mi"
+      }
+     ]
+    }
+   ],
+   "ground_clearance": "unconfirmed (Genesis spec not found; third-party figure about 6.3 in)",
+   "sources": [
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2023&model=gv60",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2024&model=gv60",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2025&model=gv60",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2026&model=gv60",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2024&model=gv60",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2025&model=gv60",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2026&model=gv60",
+    "https://www.caranddriver.com/genesis/gv60/specs/2023/genesis_gv60_genesis-gv60_2023",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Genesis (GV60 2023-2026)"
+   ]
+  },
+  {
+   "make": "Volkswagen",
+   "model": "ID.4",
+   "on_list_rule": "Only AWD ID.4 Pro S and AWD Pro S Plus are on the list (panoramic fixed glass roof standard). AWD Pro (no roof, cloth) and every RWD ID.4 (Standard, S, Pro, Pro S, Pro S Plus RWD, Limited) are not. Black interior needs checking on the listing.",
+   "listing_names": [
+    "ID.4 AWD Pro S",
+    "ID.4 AWD Pro S Plus",
+    "ID.4 Pro S AWD",
+    "ID.4 Pro S Plus with 4MOTION",
+    "ID.4 AWD Pro",
+    "ID.4 Pro S (RWD)"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Trims Standard/S (62 kWh, RWD), Pro, Pro S, Pro S Plus (82 kWh; RWD or AWD). AWD 295 hp.",
+     "trims": [
+      {
+       "name": "AWD Pro",
+       "on_list": false,
+       "why_not": "no glass roof (not standard; no roof option confirmed) and cloth seats",
+       "powertrain": "Dual motors, 82 kWh (77 kWh usable), AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "Heated front seats"
+       ],
+       "sunroof": "not standard (no panoramic roof)",
+       "premium_audio": "none",
+       "seats": "cloth; heated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "104/93/99 MPGe, 255 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro",
+       "highlights": [
+        "Panoramic fixed glass roof",
+        "V-Tex leatherette, 12-way power front seats with massage/memory",
+        "30-color ambient light"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "none (7 speakers)",
+       "seats": "V-Tex leatherette (synthetic); heated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "104/93/99 MPGe, 255 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro S",
+       "highlights": [
+        "Heated rear outboard seats",
+        "21-inch wheels (2024+)",
+        "Park Assist Plus, 3-zone climate"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "none listed for 2023 (7 speakers; one 2023 build is listed \"w/ VW Sound\")",
+       "seats": "V-Tex leatherette (synthetic); heated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "104/93/99 MPGe, 255 mi (AWD)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "New rear motor (more power), 12.9-inch screen; heated + ventilated front seats on Pro S and up; Harman Kardon on Pro S Plus.",
+     "trims": [
+      {
+       "name": "AWD Pro",
+       "on_list": false,
+       "why_not": "no glass roof (not standard; no roof option confirmed) and cloth seats",
+       "powertrain": "Dual motors, 82 kWh (77 kWh usable), AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "Heated front seats"
+       ],
+       "sunroof": "not standard (no panoramic roof)",
+       "premium_audio": "none",
+       "seats": "cloth; heated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro",
+       "highlights": [
+        "Panoramic fixed glass roof",
+        "V-Tex leatherette, 12-way power front seats with massage/memory",
+        "30-color ambient light"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "none (standard audio)",
+       "seats": "V-Tex leatherette (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro S",
+       "highlights": [
+        "Heated rear outboard seats",
+        "21-inch wheels (2024+)",
+        "Park Assist Plus, 3-zone climate",
+        "Harman Kardon audio"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "V-Tex leatherette (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Launched with 82 kWh only; 62 kWh \"Limited\"/\"S Limited\" RWD added later. AWD unchanged.",
+     "trims": [
+      {
+       "name": "AWD Pro",
+       "on_list": false,
+       "why_not": "no glass roof (not standard; no roof option confirmed) and cloth seats",
+       "powertrain": "Dual motors, 82 kWh (77 kWh usable), AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "Heated front seats"
+       ],
+       "sunroof": "not standard (no panoramic roof)",
+       "premium_audio": "none",
+       "seats": "cloth ; heated + ventilated front (C/D)",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro",
+       "highlights": [
+        "Panoramic fixed glass roof",
+        "V-Tex leatherette, 12-way power front seats with massage/memory",
+        "30-color ambient light"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "none (standard audio)",
+       "seats": "V-Tex leatherette (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro S",
+       "highlights": [
+        "Heated rear outboard seats",
+        "21-inch wheels (2024+)",
+        "Park Assist Plus, 3-zone climate",
+        "Harman Kardon audio"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "V-Tex leatherette (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "AWD Pro / Pro S / Pro S Plus carry on; destination ~$1,475.",
+     "trims": [
+      {
+       "name": "AWD Pro",
+       "on_list": false,
+       "why_not": "no glass roof (not standard; no roof option confirmed) and cloth seats",
+       "powertrain": "Dual motors, 82 kWh (77 kWh usable), AWD",
+       "builds_on": "",
+       "highlights": [
+        "Cloth seats",
+        "Heated front seats"
+       ],
+       "sunroof": "not standard (no panoramic roof)",
+       "premium_audio": "none",
+       "seats": "cloth; heated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro",
+       "highlights": [
+        "Panoramic fixed glass roof",
+        "V-Tex leatherette, 12-way power front seats with massage/memory",
+        "30-color ambient light"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "none (standard audio)",
+       "seats": "V-Tex leatherette (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      },
+      {
+       "name": "AWD Pro S Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 82 kWh, AWD",
+       "builds_on": "AWD Pro S",
+       "highlights": [
+        "Heated rear outboard seats",
+        "21-inch wheels (2024+)",
+        "Park Assist Plus, 3-zone climate",
+        "Harman Kardon audio"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power sunshade (fixed per Car and Driver for 2023-24 and vw.com's current \"panoramic fixed glass roof\"; C/D's 2025-26 data says \"sliding and tilting\", which conflicts; treat as fixed). Counts as a sunroof.",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "V-Tex leatherette (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: VW interior names seen on listings include \"Black w/ Gray bolsters\" (OK) and \"Gray w/ Black bolsters\" / \"Cinnamon\" (excluded); check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "108/96/102 MPGe, 263 mi (AWD)"
+      }
+     ]
+    }
+   ],
+   "ground_clearance": "unconfirmed (not in C/D data; VW spec not reached)",
+   "sources": [
+    "https://www.caranddriver.com/volkswagen/id4/specs/2023/volkswagen_i.d.-crozz_volkswagen-id.4_2023",
+    "https://www.caranddriver.com/volkswagen/id4/specs/2024/volkswagen_i.d.-crozz_volkswagen-id.4_2024",
+    "https://www.caranddriver.com/volkswagen/id4/specs/2025/volkswagen_i.d.-crozz_volkswagen-id.4_2025",
+    "https://www.caranddriver.com/volkswagen/id4/specs/2026/volkswagen_i.d.-crozz_volkswagen-id.4_2026",
+    "https://www.vw.com/en/builder.html/__app/id-4.app",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Volkswagen (ID.4 2023-2026)"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40 Recharge / EX40",
+   "match": {
+    "model": "XC40",
+    "fuel": "ev"
+   },
+   "on_list_rule": "Twin-motor (AWD) Plus and Ultimate/Ultra are on the list (opening panoramic sunroof standard). Twin Core (no sunroof) and every single-motor RWD version are not. Renamed EX40 for 2025.",
+   "listing_names": [
+    "XC40 Recharge Pure Electric Twin Plus",
+    "XC40 Recharge Twin Ultimate",
+    "XC40 (Volvo store: trim \"Plus, Twin Motor, Electric\")",
+    "EX40 Twin Motor Plus",
+    "EX40 Twin Motor Ultra",
+    "EX40 Single Motor Extended Range (RWD)"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Twin motor AWD only (P8); trims Core / Plus / Ultimate.",
+     "trims": [
+      {
+       "name": "Twin Core",
+       "on_list": false,
+       "why_not": "no sunroof on Core",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Leather-free Microtech/textile seats",
+        "Google built-in"
+       ],
+       "sunroof": "not standard",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl/textile (leather-free)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "92/79/85 MPGe, 223 mi"
+      },
+      {
+       "name": "Twin Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Core",
+       "highlights": [
+        "Panoramic sunroof (opens)",
+        "Connect Suede textile/Microtech seats",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Connect Suede textile / Microtech (synthetic); heated front; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "92/79/85 MPGe, 223 mi"
+      },
+      {
+       "name": "Twin Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Plus",
+       "highlights": [
+        "Harman Kardon",
+        "360 camera, Pilot Assist"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech; heated front; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "92/79/85 MPGe, 223 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Single-motor RWD added (not on list); twin motor gets new rear-biased motors (more range).",
+     "trims": [
+      {
+       "name": "Twin Core",
+       "on_list": false,
+       "why_not": "no sunroof on Core",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Leather-free seats"
+       ],
+       "sunroof": "not standard",
+       "premium_audio": "none",
+       "seats": "Microtech/textile (leather-free)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/90/98 MPGe, 254 mi"
+      },
+      {
+       "name": "Twin Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Core",
+       "highlights": [
+        "Panoramic sunroof (opens)"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Connect Suede textile / Microtech; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/90/98 MPGe, 254 mi"
+      },
+      {
+       "name": "Twin Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Plus",
+       "highlights": [
+        "Harman Kardon",
+        "360 camera"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/90/98 MPGe, 254 mi"
+      },
+      {
+       "name": "Single motor (RWD) Core / Plus / Ultimate",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "Plus/Ultimate: opening panoramic sunroof",
+       "premium_audio": "Ultimate: Harman Kardon",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/95/106 MPGe, 293 mi"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Renamed EX40; Core / Plus / Ultra.",
+     "trims": [
+      {
+       "name": "Twin Motor Core",
+       "on_list": false,
+       "why_not": "no sunroof on Core",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Canvas textile seats"
+       ],
+       "sunroof": "not standard",
+       "premium_audio": "none",
+       "seats": "Canvas textile (cloth)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Twin Motor Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Motor Core",
+       "highlights": [
+        "Panoramic sunroof (opens)"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Microtech/textile (synthetic + textile)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Twin Motor Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Motor Plus",
+       "highlights": [
+        "Harman Kardon"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Microtech/textile",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Single Motor Extended Range (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "Plus/Ultra: opening panoramic sunroof",
+       "premium_audio": "Ultra: Harman Kardon",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/94/106 MPGe, 296 mi"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "C/D lists Twin Motor Plus, Twin Motor Ultra Black Edition and Single Motor Plus (Core not listed).",
+     "trims": [
+      {
+       "name": "Twin Motor Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (opens)"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl/textile",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Twin Motor Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Motor Plus",
+       "highlights": [
+        "Harman Kardon",
+        "Black exterior details"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Single Motor Extended Range Plus (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl/textile",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/94/106 MPGe, 296 mi"
+      }
+     ]
+    }
+   ],
+   "ground_clearance": "6.9 in (Car and Driver)",
+   "sources": [
+    "https://www.caranddriver.com/volvo/ex40/specs/2023/volvo_volvo-xc40-recharge_volvo-xc40-recharge-primary_2023",
+    "https://www.caranddriver.com/volvo/ex40/specs/2024/volvo_volvo-xc40-recharge_volvo-xc40-recharge_2024",
+    "https://www.caranddriver.com/volvo/ex40/specs/2025/volvo_volvo-xc40-recharge_volvo-ex40_2025",
+    "https://www.caranddriver.com/volvo/ex40/specs/2026/volvo_volvo-xc40-recharge_volvo-ex40_2026",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Volvo (XC40 Recharge / EX40 2023-2026)"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "model": "C40 Recharge / EC40",
+   "match": {
+    "model": "C40",
+    "fuel": "ev"
+   },
+   "on_list_rule": "Every twin-motor (AWD) C40 Recharge / EC40 is on the list: the fixed panoramic glass roof is standard on every trim (Core too). Single-motor RWD (2024+) is not.",
+   "listing_names": [
+    "C40 Recharge Pure Electric Twin Plus",
+    "C40 Recharge Twin Ultimate",
+    "C40 Recharge (Volvo store)",
+    "EC40 Twin Motor Plus / Ultra"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Twin motor AWD only; Core / Plus / Ultimate.",
+     "trims": [
+      {
+       "name": "Twin Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Fusion Microtech seats"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl (leather-free)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "94/80/87 MPGe, 226 mi"
+      },
+      {
+       "name": "Twin Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp",
+       "builds_on": "Twin Core",
+       "highlights": [
+        "Connect Suede textile/Microtech",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "none",
+       "seats": "Connect Suede textile / Microtech; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "94/80/87 MPGe, 226 mi"
+      },
+      {
+       "name": "Twin Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp",
+       "builds_on": "Twin Plus",
+       "highlights": [
+        "Harman Kardon",
+        "20-inch wheels"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "94/80/87 MPGe, 226 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Single-motor RWD added (not on list); twin motor revised for more range.",
+     "trims": [
+      {
+       "name": "Twin Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Textile seats"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "none",
+       "seats": "textile (C/D: \"...tile Seat Upholstery\"; leather-free)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/91/99 MPGe, 257 mi"
+      },
+      {
+       "name": "Twin Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD",
+       "builds_on": "Twin Core",
+       "highlights": [
+        "Connect Suede textile/Microtech"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "none",
+       "seats": "Connect Suede textile / Microtech",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/91/99 MPGe, 257 mi"
+      },
+      {
+       "name": "Twin Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD",
+       "builds_on": "Twin Plus",
+       "highlights": [
+        "Harman Kardon",
+        "20-inch wheels"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/91/99 MPGe, 257 mi"
+      },
+      {
+       "name": "Single motor (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "standard fixed panoramic laminated glass roof (does not open; counts as a sunroof)",
+       "premium_audio": "Ultimate: Harman Kardon",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/96/107 MPGe, 297 mi"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Renamed EC40. Trim names/prices for 2025-26 not confirmed (C/D and Volvo pages not reached); fixed roof assumed unchanged.",
+     "trims": [
+      {
+       "name": "Twin Motor (Plus / Ultra; lineup unconfirmed)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof (assumed, as 2023-24)"
+       ],
+       "sunroof": "fixed panoramic glass roof - standard on 2023-24 C40; unconfirmed for EC40",
+       "premium_audio": "Ultra: Harman Kardon (unconfirmed)",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal) - unconfirmed for EC40",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "105/88/97 MPGe, 268 mi"
+      },
+      {
+       "name": "Single Motor (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "unconfirmed",
+       "premium_audio": "unconfirmed",
+       "seats": "leather-free",
+       "black_interior": "unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/95/106 MPGe, 298 mi"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "EC40 carries on; details unconfirmed.",
+     "trims": [
+      {
+       "name": "Twin Motor (Plus / Ultra; lineup unconfirmed)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof (assumed)"
+       ],
+       "sunroof": "fixed panoramic glass roof - unconfirmed for EC40",
+       "premium_audio": "unconfirmed",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal) - unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "105/88/97 MPGe, 268 mi"
+      },
+      {
+       "name": "Single Motor (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "unconfirmed",
+       "premium_audio": "unconfirmed",
+       "seats": "leather-free",
+       "black_interior": "unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/95/106 MPGe, 298 mi"
+      }
+     ]
+    }
+   ],
+   "ground_clearance": "7.0 in (Car and Driver)",
+   "sources": [
+    "https://www.caranddriver.com/volvo/c40-recharge/specs/2023/volvo_c40_volvo-c40-recharge_2023",
+    "https://www.caranddriver.com/volvo/c40-recharge/specs/2024/volvo_c40_volvo-c40-recharge_2024",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Volvo (C40 Recharge / EC40 2023-2026)"
+   ]
+  },
+  {
+   "make": "Lexus",
+   "model": "RZ",
+   "on_list_rule": "RZ 450e AWD Premium / Luxury (every 2023-24 RZ 450e) and the 2026 RZ 550e F SPORT AWD have the fixed glass roof and are on the list if the interior is black. The 2025+ entry-grade RZ 450e AWD (no glass roof) and every RZ 300e / 350e (FWD) are not.",
+   "listing_names": [
+    "RZ 450e Premium",
+    "RZ 450e Luxury",
+    "RZ 450e AWD",
+    "RZ 550e F SPORT",
+    "RZ 300e",
+    "RZ 350e"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First year: RZ 450e AWD only, Premium and Luxury.",
+     "trims": [
+      {
+       "name": "450e Premium AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors (front 150 kW + rear 80 kW, 308 hp), 71.4 kWh, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "NuLuxe seats, heated + ventilated front",
+        "18\" (or 20\") wheels"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "none (10 speakers)",
+       "seats": "NuLuxe (synthetic); heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "115/98/107 MPGe, 220 mi (18\"); 102/87/95, 196 mi (20\")"
+      },
+      {
+       "name": "450e Luxury AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "450e Premium AWD",
+       "highlights": [
+        "Ultrasuede seats",
+        "Mark Levinson 13 speakers",
+        "20-inch wheels",
+        "Dynamic Sky dimming roof (option)"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "Mark Levinson 13 speakers, standard",
+       "seats": "Ultrasuede + synthetic; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "102/87/95 MPGe, 196 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "RZ 300e FWD added (not on list).",
+     "trims": [
+      {
+       "name": "450e Premium AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "NuLuxe, heated + ventilated front"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "none (10 speakers)",
+       "seats": "NuLuxe; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "115/98/107 MPGe, 220 mi (18\")"
+      },
+      {
+       "name": "450e Luxury AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "450e Premium AWD",
+       "highlights": [
+        "Ultrasuede, Mark Levinson",
+        "20-inch wheels"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "Mark Levinson 13 speakers, standard",
+       "seats": "Ultrasuede; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "102/87/95 MPGe, 196 mi"
+      },
+      {
+       "name": "300e Premium / Luxury",
+       "on_list": false,
+       "why_not": "2WD (front-wheel drive)",
+       "powertrain": "Single front motor, FWD",
+       "builds_on": "",
+       "highlights": [
+        "FWD"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "Luxury: Mark Levinson",
+       "seats": "NuLuxe / Ultrasuede",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "137/112/125 MPGe, 266 mi (18\")"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Entry grade added (RZ 300e, RZ 450e AWD) without the glass roof.",
+     "trims": [
+      {
+       "name": "450e AWD (entry grade)",
+       "on_list": false,
+       "why_not": "no glass roof on the entry grade",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "",
+       "highlights": [
+        "NuLuxe, heated + ventilated front",
+        "18-inch wheels"
+       ],
+       "sunroof": "not offered on entry grade (C/D lists no glass roof)",
+       "premium_audio": "none (10 speakers)",
+       "seats": "NuLuxe; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "115/98/107 MPGe, 220 mi"
+      },
+      {
+       "name": "450e Premium AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "450e AWD",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Ambient + Shadow Illumination"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "none (10 speakers)",
+       "seats": "NuLuxe; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "115/98/107 MPGe, 220 mi (18\")"
+      },
+      {
+       "name": "450e Luxury AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "450e Premium AWD",
+       "highlights": [
+        "Ultrasuede, Mark Levinson",
+        "20-inch wheels"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "Mark Levinson 13 speakers, standard",
+       "seats": "Ultrasuede; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "102/87/95 MPGe, 196 mi"
+      },
+      {
+       "name": "300e (any grade)",
+       "on_list": false,
+       "why_not": "2WD (front-wheel drive)",
+       "powertrain": "Single front motor, FWD",
+       "builds_on": "",
+       "highlights": [
+        "FWD"
+       ],
+       "sunroof": "Premium/Luxury only",
+       "premium_audio": "Luxury: Mark Levinson",
+       "seats": "NuLuxe / Ultrasuede",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "137/112/125 MPGe, 266 mi"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Big update: 77 kWh battery, more range; 350e FWD replaces 300e; new 550e F SPORT AWD (402 hp); improved Dynamic Sky roof.",
+     "trims": [
+      {
+       "name": "450e AWD (entry grade)",
+       "on_list": false,
+       "why_not": "no glass roof on the entry grade",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels"
+       ],
+       "sunroof": "not standard (C/D lists no glass roof)",
+       "premium_audio": "none (10 speakers)",
+       "seats": "NuLuxe; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "120/100/110 MPGe, 264 mi"
+      },
+      {
+       "name": "450e Premium AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "450e AWD",
+       "highlights": [
+        "Fixed panoramic glass roof"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "none (10 speakers)",
+       "seats": "NuLuxe; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "120/100/110 MPGe, 264 mi (18\")"
+      },
+      {
+       "name": "450e Luxury AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 308 hp, AWD",
+       "builds_on": "450e Premium AWD",
+       "highlights": [
+        "Mark Levinson",
+        "20-inch wheels"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "Mark Levinson 13 speakers, standard",
+       "seats": "Ultrasuede; heated + ventilated front",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "117/99/108 or 102/87/95 MPGe (20\" tire sizes), 257 / 228 mi"
+      },
+      {
+       "name": "550e F SPORT AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 402 hp, AWD",
+       "builds_on": "",
+       "highlights": [
+        "Black Ultrasuede with blue stitching",
+        "F SPORT styling, 20-inch wheels",
+        "Fixed glass roof"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (no shade; low-e coating; does not open; counts as a sunroof). Dynamic Sky dimming roof optional on Luxury",
+       "premium_audio": "none listed (10 speakers per C/D)",
+       "seats": "Black Ultrasuede; heated + ventilated front",
+       "black_interior": "yes (Black Ultrasuede, only on this grade)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "102/88/95 MPGe, 229 mi"
+      },
+      {
+       "name": "350e / 350e Premium",
+       "on_list": false,
+       "why_not": "2WD (front-wheel drive)",
+       "powertrain": "Single front motor, FWD",
+       "builds_on": "",
+       "highlights": [
+        "FWD"
+       ],
+       "sunroof": "Premium only",
+       "premium_audio": "none",
+       "seats": "NuLuxe",
+       "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "136/115/126 MPGe, 301 mi (18\")"
+      }
+     ]
+    }
+   ],
+   "ground_clearance": "7.9 in (Car and Driver)",
+   "sources": [
+    "https://www.caranddriver.com/lexus/rz/specs/2023/lexus_rz_lexus-rz_2023",
+    "https://www.caranddriver.com/lexus/rz/specs/2024/lexus_rz_lexus-rz_2024",
+    "https://www.caranddriver.com/lexus/rz/specs/2025/lexus_rz_lexus-rz_2025",
+    "https://www.caranddriver.com/lexus/rz/specs/2026/lexus_rz_lexus-rz450e_2026",
+    "https://pressroom.lexus.com/whats-new-2024-lexus-rz/",
+    "https://pressroom.lexus.com/2025-lexus-rz-expands-its-all-electric-lineup/",
+    "https://pressroom.lexus.com/2026-lexus-rz-adds-more-power-and-performance-2/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Lexus (RZ 2023-2026)"
+   ]
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ4X / bZ",
+   "match": {
+    "model": "bZ"
+   },
+   "on_list_rule": "AWD versions only (FWD and FWD Plus don't qualify). 2023-2025: every AWD bZ4X has the fixed (non-opening) panoramic glass roof, so all AWD trims qualify with the Black interior (Limited's Light Gray is excluded). 2026 bZ: Limited AWD and Woodland Premium have the glass roof standard; on XLE AWD it's optional (Needs a call); plain Woodland has none.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First year in the US. XLE and Limited, FWD or AWD (FWD doesn't qualify). Fixed panoramic glass roof standard on both grades (brochure features chart). Interior: XLE Black fabric/SofTex only; Limited Black or Light Gray SofTex.",
+     "trims": [
+      {
+       "name": "XLE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic fixed-glass roof with power sunshade",
+        "12.3\" touchscreen, wireless CarPlay/Android Auto",
+        "X-MODE with Grip Control",
+        "Toyota Safety Sense 3.0",
+        "XLE Weather Package optional (heated seats/wheel)"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "none (6 speakers); JBL not offered on XLE",
+       "seats": "fabric with SofTex (synthetic leather) bolsters, Black only",
+       "black_interior": "yes (only color)",
+       "spare": "tire repair kit",
+       "mpg": "114/94/104 MPGe (228 mi range)"
+      },
+      {
+       "name": "Limited AWD",
+       "on_list": true,
+       "why_not": "Light Gray interior is excluded; Black is fine",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "XLE AWD",
+       "highlights": [
+        "20-inch wheels",
+        "SofTex seats, heated + ventilated front",
+        "Heated steering wheel",
+        "Digital key, Bird's Eye camera",
+        "Limited Weather Package optional (heated rear seats, radiant leg heater)"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "JBL 9-speaker, optional",
+       "seats": "SofTex (synthetic leather); heated + ventilated front",
+       "black_interior": "yes (Black or Light Gray)",
+       "spare": "tire repair kit",
+       "mpg": "112/92/102 MPGe (222 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: 8-way power driver seat and power liftgate standard on XLE; Advanced Park standard on Limited. Fixed panoramic roof still standard; same interiors.",
+     "trims": [
+      {
+       "name": "XLE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic fixed-glass roof with power sunshade",
+        "8-way power driver seat, power liftgate",
+        "X-MODE"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "none (6 speakers)",
+       "seats": "fabric/SofTex, Black only",
+       "black_interior": "yes (only color)",
+       "spare": "tire repair kit",
+       "mpg": "114/94/104 MPGe (228 mi range)"
+      },
+      {
+       "name": "Limited AWD",
+       "on_list": true,
+       "why_not": "Light Gray interior is excluded",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "XLE AWD",
+       "highlights": [
+        "20-inch wheels",
+        "SofTex seats, heated + ventilated front",
+        "Advanced Park"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "JBL 9-speaker, optional",
+       "seats": "SofTex; heated + ventilated front",
+       "black_interior": "yes (Black or Light Gray)",
+       "spare": "tire repair kit",
+       "mpg": "112/92/102 MPGe (222 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "vs 2024: prices cut up to $6,000; new Nightshade (AWD only, built on XLE, black trim, red stitching); Limited adds Traffic Jam Assist, Lane Change Assist, Front Cross-Traffic Alert. Fixed panoramic roof standard on all grades.",
+     "trims": [
+      {
+       "name": "XLE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic fixed-glass roof with power sunshade",
+        "18-inch wheels",
+        "X-MODE"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "none (6 speakers)",
+       "seats": "fabric/SofTex, Black only",
+       "black_interior": "yes (only color)",
+       "spare": "tire repair kit",
+       "mpg": "114/94/104 MPGe (228 mi range, 18\" wheels)"
+      },
+      {
+       "name": "Nightshade AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "XLE AWD",
+       "highlights": [
+        "20-inch black wheels, black badges/handles/spoiler",
+        "Black fabric/SofTex seats with red stitching",
+        "Heated leather-trimmed wheel"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "none (6 speakers)",
+       "seats": "Black fabric/SofTex with red stitching",
+       "black_interior": "yes (only color)",
+       "spare": "tire repair kit",
+       "mpg": "112/92/102 MPGe (222 mi range)"
+      },
+      {
+       "name": "Limited AWD",
+       "on_list": true,
+       "why_not": "Light Gray interior is excluded",
+       "powertrain": "Dual electric motors (front + rear), 214 hp, 72.8 kWh battery (71.4 kWh on 2024-25 AWD), AWD with X-MODE",
+       "builds_on": "XLE AWD",
+       "highlights": [
+        "20-inch wheels",
+        "SofTex heated + ventilated front seats",
+        "Traffic Jam Assist, Lane Change Assist"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "JBL 9-speaker, optional",
+       "seats": "SofTex; heated + ventilated front",
+       "black_interior": "yes (Black or Light Gray)",
+       "spare": "tire repair kit",
+       "mpg": "112/92/102 MPGe (222 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Renamed 'bZ'. Bigger 74.7 kWh battery on AWD, 338 hp, NACS port, 14\" screen, new dash. Panoramic fixed-glass roof is now OPTIONAL on XLE (standard on Limited). New bZ Woodland (longer, 8.3-8.4\" clearance): roof only with its Premium Package. Interiors: XLE Black fabric/SofTex; Limited Black or Light Gray SofTex; Woodland Black or Stone Brown SofTex.",
+     "trims": [
+      {
+       "name": "XLE AWD",
+       "on_list": true,
+       "why_not": "only if it has the optional panoramic roof (Needs a call unless the listing says so)",
+       "powertrain": "Dual motors, 338 hp (Woodland 375 hp), 74.7 kWh battery, AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "14-inch touchscreen",
+        "Heated front seats and wheel",
+        "Panoramic fixed-glass roof optional"
+       ],
+       "sunroof": "optional panoramic FIXED glass roof with power sunshade (does not open)",
+       "premium_audio": "none (6 speakers); JBL not available on XLE",
+       "seats": "fabric/SofTex, Black",
+       "black_interior": "yes (only color)",
+       "spare": "tire repair kit",
+       "mpg": "131/109/120 MPGe (288 mi range)"
+      },
+      {
+       "name": "Limited AWD",
+       "on_list": true,
+       "why_not": "Light Gray interior is excluded",
+       "powertrain": "Dual motors, 338 hp (Woodland 375 hp), 74.7 kWh battery, AWD with X-MODE",
+       "builds_on": "XLE AWD",
+       "highlights": [
+        "20-inch wheels",
+        "SofTex, heated + ventilated front, heated rear",
+        "Panoramic View Monitor, Advanced Park"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "JBL 9-speaker, optional",
+       "seats": "SofTex; heated + ventilated front",
+       "black_interior": "yes (Black or Light Gray)",
+       "spare": "tire repair kit",
+       "mpg": "128/105/117 MPGe (278 mi range)"
+      },
+      {
+       "name": "bZ Woodland",
+       "on_list": false,
+       "why_not": "no sunroof (panoramic roof only with the Premium Package)",
+       "powertrain": "Dual motors, 338 hp (Woodland 375 hp), 74.7 kWh battery, AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "Standard AWD, 375 hp",
+        "8.4\" ground clearance, 3,500 lb towing",
+        "SofTex seats"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "SofTex; heated front",
+       "black_interior": "yes (Black or Stone Brown; brown is excluded)",
+       "spare": "tire repair kit",
+       "mpg": "127/107/117 MPGe (281 mi range; 260 mi with all-terrain tires)"
+      },
+      {
+       "name": "bZ Woodland Premium",
+       "on_list": true,
+       "why_not": "Stone Brown interior is excluded",
+       "powertrain": "Dual motors, 338 hp (Woodland 375 hp), 74.7 kWh battery, AWD with X-MODE",
+       "builds_on": "bZ Woodland",
+       "highlights": [
+        "Panoramic fixed-glass roof",
+        "JBL premium audio",
+        "Ventilated front seats, memory driver seat",
+        "Digital rearview mirror"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof with power sunshade (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "JBL 9-speaker, standard",
+       "seats": "SofTex; heated + ventilated front",
+       "black_interior": "yes (Black or Stone Brown)",
+       "spare": "tire repair kit",
+       "mpg": "127/107/117 MPGe (281 mi range)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://pressroom.toyota.com/the-future-is-now-toyota-launches-all-new-bz4x-suv-battery-electric-vehicle/",
+    "https://www.toyota.com/content/dam/toyota/brochures/pdf/2023/bz4x_ebrochure.pdf",
+    "https://pressroom.toyota.com/2024-toyota-bz4x-engineered-for-electrifying-exhilaration/",
+    "https://pressroom.toyota.com/2025-toyota-bz4x-bev-electrifies-with-lower-price-and-new-nightshade-edition/",
+    "https://pressroom.toyota.com/toyota-bz-all-electric-suv-adds-range-charging-and-exterior-updates-for-2026/",
+    "https://www.toyota.com/bz/2026/features/",
+    "https://www.toyota.com/content/dam/toyota/brochures/pdf/2026/bz_ebrochure.pdf",
+    "https://pressroom.toyota.com/toyota-announces-powerful-all-electric-bz-woodland-suv/",
+    "https://www.toyota.com/bzwoodland/2026/features/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA records, Oct 2026)",
+    "https://www.motor1.com/news/579529/2023-toyota-bz4x-starting-price/",
+    "https://www.thedrive.com/news/2026-toyota-bz-ev-now-costs-36350"
+   ]
+  },
+  {
+   "make": "Subaru",
+   "model": "Solterra",
+   "on_list_rule": "Every Solterra is AWD. Only the Touring (2023-25), Touring Onyx Edition (2025) and Touring XT (2026) have the panoramic glass roof, so only those can qualify, and only with the Black interior.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First year. Premium, Limited, Touring; all AWD. Interior colors per Subaru dealer color guides (Premium Black cloth; Limited/Touring Black or Gray and Blue StarTex).",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels",
+        "8\" touchscreen",
+        "Heated front seats",
+        "EyeSight (2024+)"
+       ],
+       "sunroof": "not available (Touring only)",
+       "premium_audio": "none",
+       "seats": "cloth, Black",
+       "black_interior": "yes (Black cloth)",
+       "spare": "unknown (likely tire repair kit, like the bZ4X twin)",
+       "mpg": "114/94/104 MPGe (228 mi range)"
+      },
+      {
+       "name": "Limited",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Premium",
+       "highlights": [
+        "20-inch wheels",
+        "12.3\" touchscreen",
+        "Harman Kardon 11-speaker audio",
+        "Heated rear seats and wheel",
+        "Power rear gate, 360 camera"
+       ],
+       "sunroof": "not available (Touring only)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex (water-resistant synthetic); heated front",
+       "black_interior": "yes (Black StarTex or Gray and Blue StarTex)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      },
+      {
+       "name": "Touring",
+       "on_list": true,
+       "why_not": "Gray and Blue StarTex interior is excluded; Black is fine",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Limited",
+       "highlights": [
+        "Panoramic glass moonroof with power sunshade",
+        "Ventilated front seats",
+        "Digital rearview mirror, HomeLink",
+        "Two-tone paint option"
+       ],
+       "sunroof": "standard panoramic glass moonroof with power sunshade; fixed glass (same roof as the bZ4X twin; Subaru doesn't say it opens) - counts as a sunroof",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex; heated + ventilated front",
+       "black_interior": "yes (Black StarTex or Gray and Blue StarTex)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: faster DC charging, regen paddles, roof rails and EyeSight standard on all; ventilated seats made standard on Touring. No price change.",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels",
+        "8\" touchscreen",
+        "Heated front seats",
+        "EyeSight (2024+)"
+       ],
+       "sunroof": "not available (Touring only)",
+       "premium_audio": "none",
+       "seats": "cloth, Black",
+       "black_interior": "yes (Black cloth)",
+       "spare": "unknown (likely tire repair kit, like the bZ4X twin)",
+       "mpg": "114/94/104 MPGe (227 mi range)"
+      },
+      {
+       "name": "Limited",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Premium",
+       "highlights": [
+        "20-inch wheels",
+        "12.3\" touchscreen",
+        "Harman Kardon 11-speaker audio",
+        "Heated rear seats and wheel",
+        "Power rear gate, 360 camera"
+       ],
+       "sunroof": "not available (Touring only)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex (water-resistant synthetic); heated front",
+       "black_interior": "yes (Black StarTex or Gray and Blue StarTex)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      },
+      {
+       "name": "Touring",
+       "on_list": true,
+       "why_not": "Gray and Blue StarTex interior is excluded; Black is fine",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Limited",
+       "highlights": [
+        "Panoramic glass moonroof with power sunshade",
+        "Ventilated front seats",
+        "Digital rearview mirror, HomeLink",
+        "Two-tone paint option"
+       ],
+       "sunroof": "standard panoramic glass moonroof with power sunshade; fixed glass (same roof as the bZ4X twin; Subaru doesn't say it opens) - counts as a sunroof",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex; heated + ventilated front",
+       "black_interior": "yes (Black StarTex or Gray and Blue StarTex)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "vs 2024: prices cut $6,500-7,000, same equipment; new Touring Onyx Edition (black trim, black StarTex).",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels",
+        "8\" touchscreen",
+        "Heated front seats",
+        "EyeSight (2024+)"
+       ],
+       "sunroof": "not available (Touring only)",
+       "premium_audio": "none",
+       "seats": "cloth, Black",
+       "black_interior": "yes (Black cloth)",
+       "spare": "unknown (likely tire repair kit, like the bZ4X twin)",
+       "mpg": "114/94/104 MPGe (227 mi range)"
+      },
+      {
+       "name": "Limited",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Premium",
+       "highlights": [
+        "20-inch wheels",
+        "12.3\" touchscreen",
+        "Harman Kardon 11-speaker audio",
+        "Heated rear seats and wheel",
+        "Power rear gate, 360 camera"
+       ],
+       "sunroof": "not available (Touring only)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex (water-resistant synthetic); heated front",
+       "black_interior": "yes (Black StarTex or Gray and Blue StarTex)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      },
+      {
+       "name": "Touring",
+       "on_list": true,
+       "why_not": "Gray and Blue StarTex interior is excluded; Black is fine",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Limited",
+       "highlights": [
+        "Panoramic glass moonroof with power sunshade",
+        "Ventilated front seats",
+        "Digital rearview mirror, HomeLink",
+        "Two-tone paint option"
+       ],
+       "sunroof": "standard panoramic glass moonroof with power sunshade; fixed glass (same roof as the bZ4X twin; Subaru doesn't say it opens) - counts as a sunroof",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex; heated + ventilated front",
+       "black_interior": "yes (Black StarTex or Gray and Blue StarTex)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      },
+      {
+       "name": "Touring Onyx Edition",
+       "on_list": true,
+       "why_not": "Ross's Subaru rule excludes Onyx Editions; decide whether it applies to the Solterra",
+       "powertrain": "Dual electric motors (front + rear), 215 hp, 72.8 kWh battery (71.4 kWh 2024-25), Symmetrical AWD with X-MODE",
+       "builds_on": "Touring",
+       "highlights": [
+        "Gloss black 20-inch wheels and exterior trim",
+        "Black StarTex interior, black accents",
+        "Two-tone paint exclusive"
+       ],
+       "sunroof": "standard panoramic glass moonroof (fixed glass)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Black StarTex; heated + ventilated front",
+       "black_interior": "yes (Black only)",
+       "spare": "unknown (likely tire repair kit)",
+       "mpg": "111/93/102 MPGe (222 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Redesign: 74.7 kWh battery, 14\" screen, NACS port, new XT models with 338 hp. Trims Premium, Limited, Limited XT, Touring XT. Glass roof still Touring XT only. Premium/Limited StarTex in Black or Gray (Premium no longer cloth); Touring XT Black StarTex or optional Blue leather.",
+     "trims": [
+      {
+       "name": "Premium",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual motors, 233 hp (XT: 338 hp), 74.7 kWh battery, AWD",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels",
+        "14\" touchscreen",
+        "Heated front seats, 10-way power driver"
+       ],
+       "sunroof": "not available (Touring XT only)",
+       "premium_audio": "none",
+       "seats": "StarTex, Black or Gray",
+       "black_interior": "yes (Black or Gray)",
+       "spare": "unknown",
+       "mpg": "131/109/120 MPGe (288 mi range)"
+      },
+      {
+       "name": "Limited",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual motors, 233 hp (XT: 338 hp), 74.7 kWh battery, AWD",
+       "builds_on": "Premium",
+       "highlights": [
+        "20-inch wheels",
+        "Harman Kardon audio",
+        "Heated rear seats and wheel",
+        "Memory seat"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex; heated front",
+       "black_interior": "yes (Black or Gray)",
+       "spare": "unknown",
+       "mpg": "128/105/117 MPGe (278 mi range)"
+      },
+      {
+       "name": "Limited XT",
+       "on_list": false,
+       "why_not": "no sunroof",
+       "powertrain": "Dual motors, 338 hp, 74.7 kWh, AWD",
+       "builds_on": "Limited",
+       "highlights": [
+        "338 hp, 0-60 under 5 s"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "StarTex",
+       "black_interior": "yes (Black or Gray)",
+       "spare": "unknown",
+       "mpg": "unknown (EPA lists 'Solterra 20 AWD' 278 mi)"
+      },
+      {
+       "name": "Touring XT",
+       "on_list": true,
+       "why_not": "Blue leather interior is excluded; Black is fine",
+       "powertrain": "Dual motors, 338 hp, 74.7 kWh, AWD",
+       "builds_on": "Limited XT",
+       "highlights": [
+        "Panoramic glass roof with motorized sunshade",
+        "Ventilated front seats, radiant leg heaters",
+        "Digital rearview mirror",
+        "Optional Blue leather"
+       ],
+       "sunroof": "standard panoramic glass roof (fixed glass, as on the bZ)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Black StarTex standard; Blue leather optional; heated + ventilated front",
+       "black_interior": "yes (Black StarTex; or Blue leather)",
+       "spare": "unknown",
+       "mpg": "128/105/117 MPGe (278 mi range)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.subaru.com/pressrelease/1900/subaru-announces-pricing-all-new-solterra-electric-suv",
+    "https://media.subaru.com/pressrelease/2136/333/2024-subaru-solterra-updated-faster-charging-new-features",
+    "https://media.subaru.com/pressrelease/2260/subaru-announces-pricing-2025-solterra-electric-suv-significant",
+    "https://media.subaru.com/pressrelease/2370/subaru-stands-firm-all-new-2026-subaru-solterra",
+    "https://media.subaru.com/view-spec.do?bFileId=37780 / 43138 / 45211 / 47030 (Solterra At-A-Glance PDFs 2023-2026)",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA records, Oct 2026)",
+    "https://rayscarinfo.com/subaru/solterra-2023/colors/ (interior colors by trim; dealer-type source, confirm)"
+   ]
+  },
+  {
+   "make": "Ford",
+   "model": "Mustang Mach-E",
+   "on_list_rule": "AWD (eAWD) only; RWD Select/Premium don't qualify. Needs the panoramic fixed-glass roof: standard on 2023 Premium, California Route 1 and GT; optional on 2024+ Premium and GT; never on Select or Rally. Black Onyx interior only (Light Space Gray and the GT/Rally Performance Gray are excluded). Ground clearance only 5.2-5.7 in.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "California Route 1 became AWD-only (Extended Range). Panoramic fixed-glass roof standard on Premium, California Route 1 and GT/GT Performance Edition; not offered on Select. Interiors: Select/CR1 Black Onyx ActiveX; Premium Black Onyx or Light Space Gray; GT Black Onyx with copper accents; GT Performance Edition Performance Gray.",
+     "trims": [
+      {
+       "name": "Select eAWD",
+       "on_list": false,
+       "why_not": "no glass roof offered",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery (Select: 72 kWh)",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels",
+        "15.5\" touchscreen",
+        "ActiveX synthetic seats"
+       ],
+       "sunroof": "not available (body-color steel roof)",
+       "premium_audio": "none (6 speakers)",
+       "seats": "ActiveX (synthetic leather); heated front optional",
+       "black_interior": "yes (Black Onyx only)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "99/86/93 MPGe (224 mi range)"
+      },
+      {
+       "name": "Premium eAWD",
+       "on_list": true,
+       "why_not": "Light Space Gray interior is excluded",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "Select eAWD",
+       "highlights": [
+        "Panoramic fixed-glass roof",
+        "B&O 10-speaker audio",
+        "Heated perforated ActiveX seats, heated wheel",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof (no power shade) (does not open; counts as a sunroof for Ross)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "perforated ActiveX; heated front; not ventilated",
+       "black_interior": "yes (Black Onyx or Light Space Gray)",
+       "spare": "tire mobility kit",
+       "mpg": "97/85/92 MPGe (290 mi Extended Range; 224 mi Standard)"
+      },
+      {
+       "name": "California Route 1 eAWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery (Extended Range only)",
+       "builds_on": "Select eAWD",
+       "highlights": [
+        "Panoramic fixed-glass roof",
+        "Extended Range battery, 312 mi",
+        "Heated ActiveX seats"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof (does not open)",
+       "premium_audio": "none (6 speakers)",
+       "seats": "ActiveX; heated front",
+       "black_interior": "yes (Black Onyx only)",
+       "spare": "tire mobility kit",
+       "mpg": "105/91/98 MPGe (312 mi range)"
+      },
+      {
+       "name": "GT eAWD",
+       "on_list": true,
+       "why_not": "GT Performance Edition has Performance Gray seats (excluded)",
+       "powertrain": "Dual motors, 480 hp, 91 kWh, eAWD",
+       "builds_on": "Premium eAWD",
+       "highlights": [
+        "480 hp, MagneRide",
+        "Panoramic fixed-glass roof",
+        "B&O audio",
+        "Sport seats"
+       ],
+       "sunroof": "standard panoramic FIXED glass roof",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "ActiveX with Miko suede insert; heated front",
+       "black_interior": "yes (GT: Black Onyx with copper stitching; GT Performance Edition: Performance Gray)",
+       "spare": "tire mobility kit",
+       "mpg": "90/77/84 MPGe (270 mi; Performance Edition 260 mi)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: panoramic fixed-glass roof became OPTIONAL (option 43B) on Premium and GT (body-color steel roof standard); California Route 1 and GT Performance Edition dropped; new Rally (GT package 55Q, no glass roof). GT/Rally interiors are Performance Gray only.",
+     "trims": [
+      {
+       "name": "Select eAWD",
+       "on_list": false,
+       "why_not": "no glass roof offered",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels",
+        "ActiveX seats"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "ActiveX",
+       "black_interior": "yes (Black Onyx only)",
+       "spare": "tire mobility kit",
+       "mpg": "95/88/91 MPGe (230 mi range)"
+      },
+      {
+       "name": "Premium eAWD",
+       "on_list": true,
+       "why_not": "only with the optional glass roof (Needs a call unless the listing says so); Light Space Gray excluded",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "Select eAWD",
+       "highlights": [
+        "B&O audio",
+        "10-way power driver seat",
+        "Glass roof optional (43B)"
+       ],
+       "sunroof": "optional panoramic FIXED glass roof (43B)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "perforated ActiveX; heated front; not ventilated",
+       "black_interior": "yes (Black Onyx or Light Space Gray)",
+       "spare": "tire mobility kit",
+       "mpg": "103/94/99 MPGe (300 mi Extended Range)"
+      },
+      {
+       "name": "GT eAWD",
+       "on_list": false,
+       "why_not": "Performance Gray interior only (no black)",
+       "powertrain": "Dual motors, 480 hp, eAWD",
+       "builds_on": "Premium eAWD",
+       "highlights": [
+        "Ford Performance seats",
+        "Glass roof optional"
+       ],
+       "sunroof": "optional panoramic FIXED glass roof (43B)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "Performance Gray ActiveX with Miko insert",
+       "black_interior": "no (Performance Gray only)",
+       "spare": "tire mobility kit",
+       "mpg": "95/85/90 MPGe (280 mi range)"
+      },
+      {
+       "name": "Rally",
+       "on_list": false,
+       "why_not": "no glass roof and Performance Gray interior",
+       "powertrain": "Dual motors, 480 hp, 700 lb-ft, eAWD",
+       "builds_on": "GT eAWD",
+       "highlights": [
+        "Rally suspension, all-terrain tires, rear spoiler"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "Performance Gray ActiveX with Miko insert",
+       "black_interior": "no",
+       "spare": "tire mobility kit",
+       "mpg": "90/81/86 MPGe (265 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "vs 2024: ventilated front seats now standard on Premium; new Premium Sport Appearance Package (Black Onyx with red stitching). Glass roof still optional on Premium/GT, not on Select or Rally.",
+     "trims": [
+      {
+       "name": "Select eAWD",
+       "on_list": false,
+       "why_not": "no glass roof offered",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "",
+       "highlights": [
+        "18-inch wheels"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "ActiveX",
+       "black_interior": "yes (Black Onyx only)",
+       "spare": "tire mobility kit",
+       "mpg": "104/96/100 MPGe (240 mi range)"
+      },
+      {
+       "name": "Premium eAWD",
+       "on_list": true,
+       "why_not": "only with the optional glass roof (Needs a call unless the listing says so); Light Space Gray excluded",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "Select eAWD",
+       "highlights": [
+        "B&O audio",
+        "Heated + ventilated front seats",
+        "Glass roof optional (43B)"
+       ],
+       "sunroof": "optional panoramic FIXED glass roof (43B)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "perforated ActiveX; heated + ventilated front",
+       "black_interior": "yes (Black Onyx, Black Onyx with red stitching, or Light Space Gray)",
+       "spare": "tire mobility kit",
+       "mpg": "110/98/104 MPGe (300 mi Extended Range)"
+      },
+      {
+       "name": "GT eAWD",
+       "on_list": false,
+       "why_not": "Performance Gray interior only",
+       "powertrain": "Dual motors, 480 hp, eAWD",
+       "builds_on": "Premium eAWD",
+       "highlights": [
+        "Ford Performance seats"
+       ],
+       "sunroof": "optional panoramic FIXED glass roof (43B)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "Performance Gray ActiveX with Miko insert",
+       "black_interior": "no",
+       "spare": "tire mobility kit",
+       "mpg": "95/85/90 MPGe (280 mi range)"
+      },
+      {
+       "name": "Rally",
+       "on_list": false,
+       "why_not": "no glass roof and Performance Gray interior",
+       "powertrain": "Dual motors, 480 hp, eAWD",
+       "builds_on": "GT eAWD",
+       "highlights": [],
+       "sunroof": "not available",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "Performance Gray ActiveX",
+       "black_interior": "no",
+       "spare": "tire mobility kit",
+       "mpg": "90/81/86 MPGe (265 mi range)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "The 2026 order guide couldn't be read (Ford refused our requests); per search summaries of it the glass roof is now the 'Panoramic Roof Package' (43B) with a removable sunshade on Premium and GT. Interiors assumed as 2025 (unconfirmed).",
+     "trims": [
+      {
+       "name": "Select eAWD",
+       "on_list": false,
+       "why_not": "no glass roof offered (unconfirmed for 2026)",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "not available (unconfirmed)",
+       "premium_audio": "none (6 speakers)",
+       "seats": "ActiveX",
+       "black_interior": "yes (Black Onyx; unconfirmed)",
+       "spare": "tire mobility kit",
+       "mpg": "104/96/100 MPGe (240 mi range)"
+      },
+      {
+       "name": "Premium eAWD",
+       "on_list": true,
+       "why_not": "only with the optional Panoramic Roof Package (Needs a call); Light Space Gray excluded",
+       "powertrain": "Dual motors (eAWD), 91 kWh Extended Range or 72 kWh Standard Range battery",
+       "builds_on": "Select eAWD",
+       "highlights": [
+        "B&O audio",
+        "Heated + ventilated front seats"
+       ],
+       "sunroof": "optional Panoramic Roof Package (43B), fixed glass",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "ActiveX with perforated insert; heated + ventilated front",
+       "black_interior": "unknown (2025: Black Onyx or Light Space Gray)",
+       "spare": "tire mobility kit",
+       "mpg": "110/98/104 MPGe (300 mi Extended Range)"
+      },
+      {
+       "name": "GT eAWD",
+       "on_list": false,
+       "why_not": "Performance Gray interior on 2024-25 GTs; 2026 unconfirmed",
+       "powertrain": "Dual motors, eAWD",
+       "builds_on": "Premium eAWD",
+       "highlights": [],
+       "sunroof": "optional Panoramic Roof Package (43B)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "ActiveX with Miko insert",
+       "black_interior": "unknown (2024-25: Performance Gray only)",
+       "spare": "tire mobility kit",
+       "mpg": "95/85/90 MPGe (280 mi range)"
+      },
+      {
+       "name": "Rally",
+       "on_list": false,
+       "why_not": "no glass roof (2024-25) and gray interior",
+       "powertrain": "Dual motors, eAWD",
+       "builds_on": "GT eAWD",
+       "highlights": [],
+       "sunroof": "not available (2024-25)",
+       "premium_audio": "Bang & Olufsen, standard",
+       "seats": "ActiveX",
+       "black_interior": "unknown",
+       "spare": "tire mobility kit",
+       "mpg": "89/78/84 MPGe (255 mi range)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.macheforum.com/site/attachments/05-09-23-2023-mache-order-guide-pdf.103015/ (Ford 2023 Mach-E order guide, 5/9/23; fromtheroad.ford.com copy refused our requests)",
+    "https://www.macheforum.com/site/attachments/2024-mustang-mach-e-order-guide-pdf.133408/ (Ford 2024 Mach-E order guide)",
+    "https://www.macheforum.com/site/attachments/2025-mustang-mach-e-order-guide-pdf.135916/ (Ford 2025 Mach-E order guide)",
+    "https://www.caranddriver.com/ford/mustang-mach-e/specs/ (trim spec pages 2023-2026: price incl. destination, equipment, ground clearance)",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA records, Oct 2026)"
+   ]
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "on_list_rule": "AWD (e-AWD) only; RWD Light/Wind/GT-Line don't qualify. Only GT-Line and GT have a sunroof (a real opening tilt/slide sunroof, not panoramic). GT-Line interiors are mostly two-tone black/white, so most GT-Lines fail Ross's black-only rule; the GT's black-with-neon interior passes. Kia EV9 is 3-row and not included.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "AWD trims: Wind, GT-Line, GT (Light was RWD only in 2023). Sunroof standard on GT-Line and GT only.",
+     "trims": [
+      {
+       "name": "Wind e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof (GT-Line and GT only)",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "",
+       "highlights": [
+        "Vegan leather seats, heated + ventilated front",
+        "Memory driver seat",
+        "Highway Driving Assist"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "vegan leather (SynTex, synthetic); heated + ventilated front",
+       "black_interior": "yes (Black; also Charcoal/Misty Gray and, 2025+, green or brown two-tones per dealer guides)",
+       "spare": "tire mobility kit",
+       "mpg": "120/98/109 MPGe (282 mi, 19\" wheels)"
+      },
+      {
+       "name": "GT-Line e-AWD",
+       "on_list": true,
+       "why_not": "interiors are mostly two-tone (black with white/off-white); only a mostly-black one qualifies - check photos",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Wind e-AWD",
+       "highlights": [
+        "Power tilt-and-slide glass sunroof",
+        "20-inch wheels, sport styling",
+        "Meridian audio",
+        "Augmented-reality head-up display (2023-24 option/standard varies)"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide), front-row only, not panoramic",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "vegan leather / suede; heated + ventilated front",
+       "black_interior": "partial (two-tone Black with White or Off-White; a black suede with neon accents also listed by dealer guides) - unconfirmed by Kia",
+       "spare": "tire mobility kit",
+       "mpg": "106/86/96 MPGe (252 mi, 20\" wheels)"
+      },
+      {
+       "name": "GT",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 576 hp (641 hp boost from 2025), e-AWD",
+       "builds_on": "GT-Line e-AWD",
+       "highlights": [
+        "576 hp (641 hp 2025)",
+        "Electronic suspension, big brakes",
+        "Sport bucket seats"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide)",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "suede/vegan leather sport seats with neon accents; heated; not ventilated (manual sport seats)",
+       "black_interior": "yes (black with neon-green accents)",
+       "spare": "tire mobility kit",
+       "mpg": "85/74/79 MPGe (206 mi)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "vs 2023: new Light Long Range e-AWD; otherwise same trims. Sunroof GT-Line and GT only.",
+     "trims": [
+      {
+       "name": "Light Long Range e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof; fabric seats",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "12.3\" screens",
+        "Recycled fabric + vegan leather seats"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "recycled fabric with vegan leather (synthetic)",
+       "black_interior": "yes (Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "120/98/109 MPGe (282 mi)"
+      },
+      {
+       "name": "Wind e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof (GT-Line and GT only)",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Light",
+       "highlights": [
+        "Vegan leather seats, heated + ventilated front",
+        "Memory driver seat",
+        "Highway Driving Assist"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "vegan leather (SynTex, synthetic); heated + ventilated front",
+       "black_interior": "yes (Black; also Charcoal/Misty Gray and, 2025+, green or brown two-tones per dealer guides)",
+       "spare": "tire mobility kit",
+       "mpg": "120/98/109 MPGe (282 mi, 19\")"
+      },
+      {
+       "name": "GT-Line e-AWD",
+       "on_list": true,
+       "why_not": "interiors are mostly two-tone (black with white/off-white); only a mostly-black one qualifies - check photos",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Wind e-AWD",
+       "highlights": [
+        "Power tilt-and-slide glass sunroof",
+        "20-inch wheels, sport styling",
+        "Meridian audio",
+        "Augmented-reality head-up display (2023-24 option/standard varies)"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide), front-row only, not panoramic",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "vegan leather / suede; heated + ventilated front",
+       "black_interior": "partial (two-tone Black with White or Off-White; a black suede with neon accents also listed by dealer guides) - unconfirmed by Kia",
+       "spare": "tire mobility kit",
+       "mpg": "106/86/96 MPGe (252 mi, 20\")"
+      },
+      {
+       "name": "GT",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 576 hp (641 hp boost from 2025), e-AWD",
+       "builds_on": "GT-Line e-AWD",
+       "highlights": [
+        "576 hp (641 hp 2025)",
+        "Electronic suspension, big brakes",
+        "Sport bucket seats"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide)",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "suede/vegan leather sport seats with neon accents; heated; not ventilated (manual sport seats)",
+       "black_interior": "yes (black with neon-green accents)",
+       "spare": "tire mobility kit",
+       "mpg": "88/77/83 MPGe (218 mi)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Refresh (spring 2025): 84 kWh battery, NACS port, new face; Wind lost the Meridian audio (6 speakers per Car and Driver); GT now 641 hp with ventilated seats. Sunroof still GT-Line and GT only.",
+     "trims": [
+      {
+       "name": "Light Long Range e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof; fabric seats",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "12.3\" screens",
+        "Recycled fabric + vegan leather seats"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "recycled fabric with vegan leather (synthetic)",
+       "black_interior": "yes (Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "117/95/106 MPGe (295 mi)"
+      },
+      {
+       "name": "Wind e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof (GT-Line and GT only)",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Light",
+       "highlights": [
+        "Vegan leather seats, heated + ventilated front",
+        "Memory driver seat",
+        "Highway Driving Assist"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "vegan leather (SynTex, synthetic); heated + ventilated front",
+       "black_interior": "yes (Black; also Charcoal/Misty Gray and, 2025+, green or brown two-tones per dealer guides)",
+       "spare": "tire mobility kit",
+       "mpg": "117/95/106 MPGe (295 mi, 19\")"
+      },
+      {
+       "name": "GT-Line e-AWD",
+       "on_list": true,
+       "why_not": "interiors are mostly two-tone (black with white/off-white); only a mostly-black one qualifies - check photos",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Wind e-AWD",
+       "highlights": [
+        "Power tilt-and-slide glass sunroof",
+        "20-inch wheels, sport styling",
+        "Meridian audio",
+        "Augmented-reality head-up display (2023-24 option/standard varies)"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide), front-row only, not panoramic",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "vegan leather / suede; heated + ventilated front",
+       "black_interior": "partial (two-tone Black with White or Off-White; a black suede with neon accents also listed by dealer guides) - unconfirmed by Kia",
+       "spare": "tire mobility kit",
+       "mpg": "106/89/97 MPGe (270 mi, 20\")"
+      },
+      {
+       "name": "GT",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, 576 hp (641 hp boost from 2025), e-AWD",
+       "builds_on": "GT-Line e-AWD",
+       "highlights": [
+        "576 hp (641 hp 2025)",
+        "Electronic suspension, big brakes",
+        "Sport bucket seats"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide)",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "suede/vegan leather sport seats with neon accents; heated + ventilated",
+       "black_interior": "yes (black with neon-green accents)",
+       "spare": "tire mobility kit",
+       "mpg": "87/79/83 MPGe (231 mi)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Prices cut (Kia, May 2026). AWD trims Light Long Range, Wind, GT-Line; a 2026 GT wasn't found in Car and Driver's 2026 list (unconfirmed). GT-Line details assumed as 2025 (Car and Driver's 2026 GT-Line page couldn't be read).",
+     "trims": [
+      {
+       "name": "Light Long Range e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof; fabric seats",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-inch wheels",
+        "12.3\" screens",
+        "Recycled fabric + vegan leather seats"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "recycled fabric with vegan leather (synthetic)",
+       "black_interior": "yes (Black)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "117/95/106 MPGe (295 mi)"
+      },
+      {
+       "name": "Wind e-AWD",
+       "on_list": false,
+       "why_not": "no sunroof (GT-Line and GT only)",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Light",
+       "highlights": [
+        "Vegan leather seats, heated + ventilated front",
+        "Memory driver seat",
+        "Highway Driving Assist"
+       ],
+       "sunroof": "not available",
+       "premium_audio": "none (6 speakers)",
+       "seats": "vegan leather (SynTex, synthetic); heated + ventilated front",
+       "black_interior": "yes (Black; also Charcoal/Misty Gray and, 2025+, green or brown two-tones per dealer guides)",
+       "spare": "tire mobility kit",
+       "mpg": "117/95/106 MPGe (295 mi, 19\")"
+      },
+      {
+       "name": "GT-Line e-AWD",
+       "on_list": true,
+       "why_not": "interiors are mostly two-tone (black with white/off-white); only a mostly-black one qualifies - check photos",
+       "powertrain": "Dual motors, 320 hp, 77.4 kWh battery (84 kWh from 2025), e-AWD",
+       "builds_on": "Wind e-AWD",
+       "highlights": [
+        "Power tilt-and-slide glass sunroof",
+        "20-inch wheels, sport styling",
+        "Meridian audio",
+        "Augmented-reality head-up display (2023-24 option/standard varies)"
+       ],
+       "sunroof": "standard power sunroof that OPENS (tilt and slide), front-row only, not panoramic",
+       "premium_audio": "Meridian 14-speaker, standard",
+       "seats": "vegan leather / suede; heated + ventilated front",
+       "black_interior": "partial (two-tone Black with White or Off-White; a black suede with neon accents also listed by dealer guides) - unconfirmed by Kia",
+       "spare": "tire mobility kit",
+       "mpg": "106/89/97 MPGe (270 mi, 20\")"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/kia/ev6/specs/ (trim spec pages 2023-2026: price incl. destination, equipment, clearance 6.1 in)",
+    "https://www.kiamedia.com/us/en/media/pressreleases/21344/kia-announces-2024-ev6-pricing",
+    "https://www.kianewscenter.com/vehicles/ev6/all-variants/latest-news/kia-america-announces-2025-ev6-pricing/s/8c76d44e-df0b-4cf4-86e0-814fba72bcfb",
+    "https://www.kiamedia.com/us/en/media/pressreleases/24658/kia-announces-pricing-for-2026-ev6",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA records, Oct 2026)",
+    "https://rayscarinfo.com/kia/ev6-2023/colors/ and Kia dealer color guides (interior colors; not Kia-official, confirm)",
+    "kiamedia.com and kianewscenter.com refused or failed our requests (403 / certificate error); prices come from search summaries of those releases plus Car and Driver"
+   ]
   }
  ]
 }
