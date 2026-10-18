@@ -611,6 +611,7 @@ __SCOREHELP__
   <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
   <fieldset class="group" id="f-make"><legend>Make</legend></fieldset>
   <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
+  <fieldset class="group" id="f-year"><legend>Model year</legend></fieldset>
   <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
@@ -705,6 +706,7 @@ const pills = (id, vals) => document.getElementById(id).insertAdjacentHTML("befo
 pills("f-show", ["Meets all criteria", "Needs a call"]);
 pills("f-make", makes);
 pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.concat(D.gone).some(c => c.fuel === f)));
+pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
 document.getElementById("covlist").innerHTML = D.failed.map(f => `<li><b>${esc(f.brand)} · ${esc(f.dealer)}</b>: ${esc(f.reason)}</li>`).join("") || "<li>Nothing failed.</li>";
@@ -1079,8 +1081,9 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
 function render() { renderRows(); stickHeads(); }
 function renderRows() {
-  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel");
-  const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel));
+  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year");
+  const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
+                    && (!yr.size || yr.has(String(c.year)));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
   const onlyNew = document.getElementById("only-new").checked;
   let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
@@ -1169,7 +1172,7 @@ try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
-["q", "f-show", "f-make", "f-fuel", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; render(); });
