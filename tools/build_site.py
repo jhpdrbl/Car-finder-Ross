@@ -1,6 +1,6 @@
 """Build the phone-friendly website (site/) from the latest laptop run's output/.
 
-  index.html   the start page: pick whose search (Ross / Jenna); ross/index.html, jenna/index.html = their dashboards
+  index.html   Ross's dashboard (with several buyers: a start page to pick whose search); ross/index.html too
   digest.html  the latest digest, rendered, WITHOUT the buying-context lines
                (down payment, pre-approval) unless config publish.include_buying_context
   _headers     tells search engines not to index the site
@@ -79,10 +79,10 @@ def build() -> Path:
     front = OUT / "index.html"
     others = [pid for pid in (cfg.get("profiles") or {}) if pid != "ross"]
     _page(OUT, SITE / "ross", cfg)
-    if front.exists() and all((OUT / pid / "dashboard.html").exists() for pid in others):
+    if others and front.exists() and all((OUT / pid / "dashboard.html").exists() for pid in others):
         (SITE / "index.html").write_text(front.read_text(encoding="utf-8").replace(
             '<meta name="viewport"', '<meta name="robots" content="noindex"><meta name="viewport"', 1), encoding="utf-8")
-    else:                                                  # not every buyer has a page yet: Ross's page stays the front page
+    else:                                                  # one buyer, or not every buyer has a page yet: Ross's page is the front page
         _page(OUT, SITE, cfg)
     for pid in (cfg.get("profiles") or {}):
         if pid != "ross" and (OUT / pid / "dashboard.html").exists():

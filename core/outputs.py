@@ -366,10 +366,15 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
         .replace("__TITLE__", f"{html.escape(P.label)}'s CPO SUV Finder").replace("__SCOREHELP__", score_help(P))
     for k, v in theme_vars(P).items():
         page = page.replace(k, v)
+    if len(profiles.all_profiles()) < 2:        # nobody to switch to
+        page = page.replace('<a class="switch" id="switch" href="/">&#8592; Ross or Jenna</a>', "")
     P.out.mkdir(parents=True, exist_ok=True)
     path = P.out / "dashboard.html"
     path.write_text(page, encoding="utf-8")
-    write_chooser(today)
+    if len(profiles.all_profiles()) > 1:
+        write_chooser(today)
+    else:                                       # one buyer: no "whose search?" start page
+        (profiles.OUT / "index.html").unlink(missing_ok=True)
     return path
 
 

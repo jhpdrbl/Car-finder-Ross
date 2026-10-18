@@ -34,6 +34,11 @@ refresh.bat ──► run.py refresh ──► git push data/ output/ ──► 
 
 ## Two buyers: Ross and Jenna (Oct 16 2026)
 
+**Jenna's tracker was removed Oct 18 2026 (user: "Jenna just bought a car so hers is no longer needed").** Her `profiles.jenna`
+block, `data/jenna/`, `output/jenna/` and the "Whose search?" start page are gone (git history has them); with one buyer
+`write_dashboard` skips the start page and the "← Ross or Jenna" link, and `build_site` puts Ross's page at `/` (and `/ross/`).
+The multi-buyer code stays, so another buyer is just another `profiles:` block. What follows is how it worked with two.
+
 The tracker serves two buyers ("profiles", `core/profiles.py`, config.yaml `profiles:`). **The dealer search runs
 once**; every car found is checked against each buyer's rules separately (`criteria.use(cfg)` switches the rules;
 each buyer evaluates a deep copy of the listing).
