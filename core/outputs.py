@@ -285,7 +285,7 @@ def score_help(P) -> str:
     rank = sc.get("color_rank") or []
     label = {
         "price": f"Price: full points at ${tgt:,} or less, none at ${tgt + 10000:,}",
-        "phev": "Plug-in hybrid: all or nothing",
+        "phev": "Plug-in hybrid or electric: all or nothing",
         "mpg": "Gas mileage: none at 20 mpg, full at 40 mpg",
         "audio": "Premium sound system (Harman Kardon, B&O, Burmester…)",
         "leather": "Real leather seats (not shown on the listing: 40%)",

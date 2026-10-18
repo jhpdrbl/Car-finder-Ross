@@ -24,7 +24,7 @@ filters:
     gas: 35000
     hybrid: 40000
     phev: 40000
-    ev: null                  # EV only if exceptional_ev_deal
+    ev: 40000                 # electric added Oct 18 2026 (user: "Add electric"); same cap as hybrid/plug-in. null = only exceptional EV deals
   price_tolerance: 500        # cushion over every cap (gas $35,500, hybrid/PHEV $40,500)
   exceptional_ev_discount: 0.15
   ev_min_comparables: 3
@@ -48,14 +48,14 @@ filters:
     exclude: [beige, brown, white, red, tan, cognac, saddle, ivory, cream, caramel,
               chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel", blond, blonde,
               oyster, parchment, linen, "light gray", amber, cognac, mocha, espresso, sienna, "flaxen",
-              greige, griege, terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire"]
+              greige, griege, terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire", hazel, "misty gray"]
   carfax_exclude_accident: true
 
 scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
   price_target: 30000
   weights:
     price: 30       # high
-    phev: 25        # high
+    phev: 25        # high (electric cars get it too: they plug in)
     mpg: 12         # medium
     audio: 12       # medium
     leather: 5      # low
@@ -92,56 +92,67 @@ buying_context:
 # CPO program names are in verify/certification.py.
 models:
   Audi:
-    allow: '\bq[35]\b'
-    list: Q3, Q5
+    allow: '\bq[35]\b|\bq[468] ?(sportback )?e-?tron|\be-?tron\b'
+    list: Q3, Q5, electric Q4 / Q6 / Q8 e-tron
+    tokens: [q4, q6, q8, e-tron]
     rules:
-      - {if: '\bsq[35]\b|\brs ?q', then: fail, why: 'SQ3/SQ5/RS model (performance versions not on the list)'}
+      - {if: '\bsq[3568]\b|\brs ?q|\brs ?e-?tron', then: fail, why: 'SQ / RS model (performance versions not on the list)'}
+      - {if: 'e-?tron gt', then: fail, why: 'e-tron GT (a sedan)'}
       - {if: 'sportback', then: note, why: 'Sportback'}
   Genesis:
-    allow: 'gv70|gv80'
-    list: GV70, GV80
+    allow: 'gv60|gv70|gv80'
+    list: GV60 (electric), GV70 (incl. Electrified), GV80
+    tokens: [gv60]
     rules:
       - {if: 'gv80.*coupe', then: note, why: 'GV80 Coupe'}
   Subaru:
-    allow: 'forester|outback'
-    list: Forester, Outback
+    allow: 'forester|outback|solterra'
+    list: Forester, Outback, Solterra (electric)
+    tokens: [solterra]
     rules:
       - {if: 'forester', unless: 'limited|touring|wilderness|hybrid|strong hev', then: fail,
          why: 'Forester trim (Limited/Touring/Wilderness or Hybrid only)'}
       - {if: 'outback', unless: 'limited|touring|wilderness', then: fail, why: 'Outback trim (Limited/Touring/Wilderness only)'}
   BMW:
-    allow: '\bx[35]\b'
-    list: X3, X5
+    allow: '\bx[35]\b|\bix\b'
+    list: X3, X5, iX (electric)
+    tokens: [ix]
     rules:
       - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
       - {if: '\bm40|\bm50|\bm60|x[35] m\b|competition', then: fail, why: 'M version (only X3 xDrive30i, X5 xDrive40i/50e)'}
   Mercedes-Benz:
-    allow: 'glc|gle'
-    list: GLC 300/350e, GLE 350/450/450e
+    allow: 'glc|gle|eqb|eqe|eqs'
+    list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV
+    tokens: [eqb, eqe, eqs]
     rules:
       - {if: 'amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580', then: fail, why: 'AMG / Coupe / GLE 580 (not on the list)'}
   Volkswagen:
-    allow: 'tiguan'
-    list: Tiguan 2025+
+    allow: 'tiguan|\bid\.? ?-?4\b'
+    list: Tiguan 2025+, ID.4 AWD (electric)
+    tokens: [id.4, id-4]
     rules:
-      - {min_year: 2025, why: 'Tiguan before 2025 (AWD versions have a third row)'}
+      - {if: tiguan, min_year: 2025, why: 'Tiguan before 2025 (AWD versions have a third row)'}
   Lexus:
-    allow: '\b(nx|rx)\b'
-    list: NX, RX
+    allow: '\b(nx|rx|rz)\b'
+    list: NX, RX, RZ (electric)
+    tokens: [rz]
     rules:
       - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
       - {if: 'nx ?250|\b250\b', unless: '350|450', then: fail, why: 'NX 250 (only NX 350 / 350h / 450h+)'}
   Volvo:
-    allow: 'xc60|xc40|ex40'
-    list: XC60, XC40
+    allow: 'xc60|xc40|ex40|\be?c40\b'
+    list: XC60, XC40 (incl. Recharge / EX40), C40 Recharge / EC40
+    tokens: [c40, ec40]
   Toyota:
-    allow: '4runner|land cruiser'
-    list: 4Runner, Land Cruiser 2024+
+    allow: '4runner|land cruiser|bz4x|\bbz\b'
+    list: 4Runner, Land Cruiser 2024+, bZ4X / bZ (electric)
+    tokens: [bz4x, bz]
     rules:
       - {if: 'land cruiser', min_year: 2024, why: 'Land Cruiser before 2024'}
   Ford:
-    allow: 'bronco'
-    list: Bronco 4-door, Bronco Sport
+    allow: 'bronco|mach[ -]?e'
+    list: Bronco 4-door, Bronco Sport, Mustang Mach-E (electric)
+    tokens: [mach-e]
     rules:                         # Bronco Sport added Oct 17 2026 (user asked); every Bronco Sport is a 2-row 4x4
       - {if: '2[- ]?door|2dr', unless: 'bronco[ -]?sport', then: fail, why: '2-door Bronco'}
       - {if: 'bronco', unless: '4[- ]?door|4dr|bronco[ -]?sport', then: call, why: "confirm it's a 4-door Bronco"}
@@ -169,10 +180,10 @@ models:
       - {if: terracotta|caturra|parchment|greige|sport tan|tan nappa|tan leather|white leather|red leather, then: fail, why: non-black Mazda interior named in the listing}
 
   Kia:
-    allow: 'sportage'
-    list: Sportage (gas SX-Prestige/X-Pro/X-Pro Prestige, Hybrid SX-Prestige/X-Line, Plug-in Hybrid)
-    tokens: [sportage]
-    feed_models: [Sportage, Sportage Hybrid, Sportage Plug-in Hybrid]   # names in kia.com's certified search
+    allow: 'sportage|\bev6\b'
+    list: Sportage (gas SX-Prestige/X-Pro/X-Pro Prestige, Hybrid SX-Prestige/X-Line, Plug-in Hybrid), EV6 AWD (electric)
+    tokens: [sportage, ev6]
+    feed_models: [Sportage, Sportage Hybrid, Sportage Plug-in Hybrid, EV6]   # names in kia.com's certified search
     rules:
       - {min_year: 2023, why: Sportage before 2023 (older generation)}
       - {if: \blx\b, then: fail, why: 'Sportage LX: no sunroof offered (cloth seats)'}

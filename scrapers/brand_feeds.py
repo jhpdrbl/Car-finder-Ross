@@ -42,7 +42,7 @@ def _match_dealer(dealers: list[dict], name: str, url: str) -> dict | None:
 # Genesis: genesis.com/us/en/certified/inventory
 # --------------------------------------------------------------------------
 
-GENESIS_MODELS = {"gv70": "GV70", "electrified-gv70": "Electrified GV70", "gv80": "GV80", "gv80-coupe": "GV80 Coupe"}
+GENESIS_MODELS = {"gv60": "GV60", "gv70": "GV70", "electrified-gv70": "Electrified GV70", "gv80": "GV80", "gv80-coupe": "GV80 Coupe"}
 
 
 def genesis() -> tuple[list[Listing], dict]:
@@ -149,7 +149,7 @@ def subaru() -> tuple[list[Listing], dict]:
 # --------------------------------------------------------------------------
 # The store's car search (services.codeweavers.net, robots.txt allows /api/) only answers inside the
 # store's own session, so this opens the store page in a real browser (honest User-Agent, robots.txt
-# checked) and asks the store's search for certified XC40/XC60 near home from inside that page.
+# checked) and asks the store's search for certified XC40/XC60 (and electric EX40/C40/EC40) near home from inside that page.
 # Without the browser add-on (e.g. on the iPad) this feed fails and Volvo dealer sites are read instead.
 
 VOLVO_STORE = "https://cpo.volvocars.us/en-US/store/all/vehicles"
@@ -191,7 +191,7 @@ def volvo() -> tuple[list[Listing], dict]:
             headers = {k: v for k, v in req.headers.items() if k.lower().startswith("x-cw-") or k.lower() == "content-type"}
             body = json.loads(req.post_data)
             body.update(SortBy="Distance", ResultsPerPage=50, Page=1)
-            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "XC40"]
+            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "XC40", "EX40", "C40 Recharge"]   # names as the store lists them (Oct 2026)
             body["Filters"]["Location"] = {"Latitude": home["lat"], "Longitude": home["lon"],
                                            "Distance": home["edge_radius_miles"]}
             while True:
@@ -365,7 +365,9 @@ def _vw_listing(car: dict, dealers: list[dict]) -> Listing | None:
     url = _val(car, "buildMyDealLinks", "onlineSalesUrl") or ""
     if _val(car, "cartype", "code") != "U" or "certified" not in (car.get("carTypeLabel") or "").lower():
         return None
-    if "tiguan" not in model.lower() or (year or 0) < 2025 or not car.get("vin") or not url:
+    if not could_want("Volkswagen", model, year or 0) or not car.get("vin") or not url:
+        return None
+    if "tiguan" in model.lower() and (year or 0) < 2025:
         return None
     d = _match_dealer(dealers, _val(car, "dealer", "name", "value") or "", url)
     if not d:

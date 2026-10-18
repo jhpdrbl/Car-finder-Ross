@@ -339,7 +339,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         if L.fees_estimated:
             notes.append("fees estimated")
         fuel = L.fuel_type
-        if fuel in ("hybrid", "phev"):
+        if fuel in ("hybrid", "phev") or (fuel == "ev" and F["price_caps"].get("ev")):
             cap = F["price_caps"][fuel] + F["price_tolerance"]
             if L.price_total > cap:
                 _over(L, cap, _cap_label(fuel), fails, unknown)
@@ -452,7 +452,7 @@ def score_parts(L: Listing) -> dict[str, float]:
     parts = {}
     if L.price_total:
         parts["price"] = max(0.0, min(1.0, 1 - (L.price_total - S.get("price_target", 30000)) / 10000))
-    parts["phev"] = 1.0 if L.fuel_type == "phev" else 0.0
+    parts["phev"] = 1.0 if L.fuel_type in ("phev", "ev") else 0.0      # electric cars plug in too
     mpg = L.mpg_combined
     parts["mpg"] = max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type in ("hybrid", "phev") else 0.3)
     parts["audio"] = 1.0 if L.audio else 0.0
