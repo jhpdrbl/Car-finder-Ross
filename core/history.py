@@ -34,7 +34,8 @@ def write_csv(path: Path, rows: list[dict], cols: list[str]) -> None:
 
 
 def load_confirmed(data: Path = DATA) -> dict[str, dict]:
-    """Facts the user checked by hand (confirmed.csv: vin, trim, sunroof yes/no, ext_color, note); they win over the listing.
+    """Facts the user checked by hand (confirmed.csv: vin, trim, sunroof yes/no, ext_color,
+    audio = the premium system's name or 'none', msrp_new = window-sticker total, note); they win over the listing.
     Facts about a car are the same for every buyer, so another buyer's folder adds to (and overrides) data/confirmed.csv."""
     out = {r["vin"].strip().upper(): r for r in read_csv(DATA / "confirmed.csv") if r.get("vin")}
     if data != DATA:

@@ -324,6 +324,8 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     for h in history:
         hist.setdefault(h["vin"], []).append([h["date"], float(h["price"])])
     latest_run = max((r.get("seen_run") or "" for r in rows), default="")
+    from core import history as history_mod      # (the `history` argument is the price history)
+    no_audio = {v for v, c in history_mod.load_confirmed(P.data).items() if (c.get("audio") or "").strip().lower() == "none"}
     cars = []
     for r in active:
         cars.append({k: r.get(k, "") for k in ("vin", "dealer", "listing_url", "year", "make", "model", "trim", "price_total",
@@ -332,7 +334,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
                                                "msrp_new", "msrp_source", "body")}
-                    | {"hist": hist.get(r["vin"], []),
+                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run})
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
@@ -1079,6 +1081,7 @@ function soundOf(c) {      // upgraded sound: the dealer's page names the system
   if (c._snd) return c._snd;
   let r = {v: "Not sure", t: ""};
   if (c.audio) r = {v: "Yes", t: c.audio};
+  else if (c.audio_none) r = {v: "No", t: "checked by you: no premium system"};
   else { const t = trimInfo(c);
     if (t) r = soundCall(t.premium_audio);
     else if (c.trim) {      // the dealer's trim name is shorter than the guide's ("Premium Plus" vs "2.5 S Premium Plus Package"):

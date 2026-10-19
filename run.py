@@ -283,6 +283,11 @@ def apply_confirmed(L, c: dict | None) -> None:
     if roof in ("yes", "no"):
         L.sunroof = roof == "yes"
         L.sunroof_note = "confirmed by you"
+    audio = (c.get("audio") or "").strip()
+    if audio:                                  # 'none' = checked: no premium system
+        L.audio = "" if audio.lower() == "none" else audio
+    if (c.get("msrp_new") or "").strip():      # the window sticker's total
+        L.msrp_new, L.msrp_source = float(c["msrp_new"]), "listing"
 
 
 def fill_mpg(L) -> None:
@@ -322,7 +327,7 @@ def rescore(args) -> None:
     for P in profiles.all_profiles():
         criteria.use(P.cfg)
         rows = history.read_csv(P.data / "listings.csv")
-        excluded = history.load_exclusions(P.data)
+        excluded, confirmed = history.load_exclusions(P.data), history.load_confirmed(P.data)
         n_out = 0
         for r in rows:
             if r.get("status") != "active":
@@ -339,9 +344,13 @@ def rescore(args) -> None:
                         ventilated_seats=b.get(r["ventilated_seats"]), spare_tire=b.get(r["spare_tire"]),
                         ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
                         msrp_source=r.get("msrp_source", ""))
+            apply_confirmed(L, confirmed.get(L.vin.upper()))
             msrp.fill(L)
             L.ext_color = criteria.full_color_name(L.make, L.ext_color)
             r["msrp_new"], r["msrp_source"], r["ext_color"] = L.msrp_new or "", L.msrp_source, L.ext_color
+            r["trim"], r["audio"] = L.trim, L.audio
+            if L.sunroof is not None:
+                r["sunroof"] = str(L.sunroof)
             fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
             spec = criteria.MODELS.get(L.make)            # a model taken off the list since the last search
             if spec and not re.search(spec["allow"], L.model.lower()):
