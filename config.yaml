@@ -56,7 +56,7 @@ filters:
               chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel", blond, blonde,
               oyster, parchment, linen, "light gray", amber, cognac, mocha, espresso, sienna, "flaxen",
               greige, griege, terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire", hazel, "misty gray",
-              castanea, amido, stonegray, "stone gray", "stone grey", "rose gold", "space gray", "performance gray",
+              castanea, amido, stonegray, "stone gray", "stone grey", "rose gold", "space gray", "space grey", "performance gray",
               "blue leather", "gray startex", "gray and blue", dapple, grayscale, macadamia, "torrent navy", "aqua green",
               "sky blue", "glacier white", cinnamon, fjord, boulder]
   carfax_exclude_accident: true
