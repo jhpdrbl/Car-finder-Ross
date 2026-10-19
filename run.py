@@ -105,6 +105,7 @@ def refresh(args) -> None:
         if not L.seats:
             L.seats = seat_material(" ".join(L.features), L.int_color)
         msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
+        L.body = criteria.body_kind(L, d)          # "SUV" / "Sedan" (dashboard filter)
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
     for brand, st in feed_stats.items():
         if st["status"] == "success":

@@ -223,6 +223,17 @@ def ev_comparables(L: Listing, pool: list[Listing]) -> list[float]:
 # Main evaluation
 # --------------------------------------------------------------------------
 
+def body_kind(L: Listing, d: dict) -> str:
+    """"Sedan" or "SUV" for the dashboard's filter: the VIN record's body, else the buyer's sedan model names."""
+    body = (d.get("BodyClass") or "").lower() if d else ""
+    if re.search(r"sedan|saloon|hatchback|liftback|notchback|fastback", body):
+        return "Sedan"
+    models = (F.get("sedans") or {}).get("models")
+    if not body and models and re.search(models, f"{L.model} {d.get('Model') or ''} {L.trim} {L.title}".lower()):
+        return "Sedan"
+    return "SUV"
+
+
 FUEL_WORDS = {"gas": "gas", "hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "electric"}
 NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
 NAME_AWD = re.compile(r"\b(awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac)\b|all[- ]wheel|four[- ]wheel|4motion")
