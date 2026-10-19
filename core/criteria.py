@@ -129,11 +129,11 @@ def interior_ok(color: str) -> tuple[str, str]:
         return ("fail", f"interior {color}") if hit else ("pass", "")
     if not c.strip():
         return "unknown", "interior color not shown"
+    if any(w in c for w in F["interior_colors"]["include"]):
+        return "pass", ""                      # black, or a two-tone that includes black (user, Oct 19 2026)
     for w in F["interior_colors"]["exclude"]:
         if re.search(rf"\b{re.escape(w)}\b", c):
             return "fail", f"interior {color}"
-    if any(w in c for w in F["interior_colors"]["include"]):
-        return "pass", ""
     if re.search(r"\b(gr[ae]y|silver|blue|green|titanium|stone|ash|light|sky|ultramarine|platinum|mocha|camel)\b", c):
         return "fail", f"interior {color} (black only)"
     return "unknown", f"interior color '{color}': confirm it's black"

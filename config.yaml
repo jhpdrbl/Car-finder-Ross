@@ -51,7 +51,7 @@ filters:
               sage, mint, lime, seafoam, pistachio]   # light greens (user, Oct 19 2026: "Sage green is not dark green")
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:
-    include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black"]
+    include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black"]   # two-tones with one of these pass too
     exclude: [beige, brown, white, red, tan, cognac, saddle, ivory, cream, caramel,
               chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel", blond, blonde,
               oyster, parchment, linen, "light gray", amber, cognac, mocha, espresso, sienna, "flaxen",
@@ -184,9 +184,10 @@ models:
       - {if: '2[- ]?door|2dr', unless: 'bronco[ -]?sport', then: fail, why: '2-door Bronco'}
       - {if: 'bronco', unless: '4[- ]?door|4dr|bronco[ -]?sport', then: call, why: "confirm it's a 4-door Bronco"}
       # Bronco Sport (Ford order guides 2023-26, Oct 2026): only Big Bend / Free Wheeling can have a sunroof AND all-black seats
-      - {if: 'bronco[ -]?sport.*(outer[ -]?banks|badlands|heritage|sasquatch)', then: fail, why: 'Bronco Sport Outer Banks / Badlands / Heritage: no all-black interior with a sunroof (Roast, Navy Pier, Norias, Dark Space Gray)'}
+      - {if: 'bronco[ -]?sport.*heritage', then: fail, why: 'Bronco Sport Heritage: no interior with black (Navy Pier, Norias)'}
+      # Outer Banks / Badlands: Ebony/Roast two-tone includes black (OK since Oct 19 2026); Dark Space Gray seats fail on color
       - {if: 'bronco[ -]?sport[ -]base\b', then: fail, why: 'Bronco Sport Base: no sunroof offered'}
-      - {if: 'bronco[ -]?sport', unless: 'big[ -]?bend|free[ -]?wheeling|outer[ -]?banks|badlands|heritage|sasquatch|[ -]base\b', then: call, why: 'confirm the Bronco Sport trim (only Big Bend / Free Wheeling can have a sunroof with black seats)'}
+      - {if: 'bronco[ -]?sport', unless: 'big[ -]?bend|free[ -]?wheeling|outer[ -]?banks|badlands|heritage|sasquatch|[ -]base\b', then: call, why: 'confirm the Bronco Sport trim (Base has no sunroof; Heritage has no black interior)'}
       - {if: 'bronco[ -]?sport.*big[ -]?bend', then: note, why: 'Big Bend: sunroof only with the Convenience Package; 2025+ black seats only with the Black Appearance Package'}
       - {if: 'mach[ -]?e.*\b(select|rally)\b', then: fail, why: 'Mach-E Select / Rally: no glass roof offered'}
       - {if: 'mach[ -]?e.*(\bgt\b|performance edition)', from_year: 2024, then: fail, why: 'Mach-E GT 2024+: Performance Gray interior only'}
