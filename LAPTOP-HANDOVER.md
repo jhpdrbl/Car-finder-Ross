@@ -63,8 +63,11 @@ daily search"). You can also run the search from your iPad any time: see [IPAD.m
 
 ## Your phone page after a laptop search
 
-- Same address, same tabs: **Cars**, **♥** (favorites), **Compare**, **Trims**, **Sold**. The laptop
-  search simply adds the dealers your phone couldn't reach (Audi especially).
+- Same address, same tabs: **Cars**, **♥** (favorites), **Compare**, **Trims**, **Check yourself**, **Sold**.
+  The laptop search simply adds the dealers your phone couldn't reach (Audi especially), so expect more
+  cars and a much shorter **Check yourself** list. Cars you added by hand (the Audi Beverly Hills Q4s) stay on.
+- The first laptop search is the slowest (it re-reads every car because the rules changed a lot this week,
+  and Acura and Alfa Romeo dealers are searched for the first time).
 - **Favorites carry over.** They're saved online and tied to each car's VIN, so a new search never
   erases them. Sold favorites show at the top of the ♥ tab. Claude's summary will mention changes to them.
 - On the laptop, look at favorites on the online page (<https://cpo-suv-finder.pages.dev>), not the
@@ -91,3 +94,4 @@ adapter (`scrapers/audi_network.py`), because Audi is a top brand and was never 
 In every summary, start with the user's favorites (`curl -s https://cpo-suv-finder.pages.dev/api/favs`):
 price drops, sold, or no longer matching. See CLAUDE.md, "Every refresh".
 Jenna's tracker was removed (Oct 2026, she bought a car); the search is Ross's only.
+Rule changes the user made are in CLAUDE.md "Decisions the user made (don't revert)"; follow them.

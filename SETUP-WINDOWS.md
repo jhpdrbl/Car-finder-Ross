@@ -95,7 +95,7 @@ Claude uses it to tune the Audi part, because Audi's sites can't be seen from Cl
 # Part 2: See your results on your phone (one time)
 
 > ✅ **Already done** (October 2026, from the iPad): Cloudflare key, GitHub secrets, first
-> publish, and the privacy lock. You don't need to repeat it. It's kept here for reference
+> publish, and favorites sync. You don't need to repeat it. It's kept here for reference
 > or in case you ever need to redo it.
 
 After each laptop run, `refresh.bat` asks **"Publish these results to your phone page?"**

@@ -21,7 +21,7 @@ refresh.bat ──► run.py refresh ──► git push data/ output/ ──► 
    (full coverage)        share-results.bat     (on push touching output/**)        (public, noindex)
 ```
 
-- **The search must run on the laptop.** About 80 of 204 dealer sites block cloud/datacenter IPs
+- **The search must run on the laptop.** About 80 of the ~200 dealer sites block cloud/datacenter IPs
   (Cloudflare and Akamai bot protection, and Audi's own dealer platform), including GitHub
   Actions runners and Claude's cloud sessions. From a home connection they normally load.
   **Do not try to get around bot protection** (no residential proxies, stealth browsers,
@@ -191,16 +191,23 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 4. Tell the user to run `update.bat` then `refresh.bat` on the laptop to apply rule changes to
    the full dealer set.
 
-## Current state (as of 2026-10-15)
+## Current state (as of 2026-10-19)
 
-- **Ready for the first laptop run.** Everything since the last cloud search was dashboard/reference
-  work plus one rule fix (Q5 sunroof). Because `config.yaml` and `criteria.py` changed, the first laptop
-  run re-reads every listing page (rules fingerprint) and is slower than later runs; that's expected.
-- Dashboard (Oct 15, cloud): phone card layout, Favorites (synced), Compare, Trim guide + warranty
-  comparison, Warranty column with expected end dates. The page is public (user's choice).
-- All runs so far were **from the cloud**; the laptop hasn't been set up yet (the user has the
-  guide, `LAPTOP-HANDOVER.md`). Latest cloud run: 99 sources read, 80 failed, 27 covered by brand feeds;
-  19 meet all criteria, 18 need a call (after adding the new models). `data/` and `output/` hold that run.
+- **Ready for the first laptop run** (the user starts it the evening of Oct 19 2026). The laptop isn't set up
+  yet; the user has `LAPTOP-HANDOVER.md`. All searches so far ran from the cloud or the iPad (latest: iPad,
+  Oct 18 2026, then rescored for later rule changes: 101 meet all criteria, 57 need a call, 95 sources read,
+  84 failed, 68 covered by brand feeds). `data/` and `output/` hold that run.
+- **Much changed since that search** (Oct 17-19): electric SUVs, performance versions, plug-in/electric sedans and
+  40+ mpg hybrid sedans, Ford Bronco Sport, Acura and Alfa Romeo (new brands, never searched in full; 15 Acura +
+  6 Alfa dealers), black two-tone interiors allowed, light greens excluded. So the first laptop run re-reads
+  every listing page (rules fingerprint) and is slower than later runs; that's expected. Expect many more cars.
+- `dealers.csv` has 269 rows; Lincoln's 8 were Jenna's and aren't searched (Ross has no Lincoln models).
+- A cloud smoke test on Oct 19 (`--brands Genesis,Subaru,Acura,"Alfa Romeo"`) ran clean; results not committed.
+  It found one Acura match (2024 ZDX A-Spec, Cosmic Black, Weir Canyon Acura); most Alfa/Acura dealer sites
+  blocked the cloud.
+- Dashboard (Oct 19): filters for status, make, fuel, model year, body (SUV/Sedan), sunroof, upgraded sound,
+  price and mileage sliders; tabs Cars, ♥, Compare, Trims, Check yourself (with "Clear all checks"), Sold.
+  The page is public (user's choice).
 - **Blocked from the cloud** (expected to work from the laptop): 54 Cloudflare, 5 Akamai,
   12 Audi-platform ("site currently not available"). Audi: only McKenna Audi, Audi North
   Orange County and Audi South Coast load from the cloud; the other 16 Audi dealers don't.
@@ -255,7 +262,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
    out by hand, use `data/exclusions.csv`.)
 9. **Brand-wide CPO searches** (user found them, Oct 15 2026; checked robots.txt + network calls). Feeds now: Genesis, Subaru,
-   Volvo (browser only), Lexus (supplement), Volkswagen:
+   Volvo (browser only), Lexus (supplement), Volkswagen, Kia (supplement), Mazda (`brand_feeds.FEEDS`):
    Audi audiusa.com = 403 even from the iPad on home Wi-Fi (no Audi feed). Toyota toyotacertified.com =
    data under `/rest/*`, which its robots.txt disallows (no feed). Mercedes = `nafta-service.mbusa.com/api/inv/...`
    but that host's robots.txt returns 5xx, so off limits (RFC 9309). Volvo = Codeweavers API

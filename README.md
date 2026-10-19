@@ -31,10 +31,12 @@ Every result links to the dealer's own listing page and includes the VIN.
 3. When it asks **"Publish these results to your phone page?"**, press **Y**. About 2 minutes later
    <https://cpo-suv-finder.pages.dev> shows the new results.
 
-**Reading the dashboard:** two tabs, **Available** and **No longer available**. A **NEW** bubble marks
-cars that appeared since the last refresh; a bold green **▼** next to a price means it dropped,
-and **Original price** shows what it was first listed at and how much less it is now. Tap the
-Status / Make / Fuel pills to filter (several at once), tap a column header to sort. On a phone each car shows as a card (no sideways scrolling) and a **Sort** menu replaces the headers. **Favorites**: tap **♡ Save** on a car; the ♥ tab shows them; they sync between devices through `functions/api/favs.js` (Cloudflare KV bound as `FAVS`), or stay on the device if that isn't set up. **Compare**: tap **+ Compare** on up to 6 cars and open the Compare tab. **Trim guide**: what each trim includes by year, plus each brand's warranty. The **Warranty** column estimates the coverage left and when it ends.
+**Reading the dashboard:** tabs **Cars**, **♥** (favorites), **Compare**, **Trims**, **Check yourself**
+(dealers the search couldn't read, with links to their certified inventory) and **Sold** (cars that left).
+A **NEW** bubble marks cars that appeared since the last refresh; a bold green **▼** next to a price means it dropped,
+and **Original price** shows what it was first listed at and how much less it is now. Filter with the
+Status / Make / Fuel / Model year / Body / Sunroof / Upgraded sound pills (several at once) and the price and
+mileage sliders; tap a column header to sort. On a phone each car shows as a card (no sideways scrolling) and a **Sort** menu replaces the headers. **Favorites**: tap **♡ Save** on a car; the ♥ tab shows them; they sync between devices through `functions/api/favs.js` (Cloudflare KV bound as `FAVS`), or stay on the device if that isn't set up. **Compare**: tap **+ Compare** on up to 6 cars and open the Compare tab. **Trim guide**: what each trim includes by year, plus each brand's warranty. The **Warranty** column estimates the coverage left and when it ends.
 
 **Easiest: let Claude do it.** Open Claude Code on the laptop in the `Car-finder-Ross` folder and
 say *"run the refresh and publish it"* (or, the very first time, *"set this up and run the
@@ -64,6 +66,8 @@ python run.py refresh --brands Audi,Subaru  # some brands only
 python run.py refresh --dealers McKenna     # dealers whose name contains the text
 python run.py refresh --workers 24 --no-enrich
 python run.py refresh --full                # re-read every listing page (ignore reusable exclusions)
+python run.py rescore                       # re-apply scores, color rules, exclusions, sticker prices to the last results (no search)
+python run.py add-manual                    # put data/manual_listings.csv cars on the page without a search
 python run.py diagnose --brand Audi         # how dealer sites look from this machine → output/diagnose_<date>.md
 python run.py diagnose --platform dealer_inspire | --dealer "Audi Pasadena"
 python run.py dealers [--refresh-raw] [--detect]   # rebuild data/dealers.csv
@@ -78,11 +82,11 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 
 ## Pipeline (`run.py refresh`)
 
-1. **Brand certified-inventory feeds** (`scrapers/brand_feeds.py`): genesis.com and subaru.com CPO
-   searches, vw.com's certified inventory, Volvo's certified store (needs the browser add-on), and lexus.com's
-   L/Certified search (alongside Lexus dealer sites, which give the real listing links) cover every Genesis, Subaru,
-   VW, Volvo and Lexus dealer, even ones whose sites block us. Each car carries
-   the dealer's own listing URL. These brands' dealers are then "skipped (covered by brand feed)".
+1. **Brand certified-inventory feeds** (`scrapers/brand_feeds.py`): genesis.com, subaru.com and mazdausa.com CPO
+   searches, vw.com's certified inventory, Volvo's certified store (needs the browser add-on), and the lexus.com and
+   kia.com certified searches (supplements: those brands' dealer sites are still read, for the real listing links) cover
+   every Genesis, Subaru, Mazda, VW, Volvo, Lexus and Kia dealer, even ones whose sites block us. Each car carries
+   the dealer's own listing URL where the feed has it. Fully covered brands' dealers are then "skipped (covered by brand feed)".
 2. **Dealer sites** (`core/pipeline.py`, 24 in parallel; each site still gets ≤ 1 request per 2–3 s):
    homepage check → discovery by platform → **pre-filter** (drop URLs that name an off-list version,
    e.g. sDrive/AMG/RX L; batch-decode VINs found in URLs, 50 per NHTSA call, and drop off-list models/years)
@@ -128,7 +132,7 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 | Path | What |
 |---|---|
 | `config.yaml` | Criteria, price caps + cushion, colors, **model rules (`models:`)**, trims with standard sunroof, scoring, finance, publish options |
-| `data/dealers.csv` | 204 dealers ≤ 60 mi: brand, homepage, platform, distance, source (brand locator / web research) |
+| `data/dealers.csv` | ~270 dealers ≤ 60 mi: brand, homepage, platform, distance, source (brand locator / web research) |
 | `data/dealers_manual.csv` | Researched dealers for brands whose locators block cloud IPs (Audi, BMW, Mercedes, Ford, Volvo) |
 | `data/locator_raw/` | Raw brand-locator responses + geocode cache |
 | `data/listings.csv` | Every listing ever seen: status (active/sold/excluded), first/last seen, all fields, MPG, fail reasons, needs_call |
@@ -136,10 +140,12 @@ On Windows use `.venv\Scripts\python` (created by `setup.bat`). The `.bat` files
 | `data/trim_guide.json` | Trim guide tab: per model / year / trim features, seat material, year-to-year changes (researched from manufacturer sources) |
 | `data/warranty.json` | Factory + certified pre-owned warranty terms per brand (Warranty column, warranty comparison) |
 | `data/exclusions.csv` | VINs excluded by hand (VIN, reason) |
-| `data/confirmed.csv` | Facts you checked by hand (VIN, trim, sunroof yes/no, note); applied before the rules on every run |
+| `data/manual_listings.csv` | Cars added by hand from dealers that block the search (dealer's own link, price, fees, colors); included in every refresh |
+| `data/msrp.json` | Sticker price when new per model / year / trim (Sticker when new column) |
+| `data/confirmed.csv` | Facts you checked by hand (VIN, trim, sunroof yes/no, exterior color, note); applied before the rules on every run |
 | `data/coverage.csv` | Last run: every source, success/failed/skipped and why |
 | `output/digest_<date>.md` | Digest: coverage, matches, new, price changes, needs a call, removed |
-| `output/dashboard.html` | Tabs: **Available** (sortable table, multi-select filters, NEW bubble, green ▼ on price drops, original price, fuel/MPG, monthly cost) and **No longer available** (cars once shown that later sold/were removed: first seen, gone since, days listed, last price); light/dark |
+| `output/dashboard.html` | The phone page: Cars (sortable table / phone cards, filters, NEW bubble, green ▼ on price drops, original price, sticker when new, fuel/MPG, sunroof, upgraded sound, warranty, monthly cost), ♥ favorites, Compare, Trims, Check yourself, Sold; light/dark |
 | `output/dealers.html` | Dealer list page (`python -m tools.dealer_page`) |
 | `site/` | Built for publishing (gitignored) |
 | `tools/` | `dealer_locator.py`, `verify_dealer_sites.py`, `dealer_page.py`, `diagnose.py`, `build_site.py` |
