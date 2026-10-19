@@ -330,6 +330,8 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     if body and "sport utility" not in body and not (also_suv and re.search(also_suv, names)):
         if not (sedans and sedan_body):
             fails.append(f"body: {d.get('BodyClass')}")
+        elif (L.make or L.dealer_brand) in sedans.get("exclude_makes", []):
+            fails.append(f"{L.make or L.dealer_brand} sedan (no {L.make or L.dealer_brand} sedans)")
         elif L.fuel_type not in sedans.get("fuels", []):
             fails.append(f"{L.fuel_type or 'gas'} sedan (sedans only as {_sedan_fuels(sedans)})")
         else:

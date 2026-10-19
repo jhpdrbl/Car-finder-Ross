@@ -35,8 +35,9 @@ filters:
   sedans:                     # plug-in hybrid / electric sedans (and hybrids with 40+ mpg), 3 Series / A5 to 5 Series size, AWD (user, Oct 19 2026)
     fuels: [phev, ev, hybrid]
     hybrid_min_mpg: 40        # regular hybrid sedans only if they average 40+ mpg (EPA combined; user, Oct 19 2026)
+    exclude_makes: [Toyota, Kia, Mazda]   # user, Oct 19 2026: "No Toyota kia or Mazda sedans"
     # sedan model names, for cars whose VIN record has no body type (gas sedans are excluded)
-    models: '\b[35] series\b|\b[35][35]0e\b|\bi[45]\b|\beqe\b(?!.*suv)|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|e-?tron gt|\b[as]6\b.*e-?tron|\bes ?\d{3}|\bs[69]0\b|\bcamry\b|\bcrown\b(?! ?signia)'
+    models: '\b[35] series\b|\b[35][35]0e\b|\bi[45]\b|\beqe\b(?!.*suv)|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|e-?tron gt|\b[as]6\b.*e-?tron|\bes ?\d{3}|\bs[69]0\b'
   exterior_colors:
     include: [black, gray, grey, graphite, charcoal, gunmetal, thunder, makalu,
               mythos, vik, onyx, daytona, carbon, obsidian, magnetic, crystal black,
@@ -168,15 +169,12 @@ models:
       - {if: '(xc40|ex40|c40).*(recharge|electric|twin|single motor)|ex40|ec40', unless: 'twin', then: call, why: 'electric Volvo: confirm Twin Motor (single-motor versions are rear-wheel drive)'}
       - {if: '(?=.*\bcore\b)(?=.*(electric|recharge|twin|ex40))', then: fail, why: 'electric XC40 / EX40 Core: no sunroof'}
   Toyota:
-    allow: '4runner|land cruiser|bz4x|\bbz\b|camry|crown(?! ?signia)'
-    list: 4Runner, Land Cruiser 2024+, bZ4X / bZ (electric); hybrid sedans Camry AWD 2025+, Crown Limited / Nightshade
-    tokens: [bz4x, bz, camry, crown]
+    allow: '4runner|land cruiser|bz4x|\bbz\b'
+    list: 4Runner, Land Cruiser 2024+, bZ4X / bZ (electric)
+    tokens: [bz4x, bz]
     rules:
       - {if: 'land cruiser', min_year: 2024, why: 'Land Cruiser before 2024'}
       - {if: '\bbz\b.*woodland', unless: 'premium', then: fail, why: 'bZ Woodland without the Premium Package: no glass roof'}
-      - {if: camry, min_year: 2025, why: 'Camry Hybrid before 2025 (front-wheel drive only)'}
-      - {if: 'crown.*(platinum|hybrid ?max)', then: fail, why: 'Crown Platinum (Hybrid MAX): 30 mpg, under 40'}
-      - {if: 'crown.*\bxle\b', then: fail, why: 'Crown XLE: no glass roof offered'}
   Ford:
     allow: 'bronco|mach[ -]?e'
     list: Bronco 4-door, Bronco Sport, Mustang Mach-E (electric)
@@ -280,9 +278,6 @@ sunroof_standard:
   - {make: "Audi", model: "A6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every A6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
   - {make: "Audi", model: "S6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every S6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
 
-  # Hybrid sedans with 40+ mpg (researched Oct 19 2026)
-  - {make: "Toyota", model: "Crown", not_model: "signia", trim_regex: "limited|platinum", min_year: 2023, note: "fixed panoramic glass roof standard on Crown Limited / Platinum (Toyota press releases 2023-2026)"}
-  - {make: "Toyota", model: "Crown", not_model: "signia", trim_regex: "nightshade", min_year: 2025, note: "fixed panoramic glass roof standard on Crown Nightshade (2025+ press releases)"}
 
   # Mazda (news.mazdausa.com spec decks, Oct 2026)
   - {make: Mazda, model: CX-5, trim_regex: preferred|carbon|premium|turbo|signature, min_year: 2023, max_year: 2025, note: 'power moonroof is standard on CX-5 Preferred, Carbon Edition, Premium, Premium Plus and every Turbo (not on 2.5 S / Select)'}
