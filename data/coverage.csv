@@ -99,7 +99,7 @@ Lexus,Longo Lexus,success,"41 listings read, 0 unchanged exclusions reused",41,1
 Lexus,Lexus Santa Monica,success,"43 listings read, 0 unchanged exclusions reused",43,14.1,https://www.lexussantamonica.com,dealer.com search: 43 candidates
 Lexus,Keyes Lexus of Valencia,success,"4 listings read, 0 unchanged exclusions reused",4,27.2,https://www.lexusofvalencia.com,dealer.com search: 4 candidates
 Lexus,Lexus of Thousand Oaks,success,"28 listings read, 0 unchanged exclusions reused",28,32.8,https://www.lexusofthousandoaks.com,"sitemap: 846 urls, 343 candidates; dealeron search: 0 more"
-Lexus,Crown Lexus,success,"12 listings read, 0 unchanged exclusions reused",12,41.1,https://www.crownlexus.com,dealer.com search: 12 candidates
+Lexus,Crown Lexus,success,"11 listings read, 0 unchanged exclusions reused",11,41.1,https://www.crownlexus.com,dealer.com search: 11 candidates
 Lexus,Lexus of Riverside,success,"19 listings read, 0 unchanged exclusions reused",19,50.0,https://www.lexusofriverside.com,dealer.com search: 19 candidates
 Lexus,South County Lexus at Mission Viejo,success,"20 listings read, 0 unchanged exclusions reused",20,51.3,https://www.southcountylexus.com,dealer.com search: 20 candidates
 Lexus,Jim Falk Lexus of Beverly Hills,failed,blocked: HTTP 403 (HTTP 403),0,8.2,https://www.jimfalkbeverlyhillslexus.com,
@@ -180,14 +180,14 @@ Toyota,Marina del Rey Toyota,success,"1 listings read, 0 unchanged exclusions re
 Toyota,Longo Toyota,success,"9 listings read, 0 unchanged exclusions reused",9,13.8,https://www.longotoyota.com,"sitemap: 2934 urls, 137 candidates; dealeron search: 0 more"
 Toyota,Toyota Santa Monica,success,"2 listings read, 0 unchanged exclusions reused",2,14.3,https://www.toyotasantamonica.com,dealer.com search: 2 candidates
 Toyota,Envision Toyota of Norwalk,success,"7 listings read, 0 unchanged exclusions reused",7,16.6,https://www.norwalktoyota.com,dealer.com search: 7 candidates
-Toyota,Manhattan Beach Toyota,success,"1 listings read, 0 unchanged exclusions reused",1,17.1,https://www.manhattanbeachtoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 1074 urls, 39 candidates"
+Toyota,Manhattan Beach Toyota,success,"1 listings read, 0 unchanged exclusions reused",1,17.1,https://www.manhattanbeachtoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 1072 urls, 39 candidates"
 Toyota,AutoNation Toyota Cerritos,success,"7 listings read, 0 unchanged exclusions reused",7,19.5,https://www.autonationtoyotacerritos.com,dealer.com search: 7 candidates
 Toyota,Envision Toyota of West Covina,success,"8 listings read, 0 unchanged exclusions reused",8,20.4,https://www.toyotawestcovina.com,dealer.com search: 8 candidates
 Toyota,Cabe Toyota Long Beach,success,"5 listings read, 0 unchanged exclusions reused",5,21.2,https://www.cabetoyota.com,"sitemap: 371 urls, 30 candidates"
 Toyota,DCH Toyota of Torrance,success,"5 listings read, 0 unchanged exclusions reused",5,22.2,https://www.torrancetoyota.com,dealer.com search: 5 candidates
 Toyota,Toyota of Glendora,success,"5 listings read, 0 unchanged exclusions reused",5,24.8,https://www.toyotaofglendora.com,"sitemap: 562 urls, 58 candidates"
-Toyota,Frontier Toyota,success,"4 listings read, 0 unchanged exclusions reused",4,27.0,https://www.frontiertoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 982 urls, 81 candidates"
-Toyota,Toyota Place,success,"no matching Toyota models listed (sitemap: 514 urls, 51 candidates)",0,29.3,https://www.toyotaplace.com,"sitemap: 514 urls, 51 candidates"
+Toyota,Frontier Toyota,success,"4 listings read, 0 unchanged exclusions reused",4,27.0,https://www.frontiertoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 983 urls, 81 candidates"
+Toyota,Toyota Place,success,"no matching Toyota models listed (sitemap: 512 urls, 51 candidates)",0,29.3,https://www.toyotaplace.com,"sitemap: 512 urls, 51 candidates"
 Toyota,Simi Valley Toyota,success,"5 listings read, 0 unchanged exclusions reused",5,31.8,https://www.simivalleytoyota.com,"sitemap: 923 urls, 45 candidates; dealeron search: 0 more"
 Toyota,Toyota of Orange,success,"no matching Toyota models listed (sitemap: 1180 urls, 61 candidates)",0,31.9,https://www.toyotaoforange.com,"sitemap: 1180 urls, 61 candidates"
 Toyota,Toyota of Huntington Beach,success,"14 listings read, 0 unchanged exclusions reused",14,33.1,https://www.toyotaofhb.com,"sitemap: 1013 urls, 125 candidates"
@@ -242,7 +242,7 @@ Volvo,Penske Volvo Cars,success,"14 listings read, 0 unchanged exclusions reused
 Volvo,Volvo Cars South Bay,success,"29 listings read, 0 unchanged exclusions reused",29,19.5,https://www.volvocarssouthbay.com,"dealer.com search: 0 candidates; sitemap: 853 urls, 262 candidates"
 Volvo,Volvo Cars Cerritos,success,"7 listings read, 0 unchanged exclusions reused",7,20.7,https://www.volvocarscerritos.com,"sitemap: 577 urls, 226 candidates"
 Volvo,Volvo Cars Orange County,success,"22 listings read, 0 unchanged exclusions reused",22,32.3,https://www.volvo-oc.com,dealer.com search: 22 candidates
-Volvo,Rusnak Volvo Cars Westlake,success,"23 listings read, 0 unchanged exclusions reused",23,32.7,https://www.rusnakvolvocarswestlake.com,dealer.com search: 23 candidates
+Volvo,Rusnak Volvo Cars Westlake,success,"25 listings read, 0 unchanged exclusions reused",25,32.7,https://www.rusnakvolvocarswestlake.com,dealer.com search: 25 candidates
 Volvo,Volvo Cars Ontario,success,"31 listings read, 0 unchanged exclusions reused",31,41.1,https://www.volvocarsontario.com,dealer.com search: 31 candidates
 Volvo,Volvo Cars Mission Viejo,success,"12 listings read, 0 unchanged exclusions reused",12,48.8,https://www.volvocarsmissionviejo.com,"dealer.com search: 0 candidates; sitemap: 229 urls, 35 candidates"
-Volvo,Galpin Volvo,failed,couldn't see this site's inventory without the browser add-on (no sitemap),0,15.5,https://www.galpinvolvo.com,no sitemap
+Volvo,Galpin Volvo,failed,"couldn't see this site's inventory without the browser add-on (sitemap: 287 urls, 0 candidates)",0,15.5,https://www.galpinvolvo.com,"sitemap: 287 urls, 0 candidates"
