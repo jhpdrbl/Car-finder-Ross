@@ -223,6 +223,7 @@ def ev_comparables(L: Listing, pool: list[Listing]) -> list[float]:
 # Main evaluation
 # --------------------------------------------------------------------------
 
+FUEL_WORDS = {"gas": "gas", "hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "electric"}
 NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
 NAME_AWD = re.compile(r"\b(awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac)\b|all[- ]wheel|four[- ]wheel|4motion")
 
@@ -294,9 +295,21 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     elif L.third_row:
         unknown.append("page mentions third-row seating; confirm this one is 2-row")
     also_suv = F.get("also_suv")      # models a buyer counts as SUVs though the VIN record says otherwise (Lexus UX = "Wagon")
-    if (d and "sport utility" not in (d.get("BodyClass") or "").lower() and d.get("BodyClass")
-            and not (also_suv and re.search(also_suv, f"{L.model} {d.get('Model') or ''}".lower()))):
-        fails.append(f"body: {d.get('BodyClass')}")
+    body = (d.get("BodyClass") or "").lower() if d else ""
+    sedans = F.get("sedans") or {}             # sedans a buyer takes, only with some fuels (Ross: plug-in hybrid / electric)
+    names = f"{L.model} {d.get('Model') or ''} {L.trim} {L.title}".lower()
+    sedan_body = re.search(r"sedan|saloon|hatchback|liftback|notchback|fastback", body)
+    sedan_name = sedans.get("models") and re.search(sedans["models"], names)
+    if body and "sport utility" not in body and not (also_suv and re.search(also_suv, names)):
+        if not (sedans and sedan_body):
+            fails.append(f"body: {d.get('BodyClass')}")
+        elif L.fuel_type not in sedans.get("fuels", []):
+            fails.append(f"{L.fuel_type or 'gas'} sedan (sedans only as {' / '.join(FUEL_WORDS.get(f, f) for f in sedans.get('fuels', []))})")
+    elif not body and sedan_name and L.fuel_type not in sedans.get("fuels", []):
+        if L.fuel_type:
+            fails.append(f"{L.fuel_type} sedan (sedans only as {' / '.join(FUEL_WORDS.get(f, f) for f in sedans.get('fuels', []))})")
+        else:
+            unknown.append("sedan: confirm it's a plug-in hybrid or electric")
 
     # drivetrain
     from verify.vin_decode import drive_class
