@@ -21994,7 +21994,7 @@
     "model": "ES",
     "fuel": "ev"
    },
-   "on_list_rule": "2026+ (8th-gen) ES 500e = dual-motor AWD electric sedan -> candidate, but the roof is UNCONFIRMED (Lexus press release does not mention a roof; dealer data shows a fixed glass roof on Premium and a power moonroof on Luxury). ES 350e is FWD (fails); ES 350h / 300h are regular hybrids (fail: not plug-in). vPIC: Model \"ES\", Series \"26 Series\", BodyClass Sedan/Saloon, DriveType \"4WD/4-Wheel Drive/4x4\" for the 500e (VIN JTHBDCD1...).",
+   "on_list_rule": "2026+ (8th-gen) ES 500e = dual-motor AWD electric sedan -> candidate, but the roof is UNCONFIRMED (Lexus press release does not mention a roof; dealer data shows a fixed glass roof on Premium and a power moonroof on Luxury). ES 350e is FWD (fails); the ES 350h AWD regular hybrid (44 mpg) has its own entry. vPIC: Model \"ES\", Series \"26 Series\", BodyClass Sedan/Saloon, DriveType \"4WD/4-Wheel Drive/4x4\" for the 500e (VIN JTHBDCD1...).",
    "years": [
     {
      "year": 2026,
@@ -22057,6 +22057,658 @@
    "sources": [
     "https://pressroom.lexus.com/2026-lexus-es-launches-with-battery-electric-models-new-hybrid-coming-soon/",
     "https://pressroom.lexus.com/vehicle/2027-lexus-es-electric/"
+   ]
+  },
+  {
+   "make": "Toyota",
+   "model": "Camry",
+   "match": {
+    "model": "Camry",
+    "fuel": "hybrid"
+   },
+   "on_list_rule": "2025+ Camry (hybrid only) with AWD, any grade (LE/SE/Nightshade/XLE/XSE): EPA 43-50 mpg combined. No grade has a standard sunroof: XLE/XSE need the optional panoramic roof (Premium pkgs), LE/SE/Nightshade an optional power moonroof -> roof must be shown on the listing (else Needs a call). 2023-2024 Camry Hybrid = FWD only (the 2023-24 Camry AWD was the gas 2.5) -> not on list. Black interior offered on every grade; Light Gray (XLE), Boulder (LE/SE) and Cockpit Red (XSE) excluded.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "8th-gen Camry Hybrid: FWD only.",
+     "trims": [
+      {
+       "name": "Camry Hybrid LE / SE / XLE / XSE",
+       "on_list": false,
+       "why_not": "2023-2024 Camry Hybrid is FWD only (AWD only on the gas Camry)",
+       "powertrain": "2.5L hybrid, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "optional",
+       "premium_audio": "JBL optional on XLE/XSE",
+       "seats": "varies",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "52 (LE) / 46 combined, FWD"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Carry-over; FWD-only hybrid.",
+     "trims": [
+      {
+       "name": "Camry Hybrid LE / SE / XLE / XSE / SE Nightshade",
+       "on_list": false,
+       "why_not": "2023-2024 Camry Hybrid is FWD only",
+       "powertrain": "2.5L hybrid, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "optional",
+       "premium_audio": "JBL optional on XLE/XSE",
+       "seats": "varies",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "52 (LE) / 46 combined, FWD"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "All-new 9th-gen Camry: hybrid only, AWD available on every grade for the first time on a Camry hybrid.",
+     "trims": [
+      {
+       "name": "Camry LE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "",
+       "highlights": [
+        "Electronic On-Demand AWD",
+        "16-in alloys",
+        "heated front seats optional (Cold Weather pkg)"
+       ],
+       "sunroof": "power tilt/slide moonroof optional (toyota.com 2027 lists it as an option on LE/SE/Nightshade; for 2025 unconfirmed) - not standard",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "woven fabric (cloth)",
+       "black_interior": "yes (Black; other: Boulder)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "50 combined (city 51/50, hwy 49)"
+      },
+      {
+       "name": "Camry SE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry LE AWD",
+       "highlights": [
+        "sport suspension",
+        "18-in black alloys",
+        "paddle shifters"
+       ],
+       "sunroof": "power tilt/slide moonroof optional (toyota.com 2027 lists it as an option on LE/SE/Nightshade; for 2025 unconfirmed) - not standard",
+       "premium_audio": "none",
+       "seats": "SofTex synthetic leather + fabric with white accents",
+       "black_interior": "yes (Black; other: Boulder)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "46 combined (city 46 / hwy 46)"
+      },
+      {
+       "name": "Camry XLE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry LE AWD",
+       "highlights": [
+        "heated front seats + heated wheel std",
+        "ventilated front seats optional (package)",
+        "12.3-in cluster (2026+)"
+       ],
+       "sunroof": "panoramic glass roof with front power tilt/slide moonroof OPTIONAL (Premium / Premium Plus package or stand-alone) - opens",
+       "premium_audio": "9-speaker JBL optional (package)",
+       "seats": "leather + Dinamica microfiber",
+       "black_interior": "yes (Black; other: Light Gray - excluded)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "46 combined (city 46 / hwy 46)"
+      },
+      {
+       "name": "Camry XSE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry SE AWD",
+       "highlights": [
+        "19-in wheels",
+        "sport suspension",
+        "two-tone black roof option (paint, not glass)",
+        "ventilated front seats optional"
+       ],
+       "sunroof": "panoramic glass roof with front power tilt/slide moonroof OPTIONAL (package) - opens",
+       "premium_audio": "9-speaker JBL optional (package)",
+       "seats": "leather-trimmed (perforated)",
+       "black_interior": "yes (Black with blue perforation lining; other: Cockpit Red - excluded)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "44 combined (city 44 / hwy 43)"
+      },
+      {
+       "name": "Camry LE / SE / XLE / XSE (FWD)",
+       "on_list": false,
+       "why_not": "Front-wheel drive - fails AWD",
+       "powertrain": "2.5L 4-cyl hybrid, FWD, 225 hp net",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "as AWD twin",
+       "premium_audio": "as AWD twin",
+       "seats": "as AWD twin",
+       "black_interior": "as AWD twin",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "51 (LE) / 46-47 combined"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Adds Nightshade Edition (FWD/AWD) and Dark Cosmos paint; 12.3-in cluster on XLE/XSE; HUD optional XLE/XSE.",
+     "trims": [
+      {
+       "name": "Camry LE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "",
+       "highlights": [
+        "Electronic On-Demand AWD",
+        "16-in alloys",
+        "heated front seats optional (Cold Weather pkg)"
+       ],
+       "sunroof": "power tilt/slide moonroof optional (toyota.com 2027 lists it as an option on LE/SE/Nightshade; for 2026 unconfirmed) - not standard",
+       "premium_audio": "none (standard 6-speaker)",
+       "seats": "woven fabric (cloth)",
+       "black_interior": "yes (Black; other: Boulder)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "50 combined (city 51/50, hwy 49)"
+      },
+      {
+       "name": "Camry SE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry LE AWD",
+       "highlights": [
+        "sport suspension",
+        "18-in black alloys",
+        "paddle shifters"
+       ],
+       "sunroof": "power tilt/slide moonroof optional (toyota.com 2027 lists it as an option on LE/SE/Nightshade; for 2026 unconfirmed) - not standard",
+       "premium_audio": "none",
+       "seats": "SofTex synthetic leather + fabric with white accents",
+       "black_interior": "yes (Black; other: Boulder)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "46 combined (city 46 / hwy 46)"
+      },
+      {
+       "name": "Camry Nightshade Edition AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry SE AWD",
+       "highlights": [
+        "Midnight Black Metallic trim pieces",
+        "19-in wheels",
+        "exterior Ice Cap / Supersonic Red / Midnight Black only"
+       ],
+       "sunroof": "power tilt/slide moonroof optional (toyota.com 2027 lists it as an option on LE/SE/Nightshade; for 2026 unconfirmed) - not standard",
+       "premium_audio": "none",
+       "seats": "SofTex + fabric",
+       "black_interior": "yes (Black only)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "unconfirmed: EPA lists only 'SE/XLE' (46) and 'XSE' (43); Nightshade has XSE-size 19-in wheels, so 43-46"
+      },
+      {
+       "name": "Camry XLE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry LE AWD",
+       "highlights": [
+        "heated front seats + heated wheel std",
+        "ventilated front seats optional (package)",
+        "12.3-in cluster (2026+)"
+       ],
+       "sunroof": "panoramic glass roof with front power tilt/slide moonroof OPTIONAL (Premium / Premium Plus package or stand-alone) - opens",
+       "premium_audio": "9-speaker JBL optional (package)",
+       "seats": "leather + Dinamica microfiber",
+       "black_interior": "yes (Black; other: Light Gray - excluded)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "46 combined (city 46 / hwy 46)"
+      },
+      {
+       "name": "Camry XSE AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS 5), rear e-motor AWD, 232 hp net",
+       "builds_on": "Camry SE AWD",
+       "highlights": [
+        "19-in wheels",
+        "sport suspension",
+        "two-tone black roof option (paint, not glass)",
+        "ventilated front seats optional"
+       ],
+       "sunroof": "panoramic glass roof with front power tilt/slide moonroof OPTIONAL (package) - opens",
+       "premium_audio": "9-speaker JBL optional (package)",
+       "seats": "leather-trimmed (perforated)",
+       "black_interior": "yes (Black with blue perforation lining; other: Cockpit Red - excluded)",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "43 combined (city 43 / hwy 43)"
+      },
+      {
+       "name": "Camry LE / SE / XLE / XSE (FWD)",
+       "on_list": false,
+       "why_not": "Front-wheel drive - fails AWD",
+       "powertrain": "2.5L 4-cyl hybrid, FWD, 225 hp net",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "as AWD twin",
+       "premium_audio": "as AWD twin",
+       "seats": "as AWD twin",
+       "black_interior": "as AWD twin",
+       "spare": "temporary space-saver spare (toyota.com 2027 table; assumed same 2025-26)",
+       "mpg": "51 (LE) / 46-47 combined"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://pressroom.toyota.com/toyota-camry-goes-exclusively-hybrid-plus-a-new-look-and-more-technology/",
+    "https://pressroom.toyota.com/toyota-camry-brings-bold-new-nightshade-edition-to-lineup-in-2026/",
+    "https://www.toyota.com/camry/features/ (2027 feature table, read Oct 19 2026)",
+    "https://toyota-cms-media.s3.amazonaws.com/wp-content/uploads/2024/04/2024-2025ToyotaPricing-03282025.pdf",
+    "https://toyota-cms-media.s3.amazonaws.com/wp-content/uploads/2025/04/2026_Toyota_Pricing_02262026-2.pdf",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Toyota",
+   "model": "Crown",
+   "on_list_rule": "Crown sedan (all AWD) Limited (2023+) and Nightshade (2025+) with the 2.5 hybrid: EPA 41 mpg combined, fixed panoramic glass roof standard. XLE excluded (no roof offered). Platinum excluded (Hybrid MAX, 30 mpg). Crown Signia is a separate wagon/SUV (38 mpg) - not this entry. Only plain Black interior qualifies (Black and Chestnut two-tone and Macadamia excluded).",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First US year of the 16th-gen Crown (raised sedan).",
+     "trims": [
+      {
+       "name": "Crown XLE",
+       "on_list": false,
+       "why_not": "No sunroof: panoramic roof not available on XLE",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "",
+       "highlights": [
+        "19-in two-tone alloys",
+        "12.3-in touchscreen"
+       ],
+       "sunroof": "not offered (panoramic fixed-glass roof is Limited/Nightshade/Platinum only)",
+       "premium_audio": "none (6-speaker)",
+       "seats": "SofTex + woven fabric (cloth inserts), heated, not ventilated",
+       "black_interior": "yes (Black)",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Limited",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "Crown XLE",
+       "highlights": [
+        "multibeam LED headlights",
+        "Advanced Technology pkg optional (21-in wheels, Panoramic View Monitor, Digital Key)",
+        "ventilated front seats standard"
+       ],
+       "sunroof": "standard: fixed panoramic glass roof with power sunshade (does not open)",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated front, heated rear",
+       "black_interior": "yes (Black); other: Black and Chestnut two-tone, Macadamia",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Platinum (Hybrid MAX)",
+       "on_list": false,
+       "why_not": "Hybrid MAX: EPA 30 mpg combined - under 40",
+       "powertrain": "2.4L turbo Hybrid MAX, 6-speed auto, full-time electronic AWD, 340 hp",
+       "builds_on": "Crown Limited",
+       "highlights": [
+        "Adaptive Variable Suspension",
+        "21-in wheels",
+        "bi-tone paint option"
+       ],
+       "sunroof": "standard fixed panoramic glass roof",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated",
+       "black_interior": "yes",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "30 combined (city 29 / hwy 32)"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Minor: more soft-touch trim; Traffic Jam Assist etc. std on Platinum.",
+     "trims": [
+      {
+       "name": "Crown XLE",
+       "on_list": false,
+       "why_not": "No sunroof: panoramic roof not available on XLE",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "",
+       "highlights": [
+        "19-in two-tone alloys",
+        "12.3-in touchscreen"
+       ],
+       "sunroof": "not offered (panoramic fixed-glass roof is Limited/Nightshade/Platinum only)",
+       "premium_audio": "none (6-speaker)",
+       "seats": "SofTex + woven fabric (cloth inserts), heated, not ventilated",
+       "black_interior": "yes (Black)",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Limited",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "Crown XLE",
+       "highlights": [
+        "multibeam LED headlights",
+        "Advanced Technology pkg optional (21-in wheels, Panoramic View Monitor, Digital Key)",
+        "ventilated front seats standard"
+       ],
+       "sunroof": "standard: fixed panoramic glass roof with power sunshade (does not open)",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated front, heated rear",
+       "black_interior": "yes (Black); other: Black and Chestnut two-tone, Macadamia",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Platinum (Hybrid MAX)",
+       "on_list": false,
+       "why_not": "Hybrid MAX: EPA 30 mpg combined - under 40",
+       "powertrain": "2.4L turbo Hybrid MAX, 6-speed auto, full-time electronic AWD, 340 hp",
+       "builds_on": "Crown Limited",
+       "highlights": [
+        "Adaptive Variable Suspension",
+        "21-in wheels",
+        "bi-tone paint option"
+       ],
+       "sunroof": "standard fixed panoramic glass roof",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated",
+       "black_interior": "yes",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "30 combined (city 29 / hwy 32)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Nightshade Edition added; leather-trimmed seats and heated/ventilated front seats now standard on all grades (incl. XLE); HUD and rear steer on Platinum.",
+     "trims": [
+      {
+       "name": "Crown XLE",
+       "on_list": false,
+       "why_not": "No sunroof: panoramic roof not available on XLE",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "",
+       "highlights": [
+        "19-in two-tone alloys",
+        "12.3-in touchscreen"
+       ],
+       "sunroof": "not offered (panoramic fixed-glass roof is Limited/Nightshade/Platinum only)",
+       "premium_audio": "none (6-speaker)",
+       "seats": "leather-trimmed, heated AND ventilated",
+       "black_interior": "yes (Black)",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Limited",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "Crown XLE",
+       "highlights": [
+        "multibeam LED headlights",
+        "Advanced Technology pkg optional (21-in wheels, Panoramic View Monitor, Digital Key)",
+        "ventilated front seats standard"
+       ],
+       "sunroof": "standard: fixed panoramic glass roof with power sunshade (does not open)",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated front, heated rear",
+       "black_interior": "yes (Black); other: Black and Chestnut two-tone, Macadamia",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Nightshade",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "Crown Limited",
+       "highlights": [
+        "built off Limited",
+        "black badging, trim, handles, mirror caps",
+        "21-in matte-black WHEELS (paint is not matte)",
+        "ventilated front seats standard"
+       ],
+       "sunroof": "standard: fixed panoramic glass roof (does not open)",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated",
+       "black_interior": "likely Black (black leather per dealer/press reviews; Toyota press release silent - unconfirmed)",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Platinum (Hybrid MAX)",
+       "on_list": false,
+       "why_not": "Hybrid MAX: EPA 30 mpg combined - under 40",
+       "powertrain": "2.4L turbo Hybrid MAX, 6-speed auto, full-time electronic AWD, 340 hp",
+       "builds_on": "Crown Limited",
+       "highlights": [
+        "Adaptive Variable Suspension",
+        "21-in wheels",
+        "bi-tone paint option"
+       ],
+       "sunroof": "standard fixed panoramic glass roof",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated",
+       "black_interior": "yes",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "30 combined (city 29 / hwy 32)"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Carry-over; Smart Key on all four doors on every grade; Finish Line Red replaces Supersonic Red.",
+     "trims": [
+      {
+       "name": "Crown XLE",
+       "on_list": false,
+       "why_not": "No sunroof: panoramic roof not available on XLE",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "",
+       "highlights": [
+        "19-in two-tone alloys",
+        "12.3-in touchscreen"
+       ],
+       "sunroof": "not offered (panoramic fixed-glass roof is Limited/Nightshade/Platinum only)",
+       "premium_audio": "none (6-speaker)",
+       "seats": "leather-trimmed, heated AND ventilated",
+       "black_interior": "yes (Black)",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Limited",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "Crown XLE",
+       "highlights": [
+        "multibeam LED headlights",
+        "Advanced Technology pkg optional (21-in wheels, Panoramic View Monitor, Digital Key)",
+        "ventilated front seats standard"
+       ],
+       "sunroof": "standard: fixed panoramic glass roof with power sunshade (does not open)",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated front, heated rear",
+       "black_interior": "yes (Black); other: Black and Chestnut two-tone, Macadamia",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Nightshade",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (THS), Electronic On-Demand AWD (rear e-motor), 236 hp net",
+       "builds_on": "Crown Limited",
+       "highlights": [
+        "built off Limited",
+        "black badging, trim, handles, mirror caps",
+        "21-in matte-black WHEELS (paint is not matte)",
+        "ventilated front seats standard"
+       ],
+       "sunroof": "standard: fixed panoramic glass roof (does not open)",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated",
+       "black_interior": "likely Black (black leather per dealer/press reviews; Toyota press release silent - unconfirmed)",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "41 combined (city 42 / hwy 41)"
+      },
+      {
+       "name": "Crown Platinum (Hybrid MAX)",
+       "on_list": false,
+       "why_not": "Hybrid MAX: EPA 30 mpg combined - under 40",
+       "powertrain": "2.4L turbo Hybrid MAX, 6-speed auto, full-time electronic AWD, 340 hp",
+       "builds_on": "Crown Limited",
+       "highlights": [
+        "Adaptive Variable Suspension",
+        "21-in wheels",
+        "bi-tone paint option"
+       ],
+       "sunroof": "standard fixed panoramic glass roof",
+       "premium_audio": "11-speaker JBL standard",
+       "seats": "leather-trimmed, heated + ventilated",
+       "black_interior": "yes",
+       "spare": "temporary spare (toyota.com 2027 table; earlier years assumed same, unconfirmed)",
+       "mpg": "30 combined (city 29 / hwy 32)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://pressroom.toyota.com/toyota-crown-returns-to-the-us-with-bold-style-and-new-hybrid-max-powertrain/",
+    "https://pressroom.toyota.com/captivating-with-style-the-toyota-crown-shines-in-regal-glory/",
+    "https://pressroom.toyota.com/toyota-crown-brings-even-more-premium-style-and-technology-for-2025/",
+    "https://pressroom.toyota.com/the-2026-toyota-crown-brings-a-blend-of-bold-and-unique-features-to-the-road-ahead/",
+    "https://www.toyota.com/crown/features/ (2027 table)",
+    "https://toyota-cms-media.s3.amazonaws.com/wp-content/uploads/2023/10/2022-2023-Toyota-Pricing-4.6.2023.pdf",
+    "https://toyota-cms-media.s3.amazonaws.com/wp-content/uploads/2024/04/2024-2025ToyotaPricing-03282025.pdf",
+    "https://toyota-cms-media.s3.amazonaws.com/wp-content/uploads/2025/04/2026_Toyota_Pricing_02262026-2.pdf",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
+   ]
+  },
+  {
+   "make": "Lexus",
+   "model": "ES 350h",
+   "match": {
+    "model": "ES",
+    "fuel": "hybrid"
+   },
+   "on_list_rule": "2026+ (8th-gen) ES 350h AWD (Premium AWD, Premium+ AWD): EPA 44 mpg combined -> candidate, but the roof is UNCONFIRMED (Lexus press releases don't mention one; dealer guides say a power tilt/slide moonroof, an earlier dealer window sticker for the ES 500e Premium showed a fixed glass roof) -> treat as Needs a call unless the listing shows it. New price $52,495+ so used examples under the cap will be rare. 2023-2025 ES 300h is FWD only -> not on list. ES 350h FWD fails AWD.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "7th-gen ES 300h, FWD only.",
+     "trims": [
+      {
+       "name": "ES 300h (all grades)",
+       "on_list": false,
+       "why_not": "Front-wheel drive only (2023-2025 ES 300h)",
+       "powertrain": "2.5L hybrid, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "moonroof standard",
+       "premium_audio": "Mark Levinson optional",
+       "seats": "NuLuxe / leather",
+       "black_interior": "yes",
+       "spare": "unknown",
+       "mpg": "44 combined, FWD"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "All-new 8th-gen ES; hybrid renamed ES 350h, AWD available for the first time; 2027 carries over (+$105).",
+     "trims": [
+      {
+       "name": "ES 350h Premium AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (6th-gen Lexus Hybrid System), extra 54-hp rear e-Axle = AWD (100:0 to 20:80)",
+       "builds_on": "",
+       "highlights": [
+        "heated AND ventilated front seats standard",
+        "heated steering wheel",
+        "14-in touchscreen, 12.3-in cluster",
+        "LSS+ 4.0",
+        "Convenience pkg optional"
+       ],
+       "sunroof": "unconfirmed (dealer guides: power tilt/slide moonroof standard)",
+       "premium_audio": "none (10-speaker Lexus Premium Sound)",
+       "seats": "NuLuxe synthetic leather",
+       "black_interior": "yes (Black seen in Lexus press photos; Palomino also offered; others unconfirmed)",
+       "spare": "unconfirmed",
+       "mpg": "44 combined (city 47 / hwy 42)"
+      },
+      {
+       "name": "ES 350h Premium+ AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.5L 4-cyl hybrid (6th-gen Lexus Hybrid System), extra 54-hp rear e-Axle = AWD (100:0 to 20:80)",
+       "builds_on": "ES 350h Premium AWD",
+       "highlights": [
+        "Mark Levinson 17-speaker 1,800 W standard",
+        "Advanced Park w/ Remote Park",
+        "Panoramic View Monitor",
+        "Digital Key",
+        "Traffic Jam Assist / Lane Change Assist"
+       ],
+       "sunroof": "unconfirmed",
+       "premium_audio": "Mark Levinson PurePlay 17-speaker, standard",
+       "seats": "NuLuxe synthetic leather",
+       "black_interior": "likely yes (unconfirmed; press photos show Palomino)",
+       "spare": "unconfirmed",
+       "mpg": "44 combined (city 47 / hwy 42)"
+      },
+      {
+       "name": "ES 350h Premium / Premium+ (FWD)",
+       "on_list": false,
+       "why_not": "Front-wheel drive - fails AWD",
+       "powertrain": "2.5L hybrid, FWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "unconfirmed",
+       "premium_audio": "as AWD",
+       "seats": "NuLuxe",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "46 combined (city 48 / hwy 44)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://pressroom.lexus.com/2026-lexus-es-350h-hybrid-joins-battery-electric-es-350e-es-500ein-eighth-generation-es-lineup/",
+    "https://pressroom.lexus.com/2027-lexus-es-350h-hybrid-joins-battery-electric-es-350e-es-500e-in-eighth-generation-es-lineup/",
+    "https://pressroom.lexus.com/vehicle/2026-lexus-es/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
    ]
   }
  ]
