@@ -230,6 +230,8 @@ def apply_confirmed(L, c: dict | None) -> None:
         return
     if c.get("trim"):
         L.trim = c["trim"]
+    if (c.get("ext_color") or "").strip():
+        L.ext_color = c["ext_color"].strip()
     roof = (c.get("sunroof") or "").strip().lower()
     if roof in ("yes", "no"):
         L.sunroof = roof == "yes"

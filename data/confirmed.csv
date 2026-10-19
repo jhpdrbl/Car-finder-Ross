@@ -1,11 +1,13 @@
-vin,trim,sunroof,note
-5NMMADTB7RH006751,2.5T Select,yes,user checked the listing (Oct 15 2026): it's a Select (panoramic sunroof standard)
-4S4SLSR71T3062758,Limited Hybrid,yes,user confirmed the sunroof (Oct 15 2026)
-W1NKM4HB1PF026908,,no,user confirmed no sunroof (Oct 16 2026)
-W1NKM5GB6SF242141,,no,user confirmed no sunroof (Oct 16 2026)
-W1NKM5GB0SU098744,,no,user confirmed no sunroof (Oct 16 2026)
-W1NKM5GB6SU096609,,no,user confirmed no sunroof (Oct 16 2026)
-4S4BTANC5R3143557,,yes,user confirmed the sunroof (Oct 16 2026)
-YV4L12UK7R2206772,,no,user confirmed no sunroof (Oct 16 2026)
-YV4L12UK1R2226662,,no,user confirmed no sunroof (Oct 16 2026)
-4S4BTAMC3R3152551,,no,user confirmed no sunroof (Oct 16 2026)
+vin,trim,sunroof,ext_color,note
+5NMMADTB7RH006751,2.5T Select,yes,,user checked the listing (Oct 15 2026): it's a Select (panoramic sunroof standard)
+4S4SLSR71T3062758,Limited Hybrid,yes,,user confirmed the sunroof (Oct 15 2026)
+W1NKM4HB1PF026908,,no,,user confirmed no sunroof (Oct 16 2026)
+W1NKM5GB6SF242141,,no,,user confirmed no sunroof (Oct 16 2026)
+W1NKM5GB0SU098744,,no,,user confirmed no sunroof (Oct 16 2026)
+W1NKM5GB6SU096609,,no,,user confirmed no sunroof (Oct 16 2026)
+4S4BTANC5R3143557,,yes,,user confirmed the sunroof (Oct 16 2026)
+YV4L12UK7R2206772,,no,,user confirmed no sunroof (Oct 16 2026)
+YV4L12UK1R2226662,,no,,user confirmed no sunroof (Oct 16 2026)
+4S4BTAMC3R3152551,,no,,user confirmed no sunroof (Oct 16 2026)
+YV4ED3GM0P2060103,,,Black,user checked the listing (Oct 19 2026): exterior is black
+YV4ED3UM0P2067699,,,Black,user checked the listing (Oct 19 2026): exterior is black
