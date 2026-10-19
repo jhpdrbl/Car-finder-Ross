@@ -657,6 +657,7 @@ __SCOREHELP__
 Tap a model to open that dealer's own <b>certified</b> inventory for it (or <b>All certified inventory</b>).
 Have a look, then tap <b>Mark checked</b>. Checks older than a week turn yellow as a reminder. Dealers covered by a brand-wide certified search aren't listed.</p>
 <div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="chk-hide"><span>Hide ones I checked this week</span></label>
+<button type="button" class="cbtn ghost" id="chk-clear">Clear all checks</button>
 <span class="small" id="chk-sync"></span></div>
 <div id="checklist"></div>
 </div>
@@ -1000,6 +1001,9 @@ document.getElementById("checklist").addEventListener("click", e => {
   if (when && daysAgo(when) <= 7) delete checked[k]; else checked[k] = todayISO();
   saveChecked(); renderCheck(); });
 document.getElementById("chk-hide").addEventListener("input", renderCheck);
+document.getElementById("chk-clear").addEventListener("click", () => {
+  if (!Object.keys(checked).length || !confirm("Clear every \"checked\" mark (on all your devices)?")) return;
+  checked = {}; saveChecked(); renderCheck(); });
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem(PK + "cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
