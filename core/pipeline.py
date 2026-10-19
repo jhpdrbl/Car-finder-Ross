@@ -78,7 +78,7 @@ TINY_SITEMAP = 20       # a dealer's sitemap lists hundreds of pages; fewer than
 
 def homepage_status(home: str) -> tuple[bool, str]:
     try:
-        r = fetcher().get(home + "/")
+        r = fetcher().get(home.rstrip("/") + "/")
     except FetchError as e:
         return False, f"homepage unreachable ({str(e)[:80]})"
     if r.status_code in (401, 403, 429, 503) or (r.status_code >= 500):
