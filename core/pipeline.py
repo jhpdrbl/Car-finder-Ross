@@ -41,6 +41,34 @@ def load_dealers() -> list[dict]:
         return list(csv.DictReader(fh))
 
 
+def load_manual() -> list[Listing]:
+    """Cars the user added by hand from a dealer listing the search can't read (data/manual_listings.csv:
+    the dealer's own page, price, fees, miles, colors). They go through the same rules as every other car,
+    every run; delete a row when the car is sold."""
+    path = DATA / "manual_listings.csv"
+    if not path.exists():
+        return []
+    dealers = {d["dealer_name"]: d for d in load_dealers()}
+    num = lambda v: float(v) if (v or "").strip() else None
+    out = []
+    for r in csv.DictReader(path.open(encoding="utf-8")):
+        if not (r.get("vin") or "").strip():
+            continue
+        d = dealers.get(r["dealer"], {})
+        L = Listing(vin=r["vin"].strip().upper(), dealer=r["dealer"], dealer_brand=d.get("brand") or r["make"],
+                    dealer_url=d.get("homepage", ""), listing_url=r["listing_url"].strip(), source="added by you",
+                    title=f'{r["year"]} {r["make"]} {r["model"]} {r["trim"]}'.strip(), year=int(r["year"]),
+                    make=r["make"], model=r["model"], trim=r["trim"], condition="used",
+                    price=num(r["price"]), doc_fee=num(r["doc_fee"]), other_fees=num(r["other_fees"]),
+                    mileage=int(float(r["mileage"])) if r["mileage"] else None,
+                    ext_color=r["ext_color"], int_color=r["int_color"],
+                    sunroof={"yes": True, "no": False}.get((r.get("sunroof") or "").strip().lower()),
+                    cert_text=f'url:certified; title:certified; {r.get("cert_text") or ""}'.strip("; "),
+                    link_note="")
+        out.append(L)
+    return out
+
+
 # A parked "domain for sale" page instead of a dealer site (seen Oct 2026: 15 researched addresses were
 # GoDaddy parking pages that redirect to /lander and have a one-URL sitemap).
 PARKED_PAGE = re.compile(r"""location\.href\s*=\s*["']/lander|forsale\.godaddy|this domain (?:is|may be) for sale|"""

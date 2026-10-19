@@ -25,12 +25,9 @@ def log(msg: str) -> None:
 
 
 def refresh(args) -> None:
-    import copy
-
     from core import criteria, history, outputs, pipeline, profiles
     from scrapers.brand_feeds import SUPPLEMENT_FEEDS
-    from scrapers.generic_jsonld import seat_material
-    from verify import msrp, recalls, vin_decode
+    from verify import vin_decode
 
     t0 = time.time()
     today = date.today().isoformat()
@@ -92,24 +89,9 @@ def refresh(args) -> None:
     log(f"   read {n_enriched} dealer pages; {len(blocked_feed_dealers)} feed dealers' sites blocked")
 
     log("4/6 VIN decode (NHTSA vPIC) and filters")
-    listings = pipeline.dedupe(feed_listings + [L for r in results for L in r.listings])
+    listings = pipeline.dedupe(feed_listings + [L for r in results for L in r.listings] + pipeline.load_manual())
     decodes = vin_decode.decode_many([L.vin for L in listings])
-    for L in listings:
-        d = decodes.get(L.vin) or {}
-        if L.fuel_type != "ev" or d:
-            L.fuel_type = vin_decode.fuel_class(d) if d else (L.fuel_type or "gas")
-            name = f"{L.model} {L.trim} {L.title}".lower()
-            if (d and not d.get("ElectrificationLevel") and L.fuel_type == "gas" and "hybrid" in name
-                    and not re.search(r"plug-?in|phev|mild|\bprime\b|\d+h\+|\be-?hybrid", name)):
-                L.fuel_type = "hybrid"          # VIN decode has no electrification data; the listing says hybrid
-            if d and not d.get("ElectrificationLevel") and re.search(r"(?<![a-z])c ?63 ?s? ?e\b|\be ?performance\b|\be ?53 ?(hybrid|e\b)", name):
-                L.fuel_type = "phev"            # AMG C 63 S E PERFORMANCE / E 53 HYBRID: some VIN records leave out the plug-in
-        if not L.seats:
-            L.seats = seat_material(" ".join(L.features), L.int_color)
-        msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
-        L.body = criteria.body_kind(L, d)          # "SUV" / "Sedan" (dashboard filter)
-        if L.body == "Sedan" and L.fuel_type == "hybrid" and not L.mpg_combined:
-            fill_mpg(L)                            # hybrid sedans must average 40+ mpg (filters.sedans.hybrid_min_mpg)
+    prepare(listings, decodes)
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
     for brand, st in feed_stats.items():
         if st["status"] == "success":
@@ -123,27 +105,7 @@ def refresh(args) -> None:
         confirmed = history.load_confirmed(P.data)
         rows = []
         for L0 in listings:
-            L = copy.deepcopy(L0)          # each buyer's rules fill in their own copy
-            dealer = by_name.get(L.dealer, {})
-            apply_confirmed(L, confirmed.get(L.vin.upper()))
-            fails, unknown, notes = criteria.evaluate(L, decodes.get(L.vin) or {}, dealer, listings, excluded)
-            loc = pipeline.location_check(L)
-            if loc:
-                notes.append(loc)
-            if L.link_note:
-                notes.append(L.link_note)
-            if L.vin.upper() in confirmed:
-                notes.append("checked by you: " + (confirmed[L.vin.upper()].get("note") or "details confirmed"))
-            status = "excluded" if fails else "active"
-            flags = []
-            if status == "active":
-                flags = recalls.campaigns(L.make or (decodes.get(L.vin) or {}).get("Make", ""), L.model, L.year)
-                fill_mpg(L)
-            r = L.to_dict()
-            r.update(status=status, last_read=today, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
-                     notes="; ".join(notes), recall_flags="; ".join(flags),
-                     est_monthly_cost=criteria.monthly_cost(L.price_total) or "",
-                     score=criteria.score(L) if not fails else "", distance_mi=dealer.get("distance_mi", ""))
+            r = evaluate_row(L0, by_name.get(L0.dealer, {}), decodes.get(L0.vin) or {}, listings, excluded, confirmed, today)
             rows.append({k: ("" if v is None else v) for k, v in r.items()})
         fresh = {r["vin"] for r in rows}
         rows += [dict(c[P.id]) for r in results for c in r.carried if P.id in c and c[P.id]["vin"] not in fresh]   # reused exclusions
@@ -222,6 +184,91 @@ def _read_state() -> dict:
 def _write_state(state: dict) -> None:
     import json
     STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
+
+
+def prepare(listings, decodes) -> None:
+    """Per car, before any buyer's rules: fuel type from the VIN, seats, sticker price, body type."""
+    from core import criteria
+    from scrapers.generic_jsonld import seat_material
+    from verify import msrp, vin_decode
+    for L in listings:
+        d = decodes.get(L.vin) or {}
+        if L.fuel_type != "ev" or d:
+            L.fuel_type = vin_decode.fuel_class(d) if d else (L.fuel_type or "gas")
+            name = f"{L.model} {L.trim} {L.title}".lower()
+            if (d and not d.get("ElectrificationLevel") and L.fuel_type == "gas" and "hybrid" in name
+                    and not re.search(r"plug-?in|phev|mild|\bprime\b|\d+h\+|\be-?hybrid", name)):
+                L.fuel_type = "hybrid"          # VIN decode has no electrification data; the listing says hybrid
+            if d and not d.get("ElectrificationLevel") and re.search(r"(?<![a-z])c ?63 ?s? ?e\b|\be ?performance\b|\be ?53 ?(hybrid|e\b)", name):
+                L.fuel_type = "phev"            # AMG C 63 S E PERFORMANCE / E 53 HYBRID: some VIN records leave out the plug-in
+        if not L.seats:
+            L.seats = seat_material(" ".join(L.features), L.int_color)
+        msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
+        L.body = criteria.body_kind(L, d)          # "SUV" / "Sedan" (dashboard filter)
+        if L.body == "Sedan" and L.fuel_type == "hybrid" and not L.mpg_combined:
+            fill_mpg(L)                            # hybrid sedans must average 40+ mpg (filters.sedans.hybrid_min_mpg)
+
+
+def evaluate_row(L0, dealer: dict, d: dict, listings, excluded: dict, confirmed: dict, today: str) -> dict:
+    """One car through the current buyer's rules (criteria.use already set) -> its listings.csv row."""
+    import copy
+    from core import criteria, pipeline
+    from verify import recalls
+    L = copy.deepcopy(L0)          # each buyer's rules fill in their own copy
+    apply_confirmed(L, confirmed.get(L.vin.upper()))
+    fails, unknown, notes = criteria.evaluate(L, d, dealer, listings, excluded)
+    loc = pipeline.location_check(L)
+    if loc:
+        notes.append(loc)
+    if L.link_note:
+        notes.append(L.link_note)
+    if L.source == "added by you":
+        notes.append("added by you from the dealer's listing (this dealer blocks the search): check it's still for sale")
+    if L.vin.upper() in confirmed:
+        notes.append("checked by you: " + (confirmed[L.vin.upper()].get("note") or "details confirmed"))
+    status = "excluded" if fails else "active"
+    flags = []
+    if status == "active":
+        flags = recalls.campaigns(L.make or d.get("Make", ""), L.model, L.year)
+        fill_mpg(L)
+    r = L.to_dict()
+    r.update(status=status, last_read=today, fail_reasons="; ".join(fails), needs_call="; ".join(unknown) if not fails else "",
+             notes="; ".join(notes), recall_flags="; ".join(flags),
+             est_monthly_cost=criteria.monthly_cost(L.price_total) or "",
+             score=criteria.score(L) if not fails else "", distance_mi=dealer.get("distance_mi", ""))
+    return r
+
+
+def add_manual(args) -> None:
+    """Put the cars in data/manual_listings.csv on the dashboard now, without a search."""
+    from core import criteria, history, outputs, pipeline, profiles
+    from verify import vin_decode
+    today = date.today().isoformat()
+    by_name = {d["dealer_name"]: d for d in pipeline.load_dealers()}
+    listings = pipeline.load_manual()
+    decodes = vin_decode.decode_many([L.vin for L in listings])
+    prepare(listings, decodes)
+    cov = history.read_csv(history.DATA / "coverage.csv")
+    for P in profiles.all_profiles():
+        criteria.use(P.cfg)
+        rows = history.read_csv(P.data / "listings.csv")
+        old = {r["vin"]: r for r in rows}
+        run = max((r.get("seen_run") or "" for r in rows), default="")
+        excluded, confirmed = history.load_exclusions(P.data), history.load_confirmed(P.data)
+        for L in listings:
+            r = {k: ("" if v is None else v) for k, v in evaluate_row(L, by_name.get(L.dealer, {}), decodes.get(L.vin) or {},
+                                                                     listings, excluded, confirmed, today).items()}
+            prev = old.get(L.vin, {})
+            r.update(first_seen=prev.get("first_seen") or today, last_seen=today, seen_run=run,
+                     new_run=prev.get("new_run") or run, price_history=prev.get("price_history", ""))
+            old[L.vin] = {**prev, **r}
+            print(f"{P.label}: {L.year} {L.model} {L.trim} {L.vin}: {r['status']}"
+                  + (f" ({r['fail_reasons'] or r['needs_call']})" if r['fail_reasons'] or r['needs_call'] else " (meets all criteria)"))
+        rows = list(old.values())
+        history.write_csv(P.data / "listings.csv", rows, history.LISTING_COLS)
+        last = max((x.get("last_seen") or "" for x in rows), default="")
+        outputs.write_dashboard(rows, history.read_csv(P.data / "price_history.csv"), cov, last, profile=P)
+    criteria.use(profiles.get().cfg)
 
 
 def apply_confirmed(L, c: dict | None) -> None:
@@ -332,6 +379,7 @@ def main() -> None:
     r.add_argument("--no-enrich", dest="enrich", action="store_false", help="skip reading dealer pages for brand-feed cars")
     r.set_defaults(func=refresh)
     sub.add_parser("rescore", help="re-apply scores, color rules and sticker prices to the last results (no search)").set_defaults(func=rescore)
+    sub.add_parser("add-manual", help="put the cars in data/manual_listings.csv on the dashboard now (no search)").set_defaults(func=add_manual)
     d = sub.add_parser("dealers", help="rebuild data/dealers.csv")
     d.add_argument("--refresh-raw", action="store_true")
     d.add_argument("--detect", action="store_true")
