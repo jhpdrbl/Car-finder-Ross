@@ -245,6 +245,11 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    highlights, sunroof, premium_audio, seats, black_interior, spare, mpg; optional per model `match: {model, fuel}` so a car
    listed under a base name finds its entry, e.g. a `GLC` with fuel `phev` → the separate "GLC 350e" entry) and regenerating the dashboard.
    Same rules as everything else: no aggregators, honest requests, never carfax.com.
+10. **Cars added by hand** (Oct 19 2026): `data/manual_listings.csv` (vin, dealer's own listing_url, dealer, year/make/model/trim,
+   price + doc/other fees, mileage, colors, sunroof, cert_text, added_on). For dealers that block the search when the user sends
+   the listing (first: 7 Q4 e-trons at Audi Beverly Hills). `pipeline.load_manual()` adds them to every refresh (same rules,
+   note "added by you"); `python run.py add-manual` puts them on the page without a search. They never go "sold" on their
+   own (the dealer can't be read): delete the row when the user says it's gone.
 8. **Facts the user checked by hand** go in `data/confirmed.csv` (vin, trim, sunroof yes/no, note). `run.py:apply_confirmed`
    applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
    forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
