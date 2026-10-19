@@ -47,7 +47,8 @@ filters:
               "storm", "asphalt", "steel", "cement", "lunar", "magnetite", "iridium",
               "selenite", "titanium", "ash"]   # list reviewed per-run in fail_reasons
     exclude: [silver, white, pearl white, beige, blue, red, matte, frozen, glacier, ivory,
-              cream, champagne, bronze, orange, yellow, brown, copper, gold, tan]
+              cream, champagne, bronze, orange, yellow, brown, copper, gold, tan,
+              sage, mint, lime, seafoam, pistachio]   # light greens (user, Oct 19 2026: "Sage green is not dark green")
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:
     include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black"]

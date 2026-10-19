@@ -273,9 +273,14 @@ def rescore(args) -> None:
     for P in profiles.all_profiles():
         criteria.use(P.cfg)
         rows = history.read_csv(P.data / "listings.csv")
+        excluded = history.load_exclusions(P.data)
         n_out = 0
         for r in rows:
             if r.get("status") != "active":
+                continue
+            if r["vin"] in excluded:                  # ruled out by hand since the last search
+                r.update(status="excluded", fail_reasons=f"manually excluded: {excluded[r['vin']]}", needs_call="", score="")
+                n_out += 1
                 continue
             L = Listing(vin=r["vin"], make=r["make"], model=r["model"], trim=r["trim"], listing_url=r["listing_url"],
                         year=int(r["year"]) if r["year"] else None, price_total=f(r["price_total"]),
@@ -297,7 +302,7 @@ def rescore(args) -> None:
         history.write_csv(P.data / "listings.csv", rows, history.LISTING_COLS)
         last = max((x.get("last_seen") or "" for x in rows), default="")
         outputs.write_dashboard(rows, history.read_csv(P.data / "price_history.csv"), cov, last, profile=P)
-        print(f"{P.label}: rescored; {n_out} now excluded by the color rules")
+        print(f"{P.label}: rescored; {n_out} now excluded (color rules or ruled out by hand)")
     criteria.use(profiles.get().cfg)
 
 

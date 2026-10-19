@@ -102,6 +102,9 @@ def exterior_ok(color: str) -> tuple[str, str]:
     if "green" in c:
         if any(g in c for g in DARK_GREENS):
             return "pass", ""
+        light = next((w for w in F["exterior_colors"]["exclude"] if re.search(rf"\b{re.escape(w)}\b", c)), None)
+        if light:                              # a named light green (Sage, Mint, Lime...)
+            return "fail", f"exterior {color} (not a dark green)"
         return "unknown", f"green ({color}): confirm it's a dark green"
     grayish = re.search(r"\b(gr[ae]y|graphite)\b", c)
     for w in F["exterior_colors"]["exclude"]:

@@ -160,6 +160,11 @@ LABELS = {
 }
 
 
+NOT_A_COLOR = re.compile(r"camera|cargo|volume|sensor|assist|system|control|mirror|wiper|window|door|trunk|headrest|"
+                         r"airbag|\btires?\b|wheels?\b|bumper|\bseats?\b|cup ?holder|outlet|usb|speaker|lamps?\b|dimensions?|"
+                         r"length|width|height|capacity|\d+(\.\d+)? ?(in|cu|ft|mm)\b", re.I)
+
+
 def _label_values(text: str) -> dict[str, str]:
     """Read 'Label: value' and 'Label' / 'value' on the next line (DealerOn, Dealer Inspire, ...)."""
     out: dict[str, str] = {}
@@ -176,6 +181,8 @@ def _label_values(text: str) -> dict[str, str]:
                 val = lines[i + 1].strip()
             if re.match(r"(and|&|or|features?|options?|packages?|specs?)\b", val, re.I):
                 continue
+            if key.endswith("_color") and NOT_A_COLOR.search(val):
+                continue          # an "Exterior" / "Interior" features heading, e.g. "parking camera front"
             if val and len(val) <= 60 and not re.fullmatch(rf"{'|'.join(LABELS.values())}\s*:?", val, re.I):
                 out[key] = val
     return out
