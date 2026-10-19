@@ -167,7 +167,7 @@ models:
     list: XC60, XC40 (incl. Recharge / EX40), C40 Recharge / EC40; plug-in sedans S60 / S90 T8
     tokens: [c40, ec40, s60, s90]
     rules:
-      - {if: '(xc40|ex40|c40).*(recharge|electric|twin|single motor)|ex40|ec40', unless: 'twin', then: call, why: 'electric Volvo: confirm Twin Motor (single-motor versions are rear-wheel drive)'}
+      - {if: '(xc40|ex40|c40).*(recharge|electric|twin|single motor)|ex40|ec40', unless: 'twin', from_year: 2024, then: call, why: 'electric Volvo: confirm Twin Motor (single-motor versions are rear-wheel drive)'}   # 2023 US Recharge = Twin Motor only (EPA lists only 'twin')
       - {if: '(?=.*\bcore\b)(?=.*(electric|recharge|twin|ex40))', then: fail, why: 'electric XC40 / EX40 Core: no sunroof'}
   Toyota:
     allow: '4runner|land cruiser|bz4x|\bbz\b'
