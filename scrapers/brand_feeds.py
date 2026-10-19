@@ -191,7 +191,7 @@ def volvo() -> tuple[list[Listing], dict]:
             headers = {k: v for k, v in req.headers.items() if k.lower().startswith("x-cw-") or k.lower() == "content-type"}
             body = json.loads(req.post_data)
             body.update(SortBy="Distance", ResultsPerPage=50, Page=1)
-            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "XC40", "EX40", "C40 Recharge"]   # names as the store lists them (Oct 2026)
+            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "XC40", "EX40", "C40 Recharge", "S60", "S90"]   # names as the store lists them (Oct 2026)
             body["Filters"]["Location"] = {"Latitude": home["lat"], "Longitude": home["lon"],
                                            "Distance": home["edge_radius_miles"]}
             while True:

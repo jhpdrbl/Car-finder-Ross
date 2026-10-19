@@ -19918,6 +19918,2146 @@
     "https://rayscarinfo.com/kia/ev6-2023/colors/ and Kia dealer color guides (interior colors; not Kia-official, confirm)",
     "kiamedia.com and kianewscenter.com refused or failed our requests (403 / certificate error); prices come from search summaries of those releases plus Car and Driver"
    ]
+  },
+  {
+   "make": "BMW",
+   "model": "330e",
+   "match": {
+    "model": "3 Series",
+    "fuel": "phev"
+   },
+   "on_list_rule": "Only the 330e xDrive (AWD) is on the list; the plain 330e is rear-wheel drive. Sold 2023-2024 only: BMW dropped the 330e in the US for 2025. Moonroof standard.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Refreshed (LCI) 3 Series with BMW Curved Display. 330e $43,300, xDrive +$2,000, + $995.",
+     "trims": [
+      {
+       "name": "330e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 2.0L turbo 4-cyl + 80 kW motor, 288 hp with XtraBoost, xDrive AWD, ~12 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "moonroof standard",
+        "BMW Curved Display",
+        "runflat tires"
+       ],
+       "sunroof": "standard opening moonroof (BMW lists \"Moonroof\" as standard on 2023 330i/330e; 2024 assumed the same)",
+       "premium_audio": "Harman Kardon surround sound optional (standalone/package)",
+       "seats": "SensaTec (synthetic) standard; Vernasca leather optional",
+       "black_interior": "yes: Black SensaTec / Black Vernasca leather offered; other colors (e.g. Mocha, Oyster, Cognac, Canberra Beige) are not black - exact 330e color list unconfirmed",
+       "spare": "runflat tires (no spare standard); BMW's 2023 release lists a space-saver spare among 330i/330e standalone options - unconfirmed for 330e",
+       "mpg": "EPA: 20 mi electric, 68 MPGe, gas only 22/32/26 mpg"
+      },
+      {
+       "name": "330e",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "plug-in hybrid, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard opening moonroof (BMW lists \"Moonroof\" as standard on 2023 330i/330e; 2024 assumed the same)",
+       "premium_audio": "Harman Kardon surround sound optional (standalone/package)",
+       "seats": "SensaTec (synthetic) standard; Vernasca leather optional",
+       "black_interior": "yes: Black SensaTec / Black Vernasca leather offered; other colors (e.g. Mocha, Oyster, Cognac, Canberra Beige) are not black - exact 330e color list unconfirmed",
+       "spare": "runflat tires",
+       "mpg": "EPA: 22 mi electric, 73 MPGe, gas only 24/32/27 mpg"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Carryover; last US model year for the 330e.",
+     "trims": [
+      {
+       "name": "330e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 2.0L turbo 4-cyl + 80 kW motor, 288 hp with XtraBoost, xDrive AWD, ~12 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "moonroof standard",
+        "BMW Curved Display",
+        "runflat tires"
+       ],
+       "sunroof": "standard opening moonroof (BMW lists \"Moonroof\" as standard on 2023 330i/330e; 2024 assumed the same)",
+       "premium_audio": "Harman Kardon surround sound optional (standalone/package)",
+       "seats": "SensaTec (synthetic) standard; Vernasca leather optional",
+       "black_interior": "yes: Black SensaTec / Black Vernasca leather offered; other colors (e.g. Mocha, Oyster, Cognac, Canberra Beige) are not black - exact 330e color list unconfirmed",
+       "spare": "runflat tires (no spare standard); BMW's 2023 release lists a space-saver spare among 330i/330e standalone options - unconfirmed for 330e",
+       "mpg": "EPA: 20 mi electric, 68 MPGe, gas only 22/32/26 mpg"
+      },
+      {
+       "name": "330e",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "plug-in hybrid, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard opening moonroof (BMW lists \"Moonroof\" as standard on 2023 330i/330e; 2024 assumed the same)",
+       "premium_audio": "Harman Kardon surround sound optional (standalone/package)",
+       "seats": "SensaTec (synthetic) standard; Vernasca leather optional",
+       "black_interior": "yes: Black SensaTec / Black Vernasca leather offered; other colors (e.g. Mocha, Oyster, Cognac, Canberra Beige) are not black - exact 330e color list unconfirmed",
+       "spare": "runflat tires",
+       "mpg": "EPA: 22 mi electric, 73 MPGe, gas only 24/32/27 mpg"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.press.bmwgroup.com/usa/article/attachment/T0390493EN_US/566766",
+    "https://www.bmwblog.com/2022/06/10/bmw-usa-2023-pricing/",
+    "https://www.bmwblog.com/2024/08/23/the-bmw-330e-phev-is-dead-in-the-us/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47216",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47491"
+   ]
+  },
+  {
+   "make": "BMW",
+   "model": "5 Series plug-in (530e / 550e)",
+   "match": {
+    "model": "5 Series",
+    "fuel": "phev"
+   },
+   "on_list_rule": "2023 530e xDrive (old G30 generation) and 2025-2026 550e xDrive (new G60) are on the list. The 2023 rear-wheel-drive 530e is not. There is no 2024 5 Series plug-in hybrid in the US and no G60 530e in the US. Moonroof standard on both.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Last year of the G30 530e. 530e xDrive $58,700 + $995.",
+     "trims": [
+      {
+       "name": "530e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 2.0L turbo 4-cyl + motor, 288 hp with XtraBoost, xDrive AWD",
+       "builds_on": "",
+       "highlights": [
+        "moonroof standard"
+       ],
+       "sunroof": "standard opening moonroof (BMW US 2021 5 Series release; 2023 assumed the same)",
+       "premium_audio": "Harman Kardon: unclear (BMW's 2021 notes put it in the Premium Package); Bowers & Wilkins optional - unconfirmed for 2023",
+       "seats": "unknown (SensaTec or Dakota leather; confirm on window sticker)",
+       "black_interior": "Black offered; other colors unconfirmed",
+       "spare": "unknown (runflat tires expected)",
+       "mpg": "EPA: 19 mi electric, 62 MPGe, gas only 22/28/25 mpg"
+      },
+      {
+       "name": "530e",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "plug-in hybrid, RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard opening moonroof",
+       "premium_audio": "unknown",
+       "seats": "unknown",
+       "black_interior": "unknown",
+       "spare": "unknown",
+       "mpg": "EPA: 21 mi electric, 64 MPGe, gas only 24/29/26 mpg"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "No plug-in 5 Series in the US for 2024 (G60 launched with 530i, 540i, i5).",
+     "trims": []
+    },
+    {
+     "year": 2025,
+     "what_changed": "New 550e xDrive (G60): 3.0L inline-6 + motor, 483 hp. Price ~$73,400 + destination (unconfirmed).",
+     "trims": [
+      {
+       "name": "550e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 3.0L turbo inline-6 + motor, 483 hp, xDrive AWD, ~19.4 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "tilt-and-slide moonroof standard",
+        "Sky Lounge fixed panoramic roof optional",
+        "Veganza (synthetic) seats"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional (~$950)",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (~$1,350)",
+       "black_interior": "Black Veganza/Merino offered; non-black options exist (exact 550e list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "EPA: 34 mi electric, 67 MPGe, gas only 23/26/24 mpg"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Carryover; price ~$75,900 with destination (unconfirmed).",
+     "trims": [
+      {
+       "name": "550e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 3.0L turbo inline-6 + motor, 483 hp, xDrive AWD",
+       "builds_on": "",
+       "highlights": [
+        "tilt-and-slide moonroof standard"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); Sky Lounge fixed panoramic roof optional",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional (~$950)",
+       "seats": "Veganza standard; Merino leather optional; ventilated seats optional (Luxury Seating Package)",
+       "black_interior": "Black offered; non-black options exist",
+       "spare": "unknown",
+       "mpg": "EPA: 34 mi electric, 68 MPGe, gas only 22/28/25 mpg"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.bmwblog.com/2022/06/10/bmw-usa-2023-pricing/",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0418778EN_US/the-all-new-2024-bmw-5-series",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0439355EN_US/bmw-model-update-measures-for-spring-2024",
+    "https://www.bmwblog.com/2025/02/14/2025-bmw-5-series-review-performance-pricing/",
+    "https://www.bmwblog.com/2025/07/04/2026-bmw-5-series-review-updates-performance-pricing/",
+    "https://www.bmwblog.com/2026/02/04/2025-bmw-550e-review/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46247",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49005",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49756"
+   ]
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "on_list_rule": "i4 xDrive40 (2024+), M50 xDrive (2023-2025) and M60 xDrive (2026) are on the list (all AWD). eDrive35 / eDrive40 are rear-wheel drive and not on the list. The i4 is a 4-door liftback (\"Gran Coupe\"); vPIC calls it a Sedan/Saloon. No i4/4 Series plug-in hybrid exists in the US.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Only the M50 is AWD (xDrive40 arrives for 2024). M50 $67,300 + $995.",
+     "trims": [
+      {
+       "name": "M50 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 536 hp",
+       "builds_on": "",
+       "highlights": [
+        "M performance",
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in Premium Package (optional on M50)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca; M50 also offered Frozen (matte) paint - matte is excluded",
+       "spare": "no spare (mobility kit; unconfirmed)",
+       "mpg": "EPA: 271 mi (19-in) / 227 mi (20-in); 96 / 80 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      },
+      {
+       "name": "eDrive35",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 281-286 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "New i4 xDrive40 ($61,600 + $995). M50 ~$69,700 + $995.",
+     "trims": [
+      {
+       "name": "xDrive40",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 396 hp, ~81 kWh",
+       "builds_on": "",
+       "highlights": [
+        "AWD",
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare (non-runflat tires + mobility kit; unconfirmed)",
+       "mpg": "EPA: 307 mi (18-in) / 279 mi (19-in); 109 / 99 MPGe"
+      },
+      {
+       "name": "M50 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 536 hp",
+       "builds_on": "",
+       "highlights": [
+        "M performance",
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in Premium Package (optional on M50)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca; M50 also offered Frozen (matte) paint - matte is excluded",
+       "spare": "no spare (mobility kit; unconfirmed)",
+       "mpg": "EPA: 269 mi (19-in) / 227 mi (20-in); 95 / 80 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      },
+      {
+       "name": "eDrive35",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 281-286 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Refresh (new lights/grille, iDrive 8.5). xDrive40 $62,300, M50 $70,700, + $1,175.",
+     "trims": [
+      {
+       "name": "xDrive40",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 396 hp, ~81 kWh",
+       "builds_on": "",
+       "highlights": [
+        "AWD",
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare (non-runflat tires + mobility kit; unconfirmed)",
+       "mpg": "EPA: 287 mi (18-in) / 268 mi (19-in); 101 / 94 MPGe"
+      },
+      {
+       "name": "M50 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 536 hp",
+       "builds_on": "",
+       "highlights": [
+        "M performance",
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in Premium Package (optional on M50)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca; M50 also offered Frozen (matte) paint - matte is excluded",
+       "spare": "no spare (mobility kit; unconfirmed)",
+       "mpg": "EPA: 267 mi (19-in) / 227 mi (20-in); 94 / 80 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      },
+      {
+       "name": "eDrive35",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 281-286 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "M60 replaces M50 ($70,700 + $1,175); prices unchanged; Seal & Drive kit standard. BMWBlog reports 2026 is the last US model year.",
+     "trims": [
+      {
+       "name": "xDrive40",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 396 hp, ~81 kWh",
+       "builds_on": "",
+       "highlights": [
+        "AWD",
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare; mobility kit (2026: Seal & Drive tire kit standard)",
+       "mpg": "EPA: 287 mi (18-in) / 268 mi (19-in); 101 / 94 MPGe"
+      },
+      {
+       "name": "M60 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 510 hp (593 hp Sport boost); replaces M50",
+       "builds_on": "",
+       "highlights": [
+        "sunroof standard"
+       ],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon optional (Premium Package)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "Seal & Drive tire kit (no spare)",
+       "mpg": "EPA: 278 mi (19-in) / 232 mi (20-in); 98 / 81 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard glass slide/tilt sunroof (opens; BMW i4 launch release; BMWBlog 2024: every i4 has a power glass moonroof; 2025-26 assumed the same)",
+       "premium_audio": "Harman Kardon in the Premium Package (optional)",
+       "seats": "perforated SensaTec (synthetic) standard; Vernasca leather optional (~$1,500); ventilated seats not listed (unconfirmed)",
+       "black_interior": "yes: Black SensaTec / Black Vernasca. Not black: Canberra Beige, Tacora Red, Cognac SensaTec; Oyster, Tacora Red, Cognac, Mocha Vernasca (2022 list). 2025+ adds bi-color \"Black with Red Highlight\" Vernasca",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.press.bmwgroup.com/usa/article/detail/T0334247EN_US/the-new-2022-bmw-i4-edrive40-and-i4-m50",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0418502EN_US/bmw-model-updates-for-summer-2023",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0441360EN_US/the-new-2025-bmw-i4-and-4-series-gran-coupe",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0453773EN_US/2026-bmw-i4-update-measures",
+    "https://www.bmwblog.com/2022/06/10/bmw-usa-2023-pricing/",
+    "https://www.bmwblog.com/2023/11/17/2024-bmw-i4-buyers-guide/",
+    "https://www.bmwblog.com/2025/12/11/2026-bmw-i4-power-range-updates/",
+    "https://www.bmwblog.com/2025/11/06/2026-bmw-i4-m60-arrives-usa/",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45990",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46917",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46915",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48314",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48312",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50190",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50192"
+   ]
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "on_list_rule": "i5 xDrive40 (2025+) and M60 xDrive (2024+) are on the list (AWD); eDrive40 is rear-wheel drive. Moonroof standard.",
+   "years": [
+    {
+     "year": 2024,
+     "what_changed": "New (G60). eDrive40 $66,800, M60 $84,100, + $995.",
+     "trims": [
+      {
+       "name": "M60 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 593 hp (601 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "Bowers & Wilkins standard",
+        "M Sport package"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Bowers & Wilkins standard",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare (non-runflat tires; unconfirmed)",
+       "mpg": "EPA: 256 / 248 / 240 mi (19/20/21-in); 91 / 89 / 85 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Harman Kardon standard",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Adds i5 xDrive40 ($70,100). Prices otherwise unchanged.",
+     "trims": [
+      {
+       "name": "xDrive40",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 389 hp, 84.3 kWh",
+       "builds_on": "",
+       "highlights": [
+        "AWD",
+        "moonroof standard",
+        "Harman Kardon"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare (non-runflat tires; mobility kit expected - unconfirmed)",
+       "mpg": "EPA: 266 / 262 / 248 mi (19/20/21-in); 93 / 93 / 87 MPGe"
+      },
+      {
+       "name": "M60 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 593 hp (601 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "Bowers & Wilkins standard",
+        "M Sport package"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Bowers & Wilkins standard",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare (non-runflat tires; unconfirmed)",
+       "mpg": "EPA: 253 / 250 / 239 mi; 90 / 88 / 84 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Harman Kardon standard",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "More range; prices unchanged (BMWBlog). Frozen (matte) paints offered - matte is excluded.",
+     "trims": [
+      {
+       "name": "xDrive40",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 389 hp, 84.3 kWh",
+       "builds_on": "",
+       "highlights": [
+        "AWD",
+        "moonroof standard",
+        "Harman Kardon"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare (non-runflat tires; mobility kit expected - unconfirmed)",
+       "mpg": "EPA: 278 / 272 / 259 mi (19/20/21-in); 98 / 96 / 91 MPGe"
+      },
+      {
+       "name": "M60 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 593 hp (601 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "Bowers & Wilkins standard",
+        "M Sport package"
+       ],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Bowers & Wilkins standard",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare (non-runflat tires; unconfirmed)",
+       "mpg": "EPA: 277 / 266 / 259 mi; 99 / 94 / 91 MPGe"
+      },
+      {
+       "name": "eDrive40",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD, 335 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard tilt-and-slide moonroof (opens); fixed panoramic Sky Lounge roof optional in its place - both count",
+       "premium_audio": "Harman Kardon standard",
+       "seats": "Veganza (synthetic) standard; Extended Merino leather optional; ventilated front seats in Luxury Seating Package (standard on M60 per Car and Driver)",
+       "black_interior": "Black Veganza/Merino offered; other colors exist (exact list unconfirmed)",
+       "spare": "no spare",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.press.bmwgroup.com/usa/article/detail/T0418778EN_US/the-all-new-2024-bmw-5-series",
+    "https://www.press.bmwgroup.com/usa/article/detail/T0439355EN_US/bmw-model-update-measures-for-spring-2024",
+    "https://www.bmwblog.com/2024/12/11/2025-bmw-i5-review-pricing-specs-new-features/",
+    "https://www.bmwblog.com/2025/08/28/2026-bmw-i5-range-updates-new-features/",
+    "https://www.caranddriver.com/bmw/i5",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46926",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48322",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48319",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49616",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50194"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "on_list_rule": "EQE Sedan: 350 4MATIC, 500 4MATIC (2023-2025), 320 4MATIC (2026) and AMG EQE 4MATIC+ are on the list (AWD). EQE 350+ / 320+ are rear-wheel drive. Power tilt/sliding panorama roof and Burmester are standard. (Entry named \"EQE\" so the existing \"EQE SUV\" entry still wins for SUVs.)",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "All-new. 350 4MATIC $77,900, 500 4MATIC $85,900, + $1,150 (Premium; Exclusive +$2,100, Pinnacle +$5,600).",
+     "trims": [
+      {
+       "name": "EQE 350 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 288 hp, 90.6 kWh",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard",
+        "Burmester standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown (no spare expected)",
+       "mpg": "EPA 2023 not listed; 2024 figure: 280 mi, 90 MPGe"
+      },
+      {
+       "name": "EQE 500 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 402 hp; rear-axle steering standard",
+       "builds_on": "",
+       "highlights": [
+        "leather standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown (no spare expected)",
+       "mpg": "EPA 2023 not listed; 2024 figure: 298 mi, 96 MPGe"
+      },
+      {
+       "name": "AMG EQE 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "AMG dual motor AWD, 617 hp (677 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "AMG performance"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard (assumed)",
+       "seats": "unknown (AMG seats; confirm)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": "EPA 2023 not listed; 2024 figure: 230 mi, 73 MPGe"
+      },
+      {
+       "name": "EQE 350+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard",
+       "seats": "MB-Tex",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Carryover (mbusa.com shows the same prices).",
+     "trims": [
+      {
+       "name": "EQE 350 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 288 hp, 90.6 kWh",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard",
+        "Burmester standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown (no spare expected)",
+       "mpg": "EPA: 280 mi, 90 MPGe"
+      },
+      {
+       "name": "EQE 500 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 402 hp; rear-axle steering standard",
+       "builds_on": "",
+       "highlights": [
+        "leather standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown (no spare expected)",
+       "mpg": "EPA: 298 mi, 96 MPGe (as published)"
+      },
+      {
+       "name": "AMG EQE 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "AMG dual motor AWD, 617 hp (677 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "AMG performance"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard (assumed)",
+       "seats": "unknown (AMG seats; confirm)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": "EPA: 230 mi, 73 MPGe"
+      },
+      {
+       "name": "EQE 350+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard",
+       "seats": "MB-Tex",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "New battery cells; same prices.",
+     "trims": [
+      {
+       "name": "EQE 350 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 288 hp, 90.6 kWh",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard",
+        "Burmester standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown (no spare expected)",
+       "mpg": "EPA: 267 mi, 86 MPGe"
+      },
+      {
+       "name": "EQE 500 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 402 hp; rear-axle steering standard",
+       "builds_on": "",
+       "highlights": [
+        "leather standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown (no spare expected)",
+       "mpg": "EPA: 266 mi, 85 MPGe"
+      },
+      {
+       "name": "AMG EQE 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "AMG dual motor AWD, 617 hp (677 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "AMG performance"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard (assumed)",
+       "seats": "unknown (AMG seats; confirm)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": "EPA: 220 mi, 70 MPGe"
+      },
+      {
+       "name": "EQE 350+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard",
+       "seats": "MB-Tex",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "EQE 320+ / 320 4MATIC (315 hp) replace 350+ / 350 4MATIC; EQE 500 dropped. 320 4MATIC $67,450, AMG $97,550, + $1,250.",
+     "trims": [
+      {
+       "name": "EQE 320 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 315 hp (replaces 350 4MATIC)",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard (assumed, as earlier years)",
+       "seats": "MB-Tex (synthetic) on 350/320 4MATIC, leather on 500 4MATIC (2023 release); Nappa optional; ventilated front seats optional (~$450 on a 2024 test car)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": "EPA: 267 mi, 86 MPGe"
+      },
+      {
+       "name": "AMG EQE 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "AMG dual motor AWD, 617 hp (677 hp boost)",
+       "builds_on": "",
+       "highlights": [
+        "AMG performance"
+       ],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard (assumed)",
+       "seats": "unknown (AMG seats; confirm)",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": "EPA: 220 mi, 70 MPGe"
+      },
+      {
+       "name": "EQE 320+",
+       "on_list": false,
+       "why_not": "rear-wheel drive",
+       "powertrain": "single motor RWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard power tilt/sliding panorama roof (opens; MBUSA 2023 pricing release; Car and Driver 2024: every EQE has one; 2025-26 assumed)",
+       "premium_audio": "Burmester standard",
+       "seats": "MB-Tex",
+       "black_interior": "Black offered (exact color list unconfirmed); two-tone options such as Neva Grey/Sable Brown Nappa are not black",
+       "spare": "unknown",
+       "mpg": ""
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.mbusa.com/news/all-new-fully-electric-eqe-sedan-to-start-from-74900",
+    "https://media.mbusa.com/news/2022-mercedes-eqe-quick-reference-guide",
+    "https://media.mbusa.com/news/2023-mercedes-benz-model-line-updates",
+    "https://media.mbusa.com/news/2025-mercedes-benz-model-line-updates",
+    "https://media.mbusa.com/news/2026-mercedes-benz-model-line-updates",
+    "https://www.mbusa.com/content/mb-vehicles-data/en_us/models/2023/eqe/eqe350v4.html",
+    "https://www.mbusa.com/content/mb-vehicles-data/en_us/models/2026/eqe/eqe320v4.html",
+    "https://www.caranddriver.com/mercedes-benz/eqe-2024",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47458",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47460",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47457",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48383",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48385",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48382",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49680",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49678"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "E 53 Hybrid",
+   "match": {
+    "model": "E-Class",
+    "fuel": "phev"
+   },
+   "on_list_rule": "Mercedes-AMG E 53 HYBRID 4MATIC+ sedan (2025-2026) is the only US E-Class plug-in hybrid: on the list. There is no US E 350e / E 450e. The 2023 AMG E 53 4MATIC+ is a 48V mild hybrid (counts as gas) and is not on the list; there was no 2024 E 53 sedan.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "All-new. $88,000 + $1,150; Edition 1 for 2025 only.",
+     "trims": [
+      {
+       "name": "AMG E 53 HYBRID 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 3.0L turbo inline-6 + 161 hp motor, 577 hp (604 hp RACE START), AMG 4MATIC+ AWD, 21.2 kWh usable",
+       "builds_on": "",
+       "highlights": [
+        "panoramic sliding sunroof standard",
+        "rear-axle steering",
+        "20-in AMG wheels"
+       ],
+       "sunroof": "standard panoramic sliding sunroof (opens; MY25 QRG; 2026 assumed)",
+       "premium_audio": "Burmester High-End 4D in Exclusive trim; base audio not stated in the QRG (unconfirmed)",
+       "seats": "unknown (confirm; AMG Performance seats optional; Multicontour package optional; ventilation unconfirmed)",
+       "black_interior": "unknown (confirm)",
+       "spare": "unknown",
+       "mpg": "EPA: 43 mi electric, 59 MPGe, gas only 21/26/23 mpg"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "$89,600 + $1,250; wagon version added (wagon is not a sedan).",
+     "trims": [
+      {
+       "name": "AMG E 53 HYBRID 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, 3.0L turbo inline-6 + 161 hp motor, 577 hp (604 hp RACE START), AMG 4MATIC+ AWD, 21.2 kWh usable",
+       "builds_on": "",
+       "highlights": [
+        "panoramic sliding sunroof standard",
+        "rear-axle steering",
+        "20-in AMG wheels"
+       ],
+       "sunroof": "standard panoramic sliding sunroof (opens; MY25 QRG; 2026 assumed)",
+       "premium_audio": "Burmester High-End 4D in Exclusive trim; base audio not stated in the QRG (unconfirmed)",
+       "seats": "unknown (confirm; AMG Performance seats optional; Multicontour package optional; ventilation unconfirmed)",
+       "black_interior": "unknown (confirm)",
+       "spare": "unknown",
+       "mpg": "EPA: 44 mi electric, 60 MPGe, gas only 22/27/24 mpg"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.mbusa.com/news/2025-mercedes-amg-e-53-hybrid-quick-reference-guide",
+    "https://media.mbusa.com/news/2023-mercedes-benz-model-line-updates",
+    "https://media.mbusa.com/news/2025-mercedes-benz-model-line-updates",
+    "https://media.mbusa.com/news/2026-mercedes-benz-model-line-updates",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49019",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49769"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "C 63 S E Performance",
+   "match": {
+    "model": "C-Class",
+    "fuel": "phev"
+   },
+   "on_list_rule": "Mercedes-AMG C 63 S E PERFORMANCE sedan (2024-2026) is the only US C-Class plug-in hybrid: technically on the list (plugs in, AWD), but it is a performance hybrid with ~6 kWh and an EPA electric range of about 1 mile. No US C 350e / C 300e.",
+   "years": [
+    {
+     "year": 2024,
+     "what_changed": "All-new. $83,900 + $1,150.",
+     "trims": [
+      {
+       "name": "AMG C 63 S E PERFORMANCE",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in performance hybrid, 2.0L turbo 4-cyl (469 hp) + 201 hp rear motor, 671 hp, AMG 4MATIC+ AWD, 6.1 kWh (4.8 usable)",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard",
+        "Burmester 3D standard",
+        "rear-axle steering"
+       ],
+       "sunroof": "standard panorama roof (MBUSA 2024 release/QRG; Car and Driver: standard; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex/microfiber AMG sport seats standard; Nappa optional (five styles); ventilated front seats optional",
+       "black_interior": "Black offered (exact list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "EPA 2024 not listed; MBUSA: 41/39/40 MPGe"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "$86,050 + $1,150; optional carbon-ceramic brakes.",
+     "trims": [
+      {
+       "name": "AMG C 63 S E PERFORMANCE",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in performance hybrid, 2.0L turbo 4-cyl (469 hp) + 201 hp rear motor, 671 hp, AMG 4MATIC+ AWD, 6.1 kWh (4.8 usable)",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard",
+        "Burmester 3D standard",
+        "rear-axle steering"
+       ],
+       "sunroof": "standard panorama roof (MBUSA 2024 release/QRG; Car and Driver: standard; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex/microfiber AMG sport seats standard; Nappa optional (five styles); ventilated front seats optional",
+       "black_interior": "Black offered (exact list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "EPA: 1 mi electric, 37 MPGe, gas only 19/22/20 mpg"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "$88,000 + $1,250 (listed as \"AMG C 63 E PERFORMANCE\").",
+     "trims": [
+      {
+       "name": "AMG C 63 S E PERFORMANCE",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in performance hybrid, 2.0L turbo 4-cyl (469 hp) + 201 hp rear motor, 671 hp, AMG 4MATIC+ AWD, 6.1 kWh (4.8 usable)",
+       "builds_on": "",
+       "highlights": [
+        "panorama roof standard",
+        "Burmester 3D standard",
+        "rear-axle steering"
+       ],
+       "sunroof": "standard panorama roof (MBUSA 2024 release/QRG; Car and Driver: standard; 2025-26 assumed)",
+       "premium_audio": "Burmester 3D standard",
+       "seats": "MB-Tex/microfiber AMG sport seats standard; Nappa optional (five styles); ventilated front seats optional",
+       "black_interior": "Black offered (exact list unconfirmed)",
+       "spare": "unknown",
+       "mpg": "EPA 2026 not listed yet"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://media.mbusa.com/news/mercedes-benz-usa-announces-pricing-for-all-new-mercedes-amg-c-63-s-e-performance",
+    "https://media.mbusa.com/news/2024-mercedes-amg-c-63-s-e-performance-quick-reference-guide",
+    "https://media.mbusa.com/news/2025-mercedes-benz-model-line-updates",
+    "https://media.mbusa.com/news/2026-mercedes-benz-model-line-updates",
+    "https://www.caranddriver.com/mercedes-amg/c63",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49018"
+   ]
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "match": {
+    "model": "e-tron GT",
+    "fuel": "ev"
+   },
+   "on_list_rule": "Every e-tron GT is quattro AWD and electric. Premium Plus/Prestige (2023-24) and S e-tron GT Premium Plus (2025-26) have a standard fixed glass roof -> on the list. RS models and the 2025-26 S Prestige: roof unconfirmed -> Needs a call. Note CLAUDE.md (Oct 19 2026) still lists \"e-tron GT sedan\" as excluded; that needs the user's OK to change.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Carryover from the 2022 launch. Trims: e-tron GT Premium Plus, Prestige; RS e-tron GT.",
+     "trims": [
+      {
+       "name": "e-tron GT Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors, quattro AWD, 93.4 kWh battery (83.7 net), 2-speed rear gearbox; 469 hp (522 hp overboost)",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Bang & Olufsen 3D sound (16 speakers)",
+        "Dinamica/leatherette sport seats",
+        "Air suspension"
+       ],
+       "sunroof": "standard fixed (non-opening) panoramic glass roof (counts)",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars); ventilated not standard (unconfirmed)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 82 MPGe combined (81/83), 238 mi range"
+      },
+      {
+       "name": "e-tron GT Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors, quattro AWD, 93.4 kWh battery (83.7 net), 2-speed rear gearbox; 469 hp (522 hp overboost)",
+       "builds_on": "e-tron GT Premium Plus",
+       "highlights": [
+        "Head-up display",
+        "Matrix LED headlights with laser (per Audi; unconfirmed)",
+        "More driver-assist features"
+       ],
+       "sunroof": "standard fixed (non-opening) panoramic glass roof (counts)",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 82 MPGe combined, 238 mi range"
+      },
+      {
+       "name": "RS e-tron GT quattro",
+       "on_list": false,
+       "why_not": "Roof unconfirmed (carbon-fiber roof may be standard) - needs a call",
+       "powertrain": "Dual electric motors, quattro AWD; 590 hp (637 hp overboost)",
+       "builds_on": "e-tron GT Prestige",
+       "highlights": [
+        "Carbon-fiber trim",
+        "Rear-wheel steering, 3-chamber air suspension (per Audi; unconfirmed for US)"
+       ],
+       "sunroof": "unconfirmed: sources disagree (KBB says the RS has a carbon-fiber roof with the glass roof optional; Audi press says carbon is the option); confirm on window sticker",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 81 MPGe combined (79/82), 232 mi range"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Carryover. EPA range up to 249 mi. Same three trims.",
+     "trims": [
+      {
+       "name": "e-tron GT Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors, quattro AWD, 93.4 kWh battery (83.7 net), 2-speed rear gearbox; 469 hp (522 hp overboost)",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Bang & Olufsen 3D (16 speakers)"
+       ],
+       "sunroof": "standard fixed (non-opening) panoramic glass roof (counts)",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars); waterfall stitching",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 85 MPGe combined, 249 mi range"
+      },
+      {
+       "name": "e-tron GT Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors, quattro AWD, 93.4 kWh battery (83.7 net), 2-speed rear gearbox; 469 hp (522 hp overboost)",
+       "builds_on": "e-tron GT Premium Plus",
+       "highlights": [
+        "Head-up display",
+        "Dinamica headliner"
+       ],
+       "sunroof": "standard fixed (non-opening) panoramic glass roof (counts)",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 85 MPGe combined, 249 mi range"
+      },
+      {
+       "name": "RS e-tron GT quattro",
+       "on_list": false,
+       "why_not": "Roof unconfirmed (carbon-fiber roof may be standard) - needs a call",
+       "powertrain": "Dual electric motors, quattro AWD; 590 hp (637 hp overboost)",
+       "builds_on": "e-tron GT Prestige",
+       "highlights": [
+        "Carbon-fiber trim"
+       ],
+       "sunroof": "unconfirmed: sources disagree (KBB says the RS has a carbon-fiber roof with the glass roof optional; Audi press says carbon is the option); confirm on window sticker",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 85 MPGe combined, 249 mi range"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Refresh: bigger 105 kWh battery, more power; base car renamed S e-tron GT; RS becomes RS e-tron GT performance. Range up to 300 mi.",
+     "trims": [
+      {
+       "name": "S e-tron GT Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors, quattro AWD, 105 kWh battery (97 net); 590 hp (670 hp with launch control)",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Bang & Olufsen 3D",
+        "Active suspension (per Audi; unconfirmed)"
+       ],
+       "sunroof": "standard fixed (non-opening) panoramic glass roof (counts)",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 90 MPGe (20 in wheels) / 88 (21 in); 300 / 294 mi"
+      },
+      {
+       "name": "S e-tron GT Prestige quattro",
+       "on_list": false,
+       "why_not": "Roof unconfirmed in C/D data (dealer data: switchable panoramic glass roof) - needs a call",
+       "powertrain": "Dual electric motors, quattro AWD, 105 kWh battery (97 net); 590 hp (670 hp with launch control)",
+       "builds_on": "S e-tron GT Premium Plus",
+       "highlights": [
+        "Panoramic roof with variable light control (dealer data)",
+        "More driver-assist and comfort features"
+       ],
+       "sunroof": "panoramic glass roof with variable light control (switchable, fixed glass; counts) per dealer window-sticker data; C/D lists no roof for this trim; unconfirmed whether a carbon roof could replace it",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 90 / 88 MPGe; 300 / 294 mi"
+      },
+      {
+       "name": "RS e-tron GT performance quattro",
+       "on_list": false,
+       "why_not": "Roof unconfirmed (carbon roof optional) - needs a call",
+       "powertrain": "Dual electric motors, quattro AWD, 105 kWh battery; 912 hp with launch control (RS e-tron GT performance)",
+       "builds_on": "S e-tron GT Prestige",
+       "highlights": [
+        "Fine Nappa leather, ventilated + massage front seats",
+        "Carbon trim"
+       ],
+       "sunroof": "unconfirmed: dealer data shows fixed panoramic glass roof with an optional Forged Carbon package (carbon roof); confirm on window sticker",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Fine Nappa leather, heated + ventilated + massage front seats (standard)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 84 MPGe combined, 278 mi"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Carryover of the 2025 lineup (S e-tron GT Premium Plus / Prestige, RS e-tron GT performance).",
+     "trims": [
+      {
+       "name": "S e-tron GT Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual electric motors, quattro AWD, 105 kWh battery (97 net); 590 hp (670 hp with launch control)",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "Bang & Olufsen 3D"
+       ],
+       "sunroof": "standard fixed (non-opening) panoramic glass roof (counts)",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 90 / 88 MPGe; 300 / 294 mi"
+      },
+      {
+       "name": "S e-tron GT Prestige quattro",
+       "on_list": false,
+       "why_not": "Roof unconfirmed - needs a call",
+       "powertrain": "Dual electric motors, quattro AWD, 105 kWh battery (97 net); 590 hp (670 hp with launch control)",
+       "builds_on": "S e-tron GT Premium Plus",
+       "highlights": [
+        "Switchable panoramic roof (dealer data, unconfirmed)"
+       ],
+       "sunroof": "panoramic glass roof with variable light control (switchable, fixed glass; counts) per dealer window-sticker data; C/D lists no roof for this trim; unconfirmed whether a carbon roof could replace it",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leatherette/Dinamica (synthetic suede) seating surfaces standard; full leather optional ($4,500 package on some cars)",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 90 / 88 MPGe; 300 / 294 mi"
+      },
+      {
+       "name": "RS e-tron GT performance quattro",
+       "on_list": false,
+       "why_not": "Roof unconfirmed (carbon roof optional) - needs a call",
+       "powertrain": "Dual electric motors, quattro AWD, 105 kWh battery; 912 hp with launch control (RS e-tron GT performance)",
+       "builds_on": "S e-tron GT Prestige",
+       "highlights": [
+        "Fine Nappa, ventilated + massage seats"
+       ],
+       "sunroof": "unconfirmed: dealer data shows fixed panoramic glass roof with an optional Forged Carbon package (carbon roof); confirm on window sticker",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Fine Nappa leather, heated + ventilated + massage front seats",
+       "black_interior": "yes (Black offered; other interiors such as red exist; names unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 84 MPGe combined, 278 mi"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/audi/e-tron-gt/specs/2023/audi_e-tron-gt_audi-e-tron-gt_2023",
+    "https://www.caranddriver.com/audi/e-tron-gt/specs/2024/audi_e-tron-gt_audi-e-tron-gt_2024",
+    "https://www.caranddriver.com/audi/e-tron-gt/specs/2025/audi_e-tron-gt_audi-e-tron-gt_2025",
+    "https://www.caranddriver.com/audi/e-tron-gt/specs/2026/audi_e-tron-gt_audi-s-e-tron-gt_2026",
+    "https://www.caranddriver.com/audi/e-tron-gt/specs/2026/audi_e-tron-gt_audi-rs-e-tron-gt_2026",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45981",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46908",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48688",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48993",
+    "https://www.kbb.com/audi/e-tron-gt/2023 (search summary only, roof)"
+   ]
+  },
+  {
+   "make": "Audi",
+   "model": "A6 e-tron",
+   "match": {
+    "model": "A6",
+    "fuel": "ev"
+   },
+   "on_list_rule": "US gets only the Sportback (liftback) body. quattro (AWD) cars are on the list; RWD single-motor cars fail AWD. vPIC: Model \"A6\", Trim \"e-tron 55 Premium Plus\", Series \"Sportback\", BodyClass \"Hatchback/Liftback/Notchback\", DriveType RWD/AWD.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "First year of the electric A6 (PPE platform). Sportback only in the US (no Avant). RWD (375 hp) and quattro (456 hp), each Premium / Premium Plus / Prestige. EPA figures not yet on fueleconomy.gov; C/D: up to 392 mi RWD, 342-377 mi quattro (sources disagree).",
+     "trims": [
+      {
+       "name": "A6 Sportback e-tron Premium RWD",
+       "on_list": false,
+       "why_not": "RWD (rear-wheel drive) - fails AWD",
+       "powertrain": "Single rear motor, RWD, 100 kWh battery (94.9 net), 375 hp",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof",
+        "10-speaker audio"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "none (10 speakers)",
+       "seats": "Leather seating surfaces with leatherette backs (standard); ventilation via Warm Weather package (dealer data)",
+       "black_interior": "yes (Black seen on many cars; other names unconfirmed)",
+       "spare": "none listed (tire repair kit likely; unconfirmed)",
+       "mpg": "EPA not published; C/D up to 392 mi"
+      },
+      {
+       "name": "A6 Sportback e-tron Premium Plus RWD",
+       "on_list": false,
+       "why_not": "RWD - fails AWD",
+       "powertrain": "Single rear motor, RWD, 375 hp",
+       "builds_on": "A6 e-tron Premium",
+       "highlights": [
+        "Bang & Olufsen 3D (16 speakers)"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leather seating surfaces with leatherette backs (standard)",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      },
+      {
+       "name": "A6 Sportback e-tron Prestige RWD",
+       "on_list": false,
+       "why_not": "RWD - fails AWD",
+       "powertrain": "Single rear motor, RWD, 375 hp",
+       "builds_on": "A6 e-tron Premium Plus",
+       "highlights": [
+        "Adaptive air suspension",
+        "Passenger display (dealer data)"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leather seating surfaces with leatherette backs (standard)",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      },
+      {
+       "name": "A6 Sportback e-tron Premium quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, quattro AWD, 100 kWh, 456 hp",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic glass roof"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "none (10 speakers)",
+       "seats": "Leather seating surfaces with leatherette backs (standard)",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published; 342-377 mi (sources disagree)"
+      },
+      {
+       "name": "A6 Sportback e-tron Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, quattro AWD, 456 hp",
+       "builds_on": "A6 e-tron Premium quattro",
+       "highlights": [
+        "Bang & Olufsen 3D (16 speakers)"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leather seating surfaces with leatherette backs (standard); ventilated front seats in Warm Weather package (~$1,150, dealer data)",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      },
+      {
+       "name": "A6 Sportback e-tron Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, quattro AWD, 456 hp",
+       "builds_on": "A6 e-tron Premium Plus quattro",
+       "highlights": [
+        "Adaptive air suspension"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Leather seating surfaces with leatherette backs (standard)",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "unconfirmed: Car and Driver has 2025 and 2027 pages only; whether a US 2026 model year exists is unknown. Treat any 2026 like the 2025 (quattro passes, RWD fails).",
+     "trims": []
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/audi/a6-e-tron/specs/2025/audi_a6-e-tron_audi-a6-e-tron_2025",
+    "https://www.caranddriver.com/audi/a6-e-tron",
+    "https://www.carscoops.com/2025/03/2025-audi-a6-e-tron-undercuts-i5-and-eqe-in-the-us-looks-way-better-too/",
+    "https://tflcar.com/2025/03/2025-audi-a6-s6-e-tron-pricing-news/"
+   ]
+  },
+  {
+   "make": "Audi",
+   "model": "S6 e-tron",
+   "match": {
+    "model": "S6",
+    "fuel": "ev"
+   },
+   "on_list_rule": "Every S6 Sportback e-tron is quattro AWD with a fixed glass roof -> on the list. vPIC: Model \"S6\", Trim \"e-tron quattro Premium Plus\", Series Sportback, BodyClass Hatchback/Liftback/Notchback.",
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "First year. Sportback only. 543 hp with launch control.",
+     "trims": [
+      {
+       "name": "S6 Sportback e-tron Premium quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual motors, quattro AWD, 100 kWh; 496 hp (543 hp launch control)",
+       "builds_on": "",
+       "highlights": [
+        "Fine Nappa leather",
+        "Heated, ventilated, massaging sport seats",
+        "Fixed panoramic glass roof"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "none (10 speakers)",
+       "seats": "Fine Nappa leather (standard); heated + ventilated + massage front",
+       "black_interior": "yes (Black seen; others unconfirmed)",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      },
+      {
+       "name": "S6 Sportback e-tron Premium Plus quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Same as Premium",
+       "builds_on": "S6 e-tron Premium",
+       "highlights": [
+        "Bang & Olufsen 3D (16 speakers)"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Fine Nappa leather; ventilated + massage",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      },
+      {
+       "name": "S6 Sportback e-tron Prestige quattro",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Same as Premium",
+       "builds_on": "S6 e-tron Premium Plus",
+       "highlights": [
+        "More driver-assist / display features"
+       ],
+       "sunroof": "standard fixed panoramic glass roof (counts); switchable (variable light control) version seen on some cars",
+       "premium_audio": "Bang & Olufsen 3D, standard",
+       "seats": "Fine Nappa leather; ventilated + massage",
+       "black_interior": "yes",
+       "spare": "unconfirmed",
+       "mpg": "EPA not published"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "unconfirmed whether a US 2026 model year exists (C/D shows 2025 and 2027).",
+     "trims": []
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/audi/s6-e-tron/specs/2025/audi_s6-e-tron_audi-s6-e-tron_2025"
+   ]
+  },
+  {
+   "make": "Genesis",
+   "model": "Electrified G80",
+   "match": {
+    "model": "G80",
+    "fuel": "ev"
+   },
+   "on_list_rule": "Not on the list: the US Electrified G80 has no sunroof at all (Car and Driver: Genesis said the US would not get the solar roof because of headroom; genesis.com feature lists have no roof item, while the gas G80 lists \"Panoramic Sunroof\"). AWD, electric and black interior would all pass. vPIC: Model \"G80\", Series \"Electrified G80\", BodyClass Sedan/Saloon. Sold 2023-2025; discontinued in the US before 2026 (C/D) although fueleconomy.gov has a 2026 entry.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "First US year (one AWD trim, everything standard).",
+     "trims": [
+      {
+       "name": "Electrified G80 AWD",
+       "on_list": false,
+       "why_not": "No sunroof offered in the US",
+       "powertrain": "Front + rear 136 kW motors (365 hp, 516 lb-ft), AWD, 87.2 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "Nappa leather",
+        "Lexicon premium audio (21 speakers)",
+        "Heated + ventilated front seats",
+        "Head-up display",
+        "Power rear sunshade"
+       ],
+       "sunroof": "not offered (US)",
+       "premium_audio": "Lexicon, standard",
+       "seats": "Nappa leather (standard); heated + ventilated front",
+       "black_interior": "yes (Obsidian Black; also Dark Lagoon Green, Havana Brown)",
+       "spare": "tire mobility kit",
+       "mpg": "EPA 97 MPGe combined (105/89), 282 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Split into Advanced and Prestige; Advanced gets leather instead of Nappa and a lower price. Makalu Gray MATTE paint offered (+$1,500).",
+     "trims": [
+      {
+       "name": "Electrified G80 Advanced AWD",
+       "on_list": false,
+       "why_not": "No sunroof offered in the US",
+       "powertrain": "Same: 136 + 136 kW, AWD, 87.2 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Leather seats",
+        "Lexicon audio",
+        "Heated + ventilated front seats"
+       ],
+       "sunroof": "not offered (US)",
+       "premium_audio": "Lexicon, standard",
+       "seats": "Leather (standard); heated + ventilated front",
+       "black_interior": "yes (Obsidian Black; also Dark Lagoon Green, Havana Brown)",
+       "spare": "tire mobility kit",
+       "mpg": "EPA 97 MPGe, 282 mi"
+      },
+      {
+       "name": "Electrified G80 Prestige AWD",
+       "on_list": false,
+       "why_not": "No sunroof offered in the US",
+       "powertrain": "Same",
+       "builds_on": "Electrified G80 Advanced",
+       "highlights": [
+        "Nappa leather",
+        "12.3 in 3D cluster",
+        "Surround View Monitor"
+       ],
+       "sunroof": "not offered (US)",
+       "premium_audio": "Lexicon, standard",
+       "seats": "Nappa leather; heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "tire mobility kit",
+       "mpg": "EPA 97 MPGe, 282 mi"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Carryover; final US year. Prestige is a $4,750 package on genesis.com. No matte paint listed for 2025.",
+     "trims": [
+      {
+       "name": "Electrified G80 Advanced AWD",
+       "on_list": false,
+       "why_not": "No sunroof offered in the US",
+       "powertrain": "Same",
+       "builds_on": "",
+       "highlights": [
+        "Leather",
+        "Lexicon audio"
+       ],
+       "sunroof": "not offered (US)",
+       "premium_audio": "Lexicon, standard",
+       "seats": "Leather; heated + ventilated front",
+       "black_interior": "yes (Obsidian Black)",
+       "spare": "tire mobility kit",
+       "mpg": "EPA 97 MPGe, 282 mi"
+      },
+      {
+       "name": "Electrified G80 Prestige AWD",
+       "on_list": false,
+       "why_not": "No sunroof offered in the US",
+       "powertrain": "Same",
+       "builds_on": "Electrified G80 Advanced",
+       "highlights": [
+        "Nappa leather",
+        "3-zone climate",
+        "Surround View"
+       ],
+       "sunroof": "not offered (US)",
+       "premium_audio": "Lexicon, standard",
+       "seats": "Nappa leather; heated + ventilated front",
+       "black_interior": "yes",
+       "spare": "tire mobility kit",
+       "mpg": "EPA 97 MPGe, 282 mi"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2023&model=electrified-g80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2024&model=electrified-g80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2025&model=electrified-g80",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2024&model=electrified-g80",
+    "https://www.genesis.com/bin/api/v2/vehicle/byo?year=2025&model=electrified-g80",
+    "https://www.genesis.com/bin/api/v2/vehicle/trims?year=2024&model=g80",
+    "https://www.caranddriver.com/reviews/a40353196/2023-genesis-electric-g80-drive/",
+    "https://www.caranddriver.com/genesis/electrified-g80",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47447"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "model": "S60 Recharge / T8",
+   "match": {
+    "model": "S60",
+    "fuel": "phev"
+   },
+   "on_list_rule": "Every S60 T8 (plug-in, AWD) has a standard opening panoramic sunroof and offers Charcoal (black) -> on the list. Gas S60 B5 (mild hybrid) is not. vPIC: Model \"S60\", BodyClass Sedan/Saloon, ElectrificationLevel PHEV. Listings: \"S60 Recharge T8 Plus\", \"S60 T8 eAWD Plug-In Hybrid Ultimate Dark Theme\", 2025 \"S60 T8 AWD Plug-In Hybrid Ultra\".",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Inscription/R-Design dropped; trims Core, Plus, Ultimate (Dark/Bright Theme), Black Editions, Polestar Engineered.",
+     "trims": [
+      {
+       "name": "S60 Recharge T8 Core Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof",
+        "Leatherette seats",
+        "9 in Google touchscreen"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (High Performance, 11 speakers)",
+       "seats": "Leatherette (synthetic) seats, heated; 10-way power",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Core Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Core",
+       "highlights": [
+        "Black exterior details",
+        "Charcoal interior"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leatherette (synthetic) seats, heated; 10-way power",
+       "black_interior": "yes (Charcoal)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Core",
+       "highlights": [
+        "Leather seats"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leather seating surfaces, heated; 10-way power",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Plus Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Plus",
+       "highlights": [
+        "Black exterior details"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leather seating surfaces, heated; 10-way power",
+       "black_interior": "yes (Charcoal)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Ultimate Dark / Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Plus",
+       "highlights": [
+        "Harman Kardon (14 speakers)",
+        "14-way seats",
+        "Head-up display (unconfirmed)"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional (unconfirmed for this year)",
+       "seats": "Leather (Nappa/textile on Black Edition), 14-way power, cushion extensions; ventilated not standard (unconfirmed option)",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Ultimate Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Ultimate",
+       "highlights": [
+        "Nappa/leatherette/textile seats"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard",
+       "seats": "Leather (Nappa/textile on Black Edition), 14-way power, cushion extensions; ventilated not standard (unconfirmed option)",
+       "black_interior": "yes (Charcoal)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Polestar Engineered",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "T8, 455 hp, AWD, Ohlins dampers, Brembo brakes",
+       "builds_on": "Ultimate",
+       "highlights": [
+        "Bowers & Wilkins (15 speakers)",
+        "Nappa/textile seats"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Bowers & Wilkins, standard",
+       "seats": "Nappa leather with textile (standard)",
+       "black_interior": "yes (Charcoal)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Polestar Engineered, Core Black Edition and Ultimate Bright Theme dropped (CarMax research summary).",
+     "trims": [
+      {
+       "name": "S60 Recharge T8 Core Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leatherette (synthetic) seats, heated; 10-way power",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Core",
+       "highlights": [
+        "Leather"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leather seating surfaces, heated; 10-way power",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Plus Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Plus",
+       "highlights": [
+        "Nappa/leatherette/textile seats"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Nappa leather & leatherette with textile",
+       "black_interior": "yes (Charcoal)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Plus",
+       "highlights": [
+        "Harman Kardon (14 speakers)"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional (unconfirmed)",
+       "seats": "Leather (Nappa/textile on Black Edition), 14-way power, cushion extensions; ventilated not standard (unconfirmed option)",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 Recharge T8 Ultimate Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Ultimate",
+       "highlights": [
+        "Black exterior"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard",
+       "seats": "Leather (Nappa/textile on Black Edition), 14-way power, cushion extensions; ventilated not standard (unconfirmed option)",
+       "black_interior": "yes (Charcoal)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Final year. \"Recharge\" name dropped (now \"T8 AWD Plug-In Hybrid\"); Ultimate renamed Ultra; Ultra Black Edition package.",
+     "trims": [
+      {
+       "name": "S60 T8 AWD Plug-In Hybrid Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leatherette (synthetic) seats, heated; 10-way power",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 T8 AWD Plug-In Hybrid Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Core",
+       "highlights": [
+        "Leather"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (11 speakers)",
+       "seats": "Leather seating surfaces, heated; 10-way power",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      },
+      {
+       "name": "S60 T8 AWD Plug-In Hybrid Ultra (incl. Black Edition)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl (312 hp) + 143 hp rear motor = 455 hp, AWD, 8-spd auto, 18.8 kWh battery (C/D lists 14.9 kWh usable)",
+       "builds_on": "Plus",
+       "highlights": [
+        "Harman Kardon (14 speakers)"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional (unconfirmed)",
+       "seats": "Leather (Nappa/textile on Black Edition), 14-way power, cushion extensions; ventilated not standard (unconfirmed option)",
+       "black_interior": "yes (Charcoal = black; Blond also offered on some trims; full list unconfirmed)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 74 MPGe, 31 mpg gas-only, 40-41 mi electric"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/volvo/s60/specs/2023/volvo_s60_volvo-s60-recharge_2023",
+    "https://www.caranddriver.com/volvo/s60/specs/2024/volvo_s60_vovlo-s60-recharge_2024",
+    "https://www.caranddriver.com/volvo/s60/specs/2025/volvo_s60_volvo-s60-phev_2025",
+    "https://www.caranddriver.com/volvo/s60",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46628",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47503",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48677"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "model": "S90 Recharge / T8",
+   "match": {
+    "model": "S90",
+    "fuel": "phev"
+   },
+   "on_list_rule": "Every S90 T8 (plug-in, AWD) has a standard opening panoramic sunroof and offers Charcoal (black) -> on the list. Gas S90 B6/B5 (mild hybrid) is not. vPIC: Model \"S90\", Series \"Recharge\", BodyClass Sedan/Saloon, PHEV. Built in China (VIN LVY...); 2025 was the last US year (tariffs).",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Car and Driver lists only the T8 Ultimate for 2023 (a 2023 T8 Plus is unconfirmed).",
+     "trims": [
+      {
+       "name": "S90 Recharge T8 eAWD Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl + 107 kW rear motor, 455 hp, AWD, 8-spd auto, 18.8 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "Nappa leather",
+        "Heated + ventilated 16-way front seats",
+        "Harman Kardon (14 speakers)"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "Nappa leather (standard); heated + ventilated front",
+       "black_interior": "yes (Charcoal = black; Blond and Maroon Brown also offered, unconfirmed by trim)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 66 MPGe, 30 mpg gas-only, 38 mi electric"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Plus and Ultimate T8. (fueleconomy.gov has no separate 2024 S90 T8 entry; 2023 figures apply, unconfirmed.)",
+     "trims": [
+      {
+       "name": "S90 Recharge T8 eAWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl + 107 kW rear motor, 455 hp, AWD, 8-spd auto, 18.8 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "Leather seats",
+        "Panoramic sunroof"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (High Performance, 10 speakers)",
+       "seats": "Leather (standard); heated; not ventilated",
+       "black_interior": "yes (Charcoal = black; Blond and Maroon Brown also offered, unconfirmed by trim)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 66 MPGe, 30 mpg gas-only, 38 mi electric"
+      },
+      {
+       "name": "S90 Recharge T8 eAWD Ultimate (Bright/Dark)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl + 107 kW rear motor, 455 hp, AWD, 8-spd auto, 18.8 kWh battery",
+       "builds_on": "Plus",
+       "highlights": [
+        "Nappa leather",
+        "Ventilated seats",
+        "Harman Kardon"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "Nappa leather; heated + ventilated front",
+       "black_interior": "yes (Charcoal = black; Blond and Maroon Brown also offered, unconfirmed by trim)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 66 MPGe, 30 mpg gas-only, 38 mi electric"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "\"Recharge\" dropped (T8 AWD Plug-In Hybrid); Ultimate renamed Ultra. Final US year.",
+     "trims": [
+      {
+       "name": "S90 T8 AWD Plug-In Hybrid Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl + 107 kW rear motor, 455 hp, AWD, 8-spd auto, 18.8 kWh battery",
+       "builds_on": "",
+       "highlights": [
+        "Leather seats"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "none (High Performance)",
+       "seats": "Leather; heated; not ventilated",
+       "black_interior": "yes (Charcoal = black; Blond and Maroon Brown also offered, unconfirmed by trim)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 66 MPGe, 29 mpg gas-only, 38 mi electric"
+      },
+      {
+       "name": "S90 T8 AWD Plug-In Hybrid Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl + 107 kW rear motor, 455 hp, AWD, 8-spd auto, 18.8 kWh battery",
+       "builds_on": "Plus",
+       "highlights": [
+        "Nappa leather",
+        "Ventilated seats",
+        "Harman Kardon"
+       ],
+       "sunroof": "standard panoramic sunroof, opens (tilt/slide, power shade)",
+       "premium_audio": "Harman Kardon standard; Bowers & Wilkins optional",
+       "seats": "Nappa leather; heated + ventilated front",
+       "black_interior": "yes (Charcoal = black; Blond and Maroon Brown also offered, unconfirmed by trim)",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "EPA 66 MPGe, 29 mpg gas-only, 38 mi electric"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/volvo/s90/specs/2023/volvo_s90_volvo-s90-recharge_2023",
+    "https://www.caranddriver.com/volvo/s90/specs/2024/volvo_s90_volvo-s90-recharge_2024",
+    "https://www.caranddriver.com/volvo/s90/specs/2025/volvo_s90_volvo-s90-phev_2025",
+    "https://www.caranddriver.com/volvo/s90",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46261",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49029",
+    "https://volvocars.com/us/cars/s90-hybrid/interior-design"
+   ]
+  },
+  {
+   "make": "Lexus",
+   "model": "ES 500e",
+   "match": {
+    "model": "ES",
+    "fuel": "ev"
+   },
+   "on_list_rule": "2026+ (8th-gen) ES 500e = dual-motor AWD electric sedan -> candidate, but the roof is UNCONFIRMED (Lexus press release does not mention a roof; dealer data shows a fixed glass roof on Premium and a power moonroof on Luxury). ES 350e is FWD (fails); ES 350h / 300h are regular hybrids (fail: not plug-in). vPIC: Model \"ES\", Series \"26 Series\", BodyClass Sedan/Saloon, DriveType \"4WD/4-Wheel Drive/4x4\" for the 500e (VIN JTHBDCD1...).",
+   "years": [
+    {
+     "year": 2026,
+     "what_changed": "All-new 8th-generation ES, first battery-electric ES. On sale spring 2026. 2027 carries over unchanged.",
+     "trims": [
+      {
+       "name": "ES 500e Premium AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Front + rear motors, AWD, 74.7 kWh battery, 338 hp (per a dealer review; unconfirmed)",
+       "builds_on": "",
+       "highlights": [
+        "NuLuxe seats",
+        "10-speaker Lexus audio",
+        "14 in touchscreen"
+       ],
+       "sunroof": "unconfirmed: fixed glass roof per dealer window-sticker data",
+       "premium_audio": "none (10-speaker Lexus Premium Sound)",
+       "seats": "NuLuxe (synthetic leather), standard",
+       "black_interior": "unconfirmed (Black likely)",
+       "spare": "unconfirmed",
+       "mpg": "EPA 276 mi (19 in) / 272 mi (21 in); MPGe not found"
+      },
+      {
+       "name": "ES 500e Luxury AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Same",
+       "builds_on": "ES 500e Premium",
+       "highlights": [
+        "Semi-aniline leather",
+        "Mark Levinson 17 speakers",
+        "Soft-close doors",
+        "Head-up display"
+       ],
+       "sunroof": "unconfirmed: power tilt/slide moonroof per one dealer listing",
+       "premium_audio": "Mark Levinson PurePlay (17 speakers), standard",
+       "seats": "Semi-aniline leather (standard)",
+       "black_interior": "yes (Black semi-aniline seen; Palomino also offered)",
+       "spare": "unconfirmed",
+       "mpg": "EPA 276 / 272 mi"
+      },
+      {
+       "name": "ES 350e Premium / Luxury",
+       "on_list": false,
+       "why_not": "Front-wheel drive - fails AWD",
+       "powertrain": "Single front motor, FWD, 74.7 kWh",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "unconfirmed",
+       "premium_audio": "Luxury: Mark Levinson",
+       "seats": "NuLuxe / semi-aniline",
+       "black_interior": "unconfirmed",
+       "spare": "unconfirmed",
+       "mpg": "EPA 307 / 292 mi"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://pressroom.lexus.com/2026-lexus-es-launches-with-battery-electric-models-new-hybrid-coming-soon/",
+    "https://pressroom.lexus.com/vehicle/2027-lexus-es-electric/"
+   ]
   }
  ]
 }

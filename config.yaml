@@ -32,6 +32,10 @@ filters:
     doc_fee: 85               # California dealer doc-fee cap
     other_fees: 100           # electronic filing etc.
   sunroof_required: true
+  sedans:                     # plug-in hybrid / electric sedans, 3 Series / A5 to 5 Series size, AWD (user, Oct 19 2026)
+    fuels: [phev, ev]
+    # sedan model names, for cars whose VIN record has no body type (gas sedans are excluded)
+    models: '\b[35] series\b|\b[35][35]0e\b|\bi[45]\b|\beqe\b(?!.*suv)|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|e-?tron gt|\b[as]6\b.*e-?tron|\bes ?\d{3}|\bs[69]0\b'
   exterior_colors:
     include: [black, gray, grey, graphite, charcoal, gunmetal, thunder, makalu,
               mythos, vik, onyx, daytona, carbon, obsidian, magnetic, crystal black,
@@ -95,13 +99,13 @@ buying_context:
 # CPO program names are in verify/certification.py.
 models:
   Audi:
-    allow: '\bs?q[35]\b|\bs?q[468] ?(sportback )?e-?tron|\be-?tron\b|\brs ?q[38]\b'
-    list: Q3, Q5, electric Q4 / Q6 / Q8 e-tron
+    allow: '\bs?q[35]\b|\bs?q[468] ?(sportback )?e-?tron|\be-?tron\b|\brs ?q[38]\b|\b[as]6\b'
+    list: Q3, Q5, electric Q4 / Q6 / Q8 e-tron; electric sedans e-tron GT, A6 / S6 Sportback e-tron
     tokens: [q4, q6, q8, e-tron]
     rules:
       # performance versions (SQ5, SQ6/SQ8 e-tron, e-tron S, RS Q8) are fine (user, Oct 19 2026) if they meet the other rules
       - {if: 'q4 (sportback )?(40|45) e-?tron', then: fail, why: 'Q4 40 / 45 e-tron (rear-wheel drive; only the quattro qualifies)'}
-      - {if: 'e-?tron gt', then: fail, why: 'e-tron GT (a sedan)'}
+      - {if: '(?=.*e-?tron)(?=.*\b(rwd|rear.wheel)\b)', then: fail, why: 'A6 e-tron without quattro (rear-wheel drive)'}
       - {if: 'sportback', then: note, why: 'Sportback'}
   Genesis:
     allow: 'gv60|gv70|gv80'
@@ -119,19 +123,23 @@ models:
       - {if: 'outback', unless: 'limited|touring|wilderness', then: fail, why: 'Outback trim (Limited/Touring/Wilderness only)'}
       - {if: 'solterra', unless: 'touring', then: fail, why: 'Solterra Premium / Limited: no sunroof offered (Touring only)'}
   BMW:
-    allow: '\bx[35]\b|\bix\b'
-    list: X3, X5, iX (electric)
-    tokens: [ix]
+    allow: '\bx[35]\b|\bix\b|\b[35] series\b|\b[35][35]0e\b|\bi[45]\b'
+    list: X3, X5, iX (electric); plug-in / electric sedans 330e xDrive, 530e / 550e xDrive, i4, i5
+    tokens: [ix, 330e, 530e, 550e, i4, i5]
     rules:
       - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
+      - {if: '\b[35]30e\b(?!.*(xdrive|530 ?xe|\bawd\b|all.wheel))', then: fail, why: '330e / 530e without xDrive (rear-wheel drive)'}
+      - {if: '\bedrive ?(35|40)\b', then: fail, why: 'i4 / i5 eDrive (rear-wheel drive)'}
       # M versions (X3 M40i/M50/X3 M, X5 M50i/M60i/X5 M, iX M60/M70) are fine (user, Oct 19 2026)
   Mercedes-Benz:
-    allow: 'glc|gle|eqb|eqe|eqs'
-    list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV
-    tokens: [eqb, eqe, eqs]
+    allow: 'glc|gle|eqb|eqe|eqs|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b'
+    list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV; EQE sedan, plug-in AMG E 53 HYBRID / C 63 S E PERFORMANCE
+    tokens: [eqb, eqe, eqs, e-53, c-63]
     rules:
       - {if: 'coupe|maybach', then: fail, why: 'Coupe / Maybach (not on the list)'}   # AMG and GLE 580 are fine (user likes performance cars, Oct 19 2026)
       - {if: 'eqb ?250', then: fail, why: 'EQB 250 (front-wheel drive)'}
+      - {if: 'eqs(?!.*suv)', unless: 'suv', then: fail, why: 'EQS sedan (full-size, not on the list)'}
+      - {if: '(?<![a-z])e ?53(?!.*hybrid)(?!e)', to_year: 2024, then: fail, why: 'AMG E 53 before 2025 (mild hybrid = gas)'}
       - {if: 'eq[es] ?(320|350|450) ?(\+|plus)(?! ?4matic)', then: fail, why: 'EQE / EQS SUV "+" (rear-wheel drive)'}
       - {if: 'eq[bs]', then: note, why: 'EQB / EQS SUV can have a third row: confirm it has 5 seats'}
   Volkswagen:
@@ -142,17 +150,18 @@ models:
       - {if: tiguan, min_year: 2025, why: 'Tiguan before 2025 (AWD versions have a third row)'}
       - {if: 'id\.? ?-?4.*\bpro\b(?! ?s\b)', then: fail, why: 'ID.4 AWD Pro (not Pro S): no glass roof, cloth seats'}
   Lexus:
-    allow: '\b(nx|rx|rz)\b'
-    list: NX, RX, RZ (electric)
-    tokens: [rz]
+    allow: '\b(nx|rx|rz|es)\b'
+    list: NX, RX, RZ (electric); ES 500e (electric sedan)
+    tokens: [rz, 500e]
     rules:
       - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
       - {if: 'nx ?250|\b250\b', unless: '350|450', then: fail, why: 'NX 250 (only NX 350 / 350h / 450h+)'}
       - {if: '\brz ?(300e|350e)\b', then: fail, why: 'RZ 300e / 350e (front-wheel drive)'}
+      - {if: '\bes ?350e\b', then: fail, why: 'ES 350e (front-wheel drive)'}
   Volvo:
-    allow: 'xc60|xc40|ex40|\be?c40\b'
-    list: XC60, XC40 (incl. Recharge / EX40), C40 Recharge / EC40
-    tokens: [c40, ec40]
+    allow: 'xc60|xc40|ex40|\be?c40\b|\bs[69]0\b'
+    list: XC60, XC40 (incl. Recharge / EX40), C40 Recharge / EC40; plug-in sedans S60 / S90 T8
+    tokens: [c40, ec40, s60, s90]
     rules:
       - {if: '(xc40|ex40|c40).*(recharge|electric|twin|single motor)|ex40|ec40', unless: 'twin', then: call, why: 'electric Volvo: confirm Twin Motor (single-motor versions are rear-wheel drive)'}
       - {if: '(?=.*\bcore\b)(?=.*(electric|recharge|twin|ex40))', then: fail, why: 'electric XC40 / EX40 Core: no sunroof'}
@@ -229,7 +238,7 @@ sunroof_standard:
   # Electric SUVs (researched Oct 18 2026 from makers' press sites, Car and Driver, fueleconomy.gov; fixed glass roofs count)
   - {make: "Audi", model: "Q4 e-tron", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "panoramic sunroof (opens) is standard on every Q4 e-tron / Q4 Sportback e-tron"}
   - {make: "Audi", model: "Q8 e-tron", trim_regex: ".*", min_year: 2024, max_year: 2025, note: "opening panoramic glass roof is standard on the Q8 e-tron"}
-  - {make: "Audi", model: "e-tron", trim_regex: ".*", min_year: 2023, max_year: 2023, note: "unconfirmed: panoramic sunroof believed standard on every 2023 e-tron (not checked in an Audi 2023 sheet); remove if a Premium shows up without it"}
+  - {make: "Audi", model: "e-tron", not_model: "e-tron gt", trim_regex: ".*", min_year: 2023, max_year: 2023, note: "unconfirmed: panoramic sunroof believed standard on every 2023 e-tron (not checked in an Audi 2023 sheet); remove if a Premium shows up without it"}
   - {make: "Audi", model: "Q6 e-tron", trim_regex: "premium plus|prestige", min_year: 2025, max_year: 2025, note: "panoramic sunroof (opens) is standard on Q6 e-tron Premium Plus / Prestige (not Premium)"}
   - {make: "BMW", model: "iX", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "fixed panoramic glass roof with electrochromic shading is standard on every 2023-25 iX (does not open; counts)"}
   - {make: "BMW", model: "iX", trim_regex: "xdrive ?60|\\b60\\b", min_year: 2026, max_year: 2026, note: "fixed Panoramic Eclipsing Roof is standard on the 2026 iX xDrive60 (optional on xDrive45)"}
@@ -249,6 +258,22 @@ sunroof_standard:
   - {make: "Subaru", model: "Solterra", trim_regex: "touring", min_year: 2023, note: "panoramic glass moonroof (fixed glass) is standard on Solterra Touring / Touring Onyx / Touring XT only"}
   - {make: "Ford", model: "Mustang Mach-E", trim_regex: "premium|california route 1|route 1|\\bgt\\b", min_year: 2023, max_year: 2023, note: "panoramic fixed-glass roof is standard on the 2023 Mach-E Premium, California Route 1 and GT (optional from 2024; never on Select)"}
   - {make: "Kia", model: "EV6", trim_regex: "gt line|\\bgt\\b", min_year: 2023, note: "power tilt/slide sunroof is standard on EV6 GT-Line and GT (not on Light or Wind); 2026 GT-Line assumed"}
+
+  # Plug-in / electric sedans (researched Oct 19 2026)
+  - {make: "BMW", model: "330e", trim_regex: ".*", min_year: 2023, max_year: 2024, note: "moonroof (opening) is standard on the 2023-2024 330e / 330e xDrive (BMW US 2023 3 Series release; 2024 assumed)"}
+  - {make: "BMW", model: "530e", trim_regex: ".*", min_year: 2023, max_year: 2023, note: "moonroof (opening) is standard on the 5 Series incl. 530e xDrive (BMW US 2021 5 Series release; 2023 assumed)"}
+  - {make: "BMW", model: "550e", trim_regex: ".*", min_year: 2025, max_year: 2026, note: "tilt-and-slide moonroof is standard on the G60 5 Series (fixed Sky Lounge roof optional in its place)"}
+  - {make: "BMW", model: "i4", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "glass slide/tilt sunroof is standard on every i4 (BMW launch release; BMWBlog 2024; 2025-26 assumed)"}
+  - {make: "BMW", model: "i5", trim_regex: ".*", min_year: 2024, max_year: 2026, note: "tilt-and-slide moonroof is standard on the i5 (fixed Sky Lounge roof optional in its place)"}
+  - {make: "Mercedes-Benz", model: "EQE", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQE Sedan (and EQE SUV)"}
+  - {make: "Mercedes-Benz", model: "E-Class", trim_regex: "(?<![a-z])e ?53.*(hybrid|e ?performance)|e53e|e ?53 ?hybrid", min_year: 2025, max_year: 2026, note: "panoramic sliding sunroof is standard on the AMG E 53 HYBRID (MY25 QRG)"}
+  - {make: "Mercedes-Benz", model: "C-Class", trim_regex: "(?<![a-z])c ?63", min_year: 2024, max_year: 2026, note: "panorama roof is standard on the AMG C 63 S E PERFORMANCE (MBUSA 2024 QRG)"}
+  - {make: "Volvo", model: "S60", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "opening panoramic sunroof is standard on every 2023-25 S60 (Core/Plus/Ultimate/Ultra/Black Edition/Polestar Engineered; C/D spec pages)"}
+  - {make: "Volvo", model: "S90", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "opening panoramic sunroof is standard on every 2023-25 S90 (Plus/Ultimate/Ultra; C/D spec pages)"}
+  - {make: "Audi", model: "e-tron GT", not_model: "rs e-tron", trim_regex: "^(?!.*\\brs\\b).*(premium plus|prestige)", min_year: 2023, max_year: 2024, note: "fixed panoramic glass roof (does not open; counts) is standard on 2023-24 e-tron GT Premium Plus / Prestige (not RS: carbon roof may be standard)"}
+  - {make: "Audi", model: "e-tron GT", not_model: "rs e-tron", trim_regex: "^(?!.*\\brs\\b)(?!.*prestige).*premium plus", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on the 2025-26 S e-tron GT Premium Plus (Prestige/RS: unconfirmed)"}
+  - {make: "Audi", model: "A6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every A6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
+  - {make: "Audi", model: "S6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every S6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
 
   # Mazda (news.mazdausa.com spec decks, Oct 2026)
   - {make: Mazda, model: CX-5, trim_regex: preferred|carbon|premium|turbo|signature, min_year: 2023, max_year: 2025, note: 'power moonroof is standard on CX-5 Preferred, Carbon Edition, Premium, Premium Plus and every Turbo (not on 2.5 S / Select)'}

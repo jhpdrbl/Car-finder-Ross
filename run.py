@@ -102,6 +102,8 @@ def refresh(args) -> None:
             if (d and not d.get("ElectrificationLevel") and L.fuel_type == "gas" and "hybrid" in name
                     and not re.search(r"plug-?in|phev|mild|\bprime\b|\d+h\+|\be-?hybrid", name)):
                 L.fuel_type = "hybrid"          # VIN decode has no electrification data; the listing says hybrid
+            if d and not d.get("ElectrificationLevel") and re.search(r"(?<![a-z])c ?63 ?s? ?e\b|\be ?performance\b|\be ?53 ?(hybrid|e\b)", name):
+                L.fuel_type = "phev"            # AMG C 63 S E PERFORMANCE / E 53 HYBRID: some VIN records leave out the plug-in
         if not L.seats:
             L.seats = seat_material(" ".join(L.features), L.int_color)
         msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
