@@ -12517,7 +12517,7 @@
   {
    "make": "Ford",
    "model": "Bronco Sport",
-   "on_list_rule": "Every Bronco Sport is a 2-row 4x4. On the list only where a sunroof can be had and the seats can be all black (Ebony): Big Bend (sunroof optional; 2025+ black only with the Black Appearance Package) and Free Wheeling (Ebony with a patterned seat, check photos). Heritage (Navy Pier), Heritage Limited (Norias brown), Outer Banks (Ebony/Roast, Navy Pier, Platinum Blue) and Badlands (sunroof only with Roast leather 2023-24; Dark Space Gray seats 2025+) are not. Base (2023) has no sunroof.",
+   "on_list_rule": "Every Bronco Sport is a 2-row 4x4. On the list where a sunroof can be had and the interior is black or a two-tone that includes black (OK since Oct 19 2026): Big Bend, Free Wheeling, Outer Banks (Ebony/Roast) and 2023-24 Badlands (Premium Package Ebony/Roast leather with the sunroof). Not: Heritage (Navy Pier), Heritage Limited (Norias), Base (no sunroof), 2025+ Badlands (Dark Space Gray seats), and any Navy Pier / Platinum Blue interior.",
    "years": [
     {
      "year": 2023,
@@ -12583,8 +12583,8 @@
       },
       {
        "name": "Outer Banks",
-       "on_list": false,
-       "why_not": "no black interior: Ebony/Roast (black with brown) or Navy Pier only",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4 (standard 4x4 on every Bronco Sport)",
        "builds_on": "Big Bend",
        "highlights": [
@@ -12597,14 +12597,14 @@
        "sunroof": "optional (Power Moonroof, requires Tech Package 96D)",
        "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96D)",
        "seats": "leather-trimmed (leather seating surfaces, vinyl backs); no ventilated seats on any Bronco Sport",
-       "black_interior": "no (Ebony/Roast two-tone or Navy Pier)",
+       "black_interior": "Ebony/Roast two-tone (includes black, OK); Navy Pier / Platinum Blue are not",
        "spare": "compact temporary (mini) spare; full-size with Trailer Tow Package 53B",
        "mpg": "25/28/26 (1.5L)"
       },
       {
        "name": "Badlands",
-       "on_list": false,
-       "why_not": "a sunroof needs the Premium Package, whose seats are Ebony/Roast (black with brown); the cloth seats (no sunroof) are Ebony with Active Orange or Area 51 accents",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
        "builds_on": "Big Bend",
        "highlights": [
@@ -12617,7 +12617,7 @@
        "sunroof": "optional (Power Moonroof, requires Premium Package 96Q)",
        "premium_audio": "Bang & Olufsen 10-speaker optional (Premium Package 96Q)",
        "seats": "cloth with color accents standard; leather-trimmed two-tone (mini-perforated) with Premium Package; no ventilated seats on any Bronco Sport",
-       "black_interior": "partial (Ebony cloth with Active Orange or Area 51 accents; Premium leather is Ebony/Roast)",
+       "black_interior": "with the sunroof (Premium Package): Ebony/Roast leather, a two-tone with black (OK)",
        "spare": "full-size spare",
        "mpg": "21/26/23 (2.0L)"
       },
@@ -12705,8 +12705,8 @@
       },
       {
        "name": "Outer Banks",
-       "on_list": false,
-       "why_not": "no black interior: Ebony/Roast (black with brown) standard, Navy Pier extra-cost",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
        "builds_on": "Big Bend",
        "highlights": [
@@ -12719,14 +12719,14 @@
        "sunroof": "optional (Power Moonroof, requires Tech Package 96D)",
        "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96D)",
        "seats": "premium-trimmed (synthetic); no ventilated seats on any Bronco Sport",
-       "black_interior": "no (Ebony/Roast or Navy Pier)",
+       "black_interior": "Ebony/Roast two-tone (includes black, OK); Navy Pier / Platinum Blue are not",
        "spare": "compact temporary (mini) spare; full-size with Trailer Tow Package 53B",
        "mpg": "25/29/26 (1.5L)"
       },
       {
        "name": "Badlands",
-       "on_list": false,
-       "why_not": "a sunroof needs the Premium Package, whose leather seats are Ebony/Roast (black with brown); standard cloth is Ebony with Area 51 accents",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo 4-cyl EcoBoost, 250 hp / 277 lb-ft (premium fuel), 8-speed automatic with paddles, Advanced 4x4 with twin-clutch rear drive unit (locking)",
        "builds_on": "Big Bend",
        "highlights": [
@@ -12738,7 +12738,7 @@
        "sunroof": "optional (Power Moonroof, requires Premium Package 96Q)",
        "premium_audio": "Bang & Olufsen 10-speaker optional (Premium Package 96Q)",
        "seats": "cloth with Area 51 color accents; leather-trimmed two-tone with Premium Package; no ventilated seats on any Bronco Sport",
-       "black_interior": "partial (Ebony/Area 51 cloth; Premium leather is Ebony/Roast)",
+       "black_interior": "with the sunroof (Premium Package): Ebony/Roast leather, a two-tone with black (OK)",
        "spare": "full-size spare",
        "mpg": "21/26/23 (2.0L)"
       }
@@ -12804,8 +12804,8 @@
       },
       {
        "name": "Outer Banks",
-       "on_list": false,
-       "why_not": "no black interior: Ebony/Roast (black with brown) or Platinum Blue",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
        "builds_on": "Big Bend",
        "highlights": [
@@ -12817,7 +12817,7 @@
        "sunroof": "optional (Power Moonroof, requires Outer Banks Tech Package 96T)",
        "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96T)",
        "seats": "premium-trimmed (synthetic); no ventilated seats on any Bronco Sport",
-       "black_interior": "no (Ebony/Roast or Platinum Blue)",
+       "black_interior": "Ebony/Roast two-tone (includes black, OK); Navy Pier / Platinum Blue are not",
        "spare": "none (tire inflator kit); full-size A/T spare with Sasquatch package",
        "mpg": "25/30/27 (1.5L)"
       },
@@ -12883,8 +12883,8 @@
       },
       {
        "name": "Outer Banks",
-       "on_list": false,
-       "why_not": "no black interior: Ebony/Roast (black with brown) or Platinum Blue",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "1.5L turbo 3-cyl EcoBoost, 181 hp / 190 lb-ft, 8-speed automatic, 4x4",
        "builds_on": "Big Bend",
        "highlights": [
@@ -12895,7 +12895,7 @@
        "sunroof": "optional (Power Moonroof, requires Outer Banks Tech Package 96T)",
        "premium_audio": "Bang & Olufsen 10-speaker optional (Tech Package 96T)",
        "seats": "premium-trimmed (synthetic); no ventilated seats on any Bronco Sport",
-       "black_interior": "no (Ebony/Roast or Platinum Blue)",
+       "black_interior": "Ebony/Roast two-tone (includes black, OK); Navy Pier / Platinum Blue are not",
        "spare": "none (tire inflator kit); optional mini spare or full-size with Trailer Tow; full-size A/T with Sasquatch",
        "mpg": "25/30/27 (1.5L)"
       },
