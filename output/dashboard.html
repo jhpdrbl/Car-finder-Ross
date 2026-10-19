@@ -200,6 +200,8 @@ td.warr { min-width:190px; font-size:13px; }
   <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
   <fieldset class="group" id="f-year"><legend>Model year</legend></fieldset>
   <fieldset class="group" id="f-body"><legend>Body</legend></fieldset>
+  <fieldset class="group" id="f-roof"><legend>Sunroof</legend></fieldset>
+  <fieldset class="group" id="f-sound"><legend>Upgraded sound</legend></fieldset>
   <fieldset class="group" id="f-price"><legend>Price (with fees)</legend>
     <div class="range"><span class="small">From <b class="rv" id="pmin-v"></b></span><input type="range" id="pmin" aria-label="Lowest price">
     <span class="small">Up to <b class="rv" id="pmax-v"></b></span><input type="range" id="pmax" aria-label="Highest price"></div></fieldset>
@@ -224,7 +226,7 @@ td.warr { min-width:190px; font-size:13px; }
   <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="feat">Features</th>
+  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_end">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
@@ -285,7 +287,7 @@ const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electri
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
 D.cars.concat(D.gone).forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
-  c.feat = [c.sunroof === "True" ? "sunroof" : "", c.audio, D.profile.default ? "" : (SEATS[c.seats] ? SEATS[c.seats] + " seats" : "")].filter(Boolean).join(", ");
+  c.roof = c.sunroof === "True" ? "Yes" : c.sunroof === "False" ? "No" : "Not sure";
   c.fuel = FUEL[c.fuel_type] || "?"; });
 D.cars.concat(D.gone).forEach(c => {
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
@@ -302,6 +304,8 @@ pills("f-show", ["Meets all criteria", "Needs a call"]);
 pills("f-make", makes);
 pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.concat(D.gone).some(c => c.fuel === f)));
 pills("f-body", ["SUV", "Sedan"]);
+pills("f-roof", ["Yes", "No", "Not sure"]);
+pills("f-sound", ["Yes", "No", "Not sure"]);
 // price sliders: $500 steps between the cheapest and the dearest car on the page
 const PRICES = D.cars.map(c => num(c.price_total)).filter(v => v != null);
 const P_LO = PRICES.length ? Math.floor(Math.min(...PRICES) / 500) * 500 : 0, P_HI = PRICES.length ? Math.ceil(Math.max(...PRICES) / 500) * 500 : 50000;
@@ -637,15 +641,41 @@ function toggleCmp(vin) {
 }
 document.addEventListener("click", e => { const b = e.target.closest(".cmpbtn"); if (b) toggleCmp(b.dataset.vin);
   const r = e.target.closest(".rm[data-vin]"); if (r) toggleCmp(r.dataset.vin); });
+const trimWords = name => String(name).toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
+const SOUND_BRANDS = /harman|kardon|bang|olufsen|b&o|lexicon|burmester|bowers|mark levinson|bose|sonos|meridian|jbl|els studio|revel|krell|premium sound|premium audio/i;
+function soundCall(pa) {   // a Trim guide premium_audio line -> {v, t}
+  pa = String(pa || "");
+  if (/^not (available|offered)/i.test(pa)) return {v: "No", t: "not on this trim"};
+  if (/^none/i.test(pa)) return /optional|package|available/i.test(pa) ? {v: "Not sure", t: "optional on this trim"} : {v: "No", t: "not on this trim"};
+  // "Yes" only when a named premium system is standard: "SONOS optional on Premium Plus, standard on Prestige" is not
+  const head = (pa.match(/^(.*?)\bstandard\b/i) || [])[1];
+  if (head != null && SOUND_BRANDS.test(head) && !/optional|available|package|unknown/i.test(head))
+    return {v: "Yes", t: head.replace(/[,;\s]+$/, "") + " (standard on this trim)"};
+  return {v: "Not sure", t: /optional|package/i.test(pa) ? "optional on this trim" : ""};
+}
+function soundOf(c) {      // upgraded sound: the dealer's page names the system, else what the Trim guide says for this trim
+  if (c._snd) return c._snd;
+  let r = {v: "Not sure", t: ""};
+  if (c.audio) r = {v: "Yes", t: c.audio};
+  else { const t = trimInfo(c);
+    if (t) r = soundCall(t.premium_audio);
+    else if (c.trim) {      // the dealer's trim name is shorter than the guide's ("Premium Plus" vs "2.5 S Premium Plus Package"):
+      const m = guideFor(c), y = m && (m.years || []).find(y => y.year === parseInt(c.year)), mine = trimWords(c.trim);   // all trims it could be must agree
+      const calls = y ? (y.trims || []).filter(t => mine.length && mine.every(w => (" " + trimWords(t.name).join(" ") + " ").includes(" " + w + " ")))
+                                       .map(t => soundCall(t.premium_audio)) : [];
+      if (calls.length && calls.every(x => x.v === calls[0].v)) r = calls.every(x => x.t === calls[0].t) ? calls[0] : {v: calls[0].v, t: calls[0].v === "Yes" ? "standard on this trim" : ""}; } }
+  c.snd = r.v; return c._snd = r;
+}
 function trimInfo(c) {      // this car's trim card in the Trim guide, when the trim name matches well enough
   const m = guideFor(c); if (!m) return null;
   const y = (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
   const title = (" " + c.title + " ").toLowerCase();
-  let best = null, bestScore = 0;
+  let best = null, bestScore = 0, bestN = 0;
   (y.trims || []).forEach(t => {
-    const words = String(t.name).toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
-    const hit = words.filter(w => title.includes(" " + w + " ") || title.includes(" " + w)).length / (words.length || 1);
-    if (hit > bestScore) { bestScore = hit; best = t; } });
+    const words = trimWords(t.name);
+    // a short word must match whole ("s" is not the start of "sportage"); a longer one may start a word
+    const n = words.filter(w => title.includes(" " + w + " ") || (w.length > 2 && title.includes(" " + w))).length, hit = n / (words.length || 1);
+    if (hit > bestScore || (hit === bestScore && n > bestN)) { bestScore = hit; bestN = n; best = t; } });   // ties: more words matched ("Premium Plus" over "Premium")
   return bestScore >= 0.6 ? best : null;
 }
 const FIELDS = [
@@ -665,7 +695,7 @@ const FIELDS = [
   ["Colors", c => esc(c.colors), null, null],
   ["Sunroof", c => c.sunroof === "True" ? "yes" : c.sunroof === "False" ? "no" : "not shown", null, null],
   ["Seats", c => SEATS[c.seats] || "not shown", null, null],
-  ["Audio", c => esc(c.audio || "—"), null, null],
+  ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
   ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
   ["CARFAX", c => esc({clean: "no accidents", accident: "accident", not_verified: "not verified"}[c.carfax_status] || c.carfax_status), null, null],
   ["Certified program", c => esc(c.cpo_program || "?"), null, null],
@@ -703,10 +733,12 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
 function render() { renderRows(); stickHeads(); }
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"),
+        rf = picked("f-roof"), sd = picked("f-sound"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
                     && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"))
+                    && (!rf.size || rf.has(c.roof)) && (!sd.size || sd.has(soundOf(c).v))
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
@@ -732,15 +764,15 @@ function renderRows() {
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
       <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button></td>
     <td class="num p-year" data-l="Year">${esc(c.year)}</td>
-    <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div></td>
+    <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div><div class="small">${esc(c.cpo_program)}</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td data-l="Fuel">${esc(c.fuel)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
-    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="span2" data-l="Features">${esc(c.feat)}<div class="small">${esc(c.cpo_program)}</div></td>
+    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(c.roof)}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
-    || `<tr><td colspan="16" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+    || `<tr><td colspan="17" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
   if (favOnly) {
     const gf = D.gone.filter(c => fav.includes(c.vin));
     document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>
@@ -797,12 +829,13 @@ try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-roof", "f-sound", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; resetPrice(); resetMiles(); render(); });
+D.cars.forEach(soundOf);       // fills c.snd for sorting
 render();
 stickHeads();
 
