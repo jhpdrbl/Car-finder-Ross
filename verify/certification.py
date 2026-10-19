@@ -15,6 +15,8 @@ PROGRAMS = {
     "Volvo": (r"volvo (?:cars )?certified|certified by volvo|certified pre-?owned", "Volvo Cars Certified by Volvo"),
     "Toyota": (r"toyota certified|tcuv|certified pre-?owned", "Toyota Certified Used Vehicle"),
     "Ford": (r"blue advantage", "Ford Blue Advantage"),
+    "Acura": (r"acura precision certified|precision certified|acura certified|certified pre-?owned", "Acura Precision Certified"),
+    "Alfa Romeo": (r"alfa romeo certified|certified pre-?owned", "Alfa Romeo Certified Pre-Owned"),
 }
 
 

@@ -222,6 +222,18 @@ models:
       - {if: 'plug ?in|phev', then: note, why: plug-in hybrid (plug-in price cap applies)}
       - {if: '\bev6\b.*\b(light|wind)\b', unless: '\bgt\b', then: fail, why: 'EV6 Light / Wind: no sunroof offered (GT-Line / GT only)'}
 
+  Acura:                           # added Oct 19 2026 (user: reliability/warranty better than the German brands)
+    allow: '\bzdx\b|\brdx\b'
+    list: ZDX (electric, AWD), RDX (SH-AWD)
+    tokens: [zdx, rdx]
+    rules:
+      - {if: '\bzdx\b', min_year: 2024, why: 'ZDX before 2024 (old gas model)'}
+
+  Alfa Romeo:                      # added Oct 19 2026 (user asked; long CPO warranty, weaker reliability)
+    allow: 'tonale|stelvio'
+    list: Tonale (plug-in hybrid), Stelvio
+    tokens: [tonale, stelvio]
+
 # Trims where a sunroof is always standard, used only when the listing doesn't say
 # (shown as "sunroof (standard on this trim)"). Edit if you know better.
 sunroof_standard:
