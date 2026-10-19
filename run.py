@@ -343,6 +343,9 @@ def rescore(args) -> None:
             L.ext_color = criteria.full_color_name(L.make, L.ext_color)
             r["msrp_new"], r["msrp_source"], r["ext_color"] = L.msrp_new or "", L.msrp_source, L.ext_color
             fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
+            spec = criteria.MODELS.get(L.make)            # a model taken off the list since the last search
+            if spec and not re.search(spec["allow"], L.model.lower()):
+                fails.append(f"model {L.model} not on the {L.make} list ({spec['list']})")
             if fails:
                 r.update(status="excluded", fail_reasons="; ".join(fails), needs_call="", score="")
                 n_out += 1
@@ -351,7 +354,7 @@ def rescore(args) -> None:
         history.write_csv(P.data / "listings.csv", rows, history.LISTING_COLS)
         last = max((x.get("last_seen") or "" for x in rows), default="")
         outputs.write_dashboard(rows, history.read_csv(P.data / "price_history.csv"), cov, last, profile=P)
-        print(f"{P.label}: rescored; {n_out} now excluded (color rules or ruled out by hand)")
+        print(f"{P.label}: rescored; {n_out} now excluded (color/model rules or ruled out by hand)")
     criteria.use(profiles.get().cfg)
 
 

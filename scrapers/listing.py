@@ -18,7 +18,7 @@ MODEL_TOKENS = {
     "Mercedes-Benz": ["glc", "gle"],
     "Volkswagen": ["tiguan"],
     "Lexus": ["nx", "rx"],
-    "Volvo": ["xc60", "xc40", "ex40"],
+    "Volvo": ["xc60"],
     "Toyota": ["4runner", "land-cruiser", "landcruiser"],
     "Ford": ["bronco"],
 }
