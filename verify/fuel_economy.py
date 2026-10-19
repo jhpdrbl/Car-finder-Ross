@@ -74,8 +74,9 @@ def _pick_model(names: list[str], model: str, trim: str, fuel: str) -> str | Non
                 s += 3
             elif tok in nl and tok in ("wilderness", "sportback"):
                 s -= 4
-        if re.search(r"\bsq5\b|\bm40i\b|\bx3 m\b|\bamg\b|\bm competition", nl):
-            s -= 10
+        perf = re.search(r"\bsq[5-8]\b|\brs ?q|\bm[4-7]0i?\b|\bx[35] m\b|\bamg\b|\bm competition", nl)
+        if perf:                                       # a performance version's rating only for a performance car
+            s += 4 if re.search(rf"\b{re.escape(perf.group(0))}\b", want) else -10
         if re.search(r"sdrive|2wd|fwd|rwd", nl):
             s -= 5
         if re.search(r"awd|4wd|quattro|xdrive|4matic", nl):

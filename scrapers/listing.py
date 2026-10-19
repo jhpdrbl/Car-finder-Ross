@@ -111,8 +111,7 @@ def url_vin(url: str) -> str:
 
 
 # Listing URLs we can drop without reading the page (versions that are never on the list).
-URL_SKIP = re.compile(r"sdrive|(?<![a-z])(2wd|fwd|4x2)(?![a-z])|(?<![a-z])amg(?![a-z])|(?<![a-z])m[56]0i?(?![a-z0-9])|x[35]-m(?![a-z])|"
-                      r"rx-?350-?l(?![a-z])|gl[ce][a-z0-9-]*coupe|sq[35]|rs-?q[358]|gle-?(43|53|63|580)|glc-?(43|63)")
+URL_SKIP = re.compile(r"sdrive|(?<![a-z])(2wd|fwd|4x2)(?![a-z])|rx-?350-?l(?![a-z])|gl[ce][a-z0-9-]*coupe")
 
 
 def norm_url_text(url: str) -> str:

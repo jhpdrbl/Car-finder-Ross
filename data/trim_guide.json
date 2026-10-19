@@ -291,7 +291,7 @@
   {
    "make": "Audi",
    "model": "Q5",
-   "on_list_rule": "Every Q5 trim (incl. the Q5 55 TFSI e plug-in hybrid and the Q5 Sportback, which has a coupe-style roof) is on the list; SQ5 and SQ5 Sportback are excluded.",
+   "on_list_rule": "Every Q5 trim (incl. the Q5 55 TFSI e plug-in hybrid and the Q5 Sportback, which has a coupe-style roof) is on the list; the SQ5 and SQ5 Sportback are on the list too.",
    "years": [
     {
      "year": 2023,
@@ -539,8 +539,8 @@
       },
       {
        "name": "SQ5 (Premium / Premium Plus / Prestige)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 349 hp, 8-speed Tiptronic auto, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -558,8 +558,8 @@
       },
       {
        "name": "SQ5 Sportback (Premium / Premium Plus / Prestige)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 349 hp, 8-speed Tiptronic auto, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -828,8 +828,8 @@
       },
       {
        "name": "SQ5 (Premium / Premium Plus / Prestige)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 349 hp, 8-speed Tiptronic auto, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -847,8 +847,8 @@
       },
       {
        "name": "SQ5 Sportback (Premium / Premium Plus / Prestige)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 349 hp, 8-speed Tiptronic auto, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -1118,8 +1118,8 @@
       },
       {
        "name": "SQ5 (Premium / Premium Plus / Prestige)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 349 hp, 8-speed Tiptronic auto, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -1137,8 +1137,8 @@
       },
       {
        "name": "SQ5 Sportback (Premium / Premium Plus / Prestige)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 349 hp, 8-speed Tiptronic auto, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -1274,8 +1274,8 @@
       },
       {
        "name": "SQ5 / SQ5 Sportback (new generation)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 362 hp, 7-speed S tronic dual-clutch, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -1420,8 +1420,8 @@
       },
       {
        "name": "SQ5 / SQ5 Sportback (new generation)",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 362 hp, 7-speed S tronic dual-clutch, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -1484,8 +1484,8 @@
       },
       {
        "name": "SQ5 / SQ5 Sportback",
-       "on_list": false,
-       "why_not": "SQ5 excluded (performance model)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo V6, 362 hp, 7-speed S tronic dual-clutch, quattro AWD",
        "builds_on": "",
        "highlights": [
@@ -5132,7 +5132,7 @@
   {
    "make": "BMW",
    "model": "X3",
-   "on_list_rule": "Only the four-cylinder xDrive30i (2023-2024) and its 2025+ replacement, the 30 xDrive, are on the list; M40i, M50 and X3 M versions are excluded and RWD sDrive models are skipped.",
+   "on_list_rule": "Only the four-cylinder xDrive30i (2023-2024) and its 2025+ replacement, the 30 xDrive, are on the list; the M40i, M50 and X3 M are on the list too; RWD sDrive models are skipped.",
    "years": [
     {
      "year": 2023,
@@ -5164,8 +5164,8 @@
       },
       {
        "name": "M40i",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo inline-6 with 48V mild hybrid, 382 hp / 369 lb-ft, 8-speed automatic, xDrive AWD",
        "builds_on": "xDrive30i",
        "highlights": [
@@ -5186,8 +5186,8 @@
       },
       {
        "name": "X3 M Competition",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L twin-turbo inline-6, 503 hp, 8-speed M Steptronic, M xDrive AWD",
        "builds_on": "M40i",
        "highlights": [
@@ -5235,8 +5235,8 @@
       },
       {
        "name": "M40i",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo inline-6 with 48V mild hybrid, 382 hp / 369 lb-ft, 8-speed automatic, xDrive AWD",
        "builds_on": "xDrive30i",
        "highlights": [
@@ -5257,8 +5257,8 @@
       },
       {
        "name": "X3 M Competition",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L twin-turbo inline-6, 503 hp, 8-speed M Steptronic, M xDrive AWD",
        "builds_on": "M40i",
        "highlights": [
@@ -5306,8 +5306,8 @@
       },
       {
        "name": "M50 xDrive",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo inline-6 with 48V mild hybrid, 393 hp / 428 lb-ft, 8-speed Steptronic, xDrive AWD",
        "builds_on": "30 xDrive",
        "highlights": [
@@ -5355,8 +5355,8 @@
       },
       {
        "name": "M50 xDrive",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "3.0L turbo inline-6 with 48V mild hybrid, 393 hp / 428 lb-ft, 8-speed Steptronic, xDrive AWD",
        "builds_on": "30 xDrive",
        "highlights": [
@@ -5390,7 +5390,7 @@
   {
    "make": "BMW",
    "model": "X5",
-   "on_list_rule": "The xDrive40i (2023-2026), the plug-in xDrive45e (2023) and xDrive50e (2024-2026), and the new 2027 40 xDrive are on the list; M50i, M60i and X5 M versions are excluded and RWD sDrive models are skipped.",
+   "on_list_rule": "The xDrive40i (2023-2026), the plug-in xDrive45e (2023) and xDrive50e (2024-2026), and the new 2027 40 xDrive are on the list; the M50i, M60i and X5 M are on the list too; RWD sDrive models are skipped.",
    "years": [
     {
      "year": 2023,
@@ -5439,8 +5439,8 @@
       },
       {
        "name": "M50i",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8, 523 hp, 8-speed automatic, xDrive AWD",
        "builds_on": "xDrive40i",
        "highlights": [
@@ -5457,8 +5457,8 @@
       },
       {
        "name": "X5 M / X5 M Competition",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8, 600-617 hp, 8-speed M Steptronic, M xDrive AWD",
        "builds_on": "M50i",
        "highlights": [
@@ -5524,8 +5524,8 @@
       },
       {
        "name": "M60i xDrive",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8 with 48V mild hybrid, 523 hp / 553 lb-ft, 8-speed automatic, xDrive AWD",
        "builds_on": "xDrive40i",
        "highlights": [
@@ -5543,8 +5543,8 @@
       },
       {
        "name": "X5 M Competition",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8 with 48V mild hybrid, 617 hp, 8-speed M Steptronic, M xDrive AWD",
        "builds_on": "M60i xDrive",
        "highlights": [
@@ -5610,8 +5610,8 @@
       },
       {
        "name": "M60i xDrive",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8 with 48V mild hybrid, 523 hp / 553 lb-ft, 8-speed automatic, xDrive AWD",
        "builds_on": "xDrive40i",
        "highlights": [
@@ -5629,8 +5629,8 @@
       },
       {
        "name": "X5 M Competition",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8 with 48V mild hybrid, 617 hp, 8-speed M Steptronic, M xDrive AWD",
        "builds_on": "M60i xDrive",
        "highlights": [
@@ -5696,8 +5696,8 @@
       },
       {
        "name": "M60i xDrive",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8 with 48V mild hybrid, 523 hp / 553 lb-ft, 8-speed automatic, xDrive AWD",
        "builds_on": "xDrive40i",
        "highlights": [
@@ -5715,8 +5715,8 @@
       },
       {
        "name": "X5 M Competition",
-       "on_list": false,
-       "why_not": "M version",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.4L twin-turbo V8 with 48V mild hybrid, 617 hp, 8-speed M Steptronic, M xDrive AWD",
        "builds_on": "M60i xDrive",
        "highlights": [
@@ -5779,7 +5779,7 @@
   {
    "make": "Mercedes-Benz",
    "model": "GLC 300",
-   "on_list_rule": "The GLC 300 4MATIC SUV (Premium, Exclusive or Pinnacle) is on the list; AMG GLC 43/63, Coupes and rear-drive GLC 300 are not. The plug-in GLC 350e has its own entry.",
+   "on_list_rule": "The GLC 300 4MATIC SUV (Premium, Exclusive or Pinnacle) is on the list; so are the AMG GLC 43/63 SUVs; Coupes and rear-drive GLC 300 are not. The plug-in GLC 350e has its own entry.",
    "years": [
     {
      "year": 2023,
@@ -5871,7 +5871,7 @@
       {
        "name": "AMG GLC 43 4MATIC Coupe (previous generation)",
        "on_list": false,
-       "why_not": "AMG versions excluded; Coupe body style excluded",
+       "why_not": "Coupe body style excluded",
        "powertrain": "AMG 3.0L twin-turbo V6, AMG 4MATIC AWD",
        "builds_on": "",
        "highlights": [
@@ -5978,8 +5978,8 @@
       },
       {
        "name": "AMG GLC 43 4MATIC+ SUV",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 2.0L turbo 4-cyl with electric turbocharger and 48V mild hybrid, AMG 4MATIC+ AWD, 9-speed MCT",
        "builds_on": "",
        "highlights": [
@@ -6086,8 +6086,8 @@
       },
       {
        "name": "AMG GLC 43 4MATIC+ SUV",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 2.0L turbo 4-cyl with electric turbocharger, 416 hp, AMG 4MATIC+ AWD",
        "builds_on": "",
        "highlights": [
@@ -6105,8 +6105,8 @@
       },
       {
        "name": "AMG GLC 63 S E PERFORMANCE SUV",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 2.0L turbo 4-cyl + rear electric drive unit (plug-in hybrid), 671 hp combined, AMG Performance 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6214,8 +6214,8 @@
       },
       {
        "name": "AMG GLC 43 4MATIC+ SUV",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 2.0L turbo 4-cyl with electric turbocharger, 416 hp, AMG 4MATIC+ AWD",
        "builds_on": "",
        "highlights": [
@@ -6233,8 +6233,8 @@
       },
       {
        "name": "AMG GLC 63 S E PERFORMANCE SUV",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 2.0L turbo 4-cyl + rear electric drive unit (plug-in hybrid), 671 hp combined, AMG Performance 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6429,7 +6429,7 @@
   {
    "make": "Mercedes-Benz",
    "model": "GLE",
-   "on_list_rule": "GLE 350 4MATIC, GLE 450 4MATIC and GLE 450e 4MATIC SUVs (any level) are on the list; GLE 580, AMG GLE 53/63, Coupes and rear-drive GLE 350 are not. US GLE 350/450 offer an optional third row every year 2023-2026; the 450e is two-row only.",
+   "on_list_rule": "GLE 350 4MATIC, GLE 450 4MATIC and GLE 450e 4MATIC SUVs (any level) are on the list; so are the GLE 580 and AMG GLE 53/63 SUVs; Coupes and rear-drive GLE 350 are not. US GLE 350/450 offer an optional third row every year 2023-2026; the 450e is two-row only.",
    "years": [
     {
      "year": 2023,
@@ -6478,8 +6478,8 @@
       },
       {
        "name": "GLE 580 4MATIC",
-       "on_list": false,
-       "why_not": "GLE 580 excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.0L twin-turbo V8 with 48V mild hybrid, 483 hp (+21 hp boost), 9-speed auto, 4MATIC",
        "builds_on": "",
        "highlights": [
@@ -6497,8 +6497,8 @@
       },
       {
        "name": "AMG GLE 53 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 3.0L turbo inline-6 with 48V mild hybrid and electric auxiliary compressor, 429 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6516,8 +6516,8 @@
       },
       {
        "name": "AMG GLE 63 S 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 4.0L twin-turbo V8 with 48V mild hybrid, 603 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6536,7 +6536,7 @@
       {
        "name": "AMG GLE 53 / GLE 63 S Coupe",
        "on_list": false,
-       "why_not": "AMG versions excluded; Coupe body style excluded",
+       "why_not": "Coupe body style excluded",
        "powertrain": "AMG inline-6 or V8, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6750,8 +6750,8 @@
       },
       {
        "name": "GLE 580 4MATIC",
-       "on_list": false,
-       "why_not": "GLE 580 excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.0L twin-turbo V8 with 48V mild hybrid, 510 hp, 9-speed auto, 4MATIC",
        "builds_on": "",
        "highlights": [
@@ -6769,8 +6769,8 @@
       },
       {
        "name": "AMG GLE 53 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 3.0L turbo inline-6 with 48V mild hybrid and electric auxiliary compressor, 429 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6788,8 +6788,8 @@
       },
       {
        "name": "AMG GLE 63 S 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 4.0L twin-turbo V8 with 48V mild hybrid, 603 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -6808,7 +6808,7 @@
       {
        "name": "AMG GLE 53 / GLE 63 S Coupe",
        "on_list": false,
-       "why_not": "AMG versions excluded; Coupe body style excluded",
+       "why_not": "Coupe body style excluded",
        "powertrain": "AMG inline-6 or V8, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -7025,8 +7025,8 @@
       },
       {
        "name": "GLE 580 4MATIC",
-       "on_list": false,
-       "why_not": "GLE 580 excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.0L twin-turbo V8 with 48V mild hybrid, 510 hp, 9-speed auto, 4MATIC",
        "builds_on": "",
        "highlights": [
@@ -7044,8 +7044,8 @@
       },
       {
        "name": "AMG GLE 53 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 3.0L turbo inline-6 with 48V mild hybrid and electric auxiliary compressor, 429 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -7063,8 +7063,8 @@
       },
       {
        "name": "AMG GLE 63 S 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 4.0L twin-turbo V8 with 48V mild hybrid, 603 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -7301,8 +7301,8 @@
       },
       {
        "name": "GLE 580 4MATIC",
-       "on_list": false,
-       "why_not": "GLE 580 excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "4.0L twin-turbo V8 with 48V mild hybrid, 510 hp, 9-speed auto, 4MATIC",
        "builds_on": "",
        "highlights": [
@@ -7320,8 +7320,8 @@
       },
       {
        "name": "AMG GLE 53 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 3.0L turbo inline-6 with 48V mild hybrid and electric auxiliary compressor, 429 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -7339,8 +7339,8 @@
       },
       {
        "name": "AMG GLE 63 S 4MATIC+",
-       "on_list": false,
-       "why_not": "AMG versions excluded",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "AMG 4.0L twin-turbo V8 with 48V mild hybrid, 603 hp, AMG 4MATIC+",
        "builds_on": "",
        "highlights": [
@@ -16172,7 +16172,7 @@
   {
    "make": "Audi",
    "model": "Q8 e-tron",
-   "on_list_rule": "Every 2023 e-tron quattro / e-tron Sportback and 2024-25 Q8 e-tron / Q8 Sportback e-tron (all AWD) is on the list; e-tron S, SQ8 e-tron and RS models are not. Standard opening panoramic roof.",
+   "on_list_rule": "Every 2023 e-tron quattro / e-tron Sportback and 2024-25 Q8 e-tron / Q8 Sportback e-tron (all AWD) is on the list; so are the e-tron S and SQ8 e-tron. Standard opening panoramic roof.",
    "match_note": "2023 cars are listed as \"e-tron\" or \"e-tron quattro\"; match them to this entry (not e-tron GT).",
    "years": [
     {
@@ -16231,8 +16231,8 @@
       },
       {
        "name": "SQ8 / e-tron S (all)",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "tri-motor",
        "builds_on": "",
        "highlights": [],
@@ -16301,8 +16301,8 @@
       },
       {
        "name": "SQ8 / e-tron S (all)",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "tri-motor",
        "builds_on": "",
        "highlights": [],
@@ -16371,8 +16371,8 @@
       },
       {
        "name": "SQ8 / e-tron S (all)",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "tri-motor",
        "builds_on": "",
        "highlights": [],
@@ -16397,7 +16397,7 @@
   {
    "make": "Audi",
    "model": "Q6 e-tron",
-   "on_list_rule": "Q6 e-tron quattro and Q6 Sportback e-tron quattro are on the list (Premium needs a sunroof check); the rear-wheel-drive Q6 e-tron and SQ6 are not. No US 2026 model year was found (2025 then 2027).",
+   "on_list_rule": "Q6 e-tron quattro and Q6 Sportback e-tron quattro are on the list (Premium needs a sunroof check); so is the SQ6 e-tron; the rear-wheel-drive Q6 e-tron is not. No US 2026 model year was found (2025 then 2027).",
    "years": [
     {
      "year": 2025,
@@ -16474,8 +16474,8 @@
       },
       {
        "name": "SQ6 e-tron",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -16527,8 +16527,8 @@
       },
       {
        "name": "M60",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -16565,8 +16565,8 @@
       },
       {
        "name": "M60",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -16603,8 +16603,8 @@
       },
       {
        "name": "M60",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -16657,8 +16657,8 @@
       },
       {
        "name": "M70 xDrive",
-       "on_list": false,
-       "why_not": "performance model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -16856,7 +16856,7 @@
   {
    "make": "Mercedes-Benz",
    "model": "EQE SUV",
-   "on_list_rule": "Every 4MATIC (AWD) EQE SUV is on the list (all have 2 rows and an opening panorama roof); RWD EQE 350+/320+ and AMG are not.",
+   "on_list_rule": "Every 4MATIC (AWD) EQE SUV is on the list (all have 2 rows and an opening panorama roof); so is the AMG EQE SUV; RWD EQE 350+/320+ are not.",
    "years": [
     {
      "year": 2023,
@@ -16916,8 +16916,8 @@
       },
       {
        "name": "AMG EQE SUV",
-       "on_list": false,
-       "why_not": "AMG model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -16988,8 +16988,8 @@
       },
       {
        "name": "AMG EQE SUV",
-       "on_list": false,
-       "why_not": "AMG model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -17060,8 +17060,8 @@
       },
       {
        "name": "AMG EQE SUV",
-       "on_list": false,
-       "why_not": "AMG model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],
@@ -17113,8 +17113,8 @@
       },
       {
        "name": "AMG EQE SUV",
-       "on_list": false,
-       "why_not": "AMG model not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "",
        "builds_on": "",
        "highlights": [],

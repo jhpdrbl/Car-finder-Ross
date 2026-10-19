@@ -95,11 +95,11 @@ buying_context:
 # CPO program names are in verify/certification.py.
 models:
   Audi:
-    allow: '\bq[35]\b|\bq[468] ?(sportback )?e-?tron|\be-?tron\b'
+    allow: '\bs?q[35]\b|\bs?q[468] ?(sportback )?e-?tron|\be-?tron\b|\brs ?q[38]\b'
     list: Q3, Q5, electric Q4 / Q6 / Q8 e-tron
     tokens: [q4, q6, q8, e-tron]
     rules:
-      - {if: '\bsq[3568]\b|\brs ?q|\brs ?e-?tron|e-?tron s\b', then: fail, why: 'SQ / RS / e-tron S (performance versions not on the list)'}
+      # performance versions (SQ5, SQ6/SQ8 e-tron, e-tron S, RS Q8) are fine (user, Oct 19 2026) if they meet the other rules
       - {if: 'q4 (sportback )?(40|45) e-?tron', then: fail, why: 'Q4 40 / 45 e-tron (rear-wheel drive; only the quattro qualifies)'}
       - {if: 'e-?tron gt', then: fail, why: 'e-tron GT (a sedan)'}
       - {if: 'sportback', then: note, why: 'Sportback'}
@@ -124,13 +124,13 @@ models:
     tokens: [ix]
     rules:
       - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
-      - {if: '\bm40|\bm50|\bm60|\bm70|x[35] m\b|competition', then: fail, why: 'M version (only X3 xDrive30i, X5 xDrive40i/50e)'}
+      # M versions (X3 M40i/M50/X3 M, X5 M50i/M60i/X5 M, iX M60/M70) are fine (user, Oct 19 2026)
   Mercedes-Benz:
     allow: 'glc|gle|eqb|eqe|eqs'
     list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV
     tokens: [eqb, eqe, eqs]
     rules:
-      - {if: 'amg|gl[ce] ?43|gl[ce] ?53|gl[ce] ?63|coupe|gle ?580|maybach', then: fail, why: 'AMG / Maybach / Coupe / GLE 580 (not on the list)'}
+      - {if: 'coupe|maybach', then: fail, why: 'Coupe / Maybach (not on the list)'}   # AMG and GLE 580 are fine (user likes performance cars, Oct 19 2026)
       - {if: 'eqb ?250', then: fail, why: 'EQB 250 (front-wheel drive)'}
       - {if: 'eq[es] ?(320|350|450) ?(\+|plus)(?! ?4matic)', then: fail, why: 'EQE / EQS SUV "+" (rear-wheel drive)'}
       - {if: 'eq[bs]', then: note, why: 'EQB / EQS SUV can have a third row: confirm it has 5 seats'}
