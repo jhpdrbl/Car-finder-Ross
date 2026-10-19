@@ -456,6 +456,9 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .tab .n { font-weight:500; color:var(--muted); margin-left:4px; }
 .gone td.car a { color:var(--muted); }
 .group { display:flex; flex-wrap:wrap; gap:6px; align-items:center; border:0; margin:0; padding:0; }
+.range { display:grid; grid-template-columns:auto minmax(0,1fr); gap:4px 10px; align-items:center; flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; }
+.range input[type=range] { width:100%; min-width:0; margin:0; box-sizing:border-box; accent-color:var(--accent); min-height:28px; }
+.range .rv { font-variant-numeric:tabular-nums; min-width:3.2em; }
 .group legend { float:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-right:6px; padding:0; min-width:56px; }
 .pill { position:relative; }
 .pill input { position:absolute; opacity:0; width:1px; height:1px; }
@@ -618,6 +621,9 @@ __SCOREHELP__
   <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
   <fieldset class="group" id="f-year"><legend>Model year</legend></fieldset>
   <fieldset class="group" id="f-body"><legend>Body</legend></fieldset>
+  <fieldset class="group" id="f-price"><legend>Price (with fees)</legend>
+    <div class="range"><span class="small">From <b class="rv" id="pmin-v"></b></span><input type="range" id="pmin" aria-label="Lowest price">
+    <span class="small">Up to <b class="rv" id="pmax-v"></b></span><input type="range" id="pmax" aria-label="Highest price"></div></fieldset>
   <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
@@ -714,6 +720,17 @@ pills("f-show", ["Meets all criteria", "Needs a call"]);
 pills("f-make", makes);
 pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.concat(D.gone).some(c => c.fuel === f)));
 pills("f-body", ["SUV", "Sedan"]);
+// price sliders: $500 steps between the cheapest and the dearest car on the page
+const PRICES = D.cars.map(c => num(c.price_total)).filter(v => v != null);
+const P_LO = PRICES.length ? Math.floor(Math.min(...PRICES) / 500) * 500 : 0, P_HI = PRICES.length ? Math.ceil(Math.max(...PRICES) / 500) * 500 : 50000;
+const pmin = document.getElementById("pmin"), pmax = document.getElementById("pmax");
+[pmin, pmax].forEach(el => { el.min = P_LO; el.max = P_HI; el.step = 500; });
+const resetPrice = () => { pmin.value = P_LO; pmax.value = P_HI; showPrice(); };
+function showPrice() {
+  if (+pmin.value > +pmax.value) { if (document.activeElement === pmin) pmax.value = pmin.value; else pmin.value = pmax.value; }
+  document.getElementById("pmin-v").textContent = fmt$(pmin.value);
+  document.getElementById("pmax-v").textContent = fmt$(pmax.value); }
+resetPrice();
 pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
@@ -1092,9 +1109,11 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
 function render() { renderRows(); stickHeads(); }
 function renderRows() {
-  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body");
+  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"),
+        lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
-                    && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"));
+                    && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"))
+                    && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
   const onlyNew = document.getElementById("only-new").checked;
   let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
@@ -1184,9 +1203,10 @@ document.getElementById("sort-a").addEventListener("change", e => { const [k, d]
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
 ["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+[pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
-  document.getElementById("q").value = ""; render(); });
+  document.getElementById("q").value = ""; resetPrice(); render(); });
 render();
 stickHeads();
 
