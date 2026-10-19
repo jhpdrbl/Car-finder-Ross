@@ -255,7 +255,7 @@ def _hybrid_sedan_mpg(L: Listing, sedans: dict, fails: list, unknown: list) -> N
 
 FUEL_WORDS = {"gas": "gas", "hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "electric"}
 NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
-NAME_AWD = re.compile(r"\b(awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac)\b|all[- ]wheel|four[- ]wheel|4motion")
+NAME_AWD = re.compile(r"\b(e?awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac|sh-awd)\b|all[- ]wheel|four[- ]wheel|4motion")
 
 
 def _cap_label(fuel: str) -> str:

@@ -1169,6 +1169,84 @@
     "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/25MY_US_Lincoln_Car_LT_truck_WGuide_v2.pdf",
     "https://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/26MY_US_Lincoln_WTY_ENG_V1.pdf"
    ]
+  },
+  {
+   "make": "Alfa Romeo",
+   "factory": [
+    {
+     "name": "Basic (bumper-to-bumper)",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Alfa Romeo Basic Limited Warranty 4 yr/50,000 mi (alfaromeousa.com); FCA/Stellantis new-vehicle warranties stay with the vehicle"
+    },
+    {
+     "name": "Powertrain",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "No longer powertrain term; covered within the 4 yr/50k basic (third-party reviews and dealer equipment data; booklet not found online)"
+    },
+    {
+     "name": "Plug-in hybrid high-voltage battery",
+     "years": null,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "Tonale eAWD (2024-2025): term not confirmed from an Alfa Romeo US source; federal emissions rules usually mean 8 yr/100k, longer in California - check the warranty booklet"
+    },
+    {
+     "name": "Corrosion",
+     "years": null,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "Unconfirmed: third-party guides say 3 yr/unlimited (any panel) and 5 yr/unlimited perforation of outer panels"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 4,
+     "miles": null,
+     "transfers": "unknown",
+     "note": "24/7 roadside; 4 years/unlimited miles per third-party guides (alfaromeousa.com shows 24/7 roadside without a term)"
+    }
+   ],
+   "factory_note": "alfaromeousa.com states only the 4-year/50,000-mile basic warranty; the full booklet (powertrain, corrosion, hybrid battery) wasn't available online, so those terms are from third-party guides or unknown.",
+   "maintenance": "MY2017-2023: 1 year/10,000 miles complimentary scheduled maintenance (alfaromeousa.com warranty FAQ). MY2024+: none confirmed. Alfa Romeo Premium Care is a paid plan (up to 4 yr/40k).",
+   "cpo": {
+    "program": "Alfa Romeo Certified Pre-Owned Vehicle (CPOV)",
+    "coverage": [
+     {
+      "name": "Maximum Care Limited Warranty (comprehensive)",
+      "years": 5,
+      "miles": 100000,
+      "starts": "CPO sale date, or end of remaining new-car basic warranty if later",
+      "note": "Covers over 5,000 components, $0 deductible (alfaromeousa.com). Start-date wording from Stellantis's 2021 CPO release ('starts on the date of the CPOV sale or at the expiration of the remaining 3/36 Basic New Vehicle Warranty' - note the release says 3/36 although the new-car basic is 4/50); confirm with the dealer. Whether 100,000 is total odometer miles or miles from the sale is not stated."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": null,
+      "miles": null,
+      "starts": "CPO purchase date",
+      "note": "24-hour towing and roadside (gas delivery up to 2 gal, flat-tire service with your spare, jump start, lockout) plus rental allowance up to $35/day, $175 per occurrence; length not stated (unknown)"
+     }
+    ],
+    "summary": "An Alfa Romeo Certified Pre-Owned car gets a 5-year/100,000-mile Maximum Care warranty with no deductible that covers more than 5,000 parts, starting when you buy it (or when any remaining factory warranty ends). That is much longer than Acura's or Audi's CPO coverage.",
+    "perks": [
+     "169-point inspection, reconditioned with Alfa Romeo parts",
+     "CARFAX Vehicle History Report with CARFAX Buyback Guarantee",
+     "24-hour roadside assistance with rental allowance",
+     "3-month SiriusXM trial",
+     "Optional Maximum Care upgrades (up to 8 yr/100k per the 2021 release)",
+     "Financing through Ally / Chrysler Capital; no CPO leasing"
+    ],
+    "eligibility": "Not stated on alfaromeousa.com (unknown). A third-party guide says up to 5 model years old and under 50,000 miles, but it looks out of date - confirm with the dealer."
+   },
+   "sources": [
+    "https://www.alfaromeousa.com/certified-pre-owned",
+    "https://www.alfaromeousa.com/owners/warranty",
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=22554",
+    "https://www.alfaromeousa.com/content/dam/alfa/us/owners/Alfa_Romeo_Premium_Care_Warranty.pdf",
+    "https://AutoGuide.com/buyers-guide/alfa-romeo-warranty/"
+   ]
   }
  ]
 }

@@ -22155,6 +22155,1051 @@
     "https://pressroom.lexus.com/vehicle/2026-lexus-es/",
     "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
    ]
+  },
+  {
+   "make": "Acura",
+   "model": "ZDX",
+   "on_list_rule": "2024 ZDX A-Spec AWD (dual motor) and Type S are on the list (electric price cap). The single-motor A-Spec is rear-wheel drive and is not. The electric ZDX was sold for model year 2024 only (no 2025; the 2026 was cancelled in Sep 2025 before production, though EPA lists 2026 ratings). The 2010-2013 ZDX was a different gas car. Only Cosmic Black Metallic paint fits the color rule (no gray or dark green offered; Mercury Silver is silver).",
+   "sources": [
+    "https://acuranews.com/en-US/releases/release-a463299e9046a088b84018a75814e97e-2024-acura-zdx-zdx-type-s-deliver-electrified-performance-starting-at-64500",
+    "https://acuranews.com/en-US/releases/release-50763955e7ef98f595b7e8fb0e005c30-2024-acura-zdx-zdx-type-s-specifications-features",
+    "https://acuranews.com/en-US/releases/release-5003aaa39c009393f5d06d620f0798ce-all-electric-2024-acura-zdx-and-zdx-type-s-make-dramatic-global-debut-arriving-early-next-year",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47808",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48781",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47809",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50024",
+    "https://www.caranddriver.com/acura/zdx",
+    "https://gmauthority.com/blog/2025/09/gm-built-acura-zdx-ev-scrapped-after-one-model-year/"
+   ],
+   "years": [
+    {
+     "year": 2024,
+     "what_changed": "All-new electric ZDX (GM Ultium platform, built at GM Spring Hill). Paint/interior pairings (Acura spec sheet): Mercury Silver Metallic - Ebony/Red; Snowfall Pearl - Ebony/Red/Orchid (A-Spec), Ebony/Red (Type S); Blue Abyss Metallic - Ebony/Orchid (A-Spec only); Cosmic Black Metallic - Ebony/Red; Scarlet Red Metallic - Ebony/Orchid; Double Apex Blue Pearl and Tiger Eye Pearl - Type S only, Ebony/Orchid.",
+     "trims": [
+      {
+       "name": "A-Spec RWD (single motor)",
+       "on_list": false,
+       "why_not": "Rear-wheel drive (2WD) - not on the list",
+       "powertrain": "Single rear motor RWD, 342 hp, 102 kWh",
+       "builds_on": "",
+       "highlights": [
+        "Same equipment as A-Spec AWD"
+       ],
+       "sunroof": "standard panoramic moonroof (tilt and slide)",
+       "premium_audio": "Bang & Olufsen 18-speaker, standard",
+       "seats": "perforated Milano leather with microsuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red, Orchid)",
+       "spare": "none - self-sealing tires",
+       "mpg": "96/83/90 MPGe city/hwy/comb; 313 mi range"
+      },
+      {
+       "name": "A-Spec AWD (dual motor)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual-motor AWD electric, 490 hp, 102 kWh (GM Ultium)",
+       "builds_on": "",
+       "highlights": [
+        "20-in wheels, 265/50R20 all-season (Acura spec sheet; one table lists 275/40R22 for AWD)",
+        "11.3-in touchscreen, 11-in cluster, Google built-in, wireless CarPlay/Android Auto",
+        "Panoramic moonroof with tilt and slide",
+        "Bang & Olufsen 18 speakers",
+        "12-way power heated + ventilated front seats, heated steering wheel",
+        "Roof rails (AWD only)",
+        "Ground clearance 7.0 in"
+       ],
+       "sunroof": "standard panoramic moonroof (tilt and slide)",
+       "premium_audio": "Bang & Olufsen 18-speaker, standard",
+       "seats": "perforated Milano leather with microsuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red, Orchid; depends on paint)",
+       "spare": "none - self-sealing tires",
+       "mpg": "94/80/87 MPGe; 304 mi range"
+      },
+      {
+       "name": "Type S (dual motor AWD)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Dual-motor AWD electric, 499-500 hp, 544 lb-ft, 102 kWh",
+       "builds_on": "A-Spec AWD",
+       "highlights": [
+        "Air suspension with adaptive dampers",
+        "15.6-in Brembo front brakes (yellow 6-piston calipers)",
+        "22-in wheels, 275/40ZR22 self-sealing all-season (summer tires optional: 'Type S with Performance Wheel & Tire')",
+        "16-way front seats with thigh extension and side bolsters, heated rear seats, passenger memory",
+        "AcuraWatch 360+ with Hands Free Cruise, Automatic Parking Assist",
+        "Gloss Black roof"
+       ],
+       "sunroof": "standard panoramic moonroof (tilt and slide)",
+       "premium_audio": "Bang & Olufsen 18-speaker, standard",
+       "seats": "perforated Milano leather with microsuede, embossed Type S logo; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red, Orchid; depends on paint)",
+       "spare": "none - self-sealing tires",
+       "mpg": "83/74/78 MPGe; 278 mi range"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "make": "Acura",
+   "model": "RDX",
+   "on_list_rule": "Every SH-AWD RDX (base, Technology, A-Spec, Advance, A-Spec Advance) is on the list: the panoramic roof is standard on every trim, and Ebony (black) interior is offered with the black and gray paints. FWD RDX (2023 only) is not. Qualifying paints: Majestic Black Pearl and Liquid Carbon Metallic (all trims), Urban Gray Pearl (2025+, A-Spec trims only). Not: Lunar/Solar Silver (silver), Platinum White, Performance Red, Fathom/Apex/Canyon River Blue, Phantom Violet. Gas price cap $35,500 applies.",
+   "sources": [
+    "https://acuranews.com/en-US/releases/release-738212678b96ed3a76e7285afd020406-2023-acura-rdx-specs-features",
+    "https://acuranews.com/en-US/releases/release-cc39196e84787a20ec3cb086fb026dd8-2024-acura-rdx-specs-features",
+    "https://acuranews.com/en-US/releases/release-be04147c80a1ccf8565947643d005bc8-2025-acura-rdx-specs-features",
+    "https://acuranews.com/en-US/releases/release-8afbb77fc211c5220086cb1d28009f22-2026-acura-rdx-specifications-features",
+    "https://acuranews.com/en-US/releases/release-738212678b96ed3a76e7285afd02497e-2023-acura-rdx-adds-new-standard-premium-services-including-complimentary-three-years-of-acuralink-complimentary-acura-maintenance-package-newly-offered",
+    "https://acuranews.com/en-US/releases/release-be04147c80a1ccf8565947643d003424-enhanced-2025-acura-rdx-now-on-sale-with-upgrades-to-styling-cabin-and-technology",
+    "https://acuranews.com/en-US/releases/release-24d1e769a5116e1ca61c5b016301aab4-refreshed-2025-acura-rdx-gains-sophisticated-new-styling-cabin-updates-and-enhanced-technology",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46069",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46070",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47257",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48526",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/49847",
+    "https://www.caranddriver.com/acura/rdx-2024",
+    "https://www.caranddriver.com/acura/rdx-2026"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Carryover of the 2022 refresh; FWD still offered on base/Technology/A-Spec. Interior colors by paint (spec sheet): Majestic Black - Ebony/Parchment (A-Spec Ebony/Red); Liquid Carbon - Ebony/Espresso (A-Spec Ebony/Red); Platinum White - Ebony/Parchment/Espresso; Lunar Silver - Ebony/Graystone; Fathom Blue - Parchment/Graystone; Performance Red - Parchment (A-Spec Ebony); Phantom Violet - Ebony (Tech/Advance); Apex Blue - A-Spec only (Ebony/Red; A-Spec Advance Ebony/Orchid). Ground clearance 8.2 in.",
+     "trims": [
+      {
+       "name": "RDX / Technology / A-Spec FWD",
+       "on_list": false,
+       "why_not": "Front-wheel drive (2WD) - not on the list (FWD offered on 2023 only; vPIC DriveType '4x2')",
+       "powertrain": "2.0L turbo, 272 hp, 10-speed, FWD",
+       "builds_on": "",
+       "highlights": [
+        "Same equipment as the SH-AWD versions"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "see SH-AWD equivalents",
+       "seats": "see SH-AWD equivalents",
+       "black_interior": "see SH-AWD equivalents",
+       "spare": "compact spare on base/Technology FWD per spec sheet (spare listed for SH-AWD trims; unconfirmed for FWD)",
+       "mpg": "22/28/24 (A-Spec 22/27/24)"
+      },
+      {
+       "name": "RDX SH-AWD (base)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-in wheels",
+        "10.2-in center display with True Touchpad, wireless CarPlay/Android Auto",
+        "Panoramic roof with tilt and slide",
+        "AcuraWatch safety suite",
+        "Heated front seats"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "none (9-speaker Acura premium audio)",
+       "seats": "leatherette (synthetic); heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment on 2023-24, Graystone; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD with Technology Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "RDX SH-AWD",
+       "highlights": [
+        "Milano leather",
+        "ELS Studio 12-speaker audio",
+        "Navigation, blind-spot info, front/rear parking sensors",
+        "Ambient lighting (Acura Iconic Drive)"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 12-speaker, standard",
+       "seats": "perforated Milano leather; heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "20-in wheels, blacked-out A-Spec exterior",
+        "ELS Studio 3D 16-speaker audio",
+        "Ventilated front seats",
+        "Ebony headliner"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather and Ultrasuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on Apex Blue / Liquid Carbon from 2025)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      },
+      {
+       "name": "RDX SH-AWD with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "Adaptive Damper System",
+        "ELS Studio 3D 16-speaker",
+        "Ventilated front seats, 16-way power front seats",
+        "Head-up display, surround-view camera",
+        "Open-pore wood trim"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "A-Spec + Advance",
+       "highlights": [
+        "Everything in Advance plus A-Spec styling, 20-in wheels",
+        "Adaptive dampers, HUD, surround view"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather and Ultrasuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on some paints)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "FWD dropped: every 2024 RDX is SH-AWD. Prices up about $2,300-2,700. Same colors/interiors as 2023.",
+     "trims": [
+      {
+       "name": "RDX SH-AWD (base)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-in wheels",
+        "10.2-in center display with True Touchpad, wireless CarPlay/Android Auto",
+        "Panoramic roof with tilt and slide",
+        "AcuraWatch safety suite",
+        "Heated front seats"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "none (9-speaker Acura premium audio)",
+       "seats": "leatherette (synthetic); heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment on 2023-24, Graystone; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD with Technology Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "RDX SH-AWD",
+       "highlights": [
+        "Milano leather",
+        "ELS Studio 12-speaker audio",
+        "Navigation, blind-spot info, front/rear parking sensors",
+        "Ambient lighting (Acura Iconic Drive)"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 12-speaker, standard",
+       "seats": "perforated Milano leather; heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "20-in wheels, blacked-out A-Spec exterior",
+        "ELS Studio 3D 16-speaker audio",
+        "Ventilated front seats",
+        "Ebony headliner"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather and Ultrasuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on Apex Blue / Liquid Carbon from 2025)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      },
+      {
+       "name": "RDX SH-AWD with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "Adaptive Damper System",
+        "ELS Studio 3D 16-speaker",
+        "Ventilated front seats, 16-way power front seats",
+        "Head-up display, surround-view camera",
+        "Open-pore wood trim"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "A-Spec + Advance",
+       "highlights": [
+        "Everything in Advance plus A-Spec styling, 20-in wheels",
+        "Adaptive dampers, HUD, surround view"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather and Ultrasuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on some paints)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Refresh: frameless grille, new console, wide-screen CarPlay; Advance and A-Spec Advance get full leather; new paints Solar Silver, Canyon River Blue, Urban Gray Pearl (A-Spec only); Parchment interior dropped (Graystone instead); Orchid added on A-Spec with Liquid Carbon/Apex Blue. 1 yr/12k complimentary maintenance.",
+     "trims": [
+      {
+       "name": "RDX SH-AWD (base)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-in wheels",
+        "10.2-in center display with True Touchpad, wireless CarPlay/Android Auto",
+        "Panoramic roof with tilt and slide",
+        "AcuraWatch safety suite",
+        "Heated front seats"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "none (9-speaker Acura premium audio)",
+       "seats": "leatherette (synthetic); heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment on 2023-24, Graystone; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD with Technology Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "RDX SH-AWD",
+       "highlights": [
+        "Milano leather",
+        "ELS Studio 12-speaker audio",
+        "Navigation, blind-spot info, front/rear parking sensors",
+        "Ambient lighting (Acura Iconic Drive)"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 12-speaker, standard",
+       "seats": "perforated Milano leather; heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "20-in wheels, blacked-out A-Spec exterior",
+        "ELS Studio 3D 16-speaker audio",
+        "Ventilated front seats",
+        "Ebony headliner"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather and Ultrasuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on Apex Blue / Liquid Carbon from 2025)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      },
+      {
+       "name": "RDX SH-AWD with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "Adaptive Damper System",
+        "ELS Studio 3D 16-speaker",
+        "Ventilated front seats, 16-way power front seats",
+        "Head-up display, surround-view camera",
+        "Open-pore wood trim"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "Milano leather (full leather from 2025); heated + ventilated front",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "A-Spec + Advance",
+       "highlights": [
+        "Everything in Advance plus A-Spec styling, 20-in wheels",
+        "Adaptive dampers, HUD, surround view"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather (full leather from 2025); heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on some paints)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Carryover of 2025 (same trims, colors and spec sheet); about $600 more.",
+     "trims": [
+      {
+       "name": "RDX SH-AWD (base)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "",
+       "highlights": [
+        "19-in wheels",
+        "10.2-in center display with True Touchpad, wireless CarPlay/Android Auto",
+        "Panoramic roof with tilt and slide",
+        "AcuraWatch safety suite",
+        "Heated front seats"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "none (9-speaker Acura premium audio)",
+       "seats": "leatherette (synthetic); heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment on 2023-24, Graystone; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD with Technology Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "RDX SH-AWD",
+       "highlights": [
+        "Milano leather",
+        "ELS Studio 12-speaker audio",
+        "Navigation, blind-spot info, front/rear parking sensors",
+        "Ambient lighting (Acura Iconic Drive)"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 12-speaker, standard",
+       "seats": "perforated Milano leather; heated front, not ventilated",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "20-in wheels, blacked-out A-Spec exterior",
+        "ELS Studio 3D 16-speaker audio",
+        "Ventilated front seats",
+        "Ebony headliner"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather and Ultrasuede; heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on Apex Blue / Liquid Carbon from 2025)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      },
+      {
+       "name": "RDX SH-AWD with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "Technology Package",
+       "highlights": [
+        "Adaptive Damper System",
+        "ELS Studio 3D 16-speaker",
+        "Ventilated front seats, 16-way power front seats",
+        "Head-up display, surround-view camera",
+        "Open-pore wood trim"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "Milano leather (full leather from 2025); heated + ventilated front",
+       "black_interior": "yes - Ebony (also Parchment/Graystone, Espresso; depends on paint)",
+       "spare": "compact spare T155/90D17",
+       "mpg": "21/27/23"
+      },
+      {
+       "name": "RDX SH-AWD A-Spec with Advance Package",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 272 hp, 10-speed auto, SH-AWD",
+       "builds_on": "A-Spec + Advance",
+       "highlights": [
+        "Everything in Advance plus A-Spec styling, 20-in wheels",
+        "Adaptive dampers, HUD, surround view"
+       ],
+       "sunroof": "standard panoramic roof (tilt and slide)",
+       "premium_audio": "ELS Studio 3D 16-speaker, standard",
+       "seats": "perforated Milano leather (full leather from 2025); heated + ventilated front",
+       "black_interior": "yes - Ebony (also Red; Orchid on some paints)",
+       "spare": "none - tire repair kit",
+       "mpg": "21/26/23"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "make": "Alfa Romeo",
+   "model": "Tonale",
+   "on_list_rule": "Every Tonale is AWD (Q4) and a 2-row SUV, and every one can have the black interior, but the power moonroof is an OPTION on every trim and year, so a Tonale passes only when the listing (or you) confirms the moonroof. 2024 = plug-in hybrid only (plug-in price cap); 2025 = gas 2.0T or plug-in eAWD; 2026 = gas only. Qualifying paints: Alfa Black, Grigio Ascari (gray), Verde Fangio (dark green). Not: Milano/Alfa White, Alfa Rosso, Rosso Brera, Misano Blue, Giallo Ocra; Verde Monza (new 2026 green) is unconfirmed - check the shade.",
+   "sources": [
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=24573",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=24845",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=24671",
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=27464&fIId=26180&mid=446",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=26215",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=26216",
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=27250&mid=446",
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=27250&fIId=27241&mid=446",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=27333",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=27249",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/47274",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48652",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48915",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50115",
+    "https://www.caranddriver.com/alfa-romeo/tonale-hybrid-2024",
+    "https://www.caranddriver.com/alfa-romeo/tonale-2025",
+    "https://www.caranddriver.com/alfa-romeo/tonale-2026",
+    "https://www.motor1.com/news/746306/2025-alfa-romeo-tonale-price-lineup/"
+   ],
+   "years": [
+    {
+     "year": 2024,
+     "what_changed": "First US model year (no 2023 Tonale in the US). Plug-in hybrid only. Paints: Alfa White, Alfa Rosso, Alfa Black, Grigio Ascari Gray Metallic, Misano Blue Metallic, Verde Fangio Metallic (Ti/Veloce only). Ground clearance 5.6 in.",
+     "trims": [
+      {
+       "name": "Tonale Sprint eAWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.3L turbo 4-cyl + 90 kW rear e-motor plug-in hybrid (eAWD/Q4), 285 hp, 6-speed auto, 15.5 kWh",
+       "builds_on": "",
+       "highlights": [
+        "18-in Bistrato silver wheels",
+        "10.25-in Uconnect 5, 12.3-in cluster, wireless CarPlay/Android Auto",
+        "Adaptive LED headlights",
+        "Heated front seats and steering wheel"
+       ],
+       "sunroof": "optional power moonroof",
+       "premium_audio": "none (6 speakers; Harman Kardon not offered on Sprint)",
+       "seats": "black sport cloth (no leather option); heated, not ventilated",
+       "black_interior": "yes - black is the only interior",
+       "spare": "none - tire inflation kit",
+       "mpg": "29 mpg gas-only; 77 MPGe; 33 mi electric range (EPA)"
+      },
+      {
+       "name": "Tonale Ti eAWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.3L turbo 4-cyl + 90 kW rear e-motor plug-in hybrid (eAWD/Q4), 285 hp, 6-speed auto, 15.5 kWh",
+       "builds_on": "Sprint",
+       "highlights": [
+        "18-in black diamond-cut wheels, silver exterior accents",
+        "Hands-free power liftgate, rear USB",
+        "Genuine aluminum trim"
+       ],
+       "sunroof": "optional power moonroof",
+       "premium_audio": "Harman Kardon 12-speaker in the Premium Interior and Sound Package",
+       "seats": "black sport cloth standard; black leather + ventilated front seats in Premium Interior packages",
+       "black_interior": "yes - black is the only interior",
+       "spare": "none - tire inflation kit",
+       "mpg": "29 mpg gas-only; 77 MPGe; 33 mi electric range (EPA)"
+      },
+      {
+       "name": "Tonale Veloce eAWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.3L turbo 4-cyl + 90 kW rear e-motor plug-in hybrid (eAWD/Q4), 285 hp, 6-speed auto, 15.5 kWh",
+       "builds_on": "Ti",
+       "highlights": [
+        "19-in wheels (20-in optional)",
+        "Dual-mode adaptive suspension",
+        "Red Brembo calipers, aluminum paddle shifters",
+        "Alcantara seats"
+       ],
+       "sunroof": "optional power moonroof ($1,200)",
+       "premium_audio": "Harman Kardon 12-speaker in the Premium Interior and Sound Package",
+       "seats": "black Alcantara standard; black perforated leather + ventilated front in Premium Interior packages",
+       "black_interior": "yes - black is the only interior",
+       "spare": "none - tire inflation kit",
+       "mpg": "29 mpg gas-only; 77 MPGe; 33 mi electric range (EPA)"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Sprint/Ti/Veloce replaced by one core version with packages; new 2.0T gas AWD joins the plug-in. Paints: Milano White, Alfa Black, Alfa Rosso, Grigio Ascari, Misano Blue, Verde Fangio. Ground clearance 6.1 in (gas) / 5.6 in (plug-in).",
+     "trims": [
+      {
+       "name": "Tonale (2.0T gas, AWD)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 268 hp, 9-speed auto, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "One core version; Veloce, Premium and Active Assist are packages",
+        "18-in wheels standard; 19/20-in optional",
+        "Heated seats and steering wheel, wireless charging",
+        "Veloce Package: red Brembo calipers, dual-mode suspension, paddles"
+       ],
+       "sunroof": "optional power moonroof",
+       "premium_audio": "Harman Kardon optional",
+       "seats": "black sport cloth standard; black leather + ventilated front in Premium Package",
+       "black_interior": "yes - black cloth or black leather only",
+       "spare": "none - tire service kit",
+       "mpg": "21/29/24"
+      },
+      {
+       "name": "Tonale eAWD (plug-in hybrid)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "1.3L turbo + rear e-motor plug-in hybrid, 285 hp, 6-speed, eAWD",
+       "builds_on": "",
+       "highlights": [
+        "Same packages as the gas car",
+        "Tributo Italiano special edition (plug-in only): 20-in Grigio wheels, red Brembos, Harman Kardon, leather with red accents, black roof; moonroof optional"
+       ],
+       "sunroof": "optional power moonroof",
+       "premium_audio": "Harman Kardon optional (standard on Tributo Italiano)",
+       "seats": "black sport cloth standard; black leather in Premium Package",
+       "black_interior": "yes - black only (Tributo: black leather with red accents)",
+       "spare": "none - tire service kit",
+       "mpg": "29 mpg gas-only; 77 MPGe; 33 mi electric range"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Facelift (33 Stradale-style grille); plug-in dropped, gas 2.0T only; trims Sprint, Veloce, Sport Speciale; red leather and black roof options; new paints Rosso Brera, Verde Monza, Giallo Ocra (plus Alfa Black, Milano White, Grigio Ascari, Verde Fangio, Misano Blue).",
+     "trims": [
+      {
+       "name": "Tonale Sprint",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 268 hp, 9-speed auto, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "18-in wheels, gloss black body kit",
+        "Premium Package ($1,995): black or red leather, ventilated seats, ambient lighting, hands-free liftgate"
+       ],
+       "sunroof": "optional power moonroof ($1,500)",
+       "premium_audio": "Harman Kardon optional ($750)",
+       "seats": "black sport cloth; black or red leather in Premium Package",
+       "black_interior": "yes - black cloth or black leather (red leather optional)",
+       "spare": "none - tire service kit",
+       "mpg": "21/29/24"
+      },
+      {
+       "name": "Tonale Veloce",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 268 hp, 9-speed auto, Q4 AWD",
+       "builds_on": "Sprint",
+       "highlights": [
+        "19-in wheels, red Brembo calipers, paddle shifters, dual-mode suspension",
+        "Leather with ventilation, hands-free liftgate, ambient lighting standard"
+       ],
+       "sunroof": "optional power moonroof ($1,500)",
+       "premium_audio": "Harman Kardon optional ($750)",
+       "seats": "black leather standard (red leather no-cost option); heated + ventilated front",
+       "black_interior": "yes - black leather (red optional)",
+       "spare": "none - tire service kit",
+       "mpg": "21/29/24"
+      },
+      {
+       "name": "Tonale Sport Speciale",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 268 hp, 9-speed auto, Q4 AWD",
+       "builds_on": "Veloce",
+       "highlights": [
+        "20-in three-hole wheels, silver exterior accents, gloss black Brembos",
+        "Black-and-pearl (white) perforated Alcantara seats, black Alcantara dash"
+       ],
+       "sunroof": "optional power moonroof ($1,500)",
+       "premium_audio": "Harman Kardon optional ($750)",
+       "seats": "black and white (pearl) Alcantara two-tone; heated front; ventilation not confirmed",
+       "black_interior": "two-tone black/white Alcantara (black included)",
+       "spare": "none - tire service kit",
+       "mpg": "21/29/24"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "make": "Alfa Romeo",
+   "model": "Stelvio",
+   "on_list_rule": "AWD Stelvios (Q4) are on the list if they have the optional dual-pane sunroof (optional on every trim and year, so the listing or you must confirm it) and a black interior. 2023-24 Sprint RWD is not (2WD). Quadrifoglio allowed (performance). Qualifying paints: Vulcano Black Metallic, Vesuvio Gray Metallic, Moonlight Gray Metallic, Verde Fangio Metallic (2025+), Verde Montreal Tri-Coat (Quadrifoglio 2023-24, dark green). Not: Alfa White/Milano White, Alfa Rosso, Rosso Etna, Misano Blue, Anodized Blue, Ocra GT, Moonlight Gray MATTE (Competizione). No ventilated seats on any Stelvio. Gas price cap $35,500.",
+   "sources": [
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=24144&fIId=24031&mid=446",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=24140",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=24139",
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=27463&fIId=25328&mid=446",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=24841",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=24844",
+    "https://media.stellantisnorthamerica.com/newsrelease.do?id=27464&fIId=26179&mid=446",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=26214",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=26217",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=27459",
+    "https://media.stellantisnorthamerica.com/view-spec.do?id=27458",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45447",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45448",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/45445",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46596",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/46870",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/48071",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/50004",
+    "https://www.caranddriver.com/alfa-romeo/stelvio-2023",
+    "https://www.caranddriver.com/alfa-romeo/stelvio-2025",
+    "https://www.caranddriver.com/alfa-romeo/stelvio-2026",
+    "https://www.motortrend.com/cars/alfa-romeo/stelvio/2023/"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Adds limited Estrema (Veloce-based) and Lusso (Ti-based). Paints by trim (feature sheet): Vulcano Black and Vesuvio Gray on all but Vesuvio not on Estrema; Moonlight Grey Metallic on Sprint/Ti/Lusso; Verde Montreal only Quadrifoglio. Interiors: black leather, Chocolate Brown (Ti), red sport seats, black sport seats, Crema Cannelloni (Lusso). Ground clearance 8.1 in (QF 7.9).",
+     "trims": [
+      {
+       "name": "Stelvio Sprint RWD",
+       "on_list": false,
+       "why_not": "Rear-wheel drive (2WD) - not on the list (vPIC: VINs ZASPAJAN...)",
+       "powertrain": "2.0L turbo, 280 hp, RWD",
+       "builds_on": "",
+       "highlights": [
+        "Base Stelvio"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "none (8 speakers; Harman Kardon not offered on Sprint)",
+       "seats": "leather; heated front and rear, not ventilated",
+       "black_interior": "yes - black leather (red sport seats optional)",
+       "spare": "tire inflation kit (spare optional on AWD)",
+       "mpg": "22/29/25"
+      },
+      {
+       "name": "Stelvio Sprint AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "Leather, heated front/rear seats, heated wheel",
+        "8.8-in touchscreen with navigation, CarPlay/Android Auto",
+        "Bi-xenon headlights, remote start",
+        "Aluminum paddle shifters"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leather; heated front and rear, not ventilated",
+       "black_interior": "yes - black leather standard (red leather sport seats optional)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Ti",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo, 280 hp, Q4 AWD",
+       "builds_on": "Sprint AWD",
+       "highlights": [
+        "Vesuvio Gray body kit, genuine aluminum trim",
+        "Premium Interior and Sound Package optional (Harman Kardon, leather dash)"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker optional",
+       "seats": "leather; heated, not ventilated",
+       "black_interior": "yes - black leather standard (Chocolate Brown optional)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Ti Lusso",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo, 280 hp, Q4 AWD",
+       "builds_on": "Ti",
+       "highlights": [
+        "Limited edition: 'Crema' Cannelloni-design leather seats, duo-tone crema/black interior",
+        "Leather dashboard and upper doors, Harman Kardon standard"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker, standard",
+       "seats": "Crema Cannelloni leather (feature sheet also lists black sport seats - check)",
+       "black_interior": "two-tone crema/black (black included, but the seats are light crema - check photos)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Veloce",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo, 280 hp, Q4 AWD",
+       "builds_on": "Ti",
+       "highlights": [
+        "Sport seats, Veloce styling, rear diffuser",
+        "Performance Package optional (adaptive dampers, LSD)"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker optional",
+       "seats": "leather sport seats; heated, not ventilated",
+       "black_interior": "yes - black sport seats standard (red optional)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Estrema",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo, 280 hp, Q4 AWD, limited-slip rear diff",
+       "builds_on": "Veloce",
+       "highlights": [
+        "Adaptive suspension, mechanical LSD",
+        "21-in gloss black wheels, carbon mirror caps/grille trim",
+        "Red stitching"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof) (MotorTrend says standard; Stellantis feature sheet says optional)",
+       "premium_audio": "Harman Kardon 14-speaker, standard",
+       "seats": "black leather sport seats with red stitching",
+       "black_interior": "yes - black with red stitching",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Quadrifoglio",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.9L twin-turbo V6, 505 hp, 8-speed, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "Performance model (performance versions allowed)",
+        "Torque-vectoring rear diff, Race mode, Brembo brakes (carbon-ceramic optional)",
+        "Sparco carbon racing seats optional"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker, standard",
+       "seats": "black leather/Alcantara sport seats; Sparco optional",
+       "black_interior": "yes - black",
+       "spare": "tire inflation kit (no spare)",
+       "mpg": "17/23/19"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "New 12.3-in digital cluster, LED matrix headlights, new taillights; Estrema/Lusso gone; limited Competizione (matte Moonlight Gray) and Quadrifoglio 100th Anniversary. Last year for Quadrifoglio and RWD Sprint.",
+     "trims": [
+      {
+       "name": "Stelvio Sprint RWD",
+       "on_list": false,
+       "why_not": "Rear-wheel drive (2WD) - not on the list",
+       "powertrain": "2.0L turbo, 280 hp, RWD",
+       "builds_on": "",
+       "highlights": [
+        "Base Stelvio"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leather; heated, not ventilated",
+       "black_interior": "yes - black (red sport optional)",
+       "spare": "tire inflation kit",
+       "mpg": "22/29/25"
+      },
+      {
+       "name": "Stelvio Sprint AWD",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "New 12.3-in digital cluster, LED matrix headlights for 2024",
+        "Leather, heated front/rear seats, navigation"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "none (8 speakers)",
+       "seats": "leather; heated, not ventilated",
+       "black_interior": "yes - black standard (red sport optional)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Ti",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "Sprint AWD",
+       "highlights": [
+        "Vesuvio Gray body kit, aluminum trim",
+        "Performance Driving Package (red sport seats, 21-in wheels, red Brembos)"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker optional",
+       "seats": "leather; heated, not ventilated",
+       "black_interior": "yes - black standard (Chocolate optional)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Veloce",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "Ti",
+       "highlights": [
+        "Sport seats, Veloce styling"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker optional",
+       "seats": "leather sport seats; heated, not ventilated",
+       "black_interior": "yes - black sport standard (red optional)",
+       "spare": "tire inflation kit; compact spare optional",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Competizione",
+       "on_list": false,
+       "why_not": "Limited edition sold in matte paint (Moonlight Gray Matte) per its launch release; feature sheet also lists Alfa Rosso and Vulcano Black - a Vulcano Black one would qualify",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "Veloce",
+       "highlights": [
+        "Alfa Active Suspension, 21-in wheels, red calipers",
+        "Harman Kardon, leather dash, darker privacy glass"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker, standard",
+       "seats": "black leather sport seats with red stitching",
+       "black_interior": "yes - black",
+       "spare": "tire inflation kit (no compact spare)",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Quadrifoglio",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.9L twin-turbo V6, 505 hp, 8-speed, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "Final year of the Quadrifoglio; mechanical LSD; 100th Anniversary edition (100 globally)"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker, standard",
+       "seats": "black leather sport seats; Sparco optional",
+       "black_interior": "yes - black",
+       "spare": "tire inflation kit (no spare)",
+       "mpg": "17/23/19"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "One core AWD version with Veloce/Active Assist Plus/Premium Interior and Sound packages; Tributo Italiano (and Intensa) special editions; new Verde Fangio paint. Paints: Milano White, Alfa Rosso, Misano Blue, Moonlight Grey, Verde Fangio, Vulcano Black, Vesuvio Grey.",
+     "trims": [
+      {
+       "name": "Stelvio (core AWD)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "One version replaces Sprint/Ti/Veloce",
+        "Leather, heated front/rear seats, heated wheel, power liftgate",
+        "19-in wheels; 20/21-in optional",
+        "Veloce Package: black sport seats, LSD, red calipers, power bolsters"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker in Premium Interior and Sound Package",
+       "seats": "leather (10-way power front); heated, not ventilated",
+       "black_interior": "yes - black leather standard (black sport in Veloce pkg; red sport optional)",
+       "spare": "none - tire inflation kit",
+       "mpg": "22/28/24"
+      },
+      {
+       "name": "Stelvio Tributo Italiano",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "Stelvio (core AWD)",
+       "highlights": [
+        "Limited edition: 21-in dark wheels, red calipers, body-color kit",
+        "Sunroof, Harman Kardon, leather dash/doors, sport seats"
+       ],
+       "sunroof": "standard sunroof (Stellantis 2025 release lists it among Tributo features)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "leather sport seats with power bolsters",
+       "black_interior": "yes (black leather sport seats; confirm)",
+       "spare": "none - tire inflation kit",
+       "mpg": "22/28/24"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Carryover of the 2025 core Stelvio (Veloce package, Convenience Package); same paints. Next-generation Stelvio not yet on sale.",
+     "trims": [
+      {
+       "name": "Stelvio (core AWD)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl, 280 hp, 8-speed auto, Q4 AWD",
+       "builds_on": "",
+       "highlights": [
+        "One version replaces Sprint/Ti/Veloce",
+        "Leather, heated front/rear seats, heated wheel, power liftgate",
+        "19-in wheels; 20/21-in optional",
+        "Veloce Package: black sport seats, LSD, red calipers, power bolsters"
+       ],
+       "sunroof": "optional dual-pane sunroof (with black-painted roof)",
+       "premium_audio": "Harman Kardon 14-speaker in Premium Interior and Sound Package",
+       "seats": "leather (10-way power front); heated, not ventilated",
+       "black_interior": "yes - black leather standard (black sport in Veloce pkg; red sport optional)",
+       "spare": "none - tire inflation kit",
+       "mpg": "22/28/24"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

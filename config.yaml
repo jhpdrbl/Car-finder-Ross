@@ -45,10 +45,10 @@ filters:
               "cypress green", "eruption green", "area 51", "shadow", "slate",
               "manhattan", "ebony", "jet", "nebula", "smoke", "tungsten", "anthracite",
               "storm", "asphalt", "steel", "cement", "lunar", "magnetite", "iridium",
-              "selenite", "titanium", "ash"]   # list reviewed per-run in fail_reasons
+              "selenite", "titanium", "ash", grigio, nero, "verde fangio", "verde montreal"]   # Alfa: grigio = gray, nero = black, Verde Fangio/Montreal = dark greens   # list reviewed per-run in fail_reasons
     exclude: [silver, white, pearl white, beige, blue, red, matte, frozen, glacier, ivory,
               cream, champagne, bronze, orange, yellow, brown, copper, gold, tan,
-              sage, mint, lime, seafoam, pistachio, snowfall]   # light greens (user, Oct 19 2026: "Sage green is not dark green")
+              sage, mint, lime, seafoam, pistachio, snowfall, rosso, giallo, bianco, "tiger eye"]   # light greens (user, Oct 19 2026: "Sage green is not dark green")
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:
     include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black"]   # two-tones with one of these pass too
@@ -58,7 +58,7 @@ filters:
               greige, griege, terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire", hazel, "misty gray",
               castanea, amido, stonegray, "stone gray", "stone grey", "rose gold", "space gray", "space grey", "performance gray",
               "blue leather", "gray startex", "gray and blue", dapple, grayscale, macadamia, "torrent navy", "aqua green",
-              "sky blue", "glacier white", cinnamon, fjord, boulder]
+              "sky blue", "glacier white", cinnamon, fjord, boulder, graystone, orchid, chocolate, crema]
   carfax_exclude_accident: true
 
 scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
@@ -233,6 +233,8 @@ models:
     allow: 'tonale|stelvio'
     list: Tonale (plug-in hybrid), Stelvio
     tokens: [tonale, stelvio]
+    rules:
+      - {if: tonale, min_year: 2024, why: 'Tonale before 2024 (not sold in the US)'}
 
 # Trims where a sunroof is always standard, used only when the listing doesn't say
 # (shown as "sunroof (standard on this trim)"). Edit if you know better.
@@ -292,6 +294,11 @@ sunroof_standard:
   - {make: "Audi", model: "A6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every A6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
   - {make: "Audi", model: "S6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every S6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
 
+
+  # Acura / Alfa Romeo (researched Oct 19 2026: acuranews.com, Stellantis media)
+  - {make: "Acura", model: "RDX", trim_regex: ".*", min_year: 2019, note: "panoramic roof with tilt and slide is standard on every RDX (Acura spec sheets 2023-2026)"}
+  - {make: "Acura", model: "ZDX", trim_regex: ".*", min_year: 2024, note: "panoramic moonroof with tilt and slide is standard on every 2024 ZDX (Acura spec sheet)"}
+  - {make: "Alfa Romeo", model: "Stelvio", trim_regex: "tributo", min_year: 2025, max_year: 2025, note: "sunroof listed among the 2025 Stelvio Tributo Italiano's standard features (Stellantis release); optional on every other Stelvio"}
 
   # Mazda (news.mazdausa.com spec decks, Oct 2026)
   - {make: Mazda, model: CX-5, trim_regex: preferred|carbon|premium|turbo|signature, min_year: 2023, max_year: 2025, note: 'power moonroof is standard on CX-5 Preferred, Carbon Edition, Premium, Premium Plus and every Turbo (not on 2.5 S / Select)'}
