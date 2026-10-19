@@ -18,8 +18,11 @@ if ($Remove) {
   exit 0
 }
 
-if (-not (Test-Path (Join-Path $here ".venv\Scripts\python.exe"))) {
-  throw "Set up the project first (.venv is missing). See CLAUDE.md, 'First time on this laptop'."
+if (-not (Test-Path (Join-Path $here ".venv\Scripts\python.exe")) -and -not (Get-Command python -ErrorAction SilentlyContinue)) {
+  throw "Python isn't installed yet. See LAPTOP.md, step 1."
+}
+if (-not (Test-Path (Join-Path $here ".git")) -and -not (Test-Path (Join-Path $here ".github_token"))) {
+  throw "Run 'python ipad.py' once first (it saves your GitHub key). See LAPTOP.md, step 4."
 }
 
 $user = "$env:USERDOMAIN\$env:USERNAME"

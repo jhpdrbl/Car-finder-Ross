@@ -6,7 +6,8 @@ digest, CSVs and a dashboard, and publishes them to a web page for viewing on a 
 Every result links to the dealer's own listing page and includes the VIN.
 
 - **Handoff / current state for a new Claude session:** [CLAUDE.md](CLAUDE.md)
-- **Running it with Claude Code on the laptop (recommended):** [LAPTOP-HANDOVER.md](LAPTOP-HANDOVER.md)
+- **Running the search from the laptop yourself (recommended; same script as the iPad):** [LAPTOP.md](LAPTOP.md)
+- **Letting Claude Code on the laptop run it (alternative):** [LAPTOP-HANDOVER.md](LAPTOP-HANDOVER.md)
 - **User's step-by-step setup (Windows laptop + phone page):** [SETUP-WINDOWS.md](SETUP-WINDOWS.md)
 - **Running the search from the iPad (a-Shell app):** [IPAD.md](IPAD.md)
 
@@ -72,7 +73,7 @@ python run.py diagnose --brand Audi         # how dealer sites look from this ma
 python run.py diagnose --platform dealer_inspire | --dealer "Audi Pasadena"
 python run.py dealers [--refresh-raw] [--detect]   # rebuild data/dealers.csv
 python -m tools.build_site                  # build site/ locally (what the publish workflow deploys)
-python ipad.py                              # iPad (a-Shell): update, search, upload via GitHub API (IPAD.md)
+python ipad.py                              # iPad (a-Shell) or Windows laptop without git: update, search, upload via GitHub API (IPAD.md, LAPTOP.md)
 powershell -ExecutionPolicy Bypass -File setup-schedule.ps1 [-Time 06:30] [-Remove]   # laptop: automatic daily search
 ```
 

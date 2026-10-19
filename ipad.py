@@ -1,4 +1,4 @@
-"""Run the whole search from an iPad terminal app (a-Shell) and publish it to the phone page.
+"""Run the whole search from an iPad terminal app (a-Shell) or the Windows laptop and publish it to the phone page.
 
     python ipad.py              # get the latest version, run the search, upload the results
     python ipad.py --no-update  # skip getting the latest version
@@ -10,6 +10,8 @@ iPad apps can't run `git` or start other programs, so this does it all in one Py
 downloads the project from GitHub (public, no login), runs `run.py refresh` in-process, and uploads
 data/ and output/ through GitHub's API with your token (saved in .github_token, never uploaded).
 Keep a-Shell open on screen and the iPad from sleeping (Settings > Display & Brightness > Auto-Lock > Never).
+On Windows (LAPTOP.md) the same command works without git: it reads every dealer at full speed with the page
+cache on disk, and uses the browser add-on (Playwright) when it's installed.
 """
 from __future__ import annotations
 
@@ -29,6 +31,8 @@ OWNER, REPO, BRANCH = "jhpdrbl", "Car-finder-Ross", "claude/la-cpo-suv-scraper-x
 ROOT = Path(__file__).resolve().parent
 API = f"https://api.github.com/repos/{OWNER}/{REPO}"
 TOKEN_FILE = ROOT / ".github_token"
+LAPTOP = os.name == "nt"           # Windows laptop; otherwise the iPad (a-Shell)
+DEVICE = "laptop" if LAPTOP else "iPad"
 UPLOAD_DIRS = ("data", "output")
 NEVER_UPLOAD = ("data/cache/", "data/run_state.json")
 KEEP_LOCAL = (".venv/", "data/cache/", "logs/", ".github_token", "data/run_state.json")
@@ -52,9 +56,11 @@ def update() -> None:
             rel = info.filename.split("/", 1)[1] if "/" in info.filename else ""
             if not rel or info.is_dir() or rel.startswith(KEEP_LOCAL):
                 continue
-            dest = ROOT / rel
+            dest, data = ROOT / rel, z.read(info)
+            if dest.exists() and dest.read_bytes() == data:
+                continue                 # unchanged (also: never rewrite the running scheduled-refresh.bat)
             dest.parent.mkdir(parents=True, exist_ok=True)
-            dest.write_bytes(z.read(info))
+            dest.write_bytes(data)
             n += 1
     say(f"  updated {n} files")
 
@@ -64,7 +70,7 @@ def update() -> None:
 def token() -> str:
     t = os.environ.get("GITHUB_TOKEN") or (TOKEN_FILE.read_text().strip() if TOKEN_FILE.exists() else "")
     if not t:
-        say("To upload results this needs a GitHub token (one time). See IPAD.md, step 3.")
+        say("To upload results this needs a GitHub token (one time). See " + ("LAPTOP.md" if LAPTOP else "IPAD.md") + ", step 3.")
         try:                       # hide the key while it's pasted (it shouldn't end up in screenshots)
             import getpass
             t = getpass.getpass("Paste your GitHub token and press return (it stays hidden): ").strip()
@@ -119,7 +125,7 @@ def upload(dry_run: bool = False) -> None:
         new_tree = s.post(f"{API}/git/trees", json={"base_tree": tree, "tree": entries}, timeout=120)
         new_tree.raise_for_status()
         commit = s.post(f"{API}/git/commits", timeout=60, json={
-            "message": "Results from iPad run", "tree": new_tree.json()["sha"], "parents": [head]})
+            "message": f"Results from {DEVICE} run", "tree": new_tree.json()["sha"], "parents": [head]})
         commit.raise_for_status()
         ref = s.patch(f"{API}/git/refs/heads/{BRANCH}", json={"sha": commit.json()["sha"]}, timeout=60)
         if ref.ok:
@@ -130,17 +136,19 @@ def upload(dry_run: bool = False) -> None:
             continue
         if ref.status_code in (401, 403, 404):
             raise SystemExit("Upload refused: the token is wrong or lacks 'Contents: Read and write'. "
-                             "Delete .github_token and run again with a new token (IPAD.md, step 3).")
+                             "Delete .github_token and run again with a new token (" + ("LAPTOP.md" if LAPTOP else "IPAD.md") + ", step 3).")
         ref.raise_for_status()
 
 
 # ---- the search ----
 
 def search() -> None:
-    # a-Shell: the SQLite page cache deadlocks with many threads (seen Oct 2026), so keep pages in memory,
-    # and read fewer dealers at once (each site is still visited at the same polite pace).
-    os.environ["CARFINDER_CACHE"] = "memory"
-    sys.argv = ["run.py", "refresh", "--workers", "12"]
+    sys.argv = ["run.py", "refresh"]
+    if not LAPTOP:
+        # a-Shell: the SQLite page cache deadlocks with many threads (seen Oct 2026), so keep pages in memory,
+        # and read fewer dealers at once (each site is still visited at the same polite pace).
+        os.environ["CARFINDER_CACHE"] = "memory"
+        sys.argv += ["--workers", "12"]
     try:
         runpy.run_path(str(ROOT / "run.py"), run_name="__main__")
     except SystemExit as e:              # run.py finishing normally shouldn't stop the upload
@@ -160,6 +168,9 @@ def main() -> None:
     token()            # ask for the GitHub key now (first run only), not after a 20-minute search
     if "--no-update" not in args:
         update()
+        if LAPTOP:         # pick up any new libraries the latest version needs (a-Shell can't start pip from here)
+            import subprocess
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / "requirements.txt")])
     search()
     upload()
 

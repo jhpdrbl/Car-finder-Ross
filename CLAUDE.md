@@ -1,7 +1,7 @@
 # CLAUDE.md: handoff notes for the CPO SUV Finder
 
 Read this first. It is the state of the project and how to operate it. The user's own laptop
-instructions (and the prompts they'll paste) are in `LAPTOP-HANDOVER.md`. `README.md` is the
+instructions are in `LAPTOP.md` (they run it themselves; `LAPTOP-HANDOVER.md` is the older Claude-runs-it route). `README.md` is the
 technical reference, `SETUP-WINDOWS.md` is the user's step-by-step guide, and
 `car-scraper-spec.md` is the original spec (criteria are now in `config.yaml`, which wins
 where they differ; see "Decisions" below).
@@ -94,6 +94,14 @@ each buyer evaluates a deep copy of the listing).
   `fav:default`; if Access is ever added, they carry over to the signed-in email on first load.
 
 ## Operating it
+
+**How the user runs it (decided Oct 19 2026): by themselves, the same way on the laptop as on the iPad.**
+`LAPTOP.md`: Python from python.org, the project downloaded as a zip to `$HOME\Car-finder-Ross` (no git clone, no
+`.venv`), `pip install -r requirements.txt` + Playwright, then `python ipad.py` (own GitHub token in `.github_token`).
+On Windows `ipad.py` (`LAPTOP = os.name == "nt"`) keeps the SQLite cache and 24 workers, pip-installs requirements
+after updating, and commits "Results from laptop run". `scheduled-refresh.bat` runs `ipad.py` when the folder has no
+`.git` (one line, so a self-update can't corrupt the running .bat; `ipad.update` skips unchanged files). The Claude-on-
+the-laptop route below still works for a git clone, but the user no longer needs Claude to run the refresh.
 
 ### If you are a Claude session ON THE LAPTOP (Windows): the main way this gets run
 

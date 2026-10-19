@@ -15,13 +15,23 @@ if errorlevel 1 (
   exit /b 0
 )
 echo %date% %time% > logs\running.lock
+set PY=python
+if exist .venv\Scripts\python.exe set PY=.venv\Scripts\python
+
+REM No git copy (set up as in LAPTOP.md): ipad.py gets the latest version, searches and uploads.
+REM Kept on one line so cmd doesn't read the rest of this file while ipad.py may update it.
+if exist .git goto gitflow
+echo === %date% %time% get the latest version, search, upload (ipad.py) === >> "%LOG%"
+"%PY%" ipad.py >> "%LOG%" 2>&1 & goto ipaddone
+
+:gitflow
 
 echo === %date% %time% get the latest version === >> "%LOG%"
 git pull --no-edit >> "%LOG%" 2>&1
-".venv\Scripts\python" -m pip install -q -r requirements.txt >> "%LOG%" 2>&1
+"%PY%" -m pip install -q -r requirements.txt >> "%LOG%" 2>&1
 
 echo === %date% %time% search === >> "%LOG%"
-".venv\Scripts\python" run.py refresh >> "%LOG%" 2>&1
+"%PY%" run.py refresh >> "%LOG%" 2>&1
 set RESULT=%errorlevel%
 
 if "%RESULT%"=="0" (
@@ -35,5 +45,11 @@ if "%RESULT%"=="0" (
 ) else (
   echo SEARCH FAILED with code %RESULT%; nothing published >> "%LOG%"
 )
+del logs\running.lock
+exit /b %RESULT%
+
+:ipaddone
+set RESULT=%errorlevel%
+if "%RESULT%"=="0" (echo done >> "%LOG%") else (echo SEARCH OR UPLOAD FAILED with code %RESULT% >> "%LOG%")
 del logs\running.lock
 exit /b %RESULT%
