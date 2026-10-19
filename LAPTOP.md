@@ -59,10 +59,11 @@ python -m playwright install chromium
 cd $HOME\Car-finder-Ross
 ```
 ```
-python ipad.py
+python search.py
 ```
 
-(Yes, the same script as the iPad; it notices it's on the laptop.)
+(It's the same script as on the iPad, but on the laptop it does more: it uses the browser add-on for the
+dealer sites that need one, reads twice as many dealers at once, and keeps a page cache so later runs are faster.)
 
 - The first time, it asks you to **paste the GitHub key** from step 3 (right-click pastes; you won't
   see it, that's on purpose). Press **Enter**. It won't ask again.
@@ -78,7 +79,7 @@ Open PowerShell, then:
 cd $HOME\Car-finder-Ross
 ```
 ```
-python ipad.py
+python search.py
 ```
 
 ## Automatic search every morning (optional)
@@ -99,7 +100,7 @@ Enable). Each run writes a log in the `logs` folder. To turn it off:
 
 - **Lots of dealers "blocked"**: check the VPN is off and you're on home Wi-Fi.
 - **"Upload refused"**: the key is wrong or missing the Contents permission. Type `del .github_token`,
-  make a new key (step 3), and run `python ipad.py` again.
-- **Upload failed for another reason** (Wi-Fi dropped): `python ipad.py upload` retries just the upload.
-- **It stopped halfway** (the laptop slept): run `python ipad.py` again.
+  make a new key (step 3), and run `python search.py` again.
+- **Upload failed for another reason** (Wi-Fi dropped): `python search.py upload` retries just the upload.
+- **It stopped halfway** (the laptop slept): run `python search.py` again.
 - **Anything else**: screenshot the window and show it to Claude.

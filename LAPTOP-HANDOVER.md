@@ -1,7 +1,7 @@
 # Running the CPO SUV Finder with Claude Code on the laptop
 
 > **You don't need this any more.** Since Oct 19 2026 you run the search yourself, like on the iPad:
-> see **[LAPTOP.md](LAPTOP.md)** (`python ipad.py`). This page is only the alternative of letting
+> see **[LAPTOP.md](LAPTOP.md)** (`python search.py`). This page is only the alternative of letting
 > Claude Code on the laptop do it for you.
 
 You won't type commands. Claude Code on the laptop runs everything; you click **Allow** when it asks.

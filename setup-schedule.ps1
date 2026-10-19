@@ -22,7 +22,7 @@ if (-not (Test-Path (Join-Path $here ".venv\Scripts\python.exe")) -and -not (Get
   throw "Python isn't installed yet. See LAPTOP.md, step 1."
 }
 if (-not (Test-Path (Join-Path $here ".git")) -and -not (Test-Path (Join-Path $here ".github_token"))) {
-  throw "Run 'python ipad.py' once first (it saves your GitHub key). See LAPTOP.md, step 4."
+  throw "Run 'python search.py' once first (it saves your GitHub key). See LAPTOP.md, step 4."
 }
 
 $user = "$env:USERDOMAIN\$env:USERNAME"

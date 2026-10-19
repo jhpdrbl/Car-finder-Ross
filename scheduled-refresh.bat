@@ -18,11 +18,11 @@ echo %date% %time% > logs\running.lock
 set PY=python
 if exist .venv\Scripts\python.exe set PY=.venv\Scripts\python
 
-REM No git copy (set up as in LAPTOP.md): ipad.py gets the latest version, searches and uploads.
-REM Kept on one line so cmd doesn't read the rest of this file while ipad.py may update it.
+REM No git copy (set up as in LAPTOP.md): search.py gets the latest version, searches and uploads.
+REM Kept on one line so cmd doesn't read the rest of this file while search.py may update it.
 if exist .git goto gitflow
-echo === %date% %time% get the latest version, search, upload (ipad.py) === >> "%LOG%"
-"%PY%" ipad.py >> "%LOG%" 2>&1 & goto ipaddone
+echo === %date% %time% get the latest version, search, upload (search.py) === >> "%LOG%"
+"%PY%" search.py >> "%LOG%" 2>&1 & goto ipaddone
 
 :gitflow
 

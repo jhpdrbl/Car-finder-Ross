@@ -106,7 +106,7 @@ class Fetcher:
     def __init__(self, cache_name: str = ".cache/http", use_cache: bool = True):
         (ROOT / ".cache").mkdir(exist_ok=True)
         if use_cache:
-            # CARFINDER_CACHE=memory (set by ipad.py): on the iPad (a-Shell) the SQLite cache deadlocks
+            # CARFINDER_CACHE=memory (set by search.py): on the iPad (a-Shell) the SQLite cache deadlocks
             # when many threads share it, so pages are kept in memory for the run instead.
             self.session = requests_cache.CachedSession(
                 str(ROOT / cache_name),

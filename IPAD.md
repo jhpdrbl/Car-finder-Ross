@@ -57,7 +57,7 @@ In a-Shell (if you just did steps 1–3, you're already in the right folder):
 cd ~/Documents/Car-finder-Ross
 ```
 ```
-python ipad.py
+python search.py
 ```
 
 - The first time, it asks you to **paste the GitHub key** from step 3. Paste it and press return.
@@ -74,17 +74,20 @@ Open a-Shell, then:
 cd ~/Documents/Car-finder-Ross
 ```
 ```
-python ipad.py
+python search.py
 ```
+
+(`search.py` used to be called `ipad.py`. If a-Shell says it can't find `search.py`, type `python ipad.py`
+once; that gets the new version, and `python search.py` works from then on.)
 
 Keep the iPad plugged in, and set **Settings → Display & Brightness → Auto-Lock → Never** while
 it runs (set it back afterwards if you like).
 
 ## If something goes wrong
 
-- **It stopped halfway** (the screen locked, or you switched apps): just run `python ipad.py` again.
+- **It stopped halfway** (the screen locked, or you switched apps): just run `python search.py` again.
 - **"Upload refused"**: the key is wrong or missing the Contents permission. Type `rm .github_token`,
-  make a new key (step 3), and run `python ipad.py` again (it asks for the new key).
-- **Upload failed for another reason** (e.g. Wi-Fi dropped): run `python ipad.py upload` to retry
+  make a new key (step 3), and run `python search.py` again (it asks for the new key).
+- **Upload failed for another reason** (e.g. Wi-Fi dropped): run `python search.py upload` to retry
   just the upload.
 - **Anything else**: screenshot a-Shell and show it to Claude.

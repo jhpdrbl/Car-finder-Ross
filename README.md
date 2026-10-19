@@ -73,7 +73,7 @@ python run.py diagnose --brand Audi         # how dealer sites look from this ma
 python run.py diagnose --platform dealer_inspire | --dealer "Audi Pasadena"
 python run.py dealers [--refresh-raw] [--detect]   # rebuild data/dealers.csv
 python -m tools.build_site                  # build site/ locally (what the publish workflow deploys)
-python ipad.py                              # iPad (a-Shell) or Windows laptop without git: update, search, upload via GitHub API (IPAD.md, LAPTOP.md)
+python search.py                              # iPad (a-Shell) or Windows laptop without git: update, search, upload via GitHub API (IPAD.md, LAPTOP.md)
 powershell -ExecutionPolicy Bypass -File setup-schedule.ps1 [-Time 06:30] [-Remove]   # laptop: automatic daily search
 ```
 
