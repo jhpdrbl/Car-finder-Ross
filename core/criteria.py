@@ -234,6 +234,22 @@ def body_kind(L: Listing, d: dict) -> str:
     return "SUV"
 
 
+def _sedan_fuels(sedans: dict) -> str:
+    need = sedans.get("hybrid_min_mpg")
+    return " / ".join(FUEL_WORDS.get(f, f) + (f" with {need}+ mpg" if f == "hybrid" and need else "") for f in sedans.get("fuels", []))
+
+
+def _hybrid_sedan_mpg(L: Listing, sedans: dict, fails: list, unknown: list) -> None:
+    """A regular-hybrid sedan must average at least `hybrid_min_mpg` (Ross: 40, EPA combined or the listing's)."""
+    need = sedans.get("hybrid_min_mpg")
+    if L.fuel_type != "hybrid" or not need:
+        return
+    if not L.mpg_combined:
+        unknown.append(f"hybrid sedan: mpg not found; confirm it averages {need}+ mpg")
+    elif float(L.mpg_combined) < need:
+        fails.append(f"hybrid sedan averages {float(L.mpg_combined):.0f} mpg (needs {need}+)")
+
+
 FUEL_WORDS = {"gas": "gas", "hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "electric"}
 NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
 NAME_AWD = re.compile(r"\b(awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac)\b|all[- ]wheel|four[- ]wheel|4motion")
@@ -315,10 +331,14 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         if not (sedans and sedan_body):
             fails.append(f"body: {d.get('BodyClass')}")
         elif L.fuel_type not in sedans.get("fuels", []):
-            fails.append(f"{L.fuel_type or 'gas'} sedan (sedans only as {' / '.join(FUEL_WORDS.get(f, f) for f in sedans.get('fuels', []))})")
+            fails.append(f"{L.fuel_type or 'gas'} sedan (sedans only as {_sedan_fuels(sedans)})")
+        else:
+            _hybrid_sedan_mpg(L, sedans, fails, unknown)
+    elif not body and sedan_name and L.fuel_type in sedans.get("fuels", []):
+        _hybrid_sedan_mpg(L, sedans, fails, unknown)
     elif not body and sedan_name and L.fuel_type not in sedans.get("fuels", []):
         if L.fuel_type:
-            fails.append(f"{L.fuel_type} sedan (sedans only as {' / '.join(FUEL_WORDS.get(f, f) for f in sedans.get('fuels', []))})")
+            fails.append(f"{L.fuel_type} sedan (sedans only as {_sedan_fuels(sedans)})")
         else:
             unknown.append("sedan: confirm it's a plug-in hybrid or electric")
 

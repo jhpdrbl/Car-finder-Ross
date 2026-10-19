@@ -32,8 +32,9 @@ filters:
     doc_fee: 85               # California dealer doc-fee cap
     other_fees: 100           # electronic filing etc.
   sunroof_required: true
-  sedans:                     # plug-in hybrid / electric sedans, 3 Series / A5 to 5 Series size, AWD (user, Oct 19 2026)
-    fuels: [phev, ev]
+  sedans:                     # plug-in hybrid / electric sedans (and hybrids with 40+ mpg), 3 Series / A5 to 5 Series size, AWD (user, Oct 19 2026)
+    fuels: [phev, ev, hybrid]
+    hybrid_min_mpg: 40        # regular hybrid sedans only if they average 40+ mpg (EPA combined; user, Oct 19 2026)
     # sedan model names, for cars whose VIN record has no body type (gas sedans are excluded)
     models: '\b[35] series\b|\b[35][35]0e\b|\bi[45]\b|\beqe\b(?!.*suv)|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|e-?tron gt|\b[as]6\b.*e-?tron|\bes ?\d{3}|\bs[69]0\b'
   exterior_colors:

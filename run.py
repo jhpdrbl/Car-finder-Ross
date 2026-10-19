@@ -108,6 +108,8 @@ def refresh(args) -> None:
             L.seats = seat_material(" ".join(L.features), L.int_color)
         msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
         L.body = criteria.body_kind(L, d)          # "SUV" / "Sedan" (dashboard filter)
+        if L.body == "Sedan" and L.fuel_type == "hybrid" and not L.mpg_combined:
+            fill_mpg(L)                            # hybrid sedans must average 40+ mpg (filters.sedans.hybrid_min_mpg)
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
     for brand, st in feed_stats.items():
         if st["status"] == "success":
