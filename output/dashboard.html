@@ -37,6 +37,7 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .range { display:grid; grid-template-columns:auto minmax(0,1fr); gap:4px 10px; align-items:center; flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; }
 .range input[type=range] { width:100%; min-width:0; margin:0; box-sizing:border-box; accent-color:var(--accent); min-height:28px; }
 .range .rv { font-variant-numeric:tabular-nums; min-width:3.2em; }
+#f-price legend, #f-miles legend { width:100%; }   /* slider rows: label on its own line, like Price */
 .group legend { float:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-right:6px; padding:0; min-width:56px; }
 .pill { position:relative; }
 .pill input { position:absolute; opacity:0; width:1px; height:1px; }
@@ -202,6 +203,9 @@ td.warr { min-width:190px; font-size:13px; }
   <fieldset class="group" id="f-price"><legend>Price (with fees)</legend>
     <div class="range"><span class="small">From <b class="rv" id="pmin-v"></b></span><input type="range" id="pmin" aria-label="Lowest price">
     <span class="small">Up to <b class="rv" id="pmax-v"></b></span><input type="range" id="pmax" aria-label="Highest price"></div></fieldset>
+  <fieldset class="group" id="f-miles"><legend>Miles</legend>
+    <div class="range"><span class="small">From <b class="rv" id="mmin-v"></b></span><input type="range" id="mmin" aria-label="Fewest miles">
+    <span class="small">Up to <b class="rv" id="mmax-v"></b></span><input type="range" id="mmax" aria-label="Most miles"></div></fieldset>
   <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
@@ -308,7 +312,18 @@ function showPrice() {
   if (+pmin.value > +pmax.value) { if (document.activeElement === pmin) pmax.value = pmin.value; else pmin.value = pmax.value; }
   document.getElementById("pmin-v").textContent = fmt$(pmin.value);
   document.getElementById("pmax-v").textContent = fmt$(pmax.value); }
-resetPrice();
+// mileage sliders: 1,000-mile steps
+const MILES = D.cars.map(c => num(c.mileage)).filter(v => v != null);
+const M_LO = MILES.length ? Math.floor(Math.min(...MILES) / 1000) * 1000 : 0, M_HI = MILES.length ? Math.ceil(Math.max(...MILES) / 1000) * 1000 : 40000;
+const mmin = document.getElementById("mmin"), mmax = document.getElementById("mmax");
+[mmin, mmax].forEach(el => { el.min = M_LO; el.max = M_HI; el.step = 1000; });
+const fmtMi = v => Math.round(num(v)).toLocaleString() + " mi";
+function showMiles() {
+  if (+mmin.value > +mmax.value) { if (document.activeElement === mmin) mmax.value = mmin.value; else mmin.value = mmax.value; }
+  document.getElementById("mmin-v").textContent = fmtMi(mmin.value);
+  document.getElementById("mmax-v").textContent = fmtMi(mmax.value); }
+const resetMiles = () => { mmin.value = M_LO; mmax.value = M_HI; showMiles(); };
+resetPrice(); resetMiles();
 pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
@@ -688,10 +703,12 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
 function render() { renderRows(); stickHeads(); }
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"),
-        lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI;
+        lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
+        mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
                     && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"))
-                    && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi));
+                    && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
+                    && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
   const onlyNew = document.getElementById("only-new").checked;
   let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
@@ -782,9 +799,10 @@ document.getElementById("sort-g").addEventListener("change", e => { const [k, d]
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
 ["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
+[mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
-  document.getElementById("q").value = ""; resetPrice(); render(); });
+  document.getElementById("q").value = ""; resetPrice(); resetMiles(); render(); });
 render();
 stickHeads();
 
