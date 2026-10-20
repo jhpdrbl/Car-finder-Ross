@@ -93,6 +93,7 @@ class Listing:
     def to_dict(self) -> dict:
         d = asdict(self)
         d["features"] = "; ".join(self.features[:80])
+        d["page_features"] = len(self.features) or ""     # how complete the dealer's equipment list was
         return d
 
 

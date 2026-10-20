@@ -215,6 +215,8 @@ def evaluate_row(L0, dealer: dict, d: dict, listings, excluded: dict, confirmed:
     from core import criteria, pipeline
     from verify import recalls
     L = copy.deepcopy(L0)          # each buyer's rules fill in their own copy
+    if (not L.trim or re.fullmatch(r"[A-Z]{2,4}", L.trim)) and d.get("Trim"):
+        L.trim = d["Trim"]             # no trim on the listing, or only a code (Mazda's feed: "PPT") -> the VIN decoder's
     apply_confirmed(L, confirmed.get(L.vin.upper()))
     fails, unknown, notes = criteria.evaluate(L, d, dealer, listings, excluded)
     loc = pipeline.location_check(L)

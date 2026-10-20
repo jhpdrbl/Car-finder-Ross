@@ -466,7 +466,8 @@ MAZDA = "https://www.mazdausa.com"
 MAZDA_ZIPS = ("90039", "92701", "91761", "93030", "91355")     # LA, Santa Ana, Ontario, Oxnard, Valencia: Mazda's radius is by driving
 MAZDA_TRIMS = {"PP": "Premium Plus", "PR": "Premium", "PF": "Preferred", "SE": "Select", "CE": "Carbon Edition",
                "MR": "Meridian", "SG": "Signature", "TS": "Turbo Signature", "SPR": "S Premium", "SPP": "S Premium Plus",
-               "BS": "Base", "PS": "Preferred", "CT": "Carbon Turbo", "TP": "Turbo Premium", "TPP": "Turbo Premium Plus"}
+               "BS": "Base", "PS": "Preferred", "CT": "Carbon Turbo", "TP": "Turbo Premium", "TPP": "Turbo Premium Plus",
+               "PPT": "Turbo Premium Plus", "PRT": "Turbo Premium", "SGT": "Turbo Signature", "CET": "Carbon Turbo"}
 
 
 def mazda() -> tuple[list[Listing], dict]:

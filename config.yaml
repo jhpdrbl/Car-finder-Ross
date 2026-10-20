@@ -46,7 +46,7 @@ filters:
               "manhattan", "ebony", "jet", "nebula", "smoke", "tungsten", "anthracite",
               "storm", "asphalt", "steel", "cement", "lunar", "magnetite", "iridium",
               "selenite", "titanium", "ash", grigio, nero, "verde fangio", "verde montreal"]   # Alfa: grigio = gray, nero = black, Verde Fangio/Montreal = dark greens   # list reviewed per-run in fail_reasons
-    exclude: [silver, white, pearl white, beige, blue, red, matte, frozen, glacier, ivory,
+    exclude: [silver, white, pearl white, wind chill, beige, blue, red, matte, frozen, glacier, ivory,
               cream, champagne, bronze, orange, yellow, brown, copper, gold, tan,
               sage, mint, lime, seafoam, pistachio, snowfall, rosso, giallo, bianco, "tiger eye"]   # light greens (user, Oct 19 2026: "Sage green is not dark green")
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded

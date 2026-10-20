@@ -336,7 +336,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
-                                               "msrp_new", "msrp_source", "body")}
+                                               "msrp_new", "msrp_source", "body", "page_features")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run})
     ok = sum(c["status"] == "success" for c in cov)
@@ -713,7 +713,10 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
 const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electric"};
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
-D.cars.concat(D.gone).forEach(c => { c.title = [c.year, c.make, c.model, c.trim].filter(Boolean).join(" ");
+const squash = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+D.cars.concat(D.gone).forEach(c => {   // "EQB 300" + trim "EQB 300 4MATIC" -> "EQB 300 4MATIC", not the model twice
+  const dup = c.model && c.trim && squash(c.trim).startsWith(squash(c.model));
+  c.title = [c.year, c.make, dup ? "" : c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
   c.roof = c.sunroof === "True" ? "Yes" : c.sunroof === "False" ? "No" : "Not sure";
   c.fuel = FUEL[c.fuel_type] || "?"; });
@@ -1070,6 +1073,9 @@ function toggleCmp(vin) {
 }
 document.addEventListener("click", e => { const b = e.target.closest(".cmpbtn"); if (b) toggleCmp(b.dataset.vin);
   const r = e.target.closest(".rm[data-vin]"); if (r) toggleCmp(r.dataset.vin); });
+// the grade part of a trim name: "40 TFSI Premium quattro" and "2.5 S Premium Plus Package" -> premium / premium plus
+const gradeWords = name => trimWords(name).filter(w => !/^(\d[\d.]*[a-z]*|tfsi|tdi|tsi|s|line|turbo|t|quattro|package|pkg|sport|utility|4d|awd)$/.test(w));
+const sameWords = (a, b) => a.length === b.length && a.every(w => b.includes(w));
 const trimWords = name => String(name || "").toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
 const SOUND_BRANDS = /harman|kardon|bang|olufsen|b&o|lexicon|burmester|bowers|mark levinson|bose|sonos|meridian|jbl|els studio|revel|krell|premium sound|premium audio/i;
 function soundCall(pa) {   // a Trim guide premium_audio line -> {v, t}
@@ -1088,9 +1094,13 @@ function guideCall(c, call) {   // what the Trim guide says for this car: its ma
   const m = guideFor(c), y = m && (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
   // the dealer's trim name is shorter than the guide's ("Premium Plus" vs "2.5 S Premium Plus Package"), or missing:
   // use every trim it could be, but only when they all say the same thing
-  const mine = trimWords(c.trim);
-  const calls = (y.trims || []).filter(t => t.on_list !== false || !mine.length)
-    .filter(t => mine.every(w => (" " + trimWords(t.name).join(" ") + " ").includes(" " + w + " "))).map(call);
+  const model = trimWords(m.model), gw = n => gradeWords(n).filter(w => !model.includes(w));
+  const mine = trimWords(c.trim), grade = gw(c.trim);
+  // same grade first ("Premium" = "Q3 40 TFSI Premium" and "45 S line Premium", not "Premium Plus"), else every trim containing its words
+  let pick = grade.length ? (y.trims || []).filter(t => sameWords(gw(t.name), grade)) : [];
+  if (!pick.length) pick = (y.trims || []).filter(t => t.on_list !== false || !mine.length)
+    .filter(t => mine.every(w => (" " + trimWords(t.name).join(" ") + " ").includes(" " + w + " ")));
+  const calls = pick.map(call);
   if (!calls.length || !calls.every(x => x.v === calls[0].v) || calls[0].v === "Not sure") return null;
   const why = mine.length ? "standard on this trim" : "standard on every trim of this model";
   return calls.every(x => x.t === calls[0].t) && mine.length ? calls[0] : {v: calls[0].v, t: calls[0].v === "Yes" ? why : ""};
@@ -1112,22 +1122,38 @@ function seatOf(c) {       // seat material: the dealer's page, else what the Tr
   const r = SEAT_WORD[c.seats] ? {v: SEAT_WORD[c.seats], t: ""} : guideCall(c, seatCall) || {v: "Not sure", t: ""};
   c.seat = r.v; return c._seat = r;
 }
+function roofFromGuide(c) {   // like soundFromGuide: optional + a full equipment list that never mentions a roof = no roof
+  const r = guideCall(c, t => { const x = roofCall(t); return x.v === "Not sure" && x.t ? {v: "Optional", t: ""} : x; });
+  if (r && r.v !== "Optional") return r;
+  if (r && num(c.page_features) >= 25) return {v: "No", t: "not on the dealer's equipment list"};
+  return {v: "Not sure", t: r ? "optional on this trim" : ""};
+}
 function roofOf(c) {       // sunroof: the dealer's page / brand feed / your check, else the Trim guide
   if (c._roof) return c._roof;
   const r = c.sunroof === "True" ? {v: "Yes", t: ""} : c.sunroof === "False" ? {v: "No", t: ""}
-          : guideCall(c, roofCall) || {v: "Not sure", t: ""};
+          : roofFromGuide(c);
   c.roof = r.v; return c._roof = r;
+}
+function soundFromGuide(c) {
+  const r = guideCall(c, t => { const x = soundCall(t.premium_audio);
+    return x.v === "Not sure" && /optional|package|available/i.test(String(t.premium_audio || "")) ? {v: "Optional", t: ""} : x; });
+  if (r && r.v !== "Optional") return r;
+  // optional on this trim: a dealer page with a full equipment list names the system when the car has it
+  if (r && num(c.page_features) >= 25) return {v: "No", t: "not on the dealer's equipment list"};
+  return {v: "Not sure", t: r ? "optional on this trim" : ""};
 }
 function soundOf(c) {      // upgraded sound: the dealer's page names the system, else what the Trim guide says for this trim
   if (c._snd) return c._snd;
   const r = c.audio ? {v: "Yes", t: c.audio} : c.audio_none ? {v: "No", t: "checked by you: no premium system"}
-          : guideCall(c, t => soundCall(t.premium_audio)) || {v: "Not sure", t: ""};
+          : soundFromGuide(c);
   c.snd = r.v; return c._snd = r;
 }
 function trimInfo(c) {      // this car's trim card in the Trim guide, when the trim name matches well enough
   const m = guideFor(c); if (!m) return null;
   const y = (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
-  const title = (" " + c.title + " ").toLowerCase().replace(/-/g, " ");     // "X-Line" = "x line"
+  // the car's name plus the words in its web address, which often name the trim (".../2023-Toyota-bZ4X-XLE-JTM...")
+  const slug = decodeURIComponent(String(c.listing_url || "").split("?")[0]).split("/").slice(3).join(" ").replace(/[_+.]/g, " ");
+  const title = (" " + c.title + " " + slug + " ").toLowerCase().replace(/-/g, " ");     // "X-Line" = "x line"
   let best = null, bestScore = 0, bestN = 0;
   (y.trims || []).forEach(t => {
     const words = trimWords(t.name);

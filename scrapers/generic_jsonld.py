@@ -194,6 +194,22 @@ DATA_ATTRS = {"odometer": "mileage", "mileage": "mileage", "extcolor": "ext_colo
               "stock": "stock"}
 
 
+BAD_TRIM = re.compile(r"backlight|lighting|\bwood\b|aluminum|carbon fiber|piano black|^\s*(?:n/?a|none)\s*$", re.I)
+
+
+def _json_trim(html: str, vin: str) -> str:
+    """The trim in the page's own data for this VIN, e.g. Dealer.com's {"vin":"WA1...","trim":"Premium Plus"}
+    (the closest "trim" to the VIN; other cars' carousels on the same page are farther away)."""
+    best, dist = "", 10 ** 9
+    for m in re.finditer(rf'"vin"\s*:\s*"{vin}"', html, re.I):
+        lo = max(0, m.start() - 1500)
+        for t in re.finditer(r'"(?:trim|vehicleConfiguration)"\s*:\s*"([^"\[\]{}]{1,40})"', html[lo:m.end() + 1500], re.I):
+            val, d = t.group(1).strip(), abs(lo + t.start() - m.start())
+            if val and val.lower() != "trim" and d < dist:
+                best, dist = val, d
+    return best
+
+
 def _data_attrs(html: str, vin: str) -> dict[str, str]:
     """Platform tagging attributes, e.g. DealerOn's data-odometer / data-extcolor on the VDP container."""
     out: dict[str, str] = {}
@@ -210,7 +226,8 @@ SUNROOF = re.compile(r"(sun ?roof|moon ?roof|panoramic (?:glass )?roof|panorama 
                      r"removable hard ?top|panoramic sunroof|vista roof|power tilt/slide)", re.I)
 NO_SUNROOF = re.compile(r"(no (?:sun|moon) ?roof|without (?:sun|moon) ?roof|sunroof delete)", re.I)
 AUDIO = re.compile(r"(bang\s*&\s*olufsen|bang and olufsen|\bb&o\b|lexicon|harman[\s/-]*kardon|burmester|"
-                   r"bowers\s*(?:&|and)\s*wilkins|mark levinson)", re.I)
+                   r"bowers\s*(?:&|and)\s*wilkins|mark levinson|\bsonos\b|\bbose\b|meridian (?:surround|premium|audio|sound)|"
+                   r"\bjbl\b|\bkrell\b|\brevel\b (?:premium|audio|sound)|els studio)", re.I)
 _FAKE = (r"(?:leatherette|mb-?tex|sensatec|startex|softex|synthetic leather|vegan leather|nuluxe|artificial leather|"
          r"leather-?like|simulated leather|faux leather|vernasca|leather-?appointed synthetic)")
 _SEAT = r"(?:seat|seats|seating|upholster\w*)"
@@ -361,7 +378,9 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     L.ext_color = L.ext_color or da.get("ext_color", "")
     L.int_color = L.int_color or da.get("int_color", "")
     L.mileage = L.mileage if L.mileage is not None else integer(da.get("mileage"))
-    L.trim = L.trim or da.get("trim", "")
+    if BAD_TRIM.search(L.trim):
+        L.trim = ""                  # a features line read as the trim ("Trim: backlighting")
+    L.trim = L.trim or da.get("trim", "") or _json_trim(html, vin)
     L.drivetrain = L.drivetrain or classify_drivetrain(da.get("drivetrain", ""))
     if L.price is None and da.get("price") and (money(da["price"]) or 0) >= 3000:
         L.price = money(da["price"])
