@@ -1,0 +1,1985 @@
+{
+ "clearance": [
+  {
+   "make": "Genesis",
+   "model": "Electrified GV70",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 6.9,
+   "source": "caranddriver.com (Genesis figure not found)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV70",
+   "trim_regex": "^(?!.*electrified)",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 7.3,
+   "source": "Genesis spec sheets (MY22, 2026)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV80",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.1,
+   "source": "Genesis spec sheets (MY22, 2026)"
+  },
+  {
+   "make": "Subaru",
+   "model": "Forester",
+   "trim_regex": "wilderness",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 9.2,
+   "source": "Subaru launch specs"
+  },
+  {
+   "make": "Subaru",
+   "model": "Forester",
+   "trim_regex": "wilderness",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 9.3,
+   "source": "media.subaru.com (2026 Wilderness)"
+  },
+  {
+   "make": "Subaru",
+   "model": "Forester",
+   "trim_regex": "hybrid",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 8.7,
+   "source": "media.subaru.com (Forester Hybrid)"
+  },
+  {
+   "make": "Subaru",
+   "model": "Forester",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.7,
+   "source": "Subaru specs / media.subaru.com"
+  },
+  {
+   "make": "Subaru",
+   "model": "Outback",
+   "trim_regex": "wilderness",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 9.5,
+   "source": "Subaru launch specs / media.subaru.com"
+  },
+  {
+   "make": "Subaru",
+   "model": "Outback",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.7,
+   "source": "Subaru specs / media.subaru.com"
+  },
+  {
+   "make": "Subaru",
+   "model": "Solterra",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.3,
+   "source": "media.subaru.com"
+  },
+  {
+   "make": "BMW",
+   "model": "X3",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 8.0,
+   "source": "BMW USA press kit (2022 X3)"
+  },
+  {
+   "make": "BMW",
+   "model": "X3",
+   "trim_regex": "m50",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 8.3,
+   "source": "BMW USA press kit (2025 X3)"
+  },
+  {
+   "make": "BMW",
+   "model": "X3",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 8.5,
+   "source": "BMW USA press kit (2025 X3 30 xDrive)"
+  },
+  {
+   "make": "BMW",
+   "model": "X5",
+   "trim_regex": "50e",
+   "from_year": 2024,
+   "to_year": 2026,
+   "inches": 8.3,
+   "source": "BMW USA press kit (2024 X5)"
+  },
+  {
+   "make": "BMW",
+   "model": "X5",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2026,
+   "inches": 8.7,
+   "source": "BMW USA press kit (2024 X5 40i/M60i)"
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "trim_regex": "m60",
+   "from_year": 2024,
+   "to_year": 2026,
+   "inches": 5.4,
+   "source": "BMW USA 5 Series spec sheet"
+  },
+  {
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim_regex": "trd ?pro|trailhunter",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 10.1,
+   "source": "Toyota 2025 4Runner guide"
+  },
+  {
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim_regex": "off[ -]?road",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 9.1,
+   "source": "Toyota 2025 4Runner guide"
+  },
+  {
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim_regex": "\\bsr5\\b",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 8.1,
+   "source": "Toyota 2025 4Runner guide"
+  },
+  {
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 8.8,
+   "source": "Toyota 2025 4Runner guide (TRD Sport/Limited/Platinum)"
+  },
+  {
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim_regex": "trd ?pro|off[ -]?road|40th",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 9.6,
+   "source": "toyota.com brochure 2023/2024"
+  },
+  {
+   "make": "Toyota",
+   "model": "4Runner",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 9.0,
+   "source": "toyota.com brochure 2023/2024"
+  },
+  {
+   "make": "Toyota",
+   "model": "Land Cruiser",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 8.7,
+   "source": "pressroom.toyota.com (up to 8.7)"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ4X",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 8.1,
+   "source": "toyota.com brochure 2023/2024"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ",
+   "trim_regex": "woodland",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.4,
+   "source": "pressroom.toyota.com"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.2,
+   "source": "pressroom.toyota.com (2026 bZ)"
+  },
+  {
+   "make": "Ford",
+   "model": "Bronco Sport",
+   "trim_regex": "badlands",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 8.8,
+   "source": "ford.com (Badlands w/ A/T tires)"
+  },
+  {
+   "make": "Ford",
+   "model": "Bronco Sport",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 7.8,
+   "source": "caranddriver.com (Ford figure not found)"
+  },
+  {
+   "make": "Ford",
+   "model": "Bronco",
+   "trim_regex": "raptor",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 13.1,
+   "source": "ford.com 2025 Bronco"
+  },
+  {
+   "make": "Ford",
+   "model": "Bronco",
+   "trim_regex": "sasquatch|wildtrak|everglades",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 11.5,
+   "source": "ford.com 2025 Bronco (4-door Sasquatch)"
+  },
+  {
+   "make": "Ford",
+   "model": "Bronco",
+   "trim_regex": "big bend|outer banks|\\bbase\\b",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 8.3,
+   "source": "caranddriver.com (4-door; Ford figure not found)"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "trim_regex": "\\bgt\\b",
+   "from_year": 2024,
+   "to_year": 2025,
+   "inches": 5.2,
+   "source": "caranddriver.com (Ford figure not found)"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "trim_regex": "^(?!.*rally)",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 5.7,
+   "source": "caranddriver.com (Ford figure not found)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "hybrid.*premium plus|premium plus.*hybrid",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 8.1,
+   "source": "Mazda spec deck 2025/2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "hybrid",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 7.8,
+   "source": "Mazda spec deck 2025/2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "meridian",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 8.5,
+   "source": "Mazda spec deck 2023-2025 (2.5 T Meridian)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "(turbo|2\\.5 ?t\\b).*meridian|meridian.*(turbo|2\\.5 ?t\\b)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.6,
+   "source": "Mazda spec deck 2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "meridian",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.3,
+   "source": "Mazda spec deck 2026 (2.5 S Meridian)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "premium plus",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.6,
+   "source": "Mazda spec deck 2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "turbo|2\\.5 ?t\\b",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.5,
+   "source": "Mazda spec deck 2026 (2.5 Turbo)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "premium",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.6,
+   "source": "Mazda spec deck 2026 (2.5 S Premium)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.3,
+   "source": "Mazda spec deck 2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "premium plus|turbo|2\\.5 ?t\\b",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 8.6,
+   "source": "Mazda spec deck 2023-2025"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-50",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 8.3,
+   "source": "Mazda spec deck 2023-2025"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-5",
+   "trim_regex": "turbo|2\\.5 ?t\\b|signature",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 7.9,
+   "source": "Mazda spec deck 2023-2025"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-5",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 7.6,
+   "source": "Mazda spec deck 2023-2025"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-5",
+   "trim_regex": "preferred|premium",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.2,
+   "source": "Mazda spec deck 2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-5",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 8.0,
+   "source": "Mazda spec deck 2026"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-70",
+   "trim_regex": "premium",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 8.1,
+   "source": "Mazda spec deck (21-in wheels)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-70",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 8.0,
+   "source": "Mazda spec deck (19-in wheels)"
+  },
+  {
+   "make": "Kia",
+   "model": "Sportage",
+   "trim_regex": "\\bfwd\\b",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 7.1,
+   "source": "kiamedia.com specs"
+  },
+  {
+   "make": "Kia",
+   "model": "Sportage",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.3,
+   "source": "kiamedia.com specs (AWD, gas/HEV/PHEV)"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 6.1,
+   "source": "kiamedia.com specs"
+  },
+  {
+   "make": "Acura",
+   "model": "ZDX",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 7.0,
+   "source": "acuranews.com 2024 ZDX specs"
+  },
+  {
+   "make": "Acura",
+   "model": "RDX",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.2,
+   "source": "acuranews.com RDX specs 2023-2026"
+  },
+  {
+   "make": "Alfa Romeo",
+   "model": "Tonale",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.6,
+   "source": "Stellantis media 2024 Tonale specs"
+  },
+  {
+   "make": "Alfa Romeo",
+   "model": "Stelvio",
+   "trim_regex": "quadrifoglio",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 7.9,
+   "source": "Stellantis media 2024 Stelvio specs"
+  },
+  {
+   "make": "Alfa Romeo",
+   "model": "Stelvio",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 8.1,
+   "source": "Stellantis media 2024 Stelvio specs"
+  },
+  {
+   "make": "Volvo",
+   "model": "XC60",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 8.5,
+   "source": "caranddriver.com (Volvo figure not found)"
+  },
+  {
+   "make": "Volvo",
+   "model": "S60",
+   "trim_regex": "t8|recharge|plug",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 5.4,
+   "source": "caranddriver.com (Volvo figure not found)"
+  },
+  {
+   "make": "Lexus",
+   "model": "RZ",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2026,
+   "inches": 7.9,
+   "source": "caranddriver.com (Lexus figure not found)"
+  }
+ ],
+ "ev_range": [
+  {
+   "make": "Audi",
+   "model": "SQ6",
+   "fuel": "ev",
+   "trim_regex": "sportback",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 283,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "SQ6",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 275,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q6 e-tron",
+   "fuel": "ev",
+   "trim_regex": "sportback",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 319,
+   "source": "fueleconomy.gov (19-in; 305 on 20-in)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q6 e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 307,
+   "source": "fueleconomy.gov (19-in; 295 on 20-in)"
+  },
+  {
+   "make": "Audi",
+   "model": "SQ8",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 253,
+   "source": "fueleconomy.gov (20-in; 218 on 21/22-in)"
+  },
+  {
+   "make": "Audi",
+   "model": "SQ8",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 242,
+   "source": "fueleconomy.gov (20-in; 208 on 21/22-in)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q8 e-tron",
+   "fuel": "ev",
+   "trim_regex": "sportback.*ultra|ultra.*sportback",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 300,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q8 e-tron",
+   "fuel": "ev",
+   "trim_regex": "sportback",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 296,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q8 e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 285,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q8 e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 272,
+   "source": "fueleconomy.gov (20-in; 254 on 21-in)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "sportback.*\\b50\\b|\\b50\\b.*sportback",
+   "from_year": 2023,
+   "to_year": 2024,
+   "miles": 242,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "\\b55\\b",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 258,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "\\b55\\b",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 251,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "sportback",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 242,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "miles": 236,
+   "source": "fueleconomy.gov (50 quattro)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 258,
+   "source": "fueleconomy.gov (55 quattro)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 251,
+   "source": "fueleconomy.gov (55 quattro)"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "fuel": "ev",
+   "trim_regex": "\\brs\\b",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 232,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "fuel": "ev",
+   "trim_regex": "\\brs\\b",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 249,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "fuel": "ev",
+   "trim_regex": "\\brs\\b",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 278,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 238,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 249,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron GT",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 300,
+   "source": "fueleconomy.gov (S e-tron GT 20-in; 294 on 21-in)"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron",
+   "fuel": "ev",
+   "trim_regex": "e-tron s\\b(?!\\s*line).*sportback|e-tron s sportback",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 212,
+   "source": "fueleconomy.gov (e-tron S Sportback 20-in; 185 on 21/22)"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron",
+   "fuel": "ev",
+   "trim_regex": "e-tron s\\b(?!\\s*line)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 208,
+   "source": "fueleconomy.gov (e-tron S 20-in; 181 on 21/22)"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron",
+   "fuel": "ev",
+   "trim_regex": "sportback",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 225,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "e-tron",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 226,
+   "source": "fueleconomy.gov (2023 e-tron quattro, later Q8 e-tron)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q5",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 22,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Audi",
+   "model": "Q5",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 23,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "X5",
+   "fuel": "phev",
+   "trim_regex": "45e",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 31,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "X5",
+   "fuel": "phev",
+   "trim_regex": "50e",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 39,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "X5",
+   "fuel": "phev",
+   "trim_regex": "50e",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 40,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "330e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "miles": 20,
+   "source": "fueleconomy.gov (330e xDrive)"
+  },
+  {
+   "make": "BMW",
+   "model": "530e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 19,
+   "source": "fueleconomy.gov (530e xDrive)"
+  },
+  {
+   "make": "BMW",
+   "model": "550e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 34,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 278,
+   "source": "fueleconomy.gov (19-in; 232 on 20-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "m50",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 271,
+   "source": "fueleconomy.gov (19-in; 227 on 20-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "m50",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 269,
+   "source": "fueleconomy.gov (19-in; 227 on 20-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "m50",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 267,
+   "source": "fueleconomy.gov (19-in; 227 on 20-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?40",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 307,
+   "source": "fueleconomy.gov (18-in; 279 on 19-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?40",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 287,
+   "source": "fueleconomy.gov (18-in; 268 on 19-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 256,
+   "source": "fueleconomy.gov (19-in; 248/240 on 20/21-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 253,
+   "source": "fueleconomy.gov (19-in; 250/239 on 20/21-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 277,
+   "source": "fueleconomy.gov (19-in; 266/259 on 20/21-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?40",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 266,
+   "source": "fueleconomy.gov (19-in; 262/248 on 20/21-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i5",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?40",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 278,
+   "source": "fueleconomy.gov + BMW USA (19-in; 272/259 on 20/21-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 288,
+   "source": "fueleconomy.gov (21-in; 274 on 22-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 296,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "m60",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 284,
+   "source": "fueleconomy.gov (21-in; 285 on 22-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "m70",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 303,
+   "source": "fueleconomy.gov (21-in; 284/283 on 22/23-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?60",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 364,
+   "source": "fueleconomy.gov (20-in; 341/327/318 on 21/22/23-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?45",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 312,
+   "source": "fueleconomy.gov (20-in; 297/279/290 on 21/22/23-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?40",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 217,
+   "source": "fueleconomy.gov (211-219 by wheel)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?50",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 324,
+   "source": "fueleconomy.gov (20-in; 305/315 on 21/22-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?50",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 307,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "BMW",
+   "model": "iX",
+   "fuel": "ev",
+   "trim_regex": "xdrive ?50",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 309,
+   "source": "fueleconomy.gov (20-in; 303/302 on 21/22-in)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "GLC",
+   "fuel": "phev",
+   "trim_regex": "350e",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 54,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "GLE",
+   "fuel": "phev",
+   "trim_regex": "450e",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 50,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "E 53",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 43,
+   "source": "fueleconomy.gov (AMG E 53 Hybrid sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "E 53",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 44,
+   "source": "fueleconomy.gov (AMG E 53 Hybrid sedan; wagon 41)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "C 63",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 1,
+   "source": "fueleconomy.gov (EPA lists 1 mi)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "fuel": "ev",
+   "trim_regex": "350",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 207,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "fuel": "ev",
+   "trim_regex": "300",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 205,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*amg|amg.*suv",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 235,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*amg|amg.*suv",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 230,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*500|500.*suv",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 282,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*500|500.*suv",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 264,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*350|350.*suv",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 265,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*350|350.*suv",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 253,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*320|320.*suv",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 253,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "amg",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 230,
+   "source": "fueleconomy.gov (AMG EQE sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "amg",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 220,
+   "source": "fueleconomy.gov (AMG EQE sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "500",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 298,
+   "source": "fueleconomy.gov (sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "500",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 266,
+   "source": "fueleconomy.gov (sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "350",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 280,
+   "source": "fueleconomy.gov (sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "350",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 267,
+   "source": "fueleconomy.gov (sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "320",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 267,
+   "source": "fueleconomy.gov (sedan)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*580|580.*suv",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 285,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*580|580.*suv",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 330,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*580|580.*suv",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 317,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*450|450.*suv",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 285,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*450|450.*suv",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 330,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*450|450.*suv",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 312,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*550|550.*suv",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 317,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "suv.*400|400.*suv",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 312,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Genesis",
+   "model": "Electrified GV70",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 236,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Genesis",
+   "model": "Electrified GV70",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 263,
+   "source": "fueleconomy.gov (19-in; 243 on 20-in)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "performance",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 235,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "performance",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 252,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "advanced",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 248,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "advanced",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 264,
+   "source": "fueleconomy.gov (19-in; 248 on 20-in)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "advanced",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 248,
+   "source": "fueleconomy.gov (20-in)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "advanced",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 267,
+   "source": "fueleconomy.gov (20-in)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 264,
+   "source": "fueleconomy.gov (AWD 19-in)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 282,
+   "source": "fueleconomy.gov (AWD 19-in)"
+  },
+  {
+   "make": "Subaru",
+   "model": "Solterra",
+   "fuel": "ev",
+   "trim_regex": "limited|touring",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 222,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Subaru",
+   "model": "Solterra",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 228,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Subaru",
+   "model": "Solterra",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 227,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Subaru",
+   "model": "Solterra",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 288,
+   "source": "fueleconomy.gov (278 for \"20\" AWD version)"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ4X",
+   "fuel": "ev",
+   "trim_regex": "limited",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 222,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ4X",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 228,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ",
+   "fuel": "ev",
+   "trim_regex": "woodland",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 281,
+   "source": "fueleconomy.gov (235/60R18; 260 w/ 235/65R18)"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ",
+   "fuel": "ev",
+   "trim_regex": "limited",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 278,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Toyota",
+   "model": "bZ",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 288,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Volkswagen",
+   "model": "ID.4",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 255,
+   "source": "fueleconomy.gov (AWD Pro / Pro S)"
+  },
+  {
+   "make": "Volkswagen",
+   "model": "ID.4",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2026,
+   "miles": 263,
+   "source": "fueleconomy.gov (AWD Pro / Pro S)"
+  },
+  {
+   "make": "Lexus",
+   "model": "NX",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 37,
+   "source": "fueleconomy.gov (NX 450h+)"
+  },
+  {
+   "make": "Lexus",
+   "model": "RX",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 37,
+   "source": "fueleconomy.gov (RX 450h+)"
+  },
+  {
+   "make": "Lexus",
+   "model": "RZ",
+   "fuel": "ev",
+   "trim_regex": "550e",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 229,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Lexus",
+   "model": "RZ",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 220,
+   "source": "fueleconomy.gov (18-in; 196 on 20-in)"
+  },
+  {
+   "make": "Lexus",
+   "model": "RZ",
+   "fuel": "ev",
+   "trim_regex": "450e",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 264,
+   "source": "fueleconomy.gov (18-in; 257/228 on 20-in)"
+  },
+  {
+   "make": "Lexus",
+   "model": "ES",
+   "fuel": "ev",
+   "trim_regex": "500e",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 276,
+   "source": "fueleconomy.gov (19-in; 272 on 21-in)"
+  },
+  {
+   "make": "Volvo",
+   "model": "XC60",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "miles": 36,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Volvo",
+   "model": "S60",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 40,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Volvo",
+   "model": "S90",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 38,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Volvo",
+   "model": "S90",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 38,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "rally",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 265,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "rally",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 255,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "gt.*performance|performance.*gt",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 260,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "\\bgt\\b",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 270,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "\\bgt\\b",
+   "from_year": 2024,
+   "to_year": 2026,
+   "miles": 280,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "route 1|california",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 312,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "extended|\\ber\\b",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 290,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "extended|\\ber\\b",
+   "from_year": 2024,
+   "to_year": 2026,
+   "miles": 300,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 224,
+   "source": "fueleconomy.gov (Standard Range AWD)"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 230,
+   "source": "fueleconomy.gov (Standard Range AWD)"
+  },
+  {
+   "make": "Ford",
+   "model": "Mach-E",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 240,
+   "source": "fueleconomy.gov (Standard Range AWD)"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-70",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 26,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mazda",
+   "model": "CX-70",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 32,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Kia",
+   "model": "Sportage",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "miles": 34,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Kia",
+   "model": "Sportage",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 33,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "gt-?line",
+   "from_year": 2023,
+   "to_year": 2024,
+   "miles": 252,
+   "source": "fueleconomy.gov (Long Range AWD 20-in)"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "gt-?line",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 270,
+   "source": "fueleconomy.gov (Long Range AWD 20-in)"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "\\bgt\\b",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 206,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "\\bgt\\b",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 218,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "\\bgt\\b",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 231,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "miles": 282,
+   "source": "fueleconomy.gov (Long Range AWD 19-in, e.g. Wind)"
+  },
+  {
+   "make": "Kia",
+   "model": "EV6",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 295,
+   "source": "fueleconomy.gov (Long Range AWD 19-in, e.g. Wind)"
+  },
+  {
+   "make": "Acura",
+   "model": "ZDX",
+   "fuel": "ev",
+   "trim_regex": "type ?s",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 278,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Acura",
+   "model": "ZDX",
+   "fuel": "ev",
+   "trim_regex": "type ?s",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 296,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Acura",
+   "model": "ZDX",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 304,
+   "source": "fueleconomy.gov (A-Spec AWD)"
+  },
+  {
+   "make": "Acura",
+   "model": "ZDX",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 323,
+   "source": "fueleconomy.gov (AWD)"
+  },
+  {
+   "make": "Alfa Romeo",
+   "model": "Tonale",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 33,
+   "source": "fueleconomy.gov"
+  }
+ ]
+}
