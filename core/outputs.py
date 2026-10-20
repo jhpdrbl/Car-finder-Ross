@@ -483,7 +483,27 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .range { display:grid; grid-template-columns:auto minmax(0,1fr); gap:4px 10px; align-items:center; flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; }
 .range input[type=range] { width:100%; min-width:0; margin:0; box-sizing:border-box; accent-color:var(--accent); min-height:28px; }
 .range .rv { font-variant-numeric:tabular-nums; min-width:3.2em; }
-#f-price legend, #f-miles legend { width:100%; }   /* slider rows: label on its own line, like Price */
+#f-price legend, #f-miles legend, #f-clear legend, #f-erange legend { width:100%; }   /* slider rows: label on its own line */
+.layout { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; min-width:0; } .layout > * { min-width:0; }
+.content { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; min-width:0; } .content > * { min-width:0; }
+.fsec { padding:0; border:0; background:none; }
+.fsec > summary { font-size:13px; font-weight:700; cursor:pointer; padding:6px 0; color:var(--fg); }
+.fsec > .group { margin:2px 0 8px; }
+.hint { display:block; text-transform:none; letter-spacing:0; font-size:12px; }
+/* desktop: the filters live in a panel on the left that stays in view while the list scrolls */
+@media (min-width: 1100px) {
+  main { max-width:1560px; }
+  .layout { grid-template-columns:290px minmax(0,1fr); align-items:start; }
+  .layout:has(> .filters[hidden]) { grid-template-columns:minmax(0,1fr); }
+  .filters { position:sticky; top:12px; max-height:calc(100vh - 24px); overflow:auto; background:var(--surface);
+    border:1px solid var(--line); border-radius:10px; padding:12px 14px; gap:4px; align-content:start; }
+  .filters .controls input { flex:1 1 100%; } .filters .controls .clear { margin-left:auto; }
+  .fsec { border-top:1px solid var(--line); padding-top:4px; }
+  .fsec .group legend { float:none; display:block; width:100%; margin:0 0 4px; }
+  .range { max-width:none; flex-basis:100%; }
+  .pill > span { font-size:13px; padding:3px 9px; }
+  td.car { min-width:230px; }
+}
 .group legend { float:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-right:6px; padding:0; min-width:56px; }
 .pill { position:relative; }
 .pill input { position:absolute; opacity:0; width:1px; height:1px; }
@@ -640,36 +660,48 @@ __SCOREHELP__
   <button class="tab" role="tab" id="tab-check" aria-selected="false" aria-controls="panel-check"><span class="lg">Check yourself</span><span class="sh">Check</span><span class="n" id="ncheck">0</span></button>
   <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n">__NGONE__</span></button>
 </div>
-<div class="filters">
+<div class="layout">
+<aside class="filters" aria-label="Filters">
   <div class="cmpbar" id="cmpbar" hidden><span>Comparing <b id="cmpbar-n">0</b> cars</span>
     <button type="button" class="cbtn" id="cmpbar-view">View comparison</button>
     <button type="button" class="cbtn ghost" id="cmpbar-clear">Clear compare</button></div>
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
     <button class="clear" id="clear" type="button">Clear filters</button></div>
-  <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
-  <fieldset class="group" id="f-make"><legend>Make</legend></fieldset>
-  <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
-  <fieldset class="group" id="f-year"><legend>Model year</legend></fieldset>
-  <fieldset class="group" id="f-body"><legend>Body</legend></fieldset>
-  <fieldset class="group" id="f-roof"><legend>Sunroof</legend></fieldset>
-  <fieldset class="group" id="f-sound"><legend>Upgraded sound</legend></fieldset>
-  <fieldset class="group" id="f-seat"><legend>Seats</legend></fieldset>
-  <fieldset class="group" id="f-price"><legend>Price (with fees)</legend>
+  <details class="fsec" open><summary>Status &amp; your marks</summary>
+    <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
+    <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
+    <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
+  </details>
+  <details class="fsec" open><summary>The car</summary>
+    <fieldset class="group" id="f-make"><legend>Make</legend></fieldset>
+    <fieldset class="group" id="f-year"><legend>Model year</legend></fieldset>
+    <fieldset class="group" id="f-body"><legend>Body</legend></fieldset>
+    <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
+  </details>
+  <details class="fsec" open><summary>Price &amp; miles</summary>
+    <fieldset class="group" id="f-price"><legend>Price (with fees)</legend>
     <div class="range"><span class="small">From <b class="rv" id="pmin-v"></b></span><input type="range" id="pmin" aria-label="Lowest price">
     <span class="small">Up to <b class="rv" id="pmax-v"></b></span><input type="range" id="pmax" aria-label="Highest price"></div></fieldset>
-  <fieldset class="group" id="f-miles"><legend>Miles</legend>
+    <fieldset class="group" id="f-miles"><legend>Miles</legend>
     <div class="range"><span class="small">From <b class="rv" id="mmin-v"></b></span><input type="range" id="mmin" aria-label="Fewest miles">
     <span class="small">Up to <b class="rv" id="mmax-v"></b></span><input type="range" id="mmax" aria-label="Most miles"></div></fieldset>
-  <fieldset class="group" id="f-clear"><legend>Ground clearance</legend>
+  </details>
+  <details class="fsec" open><summary>Features</summary>
+    <fieldset class="group" id="f-roof"><legend>Sunroof</legend></fieldset>
+    <fieldset class="group" id="f-sound"><legend>Upgraded sound</legend></fieldset>
+    <fieldset class="group" id="f-seat"><legend>Seats</legend></fieldset>
+  </details>
+  <details class="fsec" open><summary>Size &amp; range</summary>
+    <fieldset class="group" id="f-clear"><legend>Ground clearance</legend>
     <div class="range"><span class="small">From <b class="rv" id="clmin-v"></b></span><input type="range" id="clmin" aria-label="Lowest ground clearance">
     <span class="small">Up to <b class="rv" id="clmax-v"></b></span><input type="range" id="clmax" aria-label="Highest ground clearance"></div></fieldset>
-  <fieldset class="group" id="f-erange"><legend>Electric range (plug-in hybrids and electric; moving it hides gas cars)</legend>
+    <fieldset class="group" id="f-erange"><legend>Electric range <span class="hint">plug-ins and electric only; moving it hides gas cars</span></legend>
     <div class="range"><span class="small">From <b class="rv" id="ermin-v"></b></span><input type="range" id="ermin" aria-label="Shortest electric range">
     <span class="small">Up to <b class="rv" id="ermax-v"></b></span><input type="range" id="ermax" aria-label="Longest electric range"></div></fieldset>
-  <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
-  <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
+  </details>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
-</div>
+</aside>
+<div class="content">
 <div id="panel-avail" role="tabpanel" aria-labelledby="tab-avail">
 <div id="fav-extra" hidden>
   <p class="muted" style="margin-top:0">Your favorites. Tap <b>&#9825; Save</b> on any car to add it here, tap again to remove it.
@@ -728,6 +760,7 @@ The earlier of the two is shown.</p>
 <div class="wcards" id="wcards"></div></details>
 <div id="guide"></div>
 </div>
+</div></div>
 <p class="small" id="footnote">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
 </main>
 <script>

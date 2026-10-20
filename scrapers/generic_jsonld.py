@@ -194,7 +194,7 @@ DATA_ATTRS = {"odometer": "mileage", "mileage": "mileage", "extcolor": "ext_colo
               "stock": "stock"}
 
 
-BAD_TRIM = re.compile(r"backlight|lighting|\bwood\b|aluminum|carbon fiber|piano black|^\s*(?:n/?a|none)\s*$", re.I)
+BAD_TRIM = re.compile(r"backlight|lighting|\bwood\b|aluminum|carbon fiber|piano black|^\s*(?:n/?a|none|null|undefined)\s*$", re.I)
 
 
 def _json_trim(html: str, vin: str) -> str:
