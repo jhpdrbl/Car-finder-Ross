@@ -1,14 +1,35 @@
 brand,dealer,status,reason,listings,distance_mi,homepage,method
 Genesis,Genesis brand CPO feed,success,106 certified listings at our dealers,106,,,
-Subaru,Subaru brand CPO feed,success,228 certified listings at our dealers,228,,,
-Volvo,Volvo brand CPO feed,failed,FetchError: needs the browser add-on (Playwright); reading Volvo dealer sites instead,,,,
-Lexus,Lexus brand CPO feed,success,172 certified listings at our dealers,172,,,
-Volkswagen,Volkswagen brand CPO feed,success,118 certified listings at our dealers,118,,,
-Kia,Kia brand CPO feed,success,91 certified listings at our dealers,91,,,
-Mazda,Mazda brand CPO feed,success,209 certified listings at our dealers,209,,,
-Audi,McKenna Audi,success,"36 listings read, 0 unchanged exclusions reused",36,15.8,https://www.mckennaaudi.com,dealer.com search: 36 candidates
-Audi,Audi North Orange County,success,"41 listings read, 0 unchanged exclusions reused",41,28.5,https://www.audinorthoc.com,dealer.com search: 41 candidates
-Audi,Audi South Coast,success,"26 listings read, 0 unchanged exclusions reused",26,35.8,https://www.audisouthcoast.com,dealer.com search: 26 candidates
+Subaru,Subaru brand CPO feed,success,223 certified listings at our dealers,223,,,
+Volvo,Volvo brand CPO feed,success,50 certified listings at our dealers,50,,,
+Lexus,Lexus brand CPO feed,success,173 certified listings at our dealers,173,,,
+Volkswagen,Volkswagen brand CPO feed,success,114 certified listings at our dealers,114,,,
+Kia,Kia brand CPO feed,success,96 certified listings at our dealers,96,,,
+Mazda,Mazda brand CPO feed,success,152 certified listings at our dealers,152,,,
+Acura,Acura of Glendale,success,"no matching Acura models listed (sitemap: 291 urls, 3 candidates)",0,2.1,https://www.acuraofglendale.com,"sitemap: 291 urls, 3 candidates"
+Acura,Acura of Sherman Oaks,success,"1 listings read, 0 unchanged exclusions reused",1,11.4,https://www.acurashermanoaks.com,dealer.com search: 1 candidates
+Acura,AutoNation Acura South Bay,success,"1 listings read, 0 unchanged exclusions reused",1,22.3,https://www.autonationacurasouthbay.com,dealer.com search: 1 candidates
+Acura,Swickard Acura of Thousand Oaks,success,"4 listings read, 0 unchanged exclusions reused",4,32.6,https://www.swickardacuraofthousandoaks.com,"sitemap: 753 urls, 410 candidates; dealeron search: 0 more"
+Acura,Weir Canyon Acura,success,"4 listings read, 0 unchanged exclusions reused",4,33.4,https://www.weircanyonacura.com,"sitemap: 359 urls, 71 candidates"
+Acura,DCH Tustin Acura,success,"5 listings read, 0 unchanged exclusions reused",5,37.4,https://www.dchtustinacura.com,"dealer.com search: 0 candidates; sitemap: 805 urls, 130 candidates"
+Acura,Acura of Alhambra,failed,"homepage unreachable (robots.txt unreachable (SSLError), so the site is off limits)",0,6.9,https://www.acuraofalhambra.com,
+Acura,Acura of Los Angeles Westside,failed,blocked: HTTP 403 (HTTP 403),0,11.4,https://www.acuraoflosangeleswestside.com,
+Acura,Cerritos Acura,failed,blocked: HTTP 403 (HTTP 403),0,19.6,https://www.cerritosacura.com,
+Acura,Thomas Acura,failed,blocked: Cloudflare bot protection (HTTP 403),0,21.3,https://www.thomasacura.com,
+Acura,Valencia Acura,failed,blocked: Cloudflare bot protection (HTTP 403),0,27.2,https://www.valenciaacura.com,
+Acura,Metro Acura,failed,blocked: HTTP 403 (HTTP 403),0,32.5,https://www.metroacura.com,
+Acura,Trust Irvine Acura,failed,blocked: Akamai bot protection (HTTP 403),0,45.3,https://www.trustirvineacura.com,
+Acura,Spreen Acura,failed,blocked: HTTP 403 (HTTP 403),0,50.0,https://www.spreenacura.com,
+Acura,Gold Coast Acura,failed,blocked: HTTP 403 (HTTP 403),0,54.6,https://www.goldcoastacura.com,
+Alfa Romeo,Alfa Romeo And FIAT of Glendale,success,"10 listings read, 0 unchanged exclusions reused",10,1.9,https://www.glendalealfaromeo.com,"sitemap: 184 urls, 40 candidates; dealeron search: 0 more"
+Alfa Romeo,Alfa Romeo FIAT of Van Nuys,success,"10 listings read, 0 unchanged exclusions reused",10,11.7,https://www.vannuysalfaromeo.com,dealer.com search: 10 candidates
+Alfa Romeo,Champion Alfa Romeo FIAT,success,"no matching Alfa Romeo models listed (sitemap: 273 urls, 56 candidates)",0,15.3,https://www.championalfaromeo.com,"sitemap: 273 urls, 56 candidates"
+Alfa Romeo,Alfa Romeo FIAT of Santa Monica,failed,blocked: HTTP 403 (HTTP 403),0,13.9,https://www.alfaromeousaofsantamonica.com,
+Alfa Romeo,Alfa Romeo And FIAT of Puente Hills,failed,blocked: HTTP 403 (HTTP 403),0,20.7,https://www.alfaromeousaofpuentehills.com,
+Alfa Romeo,Alfa Romeo of Anaheim Hills,failed,blocked: HTTP 403 (HTTP 403),0,34.0,https://www.alfaromeoofanaheimhills.com,
+Audi,McKenna Audi,success,"35 listings read, 0 unchanged exclusions reused",35,15.8,https://www.mckennaaudi.com,dealer.com search: 35 candidates
+Audi,Audi North Orange County,success,"42 listings read, 0 unchanged exclusions reused",42,28.5,https://www.audinorthoc.com,dealer.com search: 42 candidates
+Audi,Audi South Coast,success,"24 listings read, 0 unchanged exclusions reused",24,35.8,https://www.audisouthcoast.com,dealer.com search: 24 candidates
 Audi,Audi Downtown LA,failed,"homepage unreachable (robots.txt unavailable (HTTP 500), so the site is off limits)",0,4.1,https://www.audidtla.com,
 Audi,Audi Pasadena,failed,"homepage unreachable (robots.txt unavailable (HTTP 500), so the site is off limits)",0,7.1,https://www.audipasadena.com,
 Audi,Audi Beverly Hills,failed,blocked: HTTP 403 (HTTP 403),0,8.4,https://www.audibeverlyhills.com,
@@ -25,16 +46,16 @@ Audi,Audi Fletcher Jones,failed,blocked: HTTP 403 (HTTP 403),0,37.9,https://www.
 Audi,Audi Mission Viejo,failed,"homepage unreachable (robots.txt unavailable (HTTP 500), so the site is off limits)",0,48.8,https://www.audimv.com,
 Audi,Audi Riverside,failed,"homepage unreachable (robots.txt unavailable (HTTP 500), so the site is off limits)",0,50.6,https://www.audiriverside.com,
 Audi,Audi Oxnard,failed,"homepage unreachable (robots.txt unavailable (HTTP 500), so the site is off limits)",0,52.8,https://www.audioxnard.com,
-BMW,BMW of Beverly Hills,success,"13 listings read, 0 unchanged exclusions reused",13,5.7,https://www.bmwofbeverlyhills.com,dealer.com search: 13 candidates
-BMW,BMW of Downtown LA,success,"28 listings read, 0 unchanged exclusions reused",28,8.9,https://www.bmwdtla.com,dealer.com search: 28 candidates
-BMW,BMW of Sherman Oaks,success,"42 listings read, 0 unchanged exclusions reused",42,11.5,https://www.bmwshermanoaks.com,dealer.com search: 42 candidates
-BMW,BMW of Monrovia,success,"107 listings read, 0 unchanged exclusions reused",107,14.9,https://www.bmwofmonrovia.net,"sitemap: 1849 urls, 108 candidates"
-BMW,McKenna BMW,success,"44 listings read, 0 unchanged exclusions reused",44,17.6,https://www.mckennabmw.com,"sitemap: 777 urls, 245 candidates"
-BMW,South Bay BMW,success,"57 listings read, 0 unchanged exclusions reused",57,19.5,https://www.southbaybmw.com,"dealer.com search: 0 candidates; sitemap: 1030 urls, 264 candidates"
-BMW,Long Beach BMW,success,"14 listings read, 0 unchanged exclusions reused",14,21.3,https://www.longbeachbmw.com,dealer.com search: 14 candidates
-BMW,Bob Smith BMW,success,"19 listings read, 0 unchanged exclusions reused",19,23.1,https://bobsmithbmw.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 707 urls, 100 candidates"
-BMW,Valencia BMW,success,"45 listings read, 0 unchanged exclusions reused",45,27.1,https://www.valenciabmw.com,dealer.com search: 45 candidates
-BMW,Irvine BMW,success,"77 listings read, 0 unchanged exclusions reused",77,45.1,https://www.irvinebmw.com,dealer.com search: 77 candidates
+BMW,BMW of Beverly Hills,success,"11 listings read, 0 unchanged exclusions reused",11,5.7,https://www.bmwofbeverlyhills.com,dealer.com search: 11 candidates
+BMW,BMW of Downtown LA,success,"29 listings read, 0 unchanged exclusions reused",29,8.9,https://www.bmwdtla.com,dealer.com search: 29 candidates
+BMW,BMW of Sherman Oaks,success,"43 listings read, 0 unchanged exclusions reused",43,11.5,https://www.bmwshermanoaks.com,dealer.com search: 43 candidates
+BMW,BMW of Monrovia,success,"111 listings read, 0 unchanged exclusions reused",111,14.9,https://www.bmwofmonrovia.net,"sitemap: 1874 urls, 111 candidates"
+BMW,McKenna BMW,success,"43 listings read, 0 unchanged exclusions reused",43,17.6,https://www.mckennabmw.com,"sitemap: 772 urls, 243 candidates"
+BMW,South Bay BMW,success,"55 listings read, 0 unchanged exclusions reused",55,19.5,https://www.southbaybmw.com,"dealer.com search: 0 candidates; sitemap: 1028 urls, 262 candidates"
+BMW,Long Beach BMW,success,"13 listings read, 0 unchanged exclusions reused",13,21.3,https://www.longbeachbmw.com,dealer.com search: 13 candidates
+BMW,Bob Smith BMW,success,"17 listings read, 0 unchanged exclusions reused",17,23.1,https://bobsmithbmw.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 739 urls, 99 candidates"
+BMW,Valencia BMW,success,"44 listings read, 0 unchanged exclusions reused",44,27.1,https://www.valenciabmw.com,dealer.com search: 44 candidates
+BMW,Irvine BMW,success,"78 listings read, 0 unchanged exclusions reused",78,45.1,https://www.irvinebmw.com,dealer.com search: 78 candidates
 BMW,Pacific BMW,failed,blocked: HTTP 403 (HTTP 403),0,2.2,https://www.pacificbmw.com,
 BMW,Century West BMW,failed,blocked: HTTP 403 (HTTP 403),0,8.7,https://www.centurywestbmw.com,
 BMW,BMW Santa Monica,failed,blocked: HTTP 403 (HTTP 403),0,14.7,https://www.bmwsantamonica.com,
@@ -42,19 +63,19 @@ BMW,Crevier BMW,failed,blocked: HTTP 403 (HTTP 403),0,33.8,https://www.crevierbm
 BMW,BMW of Ontario,failed,blocked: HTTP 403 (HTTP 403),0,35.0,https://www.bmwofontario.com,
 BMW,Sterling BMW,failed,blocked: HTTP 403 (HTTP 403),0,38.9,https://www.sterlingbmw.com,
 BMW,BMW of Riverside,failed,blocked: HTTP 403 (HTTP 403),0,50.6,https://www.bmwofriverside.com,
-Ford,Star Ford Lincoln,success,"6 listings read, 0 unchanged exclusions reused",6,2.2,https://www.starford.com,"sitemap: 568 urls, 29 candidates"
+Ford,Star Ford Lincoln,success,"6 listings read, 0 unchanged exclusions reused",6,2.2,https://www.starford.com,"sitemap: 564 urls, 29 candidates"
 Ford,Ford of Downtown LA,success,"5 listings read, 0 unchanged exclusions reused",5,5.3,https://www.fordofdtla.com,dealer.com search: 5 candidates
 Ford,Ford of Montebello,success,"16 listings read, 0 unchanged exclusions reused",16,9.3,https://www.fordofmontebello.com,dealer.com search: 16 candidates
 Ford,Santa Monica Ford,success,"17 listings read, 0 unchanged exclusions reused",17,14.3,https://www.smford.com,dealer.com search: 17 candidates
-Ford,South Bay Ford Lincoln,success,"11 listings read, 0 unchanged exclusions reused",11,15.7,https://www.southbayford.com,"sitemap: 599 urls, 98 candidates; dealeron search: 0 more"
+Ford,Galpin Ford,success,"7 listings read, 0 unchanged exclusions reused",7,15.5,https://www.galpinford.com,"no sitemap; browser: 4 inventory pages, 7 candidates"
+Ford,South Bay Ford Lincoln,success,"11 listings read, 0 unchanged exclusions reused",11,15.7,https://www.southbayford.com,"sitemap: 593 urls, 96 candidates; dealeron search: 0 more"
 Ford,Performance Ford West Covina,success,"4 listings read, 0 unchanged exclusions reused",4,20.6,https://www.wcperformanceford.com,"sitemap: 177 urls, 7 candidates"
 Ford,AutoNation Ford Torrance,success,"2 listings read, 0 unchanged exclusions reused",2,21.8,https://www.autonationfordtorrance.com,dealer.com search: 2 candidates
-Ford,BP Ford of Long Beach,success,"8 listings read, 0 unchanged exclusions reused",8,22.2,https://www.bpfordoflongbeach.com,dealer.com search: 8 candidates
+Ford,BP Ford of Long Beach,success,"7 listings read, 0 unchanged exclusions reused",7,22.2,https://www.bpfordoflongbeach.com,dealer.com search: 7 candidates
 Ford,AutoNation Ford Valencia,success,"7 listings read, 0 unchanged exclusions reused",7,27.1,https://www.autonationfordvalencia.com,dealer.com search: 7 candidates
-Ford,Huntington Beach Ford,success,"7 listings read, 0 unchanged exclusions reused",7,32.5,https://www.huntingtonbeachford.com,"sitemap: 752 urls, 56 candidates; dealeron search: 0 more"
+Ford,Huntington Beach Ford,success,"7 listings read, 0 unchanged exclusions reused",7,32.5,https://www.huntingtonbeachford.com,"sitemap: 751 urls, 57 candidates; dealeron search: 0 more"
 Ford,DCH Ford of Thousand Oaks,success,"19 listings read, 0 unchanged exclusions reused",19,33.3,https://www.dchfordofthousandoaks.com,dealer.com search: 19 candidates
 Ford,Airport Marina Ford,failed,blocked: Akamai bot protection (HTTP 403),0,4.1,https://www.airportmarinaford.com,
-Ford,Galpin Ford,failed,"couldn't see this site's inventory without the browser add-on (sitemap: 923 urls, 0 candidates)",0,15.5,https://www.galpinford.com,"sitemap: 923 urls, 0 candidates"
 Ford,Puente Hills Ford,failed,blocked: HTTP 403 (HTTP 403),0,18.4,https://www.puentehillsford.com,
 Ford,Norm Reeves Ford,failed,blocked: HTTP 403 (HTTP 403),0,20.7,https://www.normreevesford.com,
 Ford,Ken Grody Ford Buena Park,failed,blocked: HTTP 403 (HTTP 403),0,22.5,https://www.kengrodyford.com,
@@ -62,7 +83,7 @@ Ford,Colley Ford,failed,blocked: Cloudflare bot protection (HTTP 403),0,22.6,htt
 Ford,Caruso Ford,failed,blocked: HTTP 403 (HTTP 403),0,23.8,https://www.carusoford.com,
 Ford,Ford of Orange,failed,blocked: HTTP 403 (HTTP 403),0,32.3,https://www.fordoforange.com,
 Ford,Tuttle-Click Ford,failed,blocked: HTTP 403 (HTTP 403),0,38.5,https://www.tuttleclickford.com,
-Ford,Diamond Ford,failed,"couldn't see this site's inventory without the browser add-on (sitemap: 51 urls, 0 candidates)",0,40.3,https://diamondford.com,"sitemap: 51 urls, 0 candidates"
+Ford,Diamond Ford,failed,"couldn't see this site's inventory (sitemap: 51 urls, 0 candidates; browser: 0 inventory pages, 0 candidates)",0,40.3,https://diamondford.com,"sitemap: 51 urls, 0 candidates; browser: 0 inventory pages, 0 candidates"
 Ford,Raceway Ford,failed,blocked: Cloudflare bot protection (HTTP 403),0,50.6,https://www.racewayford.com,
 Genesis,Genesis Santa Monica,skipped,covered by the Genesis brand CPO feed,0,13.4,https://www.genesissantamonica.com,
 Genesis,Norm Reeves Genesis Of Cerritos,skipped,covered by the Genesis brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,19.7,https://www.genesisofcerritos.com,
@@ -72,18 +93,18 @@ Genesis,Genesis Of Corona,skipped,covered by the Genesis brand CPO feed (dealer 
 Genesis,Norm Reeves Genesis Of Irvine,skipped,covered by the Genesis brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,45.3,https://www.genesisofirvine.com,
 Genesis,Genesis Of Victorville,skipped,covered by the Genesis brand CPO feed,0,59.2,https://www.genesisofvictorville.com,
 Kia,Car Pros Kia Glendale,success,"7 listings read, 0 unchanged exclusions reused",7,2.1,https://www.glendalekia.com,dealer.com search: 7 candidates
-Kia,Kia Downtown Los Angeles,success,"3 listings read, 0 unchanged exclusions reused",3,5.5,https://www.kiaofdtla.com,"sitemap: 638 urls, 41 candidates"
+Kia,Kia Downtown Los Angeles,success,"3 listings read, 0 unchanged exclusions reused",3,5.5,https://www.kiaofdtla.com,"sitemap: 633 urls, 41 candidates"
 Kia,Van Nuys Kia,success,"3 listings read, 0 unchanged exclusions reused",3,11.9,https://www.vannuyskia.com,dealer.com search: 3 candidates
-Kia,Kia of Carson,success,"8 listings read, 0 unchanged exclusions reused",8,19.6,https://www.kiaofcarson.com,"dealer.com search: 0 candidates; sitemap: 730 urls, 69 candidates"
-Kia,Garden Grove Kia,success,"9 listings read, 0 unchanged exclusions reused",9,30.9,https://www.ggkia.com,"sitemap: 492 urls, 31 candidates"
+Kia,Kia of Carson,success,"8 listings read, 0 unchanged exclusions reused",8,19.6,https://www.kiaofcarson.com,"dealer.com search: 0 candidates; sitemap: 730 urls, 68 candidates"
+Kia,Garden Grove Kia,success,"8 listings read, 0 unchanged exclusions reused",8,30.9,https://www.ggkia.com,"sitemap: 493 urls, 30 candidates"
 Kia,First Kia,success,"1 listings read, 0 unchanged exclusions reused",1,31.7,https://www.1stkia.com,"sitemap: 213 urls, 9 candidates"
-Kia,Sutherlin Kia,success,"10 listings read, 0 unchanged exclusions reused",10,33.0,https://www.sutherlinkia.com,"sitemap: 490 urls, 92 candidates; dealeron search: 0 more"
-Kia,Tustin Kia,success,"5 listings read, 0 unchanged exclusions reused",5,37.3,https://www.tustinkia.com,"sitemap: 590 urls, 64 candidates"
+Kia,Sutherlin Kia,success,"11 listings read, 0 unchanged exclusions reused",11,33.0,https://www.sutherlinkia.com,"sitemap: 521 urls, 110 candidates; dealeron search: 0 more"
+Kia,Tustin Kia,success,"5 listings read, 0 unchanged exclusions reused",5,37.3,https://www.tustinkia.com,"sitemap: 574 urls, 62 candidates"
 Kia,Aaron Kia,success,"15 listings read, 0 unchanged exclusions reused",15,40.2,https://www.aaronkiaofcorona.com,dealer.com search: 15 candidates
-Kia,Kia of Irvine,success,"13 listings read, 0 unchanged exclusions reused",13,45.1,https://www.kiaofirvine.com,"sitemap: 549 urls, 40 candidates"
-Kia,Valley Kia,success,"3 listings read, 0 unchanged exclusions reused",3,46.4,https://www.valleykia.com,"sitemap: 397 urls, 27 candidates; dealeron search: 0 more"
-Kia,Mission Viejo Kia,success,"5 listings read, 0 unchanged exclusions reused",5,51.7,https://www.missionviejokia.com,"sitemap: 420 urls, 48 candidates"
-Kia,Kirby Kia of Ventura,success,"7 listings read, 0 unchanged exclusions reused",7,54.6,https://www.kiaofventura.com,"dealer.com search: 0 candidates; sitemap: 313 urls, 28 candidates"
+Kia,Kia of Irvine,success,"15 listings read, 0 unchanged exclusions reused",15,45.1,https://www.kiaofirvine.com,"sitemap: 548 urls, 43 candidates"
+Kia,Valley Kia,success,"3 listings read, 0 unchanged exclusions reused",3,46.4,https://www.valleykia.com,"sitemap: 392 urls, 27 candidates; dealeron search: 0 more"
+Kia,Mission Viejo Kia,success,"5 listings read, 0 unchanged exclusions reused",5,51.7,https://www.missionviejokia.com,"sitemap: 411 urls, 47 candidates"
+Kia,Kirby Kia of Ventura,success,"8 listings read, 0 unchanged exclusions reused",8,54.6,https://www.kiaofventura.com,"dealer.com search: 0 candidates; sitemap: 320 urls, 29 candidates"
 Kia,Kia Santa Monica,failed,blocked: Cloudflare bot protection (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,13.5,https://www.kiasantamonica.com,
 Kia,Kia of Cerritos,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,19.1,https://www.kiacerritos.com,
 Kia,Covina Kia,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,21.3,https://www.covinakia.com,
@@ -93,15 +114,15 @@ Kia,Trust Palmdale Kia,failed,blocked: Akamai bot protection (HTTP 403),0,34.0,h
 Kia,Citrus Kia,failed,blocked: Akamai bot protection (HTTP 403),0,39.4,https://www.citruskia.net,
 Kia,Riverside Kia,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,50.0,https://www.riversidekia.com,
 Kia,Allstar Kia,failed,blocked: Akamai bot protection (HTTP 403),0,55.1,https://www.allstarkiasanbernardino.com,
-Lexus,Lexus of Glendale,success,"29 listings read, 0 unchanged exclusions reused",29,1.5,https://www.lexusofglendale.com,dealer.com search: 29 candidates
+Lexus,Lexus of Glendale,success,"27 listings read, 0 unchanged exclusions reused",27,1.5,https://www.lexusofglendale.com,dealer.com search: 27 candidates
 Lexus,Keyes Lexus,success,"1 listings read, 0 unchanged exclusions reused",1,11.8,https://www.keyeslexus.com,dealer.com search: 1 candidates
-Lexus,Longo Lexus,success,"41 listings read, 0 unchanged exclusions reused",41,13.8,https://www.longolexus.com,"sitemap: 1326 urls, 58 candidates; dealeron search: 0 more"
+Lexus,Longo Lexus,success,"38 listings read, 0 unchanged exclusions reused",38,13.8,https://www.longolexus.com,"sitemap: 1315 urls, 54 candidates; dealeron search: 0 more"
 Lexus,Lexus Santa Monica,success,"43 listings read, 0 unchanged exclusions reused",43,14.1,https://www.lexussantamonica.com,dealer.com search: 43 candidates
 Lexus,Keyes Lexus of Valencia,success,"4 listings read, 0 unchanged exclusions reused",4,27.2,https://www.lexusofvalencia.com,dealer.com search: 4 candidates
-Lexus,Lexus of Thousand Oaks,success,"28 listings read, 0 unchanged exclusions reused",28,32.8,https://www.lexusofthousandoaks.com,"sitemap: 846 urls, 343 candidates; dealeron search: 0 more"
-Lexus,Crown Lexus,success,"11 listings read, 0 unchanged exclusions reused",11,41.1,https://www.crownlexus.com,dealer.com search: 11 candidates
+Lexus,Lexus of Thousand Oaks,success,"28 listings read, 0 unchanged exclusions reused",28,32.8,https://www.lexusofthousandoaks.com,"sitemap: 835 urls, 338 candidates; dealeron search: 0 more"
+Lexus,Crown Lexus,success,"12 listings read, 0 unchanged exclusions reused",12,41.1,https://www.crownlexus.com,dealer.com search: 12 candidates
 Lexus,Lexus of Riverside,success,"19 listings read, 0 unchanged exclusions reused",19,50.0,https://www.lexusofriverside.com,dealer.com search: 19 candidates
-Lexus,South County Lexus at Mission Viejo,success,"20 listings read, 0 unchanged exclusions reused",20,51.3,https://www.southcountylexus.com,dealer.com search: 20 candidates
+Lexus,South County Lexus at Mission Viejo,success,"19 listings read, 0 unchanged exclusions reused",19,51.3,https://www.southcountylexus.com,dealer.com search: 19 candidates
 Lexus,Jim Falk Lexus of Beverly Hills,failed,blocked: HTTP 403 (HTTP 403),0,8.2,https://www.jimfalkbeverlyhillslexus.com,
 Lexus,Lexus of Cerritos,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,19.6,https://www.cerritoslexus.com,
 Lexus,Lexus of Woodland Hills,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,19.9,https://www.lexusofwoodlandhills.com,
@@ -132,15 +153,15 @@ Mazda,Riverside Mazda,skipped,covered by the Mazda brand CPO feed,0,49.8,https:/
 Mazda,Oxnard Mazda,skipped,covered by the Mazda brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,51.8,https://www.oxnardmazda.com,
 Mazda,Capistrano Mazda,skipped,covered by the Mazda brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,55.1,https://www.capomazda.com,
 Mazda,Spreen Mazda,skipped,covered by the Mazda brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,57.5,https://www.spreenmazda.com,
-Mercedes-Benz,Calstar Motors,success,"7 listings read, 0 unchanged exclusions reused",7,2.2,https://www.calstarmercedes.com,dealer.com search: 7 candidates
-Mercedes-Benz,Mercedes-Benz of Encino,success,"162 listings read, 0 unchanged exclusions reused",162,14.0,https://www.mbencino.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2095 urls, 243 candidates"
-Mercedes-Benz,W.I. Simonson Mercedes-Benz,success,"83 listings read, 0 unchanged exclusions reused",83,14.7,https://www.wisimonson.net,"sitemap: 2004 urls, 83 candidates"
-Mercedes-Benz,Mercedes-Benz of South Bay,success,"25 listings read, 0 unchanged exclusions reused",25,19.5,https://www.sbmercedes.com,dealer.com search: 25 candidates
-Mercedes-Benz,Mercedes-Benz of West Covina,success,"68 listings read, 0 unchanged exclusions reused",68,20.6,https://www.mbwestcovina.com,dealer.com search: 68 candidates
-Mercedes-Benz,Mercedes-Benz of Calabasas,success,"63 listings read, 0 unchanged exclusions reused",63,23.0,https://www.mercedesofcalabasas.com,dealer.com search: 63 candidates
-Mercedes-Benz,Mercedes-Benz of Anaheim,success,"36 listings read, 0 unchanged exclusions reused",36,27.4,https://www.mercedesbenzofanaheim.com,dealer.com search: 36 candidates
-Mercedes-Benz,Mercedes-Benz of Valencia,success,"162 listings read, 0 unchanged exclusions reused",162,30.5,https://www.mbzvalencia.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2095 urls, 243 candidates"
-Mercedes-Benz,Mercedes-Benz of Thousand Oaks,success,"109 listings read, 0 unchanged exclusions reused",109,33.3,https://www.mbzthousandoaks.com,"sitemap: 1288 urls, 243 candidates; dealeron search: 0 more"
+Mercedes-Benz,Calstar Motors,success,"6 listings read, 0 unchanged exclusions reused",6,2.2,https://www.calstarmercedes.com,dealer.com search: 6 candidates
+Mercedes-Benz,Mercedes-Benz of Encino,success,"157 listings read, 0 unchanged exclusions reused",157,14.0,https://www.mbencino.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2074 urls, 233 candidates"
+Mercedes-Benz,W.I. Simonson Mercedes-Benz,success,"87 listings read, 0 unchanged exclusions reused",87,14.7,https://www.wisimonson.net,"sitemap: 2036 urls, 87 candidates"
+Mercedes-Benz,Mercedes-Benz of South Bay,success,"21 listings read, 0 unchanged exclusions reused",21,19.5,https://www.sbmercedes.com,dealer.com search: 21 candidates
+Mercedes-Benz,Mercedes-Benz of West Covina,success,"69 listings read, 0 unchanged exclusions reused",69,20.6,https://www.mbwestcovina.com,dealer.com search: 69 candidates
+Mercedes-Benz,Mercedes-Benz of Calabasas,success,"66 listings read, 0 unchanged exclusions reused",66,23.0,https://www.mercedesofcalabasas.com,dealer.com search: 66 candidates
+Mercedes-Benz,Mercedes-Benz of Anaheim,success,"35 listings read, 0 unchanged exclusions reused",35,27.4,https://www.mercedesbenzofanaheim.com,dealer.com search: 35 candidates
+Mercedes-Benz,Mercedes-Benz of Valencia,success,"157 listings read, 0 unchanged exclusions reused",157,30.5,https://www.mbzvalencia.com,"dealer.com search: 0 candidates (/certified-inventory/index.htm: HTTP 404; /certified-inventory/index.htm: HTTP 404); sitemap: 2074 urls, 233 candidates"
+Mercedes-Benz,Mercedes-Benz of Thousand Oaks,success,"106 listings read, 0 unchanged exclusions reused",106,33.3,https://www.mbzthousandoaks.com,"sitemap: 1273 urls, 236 candidates; dealeron search: 0 more"
 Mercedes-Benz,Mercedes-Benz of Los Angeles,failed,blocked: HTTP 403 (HTTP 403),0,4.1,https://www.mbzla.com,
 Mercedes-Benz,Mercedes-Benz of Beverly Hills,failed,blocked: HTTP 403 (HTTP 403),0,8.4,https://www.mbbeverlyhills.com,
 Mercedes-Benz,Keyes European,failed,blocked: HTTP 403 (HTTP 403),0,12.2,https://www.keyesmercedes.com,
@@ -172,34 +193,34 @@ Subaru,DCH Subaru of Riverside,skipped,covered by the Subaru brand CPO feed,0,50
 Subaru,Kirby Subaru of Ventura,skipped,covered by the Subaru brand CPO feed,0,54.5,https://www.kirbysubaruofventura.com,
 Subaru,Spreen Subaru,skipped,covered by the Subaru brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,55.2,https://spreensubaru.com,
 Toyota,Toyota of Hollywood,success,"1 listings read, 0 unchanged exclusions reused",1,3.6,https://www.hollywoodtoyota.com,dealer.com search: 1 candidates
-Toyota,Toyota of Downtown LA,success,"5 listings read, 0 unchanged exclusions reused",5,5.4,https://www.toyotaofdowntownla.com,"sitemap: 1658 urls, 94 candidates"
-Toyota,Toyota of North Hollywood,success,"1 listings read, 0 unchanged exclusions reused",1,6.8,https://www.northhollywoodtoyota.com,"sitemap: 804 urls, 100 candidates"
-Toyota,Bob Smith Toyota,success,"no matching Toyota models listed (sitemap: 246 urls, 13 candidates)",0,8.4,https://www.bobsmithtoyota.com,"sitemap: 246 urls, 13 candidates"
-Toyota,Keyes Toyota,success,"4 listings read, 0 unchanged exclusions reused",4,11.7,https://www.keyestoyota.com,"sitemap: 769 urls, 68 candidates; dealeron search: 0 more"
-Toyota,Marina del Rey Toyota,success,"1 listings read, 0 unchanged exclusions reused",1,13.6,https://www.marinadelreytoyota.com,"sitemap: 288 urls, 20 candidates"
-Toyota,Longo Toyota,success,"9 listings read, 0 unchanged exclusions reused",9,13.8,https://www.longotoyota.com,"sitemap: 2934 urls, 137 candidates; dealeron search: 0 more"
+Toyota,Toyota of Downtown LA,success,"5 listings read, 0 unchanged exclusions reused",5,5.4,https://www.toyotaofdowntownla.com,"sitemap: 1644 urls, 90 candidates"
+Toyota,Toyota of North Hollywood,success,"1 listings read, 0 unchanged exclusions reused",1,6.8,https://www.northhollywoodtoyota.com,"sitemap: 793 urls, 96 candidates"
+Toyota,Bob Smith Toyota,success,"no matching Toyota models listed (sitemap: 240 urls, 13 candidates)",0,8.4,https://www.bobsmithtoyota.com,"sitemap: 240 urls, 13 candidates"
+Toyota,Keyes Toyota,success,"4 listings read, 0 unchanged exclusions reused",4,11.7,https://www.keyestoyota.com,"sitemap: 763 urls, 66 candidates; dealeron search: 0 more"
+Toyota,Marina del Rey Toyota,success,"1 listings read, 0 unchanged exclusions reused",1,13.6,https://www.marinadelreytoyota.com,"sitemap: 284 urls, 19 candidates"
+Toyota,Longo Toyota,success,"9 listings read, 0 unchanged exclusions reused",9,13.8,https://www.longotoyota.com,"sitemap: 2886 urls, 131 candidates; dealeron search: 0 more"
 Toyota,Toyota Santa Monica,success,"2 listings read, 0 unchanged exclusions reused",2,14.3,https://www.toyotasantamonica.com,dealer.com search: 2 candidates
+Toyota,Penske Toyota,success,"no matching Toyota models listed (sitemap: 817 urls, 0 candidates; dealeron search: 0 more; sitemap: 817 urls, 0 candidates; browser: 1 inventory pages, 0 candidates)",0,14.6,https://www.pensketoyotadowney.com,"sitemap: 817 urls, 0 candidates; dealeron search: 0 more; sitemap: 817 urls, 0 candidates; browser: 1 inventory pages, 0 candidates"
 Toyota,Envision Toyota of Norwalk,success,"7 listings read, 0 unchanged exclusions reused",7,16.6,https://www.norwalktoyota.com,dealer.com search: 7 candidates
-Toyota,Manhattan Beach Toyota,success,"1 listings read, 0 unchanged exclusions reused",1,17.1,https://www.manhattanbeachtoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 1072 urls, 39 candidates"
+Toyota,Manhattan Beach Toyota,success,"1 listings read, 0 unchanged exclusions reused",1,17.1,https://www.manhattanbeachtoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 1058 urls, 37 candidates"
 Toyota,AutoNation Toyota Cerritos,success,"7 listings read, 0 unchanged exclusions reused",7,19.5,https://www.autonationtoyotacerritos.com,dealer.com search: 7 candidates
 Toyota,Envision Toyota of West Covina,success,"8 listings read, 0 unchanged exclusions reused",8,20.4,https://www.toyotawestcovina.com,dealer.com search: 8 candidates
-Toyota,Cabe Toyota Long Beach,success,"5 listings read, 0 unchanged exclusions reused",5,21.2,https://www.cabetoyota.com,"sitemap: 371 urls, 30 candidates"
-Toyota,DCH Toyota of Torrance,success,"5 listings read, 0 unchanged exclusions reused",5,22.2,https://www.torrancetoyota.com,dealer.com search: 5 candidates
-Toyota,Toyota of Glendora,success,"5 listings read, 0 unchanged exclusions reused",5,24.8,https://www.toyotaofglendora.com,"sitemap: 562 urls, 58 candidates"
-Toyota,Frontier Toyota,success,"4 listings read, 0 unchanged exclusions reused",4,27.0,https://www.frontiertoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 983 urls, 81 candidates"
-Toyota,Toyota Place,success,"no matching Toyota models listed (sitemap: 512 urls, 51 candidates)",0,29.3,https://www.toyotaplace.com,"sitemap: 512 urls, 51 candidates"
-Toyota,Simi Valley Toyota,success,"5 listings read, 0 unchanged exclusions reused",5,31.8,https://www.simivalleytoyota.com,"sitemap: 923 urls, 45 candidates; dealeron search: 0 more"
-Toyota,Toyota of Orange,success,"no matching Toyota models listed (sitemap: 1180 urls, 61 candidates)",0,31.9,https://www.toyotaoforange.com,"sitemap: 1180 urls, 61 candidates"
-Toyota,Toyota of Huntington Beach,success,"14 listings read, 0 unchanged exclusions reused",14,33.1,https://www.toyotaofhb.com,"sitemap: 1013 urls, 125 candidates"
-Toyota,Thousand Oaks Toyota,success,"3 listings read, 0 unchanged exclusions reused",3,33.6,https://www.totoyota.com,"sitemap: 714 urls, 76 candidates; dealeron search: 0 more"
-Toyota,South Coast Toyota,success,"8 listings read, 0 unchanged exclusions reused; 3 pages failed",8,37.6,https://www.southcoasttoyota.com,"sitemap: 829 urls, 148 candidates"
-Toyota,Crown Toyota,success,"8 listings read, 0 unchanged exclusions reused",8,41.0,https://www.crowntoyota.com,"sitemap: 1549 urls, 164 candidates; dealeron search: 0 more"
+Toyota,Cabe Toyota Long Beach,success,"4 listings read, 0 unchanged exclusions reused",4,21.2,https://www.cabetoyota.com,"sitemap: 370 urls, 28 candidates"
+Toyota,DCH Toyota of Torrance,success,"6 listings read, 0 unchanged exclusions reused",6,22.2,https://www.torrancetoyota.com,dealer.com search: 6 candidates
+Toyota,Toyota of Glendora,success,"5 listings read, 0 unchanged exclusions reused",5,24.8,https://www.toyotaofglendora.com,"sitemap: 568 urls, 62 candidates"
+Toyota,Frontier Toyota,success,"4 listings read, 0 unchanged exclusions reused",4,27.0,https://www.frontiertoyota.com,"dealer.com search: 0 candidates (/used-inventory/index.htm: HTTP 404; /used-inventory/index.htm: HTTP 404); sitemap: 962 urls, 75 candidates"
+Toyota,Toyota Place,success,"no matching Toyota models listed (sitemap: 513 urls, 53 candidates)",0,29.3,https://www.toyotaplace.com,"sitemap: 513 urls, 53 candidates"
+Toyota,Simi Valley Toyota,success,"5 listings read, 0 unchanged exclusions reused",5,31.8,https://www.simivalleytoyota.com,"sitemap: 928 urls, 46 candidates; dealeron search: 0 more"
+Toyota,Toyota of Orange,success,"no matching Toyota models listed (sitemap: 1159 urls, 55 candidates)",0,31.9,https://www.toyotaoforange.com,"sitemap: 1159 urls, 55 candidates"
+Toyota,Toyota of Huntington Beach,success,"14 listings read, 0 unchanged exclusions reused",14,33.1,https://www.toyotaofhb.com,"sitemap: 1006 urls, 119 candidates"
+Toyota,Thousand Oaks Toyota,success,"3 listings read, 0 unchanged exclusions reused",3,33.6,https://www.totoyota.com,"sitemap: 697 urls, 73 candidates; dealeron search: 0 more"
+Toyota,South Coast Toyota,success,"12 listings read, 0 unchanged exclusions reused",12,37.6,https://www.southcoasttoyota.com,"sitemap: 822 urls, 147 candidates"
+Toyota,Crown Toyota,success,"8 listings read, 0 unchanged exclusions reused",8,41.0,https://www.crowntoyota.com,"sitemap: 1521 urls, 162 candidates; dealeron search: 0 more"
 Toyota,AutoNation Toyota Irvine,success,"1 listings read, 0 unchanged exclusions reused",1,44.2,https://www.autonationtoyotairvine.com,dealer.com search: 1 candidates
 Toyota,Toyota of Glendale,failed,blocked: HTTP 403 (HTTP 403),0,1.4,https://www.toyotaofglendale.com,
 Toyota,Wondries Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,7.0,https://www.wondriestoyota.com,
 Toyota,Culver City Toyota,failed,blocked: HTTP 403 (HTTP 403),0,9.5,https://www.culvercitytoyota.com,
 Toyota,Toyota of Pasadena,failed,blocked: HTTP 403 (HTTP 403),0,10.9,https://www.toyotapasadena.com,
-Toyota,Penske Toyota,failed,"couldn't see this site's inventory without the browser add-on (sitemap: 829 urls, 0 candidates; dealeron search: 0 more; sitemap: 829 urls, 0 candidates)",0,14.6,https://www.pensketoyotadowney.com,"sitemap: 829 urls, 0 candidates; dealeron search: 0 more; sitemap: 829 urls, 0 candidates"
 Toyota,Hamer Toyota,failed,blocked: HTTP 403 (HTTP 403),0,16.3,https://www.hamertoyota.com,
 Toyota,South Bay Toyota,failed,blocked: Akamai bot protection (HTTP 403),0,17.3,https://www.southbaytoyota.com,
 Toyota,Toyota of Whittier,failed,blocked: HTTP 403 (HTTP 403),0,17.9,https://www.toyotaofwhittier.com,
@@ -207,7 +228,7 @@ Toyota,Northridge Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,
 Toyota,Fletcher Jones Toyota of Carson,failed,blocked: HTTP 403 (HTTP 403),0,19.8,https://www.toyotacarson.com,
 Toyota,Puente Hills Toyota,failed,blocked: Cloudflare bot protection (HTTP 403),0,20.2,https://www.puentehillstoyota.com,
 Toyota,West Coast Toyota of Long Beach,failed,blocked: HTTP 403 (HTTP 403),0,22.0,https://www.westcoasttoyotalb.com,
-Toyota,AutoNation Toyota Buena Park,failed,"couldn't see this site's inventory without the browser add-on (dealer.com search: 0 candidates; sitemap: 710 urls, 0 candidates)",0,22.6,https://www.autonationtoyotabuenapark.com,"dealer.com search: 0 candidates; sitemap: 710 urls, 0 candidates"
+Toyota,AutoNation Toyota Buena Park,failed,"couldn't see this site's inventory (dealer.com search: 0 candidates; sitemap: 709 urls, 0 candidates; browser: browser blocked (HTTP 403))",0,22.6,https://www.autonationtoyotabuenapark.com,"dealer.com search: 0 candidates; sitemap: 709 urls, 0 candidates; browser: browser blocked (HTTP 403)"
 Toyota,Toyota of Anaheim,failed,blocked: HTTP 403 (HTTP 403),0,25.5,https://www.toyotaofanaheim.com,
 Toyota,Beach Cities Toyota Westminster,failed,blocked: HTTP 403 (HTTP 403),0,29.9,https://www.beachcitiestoyotawestminster.com,
 Toyota,Claremont Toyota,failed,blocked: Akamai bot protection (HTTP 403),0,30.7,https://www.claremonttoyota.com,
@@ -235,14 +256,14 @@ Volkswagen,Riverside Volkswagen,skipped,covered by the Volkswagen brand CPO feed
 Volkswagen,Ventura Volkswagen,skipped,covered by the Volkswagen brand CPO feed,0,54.6,https://www.venturavw.com,
 Volkswagen,Capistrano Volkswagen,skipped,covered by the Volkswagen brand CPO feed,0,55.1,https://www.capovw.com,
 Volkswagen,Volkswagen San Bernardino,skipped,covered by the Volkswagen brand CPO feed,0,55.2,https://www.vwsb.com,
-Volvo,Rusnak Volvo Cars Pasadena,success,"41 listings read, 0 unchanged exclusions reused",41,7.1,https://www.rusnakvolvocars.com,dealer.com search: 41 candidates
-Volvo,Culver City Volvo Cars,success,"5 listings read, 0 unchanged exclusions reused",5,10.0,https://www.culvercityvolvocars.com,dealer.com search: 5 candidates
-Volvo,Volvo Cars Santa Monica,success,"43 listings read, 0 unchanged exclusions reused",43,14.0,https://www.volvocarsofsantamonica.com,dealer.com search: 43 candidates
-Volvo,Penske Volvo Cars,success,"14 listings read, 0 unchanged exclusions reused",14,18.4,https://www.penskevolvocars.com,"dealer.com search: 0 candidates; sitemap: 441 urls, 46 candidates"
-Volvo,Volvo Cars South Bay,success,"29 listings read, 0 unchanged exclusions reused",29,19.5,https://www.volvocarssouthbay.com,"dealer.com search: 0 candidates; sitemap: 853 urls, 262 candidates"
-Volvo,Volvo Cars Cerritos,success,"7 listings read, 0 unchanged exclusions reused",7,20.7,https://www.volvocarscerritos.com,"sitemap: 577 urls, 226 candidates"
-Volvo,Volvo Cars Orange County,success,"22 listings read, 0 unchanged exclusions reused",22,32.3,https://www.volvo-oc.com,dealer.com search: 22 candidates
-Volvo,Rusnak Volvo Cars Westlake,success,"25 listings read, 0 unchanged exclusions reused",25,32.7,https://www.rusnakvolvocarswestlake.com,dealer.com search: 25 candidates
-Volvo,Volvo Cars Ontario,success,"31 listings read, 0 unchanged exclusions reused",31,41.1,https://www.volvocarsontario.com,dealer.com search: 31 candidates
-Volvo,Volvo Cars Mission Viejo,success,"12 listings read, 0 unchanged exclusions reused",12,48.8,https://www.volvocarsmissionviejo.com,"dealer.com search: 0 candidates; sitemap: 229 urls, 35 candidates"
-Volvo,Galpin Volvo,failed,"couldn't see this site's inventory without the browser add-on (sitemap: 287 urls, 0 candidates)",0,15.5,https://www.galpinvolvo.com,"sitemap: 287 urls, 0 candidates"
+Volvo,Rusnak Volvo Cars Pasadena,skipped,covered by the Volvo brand CPO feed,0,7.1,https://www.rusnakvolvocars.com,
+Volvo,Culver City Volvo Cars,skipped,covered by the Volvo brand CPO feed,0,10.0,https://www.culvercityvolvocars.com,
+Volvo,Volvo Cars Santa Monica,skipped,covered by the Volvo brand CPO feed,0,14.0,https://www.volvocarsofsantamonica.com,
+Volvo,Galpin Volvo,skipped,covered by the Volvo brand CPO feed,0,15.5,https://www.galpinvolvo.com,
+Volvo,Penske Volvo Cars,skipped,covered by the Volvo brand CPO feed,0,18.4,https://www.penskevolvocars.com,
+Volvo,Volvo Cars South Bay,skipped,covered by the Volvo brand CPO feed,0,19.5,https://www.volvocarssouthbay.com,
+Volvo,Volvo Cars Cerritos,skipped,covered by the Volvo brand CPO feed,0,20.7,https://www.volvocarscerritos.com,
+Volvo,Volvo Cars Orange County,skipped,covered by the Volvo brand CPO feed,0,32.3,https://www.volvo-oc.com,
+Volvo,Rusnak Volvo Cars Westlake,skipped,covered by the Volvo brand CPO feed,0,32.7,https://www.rusnakvolvocarswestlake.com,
+Volvo,Volvo Cars Ontario,skipped,covered by the Volvo brand CPO feed,0,41.1,https://www.volvocarsontario.com,
+Volvo,Volvo Cars Mission Viejo,skipped,covered by the Volvo brand CPO feed,0,48.8,https://www.volvocarsmissionviejo.com,
