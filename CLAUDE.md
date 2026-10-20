@@ -199,9 +199,18 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 4. Tell the user to run `update.bat` then `refresh.bat` on the laptop to apply rule changes to
    the full dealer set.
 
-## Current state (as of 2026-10-19)
+## Current state (as of 2026-10-20)
 
-- **Ready for the first laptop run** (the user starts it the evening of Oct 19 2026). The laptop isn't set up
+- **First laptop run done** (Oct 20 2026, `python search.py` with Playwright, home Wi-Fi): 97 read / 92 failed /
+  79 covered by brand feeds; 98 meet all criteria, 31 need a call. **The laptop barely improved coverage over the iPad**:
+  only the Volvo feed (needs the browser: 50 cars), Galpin Ford and Penske Toyota newly worked. Still failing:
+  60 dealers HTTP 403 and 16 Cloudflare/Akamai (bot detection of non-browser requests, not IP-based), and **14 Audi
+  dealers whose robots.txt answers HTTP 500** (Audi's platform), which our robots rule treats as off limits.
+  So "the laptop will fix Audi" was wrong; Audi stays manual (Check yourself tab, `manual_listings.csv`).
+  The Mazda feed dropped from 209 to 152 cars (20 matching 2026 Mazdas went "sold").
+
+
+- (Before the laptop run, Oct 19:) The laptop isn't set up
   yet; the user has `LAPTOP-HANDOVER.md`. All searches so far ran from the cloud or the iPad (latest: iPad,
   Oct 18 2026, then rescored for later rule changes: 101 meet all criteria, 57 need a call, 95 sources read,
   84 failed, 68 covered by brand feeds). `data/` and `output/` hold that run.
