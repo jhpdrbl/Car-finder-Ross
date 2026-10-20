@@ -327,6 +327,9 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     from core import history as history_mod      # (the `history` argument is the price history)
     no_audio = {v for v, c in history_mod.load_confirmed(P.data).items() if (c.get("audio") or "").strip().lower() == "none"}
     cars = []
+    txt = lambda v: str(v) if isinstance(v, bool) else ("" if v is None else v)   # a fresh run's rows hold real True/False
+    active = [{k: txt(v) for k, v in r.items()} for r in active]
+    rows = [{k: txt(v) for k, v in r.items()} for r in rows]
     for r in active:
         cars.append({k: r.get(k, "") for k in ("vin", "dealer", "listing_url", "year", "make", "model", "trim", "price_total",
                                                "mileage", "ext_color", "int_color", "fuel_type", "sunroof", "audio",
@@ -1067,7 +1070,7 @@ function toggleCmp(vin) {
 }
 document.addEventListener("click", e => { const b = e.target.closest(".cmpbtn"); if (b) toggleCmp(b.dataset.vin);
   const r = e.target.closest(".rm[data-vin]"); if (r) toggleCmp(r.dataset.vin); });
-const trimWords = name => String(name).toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
+const trimWords = name => String(name || "").toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
 const SOUND_BRANDS = /harman|kardon|bang|olufsen|b&o|lexicon|burmester|bowers|mark levinson|bose|sonos|meridian|jbl|els studio|revel|krell|premium sound|premium audio/i;
 function soundCall(pa) {   // a Trim guide premium_audio line -> {v, t}
   pa = String(pa || "");
@@ -1080,34 +1083,51 @@ function soundCall(pa) {   // a Trim guide premium_audio line -> {v, t}
   return {v: "Not sure", t: /optional|package/i.test(pa) ? "optional on this trim" : ""};
 }
 const SEAT_WORD = {leather: "Leather", synthetic: "Synthetic leather", cloth: "Cloth"};
+function guideCall(c, call) {   // what the Trim guide says for this car: its matched trim, else every trim it could be
+  const t = trimInfo(c); if (t) return call(t);
+  const m = guideFor(c), y = m && (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
+  // the dealer's trim name is shorter than the guide's ("Premium Plus" vs "2.5 S Premium Plus Package"), or missing:
+  // use every trim it could be, but only when they all say the same thing
+  const mine = trimWords(c.trim);
+  const calls = (y.trims || []).filter(t => t.on_list !== false || !mine.length)
+    .filter(t => mine.every(w => (" " + trimWords(t.name).join(" ") + " ").includes(" " + w + " "))).map(call);
+  if (!calls.length || !calls.every(x => x.v === calls[0].v) || calls[0].v === "Not sure") return null;
+  const why = mine.length ? "standard on this trim" : "standard on every trim of this model";
+  return calls.every(x => x.t === calls[0].t) && mine.length ? calls[0] : {v: calls[0].v, t: calls[0].v === "Yes" ? why : ""};
+}
+function seatCall(t) {
+  const first = String(t.seats || "").split(";")[0].toLowerCase();
+  const kind = /synthetic|leatherette|mb-?tex|nuluxe|syntex|sensatec|vegan|softex|sensafin|v-?tex|artico|dinamica/.test(first) ? "synthetic"
+             : /cloth|fabric/.test(first) ? "cloth" : /leather|nappa|merino|vernasca|aniline/.test(first) ? "leather" : "";
+  return kind ? {v: SEAT_WORD[kind], t: "standard on this trim"} : {v: "Not sure", t: ""};
+}
+function roofCall(t) {
+  const s = String(t.sunroof || "").toLowerCase();
+  if (/^(standard|yes)/.test(s)) return {v: "Yes", t: "standard on this trim"};
+  if (/^(not available|not offered|none|no\b)/.test(s)) return {v: "No", t: "not on this trim"};
+  return {v: "Not sure", t: /optional|package/.test(s) ? "optional on this trim" : ""};
+}
 function seatOf(c) {       // seat material: the dealer's page, else what the Trim guide says this trim comes with
   if (c._seat) return c._seat;
-  let r = {v: "Not sure", t: ""};
-  if (SEAT_WORD[c.seats]) r = {v: SEAT_WORD[c.seats], t: ""};
-  else { const t = trimInfo(c), first = t ? String(t.seats || "").split(";")[0].toLowerCase() : "";
-    const kind = /synthetic|leatherette|mb-?tex|nuluxe|syntex|sensatec|vegan|softex|sensafin|v-?tex|artico|dinamica/.test(first) ? "synthetic"
-               : /cloth|fabric|cloth/.test(first) ? "cloth" : /leather|nappa|merino|vernasca|aniline/.test(first) ? "leather" : "";
-    if (kind) r = {v: SEAT_WORD[kind], t: "standard on this trim"}; }
+  const r = SEAT_WORD[c.seats] ? {v: SEAT_WORD[c.seats], t: ""} : guideCall(c, seatCall) || {v: "Not sure", t: ""};
   c.seat = r.v; return c._seat = r;
+}
+function roofOf(c) {       // sunroof: the dealer's page / brand feed / your check, else the Trim guide
+  if (c._roof) return c._roof;
+  const r = c.sunroof === "True" ? {v: "Yes", t: ""} : c.sunroof === "False" ? {v: "No", t: ""}
+          : guideCall(c, roofCall) || {v: "Not sure", t: ""};
+  c.roof = r.v; return c._roof = r;
 }
 function soundOf(c) {      // upgraded sound: the dealer's page names the system, else what the Trim guide says for this trim
   if (c._snd) return c._snd;
-  let r = {v: "Not sure", t: ""};
-  if (c.audio) r = {v: "Yes", t: c.audio};
-  else if (c.audio_none) r = {v: "No", t: "checked by you: no premium system"};
-  else { const t = trimInfo(c);
-    if (t) r = soundCall(t.premium_audio);
-    else if (c.trim) {      // the dealer's trim name is shorter than the guide's ("Premium Plus" vs "2.5 S Premium Plus Package"):
-      const m = guideFor(c), y = m && (m.years || []).find(y => y.year === parseInt(c.year)), mine = trimWords(c.trim);   // all trims it could be must agree
-      const calls = y ? (y.trims || []).filter(t => mine.length && mine.every(w => (" " + trimWords(t.name).join(" ") + " ").includes(" " + w + " ")))
-                                       .map(t => soundCall(t.premium_audio)) : [];
-      if (calls.length && calls.every(x => x.v === calls[0].v)) r = calls.every(x => x.t === calls[0].t) ? calls[0] : {v: calls[0].v, t: calls[0].v === "Yes" ? "standard on this trim" : ""}; } }
+  const r = c.audio ? {v: "Yes", t: c.audio} : c.audio_none ? {v: "No", t: "checked by you: no premium system"}
+          : guideCall(c, t => soundCall(t.premium_audio)) || {v: "Not sure", t: ""};
   c.snd = r.v; return c._snd = r;
 }
 function trimInfo(c) {      // this car's trim card in the Trim guide, when the trim name matches well enough
   const m = guideFor(c); if (!m) return null;
   const y = (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
-  const title = (" " + c.title + " ").toLowerCase();
+  const title = (" " + c.title + " ").toLowerCase().replace(/-/g, " ");     // "X-Line" = "x line"
   let best = null, bestScore = 0, bestN = 0;
   (y.trims || []).forEach(t => {
     const words = trimWords(t.name);
@@ -1131,7 +1151,7 @@ const FIELDS = [
   ["Fuel", c => esc(c.fuel), null, null],
   ["MPG", c => num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
   ["Colors", c => esc(c.colors), null, null],
-  ["Sunroof", c => c.sunroof === "True" ? "yes" : c.sunroof === "False" ? "no" : "not shown", null, null],
+  ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
   ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
   ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
   ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
@@ -1176,7 +1196,7 @@ function renderRows() {
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
                     && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"))
-                    && (!rf.size || rf.has(c.roof)) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
+                    && (!rf.size || rf.has(roofOf(c).v)) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
@@ -1207,7 +1227,7 @@ function renderRows() {
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td data-l="Fuel">${esc(c.fuel)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
-    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(c.roof)}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
+    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
     || `<tr><td colspan="18" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
@@ -1273,7 +1293,7 @@ document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).lengt
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; resetPrice(); resetMiles(); render(); });
-D.cars.forEach(c => { soundOf(c); seatOf(c); });       // fills c.snd / c.seat for sorting
+D.cars.forEach(c => { soundOf(c); seatOf(c); roofOf(c); });       // fills c.snd / c.seat / c.roof for sorting
 render();
 stickHeads();
 
