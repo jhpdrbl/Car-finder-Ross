@@ -68,17 +68,45 @@ def update() -> None:
 
 # ---- upload results ----
 
-def token() -> str:
-    t = os.environ.get("GITHUB_TOKEN") or (TOKEN_FILE.read_text().strip() if TOKEN_FILE.exists() else "")
-    if not t:
-        say("To upload results this needs a GitHub token (one time). See " + ("LAPTOP.md" if LAPTOP else "IPAD.md") + ", step 3.")
-        try:                       # hide the key while it's pasted (it shouldn't end up in screenshots)
-            import getpass
-            t = getpass.getpass("Paste your GitHub token and press return (it stays hidden): ").strip()
-        except Exception:
-            t = input("Paste your GitHub token and press return: ").strip()
-        TOKEN_FILE.write_text(t)
+def _clean(t: str) -> str:
+    """A key pasted more than once = the same key repeated: keep one."""
+    t = "".join(t.split())
+    for prefix in ("github_pat_", "ghp_"):
+        if t.count(prefix) > 1:
+            t = prefix + t.split(prefix)[-1]
     return t
+
+
+def _key_works(t: str) -> bool | None:
+    """True = GitHub accepts the key and it may write to the project; False = it doesn't; None = couldn't ask."""
+    try:
+        r = requests.get(API, headers={"Authorization": f"Bearer {t}", "Accept": "application/vnd.github+json"}, timeout=30)
+    except requests.RequestException:
+        return None
+    if r.status_code in (401, 403, 404):
+        return False
+    return bool(r.ok and r.json().get("permissions", {}).get("push")) if r.ok else None
+
+
+def token() -> str:
+    where = ("LAPTOP.md" if LAPTOP else "IPAD.md") + ", step 3"
+    for _ in range(3):
+        t = os.environ.get("GITHUB_TOKEN") or (TOKEN_FILE.read_text().strip() if TOKEN_FILE.exists() else "")
+        if not t:
+            say(f"To upload results this needs a GitHub key (one time). See {where}.")
+            t = input("Paste your GitHub key once and press return: ")   # shown, not hidden (user's choice, Oct 2026)
+        t = _clean(t)
+        ok = _key_works(t)
+        if ok is False:
+            say("That key didn't work (wrong, expired, or missing 'Contents: Read and write'). Let's try again.")
+            TOKEN_FILE.unlink(missing_ok=True)
+            os.environ.pop("GITHUB_TOKEN", None)
+            continue
+        TOKEN_FILE.write_text(t)
+        if ok:
+            say(f"GitHub key OK ({t[:15]}...{t[-4:]}). Saved; it won't ask again.")
+        return t
+    raise SystemExit(f"The key still didn't work. Make a new one ({where}) and run this again.")
 
 
 def blob_sha(data: bytes) -> str:

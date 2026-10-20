@@ -67,8 +67,7 @@ python search.py
 (It's the same script as on the iPad, but on the laptop it does more: it uses the browser add-on for the
 dealer sites that need one, reads twice as many dealers at once, and keeps a page cache so later runs are faster.)
 
-- The first time, it asks you to **paste the GitHub key** from step 3 (right-click pastes; you won't
-  see it, that's on purpose). Press **Enter**. It won't ask again.
+- The first time, it asks you to **paste the GitHub key** from step 3 (right-click pastes, once). Press **Enter**. It won't ask again.
 - It gets the latest version, runs the search (6 stages and a coverage report), and uploads the results.
   Leave the window open until it says **"Uploaded."**
 - About 2 minutes later, refresh <https://cpo-suv-finder.pages.dev>.
