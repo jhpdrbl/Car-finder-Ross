@@ -1,6 +1,15 @@
 {
  "clearance": [
   {
+   "make": "Audi",
+   "model": "Q8 e-tron",
+   "trim_regex": "^(?!.*sq8)",
+   "from_year": 2024,
+   "to_year": 2025,
+   "inches": 8.1,
+   "source": "Audi USA tech specs 2024/2025"
+  },
+  {
    "make": "Genesis",
    "model": "Electrified GV70",
    "trim_regex": "",
@@ -836,6 +845,16 @@
    "model": "Q5",
    "fuel": "phev",
    "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 23,
+   "source": "fueleconomy.gov 2025 rating (2024 not listed; same 55 TFSI e)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q5",
+   "fuel": "phev",
+   "trim_regex": "",
    "from_year": 2025,
    "to_year": 2025,
    "miles": 23,
@@ -1123,6 +1142,26 @@
   },
   {
    "make": "Mercedes-Benz",
+   "model": "GLC",
+   "fuel": "phev",
+   "trim_regex": "\\b63\\b|amg",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 1,
+   "source": "fueleconomy.gov (AMG GLC 63 S E Performance; EPA lists 1 mi)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "GLC",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 54,
+   "source": "fueleconomy.gov (GLC 350e 4MATIC)"
+  },
+  {
+   "make": "Mercedes-Benz",
    "model": "GLE",
    "fuel": "phev",
    "trim_regex": "450e",
@@ -1166,6 +1205,26 @@
    "model": "EQB",
    "fuel": "ev",
    "trim_regex": "350",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 227,
+   "source": "fueleconomy.gov (2022 rating; MBUSA says 2023 carried over unchanged)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "fuel": "ev",
+   "trim_regex": "300",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 243,
+   "source": "fueleconomy.gov (2022 rating; MBUSA says 2023 carried over unchanged)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "fuel": "ev",
+   "trim_regex": "350",
    "from_year": 2024,
    "to_year": 2025,
    "miles": 207,
@@ -1180,6 +1239,26 @@
    "to_year": 2025,
    "miles": 205,
    "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*500|500.*suv",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 269,
+   "source": "Mercedes-Benz USA (EPA est.)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "suv.*350|350.*suv",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 253,
+   "source": "Mercedes-Benz USA (EPA est., all-season tires)"
   },
   {
    "make": "Mercedes-Benz",

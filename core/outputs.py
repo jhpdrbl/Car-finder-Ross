@@ -315,6 +315,10 @@ def theme_vars(P) -> dict:
             "__LINE_D__": _mix(th["dark"], "#2a2e2c", .12)}
 
 
+# VIN beginnings that name the version when the dealer doesn't (seen on listings that do name it, and on a window sticker)
+VIN_VERSION = {"4JGGM1CB": "EQE 350 4MATIC", "W1N9M0KB": "EQB 300 4MATIC"}
+
+
 def _spec_fields(r: dict) -> dict:
     """Ground clearance (the listing's figure, else the model's spec) and EPA electric range for plug-ins and EVs."""
     from verify import specs
@@ -323,7 +327,9 @@ def _spec_fields(r: dict) -> dict:
     except ValueError:
         cl = None
     cl = cl or specs.clearance(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"))
-    er = specs.ev_range(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"), r.get("fuel_type", ""))
+    # the body type (from the VIN) tells an "EQE 350" SUV from the sedan when the dealer doesn't say
+    extra = VIN_VERSION.get((r.get("vin") or "")[:8].upper(), "")
+    er = specs.ev_range(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra} {r.get("body") or ""}', r.get("year"), r.get("fuel_type", ""))
     return {"clearance": cl if cl else "", "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
 
 
