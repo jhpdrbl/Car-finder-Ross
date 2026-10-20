@@ -315,6 +315,18 @@ def theme_vars(P) -> dict:
             "__LINE_D__": _mix(th["dark"], "#2a2e2c", .12)}
 
 
+def _spec_fields(r: dict) -> dict:
+    """Ground clearance (the listing's figure, else the model's spec) and EPA electric range for plug-ins and EVs."""
+    from verify import specs
+    try:
+        cl = float(r.get("ground_clearance_in") or "") or None
+    except ValueError:
+        cl = None
+    cl = cl or specs.clearance(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"))
+    er = specs.ev_range(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"), r.get("fuel_type", ""))
+    return {"clearance": cl if cl else "", "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
+
+
 def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None, profile=None) -> Path:
     from core import profiles
     P = _profile(profile)
@@ -338,7 +350,8 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
                                                "msrp_new", "msrp_source", "body", "page_features")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio,
-                       "is_new": bool(latest_run) and r.get("new_run") == latest_run})
+                       "is_new": bool(latest_run) and r.get("new_run") == latest_run}
+                    | _spec_fields(r))
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)
@@ -547,6 +560,11 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .favbtn { font:600 12px system-ui, -apple-system, sans-serif; margin:6px 6px 0 0; padding:3px 10px; border-radius:999px; cursor:pointer;
   border:1px solid var(--bad); background:var(--surface); color:var(--bad); }
 .favbtn[aria-pressed="true"] { background:var(--bad); color:var(--bg); border-color:var(--bad); }
+.disbtn { font:600 12px system-ui, -apple-system, sans-serif; margin:6px 6px 0 0; padding:3px 10px; border-radius:999px; cursor:pointer;
+  background:transparent; color:var(--muted); border:1px solid var(--line); }
+.disbtn[aria-pressed="true"] { background:var(--muted); color:var(--bg); border-color:var(--muted); }
+tr.disliked > td { opacity:.5; }
+tr.disliked > td.car { opacity:.8; }
 #fav-gone ul { margin:4px 0 12px; padding-left:18px; }
 .cmpbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--surface); border:1px solid var(--accent);
   border-radius:8px; padding:8px 10px; font-size:14px; }
@@ -636,6 +654,13 @@ __SCOREHELP__
   <fieldset class="group" id="f-miles"><legend>Miles</legend>
     <div class="range"><span class="small">From <b class="rv" id="mmin-v"></b></span><input type="range" id="mmin" aria-label="Fewest miles">
     <span class="small">Up to <b class="rv" id="mmax-v"></b></span><input type="range" id="mmax" aria-label="Most miles"></div></fieldset>
+  <fieldset class="group" id="f-clear"><legend>Ground clearance</legend>
+    <div class="range"><span class="small">From <b class="rv" id="clmin-v"></b></span><input type="range" id="clmin" aria-label="Lowest ground clearance">
+    <span class="small">Up to <b class="rv" id="clmax-v"></b></span><input type="range" id="clmax" aria-label="Highest ground clearance"></div></fieldset>
+  <fieldset class="group" id="f-erange"><legend>Electric range (plug-in hybrids and electric; moving it hides gas cars)</legend>
+    <div class="range"><span class="small">From <b class="rv" id="ermin-v"></b></span><input type="range" id="ermin" aria-label="Shortest electric range">
+    <span class="small">Up to <b class="rv" id="ermax-v"></b></span><input type="range" id="ermax" aria-label="Longest electric range"></div></fieldset>
+  <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
   <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </div>
@@ -651,10 +676,10 @@ __SCOREHELP__
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
-  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
+  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="clearance:-1">Most ground clearance</option><option value="ev_range:-1">Longest electric range</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th><th data-k="seat">Seats</th>
+  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th><th data-k="seat">Seats</th><th data-k="clearance">Ground clearance</th><th data-k="ev_range">Electric range</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_end">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
@@ -760,6 +785,24 @@ function showMiles() {
   document.getElementById("mmax-v").textContent = fmtMi(mmax.value); }
 const resetMiles = () => { mmin.value = M_LO; mmax.value = M_HI; showMiles(); };
 resetPrice(); resetMiles();
+// a pair of From / Up to sliders over one number per car (ground clearance, electric range)
+function makeSlider(id, vals, step, fmt) {
+  const lo = vals.length ? Math.floor(Math.min(...vals) / step) * step : 0, hi = vals.length ? Math.ceil(Math.max(...vals) / step) * step : step;
+  const a = document.getElementById(id + "min"), b = document.getElementById(id + "max");
+  [a, b].forEach(el => { el.min = lo; el.max = hi; el.step = step; });
+  const show = () => {
+    if (+a.value > +b.value) { if (document.activeElement === a) b.value = a.value; else a.value = b.value; }
+    document.getElementById(id + "min-v").textContent = fmt(+a.value);
+    document.getElementById(id + "max-v").textContent = fmt(+b.value); };
+  const s = {reset() { a.value = lo; b.value = hi; show(); },
+             on: () => +a.value > lo + step / 2 || +b.value < hi - step / 2,
+             ok: v => v != null && v >= +a.value - step / 2 && v <= +b.value + step / 2};
+  [a, b].forEach(el => el.addEventListener("input", () => { show(); render(); }));
+  s.reset(); return s;
+}
+const clearS = makeSlider("cl", D.cars.map(c => num(c.clearance)).filter(v => v != null), 0.1, v => v.toFixed(1) + " in");
+const rangeS = makeSlider("er", D.cars.map(c => num(c.ev_range)).filter(v => v != null), 5, v => Math.round(v) + " mi");
+pills("f-mine", ["Favorite", "Disliked", "No mark"]);
 pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
@@ -987,6 +1030,33 @@ document.getElementById("fav-share").addEventListener("click", () => {
 document.getElementById("fav-cmp").addEventListener("click", () => {
   cmp = fav.filter(v => D.cars.some(c => c.vin === v)).slice(0, MAXCMP); saveCmp(); render(); showTab("cmp"); });
 saveFav();
+// ---- Dislikes: tap "Dislike" to mark a car you don't want; it stays on the page (greyed), the "Mine" filter can hide it ----
+let dis = [], disSync = false;
+try { dis = JSON.parse(localStorage.getItem(PK + "dis") || "[]"); } catch (e) {}
+function saveDis() { try { localStorage.setItem(PK + "dis", JSON.stringify(dis)); } catch (e) {} }
+function pushDis() {
+  if (disSync) fetch(API("dislikes"), {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({dis})}).catch(() => {});
+}
+async function pullDis() {
+  if (location.protocol === "file:") return;
+  try {
+    const r = await fetch(API("dislikes"), {cache: "no-store"});
+    if (!r.ok) throw new Error(r.status);
+    const server = (await r.json()).dis;
+    if (!Array.isArray(server)) throw new Error("bad reply");
+    let first = false; try { first = localStorage.getItem(PK + "dis_synced") !== "1"; } catch (e) {}
+    dis = first ? [...new Set(server.concat(dis))] : server; disSync = true;
+    if (first) { pushDis(); try { localStorage.setItem(PK + "dis_synced", "1"); } catch (e) {} }
+    saveDis(); render();
+  } catch (e) { disSync = false; }
+}
+document.addEventListener("visibilitychange", () => { if (!document.hidden) pullDis(); });
+function toggleDis(vin) {
+  dis = dis.includes(vin) ? dis.filter(v => v !== vin) : dis.concat(vin); saveDis(); pushDis(); render();
+}
+document.addEventListener("click", e => { const b = e.target.closest(".disbtn"); if (b) toggleDis(b.dataset.vin); });
+const mark = c => fav.includes(c.vin) ? "Favorite" : dis.includes(c.vin) ? "Disliked" : "No mark";
+pullDis();
 // ---- Check yourself tab: dealers we couldn't read; the user checks them by hand ----
 const CK = D.check || [];
 let checked = {}, ckSync = false;
@@ -1179,6 +1249,8 @@ const FIELDS = [
   ["Colors", c => esc(c.colors), null, null],
   ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
   ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
+  ["Ground clearance", c => num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in", c => num(c.clearance), "high"],
+  ["Electric range", c => num(c.ev_range) == null ? (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—") : Math.round(num(c.ev_range)) + " mi", c => num(c.ev_range), "high"],
   ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
   ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
   ["CARFAX", c => esc({clean: "no accidents", accident: "accident", not_verified: "not verified"}[c.carfax_status] || c.carfax_status), null, null],
@@ -1217,14 +1289,16 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
 function render() { renderRows(); stickHeads(); }
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"),
-        rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"),
+        rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
                     && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"))
                     && (!rf.size || rf.has(roofOf(c).v)) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
-                    && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi));
+                    && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
+                    && (!clearS.on() || clearS.ok(num(c.clearance))) && (!rangeS.on() || rangeS.ok(num(c.ev_range)))
+                    && (!mn.size || mn.has(mark(c)));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
   const onlyNew = document.getElementById("only-new").checked;
   let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
@@ -1242,11 +1316,11 @@ function renderRows() {
     <td class="small" data-l="Gone since">${esc(c.removed_on || c.last_seen)}</td><td class="num" data-l="Days listed">${esc(c.days)}</td>
     <td class="small wide" data-l="Why">${esc(c.fail_reasons)}</td></tr>`).join("")
     || `<tr><td colspan="12" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
-  document.getElementById("rows").innerHTML = cars.map(c => `<tr>
+  document.getElementById("rows").innerHTML = cars.map(c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
-      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button></td>
+      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button></td>
     <td class="num p-year" data-l="Year">${esc(c.year)}</td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div><div class="small">${esc(c.cpo_program)}</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
@@ -1254,9 +1328,11 @@ function renderRows() {
     <td data-l="Fuel">${esc(c.fuel)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
+    <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in"}</td>
+    <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
-    || `<tr><td colspan="18" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+    || `<tr><td colspan="20" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
   if (favOnly) {
     const gf = D.gone.filter(c => fav.includes(c.vin));
     document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>
@@ -1313,12 +1389,12 @@ try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-roof", "f-sound", "f-seat", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-roof", "f-sound", "f-seat", "f-mine", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
-  document.getElementById("q").value = ""; resetPrice(); resetMiles(); render(); });
+  document.getElementById("q").value = ""; resetPrice(); resetMiles(); clearS.reset(); rangeS.reset(); render(); });
 D.cars.forEach(c => { soundOf(c); seatOf(c); roofOf(c); });       // fills c.snd / c.seat / c.roof for sorting
 render();
 stickHeads();
