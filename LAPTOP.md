@@ -14,6 +14,8 @@ the iPad because it can use a real browser for the dealer sites that need one (A
 1. Go to <https://www.python.org/downloads/> and click the yellow **Download Python** button.
 2. Open the downloaded file. On the first screen, **tick "Add python.exe to PATH"** (at the bottom),
    then click **Install Now**. Click **Close** when it's done.
+   (If instead a window called **Python install manager** opens, just accept what it suggests and answer
+   **Y** to its questions; it sets everything up by itself.)
 
 ## Step 2: Download the project (once)
 
@@ -33,8 +35,8 @@ cd Car-finder-Ross
 python -m pip install -r requirements.txt
 ```
 
-If `python` "is not recognized" or opens the Microsoft Store: redo step 1 and make sure the PATH box is
-ticked, then close PowerShell and open it again.
+If `python` "is not recognized" or opens the Microsoft Store: close PowerShell, open it again and retry.
+Still not working? Type `py` instead of `python` in every command (for example `py search.py`).
 
 ## Step 3: The browser add-on and an upload key (once)
 
