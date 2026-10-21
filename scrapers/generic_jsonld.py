@@ -424,6 +424,10 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     others = [money(x) for x in OTHER_FEE.findall(flat)]
     others = [o for o in others if o and o < 5000]
     L.other_fees = sum(others) if others else None
+    # the price IS the dealer's all-in figure (Calabasas "Total Transparent Price", West Covina "Final Price"): no fees on top
+    m = re.search(r"(?:total transparent|final|out[- ]the[- ]door|all[- ]in) price\s*:?\s*\$\s?([\d,]{4,7})", flat, re.I)
+    if m and L.price and abs(money(m.group(1)) - L.price) < 1:
+        L.doc_fee, L.other_fees = 0.0, 0.0
 
     # Features
     feats = []
