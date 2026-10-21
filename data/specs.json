@@ -830,6 +830,33 @@
   },
   {
    "make": "Volvo",
+   "model": "XC40",
+   "trim_regex": "recharge|electric|twin|single|singl|\\bbev\\b",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 6.9,
+   "source": "Volvo support/media pages outside US (Canada XC40 Recharge, UK EX40): 175 mm"
+  },
+  {
+   "make": "Volvo",
+   "model": "EX40",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 6.9,
+   "source": "Volvo EX40 pages outside US (UK media newsroom): 175 mm"
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.1,
+   "source": "Volvo Cars US support page (XC40 Mild Hybrid dimensions): 205 mm"
+  },
+  {
+   "make": "Volvo",
    "model": "XC60",
    "trim_regex": "",
    "from_year": 2023,
@@ -2286,6 +2313,56 @@
    "to_year": 2026,
    "miles": 276,
    "source": "fueleconomy.gov (19-in; 272 on 21-in)"
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 223,
+   "source": "fueleconomy.gov (2023 US XC40 Recharge = Twin only)"
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40",
+   "fuel": "ev",
+   "trim_regex": "single|singl",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 293,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 254,
+   "source": "fueleconomy.gov (Twin)"
+  },
+  {
+   "make": "Volvo",
+   "model": "EX40",
+   "fuel": "ev",
+   "trim_regex": "single|singl",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 296,
+   "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Volvo",
+   "model": "EX40",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "miles": 260,
+   "source": "fueleconomy.gov (Twin)"
   },
   {
    "make": "Volvo",
