@@ -240,6 +240,25 @@ CLOTH = re.compile(rf"((?:cloth|fabric|tweed|woven|knit) (?:trimmed |covered )?{
 CLOTH_WORD = re.compile(r"\b(cloth|fabric|tweed)\b", re.I)
 
 
+CLEARANCE = re.compile(r'ground[ -]?clearance\s*(?:\((max|min|in|inches)\))?\s*:?\s*'
+                       r'(?:(\d{2,3})\s*mm\s*\(\s*([\d.]+)\s*(?:"|in\.?)?\s*\)|([\d.]+)\s*(?:in\b|inches|")?)', re.I)
+
+
+def ground_clearance(text: str) -> float | None:
+    """Ground clearance in inches from the page's spec list: Dealer.com 'Ground clearance (max): 208mm (8.2")',
+    'Ground Clearance (in): 8.1', 'Ground Clearance 8.3 in'. With max and min (adjustable suspension), max wins."""
+    vals: dict[str, float] = {}
+    for m in CLEARANCE.finditer(text):
+        kind = (m.group(1) or "").lower().replace("inches", "in")
+        try:
+            inch = float(m.group(3)) if m.group(3) else (float(m.group(2)) / 25.4 if m.group(2) else float(m.group(4)))
+        except (TypeError, ValueError):
+            continue
+        if 4 <= inch <= 15:
+            vals.setdefault(kind, round(inch, 1))
+    return vals.get("max") or vals.get("") or vals.get("in") or vals.get("min")
+
+
 def seat_material(hay: str, int_color: str) -> str:
     """leather / synthetic / cloth from the interior color name first (most specific), then the page text."""
     if FAKE_WORD.search(int_color):
@@ -414,6 +433,7 @@ def parse_vdp(html: str, url: str) -> Listing | None:
             feats.append(t)
     L.features = list(dict.fromkeys(feats))
     hay = flat + " " + " ".join(L.features) + " " + str(v.get("description") or "")
+    L.ground_clearance_in = ground_clearance(flat)
     if NO_SUNROOF.search(hay):
         L.sunroof, L.sunroof_note = False, NO_SUNROOF.search(hay).group(1)
     elif SUNROOF.search(hay):

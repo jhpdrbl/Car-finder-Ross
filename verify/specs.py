@@ -39,9 +39,10 @@ def _find(kind: str, make: str, model: str, trim: str, year, fuel: str = "") -> 
     return None
 
 
-def clearance(make: str, model: str, trim: str, year) -> float | None:
+def clearance(make: str, model: str, trim: str, year) -> tuple[float, str] | None:
+    """(inches, source) for the model / trim's published ground clearance."""
     e = _find("clearance", make, model, trim, year)
-    return float(e["inches"]) if e else None
+    return (float(e["inches"]), e.get("source", "")) if e else None
 
 
 def ev_range(make: str, model: str, trim: str, year, fuel: str) -> tuple[float, str] | None:

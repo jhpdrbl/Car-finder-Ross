@@ -326,11 +326,15 @@ def _spec_fields(r: dict) -> dict:
         cl = float(r.get("ground_clearance_in") or "") or None
     except ValueError:
         cl = None
-    cl = cl or specs.clearance(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"))
+    src = "dealer's spec list" if cl else ""
+    if not cl:
+        hit = specs.clearance(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"))
+        if hit:
+            cl, src = hit[0], ("Car and Driver" if "car and driver" in hit[1].lower() else "maker's spec")
     # the body type (from the VIN) tells an "EQE 350" SUV from the sedan when the dealer doesn't say
     extra = VIN_VERSION.get((r.get("vin") or "")[:8].upper(), "")
     er = specs.ev_range(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra} {r.get("body") or ""}', r.get("year"), r.get("fuel_type", ""))
-    return {"clearance": cl if cl else "", "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
+    return {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
 
 
 def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None, profile=None) -> Path:
@@ -1367,7 +1371,7 @@ function renderRows() {
     <td data-l="Fuel">${esc(c.fuel)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
-    <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in"}</td>
+    <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
     <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
