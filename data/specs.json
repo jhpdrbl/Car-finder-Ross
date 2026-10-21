@@ -1,6 +1,51 @@
 {
  "clearance": [
   {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "trim_regex": "sedan",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 4.0,
+   "source": "Mercedes-Benz Germany data via ADAC (outside US; US figure unconfirmed)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "trim_regex": "suv",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 5.2,
+   "source": "Mercedes-Benz Germany data via ADAC (outside US)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 6.1,
+   "source": "Mercedes-Benz Germany data via ADAC, 2023 and 2024 EQB (outside US)"
+  },
+  {
+   "make": "Genesis",
+   "model": "GV60",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 6.3,
+   "source": "Genesis Australia spec sheet (outside US)"
+  },
+  {
+   "make": "Audi",
+   "model": "Q4 e-tron",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 7.1,
+   "source": "Audi Europe press kit, about 18 cm (outside US; dealers' spec data says 5.8 in)"
+  },
+  {
    "make": "Audi",
    "model": "Q8 e-tron",
    "trim_regex": "^(?!.*sq8)",

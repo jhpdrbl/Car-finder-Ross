@@ -45,6 +45,36 @@ def clearance(make: str, model: str, trim: str, year) -> tuple[float, str] | Non
     return (float(e["inches"]), e.get("source", "")) if e else None
 
 
+def approx_clearance(model: str, trim: str) -> float | None:
+    """The rough per-model figure from config.yaml (ground_clearance_in), longest name first so a CX-50 isn't a CX-5."""
+    from scrapers.base import CONFIG
+    table = CONFIG.get("ground_clearance_in") or {}
+    text = _norm(f"{model} {trim}")
+    for k in sorted(table, key=len, reverse=True):
+        words = _norm(k).split()
+        if words and words[0] in text.split() and all(w in text for w in words[1:]):
+            return float(table[k])
+    return None
+
+
+def best_clearance(make: str, model: str, trim: str, year, page_value=None) -> tuple[float | None, str]:
+    """One ground clearance per model / year / trim: the maker's published figure first, then the figure from
+    the dealer's spec data, then the rough per-model figure. Returns (inches, where it came from)."""
+    hit = clearance(make, model, trim, year)
+    if hit:
+        how = hit[1].lower()
+        return hit[0], ("Car and Driver" if "car and driver" in how else "dealer spec data" if "dealers" in how
+                        else "maker's spec (outside US)" if "outside us" in how else "maker's spec")
+    try:
+        pv = float(page_value) if page_value not in (None, "") else None
+    except ValueError:
+        pv = None
+    if pv:
+        return pv, "dealer spec data"
+    ap = approx_clearance(model, trim)
+    return (ap, "approximate") if ap else (None, "")
+
+
 def ev_range(make: str, model: str, trim: str, year, fuel: str) -> tuple[float, str] | None:
     """(miles, source) of electric driving for plug-in hybrids (all-electric range) and EVs (total range)."""
     if fuel not in ("phev", "ev"):

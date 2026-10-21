@@ -319,21 +319,14 @@ def theme_vars(P) -> dict:
 VIN_VERSION = {"4JGGM1CB": "EQE 350 4MATIC", "W1N9M0KB": "EQB 300 4MATIC"}
 
 
-def _spec_fields(r: dict) -> dict:
-    """Ground clearance (the listing's figure, else the model's spec) and EPA electric range for plug-ins and EVs."""
+def _spec_fields(r: dict, page_cl: dict | None = None) -> dict:
+    """Ground clearance (one figure per model / year / trim, see specs.best_clearance) and EPA electric range."""
     from verify import specs
-    try:
-        cl = float(r.get("ground_clearance_in") or "") or None
-    except ValueError:
-        cl = None
-    src = "dealer's spec list" if cl else ""
-    if not cl:
-        hit = specs.clearance(r.get("make", ""), r.get("model", ""), r.get("trim", ""), r.get("year"))
-        if hit:
-            cl, src = hit[0], ("Car and Driver" if "car and driver" in hit[1].lower() else "maker's spec")
+    extra = f'{VIN_VERSION.get((r.get("vin") or "")[:8].upper(), "")} {r.get("body") or ""}'   # SUV vs sedan, version
+    page = r.get("ground_clearance_in") or (page_cl or {}).get((r.get("year"), r.get("make"), r.get("model")))
+    cl, src = specs.best_clearance(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), page)
     # the body type (from the VIN) tells an "EQE 350" SUV from the sedan when the dealer doesn't say
-    extra = VIN_VERSION.get((r.get("vin") or "")[:8].upper(), "")
-    er = specs.ev_range(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra} {r.get("body") or ""}', r.get("year"), r.get("fuel_type", ""))
+    er = specs.ev_range(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), r.get("fuel_type", ""))
     return {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
 
 
@@ -349,6 +342,13 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     from core import history as history_mod      # (the `history` argument is the price history)
     no_audio = {v for v, c in history_mod.load_confirmed(P.data).items() if (c.get("audio") or "").strip().lower() == "none"}
     cars = []
+    # the dealers' spec-data clearance for each year / make / model, so every car of it shows the same figure
+    from collections import Counter
+    seen: dict = {}
+    for r in rows:
+        if r.get("ground_clearance_in"):
+            seen.setdefault((str(r.get("year")), r.get("make"), r.get("model")), Counter())[str(r["ground_clearance_in"])] += 1
+    page_cl = {k: c.most_common(1)[0][0] for k, c in seen.items()}
     txt = lambda v: str(v) if isinstance(v, bool) else ("" if v is None else v)   # a fresh run's rows hold real True/False
     active = [{k: txt(v) for k, v in r.items()} for r in active]
     rows = [{k: txt(v) for k, v in r.items()} for r in rows]
@@ -361,7 +361,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "msrp_new", "msrp_source", "body", "page_features")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run}
-                    | _spec_fields(r))
+                    | _spec_fields(r, page_cl))
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)

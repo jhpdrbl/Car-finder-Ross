@@ -181,6 +181,11 @@ def seats_inferred(L: Listing, d: dict) -> tuple[str, str]:
     return "", ""
 
 
+def _clearance(L: Listing) -> float | None:
+    from verify import specs
+    return specs.best_clearance(L.make, L.model, L.trim, L.year, L.ground_clearance_in)[0]
+
+
 def typical(table: str, L: Listing):
     t = CFG.get(table, {})
     model = (L.model or "").title()
@@ -463,8 +468,6 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         fails.append("CARFAX: accident reported")
 
     # nice-to-have defaults
-    if L.ground_clearance_in is None:
-        L.ground_clearance_in = typical("ground_clearance_in", L)
     if L.spare_tire is None:
         t = typical("spare_tire_typical", L)
         if t is not None:
@@ -510,7 +513,7 @@ def score_parts(L: Listing) -> dict[str, float]:
     parts["leather"] = tri(L.leather)
     parts["real_leather"] = 1.0 if (L.leather is True or L.seats == "leather") else (0.4 if L.seats == "synthetic" or L.leather is False else 0.2)
     parts["ventilated_seats"] = tri(L.ventilated_seats)
-    parts["ground_clearance"] = 1.0 if (L.ground_clearance_in or 0) >= 8 else 0.0
+    parts["ground_clearance"] = 1.0 if (_clearance(L) or 0) >= 8 else 0.0
     parts["spare_tire"] = tri(L.spare_tire)
     parts["sunroof"] = 1.0 if L.sunroof is True else (0.0 if L.sunroof is False else 0.3)
     rank = S.get("color_rank") or []
@@ -544,6 +547,6 @@ def _old_score(L: Listing) -> float:     # kept for reference: the formula befor
     pts += w.get("leather", 0) * tri(L.leather)
     pts += w.get("sunroof", 0) * tri(L.sunroof)
     pts += w["ventilated_seats"] * tri(L.ventilated_seats)
-    pts += w["ground_clearance"] * (1.0 if (L.ground_clearance_in or 0) >= 8 else 0.0)
+    pts += w["ground_clearance"] * (1.0 if (_clearance(L) or 0) >= 8 else 0.0)
     pts += w["spare_tire"] * tri(L.spare_tire)
     return round(100 * pts / sum(w.values()), 1)
