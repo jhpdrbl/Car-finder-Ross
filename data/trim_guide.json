@@ -23444,6 +23444,412 @@
     }
    ],
    "sources": []
+  },
+  {
+   "make": "Jaguar",
+   "model": "F-Pace",
+   "on_list_rule": "Every F-Pace is AWD and a 2-row SUV (gas; the P400 is a mild hybrid, which counts as gas; the P400e plug-in was never sold in the US). The sliding panoramic roof is an OPTION, so a car passes only when the listing (or you) confirms it. Black interior = Ebony. Seats are DuoLeather (leather + man-made mix) on R-Dynamic trims. Qualifying paints: Santorini Black, Eiger Grey, Carpathian Grey, Hakuba Silver, British Racing Green (special order). Not: Fuji White, Ostuni Pearl White, Portofino Blue, Bluefire Blue, Firenze Red, satin (matte) finishes.",
+   "sources": [
+    "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights",
+    "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights",
+    "https://www.jaguar.com/en-us/jdx/all-models/f-pace/models/index.html",
+    "no 2025 MY US price release found",
+    "not found",
+    "https://www.fueleconomy.gov"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "fueleconomy.gov also lists a 2023 'F-Pace P340 MHEV' (id 45451, 20/27/22) but no US 2023 price list names a P340 trim; US availability unconfirmed.",
+     "trims": [
+      {
+       "name": "P250",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp, 8-speed auto",
+       "builds_on": "",
+       "highlights": [
+        "Base trim, 2023 only",
+        "Adaptive Cruise Control standard",
+        "Pivi Pro 11.4\" touchscreen",
+        "Self-sealing tires standard (2023 MY)"
+       ],
+       "sunroof": "optional (sliding panoramic roof; US standard/option status for this trim not confirmed)",
+       "premium_audio": "Meridian sound system, 14 speakers, standard on all F-Pace since 2021 MY (watts not stated in US source); Meridian Surround optional",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Self-sealing tires standard (2023 MY release); spare unknown",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "P250 S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp",
+       "builds_on": "",
+       "highlights": [
+        "Adaptive Cruise Control with Stop & Go available",
+        "Self-sealing tires standard"
+       ],
+       "sunroof": "optional (not confirmed for US 2023)",
+       "premium_audio": "Meridian 14-speaker standard; Meridian Surround optional",
+       "seats": "unknown (S trims historically grained leather; not confirmed for US 2023)",
+       "black_interior": "Ebony",
+       "spare": "Self-sealing tires standard; spare unknown",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "P400 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L turbo + electric supercharger I6 mild hybrid (48V), 395 hp; mild hybrid counts as gas",
+       "builds_on": "",
+       "highlights": [
+        "395 hp I6 mild hybrid",
+        "R-Dynamic styling",
+        "Self-sealing tires standard"
+       ],
+       "sunroof": "optional (not confirmed for US 2023)",
+       "premium_audio": "Meridian 14-speaker standard; Meridian Surround optional",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Self-sealing tires standard; spare unknown",
+       "mpg": "19/26/22"
+      },
+      {
+       "name": "P550 SVR",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "5.0L supercharged V8, 542 hp",
+       "builds_on": "",
+       "highlights": [
+        "542 hp V8",
+        "Variable Valve Active Exhaust",
+        "SVR body kit"
+       ],
+       "sunroof": "unknown for US (UK MY24 SVR has fixed panoramic roof standard)",
+       "premium_audio": "Meridian Surround Sound System (standard on US SVR 2026; 2023 unconfirmed)",
+       "seats": "Suedecloth and Windsor leather performance seats (UK MY24 / US 2026 SVR); semi-aniline leather optional",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "15/21/17"
+      },
+      {
+       "name": "P550 SVR Edition 1988",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "5.0L supercharged V8, 542 hp",
+       "builds_on": "",
+       "highlights": [
+        "394 made worldwide",
+        "Midnight Amethyst paint (purple: fails color rule)",
+        "Champagne Gold forged wheels"
+       ],
+       "sunroof": "unknown",
+       "premium_audio": "unknown",
+       "seats": "unknown",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "15/21/17"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "'90th Anniversary Edition' (global release May 2024) is badging on R-Dynamic models, not a separate US trim; the current US configurator shows it as a $0 'Badge - 90th Anniversary Edition' option.",
+     "trims": [
+      {
+       "name": "P250 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp",
+       "builds_on": "",
+       "highlights": [
+        "Non-R-Dynamic trims dropped for 2024",
+        "Black Exterior Pack, heated steering wheel, Ebony headliner standard",
+        "Pivi Pro 11.4\" touchscreen, wireless CarPlay/Android Auto",
+        "Adaptive Cruise with Steering Assist"
+       ],
+       "sunroof": "optional sliding panoramic roof (US configurator lists it under Options; not in the US standard-feature list). Some cars have it, so check each car",
+       "premium_audio": "Meridian Sound System standard; Meridian Surround Sound System (650W, 16 speakers + dual-channel subwoofer, Trifield) optional ($800 on current US configurator)",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel (current US model page) plus self-sealing tires",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "P400 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L I6 mild hybrid, 395 hp (counts as gas)",
+       "builds_on": "",
+       "highlights": [
+        "395 hp",
+        "Adaptive Dynamics, Configurable Dynamics",
+        "Black Exterior Pack"
+       ],
+       "sunroof": "optional sliding panoramic roof (US configurator lists it under Options; not in the US standard-feature list). Some cars have it, so check each car",
+       "premium_audio": "Meridian standard; Meridian Surround optional",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel",
+       "mpg": "19/25/21"
+      },
+      {
+       "name": "P550 SVR",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "5.0L supercharged V8, 542 hp (SVR 575 Edition: 567 hp / 575 PS)",
+       "builds_on": "",
+       "highlights": [
+        "V8",
+        "Far above price caps"
+       ],
+       "sunroof": "unknown for US",
+       "premium_audio": "Meridian Surround Sound System standard (US SVR 575 Edition page)",
+       "seats": "Suedecloth and Windsor leather performance seats; semi-aniline optional",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "15/21/17"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "P250 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp",
+       "builds_on": "",
+       "highlights": [
+        "Same lineup as 2024"
+       ],
+       "sunroof": "optional sliding panoramic roof (US configurator lists it under Options; not in the US standard-feature list). Some cars have it, so check each car",
+       "premium_audio": "Meridian standard; Meridian Surround (650W) optional",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "P400 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L I6 mild hybrid, 395 hp",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "optional sliding panoramic roof (US configurator lists it under Options; not in the US standard-feature list). Some cars have it, so check each car",
+       "premium_audio": "Meridian standard; Surround optional",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel",
+       "mpg": "19/25/21"
+      },
+      {
+       "name": "SVR / SVR 575 Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "5.0L supercharged V8, 567 hp",
+       "builds_on": "",
+       "highlights": [
+        "0-60 3.8 s",
+        "22\" wheels"
+       ],
+       "sunroof": "unknown",
+       "premium_audio": "Meridian Surround standard",
+       "seats": "Suedecloth and Windsor leather performance seats",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "15/21/17"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "US site still sells F-Pace (configurator code f-pace_k265 = 2026 model year, 26.5 update). fueleconomy.gov lists 2025 and 2026 F-Pace. Whether a 2026 is sold as new beyond current stock is not stated.",
+     "trims": [
+      {
+       "name": "P250 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp",
+       "builds_on": "",
+       "highlights": [
+        "Black Exterior Pack",
+        "3D Surround Camera, Head-up Display, Wi-Fi listed in configurator standard list (check car)",
+        "Wireless charging, Pivi Pro 11.4\""
+       ],
+       "sunroof": "optional sliding panoramic roof (US configurator lists it under Options; not in the US standard-feature list). Some cars have it, so check each car",
+       "premium_audio": "Meridian Sound System standard; Meridian Surround Sound System 650W/16 speakers optional ($800)",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel + self-sealing tires",
+       "mpg": "22/27/24"
+      },
+      {
+       "name": "P400 R-Dynamic S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "3.0L I6 MHEV, 395 hp",
+       "builds_on": "",
+       "highlights": [
+        "Adaptive Dynamics",
+        "JaguarDrive Control with Adaptive Surface Response"
+       ],
+       "sunroof": "optional sliding panoramic roof (US configurator lists it under Options; not in the US standard-feature list). Some cars have it, so check each car",
+       "premium_audio": "Meridian standard; Surround optional",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel",
+       "mpg": "19/25/21"
+      },
+      {
+       "name": "SVR 575 Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "5.0L supercharged V8, 567 hp",
+       "builds_on": "",
+       "highlights": [
+        "0-60 3.8 s, 178 mph",
+        "Head-up display",
+        "22\" wheels, red calipers"
+       ],
+       "sunroof": "not listed in US key features; unknown",
+       "premium_audio": "Meridian Surround Sound System standard",
+       "seats": "Suedecloth and Windsor leather performance seats, heated and cooled 14-way",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "15/21/17"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "make": "Jaguar",
+   "model": "E-Pace",
+   "on_list_rule": "Every E-Pace is AWD and a 2-row compact SUV (gas). Sold in the US through 2024. The fixed panoramic roof is standard on the 2024 R-Dynamic SE and optional on the 2023 SE. Black interior = Ebony; DuoLeather seats.",
+   "sources": [
+    "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights",
+    "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights",
+    "https://www.fueleconomy.gov"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "P250 SE",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp, 9-speed auto",
+       "builds_on": "",
+       "highlights": [
+        "Single US trim for 2023",
+        "Adaptive Cruise with Stop & Go standard",
+        "Optional Premium Black Pack (21\" black wheels, Adaptive Dynamics)"
+       ],
+       "sunroof": "optional (fixed panoramic roof became STANDARD only for 2024, per 2024 MY US release)",
+       "premium_audio": "unknown for 2023 US (Meridian standard on 2024 R-Dynamic SE)",
+       "seats": "unknown",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "20/26/23"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "P250 R-Dynamic SE",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo I4 gas, 246 hp",
+       "builds_on": "",
+       "highlights": [
+        "Fixed panoramic roof, Black Exterior Pack standard",
+        "Heated steering wheel, Interactive Driver Display",
+        "Pivi Pro 11.4\", wireless charging",
+        "19\" diamond-turned wheels"
+       ],
+       "sunroof": "standard fixed panoramic roof",
+       "premium_audio": "Meridian Sound System standard (wattage not stated)",
+       "seats": "synthetic leather (DuoLeather: leather / man-made mix)",
+       "black_interior": "Ebony",
+       "spare": "Reduced section steel spare wheel",
+       "mpg": "20/26/23"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "make": "Jaguar",
+   "model": "I-Pace",
+   "on_list_rule": "Every I-Pace is an electric, AWD (dual-motor), 2-row SUV, sold in the US through 2024 (electric price cap). Windsor leather and Meridian 3D Surround are standard. The fixed panoramic roof is not confirmed as standard for the US, so it's a call unless the listing says so. Satin (matte) Eiger Grey / Carpathian Grey fail the no-matte rule.",
+   "sources": [
+    "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights",
+    "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights",
+    "https://www.fueleconomy.gov"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "HSE (EV400)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Electric, 90 kWh battery, 394 hp / 512 lb-ft",
+       "builds_on": "",
+       "highlights": [
+        "Only US trim for 2023",
+        "Air suspension standard",
+        "Wireless charging + Alexa new for 2023",
+        "11 kW onboard charger; 100 kW DC"
+       ],
+       "sunroof": "unknown for US: fixed panoramic roof was an option on UK 2022 HSE (GBP 995) and standard on UK March-2023 HSE; no US source found. Check each car (Needs a call)",
+       "premium_audio": "Meridian 3D Surround Sound System, 825W, 16 speakers + subwoofer, standard (US 2022 MY release; HSE-only lineup continued for 2023)",
+       "seats": "Windsor leather (genuine leather), 16-way heated and cooled front seats standard since 2022 MY; performance seats optional (2023)",
+       "black_interior": "Ebony",
+       "spare": "unknown for US (UK guide: spare not available with air suspension)",
+       "mpg": "89/82/85 MPGe; EPA range 246 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "R-Dynamic HSE (EV400)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Electric, 90 kWh, 394 hp",
+       "builds_on": "",
+       "highlights": [
+        "New smooth Atlas Grey grille, R-Dynamic",
+        "Black Exterior Pack, heated steering wheel, Ebony Suedecloth headliner standard",
+        "Satin paints Eiger Grey / Carpathian Grey new (satin = matte: fails)",
+        "EPA range 246 mi on 20\" wheels"
+       ],
+       "sunroof": "probably standard fixed panoramic roof (international R-Dynamic HSE page lists it standard; no US-specific confirmation)",
+       "premium_audio": "Meridian 3D Surround Sound System standard (international page; US 2022 release: 825W)",
+       "seats": "Ebony Windsor leather sport seats (international page)",
+       "black_interior": "Ebony",
+       "spare": "unknown",
+       "mpg": "89/82/85 MPGe; EPA range 246 mi"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

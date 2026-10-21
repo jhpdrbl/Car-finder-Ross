@@ -12540,6 +12540,149 @@
 "msrp": 42085,
 "note": "Plug-in Hybrid X-Line AWD: $40,590 + $1,495. Kia release Jul 20 2026 (MSRP excl. $1,495 destination; added here).",
 "source": "https://www.theautochannel.com/news/2026/07/20/1693929-kia-announces-pricing-for-2027-sportage-hybrid-and-sportage-plug.html"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": "svr",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "gas",
+"msrp": 90775,
+"note": "2023 F-Pace P550 SVR: $89,500 + $1,275 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": "p400|r-?dynamic",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "gas",
+"msrp": 66075,
+"note": "2023 F-Pace P400 R-Dynamic S: $64,800 + $1,275",
+"source": "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": "p250 s\\b|\\bs\\b",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "gas",
+"msrp": 57275,
+"note": "2023 F-Pace P250 S: $56,000 + $1,275",
+"source": "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": ".*",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "gas",
+"msrp": 53675,
+"note": "2023 F-Pace P250: $52,400 + $1,275",
+"source": "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": "svr",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "gas",
+"msrp": 93175,
+"note": "2024 F-Pace SVR: base + $1,275 destination (JLR US 2024 release)",
+"source": "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": "p400",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "gas",
+"msrp": 67775,
+"note": "2024 F-Pace P400 R-Dynamic S incl. $1,275 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": ".*",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "gas",
+"msrp": 58275,
+"note": "2024 F-Pace P250 R-Dynamic S incl. $1,275 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": "p400",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "gas",
+"msrp": 67875,
+"note": "2026 F-Pace P400 R-Dynamic S incl. destination (US configurator)",
+"source": "https://www.jaguar.com/en-us/jdx/all-models/f-pace/models/index.html"
+},
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"trim_regex": ".*",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "gas",
+"msrp": 58375,
+"note": "2026 F-Pace P250 R-Dynamic S incl. destination (US configurator)",
+"source": "https://www.jaguar.com/en-us/jdx/all-models/f-pace/models/index.html"
+},
+{
+"make": "Jaguar",
+"model": "E-Pace",
+"trim_regex": ".*",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "gas",
+"msrp": 49175,
+"note": "2023 E-Pace P250 SE: incl. $1,175 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "E-Pace",
+"trim_regex": ".*",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "gas",
+"msrp": 50675,
+"note": "2024 E-Pace P250 R-Dynamic SE incl. $1,175 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "I-Pace",
+"trim_regex": ".*",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "ev",
+"msrp": 72575,
+"note": "2023 I-Pace HSE incl. $1,275 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights"
+},
+{
+"make": "Jaguar",
+"model": "I-Pace",
+"trim_regex": ".*",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "ev",
+"msrp": 73275,
+"note": "2024 I-Pace R-Dynamic HSE incl. $1,275 destination",
+"source": "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights"
 }
 ]
 }

@@ -1247,6 +1247,75 @@
     "https://www.alfaromeousa.com/content/dam/alfa/us/owners/Alfa_Romeo_Premium_Care_Warranty.pdf",
     "https://AutoGuide.com/buyers-guide/alfa-romeo-warranty/"
    ]
+  },
+  {
+   "make": "Jaguar",
+   "factory": [
+    {
+     "name": "New Vehicle Limited Warranty (bumper-to-bumper)",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "unknown",
+     "note": "Jaguar New Vehicle Limited Warranty 5 yr/60,000 mi; no separate longer powertrain term"
+    },
+    {
+     "name": "Powertrain",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "unknown",
+     "note": "covered within the 5 yr/60k limited warranty"
+    },
+    {
+     "name": "I-Pace high-voltage battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "unknown",
+     "note": "8 yr/100,000 mi, 70% state-of-health guarantee"
+    },
+    {
+     "name": "Roadside assistance",
+     "years": 5,
+     "miles": 60000,
+     "transfers": "unknown",
+     "note": "24/7 roadside 5 yr/60k"
+    }
+   ],
+   "factory_note": "Jaguar US warranty page and 2023/2024 model-year releases; corrosion term and transferability not stated.",
+   "maintenance": "5 years / 60,000 miles (Jaguar EliteCare)",
+   "cpo": {
+    "program": "Jaguar Approved Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "Certified Pre-Owned Limited Warranty",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "Jaguar's page says 1 year/unlimited miles OR 2 years/100,000 miles, without saying which cars get which; shown here as the shorter 1 year. Starts when the 5 yr/60k factory warranty ends. $0 deductible, transferable."
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "Jaguar Assistance 24/7 for the whole certified warranty"
+     }
+    ],
+    "summary": "A Jaguar Approved car keeps the rest of the 5-year/60,000-mile factory warranty (which also includes scheduled maintenance), then gets 1 more year of unlimited-mile coverage (or 2 years/100,000 miles, depending on the car), with no deductible.",
+    "perks": [
+     "165-point inspection by Jaguar-trained technicians",
+     "road test",
+     "vehicle history report",
+     "Jaguar Genuine Parts only"
+    ],
+    "eligibility": "hand-selected from the previous five model years; mileage limit not stated (unknown)"
+   },
+   "sources": [
+    "https://media.jlr.com/jaguar/en-us/news/2022/08/whats-new-jaguar-2023-model-year-highlights",
+    "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights",
+    "https://www.jaguar.com/en-us/jdx/ownership/warranty/index.html",
+    "https://www.jaguar.com/en-us/jdx/certified-preowned/index.html",
+    "https://www.jaguar.com/en-us/jdx/all-models/f-pace/models/index.html"
+   ]
   }
  ]
 }

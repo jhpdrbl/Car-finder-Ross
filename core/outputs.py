@@ -1230,7 +1230,7 @@ function guideCall(c, call) {   // what the Trim guide says for this car: its ma
 }
 function seatCall(t) {
   const first = String(t.seats || "").split(";")[0].toLowerCase();
-  const kind = /synthetic|leatherette|mb-?tex|nuluxe|syntex|sensatec|vegan|softex|sensafin|v-?tex|artico|dinamica/.test(first) ? "synthetic"
+  const kind = /synthetic|leatherette|duo ?leather|luxtec|mb-?tex|nuluxe|syntex|sensatec|vegan|softex|sensafin|v-?tex|artico|dinamica/.test(first) ? "synthetic"
              : /cloth|fabric/.test(first) ? "cloth" : /leather|nappa|merino|vernasca|aniline/.test(first) ? "leather" : "";
   return kind ? {v: SEAT_WORD[kind], t: "standard on this trim"} : {v: "Not sure", t: ""};
 }

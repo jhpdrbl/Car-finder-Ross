@@ -881,6 +881,33 @@
    "to_year": 2026,
    "inches": 7.9,
    "source": "caranddriver.com (Lexus figure not found)"
+  },
+  {
+   "make": "Jaguar",
+   "model": "F-Pace",
+   "trim_regex": "svr",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.4,
+   "source": "JLR US F-Pace spec sheet (2021, same generation)"
+  },
+  {
+   "make": "Jaguar",
+   "model": "F-Pace",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 8.39,
+   "source": "JLR US F-Pace spec sheet (2021, same generation)"
+  },
+  {
+   "make": "Jaguar",
+   "model": "E-Pace",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 6.4,
+   "source": "JLR US E-Pace spec sheet (2020, same generation)"
   }
  ],
  "ev_range": [
@@ -2673,6 +2700,16 @@
    "to_year": 2025,
    "miles": 33,
    "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Jaguar",
+   "model": "I-Pace",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "miles": 246,
+   "source": "fueleconomy.gov (20-in wheels; 217 mi on 22-in wheels)"
   }
  ]
 }

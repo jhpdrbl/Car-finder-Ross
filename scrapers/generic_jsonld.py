@@ -228,7 +228,7 @@ NO_SUNROOF = re.compile(r"(no (?:sun|moon) ?roof|without (?:sun|moon) ?roof|sunr
 AUDIO = re.compile(r"(bang\s*&\s*olufsen|bang and olufsen|\bb&o\b|lexicon|harman[\s/-]*kardon|burmester|"
                    r"bowers\s*(?:&|and)\s*wilkins|mark levinson|\bsonos\b|\bbose\b|meridian (?:surround|premium|audio|sound)|"
                    r"\bjbl\b|\bkrell\b|\brevel\b (?:premium|audio|sound)|els studio)", re.I)
-_FAKE = (r"(?:leatherette|mb-?tex|sensatec|startex|softex|synthetic leather|vegan leather|nuluxe|artificial leather|"
+_FAKE = (r"(?:leatherette|duoleather|duo leather|luxtec|mb-?tex|sensatec|startex|softex|synthetic leather|vegan leather|nuluxe|artificial leather|"
          r"leather-?like|simulated leather|faux leather|vernasca|leather-?appointed synthetic)")
 _SEAT = r"(?:seat|seats|seating|upholster\w*)"
 FAKE_LEATHER = re.compile(rf"({_FAKE}[^.;|\n]{{0,30}}{_SEAT}|{_SEAT}[^.;|\n]{{0,30}}{_FAKE})", re.I)
