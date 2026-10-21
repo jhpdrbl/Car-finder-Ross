@@ -261,6 +261,12 @@ sunroof_standard:
   - {make: "BMW", model: "iX", trim_regex: "xdrive ?60|\\b60\\b", min_year: 2026, max_year: 2026, note: "fixed Panoramic Eclipsing Roof is standard on the 2026 iX xDrive60 (optional on xDrive45)"}
   - {make: "Mercedes-Benz", model: "EQE SUV", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQE SUV"}
   - {make: "Mercedes-Benz", model: "EQS SUV", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQS SUV"}
+  - {make: "Mercedes-Benz", model: "EQS", not_model: "suv", trim_regex: "^(?!.*(suv|sport.utility|amg))", min_year: 2023, max_year: 2026, note: "Panorama roof is standard on the EQS 450 / 580 4MATIC sedan"}
+  - {make: "Mercedes-Benz", model: "s-class", trim_regex: "580e", min_year: 2023, max_year: 2026, note: "Panorama roof is standard on the S 580e 4MATIC"}
+  - {make: "Mercedes-Benz", model: "580e", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "Panorama roof is standard on the S 580e 4MATIC"}
+  - {make: "BMW", model: "i7", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "Sky Lounge panoramic glass roof is standard on every i7 (fixed glass with a power shade)"}
+  - {make: "BMW", model: "7 series", trim_regex: "750e", min_year: 2024, max_year: 2026, note: "Sky Lounge panoramic glass roof is standard on the 750e xDrive (fixed glass with a power shade)"}
+  - {make: "BMW", model: "750e", trim_regex: ".*", min_year: 2024, max_year: 2026, note: "Sky Lounge panoramic glass roof is standard on the 750e xDrive (fixed glass with a power shade)"}
   - {make: "Genesis", model: "GV60", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "fixed panoramic glass \"Vision Roof\" with power shade is standard on every GV60 (does not open)"}
   - {make: "Volkswagen", model: "ID.4", trim_regex: "pro s", min_year: 2023, max_year: 2026, note: "panoramic fixed glass roof is standard on ID.4 Pro S / Pro S Plus (does not open)"}
   - {make: "Volvo", model: "XC40", trim_regex: "(?=.*(recharge|electric|twin|single motor|pure electric|\\bbev\\b))(?=.*(\\bplus\\b|ultimate|ultra))", min_year: 2023, max_year: 2024, note: "opening panoramic sunroof is standard on XC40 Recharge Plus / Ultimate (electric; trim text says Recharge / Twin / Electric). Gas XC40 Plus/Ultimate also have it"}

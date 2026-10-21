@@ -22234,6 +22234,478 @@
      ]
     }
    ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "on_list_rule": "EQS sedan: 450 and 580 4MATIC and AMG EQS are on the list (full-size sedans allowed since Oct 21 2026); the rear-drive EQS 450+ isn't. Used prices are mostly above the $40,500 cap.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "New for 2023: the 4MATIC (all-wheel drive) EQS 450 joins the line; 12.8-inch central OLED screen (Hyperscreen was 580-only); 20-inch wheels.",
+     "trims": [
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "340 mi EPA electric range"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "340 mi EPA electric range"
+      },
+      {
+       "name": "AMG EQS 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "unknown",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather seating surfaces with active multicontour massage front seats (MBUSA AMG EQS pricing release, Apr 2022)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "277 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "2024: MBUX Hyperscreen standard on every EQS sedan (per MBUSA 2025 release), heat pump standard, front motor can disconnect for range, firmer brake feel; range 340 to 345 mi.",
+     "trims": [
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "345 mi EPA electric range"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional (some sources say Nappa became standard on the 580 for 2024; not confirmed by MB)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "345 mi EPA electric range"
+      },
+      {
+       "name": "AMG EQS 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "unknown",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather seating surfaces with active multicontour massage front seats (MBUSA AMG EQS pricing release, Apr 2022)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "305 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "2025 facelift: bigger 118 kWh battery (range 367 mi), new chrome-slat grille with standing star on the hood, standard AMG Line bumpers, soft-close doors, digital key, front headrest pillows, better rear seats.",
+     "trims": [
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "367 mi EPA electric range"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "371 mi EPA electric range"
+      },
+      {
+       "name": "AMG EQS 4MATIC+",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "unknown",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather seating surfaces with active multicontour massage front seats (MBUSA AMG EQS pricing release, Apr 2022)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "315 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "2026: price cut by $4,500; NACS (Tesla-plug) fast-charging adapter and two new 'Sound Experiences' standard; otherwise as 2025.",
+     "trims": [
+      {
+       "name": "EQS 450 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "367 mi EPA electric range"
+      },
+      {
+       "name": "EQS 580 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard)",
+       "seats": "Leather (heated and ventilated), per MBUSA 2023 QRG; Nappa optional",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "371 mi EPA electric range"
+      }
+     ]
+    }
+   ],
+   "sources": []
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "S 580e",
+   "on_list_rule": "S 580e 4MATIC plug-in hybrid is on the list; gas S-Class versions aren't (gas sedans don't count).",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "2023: new plug-in hybrid S-Class (3.0L six + 148-hp motor, 510 hp total, 28.6 kWh battery), on sale in the first half of 2023; 60 kW DC fast charging optional.",
+     "trims": [
+      {
+       "name": "S 580e 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard); Burmester High-End 4D optional",
+       "seats": "Leather standard on S-Class (Nappa standard on S 580 4MATIC, per MBUSA 2022 S-Class QRG); whether the S 580e gets Nappa as standard is unknown",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "56 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "2024: price up $5,200; no equipment changes found in MB documents.",
+     "trims": [
+      {
+       "name": "S 580e 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard); Burmester High-End 4D optional",
+       "seats": "Leather standard on S-Class (Nappa standard on S 580 4MATIC, per MBUSA 2022 S-Class QRG); whether the S 580e gets Nappa as standard is unknown",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "46 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "2025: digital key and front center airbag standard; AMG Line can be added to Luxury/Pinnacle trims; DIGITAL LIGHT with projections and stand-alone 4-zone climate available.",
+     "trims": [
+      {
+       "name": "S 580e 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard); Burmester High-End 4D optional",
+       "seats": "Leather standard on S-Class (Nappa standard on S 580 4MATIC, per MBUSA 2022 S-Class QRG); whether the S 580e gets Nappa as standard is unknown",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "48 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "2026: Executive Rear Seat Package Plus offered on the S-Class, new Exclusive trim, AMG carbon-fiber trim option, many new MANUFAKTUR paints and Nappa colors.",
+     "trims": [
+      {
+       "name": "S 580e 4MATIC",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Burmester 3D Surround Sound System (standard); Burmester High-End 4D optional",
+       "seats": "Leather standard on S-Class (Nappa standard on S 580 4MATIC, per MBUSA 2022 S-Class QRG); whether the S 580e gets Nappa as standard is unknown",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "47 mi EPA electric range"
+      }
+     ]
+    }
+   ],
+   "sources": []
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "on_list_rule": "i7 xDrive60 and M70 xDrive are on the list; the rear-drive eDrive50 isn't.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "2023: all-new electric 7 Series launches as the xDrive60 only (536 hp, dual motor).",
+     "trims": [
+      {
+       "name": "i7 xDrive60",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (standard on i7 xDrive60 per BMW USA press kit; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "318 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "2024: price up about $4,900; rear-drive eDrive50 and M70 join the line; BMW Operating System 8.5 from July 2023 production.",
+     "trims": [
+      {
+       "name": "i7 xDrive60",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (standard on i7 xDrive60 per BMW USA press kit; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "317 mi EPA electric range"
+      },
+      {
+       "name": "i7 M70 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (BMWBlog: Merino standard on every i7; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "274 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "2025: carried over unchanged; destination charge up from $995 to $1,175.",
+     "trims": [
+      {
+       "name": "i7 xDrive60",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (standard on i7 xDrive60 per BMW USA press kit; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "311 mi EPA electric range"
+      },
+      {
+       "name": "i7 M70 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (BMWBlog: Merino standard on every i7; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "268 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "2026: carried over with no price change, ahead of the 2027 facelift.",
+     "trims": [
+      {
+       "name": "i7 xDrive60",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (standard on i7 xDrive60 per BMW USA press kit; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "311 mi EPA electric range"
+      },
+      {
+       "name": "i7 M70 xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "electric, dual motors, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather (BMWBlog: Merino standard on every i7; full Merino optional)",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "267 mi EPA electric range"
+      }
+     ]
+    }
+   ],
+   "sources": []
+  },
+  {
+   "make": "BMW",
+   "model": "750e",
+   "on_list_rule": "750e xDrive plug-in hybrid is on the list; gas 740i / 760i aren't.",
+   "years": [
+    {
+     "year": 2024,
+     "what_changed": "2024: new plug-in hybrid 7 Series (3.0L six + 194-hp motor, 483 hp), US market from fall 2023.",
+     "trims": [
+      {
+       "name": "750e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather probably standard (BMW: Veganza synthetic is standard only on the 740i, Merino on 760i/i7; a Rusnak BMW dealer page says Veganza isn't offered on the 750e); not confirmed by a BMW document",
+       "black_interior": "",
+       "spare": "",
+       "mpg": ""
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "2025: carried over; destination charge up to $1,175 (BMW line-wide).",
+     "trims": [
+      {
+       "name": "750e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather probably standard (BMW: Veganza synthetic is standard only on the 740i, Merino on 760i/i7; a Rusnak BMW dealer page says Veganza isn't offered on the 750e); not confirmed by a BMW document",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "34 mi EPA electric range"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "2026: carried over ahead of the 2027 facelift; EPA electric range 34 to 35 mi.",
+     "trims": [
+      {
+       "name": "750e xDrive",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "plug-in hybrid, AWD",
+       "builds_on": "",
+       "highlights": [],
+       "sunroof": "standard",
+       "premium_audio": "Bowers & Wilkins Surround Sound (18 speakers, 655 W) standard; B&W Diamond Surround optional",
+       "seats": "Extended Merino leather probably standard (BMW: Veganza synthetic is standard only on the 740i, Merino on 760i/i7; a Rusnak BMW dealer page says Veganza isn't offered on the 750e); not confirmed by a BMW document",
+       "black_interior": "",
+       "spare": "",
+       "mpg": "35 mi EPA electric range"
+      }
+     ]
+    }
+   ],
+   "sources": []
   }
  ]
 }

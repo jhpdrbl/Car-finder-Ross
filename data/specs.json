@@ -1,6 +1,231 @@
 {
  "clearance": [
   {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?=.*amg)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "inches": 5.5,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 139 mm = 5.5 in, EQS 53 AMG 4MATIC+ (12/21-04/23 page 322664, 07/23-04/24 page 328161); no MBUSA figure found"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?=.*amg)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.5,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 139 mm = 5.5 in, EQS 53 AMG 4MATIC+ (12/21-04/23 page 322664, 07/23-04/24 page 328161); no MBUSA figure found"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?=.*amg)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.5,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 139 mm = 5.5 in, EQS 53 AMG 4MATIC+ (12/21-04/23 page 322664, 07/23-04/24 page 328161); no MBUSA figure found"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 5.3,
+   "source": "MBUSA spec sheet (media.mbusa.com/news/eqs-580-4matic-sedan, 2022 MY): ground clearance (max load) 5.28 in; ADAC Autokatalog (outside US) 'Bodenfreiheit maximal' 134 mm = 5.3 in for EQS 450/580 4MATIC 2022-2026 (pages 324694, 328152, 334812, 328158, 334818)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "inches": 5.1,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 130 mm = 5.1 in, S 580 e lang 4MATIC (page 322522; long wheelbase = US body); MBUSA spec for the gas S 580 4MATIC also says 5.1 in (media.mbusa.com/news/2021-mercedes-benz-s-580-4matic-sedan-specifications)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.1,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 130 mm = 5.1 in, S 580 e lang 4MATIC (page 322522; long wheelbase = US body); MBUSA spec for the gas S 580 4MATIC also says 5.1 in (media.mbusa.com/news/2021-mercedes-benz-s-580-4matic-sedan-specifications)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.1,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 130 mm = 5.1 in, S 580 e lang 4MATIC (page 322522; long wheelbase = US body); MBUSA spec for the gas S 580 4MATIC also says 5.1 in (media.mbusa.com/news/2021-mercedes-benz-s-580-4matic-sedan-specifications)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 5.1,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 130 mm = 5.1 in, S 580 e lang 4MATIC (page 322522; long wheelbase = US body); MBUSA spec for the gas S 580 4MATIC also says 5.1 in (media.mbusa.com/news/2021-mercedes-benz-s-580-4matic-sedan-specifications)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "m70",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "m70",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "m70",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "750e",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "750e",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
+   "make": "BMW",
+   "model": "750e",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 5.4,
+   "source": "ADAC Autokatalog (outside US), manufacturer data: 'Bodenfreiheit maximal' 136 mm = 5.4 in (i7 xDrive60 pages 324421/324578, i7 M70 page 328072, 750e pages 324423/329486/329488); no BMW USA figure found"
+  },
+  {
    "make": "Audi",
    "model": "Q5",
    "trim_regex": "",
@@ -632,6 +857,246 @@
   }
  ],
  "ev_range": [
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?=.*amg)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 277.0,
+   "source": "fueleconomy.gov has no 2023 AMG EQS record (2022 record id 46330 = 277 mi); MBUSA data page mbusa.com/content/mb-vehicles-data/en_us/models/2023/eqs/amgeqsv4.html also says 277 mi"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?=.*amg)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 305.0,
+   "source": "fueleconomy.gov vehicle record id 47461 (MBUSA data page says 300)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?=.*amg)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 315.0,
+   "source": "fueleconomy.gov vehicle record id 48386"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 340.0,
+   "source": "fueleconomy.gov vehicle record id 46009 (2023 EQS 450 4matic); MBUSA data page also 340"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 345.0,
+   "source": "fueleconomy.gov vehicle record id 47462"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 367.0,
+   "source": "fueleconomy.gov vehicle record id 48387"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?!.*450\\s*\\+)(?=.*\\b450\\b)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 367.0,
+   "source": "fueleconomy.gov vehicle record id 49683"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 340.0,
+   "source": "fueleconomy.gov has no 2023 EQS 580 sedan record (2022 record id 45023 = 340 mi); 340 mi is MBUSA's EPA-estimated figure (media.mbusa.com/news/2023-eqs-sedan-quick-reference-guide, mbusa.com/content/mb-vehicles-data/en_us/models/2023/eqs/eqs580v4.html)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 345.0,
+   "source": "fueleconomy.gov vehicle record id 47464"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 371.0,
+   "source": "fueleconomy.gov vehicle record id 48389"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*\\b580\\b)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 371.0,
+   "source": "fueleconomy.gov vehicle record id 49682"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 56.0,
+   "source": "fueleconomy.gov vehicle record id 47279 (rangeA 56). Note: MBUSA's own figures say 46 mi (pricing release Feb 2023 and mbusa.com/content/mb-vehicles-data/en_us/models/2023/s/s580ev4.html), so this year is uncertain"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 46.0,
+   "source": "Not listed on fueleconomy.gov for 2024; 46 mi is MBUSA's figure (mbusa.com/content/mb-vehicles-data/en_us/models/2024/s/s580ev4.html)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 48.0,
+   "source": "fueleconomy.gov vehicle record id 49021 (MBUSA data page says 47)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "580e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 47.0,
+   "source": "Not yet on fueleconomy.gov for 2026; 47 mi is MBUSA's figure (mbusa.com/content/mb-vehicles-data/en_us/models/2026/s/s580ev4.html)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "m70",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 274.0,
+   "source": "fueleconomy.gov vehicle record id 46932 (20-inch, smallest offered); 21-inch 291 mi (46933)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "m70",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 268.0,
+   "source": "fueleconomy.gov vehicle record id 48328 (20-inch); 21-inch 285 mi (48329)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "m70",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 267.0,
+   "source": "fueleconomy.gov vehicle record id 49943 (20-inch); 21-inch 285 mi (49944)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 318.0,
+   "source": "fueleconomy.gov vehicle record id 45993 (19-inch wheels); 20-inch 296 mi (45994), 21-inch 308 mi (45995)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 317.0,
+   "source": "fueleconomy.gov vehicle record id 46934 (19-inch); 20-inch 298 mi (46935), 21-inch 307 mi (46936)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 311.0,
+   "source": "fueleconomy.gov vehicle record id 48330 (19-inch); 20-inch 296 mi (48331), 21-inch 308 mi (48332)"
+  },
+  {
+   "make": "BMW",
+   "model": "i7",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*m70)",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 311.0,
+   "source": "fueleconomy.gov vehicle record id 49945 (19-inch); 20-inch 296 mi (49946), 21-inch 308 mi (49947)"
+  },
+  {
+   "make": "BMW",
+   "model": "750e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 34.0,
+   "source": "fueleconomy.gov vehicle record id 49008"
+  },
+  {
+   "make": "BMW",
+   "model": "750e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 35.0,
+   "source": "fueleconomy.gov vehicle record id 49759"
+  },
   {
    "make": "Audi",
    "model": "SQ6",
