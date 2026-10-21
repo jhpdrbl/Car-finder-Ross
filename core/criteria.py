@@ -106,17 +106,17 @@ def exterior_ok(color: str) -> tuple[str, str]:
         if light:                              # a named light green (Sage, Mint, Lime...)
             return "fail", f"exterior {color} (not a dark green)"
         return "unknown", f"green ({color}): confirm it's a dark green"
-    grayish = re.search(r"\b(gr[ae]y|graphite)\b", c)
+    grayish = re.search(r"\b(gr[ae]y|graphite|silver)\b", c)
     for w in F["exterior_colors"]["exclude"]:
-        if w == "silver" and grayish:
-            continue  # "Silver Gray" / "Silver Graphite" count as gray
+        if w in ("silver", "glacier") and grayish:
+            continue  # "Silver Gray" counts as gray; BMW "Glacier Silver" isn't Glacier White
         if re.search(rf"\b{re.escape(w)}\b", c):
             return "fail", f"exterior {color}"
     if any(re.search(rf"\b{re.escape(w)}", c) for w in F["exterior_colors"]["include"]):
         return "pass", ""
     if any(w in c for w in OTHER_COLOR_WORDS):
         return "fail", f"exterior {color}"
-    return "unknown", f"exterior color '{color}': confirm it's black/gray/dark green"
+    return "unknown", f"exterior color '{color}': confirm it's black/gray/silver/dark green"
 
 
 def interior_ok(color: str) -> tuple[str, str]:

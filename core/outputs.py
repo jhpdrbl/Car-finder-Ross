@@ -206,7 +206,7 @@ def _model_years(brand: str) -> dict[str, int]:
 # Dealer Inspire filters, checked by the user on a real DI site (Oct 2026): year and ext_color_generic work;
 # drivetrain values are spelled out, so several spellings are listed (any one matching is enough).
 DI_DRIVES = ("All-Wheel Drive", "All Wheel Drive", "AWD", "Four-Wheel Drive", "Four Wheel Drive", "4WD", "4x4")
-DI_COLORS = ("Black", "Gray", "Green")      # Ross's exterior rule: black / gray / dark green (light greens filtered by eye)
+DI_COLORS = ("Black", "Gray", "Silver", "Green")   # Ross's exterior rule: black / gray / silver / dark green (light greens filtered by eye)
 
 
 def _di_colors() -> tuple:
