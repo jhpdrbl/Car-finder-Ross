@@ -63,8 +63,8 @@ def best_clearance(make: str, model: str, trim: str, year, page_value=None) -> t
     hit = clearance(make, model, trim, year)
     if hit:
         how = hit[1].lower()
-        return hit[0], ("Car and Driver" if "car and driver" in how else "dealer spec data" if "dealers" in how
-                        else "maker's spec (outside US)" if "outside us" in how else "maker's spec")
+        return hit[0], ("Car and Driver" if "car and driver" in how else "maker's spec (outside US)" if "outside us" in how
+                        else "dealer spec data" if how.startswith("same model") else "maker's spec")
     try:
         pv = float(page_value) if page_value not in (None, "") else None
     except ValueError:
