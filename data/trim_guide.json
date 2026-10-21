@@ -11117,6 +11117,744 @@
    ]
   },
   {
+   "make": "Volvo",
+   "model": "XC40",
+   "on_list_rule": "Every gas AWD XC40 (B5 AWD Core / Plus / Ultimate-Ultra, any theme, Black Edition) is on the list; front-drive B4 and the electric XC40 Recharge / EX40 are not covered.",
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Refresh: Core / Plus / Ultimate trims replace Momentum / R-Design / Inscription; T4/T5 replaced by B4 (FWD, not on list) and B5 AWD 48-volt mild hybrids; new headlights, bumper, grille and wheels; Google built-in infotainment on the same 9-inch screen. Seats: Core City Block textile (new), Plus/Ultimate Bright genuine leather, Plus/Ultimate Dark Connect Suede textile/Microtech (synthetic). Sunroof standard on Plus and up only; Harman Kardon, Pilot Assist and 360-degree camera on Ultimate only.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Rear parking sensors and rear camera"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "Bright Theme: chrome exterior trim, leather seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "Dark Theme: gloss-black exterior trim, Connect Suede/Microtech seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Bright Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Front-drive B4 dropped; B5 AWD is the only XC40. Core can now have Bright or Dark theme and gains wireless charging and keyless entry. Plus gains the 360-degree camera, 19-inch wheels and an air purifier; Ultimate moves to 20-inch wheels, cornering lights and upgraded LED headlights. Seat materials, sunroof (Plus and up), Harman Kardon (Ultimate) and screen unchanged.",
+     "trims": [
+      {
+       "name": "B5 AWD Core (Bright or Dark theme)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Power tailgate",
+        "Wireless phone charging and keyless entry"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core (Bright or Dark theme)",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Bright Theme: chrome exterior trim, leather seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core (Bright or Dark theme)",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Dark Theme: gloss-black exterior trim, Connect Suede/Microtech seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Bright Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      },
+      {
+       "name": "B5 AWD Ultimate Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech (synthetic leatherette) standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "24/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Ultimate renamed Ultra. Core loses its Dark theme but gains power-folding rear headrests; spec data now list leather for Plus/Ultra Dark Theme too (2024 Dark was Connect Suede/Microtech). Mild-hybrid battery listed as 44V (EPA); engine output and other equipment carry over. AWD only.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Power tailgate",
+        "Wireless phone charging and keyless entry",
+        "Power-folding rear headrests"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Bright Theme: chrome exterior trim, leather seats"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Dark Theme: gloss-black exterior trim"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard (spec data); heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Bright Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Bright Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Dark Theme",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus Dark Theme",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard (spec data); heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "Front-drive B4 returns as a cheaper model (not on list); B5 AWD costs about $2,000 more. Adaptive cruise and front parking sensors now standard on every trim. Theme names dropped; new Ultra Black Edition (Connect Suede/Microtech seats per spec data). Plus adds real wood inlays and a crystal gear selector. Seat materials otherwise unchanged (Core textile, Plus/Ultra leather); sunroof still Plus and up; Harman Kardon and Pilot Assist still Ultra only.",
+     "trims": [
+      {
+       "name": "B5 AWD Core",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "",
+       "highlights": [
+        "City Block textile (cloth) seats, heated front seats",
+        "Power driver seat with memory and 4-way lumbar",
+        "9-inch Google built-in touchscreen + 12.3-inch digital driver display",
+        "8-speaker audio (250 W)",
+        "Collision avoidance (City Safety), blind-spot info, cross-traffic alert, lane keeping aid",
+        "18-inch wheels, LED headlights",
+        "Power tailgate",
+        "Wireless phone charging and keyless entry",
+        "Power-folding rear headrests",
+        "Adaptive cruise control and front + rear parking sensors now standard"
+       ],
+       "sunroof": "not standard on Core",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "City Block textile (cloth) standard; heated front seats; power driver seat with memory, manual passenger seat; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Core",
+       "highlights": [
+        "Panoramic glass sunroof",
+        "Power passenger seat; manual cushion extension",
+        "Front and rear parking sensors",
+        "HomeLink garage opener",
+        "Front fog lights",
+        "360-degree camera",
+        "19-inch wheels",
+        "Cabin air purifier",
+        "Real wood inlays, Orrefors crystal gear selector"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "none (8-speaker, 250 W)",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Plus",
+       "highlights": [
+        "Harman Kardon premium audio, 13 speakers, 600 W",
+        "Adaptive cruise control with Pilot Assist (steering assist)",
+        "20-inch wheels",
+        "Upgraded adaptive LED headlights with cornering lights",
+        "Cargo organizer"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "genuine leather standard; heated front seats; power driver and passenger seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      },
+      {
+       "name": "B5 AWD Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "2.0L turbo 4-cyl mild hybrid (48V) 'B5', 247 hp / 258 lb-ft, 8-speed auto, AWD",
+       "builds_on": "B5 AWD Ultra",
+       "highlights": [
+        "Black Edition: black paint, black badges and exterior trim",
+        "Unique 20-inch black wheels",
+        "Connect Suede textile / Microtech seats (spec data) instead of leather",
+        "Otherwise same equipment as Ultra"
+       ],
+       "sunroof": "standard panoramic",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech (synthetic) standard per spec data; heated front seats; no ventilation offered",
+       "black_interior": "yes",
+       "spare": "compact spare",
+       "mpg": "23/30/26"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://www.caranddriver.com/volvo/xc40/specs/2023/volvo_xc40_volvo-xc40_2023",
+    "https://www.caranddriver.com/volvo/xc40/specs/2024/volvo_xc40_volvo-xc40_2024",
+    "https://www.caranddriver.com/volvo/xc40/specs/2025/volvo_xc40_volvo-xc40_2025",
+    "https://www.caranddriver.com/volvo/xc40/specs/2026/volvo_xc40_volvo-xc40_2026",
+    "https://www.caranddriver.com/volvo/xc40-2023",
+    "https://www.caranddriver.com/volvo/xc40-2024",
+    "https://www.caranddriver.com/volvo/xc40-2025",
+    "https://www.caranddriver.com/volvo/xc40",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options (EPA data, model years 2023-2026)"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "model": "XC40 Recharge / EX40",
+   "match": {
+    "model": "XC40",
+    "fuel": "ev"
+   },
+   "on_list_rule": "Twin-motor (AWD) Plus and Ultimate/Ultra are on the list (opening panoramic sunroof standard). Twin Core (no sunroof) and every single-motor RWD version are not. Renamed EX40 for 2025.",
+   "listing_names": [
+    "XC40 Recharge Pure Electric Twin Plus",
+    "XC40 Recharge Twin Ultimate",
+    "XC40 (Volvo store: trim \"Plus, Twin Motor, Electric\")",
+    "EX40 Twin Motor Plus",
+    "EX40 Twin Motor Ultra",
+    "EX40 Single Motor Extended Range (RWD)"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "Twin motor AWD only (P8); trims Core / Plus / Ultimate.",
+     "trims": [
+      {
+       "name": "Twin Core",
+       "on_list": false,
+       "why_not": "no sunroof on Core",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Leather-free Microtech/textile seats",
+        "Google built-in"
+       ],
+       "sunroof": "not standard",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl/textile (leather-free)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "92/79/85 MPGe, 223 mi"
+      },
+      {
+       "name": "Twin Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Core",
+       "highlights": [
+        "Panoramic sunroof (opens)",
+        "Connect Suede textile/Microtech seats",
+        "Power passenger seat"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Connect Suede textile / Microtech (synthetic); heated front; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "92/79/85 MPGe, 223 mi"
+      },
+      {
+       "name": "Twin Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Plus",
+       "highlights": [
+        "Harman Kardon",
+        "360 camera, Pilot Assist"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech; heated front; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "92/79/85 MPGe, 223 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "Single-motor RWD added (not on list); twin motor gets new rear-biased motors (more range).",
+     "trims": [
+      {
+       "name": "Twin Core",
+       "on_list": false,
+       "why_not": "no sunroof on Core",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Leather-free seats"
+       ],
+       "sunroof": "not standard",
+       "premium_audio": "none",
+       "seats": "Microtech/textile (leather-free)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/90/98 MPGe, 254 mi"
+      },
+      {
+       "name": "Twin Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Core",
+       "highlights": [
+        "Panoramic sunroof (opens)"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Connect Suede textile / Microtech; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/90/98 MPGe, 254 mi"
+      },
+      {
+       "name": "Twin Ultimate",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Plus",
+       "highlights": [
+        "Harman Kardon",
+        "360 camera"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech; no ventilation",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "106/90/98 MPGe, 254 mi"
+      },
+      {
+       "name": "Single motor (RWD) Core / Plus / Ultimate",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "Plus/Ultimate: opening panoramic sunroof",
+       "premium_audio": "Ultimate: Harman Kardon",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/95/106 MPGe, 293 mi"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "Renamed EX40; Core / Plus / Ultra.",
+     "trims": [
+      {
+       "name": "Twin Motor Core",
+       "on_list": false,
+       "why_not": "no sunroof on Core",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Canvas textile seats"
+       ],
+       "sunroof": "not standard",
+       "premium_audio": "none",
+       "seats": "Canvas textile (cloth)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Twin Motor Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Motor Core",
+       "highlights": [
+        "Panoramic sunroof (opens)"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Microtech/textile (synthetic + textile)",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Twin Motor Ultra",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Motor Plus",
+       "highlights": [
+        "Harman Kardon"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Microtech/textile",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Single Motor Extended Range (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "Plus/Ultra: opening panoramic sunroof",
+       "premium_audio": "Ultra: Harman Kardon",
+       "seats": "leather-free",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/94/106 MPGe, 296 mi"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "C/D lists Twin Motor Plus, Twin Motor Ultra Black Edition and Single Motor Plus (Core not listed).",
+     "trims": [
+      {
+       "name": "Twin Motor Plus",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "",
+       "highlights": [
+        "Panoramic sunroof (opens)"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl/textile",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Twin Motor Ultra Black Edition",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "Twin motor AWD, 402 hp, 78 kWh (75 usable)",
+       "builds_on": "Twin Motor Plus",
+       "highlights": [
+        "Harman Kardon",
+        "Black exterior details"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "Harman Kardon, standard",
+       "seats": "Connect Suede textile / Microtech",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "103/85/94 MPGe, 260 mi"
+      },
+      {
+       "name": "Single Motor Extended Range Plus (RWD)",
+       "on_list": false,
+       "why_not": "2WD (rear-wheel drive)",
+       "powertrain": "Single motor RWD",
+       "builds_on": "",
+       "highlights": [
+        "RWD"
+       ],
+       "sunroof": "standard panoramic glass sunroof that opens (power tilt/slide, sunshade)",
+       "premium_audio": "none",
+       "seats": "Microtech vinyl/textile",
+       "black_interior": "yes (Charcoal; Volvo EV interiors are leather-free, e.g. \"Charcoal Connect Suede Textile/Microtech\"). Other interior colors unconfirmed",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "118/94/106 MPGe, 296 mi"
+      }
+     ]
+    }
+   ],
+   "ground_clearance": "6.9 in (Car and Driver)",
+   "sources": [
+    "https://www.caranddriver.com/volvo/ex40/specs/2023/volvo_volvo-xc40-recharge_volvo-xc40-recharge-primary_2023",
+    "https://www.caranddriver.com/volvo/ex40/specs/2024/volvo_volvo-xc40-recharge_volvo-xc40-recharge_2024",
+    "https://www.caranddriver.com/volvo/ex40/specs/2025/volvo_volvo-xc40-recharge_volvo-ex40_2025",
+    "https://www.caranddriver.com/volvo/ex40/specs/2026/volvo_volvo-xc40-recharge_volvo-ex40_2026",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?make=Volvo (XC40 Recharge / EX40 2023-2026)"
+   ]
+  },
+  {
    "make": "Volkswagen",
    "model": "Tiguan",
    "on_list_rule": "Every 2025-2026 Tiguan 4MOTION (AWD) trim is on the list; front-drive versions are not. Older (pre-2025) Tiguans are not covered here.",

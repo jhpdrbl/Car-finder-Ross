@@ -149,7 +149,7 @@ def subaru() -> tuple[list[Listing], dict]:
 # --------------------------------------------------------------------------
 # The store's car search (services.codeweavers.net, robots.txt allows /api/) only answers inside the
 # store's own session, so this opens the store page in a real browser (honest User-Agent, robots.txt
-# checked) and asks the store's search for certified XC60 (and S60/S90 plug-in sedans) near home from inside that page.
+# checked) and asks the store's search for certified XC60/XC40 (and electric EX40, S60/S90 plug-in sedans) near home from inside that page.
 # Without the browser add-on (e.g. on the iPad) this feed fails and Volvo dealer sites are read instead.
 
 VOLVO_STORE = "https://cpo.volvocars.us/en-US/store/all/vehicles"
@@ -191,7 +191,7 @@ def volvo() -> tuple[list[Listing], dict]:
             headers = {k: v for k, v in req.headers.items() if k.lower().startswith("x-cw-") or k.lower() == "content-type"}
             body = json.loads(req.post_data)
             body.update(SortBy="Distance", ResultsPerPage=50, Page=1)
-            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "S60", "S90"]   # names as the store lists them (Oct 2026)
+            body["Filters"]["Vehicle"]["SelectedFacets"]["Models"] = ["XC60", "XC40", "EX40", "S60", "S90"]   # names as the store lists them (Oct 2026)
             body["Filters"]["Location"] = {"Latitude": home["lat"], "Longitude": home["lon"],
                                            "Distance": home["edge_radius_miles"]}
             while True:
