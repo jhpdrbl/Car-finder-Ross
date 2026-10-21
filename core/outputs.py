@@ -180,16 +180,26 @@ def _model_words(brand: str) -> list[str]:
 
 
 def _model_years(brand: str) -> dict[str, int]:
-    """{model word: earliest model year} from config.yaml's list (e.g. 'Tiguan 2025+' -> {'Tiguan': 2025})."""
-    lst = (_CFG.get("models", {}).get(brand) or {}).get("list", "")
+    """{model word: earliest model year} from config.yaml's list (e.g. 'Tiguan 2025+' -> {'Tiguan': 2025},
+    'ZDX (electric, AWD), RDX (SH-AWD)' -> ZDX, RDX; 'plug-in sedans S60 / S90 T8' -> S60, S90)."""
+    spec = _CFG.get("models", {}).get(brand) or {}
+    lst = spec.get("list", "")
     base = int(_CFG.get("filters", {}).get("min_year") or _CFG.get("min_year") or 2023)
+    while re.search(r"\([^()]*\)", lst):
+        lst = re.sub(r"\s*\([^()]*\)", "", lst)                # notes in brackets: "(electric, AWD)"
+    lst = re.sub(r"(\d{3}\w*)(?:/\d{3}\w*)+", r"\1", lst)   # "GLE 350/450/450e": versions of one model, not models
     out: dict[str, int] = {}
-    for part in lst.split(","):
-        part = part.strip()
+    for part in re.split(r"[,;/]", lst):
         y = re.search(r"(\d{4})\+", part)
-        w = re.sub(r"\s*(\d{3}\b.*|\d{4}\+.*|4-door.*)$", "", part).strip()
-        if w and w not in out:
-            out[w] = int(y.group(1)) if y else base
+        w = re.sub(r"^\s*(?:(?:plug-in|electric|hybrid|gas|sedans?|and|incl\.?)\s+)+", "", part, flags=re.I)
+        w = re.sub(r"\s*(\d{3}\b.*|\d{4}\+.*|4-door.*|\b(?:xdrive|awd|4matic|t8|hybrid|sedan)\b.*)$", "", w, flags=re.I).strip()
+        if not w or re.fullmatch(r"(?i)plug-in|electric|hybrid|gas|sedans?|\d+", w) or w.lower() in map(str.lower, out):
+            continue
+        yr = int(y.group(1)) if y else base
+        for rule in spec.get("rules") or []:          # e.g. {if: zdx, min_year: 2024}
+            if rule.get("min_year") and not rule.get("unless") and re.search(rule.get("if") or "$^", w.lower()):
+                yr = max(yr, int(rule["min_year"]))
+        out[w] = yr
     return out
 
 
