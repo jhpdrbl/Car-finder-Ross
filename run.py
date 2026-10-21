@@ -292,8 +292,19 @@ def apply_confirmed(L, c: dict | None) -> None:
     if seats in ("leather", "synthetic", "cloth"):
         L.seats = seats
         L.leather = seats == "leather"
+    if _fees_confirmed(c, L.price):            # the user read the dealer's fee breakdown for this price
+        L.doc_fee, L.other_fees = float(c["fees"]), 0.0
     if (c.get("msrp_new") or "").strip():      # the window sticker's total
         L.msrp_new, L.msrp_source = float(c["msrp_new"]), "listing"
+
+
+def _fees_confirmed(c: dict | None, price) -> bool:
+    """confirmed.csv 'listed_price' + 'fees': the fees the user saw for that price (0 = the price already
+    includes them). Ignored once the dealer changes the price."""
+    try:
+        return bool(c) and price is not None and abs(float(c["listed_price"]) - float(price)) < 1 and c.get("fees", "") != ""
+    except (KeyError, TypeError, ValueError):
+        return False
 
 
 def fill_mpg(L) -> None:
@@ -342,6 +353,11 @@ def rescore(args) -> None:
                 r.update(status="excluded", fail_reasons=f"manually excluded: {excluded[r['vin']]}", needs_call="", score="")
                 n_out += 1
                 continue
+            c = confirmed.get(r["vin"].upper())
+            if _fees_confirmed(c, f(r.get("price"))):
+                r["price_total"], r["fees_estimated"] = round(f(r["price"]) + float(c["fees"])), "False"
+                r["est_monthly_cost"] = criteria.monthly_cost(f(r["price_total"])) or ""
+                r["notes"] = "; ".join(x for x in (r.get("notes") or "").split("; ") if x and x != "fees estimated")
             L = Listing(vin=r["vin"], make=r["make"], model=r["model"], trim=r["trim"], listing_url=r["listing_url"],
                         year=int(r["year"]) if r["year"] else None, price_total=f(r["price_total"]),
                         mileage=int(float(r["mileage"])) if r["mileage"] else None, fuel_type=r["fuel_type"],

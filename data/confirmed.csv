@@ -1,17 +1,18 @@
-vin,trim,sunroof,ext_color,audio,msrp_new,seats,note
-5NMMADTB7RH006751,2.5T Select,yes,,,,,user checked the listing (Oct 15 2026): it's a Select (panoramic sunroof standard)
-4S4SLSR71T3062758,Limited Hybrid,yes,,,,,user confirmed the sunroof (Oct 15 2026)
-W1NKM4HB1PF026908,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-W1NKM5GB6SF242141,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-W1NKM5GB0SU098744,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-W1NKM5GB6SU096609,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-4S4BTANC5R3143557,,yes,,,,,user confirmed the sunroof (Oct 16 2026)
-YV4L12UK7R2206772,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-YV4L12UK1R2226662,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-4S4BTAMC3R3152551,,no,,,,,user confirmed no sunroof (Oct 16 2026)
-YV4ED3GM0P2060103,,,Black,,,,user checked the listing (Oct 19 2026): exterior is black
-YV4ED3UM0P2067699,,,Black,,,,user checked the listing (Oct 19 2026): exterior is black
-W1N9M0KB9SN126446,EQB 300 4MATIC,yes,,none,61700,,"user sent the window sticker (Oct 19 2026): 2025 EQB 300 4MATIC, Mountain Grey, Black MB-Tex, Panorama Sunroof, Advanced Sound System (not Burmester), total sticker $61,700"
-W1KEG1CB3RF045499,EQE 350 4MATIC Sedan,,,,,,user confirmed (Oct 19 2026): 2024 EQE 350 4MATIC Sedan
-W1N9M0KB2PN068767,EQB 300 4MATIC,yes,Mountain Grey Metallic,none,63285,synthetic,"user sent the window sticker (Oct 21 2026): 2023 EQB 300 4MATIC, Mountain Grey, Black MB-Tex, Panorama Sunroof, Advanced Sound System (not Burmester or harman/kardon), total sticker $63,285"
-4JGGM1CB0PA012171,,yes,,Burmester,,synthetic,"from the dealer's listing the user sent (Oct 21 2026): Panorama moonroof, Burmester Sound System, MB-Tex upholstery"
+vin,trim,sunroof,ext_color,audio,msrp_new,seats,listed_price,fees,note
+5NMMADTB7RH006751,2.5T Select,yes,,,,,,,user checked the listing (Oct 15 2026): it's a Select (panoramic sunroof standard)
+4S4SLSR71T3062758,Limited Hybrid,yes,,,,,,,user confirmed the sunroof (Oct 15 2026)
+W1NKM4HB1PF026908,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+W1NKM5GB6SF242141,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+W1NKM5GB0SU098744,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+W1NKM5GB6SU096609,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+4S4BTANC5R3143557,,yes,,,,,,,user confirmed the sunroof (Oct 16 2026)
+YV4L12UK7R2206772,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+YV4L12UK1R2226662,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+4S4BTAMC3R3152551,,no,,,,,,,user confirmed no sunroof (Oct 16 2026)
+YV4ED3GM0P2060103,,,Black,,,,,,user checked the listing (Oct 19 2026): exterior is black
+YV4ED3UM0P2067699,,,Black,,,,,,user checked the listing (Oct 19 2026): exterior is black
+W1N9M0KB9SN126446,EQB 300 4MATIC,yes,,none,61700,,,,"user sent the window sticker (Oct 19 2026): 2025 EQB 300 4MATIC, Mountain Grey, Black MB-Tex, Panorama Sunroof, Advanced Sound System (not Burmester), total sticker $61,700"
+W1KEG1CB3RF045499,EQE 350 4MATIC Sedan,,,,,,,,user confirmed (Oct 19 2026): 2024 EQE 350 4MATIC Sedan
+W1N9M0KB2PN068767,EQB 300 4MATIC,yes,Mountain Grey Metallic,none,63285,synthetic,,,"user sent the window sticker (Oct 21 2026): 2023 EQB 300 4MATIC, Mountain Grey, Black MB-Tex, Panorama Sunroof, Advanced Sound System (not Burmester or harman/kardon), total sticker $63,285"
+4JGGM1CB0PA012171,,yes,,Burmester,,synthetic,,,"from the dealer's listing the user sent (Oct 21 2026): Panorama moonroof, Burmester Sound System, MB-Tex upholstery"
+4JGGM1CB2PA013306,EQE 350 4MATIC SUV,yes,,Burmester,80400,synthetic,35100,0,"user sent the window sticker and price details (Oct 21 2026): Panorama Sunroof (413), Burmester Surround Sound (810), Black/Sable Brown MB-Tex, sticker $80,400; dealer's final price $35,100 already includes $172 fees ($34,928 + doc $85, filing $37, smog $50)"
