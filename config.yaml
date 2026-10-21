@@ -32,12 +32,12 @@ filters:
     doc_fee: 85               # California dealer doc-fee cap
     other_fees: 100           # electronic filing etc.
   sunroof_required: true
-  sedans:                     # plug-in hybrid / electric sedans (and hybrids with 40+ mpg), 3 Series / A5 to 5 Series size, AWD (user, Oct 19 2026)
+  sedans:                     # plug-in hybrid / electric sedans (and hybrids with 40+ mpg), AWD (user, Oct 19 2026); full-size too since Oct 21 2026
     fuels: [phev, ev, hybrid]
     hybrid_min_mpg: 40        # regular hybrid sedans only if they average 40+ mpg (EPA combined; user, Oct 19 2026)
     exclude_makes: [Toyota, Kia, Mazda]   # user, Oct 19 2026: "No Toyota kia or Mazda sedans"
     # sedan model names, for cars whose VIN record has no body type (gas sedans are excluded)
-    models: '\b[35] series\b|\b[35][35]0e\b|\bi[45]\b|\beqe\b(?!.*suv)|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|e-?tron gt|\b[as]6\b.*e-?tron|\bes ?\d{3}|\bs[69]0\b'
+    models: '\b[357] series\b|\b[35][35]0e\b|\b750e\b|\bi[457]\b|\beq[es]\b(?!.*suv)|\bs[- ]?class\b|\bs ?580e\b|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|e-?tron gt|\b[as]6\b.*e-?tron|\bes ?\d{3}|\bs[69]0\b'
   exterior_colors:
     include: [black, gray, grey, graphite, charcoal, gunmetal, thunder, makalu,
               mythos, vik, onyx, daytona, carbon, obsidian, magnetic, crystal black,
@@ -126,25 +126,25 @@ models:
       - {if: 'outback', unless: 'limited|touring|wilderness', then: fail, why: 'Outback trim (Limited/Touring/Wilderness only)'}
       - {if: 'solterra', unless: 'touring', then: fail, why: 'Solterra Premium / Limited: no sunroof offered (Touring only)'}
   BMW:
-    allow: '\bx[35]\b|\bix\b|\b[35] series\b|\b[35][35]0e\b|\bi[45]\b'
-    list: X3, X5, iX (electric); plug-in / electric sedans 330e xDrive, 530e / 550e xDrive, i4, i5
-    tokens: [ix, 330e, 530e, 550e, i4, i5]
+    allow: '\bx[35]\b|\bix\b|\b[357] series\b|\b[35][35]0e\b|\b750e\b|\bi[457]\b'
+    list: X3, X5, iX (electric); plug-in / electric sedans 330e xDrive, 530e / 550e xDrive, 750e xDrive, i4, i5, i7
+    tokens: [ix, 330e, 530e, 550e, 750e, i4, i5, i7]
     rules:
       - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
       - {if: '\b[35]30e\b(?!.*(xdrive|530 ?xe|\bawd\b|all.wheel))', then: fail, why: '330e / 530e without xDrive (rear-wheel drive)'}
-      - {if: '\bedrive ?(35|40)\b', then: fail, why: 'i4 / i5 eDrive (rear-wheel drive)'}
+      - {if: '\bedrive ?(35|40|50)\b', then: fail, why: 'i4 / i5 / i7 eDrive (rear-wheel drive)'}
+      - {if: '\b7 series\b|\b7[46]0i\b', unless: '750e|\bi7\b', then: fail, why: '7 Series gas (only the 750e plug-in and electric i7 count)'}
       # M versions (X3 M40i/M50/X3 M, X5 M50i/M60i/X5 M, iX M60/M70) are fine (user, Oct 19 2026)
   Mercedes-Benz:
-    allow: 'glc|gle|eqb|eqe|eqs|\b[ce][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b'
-    list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV; EQE sedan, plug-in AMG E 53 HYBRID / C 63 S E PERFORMANCE
-    tokens: [eqb, eqe, eqs, e-53, c-63]
+    allow: 'glc|gle|eqb|eqe|eqs|\b[ces][ -]?class\b|(?<![a-z])[ce] ?(53|63)\b|\bs ?580e\b'
+    list: GLC 300/350e, GLE 350/450/450e, electric EQB / EQE SUV / EQS SUV; EQE / EQS sedan, plug-in AMG E 53 HYBRID / C 63 S E PERFORMANCE / S 580e
+    tokens: [eqb, eqe, eqs, e-53, c-63, s-580e, s-class]
     rules:
       - {if: 'coupe|maybach', then: fail, why: 'Coupe / Maybach (not on the list)'}   # AMG and GLE 580 are fine (user likes performance cars, Oct 19 2026)
       - {if: 'eqb ?250', then: fail, why: 'EQB 250 (front-wheel drive)'}
-      - {if: 'eqs(?!.*suv)', unless: 'suv', then: fail, why: 'EQS sedan (full-size, not on the list)'}
       - {if: '(?<![a-z])e ?53(?!.*hybrid)(?!e)', to_year: 2024, then: fail, why: 'AMG E 53 before 2025 (mild hybrid = gas)'}
-      - {if: 'eq[es] ?(320|350|450) ?(\+|plus)(?! ?4matic)', then: fail, why: 'EQE / EQS SUV "+" (rear-wheel drive)'}
-      - {if: 'eq[bs]', then: note, why: 'EQB / EQS SUV can have a third row: confirm it has 5 seats'}
+      - {if: 'eq[es]\s*(320|350|450)\s*(\+|plus)(?!\s*4matic)', then: fail, why: 'EQE / EQS "+" (rear-wheel drive)'}
+      - {if: 'eqb|eqs.*suv', then: note, why: 'EQB / EQS SUV can have a third row: confirm it has 5 seats'}
   Volkswagen:
     allow: 'tiguan|\bid\.? ?-?4\b'
     list: Tiguan 2025+, ID.4 AWD (electric)
