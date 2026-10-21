@@ -274,7 +274,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    the listing (first: 7 Q4 e-trons at Audi Beverly Hills). `pipeline.load_manual()` adds them to every refresh (same rules,
    note "added by you"); `python run.py add-manual` puts them on the page without a search. They never go "sold" on their
    own (the dealer can't be read): delete the row when the user says it's gone.
-8. **Facts the user checked by hand** go in `data/confirmed.csv` (vin, trim, sunroof yes/no, ext_color, audio = system name or `none`, msrp_new = window-sticker total, note; `rescore` applies them too). `run.py:apply_confirmed`
+8. **Facts the user checked by hand** go in `data/confirmed.csv` (vin, trim, sunroof yes/no, ext_color, audio = system name or `none`, msrp_new = window-sticker total, seats = leather/synthetic/cloth, note; `rescore` applies them too). `run.py:apply_confirmed`
    applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
    forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
    out by hand, use `data/exclusions.csv`.)

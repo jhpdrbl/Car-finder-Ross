@@ -288,6 +288,10 @@ def apply_confirmed(L, c: dict | None) -> None:
     audio = (c.get("audio") or "").strip()
     if audio:                                  # 'none' = checked: no premium system
         L.audio = "" if audio.lower() == "none" else audio
+    seats = (c.get("seats") or "").strip().lower()
+    if seats in ("leather", "synthetic", "cloth"):
+        L.seats = seats
+        L.leather = seats == "leather"
     if (c.get("msrp_new") or "").strip():      # the window sticker's total
         L.msrp_new, L.msrp_source = float(c["msrp_new"]), "listing"
 
@@ -350,9 +354,11 @@ def rescore(args) -> None:
             msrp.fill(L)
             L.ext_color = criteria.full_color_name(L.make, L.ext_color)
             r["msrp_new"], r["msrp_source"], r["ext_color"] = L.msrp_new or "", L.msrp_source, L.ext_color
-            r["trim"], r["audio"] = L.trim, L.audio
+            r["trim"], r["audio"], r["seats"], r["leather"] = L.trim, L.audio, L.seats, "" if L.leather is None else str(L.leather)
             if L.sunroof is not None:
                 r["sunroof"] = str(L.sunroof)
+                if (confirmed.get(L.vin.upper()) or {}).get("sunroof"):   # the open question is answered
+                    r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "sunroof" not in x)
             fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
             spec = criteria.MODELS.get(L.make)            # a model taken off the list since the last search
             if spec and not re.search(spec["allow"], L.model.lower()):
