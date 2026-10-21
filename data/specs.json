@@ -1,6 +1,33 @@
 {
  "clearance": [
   {
+   "make": "Audi",
+   "model": "Q5",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "inches": 8.2,
+   "source": "Audi data via ADAC, 208 mm, same for Sportback and the 55 TFSI e plug-in (outside US)"
+  },
+  {
+   "make": "BMW",
+   "model": "X5",
+   "trim_regex": "45e|phev",
+   "from_year": 2023,
+   "to_year": 2023,
+   "inches": 8.3,
+   "source": "BMW USA PressClub X5 xDrive45e spec table"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "GLC",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 7.4,
+   "source": "Mercedes-Benz data via ADAC, 187 mm, GLC 300 and plug-in (outside US)"
+  },
+  {
    "make": "Mercedes-Benz",
    "model": "EQE",
    "trim_regex": "sedan",
