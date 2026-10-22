@@ -195,8 +195,15 @@ def volvo() -> tuple[list[Listing], dict]:
             body["Filters"]["Location"] = {"Latitude": home["lat"], "Longitude": home["lon"],
                                            "Distance": home["edge_radius_miles"]}
             while True:
-                f._throttle(search_host)
-                res = page.evaluate(_FETCH_JS, [VOLVO_SEARCH, headers, json.dumps(body)])
+                for attempt in range(3):           # "Failed to fetch" = a network hiccup on that one request (laptop, Oct 22 2026)
+                    f._throttle(search_host)
+                    try:
+                        res = page.evaluate(_FETCH_JS, [VOLVO_SEARCH, headers, json.dumps(body)])
+                        break
+                    except Exception as e:
+                        if attempt == 2 or "Failed to fetch" not in str(e):
+                            raise FetchError(f"Volvo store search didn't answer ({str(e).splitlines()[0][:120]})")
+                        page.wait_for_timeout(5000 * (attempt + 1))
                 if res["status"] != 200:
                     raise FetchError(f"Volvo store search answered HTTP {res['status']}")
                 data = json.loads(res["text"])
