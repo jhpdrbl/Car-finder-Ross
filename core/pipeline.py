@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import csv
+import json
 import re
+import threading
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -170,6 +172,30 @@ def prefilter(cands: list[str], brand: str) -> tuple[list[str], int]:
     return out, len(cands) - len(out)
 
 
+# Listing URL -> VIN, kept between runs (data/cache, gitignored). Some sites list one car under two URLs (e.g. a
+# /certified/ and a /used/ page with no VIN in the address); last run's row keeps only one of them, so without this the
+# other URL was re-read every run (Long Beach BMW: 115 pages read for 52 cars, Oct 23 2026).
+URL_VINS_FILE = ROOT / "data" / "cache" / "url_vins.json"
+_url_vins: dict[str, str] = {}
+_url_vins_lock = threading.Lock()
+
+
+def load_url_vins() -> None:
+    try:
+        _url_vins.update(json.loads(URL_VINS_FILE.read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        pass
+
+
+def save_url_vins() -> None:
+    import os
+    with _url_vins_lock:
+        URL_VINS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = URL_VINS_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(_url_vins), encoding="utf-8")
+        os.replace(tmp, URL_VINS_FILE)
+
+
 def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") -> DealerResult:
     t0 = time.time()
     res = DealerResult(dealer=dealer)
@@ -214,7 +240,7 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
     prev_rows = prev_rows or {}
     for url in cands[:MAX_VDPS]:
         # prev = last run's row for this car per buyer ({profile: row}); reuse only if every buyer excluded it for good
-        prev = prev_rows.get(url) or prev_rows.get(url_vin(url) or "-")
+        prev = prev_rows.get(url) or prev_rows.get(url_vin(url) or _url_vins.get(url) or "-")
         if prev and all(r.get("dealer") == dealer["dealer_name"] and carry_forward_ok(r, today) for r in prev.values()):
             res.carried.append(prev)
             continue
@@ -232,6 +258,9 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
             continue
         L.dealer, L.dealer_brand, L.dealer_url = dealer["dealer_name"], dealer["brand"], home
         L.source = L.source or (dealer["platform"] or "site")
+        if L.vin:
+            with _url_vins_lock:
+                _url_vins[url] = L.vin.upper()
         res.listings.append(L)
     res.parsed = len(res.listings)
     if res.parsed or res.carried or not res.errors:
@@ -276,19 +305,94 @@ def enrich_from_dealer_page(L: Listing) -> None:
 
 
 def run_brand_feeds(brands: set[str], log) -> tuple[list[Listing], dict[str, dict]]:
-    out, stats = [], {}
-    for brand, fn in FEEDS.items():
-        if brands and brand not in brands:
-            continue
+    """Every brand feed at once (each is a different website, so politeness per site is unchanged)."""
+    todo = {b: fn for b, fn in FEEDS.items() if not brands or b in brands}
+    got: dict[str, tuple] = {}
+
+    def one(brand):
         try:
-            ls, st = fn()
-            out += ls
-            stats[brand] = {"status": "success", **st}
+            ls, st = todo[brand]()
             log(f"  {brand} brand feed: {st['in_area']} certified {brand} listings at our dealers")
+            return ls, {"status": "success", **st}
         except Exception as e:  # a feed that breaks must not stop the run; its dealer sites get read instead
-            stats[brand] = {"status": "failed", "reason": f"{type(e).__name__}: {e}"[:200]}
-            log(f"  {brand} brand feed FAILED: {e}")
+            log(f"  {brand} brand feed FAILED: {str(e).splitlines()[0] if str(e) else type(e).__name__}")
+            return [], {"status": "failed", "reason": f"{type(e).__name__}: {e}"[:200]}
+    with ThreadPoolExecutor(max_workers=max(1, len(todo))) as ex:
+        for brand, res in zip(todo, ex.map(one, todo)):
+            got[brand] = res
+    out, stats = [], {}
+    for brand in todo:                 # FEEDS order, so results don't depend on which feed finished first
+        out += got[brand][0]
+        stats[brand] = got[brand][1]
     return out, stats
+
+
+def expected_pages() -> dict[str, int]:
+    """Listing pages each dealer needed last run (from coverage.csv), so the slowest dealers can start first."""
+    out = {}
+    try:
+        with (ROOT / "data" / "coverage.csv").open(encoding="utf-8") as fh:
+            for c in csv.DictReader(fh):
+                m = re.match(r"(\d+) listings read", c.get("reason") or "")
+                out[c["dealer"]] = int(m.group(1)) if m else 0
+    except OSError:
+        pass
+    return out
+
+
+def dealer_jobs(dealers: list[dict], brands: set[str], covered: set[str]) -> tuple[list[dict], list[DealerResult]]:
+    """(dealers to read, biggest first; 'skipped' results for brands a brand feed covers)."""
+    from core.profiles import BRANDS
+    todo, skipped = [], []
+    for d in dealers:
+        if brands and d["brand"] not in brands:
+            continue
+        if d["brand"] not in BRANDS:
+            continue    # no buyer has a model from this brand yet (Acura, Oct 2026): nothing to look for
+        if d["brand"] in covered:
+            skipped.append(DealerResult(dealer=d, status="skipped", reason=f"covered by the {d['brand']} brand CPO feed"))
+            continue
+        todo.append(d)
+    pages = expected_pages()
+    todo.sort(key=lambda d: -pages.get(d["dealer_name"], 20))   # a dealer not seen before counts as middling
+    return todo, skipped
+
+
+class DealerPool:
+    """Dealer sites read `workers` at a time; more dealers can be added while it runs (e.g. a brand whose feed
+    just failed). Each site still gets at most 1 request every 2-3 s (the fetcher's per-site throttle)."""
+
+    def __init__(self, workers: int, log, prev_rows: dict | None, today: str):
+        self.ex = ThreadPoolExecutor(max_workers=workers)
+        self.log, self.prev_rows, self.today = log, prev_rows, today
+        self.futs: dict = {}
+        self.results: list[DealerResult] = []
+        self.lock = threading.Lock()
+        self.done = 0
+
+    def add(self, dealers: list[dict]) -> None:
+        for d in dealers:
+            f = self.ex.submit(scrape_dealer, d, self.prev_rows, self.today)
+            with self.lock:
+                self.futs[f] = d
+            f.add_done_callback(self._finished)
+
+    def _finished(self, fut) -> None:
+        d = self.futs[fut]
+        try:
+            r = fut.result()
+        except Exception as e:  # report it in the coverage report and keep going
+            r = DealerResult(dealer=d, reason=f"error: {type(e).__name__}: {e}"[:200])
+        with self.lock:
+            self.results.append(r)
+            self.done += 1
+            i, n = self.done, len(self.futs)
+        mark = "ok " if r.status == "success" else "-- "
+        self.log(f"  [{i}/{n}] {mark}{r.dealer['brand']:13} {r.dealer['dealer_name'][:34]:34} {r.reason[:90]}")
+
+    def finish(self) -> list[DealerResult]:
+        self.ex.shutdown(wait=True)
+        return self.results
 
 
 def scrape_all(dealers: list[dict], brands: set[str], workers: int, log, prev_rows: dict | None = None,
@@ -296,30 +400,10 @@ def scrape_all(dealers: list[dict], brands: set[str], workers: int, log, prev_ro
     """`covered`: brands whose brand feed worked this run; their dealer sites are skipped. A brand whose
     feed failed (or needs the browser add-on that isn't installed) gets its dealer sites read instead."""
     covered = set(FEEDS) if covered is None else covered
-    results: list[DealerResult] = []
-    todo = []
-    from core.profiles import BRANDS
-    for d in dealers:
-        if brands and d["brand"] not in brands:
-            continue
-        if d["brand"] not in BRANDS:
-            continue    # no buyer has a model from this brand yet (Acura, Oct 2026): nothing to look for
-        if d["brand"] in covered:
-            results.append(DealerResult(dealer=d, status="skipped",
-                                        reason=f"covered by the {d['brand']} brand CPO feed"))
-            continue
-        todo.append(d)
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        futs = {ex.submit(scrape_dealer, d, prev_rows, today): d for d in todo}
-        for i, fut in enumerate(as_completed(futs), 1):
-            try:
-                r = fut.result()
-            except Exception as e:  # report it in the coverage report and keep going
-                r = DealerResult(dealer=futs[fut], reason=f"error: {type(e).__name__}: {e}"[:200])
-            results.append(r)
-            mark = "ok " if r.status == "success" else "-- "
-            log(f"  [{i}/{len(todo)}] {mark}{r.dealer['brand']:13} {r.dealer['dealer_name'][:34]:34} {r.reason[:90]}")
-    return results
+    todo, skipped = dealer_jobs(dealers, brands, covered)
+    pool = DealerPool(workers, log, prev_rows, today)
+    pool.add(todo)
+    return skipped + pool.finish()
 
 
 def dedupe(listings: list[Listing]) -> list[Listing]:

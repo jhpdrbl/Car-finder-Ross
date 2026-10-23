@@ -470,6 +470,25 @@ def kia() -> tuple[list[Listing], dict]:
 # --------------------------------------------------------------------------
 
 MAZDA = "https://www.mazdausa.com"
+# A car's detail record (its page on the dealer's site, its feature list) doesn't change, and fetching one per car
+# at 1 request / 2-3 s was most of a 9-minute Mazda feed (laptop, Oct 23 2026): keep them between runs.
+MAZDA_DETAIL_CACHE = Path(__file__).resolve().parent.parent / "data" / "cache" / "mazda_detail.json"
+MAZDA_DETAIL_DAYS = 14
+
+
+def _mazda_detail(vin: str, cache: dict) -> dict:
+    import time
+    hit = cache.get(vin)
+    if hit and time.time() - hit.get("t", 0) < MAZDA_DETAIL_DAYS * 86400:
+        return hit["det"]
+    try:
+        det = (fetcher().get_json(f"{MAZDA}/api/inv/detail?vin={vin}").get("body") or {}).get("vehicle") or {}
+    except (FetchError, AttributeError):
+        return {}
+    keep = {k: det.get(k) for k in ("dealerSiteUrl", "standardFeatures", "hiddenStandardFeatureList", "engineFeaturesList") if det.get(k)}
+    if keep:
+        cache[vin] = {"t": time.time(), "det": keep}
+    return keep
 MAZDA_ZIPS = ("90039", "92701", "91761", "93030", "91355")     # LA, Santa Ana, Ontario, Oxnard, Valencia: Mazda's radius is by driving
 MAZDA_TRIMS = {"PP": "Premium Plus", "PR": "Premium", "PF": "Preferred", "SE": "Select", "CE": "Carbon Edition",
                "MR": "Meridian", "SG": "Signature", "TS": "Turbo Signature", "SPR": "S Premium", "SPP": "S Premium Plus",
@@ -478,8 +497,7 @@ MAZDA_TRIMS = {"PP": "Premium Plus", "PR": "Premium", "PF": "Preferred", "SE": "
 
 
 def mazda() -> tuple[list[Listing], dict]:
-    from core.profiles import MAX_PRICE, all_profiles, min_year
-    from .generic_jsonld import FAKE_WORD, SUNROOF, seat_material
+    from core.profiles import all_profiles, min_year
     dealers = _dealers("Mazda")
     ids: dict[str, dict] = {}
     for z in MAZDA_ZIPS:
@@ -493,11 +511,34 @@ def mazda() -> tuple[list[Listing], dict]:
     codes = list(dict.fromkeys(c for p in all_profiles() for c in ((p.models().get("Mazda") or {}).get("feed_models") or [])))
     years = ",".join(str(y) for y in range(min_year("Mazda"), date.today().year + 2))
     out, stats = [], {"seen": 0, "in_area": 0}
+    try:
+        detail_cache = json.loads(MAZDA_DETAIL_CACHE.read_text(encoding="utf-8")) if MAZDA_DETAIL_CACHE.exists() else {}
+    except ValueError:
+        detail_cache = {}
+    try:
+        return _mazda_search(codes, ids, years, out, stats, detail_cache, dealers)
+    finally:
+        import os
+        MAZDA_DETAIL_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = MAZDA_DETAIL_CACHE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(detail_cache), encoding="utf-8")
+        os.replace(tmp, MAZDA_DETAIL_CACHE)
+
+
+def _mazda_search(codes, ids, years, out, stats, detail_cache, dealers):
+    from core.profiles import MAX_PRICE
+    from .generic_jsonld import SUNROOF, seat_material
     for vc in codes:
         page = 1
         while True:
-            data = fetcher().get_json(f"{MAZDA}/api/inv/search?cond=c&dlrId={','.join(ids)}&zip={CONFIG['home']['zip']}"
-                                      f"&yr={years}&vc={vc}&p={page}&ps=20&s=d")
+            url = (f"{MAZDA}/api/inv/search?cond=c&dlrId={','.join(ids)}&zip={CONFIG['home']['zip']}"
+                   f"&yr={years}&vc={vc}&p={page}&ps=20&s=d")
+            data = fetcher().get_json(url)
+            if (data.get("header") or {}).get("status") == "error":
+                fetcher().forget(url)        # its errors come back as HTTP 200, so the page cache kept one (Oct 23 2026)
+                import time
+                time.sleep(10)               # "A system error has occurred" on one page is usually gone a moment later
+                data = fetcher().get_json(url)
             if (data.get("header") or {}).get("status") == "error":
                 raise FetchError(f"Mazda search error for {vc}")
             body = data.get("body") or {}
@@ -531,10 +572,7 @@ def mazda() -> tuple[list[Listing], dict]:
                 L.cert_text = "mazda certified pre-owned (mazdausa.com CPO inventory)"
                 L.cpo_program = "Mazda Certified Pre-Owned"
                 L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Mazda", d["homepage"]
-                try:      # the car's page on the dealer's own site, plus its feature list
-                    det = (fetcher().get_json(f"{MAZDA}/api/inv/detail?vin={L.vin}").get("body") or {}).get("vehicle") or {}
-                except (FetchError, AttributeError):
-                    det = {}
+                det = _mazda_detail(L.vin, detail_cache)     # the car's page on the dealer's own site, plus its feature list
                 L.listing_url = det.get("dealerSiteUrl") or ""
                 feats = [x for k in ("standardFeatures", "hiddenStandardFeatureList", "engineFeaturesList") for x in (det.get(k) or [])]
                 L.features = [t for x in feats if (t := re.sub(r"<[^>]+>", "", str(x)).strip())][:150]

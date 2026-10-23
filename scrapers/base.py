@@ -217,6 +217,15 @@ class Fetcher:
         except ValueError as e:
             raise FetchError(f"non-JSON response from {url}") from e
 
+    def forget(self, url: str) -> None:
+        """Drop the cached copy of a URL (e.g. an error answer that came back with HTTP 200)."""
+        cached = getattr(self.session, "cache", None)
+        if cached is not None:
+            try:
+                cached.delete(urls=[url])
+            except Exception:
+                pass
+
     def get_json(self, url: str, **kw):
         r = self.get(url, **kw)
         if r.status_code != 200:

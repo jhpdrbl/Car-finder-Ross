@@ -333,6 +333,17 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 
 ## Performance design (Oct 2026)
 
+- **Reading steps overlap** (Oct 23 2026, user: "this took 45 mins ... speed it up"; that run = feeds 12 min one after
+  another, Mazda 9 of them; dealer sites 24 min, the last 8 on Mercedes-Benz of Encino alone; feed-car pages 6 min after).
+  `run.py refresh` step 1/4 now: all brand feeds at once (`pipeline.run_brand_feeds`, one thread per feed); meanwhile a
+  `pipeline.DealerPool` reads the dealer sites of every brand whose feed can't replace them (non-feed brands + Lexus/Kia
+  supplement feeds), **biggest first** (`dealer_jobs` sorts by last run's "N listings read" from coverage.csv); when the
+  feeds finish, dealers of brands whose feed failed are added to the same pool, and the feed cars' dealer pages are read
+  alongside. **Mazda detail records are cached** 14 days (`data/cache/mazda_detail.json`; one request per car at 2-3 s was
+  the 9 minutes). **URL -> VIN memory** (`data/cache/url_vins.json`): a car listed under two URLs (dealer.com `/certified/`
+  and `/used/` with no VIN in the address) gets carried forward by either URL; carried rows are de-duplicated by VIN.
+  Mazda's search sometimes answers "A system error has occurred" with HTTP 200 (the page cache kept it): it's
+  forgotten and retried once after 10 s, else the feed fails and Mazda dealer sites are read instead.
 - 24 dealers in parallel; politeness is per domain (`base.Fetcher._throttle`), so more workers never
   hits one site faster. Up to 3 headless browsers at once (`playwright_fallback._lock`).
 - Before reading listing pages: `pipeline.prefilter` drops URLs matching `listing.URL_SKIP` and

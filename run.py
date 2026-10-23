@@ -64,19 +64,23 @@ def refresh(args) -> None:
             if all(key in per[P.id] for P in buyers):
                 prev_rows[key] = {P.id: per[P.id][key] for P in buyers}
 
-    log("1/6 Brand certified-inventory feeds")
-    feed_listings, feed_stats = pipeline.run_brand_feeds(brands, log) if not args.dealers else ([], {})
-
-    log(f"2/6 Dealer websites ({args.workers} at a time, 1 request per 2-3 s per site)")
-    covered = {b for b, st in feed_stats.items() if st.get("status") == "success" and b not in SUPPLEMENT_FEEDS}
-    results = pipeline.scrape_all(dealers, brands, args.workers, log, prev_rows, today, covered)
-    n_read = sum(r.parsed for r in results)
-    n_reused = sum(len(r.carried) for r in results)
-    n_skip = sum(r.skipped_pages for r in results)
-    log(f"   {n_read} listing pages read; {n_reused} unchanged exclusions reused; {n_skip} skipped by URL/VIN pre-filter")
-
-    log("3/6 Reading dealer pages for brand-feed cars (sunroof, audio, CARFAX badges...)")
+    # The three reading steps overlap (Oct 23 2026: one after another took 45 min). Each website still gets at most
+    # 1 request every 2-3 s; what changes is that different websites are read at the same time:
+    #   - the brand feeds all at once;
+    #   - meanwhile the dealer sites of every brand whose feed can't replace them, biggest dealers first;
+    #   - when the feeds are done: the sites of brands whose feed failed, and the feed cars' own dealer pages.
     from concurrent.futures import ThreadPoolExecutor
+    log(f"1/4 Brand feeds, dealer websites ({args.workers} at a time) and feed cars' dealer pages, side by side")
+    pipeline.load_url_vins()
+    wait_for_feed = set() if args.dealers else set(pipeline.FEEDS) - set(SUPPLEMENT_FEEDS)
+    first, _ = pipeline.dealer_jobs([d for d in dealers if d["brand"] not in wait_for_feed], brands, set())
+    pool = pipeline.DealerPool(args.workers, log, prev_rows, today)
+    pool.add(first)
+    feed_listings, feed_stats = pipeline.run_brand_feeds(brands, log) if not args.dealers else ([], {})
+    covered = {b for b, st in feed_stats.items() if st.get("status") == "success" and b not in SUPPLEMENT_FEEDS}
+    later, skipped = pipeline.dealer_jobs([d for d in dealers if d["brand"] in wait_for_feed], brands, covered)
+    pool.add(later)               # brands whose feed failed: read their dealer sites instead
+
     todo = [L for L in feed_listings if args.enrich and (L.year or 0) >= profiles.MIN_YEAR and (L.mileage or 0) < 40000
             and (L.price or 0) <= profiles.MAX_PRICE + 1500]
     homes = sorted({by_name.get(L.dealer, {}).get("homepage", "") for L in todo} - {""})
@@ -86,9 +90,16 @@ def refresh(args) -> None:
         list(ex.map(pipeline.enrich_from_dealer_page, ok_cars))
     n_enriched = len(ok_cars)
     blocked_feed_dealers = sorted(h for h, ok in reachable.items() if not ok)
-    log(f"   read {n_enriched} dealer pages; {len(blocked_feed_dealers)} feed dealers' sites blocked")
+    log(f"   feed cars: read {n_enriched} dealer pages; {len(blocked_feed_dealers)} feed dealers' sites blocked")
 
-    log("4/6 VIN decode (NHTSA vPIC) and filters")
+    results = skipped + pool.finish()
+    pipeline.save_url_vins()
+    n_read = sum(r.parsed for r in results)
+    n_reused = sum(len(r.carried) for r in results)
+    n_skip = sum(r.skipped_pages for r in results)
+    log(f"   dealer sites: {n_read} listing pages read; {n_reused} unchanged exclusions reused; {n_skip} skipped by URL/VIN pre-filter")
+
+    log("2/4 VIN decode (NHTSA vPIC) and filters")
     listings = pipeline.dedupe(feed_listings + [L for r in results for L in r.listings] + pipeline.load_manual())
     decodes = vin_decode.decode_many([L.vin for L in listings])
     prepare(listings, decodes)
@@ -108,19 +119,22 @@ def refresh(args) -> None:
             r = evaluate_row(L0, by_name.get(L0.dealer, {}), decodes.get(L0.vin) or {}, listings, excluded, confirmed, today)
             rows.append({k: ("" if v is None else v) for k, v in r.items()})
         fresh = {r["vin"] for r in rows}
-        rows += [dict(c[P.id]) for r in results for c in r.carried if P.id in c and c[P.id]["vin"] not in fresh]   # reused exclusions
+        for c in (c for r in results for c in r.carried if P.id in c):    # reused exclusions, one row per car
+            if c[P.id]["vin"] not in fresh:
+                fresh.add(c[P.id]["vin"])
+                rows.append(dict(c[P.id]))
         n_match = sum(1 for r in rows if r["status"] == "active" and not r["needs_call"])
         n_call = sum(1 for r in rows if r["status"] == "active" and r["needs_call"])
         log(f"   {P.label}: {len(rows)} listings checked: {n_match} meet all criteria, {n_call} need a call")
         per_buyer[P.id] = (rows, n_match, n_call)
     criteria.use(profiles.get().cfg)
 
-    log("5/6 Comparing with the last run")
+    log("3/4 Comparing with the last run")
     updated = {}
     for P in buyers:
         updated[P.id] = history.update(per_buyer[P.id][0], ok_dealers, gone, today, run_id=run_id, data=P.data)
 
-    log("6/6 Writing digest, dashboard, coverage")
+    log("4/4 Writing digest, dashboard, coverage")
     cov = outputs.coverage_rows(results, feed_stats)
     for c in cov:
         if c["homepage"] in blocked_feed_dealers:
