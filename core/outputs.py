@@ -553,6 +553,9 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .orig { white-space:nowrap; font-variant-numeric:tabular-nums; }
 .save { color:var(--ok); font-size:12px; font-weight:600; }
 .sortbar { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
+.shown { margin:4px 0 8px; font-weight:600; }
+.shown .clear { margin-left:8px; font-weight:400; }
+#shown-f { margin-left:8px; }
 .sortbar label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
 .sortbar select { flex:1; min-width:0; max-width:380px; }
 .phone-only { display:none; }
@@ -680,7 +683,7 @@ __SCOREHELP__
     <button type="button" class="cbtn" id="cmpbar-view">View comparison</button>
     <button type="button" class="cbtn ghost" id="cmpbar-clear">Clear compare</button></div>
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
-    <button class="clear" id="clear" type="button">Clear filters</button></div>
+    <button class="clear" id="clear" type="button">Clear filters</button><span class="small" id="shown-f"></span></div>
   <details class="fsec" open><summary>Status &amp; your marks</summary>
     <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
     <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
@@ -724,6 +727,7 @@ __SCOREHELP__
   <button type="button" class="clear" id="fav-cmp">Compare these</button></p>
   <div id="fav-gone"></div>
 </div>
+<div class="shown" id="shown-a" aria-live="polite"></div>
 <div class="sortbar phone-only"><label for="sort-a">Sort</label><select id="sort-a">
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
@@ -736,6 +740,7 @@ __SCOREHELP__
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
 <div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
+<div class="shown" id="shown-g" aria-live="polite"></div>
 <div class="sortbar phone-only"><label for="sort-g">Sort</label><select id="sort-g">
   <option value="removed_on:-1">Gone most recently</option><option value="price_total:1">Lowest price</option>
   <option value="days:1">Fewest days listed</option><option value="mileage:1">Fewest miles</option></select></div>
@@ -1386,6 +1391,13 @@ function renderRows() {
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
     || `<tr><td colspan="20" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+  // how many cars these filters leave, out of how many on this tab
+  const totA = favOnly ? D.cars.filter(c => fav.includes(c.vin)).length : D.cars.length;
+  const shownLine = (n, tot, what) => !tot ? "" : n === tot ? `Showing all ${tot} ${what}`
+    : `Showing ${n} of ${tot} ${what} <button type="button" class="clear" data-clearall>Clear filters</button>`;
+  document.getElementById("shown-a").innerHTML = shownLine(cars.length, totA, favOnly ? "favorites" : "cars");
+  document.getElementById("shown-g").innerHTML = shownLine(gone.length, D.gone.length, "cars");
+  document.getElementById("shown-f").textContent = cars.length === totA ? "" : `${cars.length} of ${totA} shown`;
   if (favOnly) {
     const gf = D.gone.filter(c => fav.includes(c.vin));
     document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>
@@ -1445,6 +1457,7 @@ document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).lengt
 ["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-roof", "f-sound", "f-seat", "f-mine", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
+document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; resetPrice(); resetMiles(); clearS.reset(); rangeS.reset(); render(); });
