@@ -480,6 +480,10 @@ h1 { margin:0; font-size:26px; letter-spacing:-.01em; }
 .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
 .tile { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
 .tile b { display:block; font-size:24px; font-variant-numeric:tabular-nums; }
+.tilebtn { font:inherit; color:inherit; text-align:left; cursor:pointer; }
+.tilebtn b { color:var(--ok); }
+.tilebtn[aria-pressed=true] { outline:2px solid var(--ok); }
+.cutline { color:var(--ok); font-size:12px; font-weight:600; white-space:nowrap; }
 details { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
 details li { margin:3px 0; }
 .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
@@ -681,6 +685,7 @@ td.warr { min-width:190px; font-size:13px; }
   <div class="tile"><b>__OK__</b><span class="muted">sources read</span></div>
   <div class="tile"><b>__FAILED__</b><span class="muted">sources failed</span></div>
   <div class="tile"><b>__SKIPPED__</b><span class="muted">covered by brand feeds</span></div>
+  <button type="button" class="tile tilebtn" id="cut-tile"><b id="ncut-tile">0</b><span class="muted">price cuts &#9660; (tap to see)</span></button>
 </div>
 __SCOREHELP__
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
@@ -702,7 +707,7 @@ __SCOREHELP__
   <details class="fsec" open><summary>Status &amp; your marks</summary>
     <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
     <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
-    <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label></fieldset>
+    <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label><label class="pill"><input type="checkbox" id="only-cut" value="cut"><span>&#9660; Price cut (<span id="ncut">0</span>)</span></label></fieldset>
   </details>
   <details class="fsec" open><summary>The car</summary>
     <fieldset class="group" id="f-make"><legend>Make</legend></fieldset>
@@ -743,7 +748,7 @@ __SCOREHELP__
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
-  <option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="clearance:-1">Most ground clearance</option><option value="ev_range:-1">Longest electric range</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
+  <option value="cut:-1">Biggest price cut</option><option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="clearance:-1">Most ground clearance</option><option value="ev_range:-1">Longest electric range</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th><th data-k="seat">Seats</th><th data-k="clearance">Ground clearance</th><th data-k="ev_range">Electric range</th>
@@ -809,16 +814,23 @@ const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electri
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
 const squash = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 D.cars.concat(D.gone).forEach(c => {   // "EQB 300" + trim "EQB 300 4MATIC" -> "EQB 300 4MATIC", not the model twice
+  if (/^\s*(null|undefined|none|n\/a)\s*$/i.test(c.trim || "")) c.trim = "";      // junk trim from a dealer's data
   const dup = c.model && c.trim && squash(c.trim).startsWith(squash(c.model));
   c.title = [c.year, c.make, dup ? "" : c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
   c.roof = c.sunroof === "True" ? "Yes" : c.sunroof === "False" ? "No" : "Not sure";
   c.fuel = FUEL[c.fuel_type] || "?"; });
+const CUT_MIN = 200;
 D.cars.concat(D.gone).forEach(c => {
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
   c.msrp = num(c.msrp_new);
   const now = num(c.price_total);
-  c.dropped = c.orig != null && now != null && now < c.orig - 1;
+  // a real cut is $200+: smaller moves are estimated fees changing, or the dealer's real fees replacing the estimate
+  c.dropped = c.orig != null && now != null && now <= c.orig - CUT_MIN;
+  c.cut = c.dropped ? c.orig - now : null;                       // total cut since first seen (sorts "Biggest price cut")
+  const h = c.hist || [];
+  for (let i = h.length - 1; i > 0; i--) if (num(h[i][1]) <= num(h[i - 1][1]) - CUT_MIN) {
+    c.lastCut = {amt: num(h[i - 1][1]) - num(h[i][1]), on: h[i][0]}; break; }
   c.histTip = (c.hist || []).map(x => x[0] + ": " + fmt$(x[1])).join("\n"); });
 D.gone.forEach(c => { const a = Date.parse(c.first_seen), b = Date.parse(c.last_seen);
   c.days = isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1; });
@@ -883,10 +895,11 @@ pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || ""))
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
 document.getElementById("covlist").innerHTML = D.failed.map(f => `<li><b>${esc(f.brand)} · ${esc(f.dealer)}</b>: ${esc(f.reason)}</li>`).join("") || "<li>Nothing failed.</li>";
+const shortDate = d => { const t = Date.parse(d); return isNaN(t) ? d : new Date(t).toLocaleDateString("en-US", {month: "short", day: "numeric", timeZone: "UTC"}); };
 function priceCell(c) {
-  return c.dropped
-    ? `<span class="drop" title="Price dropped from ${fmt$(c.orig)}" aria-label="price dropped">&#9660;</span>${fmt$(c.price_total)}`
-    : fmt$(c.price_total);
+  if (!c.dropped) return fmt$(c.price_total);
+  const last = c.lastCut ? `<div class="cutline">&#9660; ${fmt$(c.lastCut.amt)} on ${esc(shortDate(c.lastCut.on))}</div>` : "";
+  return `<span class="drop" title="Price dropped from ${fmt$(c.orig)}" aria-label="price dropped">&#9660;</span>${fmt$(c.price_total)}${last}`;
 }
 function msrpCell(c) {          // original new-car sticker: the dealer's figure, or "~" = the trim's base price when new (options add to it)
   if (c.msrp == null) return '<span class="muted">?</span>';
@@ -1376,9 +1389,10 @@ function renderRows() {
                     && (!clearS.on() || clearS.ok(num(c.clearance))) && (!rangeS.on() || rangeS.ok(num(c.ev_range)))
                     && (!mn.size || mn.has(mark(c)));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
-  const onlyNew = document.getElementById("only-new").checked;
+  const onlyNew = document.getElementById("only-new").checked, onlyCut = document.getElementById("only-cut").checked;
+  document.getElementById("cut-tile").setAttribute("aria-pressed", onlyCut);
   let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
-                            && (!onlyNew || c.is_new));
+                            && (!onlyNew || c.is_new) && (!onlyCut || c.dropped));
   cars.sort(sorter(sortK, dir));
   const gone = D.gone.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
@@ -1472,6 +1486,14 @@ try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
+document.getElementById("ncut").textContent = document.getElementById("ncut-tile").textContent = D.cars.filter(c => c.dropped).length;
+// turning on "Price cut" (the filter or the tile at the top) also sorts biggest cut first
+const sortByCut = () => { sortK = "cut"; dir = -1; const sa = document.getElementById("sort-a"); if (sa) sa.value = "cut:-1"; };
+document.getElementById("only-cut").addEventListener("change", e => { if (e.target.checked) { sortByCut(); render(); } });
+document.getElementById("cut-tile").addEventListener("click", () => {
+  const box = document.getElementById("only-cut"); box.checked = !box.checked;
+  if (box.checked) { sortByCut(); showTab("avail"); }
+  render(); document.getElementById("shown-a").scrollIntoView({behavior: "smooth", block: "start"}); });
 ["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-roof", "f-sound", "f-seat", "f-mine", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));

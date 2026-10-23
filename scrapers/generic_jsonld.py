@@ -400,6 +400,8 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     if BAD_TRIM.search(L.trim):
         L.trim = ""                  # a features line read as the trim ("Trim: backlighting")
     L.trim = L.trim or da.get("trim", "") or _json_trim(html, vin)
+    if BAD_TRIM.search(L.trim):      # the page's data attributes / JSON can say "null" too (dealer.com, Oct 2026)
+        L.trim = ""
     L.drivetrain = L.drivetrain or classify_drivetrain(da.get("drivetrain", ""))
     if L.price is None and da.get("price") and (money(da["price"]) or 0) >= 3000:
         L.price = money(da["price"])
