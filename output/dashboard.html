@@ -34,7 +34,7 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .tab .n { font-weight:500; color:var(--muted); margin-left:4px; }
 .gone td.car a { color:var(--muted); }
 .group { display:flex; flex-wrap:wrap; gap:6px; align-items:center; border:0; margin:0; padding:0; }
-.range { flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; padding:0 12px; }
+.range { flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; padding:0; }
 .rvs { margin-left:6px; text-transform:none; letter-spacing:0; color:var(--fg); white-space:nowrap; }
 .rvs .rv { font-variant-numeric:tabular-nums; }
 /* one track, two handles: two range inputs stacked; only their handles take touches */
@@ -42,13 +42,14 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .track::before, .track::after { content:""; position:absolute; top:50%; height:4px; margin-top:-2px; border-radius:2px; }
 .track::before { left:12px; right:12px; background:var(--line); }
 .track::after { left:calc(12px + (100% - 24px) * var(--a)); right:calc(12px + (100% - 24px) * (1 - var(--b))); background:var(--accent); }   /* 12px = half a handle */
-.track input[type=range] { position:absolute; inset:0; width:100%; height:100%; margin:0; background:none; pointer-events:none;
+.track input[type=range] { position:absolute; inset:0; width:100%; height:100%; margin:0; padding:0; border:0; border-radius:0; box-sizing:border-box;
+  background:none; box-shadow:none; outline:none; pointer-events:none;
   -webkit-appearance:none; appearance:none; z-index:1; }
 .track input[type=range]::-webkit-slider-runnable-track { background:none; border:0; height:32px; }
 .track input[type=range]::-moz-range-track { background:none; border:0; }
 .track input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; pointer-events:auto; width:24px; height:24px; margin-top:4px;
   border-radius:50%; background:var(--surface); border:3px solid var(--accent); cursor:pointer; box-sizing:border-box; }
-.track input[type=range]::-moz-range-thumb { pointer-events:auto; width:24px; height:24px; border-radius:50%; background:var(--card, #fff);
+.track input[type=range]::-moz-range-thumb { pointer-events:auto; width:24px; height:24px; border-radius:50%; background:var(--surface);
   border:3px solid var(--accent); cursor:pointer; box-sizing:border-box; }
 .track input[type=range]:focus-visible::-webkit-slider-thumb { outline:2px solid var(--accent); outline-offset:2px; }
 #f-price legend, #f-miles legend, #f-clear legend, #f-erange legend { width:100%; }   /* slider rows: label on its own line */
