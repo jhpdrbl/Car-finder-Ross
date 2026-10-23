@@ -34,9 +34,23 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .tab .n { font-weight:500; color:var(--muted); margin-left:4px; }
 .gone td.car a { color:var(--muted); }
 .group { display:flex; flex-wrap:wrap; gap:6px; align-items:center; border:0; margin:0; padding:0; }
-.range { display:grid; grid-template-columns:auto minmax(0,1fr); gap:4px 10px; align-items:center; flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; }
-.range input[type=range] { width:100%; min-width:0; margin:0; box-sizing:border-box; accent-color:var(--accent); min-height:28px; }
-.range .rv { font-variant-numeric:tabular-nums; min-width:3.2em; }
+.range { flex:1 1 240px; min-width:0; max-width:460px; box-sizing:border-box; padding:0 12px; }
+.rvs { margin-left:6px; text-transform:none; letter-spacing:0; color:var(--fg); white-space:nowrap; }
+.rvs .rv { font-variant-numeric:tabular-nums; }
+/* one track, two handles: two range inputs stacked; only their handles take touches */
+.track { position:relative; height:32px; min-width:0; --a:0; --b:1; }
+.track::before, .track::after { content:""; position:absolute; top:50%; height:4px; margin-top:-2px; border-radius:2px; }
+.track::before { left:12px; right:12px; background:var(--line); }
+.track::after { left:calc(12px + (100% - 24px) * var(--a)); right:calc(12px + (100% - 24px) * (1 - var(--b))); background:var(--accent); }   /* 12px = half a handle */
+.track input[type=range] { position:absolute; inset:0; width:100%; height:100%; margin:0; background:none; pointer-events:none;
+  -webkit-appearance:none; appearance:none; z-index:1; }
+.track input[type=range]::-webkit-slider-runnable-track { background:none; border:0; height:32px; }
+.track input[type=range]::-moz-range-track { background:none; border:0; }
+.track input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; pointer-events:auto; width:24px; height:24px; margin-top:4px;
+  border-radius:50%; background:var(--surface); border:3px solid var(--accent); cursor:pointer; box-sizing:border-box; }
+.track input[type=range]::-moz-range-thumb { pointer-events:auto; width:24px; height:24px; border-radius:50%; background:var(--card, #fff);
+  border:3px solid var(--accent); cursor:pointer; box-sizing:border-box; }
+.track input[type=range]:focus-visible::-webkit-slider-thumb { outline:2px solid var(--accent); outline-offset:2px; }
 #f-price legend, #f-miles legend, #f-clear legend, #f-erange legend { width:100%; }   /* slider rows: label on its own line */
 .layout { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; min-width:0; } .layout > * { min-width:0; }
 .content { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; min-width:0; } .content > * { min-width:0; }
@@ -236,12 +250,10 @@ td.warr { min-width:190px; font-size:13px; }
     <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
   </details>
   <details class="fsec" open><summary>Price &amp; miles</summary>
-    <fieldset class="group" id="f-price"><legend>Price (with fees)</legend>
-    <div class="range"><span class="small">From <b class="rv" id="pmin-v"></b></span><input type="range" id="pmin" aria-label="Lowest price">
-    <span class="small">Up to <b class="rv" id="pmax-v"></b></span><input type="range" id="pmax" aria-label="Highest price"></div></fieldset>
-    <fieldset class="group" id="f-miles"><legend>Miles</legend>
-    <div class="range"><span class="small">From <b class="rv" id="mmin-v"></b></span><input type="range" id="mmin" aria-label="Fewest miles">
-    <span class="small">Up to <b class="rv" id="mmax-v"></b></span><input type="range" id="mmax" aria-label="Most miles"></div></fieldset>
+    <fieldset class="group" id="f-price"><legend>Price (with fees) <span class="rvs"><b class="rv" id="pmin-v"></b> – <b class="rv" id="pmax-v"></b></span></legend>
+    <div class="range"><div class="track"><input type="range" id="pmin" aria-label="Lowest price"><input type="range" id="pmax" aria-label="Highest price"></div></div></fieldset>
+    <fieldset class="group" id="f-miles"><legend>Miles <span class="rvs"><b class="rv" id="mmin-v"></b> – <b class="rv" id="mmax-v"></b></span></legend>
+    <div class="range"><div class="track"><input type="range" id="mmin" aria-label="Fewest miles"><input type="range" id="mmax" aria-label="Most miles"></div></div></fieldset>
   </details>
   <details class="fsec" open><summary>Features</summary>
     <fieldset class="group" id="f-roof"><legend>Sunroof</legend></fieldset>
@@ -249,12 +261,10 @@ td.warr { min-width:190px; font-size:13px; }
     <fieldset class="group" id="f-seat"><legend>Seats</legend></fieldset>
   </details>
   <details class="fsec" open><summary>Size &amp; range</summary>
-    <fieldset class="group" id="f-clear"><legend>Ground clearance</legend>
-    <div class="range"><span class="small">From <b class="rv" id="clmin-v"></b></span><input type="range" id="clmin" aria-label="Lowest ground clearance">
-    <span class="small">Up to <b class="rv" id="clmax-v"></b></span><input type="range" id="clmax" aria-label="Highest ground clearance"></div></fieldset>
-    <fieldset class="group" id="f-erange"><legend>Electric range <span class="hint">plug-ins and electric only; moving it hides gas cars</span></legend>
-    <div class="range"><span class="small">From <b class="rv" id="ermin-v"></b></span><input type="range" id="ermin" aria-label="Shortest electric range">
-    <span class="small">Up to <b class="rv" id="ermax-v"></b></span><input type="range" id="ermax" aria-label="Longest electric range"></div></fieldset>
+    <fieldset class="group" id="f-clear"><legend>Ground clearance <span class="rvs"><b class="rv" id="clmin-v"></b> – <b class="rv" id="clmax-v"></b></span></legend>
+    <div class="range"><div class="track"><input type="range" id="clmin" aria-label="Lowest ground clearance"><input type="range" id="clmax" aria-label="Highest ground clearance"></div></div></fieldset>
+    <fieldset class="group" id="f-erange"><legend>Electric range <span class="rvs"><b class="rv" id="ermin-v"></b> – <b class="rv" id="ermax-v"></b></span> <span class="hint">plug-ins and electric only; moving it hides gas cars</span></legend>
+    <div class="range"><div class="track"><input type="range" id="ermin" aria-label="Shortest electric range"><input type="range" id="ermax" aria-label="Longest electric range"></div></div></fieldset>
   </details>
   <div class="small">Tap to select several; nothing selected in a row means all.</div>
 </aside>
@@ -352,6 +362,13 @@ D.cars.concat(D.gone).forEach(c => {
 D.gone.forEach(c => { const a = Date.parse(c.first_seen), b = Date.parse(c.last_seen);
   c.days = isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1; });
 const makes = [...new Set(D.cars.concat(D.gone).map(c => c.make))].sort();
+// shade the track between the two handles; the low handle goes on top once it's past the middle, so
+// both can still be grabbed when they meet
+function fillTrack(a, b) {
+  const lo = +a.min, span = (+a.max - lo) || 1, t = a.parentElement;
+  t.style.setProperty("--a", (+a.value - lo) / span);
+  t.style.setProperty("--b", (+b.value - lo) / span);
+  a.style.zIndex = +a.value - lo > span / 2 ? 3 : 1; }
 const pills = (id, vals) => document.getElementById(id).insertAdjacentHTML("beforeend",
   vals.map(v => `<label class="pill"><input type="checkbox" value="${esc(v)}"><span>${esc(v)}</span></label>`).join(""));
 pills("f-show", ["Meets all criteria", "Needs a call"]);
@@ -370,7 +387,7 @@ const resetPrice = () => { pmin.value = P_LO; pmax.value = P_HI; showPrice(); };
 function showPrice() {
   if (+pmin.value > +pmax.value) { if (document.activeElement === pmin) pmax.value = pmin.value; else pmin.value = pmax.value; }
   document.getElementById("pmin-v").textContent = fmt$(pmin.value);
-  document.getElementById("pmax-v").textContent = fmt$(pmax.value); }
+  document.getElementById("pmax-v").textContent = fmt$(pmax.value); fillTrack(pmin, pmax); }
 // mileage sliders: 1,000-mile steps
 const MILES = D.cars.map(c => num(c.mileage)).filter(v => v != null);
 const M_LO = MILES.length ? Math.floor(Math.min(...MILES) / 1000) * 1000 : 0, M_HI = MILES.length ? Math.ceil(Math.max(...MILES) / 1000) * 1000 : 40000;
@@ -380,10 +397,10 @@ const fmtMi = v => Math.round(num(v)).toLocaleString() + " mi";
 function showMiles() {
   if (+mmin.value > +mmax.value) { if (document.activeElement === mmin) mmax.value = mmin.value; else mmin.value = mmax.value; }
   document.getElementById("mmin-v").textContent = fmtMi(mmin.value);
-  document.getElementById("mmax-v").textContent = fmtMi(mmax.value); }
+  document.getElementById("mmax-v").textContent = fmtMi(mmax.value); fillTrack(mmin, mmax); }
 const resetMiles = () => { mmin.value = M_LO; mmax.value = M_HI; showMiles(); };
 resetPrice(); resetMiles();
-// a pair of From / Up to sliders over one number per car (ground clearance, electric range)
+// a From / Up to slider (two handles) over one number per car (ground clearance, electric range)
 function makeSlider(id, vals, step, fmt) {
   const lo = vals.length ? Math.floor(Math.min(...vals) / step) * step : 0, hi = vals.length ? Math.ceil(Math.max(...vals) / step) * step : step;
   const a = document.getElementById(id + "min"), b = document.getElementById(id + "max");
@@ -391,7 +408,7 @@ function makeSlider(id, vals, step, fmt) {
   const show = () => {
     if (+a.value > +b.value) { if (document.activeElement === a) b.value = a.value; else a.value = b.value; }
     document.getElementById(id + "min-v").textContent = fmt(+a.value);
-    document.getElementById(id + "max-v").textContent = fmt(+b.value); };
+    document.getElementById(id + "max-v").textContent = fmt(+b.value); fillTrack(a, b); };
   const s = {reset() { a.value = lo; b.value = hi; show(); },
              on: () => +a.value > lo + step / 2 || +b.value < hi - step / 2,
              ok: v => v != null && v >= +a.value - step / 2 && v <= +b.value + step / 2};
