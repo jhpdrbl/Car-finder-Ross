@@ -1,5 +1,7 @@
 """EPA fuel economy from fueleconomy.gov (US government) for listings whose page
-doesn't show MPG. Cached forever per year/make/model in data/cache/fueleconomy.json.
+doesn't show MPG. Cached forever per year/make/model in data/fueleconomy.json, which is kept with the project
+(not in the gitignored cache): the laptop's runs often couldn't reach fueleconomy.gov (Oct 2026: ~140 of 160 cars
+had no MPG), so answers looked up anywhere (e.g. a cloud session) carry over to every machine.
 
 For plug-in hybrids the figure is the gas-only MPG (after the battery is used up).
 """
@@ -13,7 +15,8 @@ from urllib.parse import quote
 
 from scrapers.base import FetchError, fetcher
 
-CACHE = Path(__file__).resolve().parent.parent / "data" / "cache" / "fueleconomy.json"
+CACHE = Path(__file__).resolve().parent.parent / "data" / "fueleconomy.json"
+OLD_CACHE = CACHE.parent / "cache" / "fueleconomy.json"
 API = "https://www.fueleconomy.gov/ws/rest"
 HDR = {"Accept": "application/json"}
 
@@ -29,7 +32,10 @@ def _atomic_write(text: str) -> None:
 
 
 def _cache() -> dict:
-    return json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+    c = json.loads(OLD_CACHE.read_text(encoding="utf-8")) if OLD_CACHE.exists() else {}
+    if CACHE.exists():
+        c.update(json.loads(CACHE.read_text(encoding="utf-8")))
+    return c
 
 
 def _save(c: dict) -> None:

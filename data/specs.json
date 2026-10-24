@@ -2103,6 +2103,16 @@
    "model": "Electrified GV70",
    "fuel": "ev",
    "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 236,
+   "source": "fueleconomy.gov (2023, same as 2024)"
+  },
+  {
+   "make": "Genesis",
+   "model": "Electrified GV70",
+   "fuel": "ev",
+   "trim_regex": "",
    "from_year": 2024,
    "to_year": 2025,
    "miles": 236,
@@ -2747,6 +2757,16 @@
    "to_year": 2023,
    "miles": 307,
    "source": "fueleconomy.gov (AWD)"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Lyriq",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 307,
+   "source": "fueleconomy.gov (2024 AWD; RWD 314)"
   },
   {
    "make": "Cadillac",

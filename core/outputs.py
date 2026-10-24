@@ -1278,7 +1278,7 @@ function guideCall(c, call) {   // what the Trim guide says for this car: its ma
 }
 function seatCall(t) {
   const first = String(t.seats || "").split(";")[0].toLowerCase();
-  const kind = /synthetic|leatherette|inteluxe|duo ?leather|luxtec|mb-?tex|nuluxe|syntex|sensatec|vegan|softex|sensafin|v-?tex|artico|dinamica/.test(first) ? "synthetic"
+  const kind = /synthetic|leatherette|inteluxe|duo ?leather|luxtec|mb-?tex|nuluxe|syntex|sensatec|vegan|softex|sensafin|v-?tex|artico|dinamica|microtech/.test(first) ? "synthetic"
              : /cloth|fabric/.test(first) ? "cloth" : /leather|nappa|merino|vernasca|aniline/.test(first) ? "leather" : "";
   return kind ? {v: SEAT_WORD[kind], t: "standard on this trim"} : {v: "Not sure", t: ""};
 }
@@ -1350,7 +1350,7 @@ const FIELDS = [
   ["Bumper-to-bumper ends", c => c.warr_full_end ? "~" + monthYr(new Date(c.warr_full_end)) : (c.warr_end ? "over" : "?"), c => c.warr_full_end || null, "high"],
   ["Warranty detail", c => c.warr_html, null, null],
   ["Fuel", c => esc(c.fuel), null, null],
-  ["MPG", c => num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
+  ["MPG", c => num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? "— (electric)" : "?") : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
   ["Colors", c => esc(c.colors), null, null],
   ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
   ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
@@ -1432,7 +1432,7 @@ function renderRows() {
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td data-l="Fuel">${esc(c.fuel)}</td>
-    <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? "?" : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : ""}</div></td>
+    <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? '—<div class="small">electric</div>' : "?") : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : c.mpg_source === "guide" ? " trim guide" : ""}</div></td>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
     <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
     <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
@@ -1522,7 +1522,17 @@ document.addEventListener("click", e => {      // the green check: a tap shows "
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; resetPrice(); resetMiles(); clearS.reset(); rangeS.reset(); render(); });
-D.cars.forEach(c => { soundOf(c); seatOf(c); roofOf(c); });       // fills c.snd / c.seat / c.roof for sorting
+// MPG missing (fueleconomy.gov's robots.txt often can't be read, so the search stays off it): the Trim guide's
+// EPA figure for this trim ("city/hwy/combined"), when every trim the car could be agrees
+function mpgFromGuide(c) {
+  if (num(c.mpg_combined) != null || c.fuel_type === "ev") return;
+  const r = guideCall(c, t => { const m = String(t.mpg || "").match(/^(\d+)\/(\d+)\/(\d+)/);
+    return m ? {v: m[3], t: m[1] + "/" + m[2]} : {v: "Not sure", t: ""}; });
+  if (!r) return;
+  c.mpg_combined = r.v; c.mpg_source = "guide";
+  const ch = /^(\d+)\/(\d+)$/.exec(r.t || ""); if (ch) { c.mpg_city = ch[1]; c.mpg_hwy = ch[2]; }
+}
+D.cars.forEach(c => { mpgFromGuide(c); soundOf(c); seatOf(c); roofOf(c); });   // fills MPG gaps and c.snd / c.seat / c.roof for sorting
 render();
 stickHeads();
 

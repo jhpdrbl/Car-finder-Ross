@@ -1,0 +1,5669 @@
+{
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Genesis": {
+"menuItem": [
+{
+"text": "Electrified G80",
+"value": "Electrified G80"
+},
+{
+"text": "Electrified GV70",
+"value": "Electrified GV70"
+},
+{
+"text": "G70 AWD",
+"value": "G70 AWD"
+},
+{
+"text": "G70 RWD",
+"value": "G70 RWD"
+},
+{
+"text": "G80 AWD",
+"value": "G80 AWD"
+},
+{
+"text": "G90 AWD",
+"value": "G90 AWD"
+},
+{
+"text": "G90 MHEV",
+"value": "G90 MHEV"
+},
+{
+"text": "GV60 Advanced (19 inch Wheels)",
+"value": "GV60 Advanced (19 inch Wheels)"
+},
+{
+"text": "GV60 Advanced (20 inch Wheels)",
+"value": "GV60 Advanced (20 inch Wheels)"
+},
+{
+"text": "GV60 PERFORMANCE",
+"value": "GV60 PERFORMANCE"
+},
+{
+"text": "GV60 Standard",
+"value": "GV60 Standard"
+},
+{
+"text": "GV70 AWD",
+"value": "GV70 AWD"
+},
+{
+"text": "GV80 AWD",
+"value": "GV80 AWD"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Genesis&model=GV70%20AWD": {
+"menuItem": [
+{
+"text": "Auto (S8), 4 cyl, 2.5 L, Turbo, 5-mode trans (Sport Plus)",
+"value": "46712"
+},
+{
+"text": "Auto (S8), 4 cyl, 2.5 L, Turbo, SIDI & PFI",
+"value": "46713"
+},
+{
+"text": "Auto (S8), 6 cyl, 3.5 L, Turbo, SIDI & PFI",
+"value": "46714"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46712": {
+"atvType": "",
+"barrels08": "13.52318181818182",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "19",
+"city08U": "19.4394",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "408",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "408.0",
+"comb08": "22",
+"comb08U": "21.8241",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-06-23T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.5",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RHYXV02.5UP5",
+"id": "46712",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+},
+{
+"efid": "RHYXV02.5UP5",
+"id": "46712",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+}
+]
+},
+"engId": "15",
+"eng_dscr": "5-mode trans (Sport Plus)",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "3750",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "26",
+"highway08U": "25.6735",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46712",
+"lv2": "0",
+"lv4": "29",
+"make": "Genesis",
+"mfrCode": "HYX",
+"model": "GV70 AWD",
+"modifiedOn": "2024-03-19T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "104",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "24.5",
+"UCityA": "0.0",
+"UHighway": "36.2",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-6750",
+"baseModel": "GV70",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46713": {
+"atvType": "",
+"barrels08": "12.39625",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "22",
+"city08U": "21.8954",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "369",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "369.0",
+"comb08": "24",
+"comb08U": "24.2984",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-06-23T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.5",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RHYXV02.5UP5",
+"id": "46713",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+},
+{
+"efid": "RHYXV02.5UP5",
+"id": "46713",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+}
+]
+},
+"engId": "16",
+"eng_dscr": "SIDI & PFI",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "3400",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "28",
+"highway08U": "28.0626",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46713",
+"lv2": "0",
+"lv4": "29",
+"make": "Genesis",
+"mfrCode": "HYX",
+"model": "GV70 AWD",
+"modifiedOn": "2024-03-19T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "104",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "27.9",
+"UCityA": "0.0",
+"UHighway": "39.9",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-5000",
+"baseModel": "GV70",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46714": {
+"atvType": "",
+"barrels08": "14.8755",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "18",
+"city08U": "18.2297",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "441",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "441.0",
+"comb08": "20",
+"comb08U": "20.3332",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-06-23T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "6",
+"displ": "3.5",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RHYXV03.5UT5",
+"id": "46714",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+},
+{
+"efid": "RHYXV03.5UT5",
+"id": "46714",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+}
+]
+},
+"engId": "17",
+"eng_dscr": "SIDI & PFI",
+"evMotor": "",
+"feScore": "4",
+"fuelCost08": "4100",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "4",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "24",
+"highway08U": "23.6716",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46714",
+"lv2": "0",
+"lv4": "29",
+"make": "Genesis",
+"mfrCode": "HYX",
+"model": "GV70 AWD",
+"modifiedOn": "2024-03-19T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "104",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "22.8526",
+"UCityA": "0.0",
+"UHighway": "33.1467",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-8500",
+"baseModel": "GV70",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2023&make=Audi": {
+"menuItem": [
+{
+"text": "A3",
+"value": "A3"
+},
+{
+"text": "A3 quattro",
+"value": "A3 quattro"
+},
+{
+"text": "A4 allroad quattro",
+"value": "A4 allroad quattro"
+},
+{
+"text": "A4 quattro",
+"value": "A4 quattro"
+},
+{
+"text": "A4 S-Line quattro",
+"value": "A4 S-Line quattro"
+},
+{
+"text": "A5 Cabriolet quattro",
+"value": "A5 Cabriolet quattro"
+},
+{
+"text": "A5 Coupe quattro",
+"value": "A5 Coupe quattro"
+},
+{
+"text": "A5 Sportback quattro",
+"value": "A5 Sportback quattro"
+},
+{
+"text": "A5 Sportback S-Line quattro",
+"value": "A5 Sportback S-Line quattro"
+},
+{
+"text": "A6 Allroad",
+"value": "A6 Allroad"
+},
+{
+"text": "A6 quattro",
+"value": "A6 quattro"
+},
+{
+"text": "A7",
+"value": "A7"
+},
+{
+"text": "A8 L",
+"value": "A8 L"
+},
+{
+"text": "e-tron GT",
+"value": "e-tron GT"
+},
+{
+"text": "e-tron quattro",
+"value": "e-tron quattro"
+},
+{
+"text": "e-tron S (20 inch wheels)",
+"value": "e-tron S (20 inch wheels)"
+},
+{
+"text": "e-tron S (21/22 inch wheels)",
+"value": "e-tron S (21/22 inch wheels)"
+},
+{
+"text": "e-tron S Sportback (20 inch wheels)",
+"value": "e-tron S Sportback (20 inch wheels)"
+},
+{
+"text": "e-tron S Sportback (21/22 inch wheels)",
+"value": "e-tron S Sportback (21/22 inch wheels)"
+},
+{
+"text": "e-tron Sportback quattro",
+"value": "e-tron Sportback quattro"
+},
+{
+"text": "Q3",
+"value": "Q3"
+},
+{
+"text": "Q3 S-Line",
+"value": "Q3 S-Line"
+},
+{
+"text": "Q4 e-tron",
+"value": "Q4 e-tron"
+},
+{
+"text": "Q4 e-tron quattro",
+"value": "Q4 e-tron quattro"
+},
+{
+"text": "Q4 e-tron Sportback",
+"value": "Q4 e-tron Sportback"
+},
+{
+"text": "Q5 quattro",
+"value": "Q5 quattro"
+},
+{
+"text": "Q5 S-Line quattro",
+"value": "Q5 S-Line quattro"
+},
+{
+"text": "Q5 Sportback S-line quattro",
+"value": "Q5 Sportback S-line quattro"
+},
+{
+"text": "Q5 TFSI e quattro",
+"value": "Q5 TFSI e quattro"
+},
+{
+"text": "Q7",
+"value": "Q7"
+},
+{
+"text": "Q8",
+"value": "Q8"
+},
+{
+"text": "R8 Coupe quattro",
+"value": "R8 Coupe quattro"
+},
+{
+"text": "R8 Coupe RWD",
+"value": "R8 Coupe RWD"
+},
+{
+"text": "R8 GT RWD",
+"value": "R8 GT RWD"
+},
+{
+"text": "R8 Spyder quattro",
+"value": "R8 Spyder quattro"
+},
+{
+"text": "R8 Spyder RWD",
+"value": "R8 Spyder RWD"
+},
+{
+"text": "RS 5 Coupe",
+"value": "RS 5 Coupe"
+},
+{
+"text": "RS 5 Sportback",
+"value": "RS 5 Sportback"
+},
+{
+"text": "RS 6 Avant",
+"value": "RS 6 Avant"
+},
+{
+"text": "RS 7",
+"value": "RS 7"
+},
+{
+"text": "RS e-tron GT",
+"value": "RS e-tron GT"
+},
+{
+"text": "RS Q8",
+"value": "RS Q8"
+},
+{
+"text": "RS3",
+"value": "RS3"
+},
+{
+"text": "S3",
+"value": "S3"
+},
+{
+"text": "S4",
+"value": "S4"
+},
+{
+"text": "S5 Cabriolet",
+"value": "S5 Cabriolet"
+},
+{
+"text": "S5 Coupe",
+"value": "S5 Coupe"
+},
+{
+"text": "S5 Sportback",
+"value": "S5 Sportback"
+},
+{
+"text": "S6",
+"value": "S6"
+},
+{
+"text": "S7",
+"value": "S7"
+},
+{
+"text": "S8",
+"value": "S8"
+},
+{
+"text": "SQ5",
+"value": "SQ5"
+},
+{
+"text": "SQ5 Sportback",
+"value": "SQ5 Sportback"
+},
+{
+"text": "SQ7",
+"value": "SQ7"
+},
+{
+"text": "SQ8",
+"value": "SQ8"
+},
+{
+"text": "TT Coupe",
+"value": "TT Coupe"
+},
+{
+"text": "TT Roadster",
+"value": "TT Roadster"
+},
+{
+"text": "TTS Coupe",
+"value": "TTS Coupe"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2023&make=Audi&model=Q5%20quattro": {
+"menuItem": {
+"text": "Auto (AM-S7), 4 cyl, 2.0 L, Turbo",
+"value": "45683"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/45683": {
+"atvType": "Hybrid",
+"barrels08": "11.900400000000001",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "23",
+"city08U": "23.172",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "350",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "350.0",
+"comb08": "25",
+"comb08U": "25.3266",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2022-08-02T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "PVGAJ02.0A7E",
+"id": "45683",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+},
+{
+"efid": "PVGAJ02.0A7E",
+"id": "45683",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+}
+]
+},
+"engId": "14",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "14V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3300",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "29",
+"highway08U": "28.574",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "45683",
+"lv2": "0",
+"lv4": "0",
+"make": "Audi",
+"mfrCode": "VGA",
+"model": "Q5 quattro",
+"modifiedOn": "2022-08-24T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AM-S7)",
+"UCity": "29.697",
+"UCityA": "0.0",
+"UHighway": "40.7",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2023",
+"youSaveSpend": "-4500",
+"baseModel": "Q5",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Audi": {
+"menuItem": [
+{
+"text": "A3",
+"value": "A3"
+},
+{
+"text": "A3 quattro",
+"value": "A3 quattro"
+},
+{
+"text": "A4 allroad quattro",
+"value": "A4 allroad quattro"
+},
+{
+"text": "A4 quattro",
+"value": "A4 quattro"
+},
+{
+"text": "A4 S line quattro",
+"value": "A4 S line quattro"
+},
+{
+"text": "A5 Cabriolet quattro",
+"value": "A5 Cabriolet quattro"
+},
+{
+"text": "A5 Coupe quattro",
+"value": "A5 Coupe quattro"
+},
+{
+"text": "A5 Sportback quattro",
+"value": "A5 Sportback quattro"
+},
+{
+"text": "A5 Sportback S line quattro",
+"value": "A5 Sportback S line quattro"
+},
+{
+"text": "A6 Allroad quattro",
+"value": "A6 Allroad quattro"
+},
+{
+"text": "A6 quattro",
+"value": "A6 quattro"
+},
+{
+"text": "A7 quattro",
+"value": "A7 quattro"
+},
+{
+"text": "A8 quattro",
+"value": "A8 quattro"
+},
+{
+"text": "e-tron GT",
+"value": "e-tron GT"
+},
+{
+"text": "Q3 quattro",
+"value": "Q3 quattro"
+},
+{
+"text": "Q3 S line quattro",
+"value": "Q3 S line quattro"
+},
+{
+"text": "Q4 40 e-tron",
+"value": "Q4 40 e-tron"
+},
+{
+"text": "Q4 50 e-tron quattro",
+"value": "Q4 50 e-tron quattro"
+},
+{
+"text": "Q4 55 e-tron quattro",
+"value": "Q4 55 e-tron quattro"
+},
+{
+"text": "Q4 Sportback 50 e-tron quattro",
+"value": "Q4 Sportback 50 e-tron quattro"
+},
+{
+"text": "Q4 Sportback 55 e-tron quattro",
+"value": "Q4 Sportback 55 e-tron quattro"
+},
+{
+"text": "Q5 quattro",
+"value": "Q5 quattro"
+},
+{
+"text": "Q5 S line quattro",
+"value": "Q5 S line quattro"
+},
+{
+"text": "Q5 Sportback S line quattro",
+"value": "Q5 Sportback S line quattro"
+},
+{
+"text": "Q7 quattro",
+"value": "Q7 quattro"
+},
+{
+"text": "Q8 e-tron quattro",
+"value": "Q8 e-tron quattro"
+},
+{
+"text": "Q8 quattro",
+"value": "Q8 quattro"
+},
+{
+"text": "Q8 Sportback e-tron quattro",
+"value": "Q8 Sportback e-tron quattro"
+},
+{
+"text": "Q8 Sportback e-tron ultra quattro",
+"value": "Q8 Sportback e-tron ultra quattro"
+},
+{
+"text": "RS 3",
+"value": "RS 3"
+},
+{
+"text": "RS 5 Coupe",
+"value": "RS 5 Coupe"
+},
+{
+"text": "RS 5 Sportback",
+"value": "RS 5 Sportback"
+},
+{
+"text": "RS 6 Avant",
+"value": "RS 6 Avant"
+},
+{
+"text": "RS 7",
+"value": "RS 7"
+},
+{
+"text": "RS e-tron GT",
+"value": "RS e-tron GT"
+},
+{
+"text": "RS Q8",
+"value": "RS Q8"
+},
+{
+"text": "S3",
+"value": "S3"
+},
+{
+"text": "S4",
+"value": "S4"
+},
+{
+"text": "S5 Cabriolet",
+"value": "S5 Cabriolet"
+},
+{
+"text": "S5 Coupe",
+"value": "S5 Coupe"
+},
+{
+"text": "S5 Sportback",
+"value": "S5 Sportback"
+},
+{
+"text": "S6",
+"value": "S6"
+},
+{
+"text": "S7",
+"value": "S7"
+},
+{
+"text": "S8",
+"value": "S8"
+},
+{
+"text": "SQ5",
+"value": "SQ5"
+},
+{
+"text": "SQ5 Sportback",
+"value": "SQ5 Sportback"
+},
+{
+"text": "SQ7",
+"value": "SQ7"
+},
+{
+"text": "SQ8",
+"value": "SQ8"
+},
+{
+"text": "SQ8 e-tron (20 inch wheels)",
+"value": "SQ8 e-tron (20 inch wheels)"
+},
+{
+"text": "SQ8 e-tron (21/22 inch wheels)",
+"value": "SQ8 e-tron (21/22 inch wheels)"
+},
+{
+"text": "SQ8 Sportback e-tron (20 inch wheels)",
+"value": "SQ8 Sportback e-tron (20 inch wheels)"
+},
+{
+"text": "SQ8 Sportback e-tron (21/22 inch wheels)",
+"value": "SQ8 Sportback e-tron (21/22 inch wheels)"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Audi&model=Q5%20quattro": {
+"menuItem": {
+"text": "Auto (AM-S7), 4 cyl, 2.0 L, Turbo",
+"value": "46701"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46701": {
+"atvType": "Hybrid",
+"barrels08": "11.442692307692308",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "23",
+"city08U": "23.2447",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "346",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "346.0",
+"comb08": "26",
+"comb08U": "25.6843",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-06-23T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RVGAJ02.0A7E",
+"id": "46701",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+},
+{
+"efid": "RVGAJ02.0A7E",
+"id": "46701",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+}
+]
+},
+"engId": "10",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "14V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3150",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "29",
+"highway08U": "29.4638",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46701",
+"lv2": "0",
+"lv4": "0",
+"make": "Audi",
+"mfrCode": "VGA",
+"model": "Q5 quattro",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AM-S7)",
+"UCity": "29.8",
+"UCityA": "0.0",
+"UHighway": "42.099",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-3750",
+"baseModel": "Q5",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Subaru": {
+"menuItem": [
+{
+"text": "Ascent",
+"value": "Ascent"
+},
+{
+"text": "Ascent Limited/Touring/Onyx AWD",
+"value": "Ascent Limited/Touring/Onyx AWD"
+},
+{
+"text": "BRZ",
+"value": "BRZ"
+},
+{
+"text": "Crosstrek AWD",
+"value": "Crosstrek AWD"
+},
+{
+"text": "Crosstrek Wilderness AWD",
+"value": "Crosstrek Wilderness AWD"
+},
+{
+"text": "Forester AWD",
+"value": "Forester AWD"
+},
+{
+"text": "Forester Wilderness AWD",
+"value": "Forester Wilderness AWD"
+},
+{
+"text": "Impreza",
+"value": "Impreza"
+},
+{
+"text": "Legacy AWD",
+"value": "Legacy AWD"
+},
+{
+"text": "Outback AWD",
+"value": "Outback AWD"
+},
+{
+"text": "Outback Wilderness AWD",
+"value": "Outback Wilderness AWD"
+},
+{
+"text": "Solterra AWD",
+"value": "Solterra AWD"
+},
+{
+"text": "Solterra Limited/Touring AWD",
+"value": "Solterra Limited/Touring AWD"
+},
+{
+"text": "WRX",
+"value": "WRX"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Subaru&model=Forester%20AWD": {
+"menuItem": {
+"text": "Auto (AV-S8), 4 cyl, 2.5 L",
+"value": "47161"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/47161": {
+"atvType": "",
+"barrels08": "10.25896551724138",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "26",
+"city08U": "26.057",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "310",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "310.0",
+"comb08": "29",
+"comb08U": "28.6461",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-09-19T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.5",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RFJXJ02.5BUY",
+"id": "47161",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+},
+{
+"efid": "RFJXJ02.5BUY",
+"id": "47161",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+}
+]
+},
+"engId": "18",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "6",
+"fuelCost08": "2300",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "6",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "33",
+"highway08U": "32.6058",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "47161",
+"lv2": "0",
+"lv4": "0",
+"make": "Subaru",
+"mfrCode": "FJX",
+"model": "Forester AWD",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "Y",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AV-S8)",
+"UCity": "33.8355",
+"UCityA": "0.0",
+"UHighway": "47.1098",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "500",
+"baseModel": "Forester",
+"sCharger": "",
+"tCharger": ""
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2026&make=Subaru": {
+"menuItem": [
+{
+"text": "Ascent",
+"value": "Ascent"
+},
+{
+"text": "Ascent Limited/Touring/Onyx AWD",
+"value": "Ascent Limited/Touring/Onyx AWD"
+},
+{
+"text": "BRZ",
+"value": "BRZ"
+},
+{
+"text": "Crosstrek AWD",
+"value": "Crosstrek AWD"
+},
+{
+"text": "Crosstrek Hybrid AWD",
+"value": "Crosstrek Hybrid AWD"
+},
+{
+"text": "Crosstrek Wilderness AWD",
+"value": "Crosstrek Wilderness AWD"
+},
+{
+"text": "Forester AWD",
+"value": "Forester AWD"
+},
+{
+"text": "Forester Hybrid AWD",
+"value": "Forester Hybrid AWD"
+},
+{
+"text": "Forester Sport/Touring AWD",
+"value": "Forester Sport/Touring AWD"
+},
+{
+"text": "Forester Wilderness AWD",
+"value": "Forester Wilderness AWD"
+},
+{
+"text": "Impreza",
+"value": "Impreza"
+},
+{
+"text": "Outback AWD",
+"value": "Outback AWD"
+},
+{
+"text": "Outback Wilderness AWD",
+"value": "Outback Wilderness AWD"
+},
+{
+"text": "Solterra 20 AWD",
+"value": "Solterra 20 AWD"
+},
+{
+"text": "Solterra AWD",
+"value": "Solterra AWD"
+},
+{
+"text": "Trailseeker 20 inch AWD",
+"value": "Trailseeker 20 inch AWD"
+},
+{
+"text": "Trailseeker AWD",
+"value": "Trailseeker AWD"
+},
+{
+"text": "Uncharted",
+"value": "Uncharted"
+},
+{
+"text": "Uncharted 20 inch AWD",
+"value": "Uncharted 20 inch AWD"
+},
+{
+"text": "Uncharted AWD",
+"value": "Uncharted AWD"
+},
+{
+"text": "WRX",
+"value": "WRX"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2026&make=Subaru&model=Forester%20Hybrid%20AWD": {
+"menuItem": {
+"text": "Auto (AV-S6), 4 cyl, 2.5 L",
+"value": "50131"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/50131": {
+"atvType": "Hybrid",
+"barrels08": "8.500285714285715",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "35",
+"city08U": "35.0961",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "255",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "255.0",
+"comb08": "35",
+"comb08U": "34.6284",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2026-02-18T00:00:00-05:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.5",
+"drive": "All-Wheel Drive",
+"emissionsList": null,
+"engId": "90",
+"eng_dscr": "SIDI; Hybrid",
+"evMotor": "",
+"feScore": "6",
+"fuelCost08": "1900",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "6",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "34",
+"highway08U": "34.0734",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "50131",
+"lv2": "0",
+"lv4": "0",
+"make": "Subaru",
+"mfrCode": "FJX",
+"model": "Forester Hybrid AWD",
+"modifiedOn": "2026-03-18T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AV-S6)",
+"UCity": "51.5211",
+"UCityA": "0.0",
+"UHighway": "48.9737",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2026",
+"youSaveSpend": "2500",
+"baseModel": "Forester",
+"sCharger": "",
+"tCharger": ""
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Subaru&model=Outback%20AWD": {
+"menuItem": [
+{
+"text": "Auto (AV-S8), 4 cyl, 2.5 L",
+"value": "46541"
+},
+{
+"text": "Auto (AV-S8), 4 cyl, 2.4 L, Turbo",
+"value": "46542"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46541": {
+"atvType": "",
+"barrels08": "10.625357142857142",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "26",
+"city08U": "25.6471",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "314",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "314.0",
+"comb08": "28",
+"comb08U": "28.1867",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-04-11T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.5",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RFJXJ02.5BUY",
+"id": "46541",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+},
+{
+"efid": "RFJXJ02.5BUY",
+"id": "46541",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+}
+]
+},
+"engId": "19",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "6",
+"fuelCost08": "2400",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "6",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "32",
+"highway08U": "32.0676",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46541",
+"lv2": "0",
+"lv4": "0",
+"make": "Subaru",
+"mfrCode": "FJX",
+"model": "Outback AWD",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "Y",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AV-S8)",
+"UCity": "33.2409",
+"UCityA": "0.0",
+"UHighway": "46.2435",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "0",
+"baseModel": "Outback",
+"sCharger": "",
+"tCharger": ""
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46542": {
+"atvType": "",
+"barrels08": "11.900400000000001",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "22",
+"city08U": "22.1096",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "356",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "356.0",
+"comb08": "25",
+"comb08U": "24.7631",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-04-11T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.4",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RFJXJ02.4RAB",
+"id": "46542",
+"salesArea": "3",
+"score": "6.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B50",
+"stdText": "Federal Tier 3 Bin 50"
+},
+{
+"efid": "RFJXJ02.4RAB",
+"id": "46542",
+"salesArea": "7",
+"score": "6.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV50",
+"stdText": "California LEV-III ULEV50"
+}
+]
+},
+"engId": "21",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "2700",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "29",
+"highway08U": "29.0199",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46542",
+"lv2": "0",
+"lv4": "0",
+"make": "Subaru",
+"mfrCode": "FJX",
+"model": "Outback AWD",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "Y",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AV-S8)",
+"UCity": "28.2",
+"UCityA": "0.0",
+"UHighway": "41.4",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-1500",
+"baseModel": "Outback",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2023&make=BMW": {
+"menuItem": [
+{
+"text": "228i Gran Coupe",
+"value": "228i Gran Coupe"
+},
+{
+"text": "228i xDrive Gran Coupe",
+"value": "228i xDrive Gran Coupe"
+},
+{
+"text": "230i Coupe",
+"value": "230i Coupe"
+},
+{
+"text": "230i xDrive Coupe",
+"value": "230i xDrive Coupe"
+},
+{
+"text": "330e Sedan",
+"value": "330e Sedan"
+},
+{
+"text": "330e xDrive Sedan",
+"value": "330e xDrive Sedan"
+},
+{
+"text": "330i Sedan",
+"value": "330i Sedan"
+},
+{
+"text": "330i xDrive Sedan",
+"value": "330i xDrive Sedan"
+},
+{
+"text": "430i Convertible",
+"value": "430i Convertible"
+},
+{
+"text": "430i Coupe",
+"value": "430i Coupe"
+},
+{
+"text": "430i Gran Coupe",
+"value": "430i Gran Coupe"
+},
+{
+"text": "430i xDrive Convertible",
+"value": "430i xDrive Convertible"
+},
+{
+"text": "430i xDrive Coupe",
+"value": "430i xDrive Coupe"
+},
+{
+"text": "430i xDrive Gran Coupe",
+"value": "430i xDrive Gran Coupe"
+},
+{
+"text": "530e Sedan",
+"value": "530e Sedan"
+},
+{
+"text": "530e xDrive Sedan",
+"value": "530e xDrive Sedan"
+},
+{
+"text": "530i Sedan",
+"value": "530i Sedan"
+},
+{
+"text": "530i xDrive Sedan",
+"value": "530i xDrive Sedan"
+},
+{
+"text": "540i Sedan",
+"value": "540i Sedan"
+},
+{
+"text": "540i xDrive Sedan",
+"value": "540i xDrive Sedan"
+},
+{
+"text": "740i Sedan",
+"value": "740i Sedan"
+},
+{
+"text": "760i xDrive Sedan",
+"value": "760i xDrive Sedan"
+},
+{
+"text": "840i Convertible",
+"value": "840i Convertible"
+},
+{
+"text": "840i Coupe",
+"value": "840i Coupe"
+},
+{
+"text": "840i Gran Coupe",
+"value": "840i Gran Coupe"
+},
+{
+"text": "840i xDrive Convertible",
+"value": "840i xDrive Convertible"
+},
+{
+"text": "840i xDrive Coupe",
+"value": "840i xDrive Coupe"
+},
+{
+"text": "840i xDrive Gran Coupe",
+"value": "840i xDrive Gran Coupe"
+},
+{
+"text": "Alpina B8 Gran Coupe",
+"value": "Alpina B8 Gran Coupe"
+},
+{
+"text": "Alpina XB7",
+"value": "Alpina XB7"
+},
+{
+"text": "i4 eDrive35 Gran Coupe (18 inch Wheels)",
+"value": "i4 eDrive35 Gran Coupe (18 inch Wheels)"
+},
+{
+"text": "i4 eDrive35 Gran Coupe (19 inch Wheels)",
+"value": "i4 eDrive35 Gran Coupe (19 inch Wheels)"
+},
+{
+"text": "i4 eDrive40 Gran Coupe (18 inch wheels)",
+"value": "i4 eDrive40 Gran Coupe (18 inch wheels)"
+},
+{
+"text": "i4 eDrive40 Gran Coupe (19 inch Wheels)",
+"value": "i4 eDrive40 Gran Coupe (19 inch Wheels)"
+},
+{
+"text": "i4 M50 Gran Coupe (19 inch wheels)",
+"value": "i4 M50 Gran Coupe (19 inch wheels)"
+},
+{
+"text": "i4 M50 Gran Coupe (20 inch wheels)",
+"value": "i4 M50 Gran Coupe (20 inch wheels)"
+},
+{
+"text": "i7 xDrive60 Sedan (19 inch wheels)",
+"value": "i7 xDrive60 Sedan (19 inch wheels)"
+},
+{
+"text": "i7 xDrive60 Sedan (20 inch wheels)",
+"value": "i7 xDrive60 Sedan (20 inch wheels)"
+},
+{
+"text": "i7 xDrive60 Sedan (21 inch wheels)",
+"value": "i7 xDrive60 Sedan (21 inch wheels)"
+},
+{
+"text": "iX M60 (21 inch wheels)",
+"value": "iX M60 (21 inch wheels)"
+},
+{
+"text": "iX M60 (22 inch wheels)",
+"value": "iX M60 (22 inch wheels)"
+},
+{
+"text": "iX xDrive50 (20 inch wheels)",
+"value": "iX xDrive50 (20 inch wheels)"
+},
+{
+"text": "iX xDrive50 (21 inch wheels)",
+"value": "iX xDrive50 (21 inch wheels)"
+},
+{
+"text": "iX xDrive50 (22 inch wheels)",
+"value": "iX xDrive50 (22 inch wheels)"
+},
+{
+"text": "M2 Coupe",
+"value": "M2 Coupe"
+},
+{
+"text": "M235i xDrive Gran Coupe",
+"value": "M235i xDrive Gran Coupe"
+},
+{
+"text": "M240i Coupe",
+"value": "M240i Coupe"
+},
+{
+"text": "M240i xDrive Coupe",
+"value": "M240i xDrive Coupe"
+},
+{
+"text": "M3 Competition M xDrive Sedan",
+"value": "M3 Competition M xDrive Sedan"
+},
+{
+"text": "M3 Competition Sedan",
+"value": "M3 Competition Sedan"
+},
+{
+"text": "M3 Sedan",
+"value": "M3 Sedan"
+},
+{
+"text": "M340i Sedan",
+"value": "M340i Sedan"
+},
+{
+"text": "M340i xDrive Sedan",
+"value": "M340i xDrive Sedan"
+},
+{
+"text": "M4 Competition Coupe",
+"value": "M4 Competition Coupe"
+},
+{
+"text": "M4 Competition M xDrive Convertible",
+"value": "M4 Competition M xDrive Convertible"
+},
+{
+"text": "M4 Competition M xDrive Coupe",
+"value": "M4 Competition M xDrive Coupe"
+},
+{
+"text": "M4 Coupe",
+"value": "M4 Coupe"
+},
+{
+"text": "M4 CSL Coupe",
+"value": "M4 CSL Coupe"
+},
+{
+"text": "M440i Convertible",
+"value": "M440i Convertible"
+},
+{
+"text": "M440i Coupe",
+"value": "M440i Coupe"
+},
+{
+"text": "M440i Gran Coupe",
+"value": "M440i Gran Coupe"
+},
+{
+"text": "M440i xDrive Convertible",
+"value": "M440i xDrive Convertible"
+},
+{
+"text": "M440i xDrive Coupe",
+"value": "M440i xDrive Coupe"
+},
+{
+"text": "M440i xDrive Gran Coupe",
+"value": "M440i xDrive Gran Coupe"
+},
+{
+"text": "M5 Competition Sedan",
+"value": "M5 Competition Sedan"
+},
+{
+"text": "M5 Sedan",
+"value": "M5 Sedan"
+},
+{
+"text": "M550i xDrive Sedan",
+"value": "M550i xDrive Sedan"
+},
+{
+"text": "M8 Competition Convertible",
+"value": "M8 Competition Convertible"
+},
+{
+"text": "M8 Competition Coupe",
+"value": "M8 Competition Coupe"
+},
+{
+"text": "M8 Competition Gran Coupe",
+"value": "M8 Competition Gran Coupe"
+},
+{
+"text": "M850i xDrive Convertible",
+"value": "M850i xDrive Convertible"
+},
+{
+"text": "M850i xDrive Coupe",
+"value": "M850i xDrive Coupe"
+},
+{
+"text": "M850i xDrive Gran Coupe",
+"value": "M850i xDrive Gran Coupe"
+},
+{
+"text": "X1 xDrive28i",
+"value": "X1 xDrive28i"
+},
+{
+"text": "X2 M35i",
+"value": "X2 M35i"
+},
+{
+"text": "X2 sDrive28i",
+"value": "X2 sDrive28i"
+},
+{
+"text": "X2 xDrive28i",
+"value": "X2 xDrive28i"
+},
+{
+"text": "X3 M",
+"value": "X3 M"
+},
+{
+"text": "X3 M Competition",
+"value": "X3 M Competition"
+},
+{
+"text": "X3 M40i",
+"value": "X3 M40i"
+},
+{
+"text": "X3 sDrive30i",
+"value": "X3 sDrive30i"
+},
+{
+"text": "X3 xDrive30i",
+"value": "X3 xDrive30i"
+},
+{
+"text": "X4 M",
+"value": "X4 M"
+},
+{
+"text": "X4 M Competition",
+"value": "X4 M Competition"
+},
+{
+"text": "X4 M40i",
+"value": "X4 M40i"
+},
+{
+"text": "X4 xDrive30i",
+"value": "X4 xDrive30i"
+},
+{
+"text": "X5 M",
+"value": "X5 M"
+},
+{
+"text": "X5 M Competition",
+"value": "X5 M Competition"
+},
+{
+"text": "X5 M50i",
+"value": "X5 M50i"
+},
+{
+"text": "X5 sDrive40i",
+"value": "X5 sDrive40i"
+},
+{
+"text": "X5 xDrive40i",
+"value": "X5 xDrive40i"
+},
+{
+"text": "X5 xDrive45e",
+"value": "X5 xDrive45e"
+},
+{
+"text": "X6 M",
+"value": "X6 M"
+},
+{
+"text": "X6 M Competition",
+"value": "X6 M Competition"
+},
+{
+"text": "X6 M50i",
+"value": "X6 M50i"
+},
+{
+"text": "X6 xDrive40i",
+"value": "X6 xDrive40i"
+},
+{
+"text": "X7 M60i xDrive",
+"value": "X7 M60i xDrive"
+},
+{
+"text": "X7 xDrive40i",
+"value": "X7 xDrive40i"
+},
+{
+"text": "XM",
+"value": "XM"
+},
+{
+"text": "Z4 M40i",
+"value": "Z4 M40i"
+},
+{
+"text": "Z4 sDrive30i",
+"value": "Z4 sDrive30i"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2023&make=BMW&model=X3%20xDrive30i": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "45544"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/45544": {
+"atvType": "",
+"barrels08": "12.39625",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "21",
+"city08U": "21.3085",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "369",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "369.0",
+"comb08": "24",
+"comb08U": "23.8311",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2022-07-13T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "PBMXJ02.0B4X",
+"id": "45544",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+},
+{
+"efid": "PBMXJ02.0B4X",
+"id": "45544",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+}
+]
+},
+"engId": "370",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "3400",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "28",
+"highway08U": "27.8627",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "45544",
+"lv2": "0",
+"lv4": "0",
+"make": "BMW",
+"mfrCode": "BMX",
+"model": "X3 xDrive30i",
+"modifiedOn": "2023-06-01T00:00:00-04:00",
+"mpgData": "Y",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "27.0807",
+"UCityA": "0.0",
+"UHighway": "39.5881",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2023",
+"youSaveSpend": "-5000",
+"baseModel": "X3",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2023&make=Volvo": {
+"menuItem": [
+{
+"text": "C40 Recharge twin",
+"value": "C40 Recharge twin"
+},
+{
+"text": "S60 B5",
+"value": "S60 B5"
+},
+{
+"text": "S60 B5 AWD",
+"value": "S60 B5 AWD"
+},
+{
+"text": "S60 T8 AWD Recharge",
+"value": "S60 T8 AWD Recharge"
+},
+{
+"text": "S90 B6 AWD",
+"value": "S90 B6 AWD"
+},
+{
+"text": "S90 T8 AWD Recharge ext. Range",
+"value": "S90 T8 AWD Recharge ext. Range"
+},
+{
+"text": "V60 T8 AWD Recharge ext. Range",
+"value": "V60 T8 AWD Recharge ext. Range"
+},
+{
+"text": "V60CC B5 AWD",
+"value": "V60CC B5 AWD"
+},
+{
+"text": "V90CC B6 AWD",
+"value": "V90CC B6 AWD"
+},
+{
+"text": "XC40 B4",
+"value": "XC40 B4"
+},
+{
+"text": "XC40 B5 AWD",
+"value": "XC40 B5 AWD"
+},
+{
+"text": "XC40 Recharge twin",
+"value": "XC40 Recharge twin"
+},
+{
+"text": "XC60 B5",
+"value": "XC60 B5"
+},
+{
+"text": "XC60 B5 AWD",
+"value": "XC60 B5 AWD"
+},
+{
+"text": "XC60 B6 AWD",
+"value": "XC60 B6 AWD"
+},
+{
+"text": "XC60 T8 AWD Recharge",
+"value": "XC60 T8 AWD Recharge"
+},
+{
+"text": "XC90 B5 AWD",
+"value": "XC90 B5 AWD"
+},
+{
+"text": "XC90 B6 AWD",
+"value": "XC90 B6 AWD"
+},
+{
+"text": "XC90 T8 AWD Recharge",
+"value": "XC90 T8 AWD Recharge"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2023&make=Volvo&model=XC60%20T8%20AWD%20Recharge": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "46629"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46629": {
+"atvType": "Plug-in Hybrid",
+"barrels08": "3.9003225",
+"barrelsA08": "4.722380952380953",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "5.0",
+"charge240b": "0.0",
+"city08": "28",
+"city08U": "27.6039",
+"cityA08": "66",
+"cityA08U": "69.3882",
+"cityCD": "0.1",
+"cityE": "49.0",
+"cityMpk": "0",
+"cityUF": "0.651",
+"cityUmpk": "0.0",
+"co2": "122",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "122.0",
+"comb08": "28",
+"comb08U": "27.6946",
+"combA08": "63",
+"combA08U": "66.509",
+"combE": "50.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.1",
+"combinedUF": "0.64",
+"createdOn": "2023-06-20T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "PVVXJ02.0P30",
+"id": "46629",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+},
+{
+"efid": "PVVXJ02.0P30",
+"id": "46629",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+}
+]
+},
+"engId": "226",
+"eng_dscr": "",
+"evMotor": "34 kW 3-phase Sync.",
+"feScore": "8",
+"fuelCost08": "2950",
+"fuelCostA08": "0",
+"fuelType": "Premium and Electricity",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "Electricity",
+"ghgScore": "10",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "28",
+"highway08U": "27.8062",
+"highwayA08": "60",
+"highwayA08U": "63.2989",
+"highwayCD": "0.0",
+"highwayE": "52.0",
+"highwayMpk": "0",
+"highwayUF": "0.627",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46629",
+"lv2": "0",
+"lv4": "0",
+"make": "Volvo",
+"mfrCode": "VVX",
+"model": "XC60 T8 AWD Recharge",
+"modifiedOn": "2023-06-20T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "true",
+"phevCity": "45",
+"phevComb": "44",
+"phevHwy": "42",
+"pv2": "0",
+"pv4": "0",
+"range": "560",
+"rangeA": "36",
+"rangeCity": "0.0",
+"rangeCityA": "36.61",
+"rangeHwy": "0.0",
+"rangeHwyA": "33.83",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "36.1",
+"UCityA": "99.1",
+"UHighway": "39.5",
+"UHighwayA": "90.4",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2023",
+"youSaveSpend": "3000",
+"baseModel": "XC60",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Volvo": {
+"menuItem": [
+{
+"text": "C40 Recharge",
+"value": "C40 Recharge"
+},
+{
+"text": "C40 Recharge twin",
+"value": "C40 Recharge twin"
+},
+{
+"text": "S60 B5",
+"value": "S60 B5"
+},
+{
+"text": "S60 B5 AWD",
+"value": "S60 B5 AWD"
+},
+{
+"text": "S60 T8 AWD Recharge",
+"value": "S60 T8 AWD Recharge"
+},
+{
+"text": "S90 B6 AWD",
+"value": "S90 B6 AWD"
+},
+{
+"text": "V60CC B5 AWD",
+"value": "V60CC B5 AWD"
+},
+{
+"text": "V90CC B6 AWD",
+"value": "V90CC B6 AWD"
+},
+{
+"text": "XC40 B5 AWD",
+"value": "XC40 B5 AWD"
+},
+{
+"text": "XC40 Recharge",
+"value": "XC40 Recharge"
+},
+{
+"text": "XC40 Recharge twin",
+"value": "XC40 Recharge twin"
+},
+{
+"text": "XC60 B5 AWD",
+"value": "XC60 B5 AWD"
+},
+{
+"text": "XC60 T8 AWD Recharge",
+"value": "XC60 T8 AWD Recharge"
+},
+{
+"text": "XC90 B5 AWD",
+"value": "XC90 B5 AWD"
+},
+{
+"text": "XC90 B6 AWD",
+"value": "XC90 B6 AWD"
+},
+{
+"text": "XC90 T8 AWD Recharge",
+"value": "XC90 T8 AWD Recharge"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Volvo&model=XC60%20B5%20AWD": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "46738"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46738": {
+"atvType": "Hybrid",
+"barrels08": "11.900400000000001",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "22",
+"city08U": "22.1809",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "363",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "363.0",
+"comb08": "25",
+"comb08U": "24.5345",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-06-23T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RVVXJ02.0U70",
+"id": "46738",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+},
+{
+"efid": "RVVXJ02.0U70",
+"id": "46738",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+}
+]
+},
+"engId": "222",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "46V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3300",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "28",
+"highway08U": "28.1906",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46738",
+"lv2": "0",
+"lv4": "0",
+"make": "Volvo",
+"mfrCode": "VVX",
+"model": "XC60 B5 AWD",
+"modifiedOn": "2024-04-30T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "28.3",
+"UCityA": "0.0",
+"UHighway": "40.1",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-4500",
+"baseModel": "XC60",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Mercedes-Benz": {
+"menuItem": [
+{
+"text": "AMG C43 4matic",
+"value": "AMG C43 4matic"
+},
+{
+"text": "AMG CLA35 4matic",
+"value": "AMG CLA35 4matic"
+},
+{
+"text": "AMG CLA45 S 4matic",
+"value": "AMG CLA45 S 4matic"
+},
+{
+"text": "AMG CLE53 4matic Plus (coupe)",
+"value": "AMG CLE53 4matic Plus (coupe)"
+},
+{
+"text": "AMG EQE 4matic Plus",
+"value": "AMG EQE 4matic Plus"
+},
+{
+"text": "AMG EQE 4matic Plus (SUV)",
+"value": "AMG EQE 4matic Plus (SUV)"
+},
+{
+"text": "AMG EQS 4matic Plus",
+"value": "AMG EQS 4matic Plus"
+},
+{
+"text": "AMG G63",
+"value": "AMG G63"
+},
+{
+"text": "AMG G63 4x4 Squared",
+"value": "AMG G63 4x4 Squared"
+},
+{
+"text": "AMG GLA35 4matic",
+"value": "AMG GLA35 4matic"
+},
+{
+"text": "AMG GLB35 4matic",
+"value": "AMG GLB35 4matic"
+},
+{
+"text": "AMG GLC43 4matic",
+"value": "AMG GLC43 4matic"
+},
+{
+"text": "AMG GLC43 4matic Coupe",
+"value": "AMG GLC43 4matic Coupe"
+},
+{
+"text": "AMG GLE53 4matic Plus",
+"value": "AMG GLE53 4matic Plus"
+},
+{
+"text": "AMG GLE53 4matic Plus Coupe",
+"value": "AMG GLE53 4matic Plus Coupe"
+},
+{
+"text": "AMG GLE63 S 4matic Plus",
+"value": "AMG GLE63 S 4matic Plus"
+},
+{
+"text": "AMG GLE63 S 4matic Plus Coupe",
+"value": "AMG GLE63 S 4matic Plus Coupe"
+},
+{
+"text": "AMG GLS63 4matic Plus",
+"value": "AMG GLS63 4matic Plus"
+},
+{
+"text": "AMG GT 43 4matic Plus",
+"value": "AMG GT 43 4matic Plus"
+},
+{
+"text": "AMG GT 53 4matic Plus",
+"value": "AMG GT 53 4matic Plus"
+},
+{
+"text": "AMG GT 55 4matic Plus (coupe)",
+"value": "AMG GT 55 4matic Plus (coupe)"
+},
+{
+"text": "AMG GT 63 4matic Plus",
+"value": "AMG GT 63 4matic Plus"
+},
+{
+"text": "AMG GT 63 4matic Plus (coupe)",
+"value": "AMG GT 63 4matic Plus (coupe)"
+},
+{
+"text": "AMG SL43",
+"value": "AMG SL43"
+},
+{
+"text": "AMG SL55 4matic Plus",
+"value": "AMG SL55 4matic Plus"
+},
+{
+"text": "AMG SL63 4matic Plus",
+"value": "AMG SL63 4matic Plus"
+},
+{
+"text": "C300",
+"value": "C300"
+},
+{
+"text": "C300 4matic",
+"value": "C300 4matic"
+},
+{
+"text": "CLA250",
+"value": "CLA250"
+},
+{
+"text": "CLA250 4matic",
+"value": "CLA250 4matic"
+},
+{
+"text": "CLE300 4matic (Convertible)",
+"value": "CLE300 4matic (Convertible)"
+},
+{
+"text": "CLE300 4matic (Coupe)",
+"value": "CLE300 4matic (Coupe)"
+},
+{
+"text": "CLE450 4matic (Convertible)",
+"value": "CLE450 4matic (Convertible)"
+},
+{
+"text": "CLE450 4matic (Coupe)",
+"value": "CLE450 4matic (Coupe)"
+},
+{
+"text": "E350 4matic",
+"value": "E350 4matic"
+},
+{
+"text": "E450 4matic",
+"value": "E450 4matic"
+},
+{
+"text": "E450 4matic All-Terrain (wagon)",
+"value": "E450 4matic All-Terrain (wagon)"
+},
+{
+"text": "EQB 250 Plus",
+"value": "EQB 250 Plus"
+},
+{
+"text": "EQB 300 4matic",
+"value": "EQB 300 4matic"
+},
+{
+"text": "EQB 350 4matic",
+"value": "EQB 350 4matic"
+},
+{
+"text": "EQE 350 4matic",
+"value": "EQE 350 4matic"
+},
+{
+"text": "EQE 350 4matic (SUV)",
+"value": "EQE 350 4matic (SUV)"
+},
+{
+"text": "EQE 350 Plus",
+"value": "EQE 350 Plus"
+},
+{
+"text": "EQE 350 Plus (SUV)",
+"value": "EQE 350 Plus (SUV)"
+},
+{
+"text": "EQE 500 4matic",
+"value": "EQE 500 4matic"
+},
+{
+"text": "EQE 500 4matic (SUV)",
+"value": "EQE 500 4matic (SUV)"
+},
+{
+"text": "EQS 450 4matic",
+"value": "EQS 450 4matic"
+},
+{
+"text": "EQS 450 4matic (SUV)",
+"value": "EQS 450 4matic (SUV)"
+},
+{
+"text": "EQS 450 Plus",
+"value": "EQS 450 Plus"
+},
+{
+"text": "EQS 450 Plus (SUV)",
+"value": "EQS 450 Plus (SUV)"
+},
+{
+"text": "EQS 580 4matic",
+"value": "EQS 580 4matic"
+},
+{
+"text": "EQS 580 4matic (SUV)",
+"value": "EQS 580 4matic (SUV)"
+},
+{
+"text": "EQS 680 4matic Maybach (SUV)",
+"value": "EQS 680 4matic Maybach (SUV)"
+},
+{
+"text": "G550",
+"value": "G550"
+},
+{
+"text": "GLA250",
+"value": "GLA250"
+},
+{
+"text": "GLA250 4matic",
+"value": "GLA250 4matic"
+},
+{
+"text": "GLB250",
+"value": "GLB250"
+},
+{
+"text": "GLB250 4matic",
+"value": "GLB250 4matic"
+},
+{
+"text": "GLC300",
+"value": "GLC300"
+},
+{
+"text": "GLC300 4matic",
+"value": "GLC300 4matic"
+},
+{
+"text": "GLC300 4matic Coupe",
+"value": "GLC300 4matic Coupe"
+},
+{
+"text": "GLE350",
+"value": "GLE350"
+},
+{
+"text": "GLE350 4matic",
+"value": "GLE350 4matic"
+},
+{
+"text": "GLE450 4matic",
+"value": "GLE450 4matic"
+},
+{
+"text": "GLE580 4matic",
+"value": "GLE580 4matic"
+},
+{
+"text": "GLS450 4matic",
+"value": "GLS450 4matic"
+},
+{
+"text": "GLS580 4matic",
+"value": "GLS580 4matic"
+},
+{
+"text": "GLS600 4matic Maybach",
+"value": "GLS600 4matic Maybach"
+},
+{
+"text": "Maybach S680 4matic",
+"value": "Maybach S680 4matic"
+},
+{
+"text": "S500 4matic",
+"value": "S500 4matic"
+},
+{
+"text": "S580 4matic",
+"value": "S580 4matic"
+},
+{
+"text": "S580 4matic Maybach",
+"value": "S580 4matic Maybach"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Mercedes-Benz&model=GLC300%204matic": {
+"menuItem": {
+"text": "Auto 9-spd, 4 cyl, 2.0 L, Turbo",
+"value": "47261"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/47261": {
+"atvType": "Hybrid",
+"barrels08": "11.018888888888888",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "24",
+"city08U": "23.9483",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "331",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "331.0",
+"comb08": "27",
+"comb08U": "26.8985",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-10-05T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RMBXJ02.0HY1",
+"id": "47261",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+},
+{
+"efid": "RMBXJ02.0HY1",
+"id": "47261",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+}
+]
+},
+"engId": "112",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "48V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3050",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "32",
+"highway08U": "31.6665",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "47261",
+"lv2": "0",
+"lv4": "0",
+"make": "Mercedes-Benz",
+"mfrCode": "MBX",
+"model": "GLC300 4matic",
+"modifiedOn": "2024-07-01T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic 9-spd",
+"UCity": "30.8",
+"UCityA": "0.0",
+"UHighway": "45.6",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-3250",
+"baseModel": "GLC-Class",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2025&make=Volkswagen": {
+"menuItem": [
+{
+"text": "Atlas",
+"value": "Atlas"
+},
+{
+"text": "Atlas 4motion Peak Edition",
+"value": "Atlas 4motion Peak Edition"
+},
+{
+"text": "Atlas Cross Sport",
+"value": "Atlas Cross Sport"
+},
+{
+"text": "Atlas Cross Sport 4motion",
+"value": "Atlas Cross Sport 4motion"
+},
+{
+"text": "Atlas SE 4motion",
+"value": "Atlas SE 4motion"
+},
+{
+"text": "Atlas SEL 4motion",
+"value": "Atlas SEL 4motion"
+},
+{
+"text": "GLI",
+"value": "GLI"
+},
+{
+"text": "Golf R",
+"value": "Golf R"
+},
+{
+"text": "GTI",
+"value": "GTI"
+},
+{
+"text": "ID. Buzz",
+"value": "ID. Buzz"
+},
+{
+"text": "ID. Buzz 4motion",
+"value": "ID. Buzz 4motion"
+},
+{
+"text": "ID.4",
+"value": "ID.4"
+},
+{
+"text": "ID.4 AWD Pro",
+"value": "ID.4 AWD Pro"
+},
+{
+"text": "ID.4 AWD Pro S",
+"value": "ID.4 AWD Pro S"
+},
+{
+"text": "ID.4 Pro",
+"value": "ID.4 Pro"
+},
+{
+"text": "ID.4 Pro S",
+"value": "ID.4 Pro S"
+},
+{
+"text": "ID.4 S",
+"value": "ID.4 S"
+},
+{
+"text": "Jetta",
+"value": "Jetta"
+},
+{
+"text": "Jetta Sport/SE/SEL",
+"value": "Jetta Sport/SE/SEL"
+},
+{
+"text": "Taos",
+"value": "Taos"
+},
+{
+"text": "Taos 4motion",
+"value": "Taos 4motion"
+},
+{
+"text": "Tiguan",
+"value": "Tiguan"
+},
+{
+"text": "Tiguan 4motion",
+"value": "Tiguan 4motion"
+},
+{
+"text": "Tiguan S",
+"value": "Tiguan S"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2025&make=Volkswagen&model=Tiguan": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "49047"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/49047": {
+"atvType": "",
+"barrels08": "10.625357142857142",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "25",
+"city08U": "24.9954",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "320",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "320.0",
+"comb08": "28",
+"comb08U": "27.7612",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2025-05-07T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "Front-Wheel Drive",
+"emissionsList": null,
+"engId": "58",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "6",
+"fuelCost08": "2400",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "6",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "32",
+"highway08U": "32.1028",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "49047",
+"lv2": "0",
+"lv4": "0",
+"make": "Volkswagen",
+"mfrCode": "VGA",
+"model": "Tiguan",
+"modifiedOn": "2025-06-25T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "32.3",
+"UCityA": "0.0",
+"UHighway": "46.3",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 2WD",
+"year": "2025",
+"youSaveSpend": "0",
+"baseModel": "Tiguan",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Lexus": {
+"menuItem": [
+{
+"text": "ES 250 AWD",
+"value": "ES 250 AWD"
+},
+{
+"text": "ES 300h",
+"value": "ES 300h"
+},
+{
+"text": "ES 350",
+"value": "ES 350"
+},
+{
+"text": "ES 350 F Sport",
+"value": "ES 350 F Sport"
+},
+{
+"text": "GX 550",
+"value": "GX 550"
+},
+{
+"text": "IS 300",
+"value": "IS 300"
+},
+{
+"text": "IS 300 AWD",
+"value": "IS 300 AWD"
+},
+{
+"text": "IS 350",
+"value": "IS 350"
+},
+{
+"text": "IS 350 AWD",
+"value": "IS 350 AWD"
+},
+{
+"text": "IS 500",
+"value": "IS 500"
+},
+{
+"text": "LC 500",
+"value": "LC 500"
+},
+{
+"text": "LC 500 Convertible",
+"value": "LC 500 Convertible"
+},
+{
+"text": "LC 500h",
+"value": "LC 500h"
+},
+{
+"text": "LS 500",
+"value": "LS 500"
+},
+{
+"text": "LS 500 AWD",
+"value": "LS 500 AWD"
+},
+{
+"text": "LS 500h AWD",
+"value": "LS 500h AWD"
+},
+{
+"text": "LX 600",
+"value": "LX 600"
+},
+{
+"text": "NX 250",
+"value": "NX 250"
+},
+{
+"text": "NX 250 AWD",
+"value": "NX 250 AWD"
+},
+{
+"text": "NX 350 AWD",
+"value": "NX 350 AWD"
+},
+{
+"text": "NX 350 AWD F Sport",
+"value": "NX 350 AWD F Sport"
+},
+{
+"text": "NX 350h AWD",
+"value": "NX 350h AWD"
+},
+{
+"text": "NX 450h Plus AWD",
+"value": "NX 450h Plus AWD"
+},
+{
+"text": "RC 300",
+"value": "RC 300"
+},
+{
+"text": "RC 300 AWD",
+"value": "RC 300 AWD"
+},
+{
+"text": "RC 350",
+"value": "RC 350"
+},
+{
+"text": "RC 350 AWD",
+"value": "RC 350 AWD"
+},
+{
+"text": "RC F",
+"value": "RC F"
+},
+{
+"text": "RX 350",
+"value": "RX 350"
+},
+{
+"text": "RX 350 AWD",
+"value": "RX 350 AWD"
+},
+{
+"text": "RX 350h AWD",
+"value": "RX 350h AWD"
+},
+{
+"text": "RX 500h AWD",
+"value": "RX 500h AWD"
+},
+{
+"text": "RZ 300e (18 inch wheels)",
+"value": "RZ 300e (18 inch wheels)"
+},
+{
+"text": "RZ 300e (20 inch wheels)",
+"value": "RZ 300e (20 inch wheels)"
+},
+{
+"text": "RZ 450e AWD (18 inch wheels)",
+"value": "RZ 450e AWD (18 inch wheels)"
+},
+{
+"text": "RZ 450e AWD (20 inch wheels)",
+"value": "RZ 450e AWD (20 inch wheels)"
+},
+{
+"text": "TX 350",
+"value": "TX 350"
+},
+{
+"text": "TX 350 AWD",
+"value": "TX 350 AWD"
+},
+{
+"text": "TX 500h AWD",
+"value": "TX 500h AWD"
+},
+{
+"text": "UX 250h",
+"value": "UX 250h"
+},
+{
+"text": "UX 250h AWD",
+"value": "UX 250h AWD"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Lexus&model=NX%20350h%20AWD": {
+"menuItem": {
+"text": "Auto (AV-S6), 4 cyl, 2.5 L",
+"value": "46537"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46537": {
+"atvType": "Hybrid",
+"barrels08": "7.628461538461539",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "41",
+"city08U": "41.3984",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "225",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "225.0",
+"comb08": "39",
+"comb08U": "39.0",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-04-11T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.5",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RTYXT02.5P34",
+"id": "46537",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+},
+{
+"efid": "RTYXT02.5P34",
+"id": "46537",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+}
+]
+},
+"engId": "7",
+"eng_dscr": "SIDI & PFI; Hybrid",
+"evMotor": "259V Li-Ion",
+"feScore": "7",
+"fuelCost08": "2100",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "7",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "37",
+"highway08U": "37.4192",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46537",
+"lv2": "0",
+"lv4": "0",
+"make": "Lexus",
+"mfrCode": "TYX",
+"model": "NX 350h AWD",
+"modifiedOn": "2024-07-01T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AV-S6)",
+"UCity": "56.2446",
+"UCityA": "0.0",
+"UHighway": "51.6969",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "1500",
+"baseModel": "NX",
+"sCharger": "",
+"tCharger": ""
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=Toyota": {
+"menuItem": [
+{
+"text": "4Runner 2WD",
+"value": "4Runner 2WD"
+},
+{
+"text": "4Runner 4WD",
+"value": "4Runner 4WD"
+},
+{
+"text": "bZ4X",
+"value": "bZ4X"
+},
+{
+"text": "bZ4X AWD",
+"value": "bZ4X AWD"
+},
+{
+"text": "bZ4X Limited",
+"value": "bZ4X Limited"
+},
+{
+"text": "bZ4X Limited AWD",
+"value": "bZ4X Limited AWD"
+},
+{
+"text": "Camry",
+"value": "Camry"
+},
+{
+"text": "Camry AWD LE/SE",
+"value": "Camry AWD LE/SE"
+},
+{
+"text": "Camry AWD XLE/XSE",
+"value": "Camry AWD XLE/XSE"
+},
+{
+"text": "Camry Hybrid LE",
+"value": "Camry Hybrid LE"
+},
+{
+"text": "Camry Hybrid SE/XLE/XSE",
+"value": "Camry Hybrid SE/XLE/XSE"
+},
+{
+"text": "Camry LE/SE",
+"value": "Camry LE/SE"
+},
+{
+"text": "Camry TRD",
+"value": "Camry TRD"
+},
+{
+"text": "Camry XLE/XSE",
+"value": "Camry XLE/XSE"
+},
+{
+"text": "Camry XSE",
+"value": "Camry XSE"
+},
+{
+"text": "Corolla",
+"value": "Corolla"
+},
+{
+"text": "Corolla Cross",
+"value": "Corolla Cross"
+},
+{
+"text": "Corolla Cross AWD",
+"value": "Corolla Cross AWD"
+},
+{
+"text": "Corolla Cross Hybrid AWD",
+"value": "Corolla Cross Hybrid AWD"
+},
+{
+"text": "Corolla Hatchback",
+"value": "Corolla Hatchback"
+},
+{
+"text": "Corolla Hatchback XSE",
+"value": "Corolla Hatchback XSE"
+},
+{
+"text": "Corolla Hybrid (Normal/Eco Modes)",
+"value": "Corolla Hybrid (Normal/Eco Modes)"
+},
+{
+"text": "Corolla Hybrid (Sport/Normal/Eco Modes)",
+"value": "Corolla Hybrid (Sport/Normal/Eco Modes)"
+},
+{
+"text": "Corolla Hybrid AWD (Normal/Eco Modes)",
+"value": "Corolla Hybrid AWD (Normal/Eco Modes)"
+},
+{
+"text": "Corolla Hybrid AWD (Sport/Normal/Eco Modes)",
+"value": "Corolla Hybrid AWD (Sport/Normal/Eco Modes)"
+},
+{
+"text": "Crown AWD",
+"value": "Crown AWD"
+},
+{
+"text": "GR 86",
+"value": "GR 86"
+},
+{
+"text": "GR Corolla",
+"value": "GR Corolla"
+},
+{
+"text": "GR Supra",
+"value": "GR Supra"
+},
+{
+"text": "Grand Highlander AWD LE/XLE",
+"value": "Grand Highlander AWD LE/XLE"
+},
+{
+"text": "Grand Highlander AWD Limited/Platinum",
+"value": "Grand Highlander AWD Limited/Platinum"
+},
+{
+"text": "Grand Highlander Hybrid",
+"value": "Grand Highlander Hybrid"
+},
+{
+"text": "Grand Highlander Hybrid AWD",
+"value": "Grand Highlander Hybrid AWD"
+},
+{
+"text": "Grand Highlander Hybrid Limited",
+"value": "Grand Highlander Hybrid Limited"
+},
+{
+"text": "Grand Highlander LE/XLE",
+"value": "Grand Highlander LE/XLE"
+},
+{
+"text": "Grand Highlander Limited",
+"value": "Grand Highlander Limited"
+},
+{
+"text": "Highlander",
+"value": "Highlander"
+},
+{
+"text": "Highlander AWD",
+"value": "Highlander AWD"
+},
+{
+"text": "Highlander Hybrid",
+"value": "Highlander Hybrid"
+},
+{
+"text": "Highlander Hybrid AWD",
+"value": "Highlander Hybrid AWD"
+},
+{
+"text": "Highlander Hybrid AWD LTD/PLAT",
+"value": "Highlander Hybrid AWD LTD/PLAT"
+},
+{
+"text": "Land Cruiser",
+"value": "Land Cruiser"
+},
+{
+"text": "Mirai Limited",
+"value": "Mirai Limited"
+},
+{
+"text": "Mirai XLE",
+"value": "Mirai XLE"
+},
+{
+"text": "Prius",
+"value": "Prius"
+},
+{
+"text": "Prius AWD",
+"value": "Prius AWD"
+},
+{
+"text": "Prius AWD XLE/LTD",
+"value": "Prius AWD XLE/LTD"
+},
+{
+"text": "Prius Prime",
+"value": "Prius Prime"
+},
+{
+"text": "Prius Prime SE",
+"value": "Prius Prime SE"
+},
+{
+"text": "Prius XLE/LTD",
+"value": "Prius XLE/LTD"
+},
+{
+"text": "RAV4",
+"value": "RAV4"
+},
+{
+"text": "RAV4 AWD",
+"value": "RAV4 AWD"
+},
+{
+"text": "RAV4 AWD LE",
+"value": "RAV4 AWD LE"
+},
+{
+"text": "RAV4 AWD TRD OFFROAD",
+"value": "RAV4 AWD TRD OFFROAD"
+},
+{
+"text": "RAV4 Hybrid AWD",
+"value": "RAV4 Hybrid AWD"
+},
+{
+"text": "RAV4 Hybrid AWD Woodland Edition",
+"value": "RAV4 Hybrid AWD Woodland Edition"
+},
+{
+"text": "RAV4 Prime 4WD",
+"value": "RAV4 Prime 4WD"
+},
+{
+"text": "Sequoia 2WD",
+"value": "Sequoia 2WD"
+},
+{
+"text": "Sequoia 4WD",
+"value": "Sequoia 4WD"
+},
+{
+"text": "Sienna 2WD",
+"value": "Sienna 2WD"
+},
+{
+"text": "Sienna AWD",
+"value": "Sienna AWD"
+},
+{
+"text": "Tacoma 2WD",
+"value": "Tacoma 2WD"
+},
+{
+"text": "Tacoma 4WD",
+"value": "Tacoma 4WD"
+},
+{
+"text": "Tacoma 4WD MT",
+"value": "Tacoma 4WD MT"
+},
+{
+"text": "Tacoma Hybrid 4WD",
+"value": "Tacoma Hybrid 4WD"
+},
+{
+"text": "Tacoma SR5/Sport/Off-Road/Limited 4WD",
+"value": "Tacoma SR5/Sport/Off-Road/Limited 4WD"
+},
+{
+"text": "Tacoma SR5/Sport/PreRunner 2WD",
+"value": "Tacoma SR5/Sport/PreRunner 2WD"
+},
+{
+"text": "Tundra 2WD",
+"value": "Tundra 2WD"
+},
+{
+"text": "Tundra 4WD",
+"value": "Tundra 4WD"
+},
+{
+"text": "Tundra 4WD PRO",
+"value": "Tundra 4WD PRO"
+},
+{
+"text": "Venza AWD",
+"value": "Venza AWD"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=Toyota&model=4Runner%204WD": {
+"menuItem": [
+{
+"text": "Auto (S5), 6 cyl, 4.0 L, Part-time AWD",
+"value": "47438"
+},
+{
+"text": "Auto (S5), 6 cyl, 4.0 L",
+"value": "47439"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/47438": {
+"atvType": "",
+"barrels08": "17.500588235294117",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "16",
+"city08U": "15.8727",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "514",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "514.0",
+"comb08": "17",
+"comb08U": "17.1221",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-11-06T00:00:00-05:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "6",
+"displ": "4.0",
+"drive": "Part-time 4-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RTYXT04.0M5S",
+"id": "47438",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+},
+{
+"efid": "RTYXT04.0M5S",
+"id": "47438",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+}
+]
+},
+"engId": "34",
+"eng_dscr": "Part-time AWD",
+"evMotor": "",
+"feScore": "3",
+"fuelCost08": "3950",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "3",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "19",
+"highway08U": "18.9447",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "47438",
+"lv2": "0",
+"lv4": "0",
+"make": "Toyota",
+"mfrCode": "TYX",
+"model": "4Runner 4WD",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "N",
+"trans_dscr": "",
+"trany": "Automatic (S5)",
+"UCity": "19.6927",
+"UCityA": "0.0",
+"UHighway": "28.0705",
+"UHighwayA": "0.0",
+"VClass": "Standard Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-7750",
+"baseModel": "4Runner",
+"sCharger": "",
+"tCharger": ""
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/47439": {
+"atvType": "",
+"barrels08": "17.500588235294117",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "16",
+"city08U": "15.8028",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "519",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "519.0",
+"comb08": "17",
+"comb08U": "16.9829",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-11-06T00:00:00-05:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "6",
+"displ": "4.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RTYXT04.0M5S",
+"id": "47439",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+},
+{
+"efid": "RTYXT04.0M5S",
+"id": "47439",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+}
+]
+},
+"engId": "35",
+"eng_dscr": "",
+"evMotor": "",
+"feScore": "3",
+"fuelCost08": "3950",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "3",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "19",
+"highway08U": "18.6887",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "47439",
+"lv2": "0",
+"lv4": "0",
+"make": "Toyota",
+"mfrCode": "TYX",
+"model": "4Runner 4WD",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "N",
+"trans_dscr": "",
+"trany": "Automatic (S5)",
+"UCity": "19.6",
+"UCityA": "0.0",
+"UHighway": "27.7",
+"UHighwayA": "0.0",
+"VClass": "Standard Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-7750",
+"baseModel": "4Runner",
+"sCharger": "",
+"tCharger": ""
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2023&make=Audi&model=Q5%20Sportback%20S-line%20quattro": {
+"menuItem": {
+"text": "Auto (AM-S7), 4 cyl, 2.0 L, Turbo",
+"value": "45685"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/45685": {
+"atvType": "Hybrid",
+"barrels08": "11.900400000000001",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "22",
+"city08U": "22.1292",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "358",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "358.0",
+"comb08": "25",
+"comb08U": "24.6312",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2022-08-02T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "PVGAJ02.0A7G",
+"id": "45685",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+},
+{
+"efid": "PVGAJ02.0A7G",
+"id": "45685",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+}
+]
+},
+"engId": "46",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "14V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3300",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "29",
+"highway08U": "28.5808",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "45685",
+"lv2": "0",
+"lv4": "0",
+"make": "Audi",
+"mfrCode": "VGA",
+"model": "Q5 Sportback S-line quattro",
+"modifiedOn": "2022-08-24T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (AM-S7)",
+"UCity": "28.414",
+"UCityA": "0.0",
+"UHighway": "39.0555",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2023",
+"youSaveSpend": "-4500",
+"baseModel": "Q5",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2024&make=BMW": {
+"menuItem": [
+{
+"text": "228i Gran Coupe",
+"value": "228i Gran Coupe"
+},
+{
+"text": "228i xDrive Gran Coupe",
+"value": "228i xDrive Gran Coupe"
+},
+{
+"text": "230i Coupe",
+"value": "230i Coupe"
+},
+{
+"text": "230i xDrive Coupe",
+"value": "230i xDrive Coupe"
+},
+{
+"text": "330e Sedan",
+"value": "330e Sedan"
+},
+{
+"text": "330e xDrive Sedan",
+"value": "330e xDrive Sedan"
+},
+{
+"text": "330i Sedan",
+"value": "330i Sedan"
+},
+{
+"text": "330i xDrive Sedan",
+"value": "330i xDrive Sedan"
+},
+{
+"text": "430i Convertible",
+"value": "430i Convertible"
+},
+{
+"text": "430i Coupe",
+"value": "430i Coupe"
+},
+{
+"text": "430i Gran Coupe",
+"value": "430i Gran Coupe"
+},
+{
+"text": "430i xDrive Convertible",
+"value": "430i xDrive Convertible"
+},
+{
+"text": "430i xDrive Coupe",
+"value": "430i xDrive Coupe"
+},
+{
+"text": "430i xDrive Gran Coupe",
+"value": "430i xDrive Gran Coupe"
+},
+{
+"text": "530i Sedan",
+"value": "530i Sedan"
+},
+{
+"text": "530i xDrive Sedan",
+"value": "530i xDrive Sedan"
+},
+{
+"text": "540i xDrive Sedan",
+"value": "540i xDrive Sedan"
+},
+{
+"text": "740i Sedan",
+"value": "740i Sedan"
+},
+{
+"text": "740i xDrive Sedan",
+"value": "740i xDrive Sedan"
+},
+{
+"text": "760i xDrive Sedan",
+"value": "760i xDrive Sedan"
+},
+{
+"text": "840i Convertible",
+"value": "840i Convertible"
+},
+{
+"text": "840i Coupe",
+"value": "840i Coupe"
+},
+{
+"text": "840i Gran Coupe",
+"value": "840i Gran Coupe"
+},
+{
+"text": "840i xDrive Convertible",
+"value": "840i xDrive Convertible"
+},
+{
+"text": "840i xDrive Coupe",
+"value": "840i xDrive Coupe"
+},
+{
+"text": "840i xDrive Gran Coupe",
+"value": "840i xDrive Gran Coupe"
+},
+{
+"text": "Alpina B8 Gran Coupe",
+"value": "Alpina B8 Gran Coupe"
+},
+{
+"text": "Alpina XB7",
+"value": "Alpina XB7"
+},
+{
+"text": "i4 eDrive35 Gran Coupe (18 inch Wheels)",
+"value": "i4 eDrive35 Gran Coupe (18 inch Wheels)"
+},
+{
+"text": "i4 eDrive35 Gran Coupe (19 inch Wheels)",
+"value": "i4 eDrive35 Gran Coupe (19 inch Wheels)"
+},
+{
+"text": "i4 eDrive40 Gran Coupe (18 inch Wheels)",
+"value": "i4 eDrive40 Gran Coupe (18 inch Wheels)"
+},
+{
+"text": "i4 eDrive40 Gran Coupe (19 inch Wheels)",
+"value": "i4 eDrive40 Gran Coupe (19 inch Wheels)"
+},
+{
+"text": "i4 M50 Gran Coupe (19 inch wheels)",
+"value": "i4 M50 Gran Coupe (19 inch wheels)"
+},
+{
+"text": "i4 M50 Gran Coupe (20 inch wheels)",
+"value": "i4 M50 Gran Coupe (20 inch wheels)"
+},
+{
+"text": "i4 xDrive40 Gran Coupe (18 inch Wheels)",
+"value": "i4 xDrive40 Gran Coupe (18 inch Wheels)"
+},
+{
+"text": "i4 xDrive40 Gran Coupe (19 inch Wheels)",
+"value": "i4 xDrive40 Gran Coupe (19 inch Wheels)"
+},
+{
+"text": "i5 eDrive40 Sedan (19 inch Wheels)",
+"value": "i5 eDrive40 Sedan (19 inch Wheels)"
+},
+{
+"text": "i5 eDrive40 Sedan (20 inch Wheels)",
+"value": "i5 eDrive40 Sedan (20 inch Wheels)"
+},
+{
+"text": "i5 eDrive40 Sedan (21 inch Wheels)",
+"value": "i5 eDrive40 Sedan (21 inch Wheels)"
+},
+{
+"text": "i5 M60 xDrive Sedan (19 inch Wheels)",
+"value": "i5 M60 xDrive Sedan (19 inch Wheels)"
+},
+{
+"text": "i5 M60 xDrive Sedan (20 inch Wheels)",
+"value": "i5 M60 xDrive Sedan (20 inch Wheels)"
+},
+{
+"text": "i5 M60 xDrive Sedan (21 inch Wheels)",
+"value": "i5 M60 xDrive Sedan (21 inch Wheels)"
+},
+{
+"text": "i7 eDrive50 Sedan (19 inch Wheels)",
+"value": "i7 eDrive50 Sedan (19 inch Wheels)"
+},
+{
+"text": "i7 eDrive50 Sedan (20 inch Wheels)",
+"value": "i7 eDrive50 Sedan (20 inch Wheels)"
+},
+{
+"text": "i7 eDrive50 Sedan (21 inch Wheels)",
+"value": "i7 eDrive50 Sedan (21 inch Wheels)"
+},
+{
+"text": "i7 M70 xDrive Sedan (20 inch Wheels)",
+"value": "i7 M70 xDrive Sedan (20 inch Wheels)"
+},
+{
+"text": "i7 M70 xDrive Sedan (21 inch Wheels)",
+"value": "i7 M70 xDrive Sedan (21 inch Wheels)"
+},
+{
+"text": "i7 xDrive60 Sedan (19 inch wheels)",
+"value": "i7 xDrive60 Sedan (19 inch wheels)"
+},
+{
+"text": "i7 xDrive60 Sedan (20 inch wheels)",
+"value": "i7 xDrive60 Sedan (20 inch wheels)"
+},
+{
+"text": "i7 xDrive60 Sedan (21 inch wheels)",
+"value": "i7 xDrive60 Sedan (21 inch wheels)"
+},
+{
+"text": "iX M60 (21 inch Wheels)",
+"value": "iX M60 (21 inch Wheels)"
+},
+{
+"text": "iX M60 (22 inch Wheels)",
+"value": "iX M60 (22 inch Wheels)"
+},
+{
+"text": "iX xDrive40 (20 inch Wheels)",
+"value": "iX xDrive40 (20 inch Wheels)"
+},
+{
+"text": "iX xDrive40 (21 inch Wheels)",
+"value": "iX xDrive40 (21 inch Wheels)"
+},
+{
+"text": "iX xDrive40 (22 inch Wheels)",
+"value": "iX xDrive40 (22 inch Wheels)"
+},
+{
+"text": "iX xDrive50 (20 inch wheels)",
+"value": "iX xDrive50 (20 inch wheels)"
+},
+{
+"text": "iX xDrive50 (21 inch wheels)",
+"value": "iX xDrive50 (21 inch wheels)"
+},
+{
+"text": "iX xDrive50 (22 inch wheels)",
+"value": "iX xDrive50 (22 inch wheels)"
+},
+{
+"text": "M2 Coupe",
+"value": "M2 Coupe"
+},
+{
+"text": "M235i xDrive Gran Coupe",
+"value": "M235i xDrive Gran Coupe"
+},
+{
+"text": "M240i Coupe",
+"value": "M240i Coupe"
+},
+{
+"text": "M240i xDrive Coupe",
+"value": "M240i xDrive Coupe"
+},
+{
+"text": "M3 Competition M xDrive Sedan",
+"value": "M3 Competition M xDrive Sedan"
+},
+{
+"text": "M3 Competition Sedan",
+"value": "M3 Competition Sedan"
+},
+{
+"text": "M3 CS Sedan",
+"value": "M3 CS Sedan"
+},
+{
+"text": "M3 Sedan",
+"value": "M3 Sedan"
+},
+{
+"text": "M340i Sedan",
+"value": "M340i Sedan"
+},
+{
+"text": "M340i xDrive Sedan",
+"value": "M340i xDrive Sedan"
+},
+{
+"text": "M4 Competition Coupe",
+"value": "M4 Competition Coupe"
+},
+{
+"text": "M4 Competition M xDrive Convertible",
+"value": "M4 Competition M xDrive Convertible"
+},
+{
+"text": "M4 Competition M xDrive Coupe",
+"value": "M4 Competition M xDrive Coupe"
+},
+{
+"text": "M4 Coupe",
+"value": "M4 Coupe"
+},
+{
+"text": "M440i Convertible",
+"value": "M440i Convertible"
+},
+{
+"text": "M440i Coupe",
+"value": "M440i Coupe"
+},
+{
+"text": "M440i Gran Coupe",
+"value": "M440i Gran Coupe"
+},
+{
+"text": "M440i xDrive Convertible",
+"value": "M440i xDrive Convertible"
+},
+{
+"text": "M440i xDrive Coupe",
+"value": "M440i xDrive Coupe"
+},
+{
+"text": "M440i xDrive Gran Coupe",
+"value": "M440i xDrive Gran Coupe"
+},
+{
+"text": "M8 Competition Convertible",
+"value": "M8 Competition Convertible"
+},
+{
+"text": "M8 Competition Coupe",
+"value": "M8 Competition Coupe"
+},
+{
+"text": "M8 Competition Gran Coupe",
+"value": "M8 Competition Gran Coupe"
+},
+{
+"text": "M850i xDrive Convertible",
+"value": "M850i xDrive Convertible"
+},
+{
+"text": "M850i xDrive Coupe",
+"value": "M850i xDrive Coupe"
+},
+{
+"text": "M850i xDrive Gran Coupe",
+"value": "M850i xDrive Gran Coupe"
+},
+{
+"text": "X1 M35i",
+"value": "X1 M35i"
+},
+{
+"text": "X1 xDrive28i",
+"value": "X1 xDrive28i"
+},
+{
+"text": "X2 M35i",
+"value": "X2 M35i"
+},
+{
+"text": "X2 xDrive28i",
+"value": "X2 xDrive28i"
+},
+{
+"text": "X3 M",
+"value": "X3 M"
+},
+{
+"text": "X3 M Competition",
+"value": "X3 M Competition"
+},
+{
+"text": "X3 M40i",
+"value": "X3 M40i"
+},
+{
+"text": "X3 sDrive30i",
+"value": "X3 sDrive30i"
+},
+{
+"text": "X3 xDrive30i",
+"value": "X3 xDrive30i"
+},
+{
+"text": "X4 M",
+"value": "X4 M"
+},
+{
+"text": "X4 M Competition",
+"value": "X4 M Competition"
+},
+{
+"text": "X4 M40i",
+"value": "X4 M40i"
+},
+{
+"text": "X4 xDrive30i",
+"value": "X4 xDrive30i"
+},
+{
+"text": "X5 M Competition",
+"value": "X5 M Competition"
+},
+{
+"text": "X5 M60i xDrive",
+"value": "X5 M60i xDrive"
+},
+{
+"text": "X5 sDrive40i",
+"value": "X5 sDrive40i"
+},
+{
+"text": "X5 xDrive40i",
+"value": "X5 xDrive40i"
+},
+{
+"text": "X6 M Competition",
+"value": "X6 M Competition"
+},
+{
+"text": "X6 M60i xDrive",
+"value": "X6 M60i xDrive"
+},
+{
+"text": "X6 xDrive40i",
+"value": "X6 xDrive40i"
+},
+{
+"text": "X7 M60i xDrive",
+"value": "X7 M60i xDrive"
+},
+{
+"text": "X7 xDrive40i",
+"value": "X7 xDrive40i"
+},
+{
+"text": "XM",
+"value": "XM"
+},
+{
+"text": "Z4 M40i",
+"value": "Z4 M40i"
+},
+{
+"text": "Z4 sDrive30i",
+"value": "Z4 sDrive30i"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2024&make=BMW&model=X3%20xDrive30i": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "46704"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46704": {
+"atvType": "",
+"barrels08": "12.39625",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "21",
+"city08U": "21.3119",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "369",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "369.0",
+"comb08": "24",
+"comb08U": "23.8445",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-06-23T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "RBMXJ02.0B4X",
+"id": "46704",
+"salesArea": "3",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+},
+{
+"efid": "RBMXJ02.0B4X",
+"id": "46704",
+"salesArea": "7",
+"score": "7.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+}
+]
+},
+"engId": "370",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "3400",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "28",
+"highway08U": "27.8961",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46704",
+"lv2": "0",
+"lv4": "0",
+"make": "BMW",
+"mfrCode": "BMX",
+"model": "X3 xDrive30i",
+"modifiedOn": "2024-01-18T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "27.0855",
+"UCityA": "0.0",
+"UHighway": "39.6402",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2024",
+"youSaveSpend": "-5000",
+"baseModel": "X3",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2023&make=Audi&model=Q3": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "46438"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/46438": {
+"atvType": "",
+"barrels08": "11.900400000000001",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "22",
+"city08U": "21.6093",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "361",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "361.0",
+"comb08": "25",
+"comb08U": "24.5353",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2023-02-17T00:00:00-05:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "PVGAT02.0A5T",
+"id": "46438",
+"salesArea": "7",
+"score": "6.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV50",
+"stdText": "California LEV-III ULEV50"
+},
+{
+"efid": "PVGAT02.0A5T",
+"id": "46438",
+"salesArea": "3",
+"score": "6.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B50",
+"stdText": "Federal Tier 3 Bin 50"
+}
+]
+},
+"engId": "95",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "2700",
+"fuelCostA08": "0",
+"fuelType": "Regular",
+"fuelType1": "Regular Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "29",
+"highway08U": "29.401",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "46438",
+"lv2": "0",
+"lv4": "0",
+"make": "Audi",
+"mfrCode": "VGA",
+"model": "Q3",
+"modifiedOn": "2023-11-06T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "27.5",
+"UCityA": "0.0",
+"UHighway": "42.0",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2023",
+"youSaveSpend": "-1500",
+"baseModel": "Q3",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2025&make=Audi": {
+"menuItem": [
+{
+"text": "A3 quattro",
+"value": "A3 quattro"
+},
+{
+"text": "A4 allroad quattro",
+"value": "A4 allroad quattro"
+},
+{
+"text": "A4 quattro",
+"value": "A4 quattro"
+},
+{
+"text": "A4 S line quattro",
+"value": "A4 S line quattro"
+},
+{
+"text": "A5 quattro",
+"value": "A5 quattro"
+},
+{
+"text": "A5 Sportback quattro",
+"value": "A5 Sportback quattro"
+},
+{
+"text": "A5 Sportback S line quattro",
+"value": "A5 Sportback S line quattro"
+},
+{
+"text": "A6 Allroad quattro",
+"value": "A6 Allroad quattro"
+},
+{
+"text": "A6 quattro",
+"value": "A6 quattro"
+},
+{
+"text": "A7 quattro",
+"value": "A7 quattro"
+},
+{
+"text": "A8 quattro",
+"value": "A8 quattro"
+},
+{
+"text": "Q3",
+"value": "Q3"
+},
+{
+"text": "Q3 S-Line quattro",
+"value": "Q3 S-Line quattro"
+},
+{
+"text": "Q4 45 e-tron",
+"value": "Q4 45 e-tron"
+},
+{
+"text": "Q4 55 e-tron quattro",
+"value": "Q4 55 e-tron quattro"
+},
+{
+"text": "Q4 Sportback 55 e-tron quattro",
+"value": "Q4 Sportback 55 e-tron quattro"
+},
+{
+"text": "Q5 Plug-In Hybrid quattro",
+"value": "Q5 Plug-In Hybrid quattro"
+},
+{
+"text": "Q5 quattro",
+"value": "Q5 quattro"
+},
+{
+"text": "Q5 S line quattro",
+"value": "Q5 S line quattro"
+},
+{
+"text": "Q5 Sportback S line quattro",
+"value": "Q5 Sportback S line quattro"
+},
+{
+"text": "Q5 Sportback TFSI quattro",
+"value": "Q5 Sportback TFSI quattro"
+},
+{
+"text": "Q5 TFSI quattro",
+"value": "Q5 TFSI quattro"
+},
+{
+"text": "Q6 e-tron (19 inch wheels)",
+"value": "Q6 e-tron (19 inch wheels)"
+},
+{
+"text": "Q6 e-tron (20 inch wheels)",
+"value": "Q6 e-tron (20 inch wheels)"
+},
+{
+"text": "Q6 e-tron quattro (19 inch wheels)",
+"value": "Q6 e-tron quattro (19 inch wheels)"
+},
+{
+"text": "Q6 e-tron quattro (20 inch wheels)",
+"value": "Q6 e-tron quattro (20 inch wheels)"
+},
+{
+"text": "Q6 e-tron ultra",
+"value": "Q6 e-tron ultra"
+},
+{
+"text": "Q6 Sportback e-tron quattro (19 inch wheels)",
+"value": "Q6 Sportback e-tron quattro (19 inch wheels)"
+},
+{
+"text": "Q6 Sportback e-tron quattro (20 inch wheels)",
+"value": "Q6 Sportback e-tron quattro (20 inch wheels)"
+},
+{
+"text": "Q7",
+"value": "Q7"
+},
+{
+"text": "Q8 e-tron quattro (20 inch wheels)",
+"value": "Q8 e-tron quattro (20 inch wheels)"
+},
+{
+"text": "Q8 e-tron quattro (21 inch wheels)",
+"value": "Q8 e-tron quattro (21 inch wheels)"
+},
+{
+"text": "Q8 quattro",
+"value": "Q8 quattro"
+},
+{
+"text": "Q8 Sportback e-tron quattro (20 inch wheels)",
+"value": "Q8 Sportback e-tron quattro (20 inch wheels)"
+},
+{
+"text": "Q8 Sportback e-tron quattro (21 inch wheels)",
+"value": "Q8 Sportback e-tron quattro (21 inch wheels)"
+},
+{
+"text": "RS 3",
+"value": "RS 3"
+},
+{
+"text": "RS 5 Sportback",
+"value": "RS 5 Sportback"
+},
+{
+"text": "RS 6 Avant",
+"value": "RS 6 Avant"
+},
+{
+"text": "RS 7",
+"value": "RS 7"
+},
+{
+"text": "RS e-tron GT Performance",
+"value": "RS e-tron GT Performance"
+},
+{
+"text": "RS Q8 Performance",
+"value": "RS Q8 Performance"
+},
+{
+"text": "S e-tron GT (20 inch wheels)",
+"value": "S e-tron GT (20 inch wheels)"
+},
+{
+"text": "S e-tron GT (21 inch wheels)",
+"value": "S e-tron GT (21 inch wheels)"
+},
+{
+"text": "S3",
+"value": "S3"
+},
+{
+"text": "S4",
+"value": "S4"
+},
+{
+"text": "S5",
+"value": "S5"
+},
+{
+"text": "S5 Sportback",
+"value": "S5 Sportback"
+},
+{
+"text": "S6",
+"value": "S6"
+},
+{
+"text": "S7",
+"value": "S7"
+},
+{
+"text": "S8",
+"value": "S8"
+},
+{
+"text": "SQ5",
+"value": "SQ5"
+},
+{
+"text": "SQ5 Sportback",
+"value": "SQ5 Sportback"
+},
+{
+"text": "SQ6 e-tron",
+"value": "SQ6 e-tron"
+},
+{
+"text": "SQ6 Sportback e-tron",
+"value": "SQ6 Sportback e-tron"
+},
+{
+"text": "SQ7",
+"value": "SQ7"
+},
+{
+"text": "SQ8",
+"value": "SQ8"
+},
+{
+"text": "SQ8 e-tron (20 inch wheels)",
+"value": "SQ8 e-tron (20 inch wheels)"
+},
+{
+"text": "SQ8 e-tron (21/22 inch wheels)",
+"value": "SQ8 e-tron (21/22 inch wheels)"
+},
+{
+"text": "SQ8 Sportback e-tron (20 inch wheels)",
+"value": "SQ8 Sportback e-tron (20 inch wheels)"
+},
+{
+"text": "SQ8 Sportback e-tron (21/22 inch wheels)",
+"value": "SQ8 Sportback e-tron (21/22 inch wheels)"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2025&make=Audi&model=Q3%20S-Line%20quattro": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "48528"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/48528": {
+"atvType": "",
+"barrels08": "12.935217391304349",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "20",
+"city08U": "20.0221",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "386",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "386.0",
+"comb08": "23",
+"comb08U": "23.0626",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2024-09-18T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "SVGAT02.0A3T",
+"id": "48528",
+"salesArea": "3",
+"score": "6.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B30",
+"stdText": "Federal Tier 3 Bin 30"
+},
+{
+"efid": "SVGAT02.0A3T",
+"id": "48528",
+"salesArea": "7",
+"score": "6.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3SULEV30",
+"stdText": "California LEV-III SULEV30"
+}
+]
+},
+"engId": "40",
+"eng_dscr": "SIDI",
+"evMotor": "",
+"feScore": "5",
+"fuelCost08": "3550",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "28",
+"highway08U": "28.3185",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "48528",
+"lv2": "0",
+"lv4": "0",
+"make": "Audi",
+"mfrCode": "VGA",
+"model": "Q3 S-Line quattro",
+"modifiedOn": "2025-01-27T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "25.3",
+"UCityA": "0.0",
+"UHighway": "40.3",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2025",
+"youSaveSpend": "-5750",
+"baseModel": "Q3",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2026&make=Volvo": {
+"menuItem": [
+{
+"text": "EC40",
+"value": "EC40"
+},
+{
+"text": "EC40 Twin",
+"value": "EC40 Twin"
+},
+{
+"text": "EX30 Cross Country (18 Inch Wheels)",
+"value": "EX30 Cross Country (18 Inch Wheels)"
+},
+{
+"text": "EX30 Cross Country (19 Inch Wheels)",
+"value": "EX30 Cross Country (19 Inch Wheels)"
+},
+{
+"text": "EX30 Single motor extended range",
+"value": "EX30 Single motor extended range"
+},
+{
+"text": "EX30 Twin Performance",
+"value": "EX30 Twin Performance"
+},
+{
+"text": "EX40",
+"value": "EX40"
+},
+{
+"text": "EX40 Twin",
+"value": "EX40 Twin"
+},
+{
+"text": "EX90",
+"value": "EX90"
+},
+{
+"text": "EX90 (21 Inch Wheels)",
+"value": "EX90 (21 Inch Wheels)"
+},
+{
+"text": "EX90 Twin Motor",
+"value": "EX90 Twin Motor"
+},
+{
+"text": "EX90 Twin Motor (21 Inch Wheels)",
+"value": "EX90 Twin Motor (21 Inch Wheels)"
+},
+{
+"text": "EX90 Twin Motor Performance",
+"value": "EX90 Twin Motor Performance"
+},
+{
+"text": "EX90 Twin Motor Performance (21 Inch Wheels)",
+"value": "EX90 Twin Motor Performance (21 Inch Wheels)"
+},
+{
+"text": "S90 B5",
+"value": "S90 B5"
+},
+{
+"text": "V60CC B5 AWD",
+"value": "V60CC B5 AWD"
+},
+{
+"text": "V90CC B6 AWD",
+"value": "V90CC B6 AWD"
+},
+{
+"text": "XC40 B4",
+"value": "XC40 B4"
+},
+{
+"text": "XC40 B5 AWD",
+"value": "XC40 B5 AWD"
+},
+{
+"text": "XC60 B5 AWD",
+"value": "XC60 B5 AWD"
+},
+{
+"text": "XC60 T8 AWD",
+"value": "XC60 T8 AWD"
+},
+{
+"text": "XC90 B5 AWD",
+"value": "XC90 B5 AWD"
+},
+{
+"text": "XC90 B6 AWD",
+"value": "XC90 B6 AWD"
+},
+{
+"text": "XC90 T8 AWD",
+"value": "XC90 T8 AWD"
+}
+]
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2026&make=Volvo&model=XC40%20B5%20AWD": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "49546"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/49546": {
+"atvType": "Hybrid",
+"barrels08": "11.442692307692308",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "23",
+"city08U": "23.3858",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "343",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "343.0",
+"comb08": "26",
+"comb08U": "25.973",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2025-09-25T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": null,
+"engId": "240",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "44V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3150",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "30",
+"highway08U": "30.034",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "49546",
+"lv2": "0",
+"lv4": "0",
+"make": "Volvo",
+"mfrCode": "VVX",
+"model": "XC40 B5 AWD",
+"modifiedOn": "2025-12-11T00:00:00-05:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "30.0",
+"UCityA": "0.0",
+"UHighway": "43.0",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2026",
+"youSaveSpend": "-3750",
+"baseModel": "XC40",
+"sCharger": "",
+"tCharger": "T"
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2023&make=Volvo&model=XC40%20B5%20AWD": {
+"menuItem": {
+"text": "Auto (S8), 4 cyl, 2.0 L, Turbo",
+"value": "45561"
+}
+},
+"https://www.fueleconomy.gov/ws/rest/vehicle/45561": {
+"atvType": "Hybrid",
+"barrels08": "11.442692307692308",
+"barrelsA08": "0.0",
+"battery": "-1",
+"c240Dscr": "",
+"c240bDscr": "",
+"charge120": "0.0",
+"charge240": "0.0",
+"charge240b": "0.0",
+"city08": "23",
+"city08U": "22.962",
+"cityA08": "0",
+"cityA08U": "0.0",
+"cityCD": "0.0",
+"cityE": "0.0",
+"cityMpk": "0",
+"cityUF": "0.0",
+"cityUmpk": "0.0",
+"co2": "345",
+"co2A": "-1",
+"co2TailpipeAGpm": "0.0",
+"co2TailpipeGpm": "345.0",
+"comb08": "26",
+"comb08U": "25.6208",
+"combA08": "0",
+"combA08U": "0.0",
+"combE": "0.0",
+"combMpk": "0",
+"combUmpk": "0.0",
+"combinedCD": "0.0",
+"combinedUF": "0.0",
+"createdOn": "2022-07-13T00:00:00-04:00",
+"cylDeact": "N",
+"cylDeactYesNo": "No",
+"cylinders": "4",
+"displ": "2.0",
+"drive": "All-Wheel Drive",
+"emissionsList": {
+"emissionsInfo": [
+{
+"efid": "PVVXJ02.0U70",
+"id": "45561",
+"salesArea": "3",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "T3B70",
+"stdText": "Federal Tier 3 Bin 70"
+},
+{
+"efid": "PVVXJ02.0U70",
+"id": "45561",
+"salesArea": "7",
+"score": "5.0",
+"scoreAlt": "-1.0",
+"smartwayScore": "-1",
+"standard": "L3ULEV70",
+"stdText": "California LEV-III ULEV70"
+}
+]
+},
+"engId": "240",
+"eng_dscr": "SIDI; Mild Hybrid",
+"evMotor": "46V Li-Ion",
+"feScore": "5",
+"fuelCost08": "3150",
+"fuelCostA08": "0",
+"fuelType": "Premium",
+"fuelType1": "Premium Gasoline",
+"fuelType2": "",
+"ghgScore": "5",
+"ghgScoreA": "-1",
+"guzzler": "",
+"highway08": "30",
+"highway08U": "29.8444",
+"highwayA08": "0",
+"highwayA08U": "0.0",
+"highwayCD": "0.0",
+"highwayE": "0.0",
+"highwayMpk": "0",
+"highwayUF": "0.0",
+"highwayUmpk": "0.0",
+"hlv": "0",
+"hpv": "0",
+"id": "45561",
+"lv2": "0",
+"lv4": "0",
+"make": "Volvo",
+"mfrCode": "VVX",
+"model": "XC40 B5 AWD",
+"modifiedOn": "2023-06-01T00:00:00-04:00",
+"mpgData": "N",
+"mpgRevised": "false",
+"phevBlended": "false",
+"phevCity": "0",
+"phevComb": "0",
+"phevHwy": "0",
+"pv2": "0",
+"pv4": "0",
+"range": "0",
+"rangeA": "",
+"rangeCity": "0.0",
+"rangeCityA": "0.0",
+"rangeHwy": "0.0",
+"rangeHwyA": "0.0",
+"startStop": "Y",
+"trans_dscr": "",
+"trany": "Automatic (S8)",
+"UCity": "29.4",
+"UCityA": "0.0",
+"UHighway": "42.7",
+"UHighwayA": "0.0",
+"VClass": "Small Sport Utility Vehicle 4WD",
+"year": "2023",
+"youSaveSpend": "-3750",
+"baseModel": "XC40",
+"sCharger": "",
+"tCharger": "T"
+}
+}

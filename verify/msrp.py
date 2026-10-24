@@ -35,7 +35,9 @@ def lookup(make: str, model: str, trim_text: str, year: int | None, fuel: str = 
     for r in _rows():
         if r["make"].lower() not in mk:
             continue
-        if r["model"].lower().replace("-", " ") not in md and r["model"].lower().replace("-", " ") not in text:
+        rm = r["model"].lower().replace("-", " ")
+        # "EQE SUV" also matches an "EQE 350" whose body type (added to the text by fill) is SUV
+        if rm not in md and rm not in text and not all(w in text.split() for w in rm.split()):
             continue
         if year < int(r.get("min_year") or 0) or year > int(r.get("max_year") or 9999):
             continue
@@ -52,6 +54,8 @@ def fill(L) -> None:
     if L.msrp_new:
         L.msrp_source = L.msrp_source or "listing"
         return
-    hit = lookup(L.make, L.model, f"{L.model} {L.trim} {L.title} {L.listing_url}", L.year, L.fuel_type)
+    # the body type from the VIN ("SUV") tells an EQE 350 SUV from the sedan when the dealer's trim doesn't say
+    text = f"{L.model} {L.trim} {L.title} {L.listing_url} {getattr(L, 'body', '') or ''}"
+    hit = lookup(L.make, L.model, re.sub(r"\b(eq[a-z])(\d{3})", r"\1 \2", text, flags=re.I), L.year, L.fuel_type)
     if hit:
         L.msrp_new, L.msrp_source = hit[0], "trim base"

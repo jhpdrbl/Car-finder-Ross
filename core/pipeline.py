@@ -79,10 +79,17 @@ TINY_SITEMAP = 20       # a dealer's sitemap lists hundreds of pages; fewer than
 
 
 def homepage_status(home: str) -> tuple[bool, str]:
-    try:
-        r = fetcher().get(home.rstrip("/") + "/")
-    except FetchError as e:
-        return False, f"homepage unreachable ({str(e)[:80]})"
+    for wait in (15, None):
+        try:
+            r = fetcher().get(home.rstrip("/") + "/")
+            break
+        except FetchError as e:
+            # a broken connection gets one more try (Oct 24 2026: a few minutes without a working connection
+            # wrote off ~30 dealers, and feed cars at 'blocked' dealers lost their sunroof/sound/seat details)
+            if wait and re.search(r"SSLError|ConnectionError|ConnectTimeout|ReadTimeout|ProxyError", str(e)):
+                time.sleep(wait)
+                continue
+            return False, f"homepage unreachable ({str(e)[:80]})"
     if r.status_code in (401, 403, 429, 503) or (r.status_code >= 500):
         body = r.text[:4000].lower()
         why = ("Cloudflare bot protection" if "cloudflare" in body else

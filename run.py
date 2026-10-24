@@ -212,6 +212,7 @@ def prepare(listings, decodes) -> None:
     from verify import msrp, vin_decode
     for L in listings:
         d = decodes.get(L.vin) or {}
+        L.make = canon_make(L.make)
         if L.fuel_type != "ev" or d:
             L.fuel_type = vin_decode.fuel_class(d) if d else (L.fuel_type or "gas")
             name = f"{L.model} {L.trim} {L.title}".lower()
@@ -222,10 +223,17 @@ def prepare(listings, decodes) -> None:
                 L.fuel_type = "phev"            # AMG C 63 S E PERFORMANCE / E 53 HYBRID: some VIN records leave out the plug-in
         if not L.seats:
             L.seats = seat_material(" ".join(L.features), L.int_color)
-        msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
         L.body = criteria.body_kind(L, d)          # "SUV" / "Sedan" (dashboard filter)
+        msrp.fill(L)                               # original sticker price: the page's, else the trim's base MSRP
         if L.body == "Sedan" and L.fuel_type == "hybrid" and not L.mpg_combined:
             fill_mpg(L)                            # hybrid sedans must average 40+ mpg (filters.sedans.hybrid_min_mpg)
+
+
+def canon_make(make: str) -> str:
+    """'CADILLAC' -> 'Cadillac' (some dealer sites shout; the dashboard's brand filter listed Cadillac twice, Oct 2026)."""
+    from core import criteria
+    m = (make or "").strip()
+    return {k.lower(): k for k in criteria.MODELS}.get(m.lower(), m)
 
 
 def evaluate_row(L0, dealer: dict, d: dict, listings, excluded: dict, confirmed: dict, today: str) -> dict:
@@ -384,8 +392,13 @@ def rescore(args) -> None:
                         audio=r["audio"], leather=b.get(r["leather"]), seats=r.get("seats", ""), sunroof=b.get(r["sunroof"]),
                         ventilated_seats=b.get(r["ventilated_seats"]), spare_tire=b.get(r["spare_tire"]),
                         ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
-                        msrp_source=r.get("msrp_source", ""))
+                        msrp_source=r.get("msrp_source", ""), body=r.get("body", ""))
             apply_confirmed(L, confirmed.get(L.vin.upper()))
+            L.make = r["make"] = canon_make(L.make)
+            if not L.mpg_combined and L.fuel_type != "ev":      # EPA figure missing (fueleconomy.gov unreachable that run)
+                fill_mpg(L)
+                if L.mpg_combined:
+                    r.update(mpg_city=L.mpg_city, mpg_hwy=L.mpg_hwy, mpg_combined=L.mpg_combined, mpg_source=L.mpg_source)
             msrp.fill(L)
             L.ext_color = criteria.full_color_name(L.make, L.ext_color)
             r["msrp_new"], r["msrp_source"], r["ext_color"] = L.msrp_new or "", L.msrp_source, L.ext_color
