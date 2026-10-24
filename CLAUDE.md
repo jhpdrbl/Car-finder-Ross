@@ -98,7 +98,7 @@ each buyer evaluates a deep copy of the listing).
 **How the user runs it (decided Oct 19 2026): by themselves, the same way on the laptop as on the iPad.**
 `LAPTOP.md`: Python from python.org, the project downloaded as a zip to `$HOME\Car-finder-Ross` (no git clone, no
 `.venv`), `pip install -r requirements.txt` + Playwright, then `python search.py` (own GitHub token in `.github_token`).
-On Windows `search.py` (`LAPTOP = os.name == "nt"`) keeps the SQLite cache and 24 workers, pip-installs requirements
+On Windows `search.py` (`LAPTOP = os.name == "nt"`) uses 24 workers (page cache in memory on every machine since Oct 24 2026: the SQLite cache failed with "DatabaseError: another row available" once feeds and dealers ran side by side), pip-installs requirements
 after updating, and commits "Results from laptop run". `scheduled-refresh.bat` runs `search.py` when the folder has no
 `.git` (one line, so a self-update can't corrupt the running .bat; `ipad.update` skips unchanged files). The Claude-on-
 the-laptop route below still works for a git clone, but the user no longer needs Claude to run the refresh.
@@ -171,7 +171,7 @@ token in `.github_token` (gitignored). `python search.py check` = dry run agains
 Playwright on iPad (browser-only dealer sites fail; matters for Audi), no `lxml` (falls back to
 `html.parser`, same results in testing), a-Shell must stay in the foreground. **The SQLite page cache
 deadlocks in a-Shell with many threads** (first iPad run, Oct 15 2026: every dealer thread stuck in
-`requests_cache/backends/sqlite.py`), so `search.py` sets `CARFINDER_CACHE=memory` and `--workers 12`. The upload path was
+`requests_cache/backends/sqlite.py`), so `search.py` uses `--workers 12` there (the cache is in memory everywhere now; `scrapers/base.py`). The upload path was
 tested on the user's first iPad run (Oct 15 2026): search 11.9 min, upload worked. Coverage from the
 iPad was about the same as from the cloud (94 read / 85 failed): most blocking is bot detection of
 non-browser clients, not IP-based, so expect similar from the laptop without Playwright.

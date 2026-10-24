@@ -106,11 +106,13 @@ class Fetcher:
     def __init__(self, cache_name: str = ".cache/http", use_cache: bool = True):
         (ROOT / ".cache").mkdir(exist_ok=True)
         if use_cache:
-            # CARFINDER_CACHE=memory (set by search.py): on the iPad (a-Shell) the SQLite cache deadlocks
-            # when many threads share it, so pages are kept in memory for the run instead.
+            # Pages are kept in memory for the run. The SQLite cache breaks when many threads share it:
+            # it deadlocked on the iPad (Oct 15 2026) and failed with "DatabaseError: another row available"
+            # on the laptop once feeds and dealer sites ran side by side (Oct 24 2026). Runs are a day apart
+            # and the cache only lasts 6 h, so keeping it on disk gained little. CARFINDER_CACHE=sqlite brings it back.
             self.session = requests_cache.CachedSession(
                 str(ROOT / cache_name),
-                backend=os.environ.get("CARFINDER_CACHE", "sqlite"),
+                backend=os.environ.get("CARFINDER_CACHE", "memory"),
                 expire_after=SCRAPE["cache_hours"] * 3600,
                 allowable_codes=(200, 301, 302, 404),
                 allowable_methods=("GET", "POST"),
