@@ -632,7 +632,13 @@ tr.disliked > td.car { opacity:.8; }
 td.car { position:relative; }
 td.car.has-sticker { padding-right:34px; }
 .stickerok { position:absolute; top:8px; right:6px; width:22px; height:22px; border-radius:50%; background:#1f8a3b; color:#fff;
-  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:900; line-height:1; box-shadow:0 0 0 2px var(--surface); }
+  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:900; line-height:1; box-shadow:0 0 0 2px var(--surface);
+  border:0; padding:0; cursor:pointer; font-family:inherit; }
+/* its label: on hover (laptop) or after a tap (iPad / phone); a tap anywhere else closes it */
+.stickerok::after { content:attr(data-tip); position:absolute; top:calc(100% + 6px); right:0; white-space:nowrap; z-index:5;
+  background:var(--fg); color:var(--bg); font-size:12px; font-weight:600; padding:5px 8px; border-radius:6px;
+  opacity:0; pointer-events:none; transition:opacity .12s; }
+.stickerok:hover::after, .stickerok.open::after, .stickerok:focus-visible::after { opacity:1; }
 #fav-gone ul { margin:4px 0 12px; padding-left:18px; }
 .cmpbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--surface); border:1px solid var(--accent);
   border-radius:8px; padding:8px 10px; font-size:14px; }
@@ -1418,7 +1424,7 @@ function renderRows() {
     || `<tr><td colspan="12" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
-    <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<span class="stickerok" title="Original window sticker checked" aria-label="Original window sticker checked">&#10003;</span>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
+    <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<button type="button" class="stickerok" data-tip="Features verified by window sticker" aria-label="Features verified by window sticker">&#10003;</button>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
       <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button></td>
     <td class="num p-year" data-l="Year">${esc(c.year)}</td>
@@ -1508,6 +1514,11 @@ document.getElementById("cut-tile").addEventListener("click", () => {
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });
+document.addEventListener("click", e => {      // the green check: a tap shows "Features verified by window sticker"
+  const b = e.target.closest(".stickerok");
+  document.querySelectorAll(".stickerok.open").forEach(x => { if (x !== b) x.classList.remove("open"); });
+  if (b) b.classList.toggle("open");
+});
 document.getElementById("clear").addEventListener("click", () => {
   document.querySelectorAll(".filters input[type=checkbox]").forEach(i => i.checked = false);
   document.getElementById("q").value = ""; resetPrice(); resetMiles(); clearS.reset(); rangeS.reset(); render(); });
