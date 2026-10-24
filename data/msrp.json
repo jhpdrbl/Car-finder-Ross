@@ -12683,6 +12683,127 @@
 "msrp": 73275,
 "note": "2024 I-Pace R-Dynamic HSE incl. $1,275 destination",
 "source": "https://media.jlr.com/jaguar/en-us/news/2023/06/whats-new-jaguar-2024-model-year-highlights"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": ".*",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "ev",
+"msrp": 64990,
+"note": "2023 Lyriq AWD (Debut / Luxury), destination included",
+"source": "https://media.cadillac.com/media/us/en/cadillac/home.detail.html/content/Pages/news/us/en/2022/may/0516-lyriq.html"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": "tech",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "ev",
+"msrp": 62090,
+"note": "2024 Lyriq Tech AWD incl. $1,395 destination (AWD = RWD + $3,500)",
+"source": "GM Authority / Motor Authority (secondary, via search summaries)"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": ".*",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "ev",
+"msrp": 66190,
+"note": "2024 Lyriq Luxury 1 AWD incl. $1,395 destination (Sport about the same)",
+"source": "GM Authority / Motor Authority (secondary, via search summaries)"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": "(?=.*(lyriq[- ]?v\\b|v[- ]series))(?=.*premium)",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 85590,
+"note": "2026 Lyriq-V Premium: $83,795 + $1,795",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": "lyriq[- ]?v\\b|v[- ]series",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 80390,
+"note": "2026 Lyriq-V: $78,595 + $1,795",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": "signature",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 70095,
+"note": "2026 Lyriq Signature: $67,800-68,300 + $1,795 destination; RWD base, AWD extra",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": "premium",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 65495,
+"note": "2026 Lyriq Premium: $63,200-63,700 + $1,795; RWD base, AWD extra",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Lyriq",
+"trim_regex": ".*",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 61495,
+"note": "2026 Lyriq Luxury/Sport: $59,200-59,700 + $1,795; RWD base, AWD extra",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Optiq",
+"trim_regex": "optiq[- ]?v\\b|v[- ]series",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 69095,
+"note": "2026 Optiq-V: $67,300 + $1,795 destination",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Optiq",
+"trim_regex": "premium",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 58895,
+"note": "2026 Optiq Premium AWD: $56,600-57,100 + $1,795",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
+},
+{
+"make": "Cadillac",
+"model": "Optiq",
+"trim_regex": ".*",
+"min_year": 2026,
+"max_year": 2026,
+"fuel": "ev",
+"msrp": 55895,
+"note": "2026 Optiq Luxury/Sport AWD: $53,495-54,100 + $1,795",
+"source": "https://www.cadillac.com (2026 pricing, $1,795 destination)"
 }
 ]
 }

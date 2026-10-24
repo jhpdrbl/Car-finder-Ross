@@ -908,6 +908,33 @@
    "to_year": 2024,
    "inches": 6.4,
    "source": "JLR US E-Pace spec sheet (2020, same generation)"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Lyriq",
+   "trim_regex": "lyriq[- ]?v\\b|v[- ]series",
+   "from_year": 2026,
+   "to_year": 2026,
+   "inches": 6.1,
+   "source": "cadillac.com spec pages"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Lyriq",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2026,
+   "inches": 7.0,
+   "source": "cadillac.com spec pages (2023-24 same body)"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Optiq",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2026,
+   "inches": 6.0,
+   "source": "cadillac.com spec pages"
   }
  ],
  "ev_range": [
@@ -2710,6 +2737,36 @@
    "to_year": 2024,
    "miles": 246,
    "source": "fueleconomy.gov (20-in wheels; 217 mi on 22-in wheels)"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Lyriq",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 307,
+   "source": "fueleconomy.gov (AWD)"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Optiq",
+   "fuel": "ev",
+   "trim_regex": "optiq[- ]?v\\b|v[- ]series",
+   "from_year": 2026,
+   "to_year": 2026,
+   "miles": 278,
+   "source": "fueleconomy.gov (11 kW charger; 250 mi with the 19 kW package)"
+  },
+  {
+   "make": "Cadillac",
+   "model": "Optiq",
+   "fuel": "ev",
+   "trim_regex": "",
+   "from_year": 2025,
+   "to_year": 2025,
+   "miles": 302,
+   "source": "Cadillac's figure (not on fueleconomy.gov)"
   }
  ]
 }

@@ -23850,6 +23850,517 @@
      ]
     }
    ]
+  },
+  {
+   "make": "Cadillac",
+   "model": "Lyriq",
+   "on_list_rule": "Electric 2-row SUV. Every Lyriq has a fixed panoramic glass roof (counts as a sunroof). Every trim comes as RWD or AWD, and only AWD passes, so check the listing says AWD. Black interior = 'Noir' (with blue or gray accents). Seats are Inteluxe (synthetic leather) unless the Nappa leather option. AKG audio is standard only on the upper trims (2026: Premium / Signature; 2024-25: optional on Luxury/Sport, partly inferred). The 2026 Lyriq-V is AWD only. Paints that pass: Stellar Black, Celestial, Argent Silver, Emerald Lake, Satin Steel (gloss). Fail: Nimbus (blue), Opulent Blue, Crystal White, Radiant Red, Magnus Metal Frost (matte).",
+   "sources": [
+    "https://www.cadillac.com/electric/preceding-year/lyriq",
+    "https://www.cadillac.com/electric/preceding-year/lyriq/specs",
+    "https://vedo.gm.com/delivery/experience/74f78b48-ef4b-450c-b6a2-bbe82fe6b8ab",
+    "https://www.cadillac.com/electric/preceding-year/optiq",
+    "https://www.cadillac.com/electric/preceding-year/optiq/specs",
+    "https://news.cadillac.com/newsroom.detail.html/Pages/news/us/en/2024/may/0529-optiq.html",
+    "https://news.gm.com/home.detail.html/Pages/news/us/en/2025/jun/0609-optiq-v.html",
+    "https://news.gm.com/home.detail.html/Pages/news/us/en/2025/jan/0123-lyriq-v.html",
+    "https://media.gm.com/content/dam/Media/images/US/Vehicles/Cadillac/LYRIQ/2024/2024-Cadillac-LYRIQ-060223.pdf",
+    "https://media.cadillac.com/content/dam/Media/images/EUR/Vehicles/Cadillac/LYRIQ/specs/231018_2024-CADILLAC-LYRIQ-SPECIFICATIONS-ENGLISH.pdf",
+    "https://media.cadillac.com/media/us/en/cadillac/home.detail.html/content/Pages/news/us/en/2022/may/0516-lyriq.html",
+    "https://news.cadillac.com/newsroom.detail.html/Pages/news/us/en/2021/apr/0421-lyriq.html",
+    "https://news.cadillac.com/newsroom.detail.html/Pages/topic/us/en/2026/sep/0923-cadillac-evs-buy-now.html",
+    "https://www.cadillac.com/destination-freight-charges",
+    "https://www.cadillac.com/certified-pre-owned",
+    "https://contentdelivery.ext.gm.com/bypass/gma-content-api/resources/sites/GMA/content/staging/MANUALS/9000/MA9264/en_US/3.0/25_CAD_Electric_Vehicle_WM_en_US_U_18456082A_2024JUN25.pdf",
+    "https://contentdelivery.ext.gm.com/bypass/gma-content-api/resources/sites/GMA/content/staging/MANUALS/5000/MA5693/en_US/5.0/23_CAD_Electric_Vehicle_WM_en_US_U_16451725A_2022MAR10.pdf",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2023..2026&make=Cadillac (ids listed per entry)",
+    "Secondary, search-result summaries only (pages not opened): gmauthority.com 2024 Lyriq pricing/interiors/colors, 2025 Lyriq pricing/colors/interiors, 2025 Optiq colors/interiors, 2026 Lyriq trim renames; motorauthority.com and greencarreports.com 2025 Lyriq price"
+   ],
+   "years": [
+    {
+     "year": 2023,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "Luxury / Debut Edition (single 2023 trim)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "RWD single motor 340 hp, 325 lb-ft; AWD dual motor ~500 hp (Cadillac est.) (RWD or AWD (AWD = second motor up front); only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "33-in curved LED display",
+        "Super Cruise available",
+        "19.2 kW Level 2 / 190 kW DC charging",
+        "AKG Studio 19 speakers",
+        "illuminated grille, choreographed lighting"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade (no opening roof in 2023)",
+       "premium_audio": "AKG Studio 19-speaker with headrest speakers (presented as a LYRIQ feature in the 2022 release; standard on 2023 per those releases, not stated as optional)",
+       "seats": "synthetic leather (Inteluxe); real leather not offered until 2024",
+       "black_interior": "black: Noir",
+       "spare": "no spare (self-sealing tires); 2023 not separately confirmed",
+       "mpg": "EPA range RWD: 312 mi, AWD: 307 mi"
+      }
+     ]
+    },
+    {
+     "year": 2024,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "Tech",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "RWD 340 hp; AWD 500 hp (RWD or AWD; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "entry trim",
+        "20-in split 6-spoke wheels",
+        "Intersection AEB available (Driver Assist Pkg)",
+        "33-in display"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade (opening sunroof not offered on Tech)",
+       "premium_audio": "not AKG (AKG 19 'available on Luxury and Sport' only); base system speaker count unknown",
+       "seats": "synthetic leather (Inteluxe)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "no spare (self-sealing tires)",
+       "mpg": "electric"
+      },
+      {
+       "name": "Luxury (1/2/3)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "RWD 340 hp; AWD 500 hp (RWD or AWD; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "choreographed lighting",
+        "Galvano chrome trim",
+        "black painted roof available (not with Stellar Black)",
+        "tri-zone climate / heated rear seats available",
+        "Intersection AEB standard"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade; optional panoramic power-opening sunroof with power sunshade",
+       "premium_audio": "AKG Studio 19-speaker available on Luxury (standard on which levels: unknown)",
+       "seats": "synthetic leather (Inteluxe); Nappa leather package optional (Luxury 3 per GM Authority)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "no spare (self-sealing tires)",
+       "mpg": "electric"
+      },
+      {
+       "name": "Sport (1/2/3)",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "RWD 340 hp; AWD 500 hp (RWD or AWD; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "Obsidian chrome / gloss black trim",
+        "20-in Dynamic 12-spoke wheels (1SF/1SJ), 22-in on 1SK",
+        "black roof available",
+        "Intersection AEB standard"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade; optional panoramic power-opening sunroof",
+       "premium_audio": "AKG Studio 19-speaker available on Sport (standard levels unknown)",
+       "seats": "synthetic leather (Inteluxe); Nappa optional (Sport 3)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "no spare (self-sealing tires)",
+       "mpg": "electric"
+      }
+     ]
+    },
+    {
+     "year": 2025,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "Luxury 1 / Sport 1",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "RWD 365 hp 325 lb-ft; AWD 515 hp 450 lb-ft (Cadillac est.) (RWD or AWD; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "33-in display",
+        "Galvano (Luxury) / Obsidian (Sport) chrome",
+        "11.5 kW charging"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade",
+       "premium_audio": "probably not AKG: the 2026 equivalents (Luxury/Sport) have a 7-speaker system and AKG starts at Premium; 2025 not confirmed",
+       "seats": "synthetic leather (Inteluxe)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "no spare (self-sealing tires)",
+       "mpg": "electric"
+      },
+      {
+       "name": "Luxury 2 / Sport 2",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as above (RWD or AWD; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "ventilated/massaging front seats",
+        "hands-free liftgate",
+        "rear camera mirror"
+       ],
+       "sunroof": "standard fixed glass roof; power-opening panoramic sunroof optional (2026 equivalent: 'Power SkyGlass' available)",
+       "premium_audio": "AKG Studio 19-speaker standard (inferred from 2026 change '19-speaker AKG replaced by 23-speaker'; secondary (GM Authority / Motor Authority / Green Car Reports, seen only as web-search summaries; their pages could not be opened))",
+       "seats": "synthetic leather (Inteluxe)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "no spare",
+       "mpg": "electric"
+      },
+      {
+       "name": "Luxury 3 / Sport 3",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as above (RWD or AWD; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "AR head-up display",
+        "22-in wheels",
+        "heated rear seats, tri-zone climate",
+        "Super Cruise"
+       ],
+       "sunroof": "standard fixed glass roof; power-opening panoramic sunroof optional",
+       "premium_audio": "AKG Studio 19-speaker standard (inferred, as above)",
+       "seats": "synthetic leather (Inteluxe) standard; Nappa leather package optional",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "no spare",
+       "mpg": "electric"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "Luxury",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "RWD 365 hp/325 lb-ft; AWD 515 hp/450 lb-ft (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "Super Cruise standard (3-yr plan)",
+        "33-in display",
+        "heated front seats & wheel",
+        "20-in wheels"
+       ],
+       "sunroof": "standard fixed glass roof with power shade ('SkyGlass')",
+       "premium_audio": "none: standard 7-speaker system (no AKG)",
+       "seats": "synthetic leather (Inteluxe, perforated)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none (self-sealing 265/50R20 tires)",
+       "mpg": "electric"
+      },
+      {
+       "name": "Premium Luxury",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as Luxury (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "AKG 23 speakers",
+        "ventilated & massaging front seats",
+        "hands-free liftgate",
+        "rear camera mirror",
+        "19.2 kW charging optional"
+       ],
+       "sunroof": "standard fixed glass roof; Power SkyGlass (power-opening dual-panel panoramic sunroof) optional",
+       "premium_audio": "standard AKG Studio 23-speaker with Dolby Atmos",
+       "seats": "synthetic leather (Inteluxe)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Signature Luxury",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as Luxury (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "AR head-up display",
+        "22-in wheels",
+        "heated rear seats",
+        "tri-zone climate"
+       ],
+       "sunroof": "standard fixed glass roof; Power SkyGlass optional",
+       "premium_audio": "standard AKG Studio 23-speaker with Dolby Atmos",
+       "seats": "synthetic leather (Inteluxe) standard; Nappa leather (no-cost color choice) for Oxford Stone / Juniper",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Sport",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as Luxury (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "Obsidian chrome",
+        "sport grille",
+        "20-in 12-spoke wheels",
+        "Super Cruise"
+       ],
+       "sunroof": "standard fixed glass roof with power shade",
+       "premium_audio": "none: standard 7-speaker",
+       "seats": "synthetic leather (Inteluxe)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Premium Sport",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as Luxury (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "AKG 23 speakers",
+        "ventilated/massaging seats",
+        "hands-free liftgate"
+       ],
+       "sunroof": "standard fixed glass roof; Power SkyGlass optional",
+       "premium_audio": "standard AKG Studio 23-speaker with Dolby Atmos",
+       "seats": "synthetic leather (Inteluxe)",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Signature Sport",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as Luxury (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "AR HUD",
+        "22-in wheels",
+        "heated rear seats",
+        "tri-zone climate"
+       ],
+       "sunroof": "standard fixed glass roof; Power SkyGlass optional",
+       "premium_audio": "standard AKG Studio 23-speaker with Dolby Atmos",
+       "seats": "synthetic leather standard; Nappa leather for Oxford Stone / Juniper",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Lyriq-V V-Series",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor 615 hp / 650 lb-ft in Velocity Max, 0-60 3.3 s",
+       "builds_on": "",
+       "highlights": [
+        "615 hp, launch control",
+        "Brembo front brakes",
+        "adaptive CDC dampers, lower suspension",
+        "22-in wheels, summer tires",
+        "black roof standard"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade; black painted roof standard",
+       "premium_audio": "standard AKG Studio 23-speaker with Dolby Atmos",
+       "seats": "synthetic leather (Inteluxe), V-Series front seats",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Lyriq-V V-Series Premium",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as V-Series",
+       "builds_on": "",
+       "highlights": [
+        "Nappa leather",
+        "opening sunroof",
+        "19.2 kW charging",
+        "Magnus Metal Frost (matte) offered"
+       ],
+       "sunroof": "standard power-opening dual-panel panoramic sunroof with power shade",
+       "premium_audio": "standard AKG Studio 23-speaker with Dolby Atmos",
+       "seats": "leather (Nappa Leather Package standard)",
+       "black_interior": "black: Noir with Sky Cool Gray accents",
+       "spare": "none",
+       "mpg": "electric"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "make": "Cadillac",
+   "model": "Optiq",
+   "on_list_rule": "Smaller electric 2-row SUV, 2025+. Every 2025 Optiq is AWD; 2026 adds a RWD version (fails). Fixed panoramic glass roof and AKG 19-speaker audio standard on every Optiq. Inteluxe (synthetic) seats with fabric accents. Black interior = 'Noir'. 2025 trim prices and colors weren't confirmed.",
+   "sources": [
+    "https://www.cadillac.com/electric/preceding-year/lyriq",
+    "https://www.cadillac.com/electric/preceding-year/lyriq/specs",
+    "https://vedo.gm.com/delivery/experience/74f78b48-ef4b-450c-b6a2-bbe82fe6b8ab",
+    "https://www.cadillac.com/electric/preceding-year/optiq",
+    "https://www.cadillac.com/electric/preceding-year/optiq/specs",
+    "https://news.cadillac.com/newsroom.detail.html/Pages/news/us/en/2024/may/0529-optiq.html",
+    "https://news.gm.com/home.detail.html/Pages/news/us/en/2025/jun/0609-optiq-v.html",
+    "https://news.gm.com/home.detail.html/Pages/news/us/en/2025/jan/0123-lyriq-v.html",
+    "https://media.gm.com/content/dam/Media/images/US/Vehicles/Cadillac/LYRIQ/2024/2024-Cadillac-LYRIQ-060223.pdf",
+    "https://media.cadillac.com/content/dam/Media/images/EUR/Vehicles/Cadillac/LYRIQ/specs/231018_2024-CADILLAC-LYRIQ-SPECIFICATIONS-ENGLISH.pdf",
+    "https://media.cadillac.com/media/us/en/cadillac/home.detail.html/content/Pages/news/us/en/2022/may/0516-lyriq.html",
+    "https://news.cadillac.com/newsroom.detail.html/Pages/news/us/en/2021/apr/0421-lyriq.html",
+    "https://news.cadillac.com/newsroom.detail.html/Pages/topic/us/en/2026/sep/0923-cadillac-evs-buy-now.html",
+    "https://www.cadillac.com/destination-freight-charges",
+    "https://www.cadillac.com/certified-pre-owned",
+    "https://contentdelivery.ext.gm.com/bypass/gma-content-api/resources/sites/GMA/content/staging/MANUALS/9000/MA9264/en_US/3.0/25_CAD_Electric_Vehicle_WM_en_US_U_18456082A_2024JUN25.pdf",
+    "https://contentdelivery.ext.gm.com/bypass/gma-content-api/resources/sites/GMA/content/staging/MANUALS/5000/MA5693/en_US/5.0/23_CAD_Electric_Vehicle_WM_en_US_U_16451725A_2022MAR10.pdf",
+    "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2023..2026&make=Cadillac (ids listed per entry)",
+    "Secondary, search-result summaries only (pages not opened): gmauthority.com 2024 Lyriq pricing/interiors/colors, 2025 Lyriq pricing/colors/interiors, 2025 Optiq colors/interiors, 2026 Lyriq trim renames; motorauthority.com and greencarreports.com 2025 Lyriq price"
+   ],
+   "years": [
+    {
+     "year": 2025,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "Luxury 1 / Sport 1",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "dual motor AWD, 300 hp / 354 lb-ft",
+       "builds_on": "",
+       "highlights": [
+        "Super Cruise",
+        "33-in display",
+        "AKG 19 speakers standard",
+        "20-in wheels"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade",
+       "premium_audio": "standard AKG 19-speaker with Dolby Atmos",
+       "seats": "synthetic leather (Inteluxe) with patterned fabric accents",
+       "black_interior": "black: Noir with Santorini Blue accents",
+       "spare": "none; 245/50R20 tires with sealant",
+       "mpg": "electric"
+      },
+      {
+       "name": "Luxury 2 / Sport 2",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "as above",
+       "builds_on": "",
+       "highlights": [
+        "head-up display",
+        "ventilated/massaging front seats",
+        "heated rear seats",
+        "choreographed lighting",
+        "21-in wheels optional"
+       ],
+       "sunroof": "standard fixed panoramic glass roof with power shade",
+       "premium_audio": "standard AKG 19-speaker with Dolby Atmos",
+       "seats": "synthetic leather (Inteluxe, perforated) with patterned fabric",
+       "black_interior": "black: Noir (perforated)",
+       "spare": "none; tires with sealant",
+       "mpg": "electric"
+      }
+     ]
+    },
+    {
+     "year": 2026,
+     "what_changed": "",
+     "trims": [
+      {
+       "name": "Luxury",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": " (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "Super Cruise standard",
+        "33-in display",
+        "NACS port",
+        "20-in wheels"
+       ],
+       "sunroof": "standard SkyGlass fixed glass roof with power shade",
+       "premium_audio": "standard AKG 19-speaker Studio Surround, Dolby Atmos available",
+       "seats": "synthetic leather (Inteluxe) with patterned accent fabric",
+       "black_interior": "Noir / Sky Cool Gray likely (not listed per trim on cadillac.com)",
+       "spare": "none (sealant tires)",
+       "mpg": "electric"
+      },
+      {
+       "name": "Premium Luxury",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": " (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "HUD",
+        "ventilated/massaging front seats",
+        "heated rear seats",
+        "choreographed lighting"
+       ],
+       "sunroof": "standard SkyGlass fixed roof",
+       "premium_audio": "standard AKG 19-speaker",
+       "seats": "synthetic leather (Inteluxe) with patterned fabric",
+       "black_interior": "Noir (assumed), plus Autumn Canyon and Phantom Blue (both fail)",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Sport",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": " (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "Obsidian chrome",
+        "sport grille",
+        "20-in Dark Android wheels"
+       ],
+       "sunroof": "standard SkyGlass fixed roof",
+       "premium_audio": "standard AKG 19-speaker",
+       "seats": "synthetic leather (Inteluxe) with patterned fabric",
+       "black_interior": "",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Premium Sport",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": " (RWD std, AWD optional; only AWD passes)",
+       "builds_on": "",
+       "highlights": [
+        "HUD",
+        "ventilated seats",
+        "21-in wheels optional"
+       ],
+       "sunroof": "standard SkyGlass fixed roof",
+       "premium_audio": "standard AKG 19-speaker",
+       "seats": "synthetic leather (Inteluxe) with patterned fabric",
+       "black_interior": "as Premium Luxury",
+       "spare": "none",
+       "mpg": "electric"
+      },
+      {
+       "name": "Optiq-V OPTIQ-V",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "519 hp / 650 lb-ft in Velocity Max",
+       "builds_on": "",
+       "highlights": [
+        "519 hp",
+        "Brembo front brakes",
+        "CDC adaptive dampers",
+        "21-in wheels",
+        "limited colors Magnus Metal Frost (matte) / Deep Ocean Tintcoat"
+       ],
+       "sunroof": "standard panoramic fixed glass roof; black painted roof standard",
+       "premium_audio": "standard AKG 19-speaker",
+       "seats": "synthetic leather (Inteluxe, perforated) with V-Series seats",
+       "black_interior": "black: Noir with Santorini Blue accents, Noir and Sky Cool Gray with Santorini Blue accents",
+       "spare": "none",
+       "mpg": "EPA range 11kW: 278 mi, 19kW (Charging and Convenience Pkg 2): 250 mi"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

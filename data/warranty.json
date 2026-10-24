@@ -1316,6 +1316,73 @@
     "https://www.jaguar.com/en-us/jdx/certified-preowned/index.html",
     "https://www.jaguar.com/en-us/jdx/all-models/f-pace/models/index.html"
    ]
+  },
+  {
+   "make": "Cadillac",
+   "factory": [
+    {
+     "name": "Bumper-to-Bumper",
+     "years": 4,
+     "miles": 50000,
+     "transfers": "yes",
+     "note": "Cadillac EV limited warranty 4 yr/50,000 mi (covers the drive units; no separate powertrain term on EVs)"
+    },
+    {
+     "name": "EV propulsion battery",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "8 yr/100,000 mi; repaired/replaced if capacity drops below 75%; no deductible"
+    },
+    {
+     "name": "Rust-through",
+     "years": 6,
+     "miles": null,
+     "transfers": "yes",
+     "note": "6 years / unlimited miles (surface corrosion 4 yr/50k)"
+    },
+    {
+     "name": "Roadside / EV towing",
+     "years": 8,
+     "miles": 100000,
+     "transfers": "yes",
+     "note": "EV towing 8 yr/100k; other roadside 6 yr/70k (2025 booklet)"
+    }
+   ],
+   "factory_note": "GM's 2023 and 2025 Cadillac electric vehicle warranty booklets.",
+   "maintenance": "unknown for used cars (not in the warranty booklet)",
+   "cpo": {
+    "program": "Cadillac Certified Pre-Owned",
+    "coverage": [
+     {
+      "name": "CPO Limited Warranty",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "1 year / unlimited miles after the 4 yr/50k bumper-to-bumper ends; deductible not stated on cadillac.com"
+     },
+     {
+      "name": "Roadside assistance",
+      "years": 1,
+      "miles": null,
+      "starts": "end of new-car warranty",
+      "note": "for the life of the CPO warranty, plus courtesy transportation"
+     }
+    ],
+    "summary": "A Cadillac Certified car keeps the rest of the 4-year/50,000-mile factory warranty (and the 8-year/100,000-mile battery warranty), then gets 1 more year of unlimited-mile coverage.",
+    "perks": [
+     "172-point inspection",
+     "vehicle history report",
+     "scheduled maintenance done before sale",
+     "open recalls fixed",
+     "SiriusXM trial"
+    ],
+    "eligibility": "age and mileage limits not stated on cadillac.com (unknown)"
+   },
+   "sources": [
+    "https://contentdelivery.ext.gm.com/bypass/gma-content-api/resources/sites/GMA/content/staging/MANUALS/9000/MA9264/en_US/3.0/25_CAD_Electric_Vehicle_WM_en_US_U_18456082A_2024JUN25.pdf",
+    "https://contentdelivery.ext.gm.com/bypass/gma-content-api/resources/sites/GMA/content/staging/MANUALS/5000/MA5693/en_US/5.0/23_CAD_Electric_Vehicle_WM_en_US_U_16451725A_2022MAR10.pdf"
+   ]
   }
  ]
 }

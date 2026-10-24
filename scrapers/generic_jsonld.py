@@ -227,8 +227,8 @@ SUNROOF = re.compile(r"(sun ?roof|moon ?roof|panoramic (?:glass )?roof|panorama 
 NO_SUNROOF = re.compile(r"(no (?:sun|moon) ?roof|without (?:sun|moon) ?roof|sunroof delete)", re.I)
 AUDIO = re.compile(r"(bang\s*&\s*olufsen|bang and olufsen|\bb&o\b|lexicon|harman[\s/-]*kardon|burmester|"
                    r"bowers\s*(?:&|and)\s*wilkins|mark levinson|\bsonos\b|\bbose\b|meridian (?:surround|premium|audio|sound)|"
-                   r"\bjbl\b|\bkrell\b|\brevel\b (?:premium|audio|sound)|els studio)", re.I)
-_FAKE = (r"(?:leatherette|duoleather|duo leather|luxtec|mb-?tex|sensatec|startex|softex|synthetic leather|vegan leather|nuluxe|artificial leather|"
+                   r"\bjbl\b|\bakg\b|\bkrell\b|\brevel\b (?:premium|audio|sound)|els studio)", re.I)
+_FAKE = (r"(?:leatherette|inteluxe|duoleather|duo leather|luxtec|mb-?tex|sensatec|startex|softex|synthetic leather|vegan leather|nuluxe|artificial leather|"
          r"leather-?like|simulated leather|faux leather|vernasca|leather-?appointed synthetic)")
 _SEAT = r"(?:seat|seats|seating|upholster\w*)"
 FAKE_LEATHER = re.compile(rf"({_FAKE}[^.;|\n]{{0,30}}{_SEAT}|{_SEAT}[^.;|\n]{{0,30}}{_FAKE})", re.I)
@@ -396,6 +396,9 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     da = _data_attrs(html, vin)
     L.ext_color = L.ext_color or da.get("ext_color", "")
     L.int_color = L.int_color or da.get("int_color", "")
+    for attr in ("ext_color", "int_color"):     # a section heading or a word cut from a longer name, not a color
+        if re.fullmatch(r"\s*(mechanical|exterior|interior|safety|entertainment|features?|options?|accents?|trim|n/?a|null)\s*", getattr(L, attr) or "", re.I):
+            setattr(L, attr, "")
     L.mileage = L.mileage if L.mileage is not None else integer(da.get("mileage"))
     if BAD_TRIM.search(L.trim):
         L.trim = ""                  # a features line read as the trim ("Trim: backlighting")
