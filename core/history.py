@@ -50,11 +50,11 @@ def load_exclusions(data: Path = DATA) -> dict[str, str]:
 
 
 def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[str, str], today: str | None = None,
-           run_id: str = "", data: Path = DATA):
+           run_id: str = "", data: Path = DATA, unread: set[str] | None = None):
     """Merge this run into listings.csv. Returns (rows, changes) where changes has new / price / removed lists.
 
     A listing that was active and is not seen again is only marked sold when its dealer
-    (or brand feed) was read successfully this run; otherwise it stays as it was.
+    (or brand feed) was read successfully this run and its page did not fail to load (`unread`); otherwise it stays as it was.
     """
     today = today or date.today().isoformat()
     old = {r["vin"]: r for r in read_csv(data / "listings.csv")}
@@ -91,8 +91,9 @@ def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[st
     for vin, prev in old.items():
         if vin in seen:
             continue
-        if prev.get("status") == "active" and (prev.get("dealer") in scraped_dealers_ok
-                                               or prev.get("listing_url") in gone_urls):
+        unread_page = prev.get("listing_url") in (unread or ()) or vin.upper() in (unread or ())
+        if prev.get("status") == "active" and not unread_page and (prev.get("dealer") in scraped_dealers_ok
+                                                                   or prev.get("listing_url") in gone_urls):
             prev = dict(prev, status="sold", removed_on=today)
             prev["fail_reasons"] = gone_urls.get(prev.get("listing_url"), "no longer listed by the dealer")
             changes["removed"].append(prev)

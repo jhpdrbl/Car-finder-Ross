@@ -320,15 +320,46 @@ def classify_drivetrain(s: str) -> str:
     return ""
 
 
+_CHROME_CLASS = ("navbar", "mega-menu", "megamenu", "site-header", "site-footer", "breadcrumb")
+
+
+def _chrome(t) -> bool:
+    """[role="navigation"], [class*="navbar"], ..., [id*="footer"], [class*="breadcrumb"] without a CSS engine."""
+    a = t.attrs
+    if not a:
+        return False
+    if a.get("role") == "navigation":
+        return True
+    c = a.get("class")
+    if c:
+        c = " ".join(c) if isinstance(c, list) else str(c)
+        if any(w in c for w in _CHROME_CLASS):
+            return True
+    i = a.get("id")
+    return bool(i) and "footer" in str(i)
+
+
+def _carfax_blobs(soup) -> list[str]:
+    out = []
+    for img in soup.find_all(["img", "a"]):
+        blob = " ".join(str(img.get(k, "")) for k in ("src", "alt", "title", "href", "aria-label", "data-src"))
+        if "carfax" in blob.lower():
+            out.append(blob)
+    return out
+
+
 def parse_vdp(html: str, url: str) -> Listing | None:
     """Parse one dealer VDP. Returns None when the page holds no vehicle."""
     soup = BeautifulSoup(html, PARSER)
     vehicles = _jsonld_vehicles(soup)
+    badge_blobs = _carfax_blobs(soup)       # before the menus and footer are cut: badges can sit anywhere
     for t in soup(["script", "style", "noscript", "svg", "header", "nav", "footer"]):
         t.decompose()
-    for t in soup.select('[role="navigation"], [class*="navbar"], [class*="mega-menu"], [class*="megamenu"], '
-                         '[class*="site-header"], [class*="site-footer"], [id*="footer"], [class*="breadcrumb"]'):
-        t.decompose()
+    # menus, headers, footers, breadcrumbs. One pass over the tags in Python: the same CSS selector through
+    # soupsieve took ~0.5 s a page, and parsing is what limits a run (all threads share one CPU core in Python).
+    for t in [t for t in soup.find_all(True) if _chrome(t)]:
+        if not t.decomposed:
+            t.decompose()
     full_text = soup.get_text("\n", strip=True)
     cut = CUT_MARKERS.search(full_text)
     text = full_text[:cut.start()] if cut and cut.start() > 500 else full_text
@@ -482,11 +513,9 @@ def parse_vdp(html: str, url: str) -> Listing | None:
 
     # CARFAX: badge images/text on the dealer page only (never fetch carfax.com)
     badges = set()
-    for img in BeautifulSoup(html, PARSER).find_all(["img", "a"]):
-        blob = " ".join(str(img.get(k, "")) for k in ("src", "alt", "title", "href", "aria-label", "data-src"))
-        if "carfax" in blob.lower():
-            for b in CARFAX_BADGE.findall(blob):
-                badges.add(b.lower().replace("_", "-").replace(" ", "-"))
+    for blob in badge_blobs:
+        for b in CARFAX_BADGE.findall(blob):
+            badges.add(b.lower().replace("_", "-").replace(" ", "-"))
     for b in CARFAX_BADGE.findall(flat):
         badges.add(b.lower().replace("_", "-").replace(" ", "-"))
     L.carfax_badges = ",".join(sorted(badges))

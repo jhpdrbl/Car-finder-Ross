@@ -27,6 +27,7 @@ def log(msg: str) -> None:
 def refresh(args) -> None:
     from core import criteria, history, outputs, pipeline, profiles
     from scrapers.brand_feeds import SUPPLEMENT_FEEDS
+    from scrapers.listing import url_vin
     from verify import vin_decode
 
     t0 = time.time()
@@ -108,6 +109,9 @@ def refresh(args) -> None:
         if st["status"] == "success":
             ok_dealers |= {d["dealer_name"] for d in by_name.values() if d["brand"] == brand}
     gone = {u: why for r in results for u, why in r.gone}
+    # pages that failed to load (connection broke, odd page): their cars are kept as they were, not marked sold
+    unread = {e.split(": ", 1)[0] for r in results for e in r.errors}
+    unread |= {v for u in list(unread) for v in [url_vin(u) or pipeline._url_vins.get(u)] if v}
     run_id = datetime.now().strftime("%Y-%m-%d %H:%M")
     per_buyer = {}
     for P in buyers:
@@ -132,7 +136,8 @@ def refresh(args) -> None:
     log("3/4 Comparing with the last run")
     updated = {}
     for P in buyers:
-        updated[P.id] = history.update(per_buyer[P.id][0], ok_dealers, gone, today, run_id=run_id, data=P.data)
+        updated[P.id] = history.update(per_buyer[P.id][0], ok_dealers, gone, today, run_id=run_id, data=P.data,
+                                       unread=unread)
 
     log("4/4 Writing digest, dashboard, coverage")
     cov = outputs.coverage_rows(results, feed_stats)

@@ -344,6 +344,10 @@ refresh: about 80 dealers will fail as "blocked". What to do:
   and `/used/` with no VIN in the address) gets carried forward by either URL; carried rows are de-duplicated by VIN.
   Mazda's search sometimes answers "A system error has occurred" with HTTP 200 (the page cache kept it): it's
   forgotten and retried once after 10 s, else the feed fails and Mazda dealer sites are read instead.
+- **Parsing is the real limit** (Oct 24 2026: a full re-read = ~2,100 listing pages; Python threads share one CPU core, and `generic_jsonld.parse_vdp` took ~1.2 s a page, so ~40 min of the 45). It now parses each page once (CARFAX badges collected before the menus are cut) and drops menus/footers with a plain tag pass (`_chrome`) instead of a soupsieve CSS selector: ~0.4 s a page, same output on 28 real pages. Runs whose rules didn't change reuse most rows and read far fewer pages.
+- robots.txt is retried twice (after 5 s and 20 s) when the connection breaks (`base.Fetcher._load_robots`): on Oct 24 2026 the laptop's connection broke for ~5 min and ~30 dealers (Lexus, Kia, Audi, Alfa Glendale) were written off as 'robots.txt unreachable (SSLError)'.
+- **A car whose page failed to load is not marked sold** (`run.py` `unread` -> `history.update`): on Oct 24 2026 two EQEs (Calstar W1KEG1CB4RF046886, West Covina 4JGGM1CB2PA013306) went 'sold' while still listed; restored by hand.
+- Brand feeds (Genesis, Subaru, Volvo, VW) increasingly give dealer.com redirect links (`/catcher.esl?vehicleId=`); they work, and `enrich_from_dealer_page` swaps in the page they lead to when it reads it.
 - 24 dealers in parallel; politeness is per domain (`base.Fetcher._throttle`), so more workers never
   hits one site faster. Up to 3 headless browsers at once (`playwright_fallback._lock`).
 - Before reading listing pages: `pipeline.prefilter` drops URLs matching `listing.URL_SKIP` and

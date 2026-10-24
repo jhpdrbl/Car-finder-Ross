@@ -141,8 +141,20 @@ class Fetcher:
         # RFC 9309: 2xx -> follow the file; 4xx (no file / forbidden) -> everything allowed;
         # 5xx or unreachable -> treat the whole site as off limits.
         if base not in self._robots:
+            for wait in (5, 20, None):
+                # A connection that breaks (SSLError, reset, timeout) is tried again before the site is written off:
+                # on Oct 24 2026 the laptop's connection dropped for a few minutes and ~30 dealers failed at once.
+                try:
+                    r = self._raw_get(base + "/robots.txt", check_robots=False)
+                    break
+                except (requests.RequestException, FetchError) as e:
+                    r = e
+                    if wait is None or not isinstance(e, (requests.ConnectionError, requests.Timeout)):
+                        break
+                    time.sleep(wait)
             try:
-                r = self._raw_get(base + "/robots.txt", check_robots=False)
+                if isinstance(r, Exception):
+                    raise r
                 if r.status_code >= 500:
                     rp = Robots(deny_all=True, why=f"robots.txt unavailable (HTTP {r.status_code}), so the site is off limits")
                 elif r.status_code >= 400:
