@@ -143,14 +143,15 @@ def interior_ok(color: str) -> tuple[str, str]:
 # Inference tables
 # --------------------------------------------------------------------------
 
-def sunroof_inferred(L: Listing, d: dict) -> str:
+def _roof_row(rows: list, L: Listing, d: dict) -> dict | None:
+    """The first config row (sunroof_standard / fixed_roofs) that matches this car's make, model, trim and year."""
     make = (d.get("Make") or L.make or "").lower()
     model = f'{d.get("Model") or ""} {L.model}'.lower()
     trim = f'{d.get("Trim") or ""} {L.trim} {L.title} {L.listing_url}'.lower()
-    for row in CFG.get("sunroof_standard", []):
+    for row in rows:
         if row.get("not_model") and row["not_model"] in model:
             continue   # e.g. the Bronco's roof panels don't apply to the Bronco Sport
-        if row["make"].lower() in make and row["model"].lower() in model and re.search(row["trim_regex"], trim):
+        if row["make"].lower() in make and row["model"].lower() in model and re.search(row.get("trim_regex") or ".*", trim):
             year = L.year or int(d.get("ModelYear") or 0)
             if row.get("min_year") and (not year or year < row["min_year"]):
                 continue
@@ -158,8 +159,25 @@ def sunroof_inferred(L: Listing, d: dict) -> str:
                 continue
             if row["model"] == "GV70" and not re.search(row["trim_regex"], f"{L.trim} {L.title} {L.listing_url}".lower()):
                 continue  # vPIC's Series lists every GV70 trim; only trust the listing's own trim
-            return row["note"]
-    return ""
+            return row
+    return None
+
+
+def sunroof_inferred(L: Listing, d: dict) -> str:
+    row = _roof_row(CFG.get("sunroof_standard", []), L, d)
+    return row["note"] if row else ""
+
+
+# The roof must OPEN (user, Oct 24 2026: "If the sunroofs don't open then don't include them"). Dealer pages often
+# call a fixed glass roof a "sunroof", so for these models only words that say it opens count.
+OPENS = re.compile(r"tilt|slid|vent|opening|power[- ]?skyglass|open(?:s|able)\b", re.I)
+
+
+def fixed_roof(L: Listing, d: dict) -> tuple[str, str]:
+    """('never' | 'optional' | '', note) from config `fixed_roofs`: a glass roof that never opens on this
+    model/trim, or a fixed one as standard with an opening roof only as an option."""
+    row = _roof_row(CFG.get("fixed_roofs", []), L, d)
+    return (row.get("opening", "never"), row["note"]) if row else ("", "")
 
 
 def seats_inferred(L: Listing, d: dict) -> tuple[str, str]:
@@ -421,6 +439,16 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
             if why:
                 L.sunroof, L.sunroof_note = True, f"standard on this trim ({why})"
                 notes.append("sunroof inferred from trim")
+    elif (fr := fixed_roof(L, d))[0] and L.sunroof_note != "confirmed by you":
+        kind, why = fr
+        if L.sunroof is False:
+            fails.append(f"no sunroof ({L.sunroof_note})")
+        elif kind == "never":
+            L.sunroof, L.sunroof_note = False, f"glass roof doesn't open ({why})"
+            fails.append(f"glass roof doesn't open ({why})")
+        elif not (L.sunroof and OPENS.search(L.sunroof_note or "")):
+            L.sunroof, L.sunroof_note = None, ""
+            unknown.append(f"{why}: confirm the roof opens")
     elif L.sunroof is False:
         fails.append(f"no sunroof ({L.sunroof_note})")
     elif L.sunroof is None:

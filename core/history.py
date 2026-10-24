@@ -16,7 +16,7 @@ LISTING_COLS = ["vin", "status", "first_seen", "last_seen", "dealer", "dealer_ur
                 # extras beyond the spec's list
                 "needs_call", "notes", "removed_on", "last_read", "seen_run", "new_run", "price", "fees_estimated",
                 "dealer_brand", "distance_mi", "source", "carfax_badges", "seats", "msrp_new", "msrp_source", "body",
-                "page_features"]
+                "page_features", "sunroof_note"]
 
 
 def read_csv(path: Path) -> list[dict]:

@@ -1272,6 +1272,10 @@ function seatCall(t) {
 }
 function roofCall(t) {
   const s = String(t.sunroof || "").toLowerCase();
+  // the roof must open (Oct 24 2026): a fixed glass roof is a "No"; fixed standard with an opening one optional = not sure
+  const fixed = /fixed|does ?n[o']?t open|non-opening|sky lounge/.test(s), opens = /\bopens\b|tilt|slid|opening|power skyglass/.test(s);
+  if (fixed && !opens) return {v: "No", t: "fixed glass roof (doesn't open)"};
+  if (fixed && opens && !/^standard (tilt|slid|opening|power)/.test(s)) return {v: "Not sure", t: "fixed roof standard; opening roof optional"};
   if (/^(standard|yes)/.test(s)) return {v: "Yes", t: "standard on this trim"};
   if (/^(not available|not offered|none|no\b)/.test(s)) return {v: "No", t: "not on this trim"};
   return {v: "Not sure", t: /optional|package/.test(s) ? "optional on this trim" : ""};

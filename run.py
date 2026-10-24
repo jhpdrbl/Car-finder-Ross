@@ -390,6 +390,15 @@ def rescore(args) -> None:
                 if (confirmed.get(L.vin.upper()) or {}).get("sunroof"):   # the open question is answered
                     r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "sunroof" not in x)
             fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
+            kind, why = criteria.fixed_roof(L, {}) if confirmed.get(L.vin.upper(), {}).get("sunroof") != "yes" else ("", "")
+            if kind == "never":                          # the roof must open (Oct 24 2026)
+                fails.append(f"glass roof doesn't open ({why})")
+                r["sunroof"] = "False"
+            elif kind == "optional" and not criteria.OPENS.search(r.get("sunroof_note") or ""):
+                r["sunroof"] = ""
+                calls = [x for x in (r.get("needs_call") or "").split("; ") if x]
+                if not any("roof opens" in x for x in calls):
+                    r["needs_call"] = "; ".join(calls + [f"{why}: confirm the roof opens"])
             spec = criteria.MODELS.get(L.make)            # a model taken off the list since the last search
             if spec and not re.search(spec["allow"], L.model.lower()):
                 fails.append(f"model {L.model} not on the {L.make} list ({spec['list']})")

@@ -447,6 +447,9 @@ def parse_vdp(html: str, url: str) -> Listing | None:
         L.sunroof, L.sunroof_note = False, NO_SUNROOF.search(hay).group(1)
     elif SUNROOF.search(hay):
         L.sunroof, L.sunroof_note = True, SUNROOF.search(hay).group(1)
+        # keep words that say the roof opens (some models only have a fixed glass roof: criteria.fixed_roof)
+        if re.search(r"(?:tilt|slid\w*|vent\w*|power[- ]?skyglass)[^.;|]{0,40}(?:sun|moon|sky)?\s?(?:roof|glass)|(?:sun|moon) ?roof[^.;|]{0,30}(?:tilt|slid)", hay, re.I):
+            L.sunroof_note += " (tilt/slide)"
     a = AUDIO.search(hay)
     L.audio = a.group(1) if a else ""
     if FAKE_LEATHER.search(hay) or FAKE_WORD.search(L.int_color):

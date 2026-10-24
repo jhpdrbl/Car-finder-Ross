@@ -266,34 +266,18 @@ sunroof_standard:
   - {make: Subaru, model: Outback, trim_regex: "touring|\\bxt\\b", note: "moonroof is standard on Outback Touring / XT"}
   - {make: Subaru, model: Outback, trim_regex: "limited", min_year: 2025, note: "moonroof is standard on the 2025+ Outback Limited"}
 
-  # Electric SUVs (researched Oct 18 2026 from makers' press sites, Car and Driver, fueleconomy.gov; fixed glass roofs count)
+  # Electric SUVs (researched Oct 18 2026 from makers' press sites, Car and Driver, fueleconomy.gov; fixed glass roofs no longer count: see fixed_roofs)
   - {make: "Audi", model: "Q4 e-tron", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "panoramic sunroof (opens) is standard on every Q4 e-tron / Q4 Sportback e-tron"}
   - {make: "Audi", model: "Q8 e-tron", trim_regex: ".*", min_year: 2024, max_year: 2025, note: "opening panoramic glass roof is standard on the Q8 e-tron"}
   - {make: "Audi", model: "e-tron", not_model: "e-tron gt", trim_regex: ".*", min_year: 2023, max_year: 2023, note: "unconfirmed: panoramic sunroof believed standard on every 2023 e-tron (not checked in an Audi 2023 sheet); remove if a Premium shows up without it"}
   - {make: "Audi", model: "Q6 e-tron", trim_regex: "premium plus|prestige", min_year: 2025, max_year: 2025, note: "panoramic sunroof (opens) is standard on Q6 e-tron Premium Plus / Prestige (not Premium)"}
-  - {make: "BMW", model: "iX", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "fixed panoramic glass roof with electrochromic shading is standard on every 2023-25 iX (does not open; counts)"}
-  - {make: "BMW", model: "iX", trim_regex: "xdrive ?60|\\b60\\b", min_year: 2026, max_year: 2026, note: "fixed Panoramic Eclipsing Roof is standard on the 2026 iX xDrive60 (optional on xDrive45)"}
   - {make: "Mercedes-Benz", model: "EQE SUV", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQE SUV"}
   - {make: "Mercedes-Benz", model: "EQS SUV", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "power tilt/sliding panorama roof is standard on every EQS SUV"}
   - {make: "Mercedes-Benz", model: "EQS", not_model: "suv", trim_regex: "^(?!.*(suv|sport.utility|amg))", min_year: 2023, max_year: 2026, note: "Panorama roof is standard on the EQS 450 / 580 4MATIC sedan"}
   - {make: "Mercedes-Benz", model: "s-class", trim_regex: "580e", min_year: 2023, max_year: 2026, note: "Panorama roof is standard on the S 580e 4MATIC"}
   - {make: "Mercedes-Benz", model: "580e", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "Panorama roof is standard on the S 580e 4MATIC"}
-  - {make: "BMW", model: "i7", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "Sky Lounge panoramic glass roof is standard on every i7 (fixed glass with a power shade)"}
-  - {make: "BMW", model: "7 series", trim_regex: "750e", min_year: 2024, max_year: 2026, note: "Sky Lounge panoramic glass roof is standard on the 750e xDrive (fixed glass with a power shade)"}
-  - {make: "BMW", model: "750e", trim_regex: ".*", min_year: 2024, max_year: 2026, note: "Sky Lounge panoramic glass roof is standard on the 750e xDrive (fixed glass with a power shade)"}
-  - {make: "Genesis", model: "GV60", trim_regex: ".*", min_year: 2023, max_year: 2026, note: "fixed panoramic glass \"Vision Roof\" with power shade is standard on every GV60 (does not open)"}
-  - {make: "Volkswagen", model: "ID.4", trim_regex: "pro s", min_year: 2023, max_year: 2026, note: "panoramic fixed glass roof is standard on ID.4 Pro S / Pro S Plus (does not open)"}
   - {make: "Volvo", model: "XC40", trim_regex: "(?=.*(recharge|electric|twin|single motor|pure electric|\\bbev\\b))(?=.*(\\bplus\\b|ultimate|ultra))", min_year: 2023, max_year: 2024, note: "opening panoramic sunroof is standard on XC40 Recharge Plus / Ultimate (electric; trim text says Recharge / Twin / Electric). Gas XC40 Plus/Ultimate also have it"}
   - {make: "Volvo", model: "EX40", trim_regex: "\\bplus\\b|ultimate|ultra", min_year: 2025, max_year: 2026, note: "opening panoramic sunroof is standard on EX40 Plus / Ultra"}
-  - {make: "Volvo", model: "C40", not_model: "xc40", trim_regex: ".*", min_year: 2023, max_year: 2024, note: "fixed panoramic glass roof is standard on every C40 Recharge (does not open)"}
-  - {make: "Volvo", model: "EC40", trim_regex: ".*", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof on every EC40 (carried over from C40; unconfirmed for 2025-26)"}
-  - {make: "Lexus", model: "RZ", trim_regex: ".*", min_year: 2023, max_year: 2024, note: "fixed panoramic glass roof is standard on every 2023-24 RZ (Premium / Luxury; does not open)"}
-  - {make: "Lexus", model: "RZ", trim_regex: "premium|luxury|f ?sport|550e", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on RZ Premium / Luxury / 550e F SPORT, not on the 2025+ entry grade"}
-  - {make: "Toyota", model: "bZ4X", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "panoramic fixed-glass roof (doesn't open) is standard on every 2023-2025 bZ4X"}
-  - {make: "Toyota", model: "bZ", trim_regex: "limited", min_year: 2026, note: "panoramic fixed-glass roof (doesn't open) is standard on the 2026+ bZ Limited (optional on XLE)"}
-  - {make: "Toyota", model: "bZ", trim_regex: "woodland.*premium|premium.*woodland", min_year: 2026, note: "panoramic fixed-glass roof is part of the bZ Woodland Premium"}
-  - {make: "Subaru", model: "Solterra", trim_regex: "touring", min_year: 2023, note: "panoramic glass moonroof (fixed glass) is standard on Solterra Touring / Touring Onyx / Touring XT only"}
-  - {make: "Ford", model: "Mustang Mach-E", trim_regex: "premium|california route 1|route 1|\\bgt\\b", min_year: 2023, max_year: 2023, note: "panoramic fixed-glass roof is standard on the 2023 Mach-E Premium, California Route 1 and GT (optional from 2024; never on Select)"}
   - {make: "Kia", model: "EV6", trim_regex: "gt line|\\bgt\\b", min_year: 2023, note: "power tilt/slide sunroof is standard on EV6 GT-Line and GT (not on Light or Wind); 2026 GT-Line assumed"}
 
   # Plug-in / electric sedans (researched Oct 19 2026)
@@ -307,18 +291,11 @@ sunroof_standard:
   - {make: "Mercedes-Benz", model: "C-Class", trim_regex: "(?<![a-z])c ?63", min_year: 2024, max_year: 2026, note: "panorama roof is standard on the AMG C 63 S E PERFORMANCE (MBUSA 2024 QRG)"}
   - {make: "Volvo", model: "S60", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "opening panoramic sunroof is standard on every 2023-25 S60 (Core/Plus/Ultimate/Ultra/Black Edition/Polestar Engineered; C/D spec pages)"}
   - {make: "Volvo", model: "S90", trim_regex: ".*", min_year: 2023, max_year: 2025, note: "opening panoramic sunroof is standard on every 2023-25 S90 (Plus/Ultimate/Ultra; C/D spec pages)"}
-  - {make: "Audi", model: "e-tron GT", not_model: "rs e-tron", trim_regex: "^(?!.*\\brs\\b).*(premium plus|prestige)", min_year: 2023, max_year: 2024, note: "fixed panoramic glass roof (does not open; counts) is standard on 2023-24 e-tron GT Premium Plus / Prestige (not RS: carbon roof may be standard)"}
-  - {make: "Audi", model: "e-tron GT", not_model: "rs e-tron", trim_regex: "^(?!.*\\brs\\b)(?!.*prestige).*premium plus", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on the 2025-26 S e-tron GT Premium Plus (Prestige/RS: unconfirmed)"}
-  - {make: "Audi", model: "A6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every A6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
-  - {make: "Audi", model: "S6", trim_regex: "e.?tron", min_year: 2025, max_year: 2026, note: "fixed panoramic glass roof is standard on every S6 Sportback e-tron (C/D 2025 spec pages; 2026 unconfirmed)"}
 
 
   # Acura / Alfa Romeo (researched Oct 19 2026: acuranews.com, Stellantis media)
   - {make: "Acura", model: "RDX", trim_regex: ".*", min_year: 2019, note: "panoramic roof with tilt and slide is standard on every RDX (Acura spec sheets 2023-2026)"}
   - {make: "Acura", model: "ZDX", trim_regex: ".*", min_year: 2024, note: "panoramic moonroof with tilt and slide is standard on every 2024 ZDX (Acura spec sheet)"}
-  - {make: "Cadillac", model: "Lyriq", trim_regex: ".*", min_year: 2023, note: "fixed panoramic glass roof with power shade is standard on every Lyriq (GM order data); an opening sunroof is optional on some trims"}
-  - {make: "Cadillac", model: "Optiq", trim_regex: ".*", min_year: 2025, note: "fixed panoramic glass roof with power shade is standard on every Optiq (GM order data)"}
-  - {make: "Jaguar", model: "E-Pace", trim_regex: ".*", min_year: 2024, max_year: 2024, note: "fixed panoramic roof is standard on the 2024 E-Pace R-Dynamic SE (JLR US 2024 model-year release); optional on 2023"}
   - {make: "Alfa Romeo", model: "Stelvio", trim_regex: "tributo", min_year: 2025, max_year: 2025, note: "sunroof listed among the 2025 Stelvio Tributo Italiano's standard features (Stellantis release); optional on every other Stelvio"}
 
   # Mazda (news.mazdausa.com spec decks, Oct 2026)
@@ -339,6 +316,32 @@ sunroof_standard:
   - {make: Kia, model: Sportage, trim_regex: \bsx\b, min_year: 2023, note: panoramic sunroof is standard on the gas Sportage SX (AWD version offered only in 2023)}
 
 # Approximate ground clearance (inches) by model; used for scoring only.
+# Glass roofs that DON'T OPEN (user, Oct 24 2026: "If the sunroofs don't open then don't include them"; before that a fixed
+# glass roof counted). opening: never = the car fails even when the dealer's page says "sunroof" (dealers call fixed glass
+# roofs that too); opening: optional = fixed roof standard, an opening one only as an option, so it passes only when the
+# listing says the roof tilts / slides (or you confirm it), else it's a call. Matching works like sunroof_standard.
+fixed_roofs:
+  - {make: "BMW", model: "iX", opening: never, note: "every iX roof is fixed glass (panoramic / Eclipsing roof doesn't open)"}
+  - {make: "BMW", model: "i7", opening: never, note: "the i7's Sky Lounge glass roof is fixed"}
+  - {make: "BMW", model: "7 series", trim_regex: "750e", opening: never, note: "the 750e's Sky Lounge glass roof is fixed"}
+  - {make: "BMW", model: "750e", opening: never, note: "the 750e's Sky Lounge glass roof is fixed"}
+  - {make: "Genesis", model: "GV60", opening: never, note: "the GV60's Vision Roof is fixed glass"}
+  - {make: "Volkswagen", model: "ID.4", opening: never, note: "the ID.4's panoramic glass roof is fixed"}
+  - {make: "Volvo", model: "C40", not_model: "xc40", opening: never, note: "the C40's panoramic roof is fixed glass"}
+  - {make: "Volvo", model: "EC40", opening: never, note: "the EC40's panoramic roof is fixed glass"}
+  - {make: "Lexus", model: "RZ", opening: never, note: "the RZ's panoramic glass roof is fixed"}
+  - {make: "Toyota", model: "bZ4X", opening: never, note: "the bZ4X's panoramic glass roof is fixed"}
+  - {make: "Toyota", model: "bZ", opening: never, note: "the bZ's panoramic glass roof is fixed"}
+  - {make: "Subaru", model: "Solterra", opening: never, note: "the Solterra's panoramic glass roof is fixed"}
+  - {make: "Ford", model: "Mustang Mach-E", opening: never, note: "the Mach-E's panoramic glass roof is fixed"}
+  - {make: "Audi", model: "e-tron GT", opening: never, note: "the e-tron GT's panoramic glass roof is fixed"}
+  - {make: "Audi", model: "A6", trim_regex: "e.?tron", opening: never, note: "the A6 Sportback e-tron's panoramic glass roof is fixed"}
+  - {make: "Audi", model: "S6", trim_regex: "e.?tron", opening: never, note: "the S6 Sportback e-tron's panoramic glass roof is fixed"}
+  - {make: "Cadillac", model: "Optiq", opening: never, note: "every Optiq has a fixed glass roof (no opening roof offered)"}
+  - {make: "Cadillac", model: "Lyriq", max_year: 2023, opening: never, note: "the 2023 Lyriq's glass roof is fixed (no opening roof offered)"}
+  - {make: "Cadillac", model: "Lyriq", min_year: 2024, opening: optional, note: "fixed glass roof standard; an opening sunroof was an option"}
+  - {make: "Jaguar", model: "E-Pace", min_year: 2024, max_year: 2024, opening: optional, note: "the 2024 E-Pace has a fixed panoramic roof as standard"}
+
 ground_clearance_in:
   Sportage: 8.3
   CX-5: 7.6
