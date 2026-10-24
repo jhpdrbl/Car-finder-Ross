@@ -350,7 +350,9 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
         hist.setdefault(h["vin"], []).append([h["date"], float(h["price"])])
     latest_run = max((r.get("seen_run") or "" for r in rows), default="")
     from core import history as history_mod      # (the `history` argument is the price history)
-    no_audio = {v for v, c in history_mod.load_confirmed(P.data).items() if (c.get("audio") or "").strip().lower() == "none"}
+    conf = history_mod.load_confirmed(P.data)
+    no_audio = {v for v, c in conf.items() if (c.get("audio") or "").strip().lower() == "none"}
+    stickers = {v for v, c in conf.items() if (c.get("sticker") or "").strip().lower() == "yes"}   # original window sticker seen
     cars = []
     # the dealers' spec-data clearance for each year / make / model, so every car of it shows the same figure
     from collections import Counter
@@ -369,7 +371,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
                                                "msrp_new", "msrp_source", "body", "page_features")}
-                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio,
+                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run}
                     | _spec_fields(r, page_cl))
     ok = sum(c["status"] == "success" for c in cov)
@@ -627,6 +629,10 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .disbtn[aria-pressed="true"] { background:var(--muted); color:var(--bg); border-color:var(--muted); }
 tr.disliked > td { opacity:.5; }
 tr.disliked > td.car { opacity:.8; }
+td.car { position:relative; }
+td.car.has-sticker { padding-right:34px; }
+.stickerok { position:absolute; top:8px; right:6px; width:22px; height:22px; border-radius:50%; background:#1f8a3b; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:900; line-height:1; box-shadow:0 0 0 2px var(--surface); }
 #fav-gone ul { margin:4px 0 12px; padding-left:18px; }
 .cmpbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--surface); border:1px solid var(--accent);
   border-radius:8px; padding:8px 10px; font-size:14px; }
@@ -1412,7 +1418,7 @@ function renderRows() {
     || `<tr><td colspan="12" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
-    <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
+    <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<span class="stickerok" title="Original window sticker checked" aria-label="Original window sticker checked">&#10003;</span>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
       <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button></td>
     <td class="num p-year" data-l="Year">${esc(c.year)}</td>
