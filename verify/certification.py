@@ -17,6 +17,7 @@ PROGRAMS = {
     "Ford": (r"blue advantage", "Ford Blue Advantage"),
     "Acura": (r"acura precision certified|precision certified|acura certified|certified pre-?owned", "Acura Precision Certified"),
     "Alfa Romeo": (r"alfa romeo certified|certified pre-?owned", "Alfa Romeo Certified Pre-Owned"),
+    "Cadillac": (r"cadillac certified|certified pre-?owned", "Cadillac Certified Pre-Owned"),
     "Jaguar": (r"jaguar approved|approved certified|jaguar certified|certified pre-?owned", "Jaguar Approved Certified Pre-Owned"),
 }
 
