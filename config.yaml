@@ -340,7 +340,13 @@ fixed_roofs:
   - {make: "Cadillac", model: "Optiq", opening: never, note: "every Optiq has a fixed glass roof (no opening roof offered)"}
   - {make: "Cadillac", model: "Lyriq", max_year: 2023, opening: never, note: "the 2023 Lyriq's glass roof is fixed (no opening roof offered)"}
   - {make: "Cadillac", model: "Lyriq", min_year: 2024, opening: optional, note: "fixed glass roof standard; an opening sunroof was an option"}
-  - {make: "Jaguar", model: "E-Pace", min_year: 2024, max_year: 2024, opening: optional, note: "the 2024 E-Pace has a fixed panoramic roof as standard"}
+  - {make: "Jaguar", model: "E-Pace", min_year: 2024, max_year: 2024, opening: never, note: "the 2024 E-Pace's panoramic roof is fixed (standard)"}
+  - {make: "Jaguar", model: "E-Pace", max_year: 2023, opening: optional, note: "the 2023 E-Pace's optional panoramic roof is probably fixed (no sliding roof found)"}
+  - {make: "Jaguar", model: "I-Pace", opening: never, note: "the I-Pace's panoramic roof is fixed glass"}
+  - {make: "Jaguar", model: "F-Pace", opening: optional, note: "F-Pace roofs are either sliding or fixed panoramic"}
+  - {make: "BMW", model: "X3", min_year: 2025, opening: never, note: "the 2025+ X3's panoramic roof is fixed glass"}
+  - {make: "Audi", model: "Q6", opening: optional, note: "sources disagree on whether the Q6 e-tron's panoramic roof opens"}
+  - {make: "Lexus", model: "ES", trim_regex: "500e", opening: optional, note: "most ES 500e window stickers say fixed glass roof"}
 
 ground_clearance_in:
   Sportage: 8.3
