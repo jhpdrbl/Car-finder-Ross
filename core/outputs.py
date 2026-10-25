@@ -219,7 +219,8 @@ def _di_filters(model: str, min_year: int) -> str:
     from datetime import date as _d
     parts = [f"_dFR%5Bmodel%5D%5B0%5D={quote(model)}"]
     parts += [f"_dFR%5Byear%5D%5B{i}%5D={y}" for i, y in enumerate(range(min_year, _d.today().year + 2))]
-    parts += [f"_dFR%5Bdrivetrain%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(DI_DRIVES)]
+    if _CFG.get("filters", {}).get("awd_required", True):     # since Oct 25 2026 AWD is only a nice-to-have
+        parts += [f"_dFR%5Bdrivetrain%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(DI_DRIVES)]
     parts += [f"_dFR%5Bext_color_generic%5D%5B{i}%5D={quote(v)}" for i, v in enumerate(_di_colors())]
     return "&".join(parts)
 
@@ -238,8 +239,8 @@ def _cpo_base(d: dict) -> str:
 
 
 def _model_link(d: dict, brand: str, model: str) -> str:
-    """The dealer's certified inventory filtered to one model (and, on Dealer Inspire, to your year, AWD and
-    color rules), where the platform's filter format is known."""
+    """The dealer's certified inventory filtered to one model (and, on Dealer Inspire, to your year and
+    color rules, plus AWD when it's required), where the platform's filter format is known."""
     from urllib.parse import quote
     base, plat = _cpo_base(d), d.get("platform") or ""
     if not base:
@@ -302,6 +303,7 @@ def score_help(P) -> str:
         "ventilated_seats": "Cooled seats (not shown: 40%)",
         "ground_clearance": "Ground clearance of 8 inches or more",
         "spare_tire": "Spare tire (not shown: 40%)",
+        "awd": "All-wheel drive (not shown: 30%)",
         "sunroof": "Sunroof (not shown: 30%)",
         "exterior_color": "Exterior color, in this order: " + " › ".join(rank) + " › anything else" if rank else "Exterior color",
         "mileage": "Mileage: full points at 0 miles, none at 40,000",
@@ -392,7 +394,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
-                                               "msrp_new", "msrp_source", "body", "page_features")}
+                                               "msrp_new", "msrp_source", "body", "page_features", "drivetrain")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run}
                     | _spec_fields(r, page_cl))
@@ -406,7 +408,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
             gone.append({k: r.get(k, "") for k in ("vin", "dealer", "listing_url", "year", "make", "model", "trim",
                                                    "price_total", "mileage", "ext_color", "int_color", "fuel_type",
                                                    "mpg_combined", "needs_call", "first_seen", "last_seen",
-                                                   "removed_on", "fail_reasons", "distance_mi", "body")}
+                                                   "removed_on", "fail_reasons", "distance_mi", "body", "drivetrain")}
                         | {"hist": hist.get(r["vin"], [])})
     gfile = ROOT / P.cfg["trim_guide"] if P.cfg.get("trim_guide") else TRIM_GUIDE
     guide = json.loads(gfile.read_text(encoding="utf-8")) if gfile.exists() else {"models": []}
@@ -764,6 +766,7 @@ __SCOREHELP__
     <fieldset class="group" id="f-year"><legend>Model year</legend></fieldset>
     <fieldset class="group" id="f-body"><legend>Body</legend></fieldset>
     <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
+    <fieldset class="group" id="f-drive"><legend>Drive</legend></fieldset>
   </details>
   <details class="fsec" open><summary>Price &amp; miles</summary>
     <fieldset class="group" id="f-price"><legend>Price (with fees) <span class="rvs"><b class="rv" id="pmin-v"></b> – <b class="rv" id="pmax-v"></b></span></legend>
@@ -810,7 +813,7 @@ __SCOREHELP__
   <option value="cut:-1">Biggest price cut</option><option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="clearance:-1">Most ground clearance</option><option value="ev_range:-1">Longest electric range</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
-  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th><th data-k="seat">Seats</th><th data-k="clearance">Ground clearance</th><th data-k="ev_range">Electric range</th>
+  <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="drive">Drive</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th><th data-k="seat">Seats</th><th data-k="clearance">Ground clearance</th><th data-k="ev_range">Electric range</th>
   <th data-k="carfax_status">CARFAX</th><th data-k="est_monthly_cost">Est./mo</th><th data-k="warr_end">Warranty</th><th data-k="first_seen">First seen</th>
 </tr></thead><tbody id="rows"></tbody></table></div>
 </div>
@@ -878,7 +881,9 @@ D.cars.concat(D.gone).forEach(c => {   // "EQB 300" + trim "EQB 300 4MATIC" -> "
   c.title = [c.year, c.make, dup ? "" : c.model, c.trim].filter(Boolean).join(" ");
   c.colors = [c.ext_color, c.int_color].filter(Boolean).join(" / ");
   c.roof = c.sunroof === "True" ? "Yes" : c.sunroof === "False" ? "No" : "Not sure";
-  c.fuel = FUEL[c.fuel_type] || "?"; });
+  c.fuel = FUEL[c.fuel_type] || "?";
+  // drive: AWD (4WD counts) / RWD / FWD; a VIN that only says "2WD" stays "2WD" (front or rear isn't known)
+  c.drive = {AWD: "AWD", "4WD": "AWD", RWD: "RWD", FWD: "FWD", "2WD": "2WD"}[String(c.drivetrain || "").toUpperCase()] || "Not sure"; });
 const CUT_MIN = 200;
 D.cars.concat(D.gone).forEach(c => {
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
@@ -907,6 +912,7 @@ pills("f-show", ["Meets all criteria", "Needs a call"]);
 pills("f-make", makes);
 pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.concat(D.gone).some(c => c.fuel === f)));
 pills("f-body", ["SUV", "Sedan"]);
+pills("f-drive", ["AWD", "RWD", "FWD", "2WD", "Not sure"].filter(v => ["AWD", "RWD", "FWD"].includes(v) || D.cars.some(c => c.drive === v)));
 pills("f-roof", ["Yes", "No", "Not sure"]);
 pills("f-sound", ["Yes", "No", "Not sure"]);
 pills("f-seat", ["Leather", "Synthetic leather", "Cloth", "Not sure"]);
@@ -1397,6 +1403,7 @@ const FIELDS = [
   ["Bumper-to-bumper ends", c => c.warr_full_end ? "~" + monthYr(new Date(c.warr_full_end)) : (c.warr_end ? "over" : "?"), c => c.warr_full_end || null, "high"],
   ["Warranty detail", c => c.warr_html, null, null],
   ["Fuel", c => esc(c.fuel), null, null],
+  ["Drive", c => esc(c.drive), null, null],
   ["MPG", c => num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? "— (electric)" : "?") : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
   ["Colors", c => esc(c.colors), null, null],
   ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
@@ -1539,12 +1546,12 @@ document.addEventListener("click", e => {
   if (map) { map.closePopup(); const f = mapFit; mapFit = false; drawMap(); mapFit = f; } else drawTrip();
 });
 function renderRows() {
-  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"),
+  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"),
         rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
-                    && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV"))
+                    && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV")) && (!dv.size || dv.has(c.drive || "Not sure"))
                     && (!rf.size || rf.has(roofOf(c).v)) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
@@ -1578,7 +1585,7 @@ function renderRows() {
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div><div class="small">${esc(c.cpo_program)}</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
-    <td data-l="Fuel">${esc(c.fuel)}</td>
+    <td data-l="Fuel">${esc(c.fuel)}</td><td data-l="Drive">${esc(c.drive)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? '—<div class="small">electric</div>' : "?") : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : c.mpg_source === "guide" ? " trim guide" : ""}</div></td>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
     <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
@@ -1657,7 +1664,7 @@ document.getElementById("cut-tile").addEventListener("click", () => {
   const box = document.getElementById("only-cut"); box.checked = !box.checked;
   if (box.checked) { sortByCut(); showTab("avail"); }
   render(); document.getElementById("shown-a").scrollIntoView({behavior: "smooth", block: "start"}); });
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-roof", "f-sound", "f-seat", "f-mine", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-roof", "f-sound", "f-seat", "f-mine", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });

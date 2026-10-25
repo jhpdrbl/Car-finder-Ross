@@ -11703,8 +11703,8 @@
       },
       {
        "name": "Single motor (RWD) Core / Plus / Ultimate",
-       "on_list": false,
-       "why_not": "2WD (rear-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single motor RWD",
        "builds_on": "",
        "highlights": [
@@ -11773,8 +11773,8 @@
       },
       {
        "name": "Single Motor Extended Range (RWD)",
-       "on_list": false,
-       "why_not": "2WD (rear-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single motor RWD",
        "builds_on": "",
        "highlights": [
@@ -11828,8 +11828,8 @@
       },
       {
        "name": "Single Motor Extended Range Plus (RWD)",
-       "on_list": false,
-       "why_not": "2WD (rear-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single motor RWD",
        "builds_on": "",
        "highlights": [
@@ -15305,8 +15305,8 @@
       },
       {
        "name": "Sportage SX (FWD)",
-       "on_list": false,
-       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
        "builds_on": "Sportage EX AWD",
        "highlights": [
@@ -15545,8 +15545,8 @@
       },
       {
        "name": "Sportage SX (FWD)",
-       "on_list": false,
-       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
        "builds_on": "Sportage EX AWD",
        "highlights": [
@@ -15670,7 +15670,7 @@
       {
        "name": "Sportage Hybrid LX",
        "on_list": false,
-       "why_not": "FWD only (2026+); no sunroof; cloth",
+       "why_not": "no sunroof; cloth",
        "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, FWD",
        "builds_on": "",
        "highlights": [
@@ -15823,8 +15823,8 @@
       },
       {
        "name": "Sportage SX (FWD)",
-       "on_list": false,
-       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
        "builds_on": "Sportage EX AWD",
        "highlights": [
@@ -15929,7 +15929,7 @@
       {
        "name": "Sportage Hybrid LX",
        "on_list": false,
-       "why_not": "FWD only (2026+); no sunroof; cloth",
+       "why_not": "no sunroof; cloth",
        "powertrain": "1.6L turbo 4-cyl hybrid, 232 hp total, 6-speed auto, FWD",
        "builds_on": "",
        "highlights": [
@@ -16082,8 +16082,8 @@
       },
       {
        "name": "Sportage SX (FWD)",
-       "on_list": false,
-       "why_not": "FWD only from 2024 (SX AWD dropped)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.5L 4-cyl, 187 hp, 8-speed auto, FWD only",
        "builds_on": "Sportage EX AWD",
        "highlights": [
@@ -16166,8 +16166,8 @@
      "trims": [
       {
        "name": "40 / 45 e-tron (RWD)",
-       "on_list": false,
-       "why_not": "rear-wheel drive (no quattro)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -16240,8 +16240,8 @@
      "trims": [
       {
        "name": "40 / 45 e-tron (RWD)",
-       "on_list": false,
-       "why_not": "rear-wheel drive (no quattro)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -16314,8 +16314,8 @@
      "trims": [
       {
        "name": "40 / 45 e-tron (RWD)",
-       "on_list": false,
-       "why_not": "rear-wheel drive (no quattro)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -16388,8 +16388,8 @@
      "trims": [
       {
        "name": "40 / 45 e-tron (RWD)",
-       "on_list": false,
-       "why_not": "rear-wheel drive (no quattro)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -16686,8 +16686,8 @@
      "trims": [
       {
        "name": "Q6 e-tron (RWD)",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, 322 hp",
        "builds_on": "",
        "highlights": [],
@@ -16971,8 +16971,8 @@
      "trims": [
       {
        "name": "EQB 250 / 250+",
-       "on_list": false,
-       "why_not": "front-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single front motor, FWD",
        "builds_on": "",
        "highlights": [],
@@ -17024,8 +17024,8 @@
      "trims": [
       {
        "name": "EQB 250 / 250+",
-       "on_list": false,
-       "why_not": "front-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single front motor, FWD",
        "builds_on": "",
        "highlights": [],
@@ -17077,8 +17077,8 @@
      "trims": [
       {
        "name": "EQB 250 / 250+",
-       "on_list": false,
-       "why_not": "front-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single front motor, FWD",
        "builds_on": "",
        "highlights": [],
@@ -17145,8 +17145,8 @@
      "trims": [
       {
        "name": "EQE 350+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17217,8 +17217,8 @@
      "trims": [
       {
        "name": "EQE 350+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17289,8 +17289,8 @@
      "trims": [
       {
        "name": "EQE 350+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17361,8 +17361,8 @@
      "trims": [
       {
        "name": "EQE 320+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17429,8 +17429,8 @@
      "trims": [
       {
        "name": "EQS 450+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17498,8 +17498,8 @@
      "trims": [
       {
        "name": "EQS 450+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17567,8 +17567,8 @@
      "trims": [
       {
        "name": "EQS 450+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single rear motor, RWD",
        "builds_on": "",
        "highlights": [],
@@ -17759,8 +17759,8 @@
      "trims": [
       {
        "name": "Standard RWD",
-       "on_list": false,
-       "why_not": "2WD (rear-wheel drive only)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "168 kW rear motor, 77.4 kWh, RWD",
        "builds_on": "",
        "highlights": [
@@ -17820,8 +17820,8 @@
      "trims": [
       {
        "name": "Standard RWD",
-       "on_list": false,
-       "why_not": "2WD (rear-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "168 kW rear motor, 77.4 kWh, RWD",
        "builds_on": "",
        "highlights": [
@@ -17900,8 +17900,8 @@
      "trims": [
       {
        "name": "RWD",
-       "on_list": false,
-       "why_not": "2WD (rear-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "168 kW rear motor (225 hp), 84 kWh, RWD",
        "builds_on": "",
        "highlights": [
@@ -18346,8 +18346,8 @@
       },
       {
        "name": "300e Premium / Luxury",
-       "on_list": false,
-       "why_not": "2WD (front-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single front motor, FWD",
        "builds_on": "",
        "highlights": [
@@ -18419,8 +18419,8 @@
       },
       {
        "name": "300e (any grade)",
-       "on_list": false,
-       "why_not": "2WD (front-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single front motor, FWD",
        "builds_on": "",
        "highlights": [
@@ -18508,8 +18508,8 @@
       },
       {
        "name": "350e / 350e Premium",
-       "on_list": false,
-       "why_not": "2WD (front-wheel drive)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single front motor, FWD",
        "builds_on": "",
        "highlights": [
@@ -19724,8 +19724,8 @@
       },
       {
        "name": "330e",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "plug-in hybrid, RWD",
        "builds_on": "",
        "highlights": [],
@@ -19762,8 +19762,8 @@
       },
       {
        "name": "330e",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "plug-in hybrid, RWD",
        "builds_on": "",
        "highlights": [],
@@ -19816,8 +19816,8 @@
       },
       {
        "name": "530e",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "plug-in hybrid, RWD",
        "builds_on": "",
        "highlights": [],
@@ -19922,8 +19922,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -19936,8 +19936,8 @@
       },
       {
        "name": "eDrive35",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 281-286 hp",
        "builds_on": "",
        "highlights": [],
@@ -19990,8 +19990,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -20004,8 +20004,8 @@
       },
       {
        "name": "eDrive35",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 281-286 hp",
        "builds_on": "",
        "highlights": [],
@@ -20058,8 +20058,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -20072,8 +20072,8 @@
       },
       {
        "name": "eDrive35",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 281-286 hp",
        "builds_on": "",
        "highlights": [],
@@ -20125,8 +20125,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -20186,8 +20186,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -20241,8 +20241,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -20296,8 +20296,8 @@
       },
       {
        "name": "eDrive40",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD, 335 hp",
        "builds_on": "",
        "highlights": [],
@@ -20384,8 +20384,8 @@
       },
       {
        "name": "EQE 350+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD",
        "builds_on": "",
        "highlights": [],
@@ -20453,8 +20453,8 @@
       },
       {
        "name": "EQE 350+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD",
        "builds_on": "",
        "highlights": [],
@@ -20522,8 +20522,8 @@
       },
       {
        "name": "EQE 350+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD",
        "builds_on": "",
        "highlights": [],
@@ -20574,8 +20574,8 @@
       },
       {
        "name": "EQE 320+",
-       "on_list": false,
-       "why_not": "rear-wheel drive",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "single motor RWD",
        "builds_on": "",
        "highlights": [],
@@ -21033,8 +21033,8 @@
      "trims": [
       {
        "name": "A6 Sportback e-tron Premium RWD",
-       "on_list": false,
-       "why_not": "RWD (rear-wheel drive) - fails AWD",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single rear motor, RWD, 100 kWh battery (94.9 net), 375 hp",
        "builds_on": "",
        "highlights": [
@@ -21050,8 +21050,8 @@
       },
       {
        "name": "A6 Sportback e-tron Premium Plus RWD",
-       "on_list": false,
-       "why_not": "RWD - fails AWD",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single rear motor, RWD, 375 hp",
        "builds_on": "A6 e-tron Premium",
        "highlights": [
@@ -21066,8 +21066,8 @@
       },
       {
        "name": "A6 Sportback e-tron Prestige RWD",
-       "on_list": false,
-       "why_not": "RWD - fails AWD",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single rear motor, RWD, 375 hp",
        "builds_on": "A6 e-tron Premium Plus",
        "highlights": [
@@ -21811,8 +21811,8 @@
       },
       {
        "name": "ES 350e Premium / Luxury",
-       "on_list": false,
-       "why_not": "Front-wheel drive - fails AWD",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single front motor, FWD, 74.7 kWh",
        "builds_on": "",
        "highlights": [],
@@ -21906,8 +21906,8 @@
       },
       {
        "name": "ES 350h Premium / Premium+ (FWD)",
-       "on_list": false,
-       "why_not": "Front-wheel drive - fails AWD",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.5L hybrid, FWD",
        "builds_on": "",
        "highlights": [],
@@ -21950,8 +21950,8 @@
      "trims": [
       {
        "name": "A-Spec RWD (single motor)",
-       "on_list": false,
-       "why_not": "Rear-wheel drive (2WD) - not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "Single rear motor RWD, 342 hp, 102 kWh",
        "builds_on": "",
        "highlights": [
@@ -22038,8 +22038,8 @@
      "trims": [
       {
        "name": "RDX / Technology / A-Spec FWD",
-       "on_list": false,
-       "why_not": "Front-wheel drive (2WD) - not on the list (FWD offered on 2023 only; vPIC DriveType '4x2')",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo, 272 hp, 10-speed, FWD",
        "builds_on": "",
        "highlights": [
@@ -22677,8 +22677,8 @@
      "trims": [
       {
        "name": "Stelvio Sprint RWD",
-       "on_list": false,
-       "why_not": "Rear-wheel drive (2WD) - not on the list (vPIC: VINs ZASPAJAN...)",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo, 280 hp, RWD",
        "builds_on": "",
        "highlights": [
@@ -22805,8 +22805,8 @@
      "trims": [
       {
        "name": "Stelvio Sprint RWD",
-       "on_list": false,
-       "why_not": "Rear-wheel drive (2WD) - not on the list",
+       "on_list": true,
+       "why_not": "",
        "powertrain": "2.0L turbo, 280 hp, RWD",
        "builds_on": "",
        "highlights": [

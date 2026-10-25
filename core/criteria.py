@@ -43,7 +43,7 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
         return fails, unknown, notes
     model = f'{d.get("Model") or ""} {L.model}'.lower()
     text = " ".join([model, d.get("Trim") or "", d.get("Series") or "", L.trim, L.title, L.listing_url,
-                     d.get("ElectrificationLevel") or ""]).lower()
+                     d.get("ElectrificationLevel") or "", d.get("DriveType") or ""]).lower()
     if not re.search(spec["allow"], model):
         fails.append(f"model {L.model or d.get('Model') or '?'} not on the {L.dealer_brand} list ({spec['list']})")
         return fails, unknown, notes
@@ -278,6 +278,22 @@ def _hybrid_sedan_mpg(L: Listing, sedans: dict, fails: list, unknown: list) -> N
 
 FUEL_WORDS = {"gas": "gas", "hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "electric"}
 NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
+# A VIN or listing that only says "2WD": which axle, from what the maker builds (Oct 25 2026, for the Drive filter)
+_FWD_2WD = re.compile(r"\beqb\b|\bgla\b|sportage|ev6(?!.*\bgt\b)|\brdx\b|tiguan|\bnx\b|\brz\b|\bes\b|bz4x|\bbz\b|\bcx-?[35]0?\b|xc40(?!.*(recharge|electric|ex40))|xc60|\bq3\b|\bq5\b|tonale|e-?pace")
+
+
+def two_wd_axle(make: str, model: str, trim: str = "") -> str:
+    """'RWD' or 'FWD' for a two-wheel-drive car whose listing doesn't say which ('' when unsure)."""
+    t = f"{model} {trim}".lower()
+    if re.search(r"rwd|rear[- ]wheel|sdrive|edrive|\+|single motor|eq[es]\s*\d{3}\+?", t) and not _FWD_2WD.search(t):
+        return "RWD"
+    if _FWD_2WD.search(t) or make in ("Kia", "Acura", "Volkswagen", "Toyota", "Lexus", "Mazda"):
+        return "FWD"
+    if make in ("BMW", "Mercedes-Benz", "Cadillac", "Genesis", "Alfa Romeo", "Jaguar") or re.search(r"e-?tron|mach-?e|ex40|recharge", t):
+        return "RWD"
+    return ""
+
+
 NAME_AWD = re.compile(r"\b(e?awd|4wd|4x4|4matic|xdrive\w*|quattro|htrac|sh-awd)\b|all[- ]wheel|four[- ]wheel|4motion")
 
 
@@ -382,10 +398,14 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
             dt = "AWD"
     if L.dealer_brand == "Subaru" and not dt:
         dt = "AWD"
-    if dt in ("FWD", "RWD", "2WD"):
-        fails.append(f"{dt} (AWD/4WD only)" + (" per the listing" if not drive_class(d) else ""))
-    elif not dt:
-        unknown.append("drivetrain not shown")
+    if dt == "2WD":
+        dt = two_wd_axle(L.make or L.dealer_brand, L.model, f"{L.trim} {L.title}") or dt
+    if F.get("awd_required", True):
+        if dt in ("FWD", "RWD", "2WD"):
+            fails.append(f"{dt} (AWD/4WD only)" + (" per the listing" if not drive_class(d) else ""))
+        elif not dt:
+            unknown.append("drivetrain not shown")
+    # otherwise (Oct 25 2026) all-wheel drive is a nice-to-have: shown, filtered on the dashboard and scored (awd)
     L.drivetrain = dt or L.drivetrain
 
     # certification
@@ -543,6 +563,7 @@ def score_parts(L: Listing) -> dict[str, float]:
     parts["ventilated_seats"] = tri(L.ventilated_seats)
     parts["ground_clearance"] = 1.0 if (_clearance(L) or 0) >= 8 else 0.0
     parts["spare_tire"] = tri(L.spare_tire)
+    parts["awd"] = 1.0 if L.drivetrain in ("AWD", "4WD") else (0.0 if L.drivetrain in ("FWD", "RWD", "2WD") else 0.3)
     parts["sunroof"] = 1.0 if L.sunroof is True else (0.0 if L.sunroof is False else 0.3)
     rank = S.get("color_rank") or []
     fam = color_family(L.ext_color)

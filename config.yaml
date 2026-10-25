@@ -19,6 +19,7 @@ filters:
   min_year: 2023
   max_mileage: 39999          # "under 40,000"
   drivetrains: [AWD, 4WD]
+  awd_required: false       # Oct 25 2026, user: AWD is a nice-to-have, not a requirement (scored: scoring.weights.awd)
   max_rows: 2
   price_caps:                 # total incl. dealer fees, before tax
     gas: 35000
@@ -72,6 +73,7 @@ scoring:            # higher = better; weights sum is arbitrary, score scaled 0-
     ventilated_seats: 5
     ground_clearance: 5
     spare_tire: 6
+    awd: 10         # medium: all-wheel / four-wheel drive (Oct 25 2026: nice-to-have, no longer required)
   premium_audio: ["bang & olufsen", "b&o", "lexicon", "harman/kardon", "harman kardon",
                   "burmester", "bowers & wilkins", "bowers and wilkins", "mark levinson"]
   fake_leather: [leatherette, "mb-tex", "mb tex", sensatec, startex, softex, "synthetic leather",
@@ -107,8 +109,6 @@ models:
     tokens: [q4, q6, q8, e-tron]
     rules:
       # performance versions (SQ5, SQ6/SQ8 e-tron, e-tron S, RS Q8) are fine (user, Oct 19 2026) if they meet the other rules
-      - {if: 'q4 (sportback )?(40|45) e-?tron', then: fail, why: 'Q4 40 / 45 e-tron (rear-wheel drive; only the quattro qualifies)'}
-      - {if: '(?=.*e-?tron)(?=.*\b(rwd|rear.wheel)\b)', then: fail, why: 'A6 e-tron without quattro (rear-wheel drive)'}
       - {if: 'sportback', then: note, why: 'Sportback'}
   Genesis:
     allow: 'gv60|gv70|gv80'
@@ -130,9 +130,6 @@ models:
     list: X3, X5, iX (electric); plug-in / electric sedans 330e xDrive, 530e / 550e xDrive, 750e xDrive, i4, i5, i7
     tokens: [ix, 330e, 530e, 550e, 750e, i4, i5, i7]
     rules:
-      - {if: 'sdrive', then: fail, why: 'sDrive (rear-wheel drive)'}
-      - {if: '\b[35]30e\b(?!.*(xdrive|530 ?xe|\bawd\b|all.wheel))', then: fail, why: '330e / 530e without xDrive (rear-wheel drive)'}
-      - {if: '\bedrive ?(35|40|50)\b', then: fail, why: 'i4 / i5 / i7 eDrive (rear-wheel drive)'}
       - {if: '\b7 series\b|\b7[46]0i\b', unless: '750e|\bi7\b', then: fail, why: '7 Series gas (only the 750e plug-in and electric i7 count)'}
       # M versions (X3 M40i/M50/X3 M, X5 M50i/M60i/X5 M, iX M60/M70) are fine (user, Oct 19 2026)
   Mercedes-Benz:
@@ -141,9 +138,7 @@ models:
     tokens: [eqb, eqe, eqs, e-53, c-63, s-580e, s-class]
     rules:
       - {if: 'coupe|maybach', then: fail, why: 'Coupe / Maybach (not on the list)'}   # AMG and GLE 580 are fine (user likes performance cars, Oct 19 2026)
-      - {if: 'eqb ?250', then: fail, why: 'EQB 250 (front-wheel drive)'}
       - {if: '(?<![a-z])e ?53(?!.*hybrid)(?!e)', to_year: 2024, then: fail, why: 'AMG E 53 before 2025 (mild hybrid = gas)'}
-      - {if: 'eq[es]\s*(320|350|450)\s*(\+|plus)(?!\s*4matic)', then: fail, why: 'EQE / EQS "+" (rear-wheel drive)'}
       - {if: 'eqb|eqs.*suv', then: note, why: 'EQB / EQS SUV can have a third row: confirm it has 5 seats'}
   Volkswagen:
     allow: 'tiguan|\bid\.? ?-?4\b'
@@ -151,6 +146,7 @@ models:
     tokens: [id.4, id-4]
     rules:
       - {if: tiguan, min_year: 2025, why: 'Tiguan before 2025 (AWD versions have a third row)'}
+      - {if: '\btiguan\b(?=.*\bs\b)(?!.*\bsel?\b)', then: fail, why: 'Tiguan S: no sunroof offered (2025+)'}
       - {if: 'id\.? ?-?4.*\bpro\b(?! ?s\b)', then: fail, why: 'ID.4 AWD Pro (not Pro S): no glass roof, cloth seats'}
   Lexus:
     allow: '\b(nx|rx|rz|es)\b'
@@ -159,15 +155,13 @@ models:
     rules:
       - {if: 'rx ?\d{3}h?\+? ?l\b|\brx ?l\b', then: fail, why: 'RX L (3-row)'}
       - {if: 'nx ?250|\b250\b', unless: '350|450', then: fail, why: 'NX 250 (only NX 350 / 350h / 450h+)'}
-      - {if: '\brz ?(300e|350e)\b', then: fail, why: 'RZ 300e / 350e (front-wheel drive)'}
-      - {if: '\bes ?350e\b', then: fail, why: 'ES 350e (front-wheel drive)'}
-      - {if: '\bes ?(300h|250|350)\b(?!h)', then: fail, why: 'ES 300h / 250 / 350 (front-wheel drive or gas)'}
+      - {if: '(?=.*\bnx\b)(?=.*(\b4x2\b|\bfwd\b|front.wheel))', then: fail, why: 'NX 250 (a front-wheel-drive NX is the 250; vPIC can call it "350")'}
+      - {if: '\bes ?(250|350)\b(?!h)', then: fail, why: 'ES 250 / 350 (gas sedan)'}   # the ES 300h hybrid counts since AWD stopped being required (Oct 25 2026; sedans still need 40+ mpg)
   Volvo:
     allow: 'xc60|xc40|ex40|\bs[69]0\b'     # XC40 back (user, Oct 21 2026: "you can add back the xc40"; dropped Oct 19 as too small); C40 / EC40 still off
     list: XC60, XC40 (incl. Recharge / EX40); plug-in sedans S60 / S90 T8
     tokens: [s60, s90]
     rules:
-      - {if: '(xc40|ex40).*(recharge|electric|twin|single motor)|ex40', unless: 'twin', from_year: 2024, then: call, why: 'electric Volvo: confirm Twin Motor (single-motor versions are rear-wheel drive)'}   # 2023 US Recharge = Twin Motor only (EPA lists only 'twin')
       - {if: '(?=.*\bcore\b)(?=.*(electric|recharge|twin|ex40))', then: fail, why: 'electric XC40 / EX40 Core: no sunroof'}
   Toyota:
     allow: '4runner|land cruiser|bz4x|\bbz\b'
@@ -240,7 +234,7 @@ models:
     allow: 'lyriq|optiq'
     list: Lyriq (electric, AWD), Optiq (electric, AWD)
     tokens: [lyriq, optiq]
-    rules: []                      # RWD versions fail the AWD rule; no electric/plug-in Cadillac sedan fits (Celestiq aside)
+    rules: []                      # RWD versions count since Oct 25 2026 (AWD only scores); no electric/plug-in Cadillac sedan fits (Celestiq aside)
 
   Jaguar:                          # added Oct 21 2026 (user: "Add jaguar"); no US plug-in F-Pace, no electric/plug-in sedans
     allow: 'i-?pace|f-?pace|e-?pace'

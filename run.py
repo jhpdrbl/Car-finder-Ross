@@ -359,6 +359,52 @@ def _stamp_dealers(names: set[str], today: str) -> None:
     history.write_csv(path, rows, list(rows[0].keys()))
 
 
+# fail reasons that only said "not all-wheel drive" (before Oct 25 2026, when AWD stopped being required)
+DRIVE_ONLY = re.compile(r"AWD/4WD only|rear-wheel drive|front-wheel drive|\bsDrive\b|without xDrive|\beDrive\b|without quattro"
+                        r"|EQB 250|single-motor versions")
+
+
+def _row_listing(r: dict):
+    """A listings.csv row back as a Listing (what the rules need; the page's feature list isn't kept)."""
+    import dataclasses
+    from scrapers.listing import Listing
+    kw = {}
+    for f in dataclasses.fields(Listing):
+        v, t = r.get(f.name), str(f.type)
+        if v in (None, "") or "list" in t:
+            continue
+        try:
+            kw[f.name] = (v == "True" if "bool" in t and v in ("True", "False") else None if "bool" in t
+                          else int(float(v)) if t.startswith("int") else float(v) if t.startswith("float") else v)
+        except ValueError:
+            continue
+    return Listing(**kw)
+
+
+def revive_drive_only(rows: list[dict], excluded: dict, confirmed: dict) -> int:
+    """Cars of the latest search ruled out only for their drivetrain: run them through today's rules again
+    (certification already passed then: their program is kept as the listing's proof). Returns how many."""
+    from core import history
+    from verify import vin_decode
+    latest = max((r.get("last_seen") or "" for r in rows), default="")
+    todo = [r for r in rows if r.get("status") == "excluded" and r.get("last_seen") == latest and r.get("fail_reasons")
+            and all(DRIVE_ONLY.search(x) for x in r["fail_reasons"].split("; ") if x)]
+    if not todo:
+        return 0
+    dealers = {d["dealer_name"]: d for d in history.read_csv(history.DATA / "dealers.csv")}
+    decodes = vin_decode.decode_many([r["vin"] for r in todo])
+    n = 0
+    for r in todo:
+        L = _row_listing(r)
+        L.cert_text = f"title:certified {r.get('cpo_program') or ''}".strip()
+        L.sunroof = {"True": True, "False": False}.get(r.get("sunroof"))
+        new = evaluate_row(L, dealers.get(r["dealer"], {}), decodes.get(L.vin) or {}, [], excluded, confirmed, latest)
+        keep = {k: r.get(k, "") for k in ("first_seen", "last_seen", "seen_run", "new_run", "price_history", "removed_on", "last_read")}
+        r.update({k: ("" if v is None else v) for k, v in new.items() if k in r}, **keep)
+        n += r["status"] == "active"
+    return n
+
+
 def rescore(args) -> None:
     """Re-apply scores, color/interior rules and sticker prices to the last results, without searching
     (for a rules change between searches). Only rules that need nothing beyond what listings.csv holds."""
@@ -372,6 +418,9 @@ def rescore(args) -> None:
         criteria.use(P.cfg)
         rows = history.read_csv(P.data / "listings.csv")
         excluded, confirmed = history.load_exclusions(P.data), history.load_confirmed(P.data)
+        n_back = revive_drive_only(rows, excluded, confirmed) if not criteria.F.get("awd_required", True) else 0
+        if n_back:
+            print(f"{P.label}: {n_back} cars ruled out only for their drivetrain now pass")
         n_out = 0
         for r in rows:
             if r.get("status") != "active":
@@ -392,9 +441,12 @@ def rescore(args) -> None:
                         audio=r["audio"], leather=b.get(r["leather"]), seats=r.get("seats", ""), sunroof=b.get(r["sunroof"]),
                         ventilated_seats=b.get(r["ventilated_seats"]), spare_tire=b.get(r["spare_tire"]),
                         ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
-                        msrp_source=r.get("msrp_source", ""), body=r.get("body", ""))
+                        msrp_source=r.get("msrp_source", ""), body=r.get("body", ""), drivetrain=r.get("drivetrain", ""))
             apply_confirmed(L, confirmed.get(L.vin.upper()))
             L.make = r["make"] = canon_make(L.make)
+            if r.get("drivetrain") == "2WD":                    # which axle (Drive filter), from what the maker builds
+                r["drivetrain"] = criteria.two_wd_axle(L.make, L.model, L.trim) or "2WD"
+                L.drivetrain = r["drivetrain"]
             if not L.mpg_combined and L.fuel_type != "ev":      # EPA figure missing (fueleconomy.gov unreachable that run)
                 fill_mpg(L)
                 if L.mpg_combined:

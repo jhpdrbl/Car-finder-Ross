@@ -112,7 +112,7 @@ def url_vin(url: str) -> str:
 
 
 # Listing URLs we can drop without reading the page (versions that are never on the list).
-URL_SKIP = re.compile(r"sdrive|(?<![a-z])(2wd|fwd|4x2)(?![a-z])|rx-?350-?l(?![a-z])|gl[ce][a-z0-9-]*coupe")
+URL_SKIP = re.compile(r"rx-?350-?l(?![a-z])|gl[ce][a-z0-9-]*coupe")   # 2WD/FWD/sDrive pages are read since AWD stopped being required (Oct 25 2026)
 
 
 def norm_url_text(url: str) -> str:
