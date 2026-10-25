@@ -39,6 +39,11 @@ def _cache() -> dict:
 
 
 def _save(c: dict) -> None:
+    try:        # nothing new: leave the file alone (its line endings differ between the laptop and the cloud)
+        if CACHE.exists() and json.loads(CACHE.read_text(encoding="utf-8")) == c:
+            return
+    except ValueError:
+        pass
     CACHE.parent.mkdir(parents=True, exist_ok=True)
     _atomic_write(json.dumps(c, indent=0))
 
