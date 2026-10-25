@@ -102,6 +102,12 @@ class Robots:
         return allowed
 
 
+# At most this many requests open at once across all threads (config scrape.max_open_requests). With feeds, 24 dealer
+# sites and feed cars' pages read side by side, the laptop's home connection dropped whole bursts of connections
+# ("SSL: UNEXPECTED_EOF_WHILE_READING" from Lexus, Subaru, Mazda, Kia and Genesis in the same 30 s, Oct 25 2026).
+_NET = threading.BoundedSemaphore(int(SCRAPE.get("max_open_requests") or 12))
+
+
 class Fetcher:
     def __init__(self, cache_name: str = ".cache/http", use_cache: bool = True):
         (ROOT / ".cache").mkdir(exist_ok=True)
@@ -201,8 +207,18 @@ class Fetcher:
             except Exception:
                 resp = None
         if resp is None:
-            self._throttle(host)
-            resp = self.session.get(url, timeout=SCRAPE["timeout_seconds"], **kw)
+            for wait in (5, 15, None):
+                self._throttle(host)
+                try:
+                    with _NET:
+                        resp = self.session.get(url, timeout=SCRAPE["timeout_seconds"], **kw)
+                    break
+                except (requests.ConnectionError, requests.Timeout):
+                    # a connection that breaks (SSL "unexpected EOF", reset) is tried again: on the laptop
+                    # (Oct 24-25 2026) whole bursts of sites failed at once, i.e. the home connection, not the sites
+                    if wait is None:
+                        raise
+                    time.sleep(wait)
         return resp
 
     # -- public -----------------------------------------------------------
@@ -219,11 +235,18 @@ class Fetcher:
             raise FetchError(f"blocked host (aggregator/carfax): {host}")
         if not self.allowed(url):
             raise RobotsDisallowed(self.robots_reason(url))
-        self._throttle(host)
-        try:
-            r = self.session.post(url, data=payload, timeout=SCRAPE["timeout_seconds"], **kw)
-        except requests.RequestException as e:
-            raise FetchError(f"{type(e).__name__}: {e}") from e
+        for wait in (5, 15, None):
+            self._throttle(host)
+            try:
+                with _NET:
+                    r = self.session.post(url, data=payload, timeout=SCRAPE["timeout_seconds"], **kw)
+                break
+            except (requests.ConnectionError, requests.Timeout) as e:
+                if wait is None:
+                    raise FetchError(f"{type(e).__name__}: {e}") from e
+                time.sleep(wait)
+            except requests.RequestException as e:
+                raise FetchError(f"{type(e).__name__}: {e}") from e
         if r.status_code != 200:
             raise FetchError(f"HTTP {r.status_code} for {url}")
         try:

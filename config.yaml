@@ -13,6 +13,7 @@ scrape:
   max_delay_seconds: 3.0
   cache_hours: 6
   timeout_seconds: 30
+  max_open_requests: 12     # requests open at once across all threads (Oct 25 2026: the home connection dropped bursts of many)
   max_vdps_per_dealer: 400
 
 filters:
