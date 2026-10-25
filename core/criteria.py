@@ -68,7 +68,8 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
 # --------------------------------------------------------------------------
 
 DARK_GREENS = ["autumn green", "cypress green", "british racing", "racing green", "dark green", "forest green",
-               "eruption green", "district green", "verde", "jungle green", "hunter green"]
+               "eruption green", "district green", "verde", "jungle green", "hunter green",
+               "emerald green"]   # Mercedes Emerald Green (user, Oct 25 2026: "4JGGM1CB9PA033049 is a great green")
 OTHER_COLOR_WORDS = ["blue", "red", "white", "beige", "brown", "orange", "yellow", "gold", "bronze", "copper",
                      "tan", "ivory", "cream", "champagne", "purple", "pink", "mahogany", "burgundy", "maroon",
                      "wine", "garnet", "ruby", "copper", "sand", "khaki"]

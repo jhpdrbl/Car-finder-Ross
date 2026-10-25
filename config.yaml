@@ -47,7 +47,7 @@ filters:
     include: [black, gray, grey, graphite, charcoal, gunmetal, thunder, makalu,
               mythos, vik, onyx, daytona, carbon, obsidian, magnetic, crystal black,
               "dark green", "autumn green", "british racing", "racing green",
-              "cypress green", "eruption green", "area 51", "shadow", "slate",
+              "cypress green", "eruption green", "emerald green", "area 51", "shadow", "slate",
               "manhattan", "ebony", "jet", "nebula", "smoke", "tungsten", "anthracite",
               "storm", "asphalt", "steel", "cement", "lunar", "magnetite", "iridium",
               "selenite", "titanium", "ash", silver, quicksilver, sterling, argento, grigio, nero, "verde fangio", "verde montreal", celestial, "black raven", "emerald lake", argent]   # silver allowed (user, Oct 21 2026: "start allowing silver"); Alfa: grigio = gray, nero = black, Verde Fangio/Montreal = dark greens   # list reviewed per-run in fail_reasons
