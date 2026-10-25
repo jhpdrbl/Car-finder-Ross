@@ -8,3 +8,4 @@ site/
 data/run_state.json
 logs/
 .github_token
+probe_report.txt

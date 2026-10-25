@@ -297,6 +297,14 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    public key + signed endpoint + data version read fresh each run from `www.vw.com/en.global-config.json`; each car has
    the dealer's own listing URL (`onlineSalesUrl`). Works on the iPad. Keeps 2025+ Tiguans. VW dealer sites are skipped
    when it succeeds. BMW bmwusa.com didn't connect from the cloud; try from the iPad.
+11. **More brand feeds (Oct 25 2026, user said yes to Jaguar/Acura/BMW)**: **Jaguar** certified search works from the cloud
+   (NetDirector GraphQL `production-api-oregon.search-api.netdirector.auto/api/vehicle-search`, `isFranchiseApproved: true`, needs the
+   site's public `authorization` header read from inventory.jaguarusa.com in a browser; its robots.txt answers 403 = allowed) but
+   **not built**: of 188 certified Jaguars nationwide only 4 were within 60 mi (Galpin Van Nuys F-Pace + 2 F-Types, Jaguar Anaheim
+   Hills F-Pace P400; Anaheim Hills isn't in dealers.csv), all gas, so none pass while gas is off (I-Pace roof never opens).
+   **Acura / BMW**: `tools/probe_feeds.py` (run on the laptop: `python search.py update` then `python tools/probe_feeds.py`)
+   checks robots.txt and lists the data requests the brand's certified search page makes; from the cloud both refuse
+   (acura.com 403, bmwusa.com robots.txt timeout). Build the feed from the laptop's report if a page answers.
 7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
    `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
    those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.
