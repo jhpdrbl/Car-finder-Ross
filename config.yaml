@@ -20,6 +20,10 @@ filters:
   max_mileage: 39999          # "under 40,000"
   drivetrains: [AWD, 4WD]
   awd_required: false       # Oct 25 2026, user: AWD is a nice-to-have, not a requirement (scored: scoring.weights.awd)
+  # Oct 25 2026, user: "for now you can remove gas cars (still keep hybrid, plug-in and EV). But make it easy to get back".
+  # To bring gas cars back: add gas to this list (or delete the line), then `python run.py rescore` (or the next search).
+  # Mild hybrids count as gas. Gas sedans never counted (filters.sedans).
+  fuels: [hybrid, phev, ev]
   max_rows: 2
   price_caps:                 # total incl. dealer fees, before tax
     gas: 35000

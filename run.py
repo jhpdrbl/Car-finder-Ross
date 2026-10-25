@@ -381,14 +381,26 @@ def _row_listing(r: dict):
     return Listing(**kw)
 
 
+def _lifted(reason: str, fuel: str) -> bool:
+    """A fail reason from a rule that's been switched off since: the AWD rule, or the fuel rule for a fuel taken again."""
+    from core import criteria
+    if DRIVE_ONLY.search(reason):
+        return not criteria.F.get("awd_required", True)
+    if criteria.FUEL_FAIL.match(reason) or reason in ("not a hybrid (gas only)",):
+        fuels = criteria.F.get("fuels")
+        return not fuels or fuel in fuels
+    return False
+
+
 def revive_drive_only(rows: list[dict], excluded: dict, confirmed: dict) -> int:
-    """Cars of the latest search ruled out only for their drivetrain: run them through today's rules again
-    (certification already passed then: their program is kept as the listing's proof). Returns how many."""
+    """Cars of the latest search ruled out only by a rule that's been switched off since (AWD required, or a fuel
+    such as gas taken again): run them through today's rules again (certification already passed then: their
+    program is kept as the listing's proof). Returns how many now pass."""
     from core import history
     from verify import vin_decode
     latest = max((r.get("last_seen") or "" for r in rows), default="")
     todo = [r for r in rows if r.get("status") == "excluded" and r.get("last_seen") == latest and r.get("fail_reasons")
-            and all(DRIVE_ONLY.search(x) for x in r["fail_reasons"].split("; ") if x)]
+            and all(_lifted(x, r.get("fuel_type", "")) for x in r["fail_reasons"].split("; ") if x)]
     if not todo:
         return 0
     dealers = {d["dealer_name"]: d for d in history.read_csv(history.DATA / "dealers.csv")}
@@ -418,15 +430,20 @@ def rescore(args) -> None:
         criteria.use(P.cfg)
         rows = history.read_csv(P.data / "listings.csv")
         excluded, confirmed = history.load_exclusions(P.data), history.load_confirmed(P.data)
-        n_back = revive_drive_only(rows, excluded, confirmed) if not criteria.F.get("awd_required", True) else 0
+        n_back = revive_drive_only(rows, excluded, confirmed)
         if n_back:
-            print(f"{P.label}: {n_back} cars ruled out only for their drivetrain now pass")
+            print(f"{P.label}: {n_back} cars ruled out only by a rule switched off since (AWD / fuel) now pass")
+        fuels = criteria.F.get("fuels")
         n_out = 0
         for r in rows:
             if r.get("status") != "active":
                 continue
             if r["vin"] in excluded:                  # ruled out by hand since the last search
                 r.update(status="excluded", fail_reasons=f"manually excluded: {excluded[r['vin']]}", needs_call="", score="")
+                n_out += 1
+                continue
+            if fuels and r.get("fuel_type") and r["fuel_type"] not in fuels:     # filters.fuels (Oct 25 2026: no gas cars for now)
+                r.update(status="excluded", fail_reasons=criteria.fuel_fail(r["fuel_type"], fuels), needs_call="", score="")
                 n_out += 1
                 continue
             c = confirmed.get(r["vin"].upper())

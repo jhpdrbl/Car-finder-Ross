@@ -277,6 +277,12 @@ def _hybrid_sedan_mpg(L: Listing, sedans: dict, fails: list, unknown: list) -> N
 
 
 FUEL_WORDS = {"gas": "gas", "hybrid": "hybrid", "phev": "plug-in hybrid", "ev": "electric"}
+FUEL_FAIL = re.compile(r"^(gas|hybrid|plug-in hybrid|electric) \(only .* for now\)$")   # what fuel_fail writes
+
+
+def fuel_fail(fuel: str, fuels: list) -> str:
+    """The fail reason for a fuel this buyer doesn't take (filters.fuels), e.g. 'gas (only hybrid / plug-in hybrid / electric for now)'."""
+    return f"{FUEL_WORDS.get(fuel, fuel)} (only {' / '.join(FUEL_WORDS.get(f, f) for f in fuels)} for now)"
 NAME_2WD = re.compile(r"\b(2wd|rwd|fwd|4x2|sdrive\w*)\b|rear[- ]wheel drive|front[- ]wheel drive|two[- ]wheel drive")
 # A VIN or listing that only says "2WD": which axle, from what the maker builds (Oct 25 2026, for the Drive filter)
 _FWD_2WD = re.compile(r"\beqb\b|\bgla\b|sportage|ev6(?!.*\bgt\b)|\brdx\b|tiguan|\bnx\b|\brz\b|\bes\b|bz4x|\bbz\b|\bcx-?[35]0?\b|xc40(?!.*(recharge|electric|ex40))|xc60|\bq3\b|\bq5\b|tonale|e-?pace")
@@ -420,10 +426,9 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     # fuel: some buyers take only certain kinds (Jenna: regular hybrids; mild hybrids count as gas)
     fuels = F.get("fuels")
     if fuels and L.fuel_type and L.fuel_type not in fuels:
-        fails.append({"gas": "not a hybrid (gas only)", "phev": "plug-in hybrid (regular hybrids only)",
-                      "ev": "electric (regular hybrids only)"}.get(L.fuel_type, f"{L.fuel_type} (hybrids only)"))
+        fails.append(fuel_fail(L.fuel_type, fuels))
     elif fuels and not L.fuel_type:
-        unknown.append("fuel type not shown; confirm it's a hybrid")
+        unknown.append(f"fuel type not shown; confirm it's {' / '.join(FUEL_WORDS.get(f, f) for f in fuels)}")
 
     # price
     price_total(L)
