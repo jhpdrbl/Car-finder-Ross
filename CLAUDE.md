@@ -304,7 +304,9 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    Hills F-Pace P400; Anaheim Hills isn't in dealers.csv), all gas, so none pass while gas is off (I-Pace roof never opens).
    **Acura / BMW**: `tools/probe_feeds.py` (run on the laptop: `python search.py update` then `python tools/probe_feeds.py`)
    checks robots.txt and lists the data requests the brand's certified search page makes; from the cloud both refuse
-   (acura.com 403, bmwusa.com robots.txt timeout). Build the feed from the laptop's report if a page answers.
+   (acura.com 403, bmwusa.com robots.txt timeout). **Laptop result (Oct 25 2026): the same from home** (acura.com and
+   acuracertified.com answer 403 Access Denied, bmwusa.com's robots.txt times out), so no Acura or BMW feed; don't retry
+   unless something changes on their side.
 7. Warranty column assumptions: in-service date ≈ April of the model year; mileage end at
    `config.yaml: warranty.miles_per_year` (12,000); CPO coverage that starts later with ≤ 30k miles counts
    those miles from its start (`additive()` in the template). Roadside/rust coverage isn't shown per car.
