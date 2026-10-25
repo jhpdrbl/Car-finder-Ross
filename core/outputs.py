@@ -340,6 +340,28 @@ def _spec_fields(r: dict, page_cl: dict | None = None) -> dict:
     return {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
 
 
+def _places(cars: list[dict], P) -> dict:
+    """Map tab: where each dealer with a car on the page is (data/dealers.csv), plus home. Dealers without a street
+    address on file were placed at their city's center when the list was built: their pins are marked approximate."""
+    import csv
+    path = ROOT / "data" / "dealers.csv"
+    by = {}
+    if path.exists():
+        with path.open(encoding="utf-8", newline="") as f:
+            by = {r["dealer_name"]: r for r in csv.DictReader(f)}
+    out = {}
+    for name in {c["dealer"] for c in cars}:
+        d = by.get(name) or {}
+        try:
+            lat, lon = float(d.get("lat") or ""), float(d.get("lon") or "")
+        except ValueError:
+            continue
+        out[name] = {"lat": lat, "lon": lon, "city": d.get("city", ""), "address": d.get("address", ""),
+                     "zip": d.get("zip", ""), "approx": not d.get("address")}
+    home = P.cfg.get("home") or CONFIG.get("home") or {}
+    return {"dealers": out, "home": {"lat": home.get("lat"), "lon": home.get("lon"), "zip": home.get("zip", "")}}
+
+
 def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None, profile=None) -> Path:
     from core import profiles
     P = _profile(profile)
@@ -394,7 +416,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     people = [{"id": q.id, "label": q.label, "href": q.href,
                "local": ("" if P.is_default else "../") + ("dashboard.html" if q.is_default else f"{q.id}/dashboard.html")}
               for q in profiles.all_profiles()]
-    data = json.dumps({"cars": cars, "gone": gone, "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
+    data = json.dumps({"cars": cars, "gone": gone, "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
                        "profile": {"id": P.id, "label": P.label, "default": P.is_default}, "people": people,
                        "miles_per_year": P.cfg.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
@@ -575,6 +597,22 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .save { color:var(--ok); font-size:12px; font-weight:600; }
 .sortbar { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
 .shown { margin:4px 0 8px; font-weight:600; }
+.mapbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:0 0 10px; }
+#map { height:min(65vh, 560px, 125vw); border-radius:10px; border:1px solid var(--line); margin-bottom:8px; z-index:0; }
+.maplegend { display:flex; gap:6px 14px; align-items:center; flex-wrap:wrap; margin-bottom:4px; }
+.maplegend > span { display:inline-flex; gap:5px; align-items:center; }
+.pin { display:inline-flex; align-items:center; justify-content:center; min-width:26px; height:26px; padding:0 5px; box-sizing:border-box;
+  border-radius:13px; color:#fff; font:700 13px/1 system-ui, sans-serif; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.45); }
+.pin.m { background:#1f8a3b; } .pin.c { background:#b7791f; } .pin.home { background:#2b4c7e; }
+.pin.approx { border-style:dashed; } .pin.fav::after { content:"\2665"; margin-left:2px; font-size:11px; }
+.pin.trip { outline:3px solid #2b6cb0; }
+.leaflet-div-icon.pinwrap { background:none; border:0; }
+.mpop { font:13px/1.35 system-ui, sans-serif; max-width:270px; }
+.mpop h4 { margin:0 0 2px; font-size:14px; } .mpop ul { margin:6px 0; padding-left:16px; } .mpop li { margin:2px 0; }
+.mpop .acts { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+.mpop button, #trip button { font:inherit; cursor:pointer; }
+#trip ol { margin:6px 0; padding-left:22px; } #trip li { margin:3px 0; }
+#trip .x { border:0; background:none; color:var(--muted); font-size:16px; padding:0 6px; }
 .shown .clear { margin-left:8px; font-weight:400; }
 #shown-f { margin-left:8px; }
 .sortbar label { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
@@ -756,6 +794,15 @@ __SCOREHELP__
   <div id="fav-gone"></div>
 </div>
 <div class="shown" id="shown-a" aria-live="polite"></div>
+<div class="mapbar"><button type="button" class="cbtn" id="map-toggle" aria-pressed="false" aria-controls="map-box">&#128506; Show on a map</button>
+  <span class="small">the cars these filters show, by dealer</span></div>
+<div id="map-box" hidden>
+  <div id="map" role="region" aria-label="Map of dealers"></div>
+  <div class="small maplegend"><span><span class="pin m">2</span> meet everything</span> <span><span class="pin c">1</span> some need a call</span>
+    <span><span class="pin m approx">1</span> dashed: spot approximate</span> <span><span class="pin home">&#8962;</span> home</span></div>
+  <div class="small" style="margin-bottom:8px">The number is how many cars there. Tap a pin for its cars, dealers close by, and <b>+ Add to trip</b>.</div>
+  <div id="trip"></div>
+</div>
 <div class="sortbar phone-only"><label for="sort-a">Sort</label><select id="sort-a">
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
@@ -1392,6 +1439,105 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
 function render() { renderRows(); stickHeads(); }
+
+// ---- Map: dealers of the cars the filters show (OpenStreetMap via Leaflet, loaded only when the map is opened) ----
+let lastCars = [], mapOn = false, map = null, mapLayer = null, mapFit = true, trip = [];
+try { trip = JSON.parse(localStorage.getItem(PK + "trip") || "[]"); } catch (e) {}
+const PL = (D.places && D.places.dealers) || {}, HOME = (D.places && D.places.home) || {};
+const HOME_Q = HOME.zip ? `${HOME.zip}` : "";
+const placeQ = n => [n, (PL[n] || {}).address, (PL[n] || {}).city, "CA"].filter(Boolean).join(", ");
+const gmSearch = n => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(placeQ(n));
+function miles(a, b) {           // straight-line distance between two dealers, in miles
+  const R = 3958.8, t = x => x * Math.PI / 180, dl = t(b.lat - a.lat), dn = t(b.lon - a.lon);
+  const h = Math.sin(dl / 2) ** 2 + Math.cos(t(a.lat)) * Math.cos(t(b.lat)) * Math.sin(dn / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+function loadLeaflet() {
+  if (window.L) return Promise.resolve();
+  return new Promise((ok, bad) => {
+    const css = document.createElement("link"); css.rel = "stylesheet";
+    css.href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"; document.head.appendChild(css);
+    const js = document.createElement("script"); js.src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
+    js.onload = ok; js.onerror = bad; document.head.appendChild(js);
+  });
+}
+function byDealer(cars) {
+  const g = {};
+  cars.forEach(c => { if (PL[c.dealer]) (g[c.dealer] = g[c.dealer] || []).push(c); });
+  return g;
+}
+function popupHtml(name, list, groups) {
+  const p = PL[name], inTrip = trip.includes(name);
+  const near = Object.keys(groups).filter(n => n !== name).map(n => [n, miles(p, PL[n])]).filter(x => x[1] <= 8)
+    .sort((a, b) => a[1] - b[1]).slice(0, 4);
+  return `<div class="mpop"><h4>${esc(name)}</h4><div class="small">${esc(list[0].distance_mi)} mi from home${p.approx ? " · pin is the city center, not the exact spot" : ""}</div>
+    <ul>${list.map(c => `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><br>
+      <span class="small">${fmt$(c.price_total)} · ${num(c.mileage) == null ? "? mi" : Math.round(num(c.mileage)).toLocaleString() + " mi"}${c.needs_call ? " · needs a call" : ""}${fav.includes(c.vin) ? " · &#9829;" : ""}</span></li>`).join("")}</ul>
+    ${near.length ? `<div class="small"><b>Close by:</b> ${near.map(([n, d]) => `${esc(n)} (${d.toFixed(1)} mi, ${groups[n].length} car${groups[n].length > 1 ? "s" : ""})`).join("; ")}</div>` : ""}
+    <div class="acts"><button type="button" class="cbtn" data-trip="${esc(name)}">${inTrip ? "&#10003; In your trip (remove)" : "+ Add to trip"}</button>
+      <a class="cbtn ghost" href="${gmSearch(name)}" target="_blank" rel="noopener">Open in Google Maps</a></div></div>`;
+}
+function drawTrip() {
+  const box = document.getElementById("trip");
+  trip = trip.filter(n => PL[n]);
+  if (!trip.length) { box.innerHTML = '<div class="small">Plan a test-drive trip: tap a pin, then <b>+ Add to trip</b>. Google Maps puts the stops in a route from home.</div>'; return; }
+  const stops = trip.map(placeQ);
+  const url = "https://www.google.com/maps/dir/?api=1&travelmode=driving" + (HOME_Q ? "&origin=" + encodeURIComponent(HOME_Q) : "")
+    + "&destination=" + encodeURIComponent(stops[stops.length - 1])
+    + (stops.length > 1 ? "&waypoints=" + encodeURIComponent(stops.slice(0, -1).join("|")) : "");
+  const count = n => lastCars.filter(c => c.dealer === n).length;
+  box.innerHTML = `<b>Your trip</b> <span class="small">(${trip.length} stop${trip.length > 1 ? "s" : ""}, in this order)</span>
+    <ol>${trip.map((n, i) => `<li>${esc(n)} <span class="small">${count(n)} car${count(n) === 1 ? "" : "s"} shown</span>
+      ${i ? `<button type="button" class="x" data-up="${i}" aria-label="Move up">&#8593;</button>` : ""}<button type="button" class="x" data-trip="${esc(n)}" aria-label="Remove">&times;</button></li>`).join("")}</ol>
+    <a class="cbtn" href="${url}" target="_blank" rel="noopener">Open the route in Google Maps</a>
+    <button type="button" class="cbtn ghost" id="trip-clear">Clear trip</button>`;
+}
+function drawMap() {
+  if (!map) return;
+  const groups = byDealer(lastCars);
+  mapLayer.clearLayers();
+  const pts = [];
+  if (HOME.lat) {
+    L.marker([HOME.lat, HOME.lon], {icon: L.divIcon({className: "pinwrap", html: '<span class="pin home">&#8962;</span>', iconSize: [26, 26], iconAnchor: [13, 13]}),
+      title: "Home", zIndexOffset: -100}).addTo(mapLayer);
+    pts.push([HOME.lat, HOME.lon]);
+  }
+  Object.entries(groups).forEach(([name, list]) => {
+    const p = PL[name], calls = list.some(c => c.needs_call), hasFav = list.some(c => fav.includes(c.vin));
+    const cls = `pin ${calls ? "c" : "m"}${p.approx ? " approx" : ""}${hasFav ? " fav" : ""}${trip.includes(name) ? " trip" : ""}`;
+    L.marker([p.lat, p.lon], {icon: L.divIcon({className: "pinwrap", html: `<span class="${cls}">${list.length}</span>`, iconSize: [30, 26], iconAnchor: [15, 13]}),
+      title: `${name}: ${list.length} car${list.length > 1 ? "s" : ""}`})
+      .bindPopup(() => popupHtml(name, list, groups), {maxWidth: 290}).addTo(mapLayer);
+    pts.push([p.lat, p.lon]);
+  });
+  if (mapFit && pts.length) { map.fitBounds(pts, {padding: [24, 24], maxZoom: 12}); }
+  drawTrip();
+}
+document.getElementById("map-toggle").addEventListener("click", async e => {
+  mapOn = !mapOn; e.currentTarget.setAttribute("aria-pressed", mapOn);
+  e.currentTarget.innerHTML = mapOn ? "&#128506; Hide the map" : "&#128506; Show on a map";
+  document.getElementById("map-box").hidden = !mapOn;
+  if (!mapOn) return;
+  try { await loadLeaflet(); } catch (err) {
+    document.getElementById("map").innerHTML = '<p class="muted" style="padding:12px">The map couldn\'t load (no internet connection?).</p>'; return; }
+  if (!map) {
+    map = L.map("map", {scrollWheelZoom: false, zoomSnap: 0.25});
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+    mapLayer = L.layerGroup().addTo(map);
+    map.on("zoomstart dragstart", () => { mapFit = false; });   // keep the view the viewer chose while filters change
+  }
+  mapFit = true; setTimeout(() => { map.invalidateSize(); drawMap(); }, 30);   // size first, so the view fits the screen
+});
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-trip]"), up = e.target.closest("[data-up]");
+  if (t) { const n = t.dataset.trip; trip = trip.includes(n) ? trip.filter(x => x !== n) : trip.concat([n]); }
+  else if (up) { const i = +up.dataset.up; [trip[i - 1], trip[i]] = [trip[i], trip[i - 1]]; }
+  else if (e.target.id === "trip-clear") trip = [];
+  else return;
+  try { localStorage.setItem(PK + "trip", JSON.stringify(trip)); } catch (err) {}
+  if (map) { map.closePopup(); const f = mapFit; mapFit = false; drawMap(); mapFit = f; } else drawTrip();
+});
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"),
         rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"),
@@ -1410,6 +1556,7 @@ function renderRows() {
   let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
                             && (!onlyNew || c.is_new) && (!onlyCut || c.dropped));
   cars.sort(sorter(sortK, dir));
+  lastCars = cars; if (mapOn) drawMap();
   const gone = D.gone.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
