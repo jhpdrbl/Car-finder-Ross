@@ -339,7 +339,10 @@ def _spec_fields(r: dict, page_cl: dict | None = None) -> dict:
     cl, src = specs.best_clearance(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), page)
     # the body type (from the VIN) tells an "EQE 350" SUV from the sedan when the dealer doesn't say
     er = specs.ev_range(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), r.get("fuel_type", ""))
-    return {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else ""}
+    pf = specs.perf(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), r.get("drivetrain", ""),
+                    r.get("fuel_type", ""))
+    return {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else "",
+            "perf": pf}
 
 
 def _places(cars: list[dict], P) -> dict:
@@ -1410,6 +1413,14 @@ const daysListed = c => { const a = Date.parse(c.first_seen); return isNaN(a) ? 
 const recalls = c => String(c.recall_flags || "").split(";").map(x => x.trim()).filter(Boolean);
 const badgeWords = c => [...new Set(String(c.carfax_badges || "").split(",").map(b => /own/.test(b) ? "one owner" : /accident/.test(b) ? "no accidents"
   : /service/.test(b) ? "service records" : /personal/.test(b) ? "personal use" : "").filter(Boolean))].join(", ");
+const pf = c => c.perf || {};
+const hpOf = c => { if (num(pf(c).hp) != null) return {v: num(pf(c).hp), t: ""};     // spec table, else the Trim guide's engine line
+  const t = trimInfo(c), m = t && String(t.powertrain || "").match(/(\d{3})\s*hp/i); return m ? {v: +m[1], t: "trim guide"} : null; };
+const dcOf = c => num(pf(c).dc_kw) != null || num(pf(c).dc_min) != null;
+const homeHours = c => { const b = num(pf(c).battery_kwh), k = num(pf(c).ac_kw);       // empty to full, ~10% charging losses
+  return b && k ? Math.round(b / k * 1.1 * 2) / 2 : null; };
+const plug = c => c.fuel_type === "ev" || c.fuel_type === "phev";
+const NONE = '<span class="muted">—</span>';
 const FIELDS = [
   ["Price & value"],
   ["Price (with fees)", c => priceCell(c), c => num(c.price_total), "low"],
@@ -1435,7 +1446,6 @@ const FIELDS = [
   ["Fuel", c => esc(c.fuel), null, null],
   ["Drive", c => esc(c.drive), c => c.drive === "AWD" ? 1 : c.drive === "Not sure" ? null : 0, "high"],
   ["Engine / motor", c => { const t = trimInfo(c); return t && t.powertrain ? esc(t.powertrain) + ` <span class="small">(trim guide)</span>` : '<span class="muted">—</span>'; }, null, null],
-  ["Electric range", c => num(c.ev_range) == null ? (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—") : Math.round(num(c.ev_range)) + " mi", c => num(c.ev_range), "high"],
   ["MPG", c => num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? "— (electric)" : "?") : Math.round(num(c.mpg_combined)) + " combined"
       + (num(c.mpg_city) != null ? `<div class="small">${Math.round(num(c.mpg_city))} city / ${Math.round(num(c.mpg_hwy))} hwy${c.fuel_type === "phev" ? ", gas only" : ""}</div>` : "")
       + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : c.mpg_source === "guide" ? ' <span class="small">trim guide</span>' : ""), c => num(c.mpg_combined), "high"],
@@ -1443,12 +1453,28 @@ const FIELDS = [
   ["Miles per year", c => perYear(c) == null ? "?" : perYear(c).toLocaleString() + ' <span class="small">(in service ~Apr ' + esc(c.year) + ")</span>", c => perYear(c), "low"],
   ["Exterior", c => esc(c.ext_color || "?"), null, null],
   ["Interior", c => esc(c.int_color || "?"), null, null],
+  ["Performance, range & charging"],
+  ["Horsepower", c => { const h = hpOf(c); return h ? h.v + " hp" + (num(pf(c).hp_boost) ? `<div class="small">${num(pf(c).hp_boost)} hp with Boost</div>` : "")
+      + (h.t ? ` <span class="small">${h.t}</span>` : "") : "?"; }, c => hpOf(c) ? hpOf(c).v : null, "high"],
+  ["Torque", c => num(pf(c).torque) != null ? num(pf(c).torque) + " lb-ft" : NONE, c => num(pf(c).torque), "high"],
+  ["0-60 mph", c => num(pf(c).zero_60) != null ? num(pf(c).zero_60).toFixed(1) + " s" : NONE, c => num(pf(c).zero_60), "low"],
+  ["Electric range", c => num(c.ev_range) == null ? (plug(c) ? "?" : "—") : Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? ` <span class="small">${esc(c.ev_range_src)}</span>` : ""), c => num(c.ev_range), "high"],
+  ["Battery", c => num(pf(c).battery_kwh) != null ? num(pf(c).battery_kwh) + " kWh" : (plug(c) ? "?" : "—"), c => num(pf(c).battery_kwh), "high"],
+  ["Fast charging (DC)", c => !plug(c) ? "—" : !dcOf(c) ? (c.fuel_type === "phev" && num(pf(c).battery_kwh) != null ? "not offered" : "?")
+      : (num(pf(c).dc_min) != null ? `${num(pf(c).dc_min)} min <span class="small">(${esc(pf(c).dc_window || "")})</span>` : "")
+        + (num(pf(c).dc_kw) != null ? `<div class="small">up to ${num(pf(c).dc_kw)} kW</div>` : ""), c => num(pf(c).dc_min), "low"],
+  ["Fast-charge peak", c => num(pf(c).dc_kw) != null ? num(pf(c).dc_kw) + " kW" : (plug(c) ? NONE : "—"), c => num(pf(c).dc_kw), "high"],
+  ["Home charging (Level 2)", c => !plug(c) ? "—" : num(pf(c).ac_kw) == null ? "?" : `${num(pf(c).ac_kw)} kW`
+      + (homeHours(c) != null ? `<div class="small">about ${homeHours(c)} h empty to full</div>` : ""), c => num(pf(c).ac_kw), "high"],   // ★ = fastest charger (a small plug-in battery fills sooner anyway)
   ["Ground clearance", c => num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? ` <span class="small">${esc(c.clearance_src)}</span>` : ""), c => num(c.clearance), "high"],
+  ["Cargo behind rear seats", c => num(pf(c).cargo_cu_ft) != null ? num(pf(c).cargo_cu_ft) + " cu ft" : NONE, c => num(pf(c).cargo_cu_ft), "high"],
+  ["Towing", c => num(pf(c).tow_lb) != null ? num(pf(c).tow_lb).toLocaleString() + " lb" : NONE, c => num(pf(c).tow_lb), "high"],
+  ["Where these specs come from", c => pf(c).source ? `<span class="small">${esc(pf(c).source)}</span>` : NONE, null, null],
   ["Features"],
   ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
   ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
   ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
-  ["Cooled seats", c => c.ventilated_seats ? yesNo(c.ventilated_seats) : (trimInfo(c) && /ventilat|cooled/i.test(trimInfo(c).seats || "") && !/no (ventilat|cool)|not? ventilat|without (ventilat|cool)/i.test(trimInfo(c).seats || "")
+  ["Ventilated (cooled) seats", c => c.ventilated_seats ? yesNo(c.ventilated_seats) : (trimInfo(c) && /ventilat|cooled/i.test(trimInfo(c).seats || "") && !/no (ventilat|cool)|not? ventilat|without (ventilat|cool)/i.test(trimInfo(c).seats || "")
       ? "Yes <span class=\"small\">trim guide</span>" : "Not shown"), null, null],
   ["Spare tire", c => c.spare_tire === "True" ? "Yes" : c.spare_tire === "False" ? "No (repair kit)" : (trimInfo(c) && trimInfo(c).spare ? esc(trimInfo(c).spare) + ' <span class="small">trim guide</span>' : "Not shown"), null, null],
   ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
@@ -1479,11 +1505,13 @@ function renderCompare() {
       <div class="small">${esc(c.dealer)}</div><button type="button" class="rm" data-vin="${esc(c.vin)}">remove</button></div>`).join("")}</div>`;
   const rows = FIELDS.map(([label, show, val, better]) => {
     if (!show) return `<div class="crow csec"><div>${esc(label)}</div></div>`;
+    const shown = cars.map(show);
+    if (shown.every(v => v === NONE || v === "—")) return "";        // nothing known for any of these cars (e.g. towing)
     let bestV = null;
     if (val && better && cars.length > 1) { const vs = cars.map(val).filter(v => v != null);
       if (vs.length > 1 && new Set(vs).size > 1) bestV = better === "low" ? Math.min(...vs) : Math.max(...vs); }
     return `<div class="crow"><div class="clabel">${esc(label)}</div>${cars.map((c, i) =>
-      `<div class="cval${bestV != null && val(c) === bestV ? " best" : ""}">${L(i)}<div>${show(c)}</div></div>`).join("")}</div>`; }).join("");
+      `<div class="cval${bestV != null && val(c) === bestV ? " best" : ""}">${L(i)}<div>${shown[i]}</div></div>`).join("")}</div>`; }).join("");
   el.innerHTML = `<div class="cmptop"><span class="muted">Comparing ${cars.length} car${cars.length > 1 ? "s" : ""}</span>
       <button type="button" class="cbtn ghost" id="cmp-clear">Clear compare</button></div>
     <div class="cmp" style="--n:${cars.length}">${head}${rows}</div>

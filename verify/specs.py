@@ -81,3 +81,13 @@ def ev_range(make: str, model: str, trim: str, year, fuel: str) -> tuple[float, 
         return None
     e = _find("ev_range", make, model, trim, year, fuel)
     return (float(e["miles"]), e.get("source", "")) if e else None
+
+
+PERF_KEYS = ("hp", "hp_boost", "torque", "zero_60", "battery_kwh", "dc_kw", "dc_min", "dc_window", "ac_kw", "cargo_cu_ft", "tow_lb")
+
+
+def perf(make: str, model: str, trim: str, year, drive: str = "", fuel: str = "") -> dict:
+    """Horsepower, torque, 0-60, battery and charging, cargo for the version (the drive tells a Q4 40 / Lyriq RWD
+    from the two-motor one). Empty when the version isn't in data/specs.json."""
+    e = _find("perf", make, model, f"{trim} {drive} {fuel}", year)
+    return {k: e[k] for k in PERF_KEYS if k in e} | {"source": e.get("source", "")} if e else {}
