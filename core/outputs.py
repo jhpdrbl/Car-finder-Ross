@@ -703,11 +703,20 @@ td.car.has-sticker { padding-right:34px; }
 .sbar { display:grid; grid-template-columns:minmax(0,1fr) 60px 44px; gap:6px; align-items:center; font-size:12px; line-height:1.6; }
 .sbar .sb { height:6px; background:var(--line); border-radius:3px; overflow:hidden; } .sbar .sb i { display:block; height:100%; background:var(--accent); }
 .sbar b { text-align:right; font-weight:600; } .cval ul.hl { margin:2px 0 0; padding-left:16px; font-size:13px; }
-.cl { display:inline-block; min-width:18px; text-align:center; font-size:11px; font-weight:800; border-radius:999px; background:var(--accent); color:var(--bg); padding:0 5px; margin-right:6px; }
-.cval .cl { display:none; }
+.cl { display:inline-block; min-width:20px; text-align:center; font-size:12px; font-weight:800; line-height:20px; border-radius:999px; background:var(--kc, var(--accent)); color:#fff; padding:0 5px; margin-right:6px; }
+/* one colour per compared car (A-F), the same in the header and on every value line */
+.k0 { --kc:#1f6feb; } .k1 { --kc:#d9480f; } .k2 { --kc:#2f9e44; } .k3 { --kc:#9c36b5; } .k4 { --kc:#c2255c; } .k5 { --kc:#0c8599; }
+.crow.chead > div.ch { border-top:4px solid var(--kc); }
+.cval .ctag { display:none; }
 @media (max-width: 760px) {
   .crow { grid-template-columns:1fr; } .crow > div { padding:3px 12px; } .crow .clabel { padding-top:10px; }
-  .crow:not(.chead) .cval { display:flex; gap:4px; align-items:flex-start; } .cval .cl { display:inline-block; flex:none; margin-top:2px; }
+  .crow:not(.chead) .cval { display:grid; grid-template-columns:104px minmax(0,1fr); gap:8px; align-items:start; padding:6px 12px 6px 9px;
+    border-left:4px solid var(--kc); margin:3px 0; }
+  .crow:not(.chead) .cval:nth-child(odd) { background:color-mix(in srgb, var(--kc) 6%, transparent); }
+  .cval .ctag { display:flex; align-items:flex-start; gap:0; min-width:0; }
+  .cval .ctag .cl { flex:none; } .cval .cn { font-size:12px; font-weight:600; color:var(--kc); line-height:1.3; padding-top:2px; overflow-wrap:anywhere; }
+  .cval.best .ctag { font-weight:600; }
+  .crow.chead > div.ch { border-top:0; border-left:4px solid var(--kc); margin:3px 0; }
   .tabs { flex-wrap:wrap; } .tab { padding:8px 8px; } .tab .lg { display:none; } .tab .sh { display:inline; }
   .crow.chead > div.clabel { display:none; } .crow.chead > div { padding:8px 12px; border-top:1px solid var(--line); }
   .crow > div:last-child { padding-bottom:10px; }
@@ -1500,8 +1509,11 @@ const FIELDS = [
 function renderCompare() {
   const cars = cmp.map(v => D.cars.find(c => c.vin === v)).filter(Boolean), el = document.getElementById("cmp");
   if (!cars.length) { el.innerHTML = '<p class="muted">Tap <b>+ Compare</b> on up to 6 cars in the Available tab, then come back here to see them side by side. The best value in each row gets a ★.</p>'; return; }
-  const L = i => `<span class="cl">${String.fromCharCode(65 + i)}</span>`;
-  const head = `<div class="crow chead"><div class="clabel">Car</div>${cars.map((c, i) => `<div>${L(i).replace('class="cl"', 'class="cl" style="display:inline-block"')}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
+  const L = i => `<span class="cl k${i}">${String.fromCharCode(65 + i)}</span>`;
+  // on a phone every value line repeats its car's letter, colour and a short name ("B · GV70 '23"), so a row reads on its own
+  const short = c => `${String(c.model || "").replace(/^Electrified /, "").replace(/Plug-in Hybrid/i, "PHEV")} '${String(c.year).slice(2)}`;
+  const tag = (c, i) => `<span class="ctag">${L(i)}<span class="cn">${esc(short(c))}</span></span>`;
+  const head = `<div class="crow chead"><div class="clabel">Car</div>${cars.map((c, i) => `<div class="ch k${i}">${L(i)}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
       <div class="small">${esc(c.dealer)}</div><button type="button" class="rm" data-vin="${esc(c.vin)}">remove</button></div>`).join("")}</div>`;
   const rows = FIELDS.map(([label, show, val, better]) => {
     if (!show) return `<div class="crow csec"><div>${esc(label)}</div></div>`;
@@ -1511,7 +1523,7 @@ function renderCompare() {
     if (val && better && cars.length > 1) { const vs = cars.map(val).filter(v => v != null);
       if (vs.length > 1 && new Set(vs).size > 1) bestV = better === "low" ? Math.min(...vs) : Math.max(...vs); }
     return `<div class="crow"><div class="clabel">${esc(label)}</div>${cars.map((c, i) =>
-      `<div class="cval${bestV != null && val(c) === bestV ? " best" : ""}">${L(i)}<div>${shown[i]}</div></div>`).join("")}</div>`; }).join("");
+      `<div class="cval k${i}${bestV != null && val(c) === bestV ? " best" : ""}">${tag(c, i)}<div>${shown[i]}</div></div>`).join("")}</div>`; }).join("");
   el.innerHTML = `<div class="cmptop"><span class="muted">Comparing ${cars.length} car${cars.length > 1 ? "s" : ""}</span>
       <button type="button" class="cbtn ghost" id="cmp-clear">Clear compare</button></div>
     <div class="cmp" style="--n:${cars.length}">${head}${rows}</div>
