@@ -891,11 +891,11 @@ __SCOREHELP__
   <div class="small" style="margin-bottom:8px">The number is how many cars there. Tap a pin for its cars, dealers close by, and <b>+ Add to trip</b>.</div>
   <div id="trip"></div>
 </div>
-<div class="sortbar phone-only"><label for="sort-a">Sort</label><select id="sort-a">
+<div class="sortbar"><label for="sort-a">Sort</label><select id="sort-a">
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
-  <option value="cut:-1">Biggest price cut</option><option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="clearance:-1">Most ground clearance</option><option value="ev_range:-1">Longest electric range</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
+  <option value="cut:-1">Biggest price cut</option><option value="cut_on:-1">Most recent price cut</option><option value="year:-1">Newest model year</option><option value="mpg_combined:-1">Best MPG</option><option value="clearance:-1">Most ground clearance</option><option value="ev_range:-1">Longest electric range</option><option value="warr_end:-1">Longest warranty (any)</option><option value="warr_full_end:-1">Longest bumper-to-bumper</option></select></div>
 <div class="wrap"><table><thead><tr>
   <th data-k="score">Score</th><th data-k="title">Car</th><th data-k="year">Year</th><th data-k="dealer">Dealer</th><th data-k="price_total">Price</th>
   <th data-k="orig">Original price</th><th data-k="msrp">Sticker when new</th><th data-k="mileage">Miles</th><th data-k="fuel">Fuel</th><th data-k="drive">Drive</th><th data-k="mpg_combined">MPG</th><th data-k="colors">Colors</th><th data-k="roof">Sunroof</th><th data-k="snd">Upgraded sound</th><th data-k="seat">Seats</th><th data-k="clearance">Ground clearance</th><th data-k="ev_range">Electric range</th>
@@ -980,6 +980,7 @@ D.cars.concat(D.gone).forEach(c => {   // "EQB 300" + trim "EQB 300 4MATIC" -> "
   c.drive = {AWD: "AWD", "4WD": "AWD", RWD: "RWD", FWD: "FWD", "2WD": "2WD"}[String(c.drivetrain || "").toUpperCase()] || "Not sure"; });
 const CUT_MIN = 200;
 function priceInfo(c) {
+  c.lastCut = null;
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
   c.msrp = num(c.msrp_new);
   const now = num(c.price_total);
@@ -989,6 +990,8 @@ function priceInfo(c) {
   const h = c.hist || [];
   for (let i = h.length - 1; i > 0; i--) if (num(h[i][1]) <= num(h[i - 1][1]) - CUT_MIN) {
     c.lastCut = {amt: num(h[i - 1][1]) - num(h[i][1]), on: h[i][0]}; break; }
+  // sorts "Most recent price cut": the latest cut's date, then the bigger cut first on the same day
+  c.cut_on = c.lastCut ? c.lastCut.on + "|" + String(Math.round(c.lastCut.amt)).padStart(7, "0") : "";
   c.histTip = (c.hist || []).map(x => x[0] + ": " + fmt$(x[1])).join("\n"); }
 D.cars.concat(D.gone).forEach(priceInfo);
 D.gone.forEach(c => { const a = Date.parse(c.first_seen), b = Date.parse(c.last_seen);
@@ -1951,7 +1954,9 @@ function renderRows() {
   }
 }
 document.querySelectorAll("th[data-k]").forEach(th => th.addEventListener("click", () => {
-  const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" || k === "year" || k === "warr_end" ? -1 : 1); sortK = k; render(); }));
+  const k = th.dataset.k; dir = sortK === k ? -dir : (k === "score" || k === "year" || k === "warr_end" ? -1 : 1); sortK = k;
+  const sa = document.getElementById("sort-a"), v = k + ":" + dir;          // keep the Sort menu in step with the column header
+  if (sa) sa.value = [...sa.options].some(o => o.value === v) ? v : ""; render(); }));
 document.querySelectorAll("th[data-g]").forEach(th => th.addEventListener("click", () => {
   const k = th.dataset.g; gDir = gK === k ? -gDir : (/_(seen|on)$/.test(k) ? -1 : 1); gK = k; render(); }));
 // Keep each table's header row visible at the top of the screen while its rows scroll past.
