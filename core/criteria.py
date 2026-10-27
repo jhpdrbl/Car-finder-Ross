@@ -581,6 +581,22 @@ def score_parts(L: Listing) -> dict[str, float]:
     return parts
 
 
+def score_breakdown(r: dict) -> list[list]:
+    """A listings.csv row's score item by item: [item, points, out of], for the dashboard's Compare tab."""
+    f = lambda v: float(v) if v not in ("", None) else None
+    b = {"True": True, "False": False}
+    L = Listing(vin=r.get("vin", ""), make=r.get("make", ""), model=r.get("model", ""), trim=r.get("trim", ""),
+                year=int(r["year"]) if str(r.get("year") or "").isdigit() else None, price_total=f(r.get("price_total")),
+                mileage=int(float(r["mileage"])) if r.get("mileage") else None, fuel_type=r.get("fuel_type", ""),
+                ext_color=r.get("ext_color", ""), mpg_combined=f(r.get("mpg_combined")), audio=r.get("audio", ""),
+                leather=b.get(r.get("leather")), seats=r.get("seats", ""), sunroof=b.get(r.get("sunroof")),
+                ventilated_seats=b.get(r.get("ventilated_seats")), spare_tire=b.get(r.get("spare_tire")),
+                ground_clearance_in=f(r.get("ground_clearance_in")), drivetrain=r.get("drivetrain", ""))
+    parts, total = score_parts(L), sum(S["weights"].values()) or 1
+    # scaled the same way as score(): each item's share of 100 points
+    return [[k, round(100 * w * parts.get(k, 0.0) / total, 1), round(100 * w / total, 1)] for k, w in S["weights"].items()]
+
+
 def score(L: Listing) -> float:
     """0-100: each item in this buyer's config `scoring.weights` counts its weight times how good the car is on it."""
     w = S["weights"]

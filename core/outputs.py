@@ -365,7 +365,7 @@ def _places(cars: list[dict], P) -> dict:
 
 
 def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], today: str | None = None, profile=None) -> Path:
-    from core import profiles
+    from core import criteria, profiles
     P = _profile(profile)
     today = today or date.today().isoformat()
     active = [r for r in rows if r.get("status") == "active"]
@@ -394,9 +394,12 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "carfax_status", "est_monthly_cost", "score", "needs_call", "notes",
                                                "mpg_combined", "mpg_city", "mpg_hwy", "mpg_source",
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
-                                               "msrp_new", "msrp_source", "body", "page_features", "drivetrain")}
+                                               "msrp_new", "msrp_source", "body", "page_features", "drivetrain",
+                                               "ventilated_seats", "spare_tire", "leather", "recall_flags", "carfax_badges",
+                                               "cpo_warranty_terms", "packages", "price", "last_seen")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
-                       "is_new": bool(latest_run) and r.get("new_run") == latest_run}
+                       "is_new": bool(latest_run) and r.get("new_run") == latest_run,
+                       "score_parts": criteria.score_breakdown(r) if r.get("score") not in ("", None) else []}
                     | _spec_fields(r, page_cl))
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
@@ -693,6 +696,10 @@ td.car.has-sticker { padding-right:34px; }
 .crow .clabel { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
 .crow.chead > div { font-weight:600; } .crow.chead .rm { font:inherit; font-size:12px; background:none; border:0; color:var(--accent); cursor:pointer; padding:0; text-decoration:underline; }
 .cval.best { color:var(--ok); font-weight:700; } .cval.best > div::after { content:" ★"; font-size:12px; }
+.crow.csec { display:block; background:var(--bg); } .crow.csec > div { font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); padding:10px 10px 6px; }
+.sbar { display:grid; grid-template-columns:minmax(0,1fr) 60px 44px; gap:6px; align-items:center; font-size:12px; line-height:1.6; }
+.sbar .sb { height:6px; background:var(--line); border-radius:3px; overflow:hidden; } .sbar .sb i { display:block; height:100%; background:var(--accent); }
+.sbar b { text-align:right; font-weight:600; } .cval ul.hl { margin:2px 0 0; padding-left:16px; font-size:13px; }
 .cl { display:inline-block; min-width:18px; text-align:center; font-size:11px; font-weight:800; border-radius:999px; background:var(--accent); color:var(--bg); padding:0 5px; margin-right:6px; }
 .cval .cl { display:none; }
 @media (max-width: 760px) {
@@ -1390,35 +1397,80 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
     if (hit > bestScore || (hit === bestScore && n > bestN)) { bestScore = hit; bestN = n; best = t; } });   // ties: more words matched ("Premium Plus" over "Premium")
   return bestScore >= 0.6 ? best : null;
 }
+// Compare tab rows: [label, show(car), value(car) for the ★, "low"/"high" = which is better]; a label alone = section heading
+const SCORE_NAMES = {price: "Price", phev: "Plug-in / electric", mpg: "Gas mileage", audio: "Premium sound", leather: "Leather",
+  real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire",
+  sunroof: "Sunroof", awd: "All-wheel drive", exterior_color: "Color", mileage: "Mileage"};
+const yesNo = v => v === "True" ? "Yes" : v === "False" ? "No" : "Not shown";
+const ageYears = c => { const y = num(c.year); if (!y) return null;      // in service ~April of the model year (as the warranty column)
+  return Math.max(0.25, (Date.now() - new Date(y, 3, 1)) / (365.25 * 864e5)); };
+const perYear = c => { const m = num(c.mileage), a = ageYears(c); return m == null || !a ? null : Math.round(m / a); };
+const belowSticker = c => { const p = num(c.price_total), m = c.msrp; return p && m ? Math.round(100 * (1 - p / m)) : null; };
+const daysListed = c => { const a = Date.parse(c.first_seen); return isNaN(a) ? null : Math.round((Date.now() - a) / 864e5); };
+const recalls = c => String(c.recall_flags || "").split(";").map(x => x.trim()).filter(Boolean);
+const badgeWords = c => [...new Set(String(c.carfax_badges || "").split(",").map(b => /own/.test(b) ? "one owner" : /accident/.test(b) ? "no accidents"
+  : /service/.test(b) ? "service records" : /personal/.test(b) ? "personal use" : "").filter(Boolean))].join(", ");
 const FIELDS = [
-  ["Price", c => priceCell(c) + (c.fees_estimated === "True" ? ' <span class="small">fees est.</span>' : ""), c => num(c.price_total), "low"],
+  ["Price & value"],
+  ["Price (with fees)", c => priceCell(c), c => num(c.price_total), "low"],
+  ["Fees", c => c.fees_estimated === "True" ? "estimated (not shown on the listing)" : num(c.price) && num(c.price_total) && num(c.price_total) > num(c.price)
+      ? fmt$(num(c.price_total) - num(c.price)) + " included" : "included in the price", null, null],
+  ["Price cut", c => c.dropped ? `&#9660; ${fmt$(c.cut)} since first seen` + (c.lastCut ? `<div class="small">latest ${fmt$(c.lastCut.amt)} on ${esc(shortDate(c.lastCut.on))}</div>` : "") : "none yet",
+      c => c.cut || 0, "high"],
   ["Original price", c => origCell(c), null, null],
+  ["Price history", c => (c.hist || []).length > 1 ? (c.hist || []).map(h => `${esc(shortDate(h[0]))}: ${fmt$(h[1])}`).join("<br>") : "no changes", null, null],
   ["Sticker when new", c => msrpCell(c), null, null],
+  ["Below sticker", c => belowSticker(c) == null ? "?" : belowSticker(c) + "% less than new" + (c.msrp_source === "trim base" ? ' <span class="small">(vs the trim\'s base price)</span>' : ""), c => belowSticker(c), "high"],
   ["Est. monthly", c => fmt$(c.est_monthly_cost), c => num(c.est_monthly_cost), "low"],
+  ["Match & score"],
   ["Status", c => c.needs_call ? `<span class="chip call">needs a call</span> <span class="small">${esc(c.needs_call)}</span>` : '<span class="chip match">match</span>', null, null],
   ["Score", c => esc(c.score), c => num(c.score), "high"],
+  ["Score breakdown", c => (c.score_parts || []).length ? (c.score_parts || []).map(([k, pts, max]) =>
+      `<div class="sbar"><span>${esc(SCORE_NAMES[k] || k)}</span><span class="sb"><i style="width:${max ? Math.round(100 * pts / max) : 0}%"></i></span><b>${Math.round(pts)}/${Math.round(max)}</b></div>`).join("") : "—", null, null],
+  ["Your mark", c => mark(c) === "Favorite" ? "&#9829; Favorite" : mark(c) === "Disliked" ? "Disliked" : "—", null, null],
+  ["Window sticker seen", c => c.sticker ? '<span class="chip match">&#10003; features verified</span>' : "no", null, null],
+  ["The car"],
   ["Year", c => esc(c.year), c => num(c.year), "high"],
+  ["Body", c => esc(c.body || "SUV"), null, null],
+  ["Fuel", c => esc(c.fuel), null, null],
+  ["Drive", c => esc(c.drive), c => c.drive === "AWD" ? 1 : c.drive === "Not sure" ? null : 0, "high"],
+  ["Engine / motor", c => { const t = trimInfo(c); return t && t.powertrain ? esc(t.powertrain) + ` <span class="small">(trim guide)</span>` : '<span class="muted">—</span>'; }, null, null],
+  ["Electric range", c => num(c.ev_range) == null ? (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—") : Math.round(num(c.ev_range)) + " mi", c => num(c.ev_range), "high"],
+  ["MPG", c => num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? "— (electric)" : "?") : Math.round(num(c.mpg_combined)) + " combined"
+      + (num(c.mpg_city) != null ? `<div class="small">${Math.round(num(c.mpg_city))} city / ${Math.round(num(c.mpg_hwy))} hwy${c.fuel_type === "phev" ? ", gas only" : ""}</div>` : "")
+      + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : c.mpg_source === "guide" ? ' <span class="small">trim guide</span>' : ""), c => num(c.mpg_combined), "high"],
   ["Miles", c => num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString(), c => num(c.mileage), "low"],
+  ["Miles per year", c => perYear(c) == null ? "?" : perYear(c).toLocaleString() + ' <span class="small">(in service ~Apr ' + esc(c.year) + ")</span>", c => perYear(c), "low"],
+  ["Exterior", c => esc(c.ext_color || "?"), null, null],
+  ["Interior", c => esc(c.int_color || "?"), null, null],
+  ["Ground clearance", c => num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? ` <span class="small">${esc(c.clearance_src)}</span>` : ""), c => num(c.clearance), "high"],
+  ["Features"],
+  ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
+  ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
+  ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
+  ["Cooled seats", c => c.ventilated_seats ? yesNo(c.ventilated_seats) : (trimInfo(c) && /ventilat|cooled/i.test(trimInfo(c).seats || "") && !/no (ventilat|cool)|not? ventilat|without (ventilat|cool)/i.test(trimInfo(c).seats || "")
+      ? "Yes <span class=\"small\">trim guide</span>" : "Not shown"), null, null],
+  ["Spare tire", c => c.spare_tire === "True" ? "Yes" : c.spare_tire === "False" ? "No (repair kit)" : (trimInfo(c) && trimInfo(c).spare ? esc(trimInfo(c).spare) + ' <span class="small">trim guide</span>' : "Not shown"), null, null],
+  ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
+  ["What this trim adds", c => { const t = trimInfo(c); return t && (t.highlights || []).length
+      ? `<span class="small">${t.builds_on ? "over " + esc(t.builds_on) + ":" : "comes with:"}</span><ul class="hl">${t.highlights.slice(0, 10).map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : '<span class="muted">—</span>'; }, null, null],
+  ["Warranty & history"],
   ["Warranty ends", c => c.warr_end ? "~" + monthYr(new Date(c.warr_end)) : "?", c => c.warr_end || null, "high"],
   ["Bumper-to-bumper ends", c => c.warr_full_end ? "~" + monthYr(new Date(c.warr_full_end)) : (c.warr_end ? "over" : "?"), c => c.warr_full_end || null, "high"],
   ["Warranty detail", c => c.warr_html, null, null],
-  ["Fuel", c => esc(c.fuel), null, null],
-  ["Drive", c => esc(c.drive), null, null],
-  ["MPG", c => num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? "— (electric)" : "?") : Math.round(num(c.mpg_combined)) + (c.mpg_source === "EPA" ? ' <span class="small">EPA</span>' : ""), c => num(c.mpg_combined), "high"],
-  ["Colors", c => esc(c.colors), null, null],
-  ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
-  ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
-  ["Ground clearance", c => num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in", c => num(c.clearance), "high"],
-  ["Electric range", c => num(c.ev_range) == null ? (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—") : Math.round(num(c.ev_range)) + " mi", c => num(c.ev_range), "high"],
-  ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
-  ["Seats (trim guide)", c => { const t = trimInfo(c); return t ? `${esc(t.seats)} <span class="small">(${esc(t.name)})</span>` : '<span class="muted">—</span>'; }, null, null],
-  ["CARFAX", c => esc({clean: "no accidents", accident: "accident", not_verified: "not verified"}[c.carfax_status] || c.carfax_status), null, null],
-  ["Certified program", c => esc(c.cpo_program || "?"), null, null],
-  ["Dealer", c => `${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div>`, c => num(c.distance_mi), "low"],
-  ["First seen", c => esc(c.first_seen), null, null],
+  ["Certified program", c => esc(c.cpo_program || "?") + (c.cpo_warranty_terms ? `<div class="small">${esc(String(c.cpo_warranty_terms).slice(0, 220))}</div>` : ""), null, null],
+  ["CARFAX", c => esc({clean: "no accidents", accident: "accident", not_verified: "not verified"}[c.carfax_status] || c.carfax_status)
+      + (badgeWords(c) ? `<div class="small">dealer page shows: ${esc(badgeWords(c))}</div>` : ""), null, null],
+  ["Safety recalls (model)", c => recalls(c).length ? `${recalls(c).length}<div class="small">${recalls(c).map(esc).join("<br>")}</div><div class="small">ask the dealer if they're done</div>` : "none found",
+      c => recalls(c).length, "low"],
+  ["Dealer & listing"],
+  ["Dealer", c => `${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi from home</div>`, c => num(c.distance_mi), "low"],
+  ["On the tracker", c => daysListed(c) == null ? "?" : `${daysListed(c)} day${daysListed(c) === 1 ? "" : "s"} <span class="small">(first seen ${esc(c.first_seen)})</span>`, null, null],
   ["Notes", c => esc(c.notes || "—"), null, null],
+  ["Listing", c => `<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">dealer's page</a>`, null, null],
   ["VIN", c => `<span class="vin">${esc(c.vin)}</span>`, null, null],
 ];
+
 function renderCompare() {
   const cars = cmp.map(v => D.cars.find(c => c.vin === v)).filter(Boolean), el = document.getElementById("cmp");
   if (!cars.length) { el.innerHTML = '<p class="muted">Tap <b>+ Compare</b> on up to 6 cars in the Available tab, then come back here to see them side by side. The best value in each row gets a ★.</p>'; return; }
@@ -1426,6 +1478,7 @@ function renderCompare() {
   const head = `<div class="crow chead"><div class="clabel">Car</div>${cars.map((c, i) => `<div>${L(i).replace('class="cl"', 'class="cl" style="display:inline-block"')}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
       <div class="small">${esc(c.dealer)}</div><button type="button" class="rm" data-vin="${esc(c.vin)}">remove</button></div>`).join("")}</div>`;
   const rows = FIELDS.map(([label, show, val, better]) => {
+    if (!show) return `<div class="crow csec"><div>${esc(label)}</div></div>`;
     let bestV = null;
     if (val && better && cars.length > 1) { const vs = cars.map(val).filter(v => v != null);
       if (vs.length > 1 && new Set(vs).size > 1) bestV = better === "low" ? Math.min(...vs) : Math.max(...vs); }
@@ -1434,7 +1487,7 @@ function renderCompare() {
   el.innerHTML = `<div class="cmptop"><span class="muted">Comparing ${cars.length} car${cars.length > 1 ? "s" : ""}</span>
       <button type="button" class="cbtn ghost" id="cmp-clear">Clear compare</button></div>
     <div class="cmp" style="--n:${cars.length}">${head}${rows}</div>
-    <p class="small">★ = best in that row (lowest price, miles, monthly and distance; highest score, year, MPG; latest warranty end).</p>`;
+    <p class="small">★ = best in that row: lowest price, monthly, miles, miles per year, recalls and distance; biggest price cut and discount below sticker; highest score, year, MPG, range and clearance; all-wheel drive; latest warranty end. Engine, trim features and cooled seats/spare marked "trim guide" come from the Trim guide for the matched trim, not the dealer's page.</p>`;
   document.getElementById("cmp-clear").onclick = clearCmp;
 }
 saveCmp();
