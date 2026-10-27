@@ -405,6 +405,8 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
             dt = "AWD"
     if L.dealer_brand == "Subaru" and not dt:
         dt = "AWD"
+    if not dt and re.search(r"\bq4\b", name) and re.search(r"\b(40|45) e-?tron\b", name) and "quattro" not in name:
+        dt = "RWD"            # Q4 40 / 45 e-tron = rear-wheel drive (the 50 / 55 quattro are AWD); vPIC often leaves it out
     if dt == "2WD":
         dt = two_wd_axle(L.make or L.dealer_brand, L.model, f"{L.trim} {L.title}") or dt
     if F.get("awd_required", True):
