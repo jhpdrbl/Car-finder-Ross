@@ -399,7 +399,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "cpo_program", "first_seen", "distance_mi", "fees_estimated", "seats",
                                                "msrp_new", "msrp_source", "body", "page_features", "drivetrain",
                                                "ventilated_seats", "spare_tire", "leather", "recall_flags", "carfax_badges",
-                                               "cpo_warranty_terms", "packages", "price", "last_seen")}
+                                               "cpo_warranty_terms", "packages", "price", "last_seen", "source")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
                        "score_parts": criteria.score_breakdown(r) if r.get("score") not in ("", None) else []}
@@ -659,6 +659,8 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .ck .btns { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .ck a.cbtn { text-decoration:none; display:inline-block; }
 .ck.done { border-color:var(--ok); background:var(--checked); } .ck.stale { border-color:var(--warn); }  /* checked in the last 7 days = gray fill */
+.ck.mine h3 a { color:inherit; } .ck.gonemk { opacity:.6; } .ck.gonemk .ckstate { color:var(--bad); }
+.cbtn.bad { color:var(--bad); border-color:var(--bad); } .minesec { font-size:15px; margin:18px 0 2px; }
 .ckstate { font-size:12px; font-weight:600; margin-left:4px; } .ck.done .ckstate { color:var(--ok); } .ck.stale .ckstate { color:var(--warn); }
 .ckgroup { margin:14px 0; background:none; border:0; padding:0; } .ckgroup[open] > summary { margin-bottom:8px; }
 .ckbrand { font-size:14px; color:var(--muted); cursor:pointer; padding:8px 10px; background:var(--surface); border:1px solid var(--line); border-radius:8px; }
@@ -766,6 +768,7 @@ __SCOREHELP__
   <button class="tab" role="tab" id="tab-cmp" aria-selected="false" aria-controls="panel-cmp">Compare<span class="n" id="ncmp">0</span></button>
   <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
   <button class="tab" role="tab" id="tab-check" aria-selected="false" aria-controls="panel-check"><span class="lg">Check yourself</span><span class="sh">Check</span><span class="n" id="ncheck">0</span></button>
+  <button class="tab" role="tab" id="tab-mine" aria-selected="false" aria-controls="panel-mine"><span class="lg">Added by you</span><span class="sh">Mine</span><span class="n" id="nmine">0</span></button>
   <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n">__NGONE__</span></button>
 </div>
 <div class="layout">
@@ -778,6 +781,7 @@ __SCOREHELP__
   <details class="fsec" open><summary>Status &amp; your marks</summary>
     <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
     <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
+    <fieldset class="group" id="f-src"><legend>Found by</legend></fieldset>
     <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label><label class="pill"><input type="checkbox" id="only-cut" value="cut"><span>&#9660; Price cut (<span id="ncut">0</span>)</span></label></fieldset>
   </details>
   <details class="fsec" open><summary>The car</summary>
@@ -849,6 +853,14 @@ __SCOREHELP__
 <p class="small">Cars that were on this dashboard and later disappeared from the dealer's site (sold or taken down). The link may no longer work.</p>
 </div>
 <div id="panel-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden><div id="cmp"></div></div>
+<div id="panel-mine" role="tabpanel" aria-labelledby="tab-mine" hidden>
+<p class="muted" style="margin-top:0">Cars you sent in from dealers the search can't read. The search can't tell when these sell,
+so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b> or <b>No longer available</b>.
+Checks older than a week turn yellow as a reminder. A car you mark no longer available leaves your lists at once, and the next search moves it to the Sold tab.</p>
+<div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
+<span class="small" id="mine-sync"></span></div>
+<div id="minelist"></div>
+</div>
 <div id="panel-check" role="tabpanel" aria-labelledby="tab-check" hidden>
 <p class="muted" style="margin-top:0">Dealers the search couldn't read by any method, so their cars may be missing from this page.
 Tap a model to open that dealer's own <b>certified</b> inventory for it (or <b>All certified inventory</b>).
@@ -975,6 +987,7 @@ function makeSlider(id, vals, step, fmt) {
 const clearS = makeSlider("cl", D.cars.map(c => num(c.clearance)).filter(v => v != null), 0.1, v => v.toFixed(1) + " in");
 const rangeS = makeSlider("er", D.cars.map(c => num(c.ev_range)).filter(v => v != null), 5, v => Math.round(v) + " mi");
 pills("f-mine", ["Favorite", "Disliked", "No mark"]);
+pills("f-src", ["Added by you", "The search"]);
 pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
@@ -1293,6 +1306,56 @@ document.getElementById("chk-hide").addEventListener("input", renderCheck);
 document.getElementById("chk-clear").addEventListener("click", () => {
   if (!Object.keys(checked).length || !confirm("Clear every \"checked\" mark (on all your devices)?")) return;
   checked = {}; saveChecked(); renderCheck(); });
+// ---- Added by you tab: cars the user sent in (dealers we can't read); they check each one by hand ----
+const isMine = c => c.source === "added by you";
+let mineSeen = {}, mineGone = {}, mineSync = false;
+try { const m = JSON.parse(localStorage.getItem(PK + "mine") || "{}") || {}; mineSeen = m.seen || {}; mineGone = m.gone || {}; } catch (e) {}
+function saveMine() {
+  try { localStorage.setItem(PK + "mine", JSON.stringify({seen: mineSeen, gone: mineGone})); } catch (e) {}
+  if (mineSync) fetch(API("mine"), {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({seen: mineSeen, gone: mineGone})}).catch(() => {});
+}
+async function pullMine() {
+  if (location.protocol === "file:") { document.getElementById("mine-sync").textContent = "Marks are saved on this device."; return; }
+  try {
+    const r = await fetch(API("mine"), {cache: "no-store"}); if (!r.ok) throw 0;
+    const sv = await r.json(), seen = sv.seen || {}, gone = sv.gone || {};
+    for (const [k, v] of Object.entries(mineSeen)) if (!seen[k] || seen[k] < v) seen[k] = v;      // keep the newest of both
+    for (const [k, v] of Object.entries(mineGone)) if (!gone[k]) gone[k] = v;
+    mineSeen = seen; mineGone = gone; mineSync = true; saveMine(); renderMine(); render();
+  } catch (e) { mineSync = false; }
+  document.getElementById("mine-sync").textContent = mineSync ? "Marks sync between your devices, and the next search reads them." : "Marks are saved on this device only (the search can't see them).";
+}
+function renderMine() {
+  const all = D.cars.filter(isMine), hide = document.getElementById("mine-hide").checked;
+  const age = c => mineSeen[c.vin] ? daysAgo(mineSeen[c.vin]) : null;
+  const fresh = c => age(c) != null && age(c) <= 7;
+  const live = all.filter(c => !mineGone[c.vin]), gone = all.filter(c => mineGone[c.vin]);
+  document.getElementById("nmine").textContent = live.filter(c => !fresh(c)).length;
+  live.sort((a, b) => (fresh(a) - fresh(b)) || (age(b) ?? 1e9) - (age(a) ?? 1e9) || a.dealer.localeCompare(b.dealer));
+  const card = c => {
+    const g = mineGone[c.vin], a = age(c), state = g ? "gonemk" : a == null ? "" : a <= 7 ? "done" : "stale";
+    const label = g ? `marked no longer available on ${shortDate(g)}` : a == null ? "not checked yet" : a === 0 ? "still available, checked today"
+      : a <= 7 ? `still available, checked ${a} day${a > 1 ? "s" : ""} ago` : `checked ${a} days ago, check again`;
+    return `<div class="ck mine ${state}"><h3><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><span class="ckstate">${g ? "✕" : a != null ? "✓" : "•"} ${esc(label)}</span></h3>
+      <div class="small why">${esc(c.dealer)} · ${esc(c.distance_mi)} mi · ${fmt$(c.price_total)} · ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi
+        · ${c.needs_call ? "needs a call" : "match"} · added ${esc(shortDate(c.first_seen))}<div class="vin">${esc(c.vin)}</div></div>
+      <div class="btns">${g ? `<button type="button" class="cbtn ghost minebtn" data-act="undo" data-vin="${esc(c.vin)}">Undo: it's still for sale</button>`
+        : `<a class="cbtn" href="${esc(c.listing_url)}" target="_blank" rel="noopener">Open the dealer's page</a>
+        <button type="button" class="cbtn ghost minebtn" data-act="seen" data-vin="${esc(c.vin)}">${fresh(c) ? "Undo check" : "✓ Still available"}</button>
+        <button type="button" class="cbtn ghost minebtn bad" data-act="gone" data-vin="${esc(c.vin)}">✕ No longer available</button>`}</div></div>`; };
+  let html = live.filter(c => !(hide && fresh(c))).map(card).join("");
+  if (!html) html = `<p class="small muted">${all.length ? "All checked this week." : "No cars added by you yet. Send Claude a dealer's listing when the search misses a car."}</p>`;
+  if (gone.length) html += `<h3 class="minesec">Marked no longer available (${gone.length})</h3><p class="small muted">The next search moves these to the Sold tab and stops adding them.</p>` + gone.map(card).join("");
+  document.getElementById("minelist").innerHTML = html;
+}
+document.getElementById("minelist").addEventListener("click", e => {
+  const b = e.target.closest(".minebtn"); if (!b) return;
+  const v = b.dataset.vin, act = b.dataset.act, c = D.cars.find(x => x.vin === v);
+  if (act === "seen") { if (mineSeen[v] && daysAgo(mineSeen[v]) <= 7) delete mineSeen[v]; else mineSeen[v] = todayISO(); }
+  else if (act === "gone") { if (!confirm(`Mark the ${c ? c.title : v} as no longer available?`)) return; mineGone[v] = todayISO(); }
+  else if (act === "undo") delete mineGone[v];
+  saveMine(); renderMine(); render(); });
+document.getElementById("mine-hide").addEventListener("input", renderMine);
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem(PK + "cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
@@ -1640,7 +1703,7 @@ document.addEventListener("click", e => {
 });
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"),
-        rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"),
+        rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
@@ -1649,11 +1712,11 @@ function renderRows() {
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
                     && (!clearS.on() || clearS.ok(num(c.clearance))) && (!rangeS.on() || rangeS.ok(num(c.ev_range)))
-                    && (!mn.size || mn.has(mark(c)));
+                    && (!mn.size || mn.has(mark(c))) && (!sr.size || sr.has(isMine(c) ? "Added by you" : "The search"));
   const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
   const onlyNew = document.getElementById("only-new").checked, onlyCut = document.getElementById("only-cut").checked;
   document.getElementById("cut-tile").setAttribute("aria-pressed", onlyCut);
-  let cars = D.cars.filter(c => base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
+  let cars = D.cars.filter(c => !mineGone[c.vin] && base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
                             && (!onlyNew || c.is_new) && (!onlyCut || c.dropped));
   cars.sort(sorter(sortK, dir));
   lastCars = cars; if (mapOn) drawMap();
@@ -1687,7 +1750,7 @@ function renderRows() {
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
     || `<tr><td colspan="20" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
   // how many cars these filters leave, out of how many on this tab
-  const totA = favOnly ? D.cars.filter(c => fav.includes(c.vin)).length : D.cars.length;
+  const totA = D.cars.filter(c => !mineGone[c.vin] && (!favOnly || fav.includes(c.vin))).length;
   const shownLine = (n, tot, what) => !tot ? "" : n === tot ? `Showing all ${tot} ${what}`
     : `Showing ${n} of ${tot} ${what} <button type="button" class="clear" data-clearall>Clear filters</button>`;
   document.getElementById("shown-a").innerHTML = shownLine(cars.length, totA, favOnly ? "favorites" : "cars");
@@ -1727,12 +1790,12 @@ window.addEventListener("resize", stickHeads);
 function showTab(which) {
   favOnly = which === "fav";
   const panel = favOnly ? "avail" : which;
-  ["avail", "fav", "gone", "cmp", "guide", "check"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
-  ["avail", "gone", "cmp", "guide", "check"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
+  ["avail", "fav", "gone", "cmp", "guide", "check", "mine"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
+  ["avail", "gone", "cmp", "guide", "check", "mine"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
   document.getElementById("fav-extra").hidden = !favOnly;
   render();
-  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check";   // car filters don't apply there
-  document.getElementById("footnote").hidden = which === "guide" || which === "check";
+  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check" || which === "mine";   // car filters don't apply there
+  document.getElementById("footnote").hidden = which === "guide" || which === "check" || which === "mine";
   if (which === "cmp") renderCompare();
   try { localStorage.setItem(PK + "tab", which); } catch (e) {}
   stickHeads();
@@ -1743,8 +1806,9 @@ document.getElementById("tab-guide").addEventListener("click", () => showTab("gu
 document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"));
 document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"));
 document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
-renderGuide(); renderWarranty(); renderCheck(); pullChecked();
-try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check"].includes(t)) showTab(t); } catch (e) {}
+document.getElementById("tab-mine").addEventListener("click", () => showTab("mine"));
+renderGuide(); renderWarranty(); renderCheck(); pullChecked(); renderMine(); pullMine();
+try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
@@ -1757,7 +1821,7 @@ document.getElementById("cut-tile").addEventListener("click", () => {
   const box = document.getElementById("only-cut"); box.checked = !box.checked;
   if (box.checked) { sortByCut(); showTab("avail"); }
   render(); document.getElementById("shown-a").scrollIntoView({behavior: "smooth", block: "start"}); });
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-roof", "f-sound", "f-seat", "f-mine", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-roof", "f-sound", "f-seat", "f-mine", "f-src", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });

@@ -43,6 +43,23 @@ def load_dealers() -> list[dict]:
         return list(csv.DictReader(fh))
 
 
+def manual_gone() -> dict[str, str]:
+    """Cars the user marked 'No longer available' on the page's Added by you tab ({VIN: date}), read from the
+    published site (functions/api/mine.js). Empty when the site can't be reached (then nothing changes)."""
+    import requests
+    from scrapers.base import CONFIG, SCRAPE
+    url = ((CONFIG.get("publish") or {}).get("site_url") or "").rstrip("/")
+    if not url:
+        return {}
+    try:
+        r = requests.get(url + "/api/mine", headers={"User-Agent": SCRAPE["user_agent"]}, timeout=20)
+        r.raise_for_status()
+        return {v.upper(): d for v, d in (r.json().get("gone") or {}).items()}
+    except Exception as e:      # noqa: BLE001
+        print(f"  (couldn't read the cars you marked gone on the page: {type(e).__name__})")
+        return {}
+
+
 def load_manual() -> list[Listing]:
     """Cars the user added by hand from a dealer listing the search can't read (data/manual_listings.csv:
     the dealer's own page, price, fees, miles, colors). They go through the same rules as every other car,

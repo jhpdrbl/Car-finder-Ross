@@ -24,7 +24,33 @@ def log(msg: str) -> None:
     print(f"{datetime.now():%H:%M:%S} {msg}", flush=True)
 
 
+def sync_manual_gone() -> None:
+    """Cars added by hand that the user marked 'No longer available' on the page: drop them from
+    data/manual_listings.csv and move them to the No longer available tab (the search can't see them go)."""
+    import csv
+    from core import history, pipeline, profiles
+    gone = pipeline.manual_gone()
+    path = history.DATA / "manual_listings.csv"
+    if not gone or not path.exists():
+        return
+    with path.open(encoding="utf-8", newline="") as f:
+        lines = f.read().splitlines(keepends=True)
+    keep = [l for i, l in enumerate(lines) if i == 0 or (l.split(",", 1)[0].strip().upper() not in gone)]
+    if len(keep) != len(lines):
+        with path.open("w", encoding="utf-8", newline="") as f:
+            f.writelines(keep)
+    for P in profiles.all_profiles():
+        rows = history.read_csv(P.data / "listings.csv")
+        hit = [r for r in rows if r["vin"].upper() in gone and r.get("source") == "added by you" and r.get("status") != "sold"]
+        for r in hit:
+            r.update(status="sold", removed_on=gone[r["vin"].upper()])
+            log(f"{r['year']} {r['make']} {r['model']} {r['vin']}: you marked it no longer available")
+        if hit:
+            history.write_csv(P.data / "listings.csv", rows, history.LISTING_COLS)
+
+
 def refresh(args) -> None:
+    sync_manual_gone()
     from core import criteria, history, outputs, pipeline, profiles
     from scrapers.brand_feeds import SUPPLEMENT_FEEDS
     from scrapers.listing import url_vin
@@ -280,6 +306,7 @@ def evaluate_row(L0, dealer: dict, d: dict, listings, excluded: dict, confirmed:
 
 def add_manual(args) -> None:
     """Put the cars in data/manual_listings.csv on the dashboard now, without a search."""
+    sync_manual_gone()
     from core import criteria, history, outputs, pipeline, profiles
     from verify import vin_decode
     today = date.today().isoformat()
@@ -430,6 +457,7 @@ def revive_drive_only(rows: list[dict], excluded: dict, confirmed: dict) -> int:
 def rescore(args) -> None:
     """Re-apply scores, color/interior rules and sticker prices to the last results, without searching
     (for a rules change between searches). Only rules that need nothing beyond what listings.csv holds."""
+    sync_manual_gone()
     from core import criteria, history, outputs, profiles
     from scrapers.listing import Listing
     from verify import msrp

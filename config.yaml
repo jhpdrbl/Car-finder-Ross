@@ -416,3 +416,5 @@ profiles:
 # pre-approval) are left off the published copy unless this is true.
 publish:
   include_buying_context: false
+  # the published page; the search reads the cars you marked 'No longer available' on its Added by you tab from here
+  site_url: https://cpo-suv-finder.pages.dev
