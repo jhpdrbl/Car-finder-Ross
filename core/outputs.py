@@ -769,7 +769,7 @@ __SCOREHELP__
   <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
   <button class="tab" role="tab" id="tab-check" aria-selected="false" aria-controls="panel-check"><span class="lg">Check yourself</span><span class="sh">Check</span><span class="n" id="ncheck">0</span></button>
   <button class="tab" role="tab" id="tab-mine" aria-selected="false" aria-controls="panel-mine"><span class="lg">Added by you</span><span class="sh">Mine</span><span class="n" id="nmine">0</span></button>
-  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n">__NGONE__</span></button>
+  <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n" id="ngone">__NGONE__</span></button>
 </div>
 <div class="layout">
 <aside class="filters" aria-label="Filters">
@@ -856,7 +856,7 @@ __SCOREHELP__
 <div id="panel-mine" role="tabpanel" aria-labelledby="tab-mine" hidden>
 <p class="muted" style="margin-top:0">Cars you sent in from dealers the search can't read. The search can't tell when these sell,
 so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b> or <b>No longer available</b>.
-Checks older than a week turn yellow as a reminder. A car you mark no longer available leaves your lists at once, and the next search moves it to the Sold tab.</p>
+Checks older than a week turn yellow as a reminder. A car you mark no longer available moves to the Sold tab at once (the next search makes it permanent).</p>
 <div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
 <span class="small" id="mine-sync"></span></div>
 <div id="minelist"></div>
@@ -1345,7 +1345,7 @@ function renderMine() {
         <button type="button" class="cbtn ghost minebtn bad" data-act="gone" data-vin="${esc(c.vin)}">✕ No longer available</button>`}</div></div>`; };
   let html = live.filter(c => !(hide && fresh(c))).map(card).join("");
   if (!html) html = `<p class="small muted">${all.length ? "All checked this week." : "No cars added by you yet. Send Claude a dealer's listing when the search misses a car."}</p>`;
-  if (gone.length) html += `<h3 class="minesec">Marked no longer available (${gone.length})</h3><p class="small muted">The next search moves these to the Sold tab and stops adding them.</p>` + gone.map(card).join("");
+  if (gone.length) html += `<h3 class="minesec">Marked no longer available (${gone.length})</h3><p class="small muted">These are on the Sold tab now; the next search makes it permanent and stops adding them.</p>` + gone.map(card).join("");
   document.getElementById("minelist").innerHTML = html;
 }
 document.getElementById("minelist").addEventListener("click", e => {
@@ -1356,6 +1356,15 @@ document.getElementById("minelist").addEventListener("click", e => {
   else if (act === "undo") delete mineGone[v];
   saveMine(); renderMine(); render(); });
 document.getElementById("mine-hide").addEventListener("input", renderMine);
+// the Sold tab's cars: the ones the search saw go, plus cars added by you that you marked no longer available
+// (shown there at once; the next search makes it official)
+function goneAll() {
+  const have = new Set(D.gone.map(c => c.vin));
+  return D.gone.concat(D.cars.filter(c => mineGone[c.vin] && !have.has(c.vin)).map(c => {
+    const a = Date.parse(c.first_seen), b = Date.parse(mineGone[c.vin]);
+    return {...c, removed_on: mineGone[c.vin], last_seen: mineGone[c.vin], fail_reasons: "you marked it no longer available",
+            days: isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1}; }));
+}
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem(PK + "cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
@@ -1720,7 +1729,9 @@ function renderRows() {
                             && (!onlyNew || c.is_new) && (!onlyCut || c.dropped));
   cars.sort(sorter(sortK, dir));
   lastCars = cars; if (mapOn) drawMap();
-  const gone = D.gone.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
+  const G = goneAll();
+  document.getElementById("ngone").textContent = G.length;
+  const gone = G.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
   document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
       <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div><button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button></td>
@@ -1731,7 +1742,7 @@ function renderRows() {
     <td data-l="Fuel">${esc(c.fuel)}</td><td class="wide" data-l="Colors">${esc(c.colors)}</td><td class="small" data-l="First seen">${esc(c.first_seen)}</td>
     <td class="small" data-l="Gone since">${esc(c.removed_on || c.last_seen)}</td><td class="num" data-l="Days listed">${esc(c.days)}</td>
     <td class="small wide" data-l="Why">${esc(c.fail_reasons)}</td></tr>`).join("")
-    || `<tr><td colspan="12" class="muted">${D.gone.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
+    || `<tr><td colspan="12" class="muted">${G.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
   document.getElementById("rows").innerHTML = cars.map(c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<button type="button" class="stickerok" data-tip="Features verified by window sticker" aria-label="Features verified by window sticker">&#10003;</button>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
@@ -1754,10 +1765,10 @@ function renderRows() {
   const shownLine = (n, tot, what) => !tot ? "" : n === tot ? `Showing all ${tot} ${what}`
     : `Showing ${n} of ${tot} ${what} <button type="button" class="clear" data-clearall>Clear filters</button>`;
   document.getElementById("shown-a").innerHTML = shownLine(cars.length, totA, favOnly ? "favorites" : "cars");
-  document.getElementById("shown-g").innerHTML = shownLine(gone.length, D.gone.length, "cars");
+  document.getElementById("shown-g").innerHTML = shownLine(gone.length, G.length, "cars");
   document.getElementById("shown-f").textContent = cars.length === totA ? "" : `${cars.length} of ${totA} shown`;
   if (favOnly) {
-    const gf = D.gone.filter(c => fav.includes(c.vin));
+    const gf = G.filter(c => fav.includes(c.vin));
     document.getElementById("fav-gone").innerHTML = gf.length ? `<div class="small"><b>Favorites that are no longer available:</b></div><ul>${gf.map(c =>
       `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a> at ${esc(c.dealer)}, last ${fmt$(c.price_total)}, gone since ${esc(c.removed_on || c.last_seen)}</li>`).join("")}</ul>` : "";
   }
