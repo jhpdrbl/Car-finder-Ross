@@ -43,9 +43,9 @@ def load_dealers() -> list[dict]:
         return list(csv.DictReader(fh))
 
 
-def manual_gone() -> dict[str, str]:
-    """Cars the user marked 'No longer available' on the page's Added by you tab ({VIN: date}), read from the
-    published site (functions/api/mine.js). Empty when the site can't be reached (then nothing changes)."""
+def manual_marks() -> dict:
+    """What the user marked on the page's Added by you tab, read from the published site (functions/api/mine.js):
+    {"gone": {VIN: date}, "price": {VIN: {"p": dollars, "d": date}}}. Empty when the site can't be reached."""
     import requests
     from scrapers.base import CONFIG, SCRAPE
     url = ((CONFIG.get("publish") or {}).get("site_url") or "").rstrip("/")
@@ -54,9 +54,11 @@ def manual_gone() -> dict[str, str]:
     try:
         r = requests.get(url + "/api/mine", headers={"User-Agent": SCRAPE["user_agent"]}, timeout=20)
         r.raise_for_status()
-        return {v.upper(): d for v, d in (r.json().get("gone") or {}).items()}
+        j = r.json()
+        return {"gone": {v.upper(): d for v, d in (j.get("gone") or {}).items()},
+                "price": {v.upper(): x for v, x in (j.get("price") or {}).items()}}
     except Exception as e:      # noqa: BLE001
-        print(f"  (couldn't read the cars you marked gone on the page: {type(e).__name__})")
+        print(f"  (couldn't read your marks from the page's Added by you tab: {type(e).__name__})")
         return {}
 
 

@@ -855,7 +855,7 @@ __SCOREHELP__
 <div id="panel-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden><div id="cmp"></div></div>
 <div id="panel-mine" role="tabpanel" aria-labelledby="tab-mine" hidden>
 <p class="muted" style="margin-top:0">Cars you sent in from dealers the search can't read. The search can't tell when these sell,
-so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b> or <b>No longer available</b>.
+so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b>, <b>Update price</b> (if it changed) or <b>No longer available</b>.
 Checks older than a week turn yellow as a reminder. A car you mark no longer available moves to the Sold tab at once (the next search makes it permanent).</p>
 <div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
 <span class="small" id="mine-sync"></span></div>
@@ -916,7 +916,7 @@ D.cars.concat(D.gone).forEach(c => {   // "EQB 300" + trim "EQB 300 4MATIC" -> "
   // drive: AWD (4WD counts) / RWD / FWD; a VIN that only says "2WD" stays "2WD" (front or rear isn't known)
   c.drive = {AWD: "AWD", "4WD": "AWD", RWD: "RWD", FWD: "FWD", "2WD": "2WD"}[String(c.drivetrain || "").toUpperCase()] || "Not sure"; });
 const CUT_MIN = 200;
-D.cars.concat(D.gone).forEach(c => {
+function priceInfo(c) {
   c.orig = c.hist && c.hist.length ? c.hist[0][1] : num(c.price_total);
   c.msrp = num(c.msrp_new);
   const now = num(c.price_total);
@@ -926,7 +926,8 @@ D.cars.concat(D.gone).forEach(c => {
   const h = c.hist || [];
   for (let i = h.length - 1; i > 0; i--) if (num(h[i][1]) <= num(h[i - 1][1]) - CUT_MIN) {
     c.lastCut = {amt: num(h[i - 1][1]) - num(h[i][1]), on: h[i][0]}; break; }
-  c.histTip = (c.hist || []).map(x => x[0] + ": " + fmt$(x[1])).join("\n"); });
+  c.histTip = (c.hist || []).map(x => x[0] + ": " + fmt$(x[1])).join("\n"); }
+D.cars.concat(D.gone).forEach(priceInfo);
 D.gone.forEach(c => { const a = Date.parse(c.first_seen), b = Date.parse(c.last_seen);
   c.days = isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1; });
 const makes = [...new Set(D.cars.concat(D.gone).map(c => c.make))].sort();
@@ -1308,20 +1309,35 @@ document.getElementById("chk-clear").addEventListener("click", () => {
   checked = {}; saveChecked(); renderCheck(); });
 // ---- Added by you tab: cars the user sent in (dealers we can't read); they check each one by hand ----
 const isMine = c => c.source === "added by you";
-let mineSeen = {}, mineGone = {}, mineSync = false;
-try { const m = JSON.parse(localStorage.getItem(PK + "mine") || "{}") || {}; mineSeen = m.seen || {}; mineGone = m.gone || {}; } catch (e) {}
+let mineSeen = {}, mineGone = {}, minePrice = {}, mineSync = false;
+try { const m = JSON.parse(localStorage.getItem(PK + "mine") || "{}") || {}; mineSeen = m.seen || {}; mineGone = m.gone || {}; minePrice = m.price || {}; } catch (e) {}
+// a price the user read on the dealer's page replaces the advertised price (the fees on file stay) until the next search uses it
+function applyMinePrices() {
+  for (const c of D.cars.filter(isMine)) {
+    if (!c._was) c._was = {price: c.price, price_total: c.price_total, hist: (c.hist || []).slice()};
+    const w = c._was, x = minePrice[c.vin];
+    c.price = w.price; c.price_total = w.price_total; c.hist = w.hist.slice(); c.priceByYou = null;
+    if (x && num(x.p) != null && Math.round(num(x.p)) !== Math.round(num(w.price) ?? -1)) {
+      const fees = num(w.price_total) != null && num(w.price) != null ? num(w.price_total) - num(w.price) : 0;
+      c.price = String(x.p); c.price_total = String(Math.round(x.p + fees)); c.priceByYou = x.d;
+      const h = c.hist; if (!h.length || num(h[h.length - 1][1]) !== num(c.price_total)) h.push([x.d, num(c.price_total)]);
+    }
+    priceInfo(c);
+  }
+}
 function saveMine() {
-  try { localStorage.setItem(PK + "mine", JSON.stringify({seen: mineSeen, gone: mineGone})); } catch (e) {}
-  if (mineSync) fetch(API("mine"), {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({seen: mineSeen, gone: mineGone})}).catch(() => {});
+  try { localStorage.setItem(PK + "mine", JSON.stringify({seen: mineSeen, gone: mineGone, price: minePrice})); } catch (e) {}
+  if (mineSync) fetch(API("mine"), {method: "PUT", headers: {"content-type": "application/json"}, body: JSON.stringify({seen: mineSeen, gone: mineGone, price: minePrice})}).catch(() => {});
 }
 async function pullMine() {
   if (location.protocol === "file:") { document.getElementById("mine-sync").textContent = "Marks are saved on this device."; return; }
   try {
     const r = await fetch(API("mine"), {cache: "no-store"}); if (!r.ok) throw 0;
-    const sv = await r.json(), seen = sv.seen || {}, gone = sv.gone || {};
+    const sv = await r.json(), seen = sv.seen || {}, gone = sv.gone || {}, price = sv.price || {};
     for (const [k, v] of Object.entries(mineSeen)) if (!seen[k] || seen[k] < v) seen[k] = v;      // keep the newest of both
     for (const [k, v] of Object.entries(mineGone)) if (!gone[k]) gone[k] = v;
-    mineSeen = seen; mineGone = gone; mineSync = true; saveMine(); renderMine(); render();
+    for (const [k, v] of Object.entries(minePrice)) if (!price[k] || price[k].d < v.d) price[k] = v;
+    mineSeen = seen; mineGone = gone; minePrice = price; mineSync = true; saveMine(); applyMinePrices(); renderMine(); render();
   } catch (e) { mineSync = false; }
   document.getElementById("mine-sync").textContent = mineSync ? "Marks sync between your devices, and the next search reads them." : "Marks are saved on this device only (the search can't see them).";
 }
@@ -1337,11 +1353,12 @@ function renderMine() {
     const label = g ? `marked no longer available on ${shortDate(g)}` : a == null ? "not checked yet" : a === 0 ? "still available, checked today"
       : a <= 7 ? `still available, checked ${a} day${a > 1 ? "s" : ""} ago` : `checked ${a} days ago, check again`;
     return `<div class="ck mine ${state}"><h3><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><span class="ckstate">${g ? "✕" : a != null ? "✓" : "•"} ${esc(label)}</span></h3>
-      <div class="small why">${esc(c.dealer)} · ${esc(c.distance_mi)} mi · ${fmt$(c.price_total)} · ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi
+      <div class="small why">${esc(c.dealer)} · ${esc(c.distance_mi)} mi · <b>${fmt$(c.price_total)}</b>${c.priceByYou ? ` (price updated by you ${esc(shortDate(c.priceByYou))})` : ""} · ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi
         · ${c.needs_call ? "needs a call" : "match"} · added ${esc(shortDate(c.first_seen))}<div class="vin">${esc(c.vin)}</div></div>
       <div class="btns">${g ? `<button type="button" class="cbtn ghost minebtn" data-act="undo" data-vin="${esc(c.vin)}">Undo: it's still for sale</button>`
         : `<a class="cbtn" href="${esc(c.listing_url)}" target="_blank" rel="noopener">Open the dealer's page</a>
         <button type="button" class="cbtn ghost minebtn" data-act="seen" data-vin="${esc(c.vin)}">${fresh(c) ? "Undo check" : "✓ Still available"}</button>
+        <button type="button" class="cbtn ghost minebtn" data-act="price" data-vin="${esc(c.vin)}">$ Update price</button>
         <button type="button" class="cbtn ghost minebtn bad" data-act="gone" data-vin="${esc(c.vin)}">✕ No longer available</button>`}</div></div>`; };
   let html = live.filter(c => !(hide && fresh(c))).map(card).join("");
   if (!html) html = `<p class="small muted">${all.length ? "All checked this week." : "No cars added by you yet. Send Claude a dealer's listing when the search misses a car."}</p>`;
@@ -1354,6 +1371,15 @@ document.getElementById("minelist").addEventListener("click", e => {
   if (act === "seen") { if (mineSeen[v] && daysAgo(mineSeen[v]) <= 7) delete mineSeen[v]; else mineSeen[v] = todayISO(); }
   else if (act === "gone") { if (!confirm(`Mark the ${c ? c.title : v} as no longer available?`)) return; mineGone[v] = todayISO(); }
   else if (act === "undo") delete mineGone[v];
+  else if (act === "price") {
+    const fees = num(c.price_total) != null && num(c.price) != null ? Math.round(num(c.price_total) - num(c.price)) : 0;
+    const ans = prompt(`Price on the dealer's page now, before fees (now ${fmt$(c.price)}${fees ? `; ${fmt$(fees)} in fees is added` : ""}):`, Math.round(num(c.price) || 0));
+    if (ans == null) return;
+    const p = Math.round(parseFloat(String(ans).replace(/[$,\s]/g, "")));
+    if (!(p >= 3000 && p <= 500000)) { alert("That doesn't look like a price. Type just the number, e.g. 34995."); return; }
+    minePrice[v] = {p, d: todayISO()}; mineSeen[v] = todayISO();          // reading the price counts as a check
+    applyMinePrices();
+  }
   saveMine(); renderMine(); render(); });
 document.getElementById("mine-hide").addEventListener("input", renderMine);
 // the Sold tab's cars: the ones the search saw go, plus cars added by you that you marked no longer available
@@ -1818,7 +1844,7 @@ document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"
 document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"));
 document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
 document.getElementById("tab-mine").addEventListener("click", () => showTab("mine"));
-renderGuide(); renderWarranty(); renderCheck(); pullChecked(); renderMine(); pullMine();
+renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
 try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });

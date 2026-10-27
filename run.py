@@ -25,20 +25,37 @@ def log(msg: str) -> None:
 
 
 def sync_manual_gone() -> None:
-    """Cars added by hand that the user marked 'No longer available' on the page: drop them from
-    data/manual_listings.csv and move them to the No longer available tab (the search can't see them go)."""
+    """The user's marks on the page's Added by you tab, for cars added by hand (the search can't re-read them):
+    a car marked 'No longer available' is dropped from data/manual_listings.csv and moved to the No longer available
+    tab; a price the user updated replaces the price in manual_listings.csv (fees stay), so this run uses it."""
     import csv
+    import io
     from core import history, pipeline, profiles
-    gone = pipeline.manual_gone()
+    marks = pipeline.manual_marks()
+    gone, prices = marks.get("gone") or {}, marks.get("price") or {}
     path = history.DATA / "manual_listings.csv"
-    if not gone or not path.exists():
+    if not (gone or prices) or not path.exists():
         return
     with path.open(encoding="utf-8", newline="") as f:
-        lines = f.read().splitlines(keepends=True)
-    keep = [l for i, l in enumerate(lines) if i == 0 or (l.split(",", 1)[0].strip().upper() not in gone)]
-    if len(keep) != len(lines):
+        text = f.read()
+    rows = list(csv.DictReader(io.StringIO(text)))
+    cols = text.splitlines()[0].split(",")
+    keep = []
+    for r in rows:
+        v = r["vin"].strip().upper()
+        if v in gone:
+            continue
+        x = prices.get(v)
+        if x and str(int(float(r["price"] or 0))) != str(x["p"]):
+            log(f"{r['year']} {r['make']} {r['model']} {v}: price ${float(r['price'] or 0):,.0f} -> ${x['p']:,} (you updated it {x['d']})")
+            r["price"] = str(x["p"])
+        keep.append(r)
+    out = io.StringIO()
+    w = csv.DictWriter(out, fieldnames=cols, lineterminator="\n")
+    w.writeheader(); w.writerows(keep)
+    if out.getvalue() != text:
         with path.open("w", encoding="utf-8", newline="") as f:
-            f.writelines(keep)
+            f.write(out.getvalue())
     for P in profiles.all_profiles():
         rows = history.read_csv(P.data / "listings.csv")
         hit = [r for r in rows if r["vin"].upper() in gone and r.get("source") == "added by you" and r.get("status") != "sold"]
