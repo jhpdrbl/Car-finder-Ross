@@ -345,6 +345,50 @@ def _spec_fields(r: dict, page_cl: dict | None = None) -> dict:
             "perf": pf}
 
 
+def market_key(r: dict) -> str:
+    """Which cars count as comparable for negotiating: same make, model family (first word: "EQE 350+" = EQE,
+    "CX-50 Hybrid" = CX-50), fuel and body (an EQE SUV is not an EQE sedan)."""
+    words = (r.get("model") or "").split()
+    if not words:
+        return ""
+    return "|".join([(r.get("make") or "").lower(), words[0].lower().replace("-", ""), r.get("fuel_type") or "", r.get("body") or "SUV"])
+
+
+def _market(rows: list[dict], hist: dict, cars: list[dict]) -> list[dict]:
+    """Every certified car of the same model family as a car on the page, seen in the last 45 days, whatever this
+    buyer's rules said about it (a car ruled out for its color or price is still a fair comparison), for the
+    negotiation helper. Not-certified cars are left out (they sell for less). Listed = still seen in the latest
+    search; gone = left the dealer's site (sold, or taken down)."""
+    from datetime import date as _d, timedelta
+    keys = {c["mkey"] for c in cars if c.get("mkey")}
+    run_days = [r.get("last_seen") or "" for r in rows if r.get("source") != "added by you"]
+    latest = max(run_days, default="")
+    if not latest:
+        return []
+    since = (_d.fromisoformat(latest) - timedelta(days=45)).isoformat()
+    fresh = (_d.fromisoformat(latest) - timedelta(days=2)).isoformat()
+    out = []
+    for r in rows:
+        k = market_key(r)
+        if k not in keys or (r.get("last_seen") or "") < since or "certif" in (r.get("fail_reasons") or "").lower():
+            continue
+        try:
+            price = float(r.get("price_total") or 0)
+            miles = float(r.get("mileage") or "nan")
+            year = int(r.get("year"))
+        except ValueError:
+            continue
+        if price < 3000 or miles != miles:
+            continue
+        gone = r.get("status") == "sold" or (r.get("status") != "active" and (r.get("last_seen") or "") < fresh)
+        h = hist.get(r["vin"], [])
+        out.append({"v": r["vin"], "k": k, "y": year, "t": r.get("trim") or "", "mi": round(miles), "p": round(price),
+                    "p0": round(h[0][1]) if h else round(price), "f": r.get("first_seen") or "",
+                    "l": (r.get("removed_on") or r.get("last_seen") or "") if gone else r.get("last_seen") or "",
+                    "g": gone, "d": r.get("dealer") or "", "u": r.get("listing_url") or "", "on": r.get("status") == "active"})
+    return out
+
+
 def _places(cars: list[dict], P) -> dict:
     """Map tab: where each dealer with a car on the page is (data/dealers.csv), plus home. Dealers without a street
     address on file were placed at their city's center when the list was built: their pins are marked approximate."""
@@ -424,7 +468,9 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     people = [{"id": q.id, "label": q.label, "href": q.href,
                "local": ("" if P.is_default else "../") + ("dashboard.html" if q.is_default else f"{q.id}/dashboard.html")}
               for q in profiles.all_profiles()]
-    data = json.dumps({"cars": cars, "gone": gone, "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
+    for c in cars + gone:
+        c["mkey"] = market_key(c)
+    data = json.dumps({"cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
                        "profile": {"id": P.id, "label": P.label, "default": P.is_default}, "people": people,
                        "miles_per_year": P.cfg.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
@@ -665,6 +711,22 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .ckgroup { margin:14px 0; background:none; border:0; padding:0; } .ckgroup[open] > summary { margin-bottom:8px; }
 .ckbrand { font-size:14px; color:var(--muted); cursor:pointer; padding:8px 10px; background:var(--surface); border:1px solid var(--line); border-radius:8px; }
 .ckbrand b { color:var(--fg); font-size:16px; }
+/* Negotiation helper */
+dialog#neg { width:min(760px, calc(100vw - 24px)); max-height:calc(100vh - 40px); border:1px solid var(--line); border-radius:12px; padding:0;
+  background:var(--surface); color:var(--fg); }
+dialog#neg::backdrop { background:rgba(0,0,0,.45); }
+#neg .nhead { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; padding:14px 16px 6px; position:sticky; top:0; background:var(--surface); border-bottom:1px solid var(--line); }
+#neg .nhead h2 { font-size:17px; margin:0; } #neg .nbody { padding:10px 16px 16px; }
+#neg .nx { font:inherit; font-size:22px; line-height:1; background:none; border:0; color:var(--muted); cursor:pointer; padding:0 4px; }
+.nnums { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:8px; margin:8px 0; }
+.nnums div { border:1px solid var(--line); border-radius:8px; padding:8px; } .nnums b { display:block; font-size:19px; }
+.nnums .go { border-color:var(--ok); } .nnums .go b { color:var(--ok); }
+#neg ul.tp { margin:6px 0 10px; padding-left:18px; } #neg ul.tp li { margin:4px 0; }
+#neg table { width:100%; border-collapse:collapse; font-size:13px; } #neg th, #neg td { text-align:left; padding:4px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
+#neg td.r, #neg th.r { text-align:right; white-space:nowrap; } #neg tr.self td { font-weight:700; background:var(--bg); }
+.negbtn { font:600 12px system-ui, -apple-system, sans-serif; margin:6px 0 0 6px; padding:3px 10px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--ok); background:var(--surface); color:var(--ok); }
+@media (max-width: 760px) { .nnums { grid-template-columns:repeat(2, minmax(0,1fr)); } #neg .hidem { display:none; } }
 /* Compare tab */
 .cmpbtn { font:600 12px system-ui, -apple-system, sans-serif; margin-top:6px; padding:3px 10px; border-radius:999px; cursor:pointer;
   border:1px solid var(--accent); background:var(--surface); color:var(--accent); }
@@ -889,6 +951,7 @@ The earlier of the two is shown.</p>
 <div id="guide"></div>
 </div>
 </div></div>
+<dialog id="neg" aria-labelledby="neg-title"><div class="nhead"><h2 id="neg-title"></h2><button type="button" class="nx" aria-label="Close">&times;</button></div><div class="nbody" id="neg-body"></div></dialog>
 <p class="small" id="footnote">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
 </main>
 <script>
@@ -1391,6 +1454,91 @@ function goneAll() {
     return {...c, removed_on: mineGone[c.vin], last_seen: mineGone[c.vin], fail_reasons: "you marked it no longer available",
             days: isNaN(a) || isNaN(b) ? "" : Math.round((b - a) / 864e5) + 1}; }));
 }
+// ---- Negotiation helper: what similar certified cars are listed at, and went for, adjusted to this car's year and miles ----
+const MK = D.market || [];
+const NSTOP = new Set("4matic quattro awd 4wd fwd rwd 2wd suv sedan utility vehicles vehicle e tron etron w with package electric twin motor recharge edrive xdrive t8 eawd gasoline bright dark theme".split(" "));
+const trimSet = (t, model) => { const mw = new Set(String(model || "").toLowerCase().replace(/-/g, "").split(/\s+/));
+  return new Set(String(t || "").toLowerCase().replace(/([a-z])(\d)/g, "$1 $2").replace(/premium plus/g, "premiumplus").replace(/sx-prestige/g, "sxprestige").replace(/x-line/g, "xline")
+    .replace(/[^a-z0-9+]+/g, " ").split(" ").filter(w => w && !NSTOP.has(w) && !mw.has(w.replace(/-/g, "")))); };
+const jac = (a, b) => { if (!a.size && !b.size) return 0.5; let n = 0; a.forEach(w => { if (b.has(w)) n++; }); return n / (a.size + b.size - n); };
+const pct = (xs, q) => { const s = xs.slice().sort((a, b) => a - b); if (!s.length) return null; const i = (s.length - 1) * q, lo = Math.floor(i);
+  return s[lo] + (s[Math.min(lo + 1, s.length - 1)] - s[lo]) * (i - lo); };
+const r250 = (v, down) => (down ? Math.floor(v / 250) : Math.round(v / 250)) * 250;
+const dayN = (a, b) => { const x = Date.parse(a), y = Date.parse(b); return isNaN(x) || isNaN(y) ? null : Math.round((y - x) / 864e5) + 1; };
+const negCache = {};
+function negotiate(c) {
+  if (negCache[c.vin]) return negCache[c.vin];
+  const ask = num(c.price_total), miles = num(c.mileage), yr = num(c.year);
+  const me = trimSet(c.trim, c.model);
+  let all = MK.filter(m => m.k === c.mkey && m.v !== c.vin && Math.abs(m.y - yr) <= 1);
+  all.forEach(m => m.sim = jac(me, trimSet(m.t, c.model)));
+  const close = all.filter(m => m.y === yr && m.sim >= 0.5), same = all.filter(m => m.y === yr);
+  let set, basis;
+  if (close.length >= 3) { set = close; basis = `${yr}, same trim`; }
+  else if (same.length >= 3) { set = same; basis = `${yr}, any trim`; }
+  else { set = all; basis = `${yr - 1}-${yr + 1}, any trim (other years adjusted ~6% a year)`; }
+  const out = {ask, basis, set, n: set.length};
+  if (ask == null || miles == null) return negCache[c.vin] = {...out, thin: true, why: "this listing's price or miles isn't known"};
+  if (set.length < 2) return negCache[c.vin] = {...out, thin: true, why: `only ${set.length} similar certified car${set.length === 1 ? "" : "s"} on file (${basis})`};
+  // what a mile is worth for this model: the comparison cars' own prices vs miles, if they spread enough; else ~15 cents
+  let perMile = 0.15, mileSrc = "rule of thumb";
+  const xs = set.map(m => m.mi), ys = set.map(m => m.p * (1 + 0.06 * (yr - m.y)));
+  if (set.length >= 5 && Math.max(...xs) - Math.min(...xs) >= 8000) {
+    const mx = xs.reduce((a, b) => a + b) / xs.length, my = ys.reduce((a, b) => a + b) / ys.length;
+    let sxy = 0, sxx = 0; xs.forEach((x, i) => { sxy += (x - mx) * (ys[i] - my); sxx += (x - mx) ** 2; });
+    if (sxx > 0) { perMile = Math.min(0.35, Math.max(0.05, -sxy / sxx)); mileSrc = "from these cars"; }
+  }
+  set.forEach((m, i) => m.adj = Math.round(ys[i] + perMile * (m.mi - miles)));
+  const adj = set.map(m => m.adj), mid = pct(adj, 0.5), low = pct(adj, 0.25);
+  // realistic room on a certified car is a few percent: never suggest more than 12% (open) / 8% (aim) under asking,
+  // even when the comparison cars are much cheaper (often lower trims or more miles than the adjustment allows for)
+  let open = r250(Math.max(Math.min(low, ask * 0.95), ask * 0.88), true), aim = r250(Math.max(Math.min(mid, ask * 0.97), ask * 0.92));
+  if (aim > ask) aim = r250(ask, true);
+  if (open >= aim) open = aim - 500;
+  const gone = set.filter(m => m.g), listed = set.filter(m => !m.g);
+  const goneDays = pct(gone.map(m => dayN(m.f, m.l)).filter(v => v != null), 0.5);
+  const goneCut = gone.filter(m => m.p0 - m.p >= CUT_MIN);
+  return negCache[c.vin] = {...out, perMile, mileSrc, mid, low, open, aim, gone, listed, goneDays, goneCut,
+    vsMid: (ask - mid) / mid, cheapest: set.slice().sort((a, b) => a.adj - b.adj)[0]};
+}
+function negHTML(c) {
+  const N = negotiate(c), fees = num(c.price_total) != null && num(c.price) != null ? num(c.price_total) - num(c.price) : null;
+  if (N.thin) return `<p>Can't work out a price yet: ${esc(N.why)}. This gets better with every search.</p>
+    <p class="small muted">Meanwhile: ask for the out-the-door price in writing, and compare it with the Sticker when new and the price-cut history.</p>`;
+  const pos = Math.abs(N.vsMid) < 0.015 ? "about the middle of the market" : `${Math.round(Math.abs(N.vsMid) * 100)}% ${N.vsMid > 0 ? "above" : "below"} the middle of the market`;
+  const tp = [];
+  if (!/same trim/.test(N.basis)) tp.push(`<span class="small">Not enough cars of this exact trim, so this compares other trims too: a better-equipped trim is worth more, so lean on the closest ones in the list below.</span>`);
+  if (N.vsMid < -0.04) tp.push("It's already priced well below most similar cars, so there's less room: a small ask (or free extras: fees, tint, a charger, a second key) may be the realistic win.");
+  if (N.vsMid > 0.08) tp.push("Similar cars come out a lot cheaper. Check they're really comparable (trim, options, miles); if they are, that's your strongest argument, and walking away is a fair option.");
+  tp.push(`<b>${N.listed.length} similar car${N.listed.length === 1 ? " is" : "s are"} for sale now</b> (${esc(N.basis)}); at this car's miles the middle one works out to <b>${fmt$(N.mid)}</b>. This one asks ${fmt$(N.ask)}: ${pos}.`);
+  const ch = N.cheapest;
+  if (ch && ch.adj < N.ask - 250) tp.push(`Cheapest comparable: ${esc(ch.y)} ${esc(ch.t)} at ${esc(ch.d)}, ${fmt$(ch.p)} with ${ch.mi.toLocaleString()} miles${ch.g ? " (gone now)" : ""}: about ${fmt$(ch.adj)} at this car's miles. ${ch.g ? "" : "Mention it: \u201cI can get one like it for less.\u201d"}`);
+  if (N.gone.length) tp.push(`${N.gone.length} similar car${N.gone.length > 1 ? "s" : ""} left the market since the tracker started (Oct 15)${N.goneDays != null ? `, typically after ${Math.round(N.goneDays)} days` : ""}; ${N.goneCut.length ? `${N.goneCut.length} had been cut before going` : "none were cut first"}. Their last asking price is an upper bound: buyers usually paid less.`);
+  const dl = daysListed(c);
+  if (dl != null) tp.push(dl >= 21 ? `This car has been listed at least ${dl} days: dealers pay to keep cars on the lot, so time is on your side.` : `On the tracker ${dl} day${dl === 1 ? "" : "s"} (it may have been listed before Oct 15; ask how long they've had it).`);
+  if (c.dropped) tp.push(`They've already cut it ${fmt$(c.cut)}: a sign they want it gone.`);
+  if (fees) tp.push(`${fmt$(fees)} of the price is dealer fees${c.fees_estimated === "True" ? " (estimated)" : ""}: negotiate the out-the-door price, not the sticker.`);
+  if (c.fuel_type === "ev") tp.push("Used electric cars have been losing value fast; that's fair to bring up.");
+  const rows = N.set.slice().sort((a, b) => a.adj - b.adj).slice(0, 14).map(m => `<tr><td>${m.u ? `<a href="${esc(m.u)}" target="_blank" rel="noopener">${esc(m.y)} ${esc(m.t || "")}</a>` : esc(m.y + " " + (m.t || ""))}
+      <div class="small">${esc(m.d)}</div></td><td class="r">${m.mi.toLocaleString()}</td><td class="r">${fmt$(m.p)}${m.p0 - m.p >= CUT_MIN ? `<div class="small">was ${fmt$(m.p0)}</div>` : ""}</td>
+      <td class="r"><b>${fmt$(m.adj)}</b></td><td class="hidem small">${m.g ? `gone ${esc(shortDate(m.l))}` : m.on ? "for sale (on your list)" : "for sale"}</td></tr>`).join("");
+  return `<div class="nnums"><div>Asking (with fees)<b>${fmt$(N.ask)}</b></div><div>Middle of the market<b>${fmt$(N.mid)}</b><span class="small">at these miles</span></div>
+      <div class="go">Open at<b>${fmt$(N.open)}</b></div><div class="go">Aim for<b>${fmt$(N.aim)}</b></div></div>
+    <p class="small muted">Open at = the cheaper quarter of comparable cars (or 5% under asking, whichever is lower). Aim for = the middle of the market (or 3% under asking, whichever is lower). Both are out-the-door before tax, like the prices on this page.</p>
+    <ul class="tp">${tp.map(t => `<li>${t}</li>`).join("")}</ul>
+    <details ${N.set.length <= 8 ? "open" : ""}><summary><b>The ${N.set.length} comparable certified cars</b> <span class="small">(cheapest first, at this car's ${Math.round(num(c.mileage)).toLocaleString()} miles; a mile ≈ ${Math.round(N.perMile * 100)}¢, ${esc(N.mileSrc)})</span></summary>
+    <table><thead><tr><th>Car</th><th class="r">Miles</th><th class="r">Asking</th><th class="r">At these miles</th><th class="hidem">Now</th></tr></thead><tbody>${rows}</tbody></table></details>
+    <p class="small muted">Comparable = certified, same model, fuel and body, seen in the last 45 days, including ones your rules turned down (color, price). All prices are advertised prices with fees, not what buyers paid. "Gone" means the ad disappeared (usually sold).</p>`;
+}
+const negDlg = document.getElementById("neg");
+function openNeg(vin) {
+  const c = D.cars.find(x => x.vin === vin); if (!c) return;
+  document.getElementById("neg-title").textContent = "What to offer: " + c.title;
+  document.getElementById("neg-body").innerHTML = negHTML(c);
+  if (negDlg.showModal) negDlg.showModal(); else negDlg.setAttribute("open", "");
+}
+document.addEventListener("click", e => { const b = e.target.closest(".negbtn"); if (b) openNeg(b.dataset.vin); });
+negDlg.addEventListener("click", e => { if (e.target === negDlg || e.target.closest(".nx")) negDlg.close(); });
 // ---- Compare tab: pick cars with "+ Compare", see them field by field ----
 let cmp = []; try { cmp = JSON.parse(localStorage.getItem(PK + "cmp") || "[]").filter(v => D.cars.some(c => c.vin === v)); } catch (e) {}
 const MAXCMP = 6;
@@ -1540,6 +1688,9 @@ const FIELDS = [
   ["Sticker when new", c => msrpCell(c), null, null],
   ["Below sticker", c => belowSticker(c) == null ? "?" : belowSticker(c) + "% less than new" + (c.msrp_source === "trim base" ? ' <span class="small">(vs the trim\'s base price)</span>' : ""), c => belowSticker(c), "high"],
   ["Est. monthly", c => fmt$(c.est_monthly_cost), c => num(c.est_monthly_cost), "low"],
+  ["What to offer", c => { const N = negotiate(c); return N.thin ? '<span class="muted">not enough similar cars yet</span>'
+      : `open ${fmt$(N.open)}, aim ${fmt$(N.aim)}<div class="small">market middle ${fmt$(N.mid)}</div><button type="button" class="negbtn" style="margin-left:0" data-vin="${esc(c.vin)}">details</button>`; },
+      c => { const N = negotiate(c); return N.thin ? null : Math.round(100 * (N.ask - N.mid) / N.mid); }, "low"],
   ["Match & score"],
   ["Status", c => c.needs_call ? `<span class="chip call">needs a call</span> <span class="small">${esc(c.needs_call)}</span>` : '<span class="chip match">match</span>', null, null],
   ["Score", c => esc(c.score), c => num(c.score), "high"],
@@ -1773,7 +1924,7 @@ function renderRows() {
     <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
     <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<button type="button" class="stickerok" data-tip="Features verified by window sticker" aria-label="Features verified by window sticker">&#10003;</button>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
       ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
-      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button></td>
+      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button><button type="button" class="negbtn" data-vin="${esc(c.vin)}">$ What to offer</button></td>
     <td class="num p-year" data-l="Year">${esc(c.year)}</td>
     <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div><div class="small">${esc(c.cpo_program)}</div></td>
     <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
