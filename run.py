@@ -105,7 +105,17 @@ def refresh(args) -> None:
     decodes = vin_decode.decode_many([L.vin for L in listings])
     prepare(listings, decodes)
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
+    # last run's count per brand feed: a feed that comes back with far fewer cars was read only partly (Volvo, Oct 26
+    # 2026: 50 instead of 101, and a car still for sale went "sold"), so its missing cars aren't marked sold this time
+    last_feed = {c["brand"]: int(c["listings"]) for c in history.read_csv(history.DATA / "coverage.csv")
+                 if c.get("dealer", "").endswith("brand CPO feed") and str(c.get("listings", "")).isdigit()}
     for brand, st in feed_stats.items():
+        n, before = int(st.get("in_area") or 0), last_feed.get(brand, 0)
+        if st["status"] == "success" and before >= 20 and n < 0.7 * before:
+            st["reason"] = (f"{n} certified listings at our dealers (only part of the feed? {before} last run; "
+                            "its missing cars are kept as they were, not marked sold)")
+            log(f"   {brand} brand feed: {n} cars vs {before} last run; not marking its missing cars sold")
+            continue
         if st["status"] == "success":
             ok_dealers |= {d["dealer_name"] for d in by_name.values() if d["brand"] == brand}
     gone = {u: why for r in results for u, why in r.gone}
