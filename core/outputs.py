@@ -1053,7 +1053,7 @@ function makeSlider(id, vals, step, fmt) {
 }
 const clearS = makeSlider("cl", D.cars.map(c => num(c.clearance)).filter(v => v != null), 0.1, v => v.toFixed(1) + " in");
 const rangeS = makeSlider("er", D.cars.map(c => num(c.ev_range)).filter(v => v != null), 5, v => Math.round(v) + " mi");
-pills("f-mine", ["Favorite", "Disliked", "No mark"]);
+pills("f-mine", ["Favorite", "No mark", "Disliked"]);
 pills("f-src", ["Added by you", "The search"]);
 pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
