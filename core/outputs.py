@@ -891,7 +891,7 @@ __SCOREHELP__
   <div class="small" style="margin-bottom:8px">The number is how many cars there. Tap a pin for its cars, dealers close by, and <b>+ Add to trip</b>.</div>
   <div id="trip"></div>
 </div>
-<div class="sortbar"><label for="sort-a">Sort</label><select id="sort-a">
+<div class="sortbar"><label for="sort-a">Sort</label><select id="sort-a" autocomplete="off">
   <option value="score:-1">Best score</option><option value="price_total:1">Lowest price</option>
   <option value="est_monthly_cost:1">Lowest monthly</option><option value="mileage:1">Fewest miles</option>
   <option value="distance_mi:1">Closest dealer</option><option value="first_seen:-1">Newest listing</option>
@@ -904,7 +904,7 @@ __SCOREHELP__
 </div>
 <div id="panel-gone" role="tabpanel" aria-labelledby="tab-gone" hidden>
 <div class="shown" id="shown-g" aria-live="polite"></div>
-<div class="sortbar phone-only"><label for="sort-g">Sort</label><select id="sort-g">
+<div class="sortbar phone-only"><label for="sort-g">Sort</label><select id="sort-g" autocomplete="off">
   <option value="removed_on:-1">Gone most recently</option><option value="price_total:1">Lowest price</option>
   <option value="days:1">Fewest days listed</option><option value="mileage:1">Fewest miles</option></select></div>
 <div class="wrap"><table class="gone"><thead><tr>
@@ -1786,11 +1786,16 @@ saveCmp();
 document.getElementById("cmpbar-clear").addEventListener("click", clearCmp);
 document.getElementById("cmpbar-view").addEventListener("click", () => showTab("cmp"));
 let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
+// the sort is remembered per viewer; without this a reloaded page showed the browser's remembered Sort menu choice
+// ("Lowest price") over a list still sorted by score (Oct 28 2026)
+try { const sv = JSON.parse(localStorage.getItem(PK + "sort") || "null");
+  if (sv && sv.k) { sortK = sv.k; dir = +sv.d || 1; } if (sv && sv.gk) { gK = sv.gk; gDir = +sv.gd || 1; } } catch (e) {}
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const ex = x == null || x === "", ey = y == null || y === ""; if (ex || ey) return ex - ey;   // blanks last
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
-function render() { renderRows(); stickHeads(); }
+function render() { renderRows(); stickHeads();
+  try { localStorage.setItem(PK + "sort", JSON.stringify({k: sortK, d: dir, gk: gK, gd: gDir})); } catch (e) {} }
 
 // ---- Map: dealers of the cars the filters show (OpenStreetMap via Leaflet, loaded only when the map is opened) ----
 let lastCars = [], mapOn = false, map = null, mapLayer = null, mapFit = true, trip = [];
@@ -2005,6 +2010,10 @@ try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
+// show the sort that's really in use (the browser may have restored another menu choice)
+[["sort-a", () => sortK + ":" + dir], ["sort-g", () => gK + ":" + gDir]].forEach(([id, v]) => { const el = document.getElementById(id);
+  if (el) el.value = [...el.options].some(o => o.value === v()) ? v() : ""; });
+render();
 document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
 document.getElementById("ncut").textContent = document.getElementById("ncut-tile").textContent = D.cars.filter(c => c.dropped).length;
 // turning on "Price cut" (the filter or the tile at the top) also sorts biggest cut first
