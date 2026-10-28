@@ -390,6 +390,19 @@ def _market(rows: list[dict], hist: dict, cars: list[dict]) -> list[dict]:
     return out
 
 
+def interior_kind(color: str, P=None) -> str:
+    """Interior filter group: Black (or a two-tone with black) / Brown / saddle / Not sure (not shown)."""
+    rules = ((P.cfg if P else CONFIG).get("filters") or {}).get("interior_colors") or {}
+    c = (color or "").lower()
+    if not c.strip():
+        return "Not sure"
+    if any(w in c for w in rules.get("include") or []):
+        return "Black"
+    if any(re.search(rf"\b{re.escape(w)}", c) for w in (rules.get("also_ok") or []) + (rules.get("check") or [])):
+        return "Brown / saddle"
+    return "Other"
+
+
 def _places(cars: list[dict], P) -> dict:
     """Map tab: where each dealer with a car on the page is (data/dealers.csv), plus home. Dealers without a street
     address on file were placed at their city's center when the list was built: their pins are marked approximate."""
@@ -448,7 +461,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
                        "score_parts": criteria.score_breakdown(r) if r.get("score") not in ("", None) else []}
-                    | _spec_fields(r, page_cl))
+                    | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P)})
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)
@@ -460,7 +473,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                    "price_total", "mileage", "ext_color", "int_color", "fuel_type",
                                                    "mpg_combined", "needs_call", "first_seen", "last_seen",
                                                    "removed_on", "fail_reasons", "distance_mi", "body", "drivetrain")}
-                        | {"hist": hist.get(r["vin"], [])})
+                        | {"hist": hist.get(r["vin"], []), "int_kind": interior_kind(r.get("int_color", ""), P)})
     gfile = ROOT / P.cfg["trim_guide"] if P.cfg.get("trim_guide") else TRIM_GUIDE
     guide = json.loads(gfile.read_text(encoding="utf-8")) if gfile.exists() else {"models": []}
     warranty = json.loads(WARRANTY.read_text(encoding="utf-8")) if WARRANTY.exists() else {"brands": []}
@@ -853,6 +866,7 @@ __SCOREHELP__
     <fieldset class="group" id="f-body"><legend>Body</legend></fieldset>
     <fieldset class="group" id="f-fuel"><legend>Fuel</legend></fieldset>
     <fieldset class="group" id="f-drive"><legend>Drive</legend></fieldset>
+    <fieldset class="group" id="f-int"><legend>Interior</legend></fieldset>
   </details>
   <details class="fsec" open><summary>Price &amp; miles</summary>
     <fieldset class="group" id="f-price"><legend>Price (with fees) <span class="rvs"><b class="rv" id="pmin-v"></b> – <b class="rv" id="pmax-v"></b></span></legend>
@@ -1012,6 +1026,7 @@ pills("f-show", ["Meets all criteria", "Needs a call"]);
 pills("f-make", makes);
 pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.cars.concat(D.gone).some(c => c.fuel === f)));
 pills("f-body", ["SUV", "Sedan"]);
+pills("f-int", ["Black", "Brown / saddle", "Other", "Not sure"].filter(k => D.cars.some(c => c.int_kind === k)));
 pills("f-drive", ["AWD", "RWD", "FWD", "2WD", "Not sure"].filter(v => ["AWD", "RWD", "FWD"].includes(v) || D.cars.some(c => c.drive === v)));
 pills("f-roof", ["Yes", "No", "Not sure"]);
 pills("f-sound", ["Yes", "No", "Not sure"]);
@@ -1908,12 +1923,13 @@ document.addEventListener("click", e => {
   if (map) { map.closePopup(); const f = mapFit; mapFit = false; drawMap(); mapFit = f; } else drawTrip();
 });
 function renderRows() {
-  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"),
+  const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"), ik = picked("f-int"),
         rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
                     && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV")) && (!dv.size || dv.has(c.drive || "Not sure"))
+                    && (!ik.size || ik.has(c.int_kind || "Not sure"))
                     && (!rf.size || rf.has(roofOf(c).v)) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
@@ -2040,7 +2056,7 @@ document.getElementById("cut-tile").addEventListener("click", () => {
   const box = document.getElementById("only-cut"); box.checked = !box.checked;
   if (box.checked) { sortByCut(); showTab("avail"); }
   render(); document.getElementById("shown-a").scrollIntoView({behavior: "smooth", block: "start"}); });
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-roof", "f-sound", "f-seat", "f-mine", "f-src", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-int", "f-roof", "f-sound", "f-seat", "f-mine", "f-src", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });
