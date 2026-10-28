@@ -920,6 +920,7 @@ __SCOREHELP__
 so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b>, <b>Update price</b> (if it changed) or <b>No longer available</b>.
 Checks older than a week turn yellow as a reminder. A car you mark no longer available moves to the Sold tab at once (the next search makes it permanent).</p>
 <div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
+<button type="button" class="cbtn ghost" id="mine-clear">Clear all checks</button>
 <span class="small" id="mine-sync"></span></div>
 <div id="minelist"></div>
 </div>
@@ -1449,6 +1450,10 @@ document.getElementById("minelist").addEventListener("click", e => {
   }
   saveMine(); renderMine(); render(); });
 document.getElementById("mine-hide").addEventListener("input", renderMine);
+// start a new round of checking: forget every "still available" date (prices you updated and cars marked gone stay)
+document.getElementById("mine-clear").addEventListener("click", () => {
+  if (!Object.keys(mineSeen).length || !confirm("Clear the \"still available\" checks on all your added cars (on all your devices)?\nPrices you updated and cars you marked no longer available stay as they are.")) return;
+  mineSeen = {}; saveMine(); renderMine(); });
 // the Sold tab's cars: the ones the search saw go, plus cars added by you that you marked no longer available
 // (shown there at once; the next search makes it official)
 function goneAll() {
