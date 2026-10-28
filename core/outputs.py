@@ -304,6 +304,7 @@ def score_help(P) -> str:
         "ground_clearance": "Ground clearance of 8 inches or more",
         "spare_tire": "Spare tire (not shown: 40%)",
         "awd": "All-wheel drive (not shown: 30%)",
+        "interior_color": "Black interior (brown / saddle are allowed but get none; not shown: 30%)",
         "sunroof": "Sunroof (not shown: 30%)",
         "exterior_color": "Exterior color, in this order: " + " › ".join(rank) + " › anything else" if rank else "Exterior color",
         "mileage": "Mileage: full points at 0 miles, none at 40,000",
@@ -1669,7 +1670,7 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
 // Compare tab rows: [label, show(car), value(car) for the ★, "low"/"high" = which is better]; a label alone = section heading
 const SCORE_NAMES = {price: "Price", phev: "Plug-in / electric", mpg: "Gas mileage", audio: "Premium sound", leather: "Leather",
   real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire",
-  sunroof: "Sunroof", awd: "All-wheel drive", exterior_color: "Color", mileage: "Mileage"};
+  sunroof: "Sunroof", awd: "All-wheel drive", interior_color: "Black interior", exterior_color: "Color", mileage: "Mileage"};
 const yesNo = v => v === "True" ? "Yes" : v === "False" ? "No" : "Not shown";
 const ageYears = c => { const y = num(c.year); if (!y) return null;      // in service ~April of the model year (as the warranty column)
   return Math.max(0.25, (Date.now() - new Date(y, 3, 1)) / (365.25 * 864e5)); };

@@ -440,6 +440,8 @@ def _lifted(reason: str, fuel: str) -> bool:
     from core import criteria
     if DRIVE_ONLY.search(reason):
         return not criteria.F.get("awd_required", True)
+    if reason.startswith("interior ") and not reason.startswith("interior color"):   # a color allowed since (brown, Oct 28 2026)
+        return criteria.interior_ok(re.sub(r" \(black only\)$", "", reason[9:]))[0] != "fail"   # a "check" shade comes back as a call
     if criteria.FUEL_FAIL.match(reason) or reason in ("not a hybrid (gas only)",):
         fuels = criteria.F.get("fuels")
         return not fuels or fuel in fuels

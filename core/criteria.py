@@ -132,12 +132,18 @@ def interior_ok(color: str) -> tuple[str, str]:
         return "unknown", "interior color not shown"
     if any(w in c for w in F["interior_colors"]["include"]):
         return "pass", ""                      # black, or a two-tone that includes black (user, Oct 19 2026)
+    if any(re.search(rf"\b{re.escape(w)}", c) for w in F["interior_colors"].get("also_ok") or []):
+        if re.search(r"\bgr[ae]y|silver|stone|ash\b", c):   # half gray ("Neva Grey/Sable Brown"): gray alone isn't allowed
+            return "unknown", f"interior {color}: brown with gray, confirm the seats look brown"
+        return "pass", ""                      # brown / dark tan / saddle (user, Oct 28 2026; black still scores higher)
+    if any(re.search(rf"\b{re.escape(w)}", c) for w in F["interior_colors"].get("check") or []):
+        return "unknown", f"interior {color}: confirm it's a dark tan / brown, not a light one"
     for w in F["interior_colors"]["exclude"]:
         if re.search(rf"\b{re.escape(w)}\b", c):
             return "fail", f"interior {color}"
-    if re.search(r"\b(gr[ae]y|silver|blue|green|titanium|stone|ash|light|sky|ultramarine|platinum|mocha|camel)\b", c):
-        return "fail", f"interior {color} (black only)"
-    return "unknown", f"interior color '{color}': confirm it's black"
+    if re.search(r"\b(gr[ae]y|silver|blue|green|titanium|stone|ash|light|sky|ultramarine|platinum|camel)\b", c):
+        return "fail", f"interior {color} (black or brown only)"
+    return "unknown", f"interior color '{color}': confirm it's black (or brown)"
 
 
 # --------------------------------------------------------------------------
@@ -573,6 +579,9 @@ def score_parts(L: Listing) -> dict[str, float]:
     parts["spare_tire"] = tri(L.spare_tire)
     parts["awd"] = 1.0 if L.drivetrain in ("AWD", "4WD") else (0.0 if L.drivetrain in ("FWD", "RWD", "2WD") else 0.3)
     parts["sunroof"] = 1.0 if L.sunroof is True else (0.0 if L.sunroof is False else 0.3)
+    ic = (L.int_color or "").lower()          # black preferred; brown / saddle allowed (Oct 28 2026)
+    blk = (F.get("interior_colors") or {}).get("include") or []
+    parts["interior_color"] = 1.0 if ic and any(w in ic for w in blk) else (0.0 if ic.strip() else 0.3)
     rank = S.get("color_rank") or []
     fam = color_family(L.ext_color)
     parts["exterior_color"] = (len(rank) - rank.index(fam)) / len(rank) if fam in rank else (0.0 if fam else 0.3)
@@ -588,7 +597,7 @@ def score_breakdown(r: dict) -> list[list]:
     L = Listing(vin=r.get("vin", ""), make=r.get("make", ""), model=r.get("model", ""), trim=r.get("trim", ""),
                 year=int(r["year"]) if str(r.get("year") or "").isdigit() else None, price_total=f(r.get("price_total")),
                 mileage=int(float(r["mileage"])) if r.get("mileage") else None, fuel_type=r.get("fuel_type", ""),
-                ext_color=r.get("ext_color", ""), mpg_combined=f(r.get("mpg_combined")), audio=r.get("audio", ""),
+                ext_color=r.get("ext_color", ""), int_color=r.get("int_color", ""), mpg_combined=f(r.get("mpg_combined")), audio=r.get("audio", ""),
                 leather=b.get(r.get("leather")), seats=r.get("seats", ""), sunroof=b.get(r.get("sunroof")),
                 ventilated_seats=b.get(r.get("ventilated_seats")), spare_tire=b.get(r.get("spare_tire")),
                 ground_clearance_in=f(r.get("ground_clearance_in")), drivetrain=r.get("drivetrain", ""))

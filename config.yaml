@@ -58,13 +58,18 @@ filters:
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:
     include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black", noir]   # Cadillac: "Noir with ... accents"   # two-tones with one of these pass too
-    exclude: [beige, brown, white, red, tan, cognac, saddle, ivory, cream, caramel,
-              chestnut, macchiato, sand, "palomino", "rioja", "glazed caramel", blond, blonde,
-              oyster, parchment, linen, "light gray", amber, cognac, mocha, espresso, sienna, "flaxen",
-              greige, griege, juniper, "oxford stone", "autumn canyon", "phantom blue", terracotta, caturra, roast, "navy pier", norias, truffle, "bronze fire", hazel, "misty gray",
-              castanea, amido, stonegray, "stone gray", "stone grey", "rose gold", "space gray", "space grey", "performance gray",
+    # brown and dark tan / saddle pass too (user, Oct 28 2026: "Make brown and dark tan / saddle interiors allowable. Black
+    # interior is the preference though"): checked before `exclude`, so "Saddle Tan" passes; black scores higher (scoring.weights.interior_color)
+    also_ok: [brown, saddle, "dark tan", cognac, chestnut, espresso, mocha, chocolate, truffle, hazel, castanea, cinnamon,
+              caturra, havana, okapi, maroon, roast, coffee, "dark brown", "nut brown", tartufo, "dark beige"]
+    check: [palomino, caramel, sienna, "glazed caramel"]   # brownish tans that may be light: Needs a call
+    exclude: [beige, white, red, tan, ivory, cream,
+              macchiato, sand, "rioja", blond, blonde,
+              oyster, parchment, linen, "light gray", amber, "flaxen",
+              greige, griege, juniper, "oxford stone", "autumn canyon", "phantom blue", terracotta, "navy pier", norias, "bronze fire", "misty gray",
+              amido, stonegray, "stone gray", "stone grey", "rose gold", "space gray", "space grey", "performance gray",
               "blue leather", "gray startex", "gray and blue", dapple, grayscale, macadamia, "torrent navy", "aqua green",
-              "sky blue", "glacier white", cinnamon, fjord, boulder, graystone, orchid, chocolate, crema]
+              "sky blue", "glacier white", fjord, boulder, graystone, orchid, crema]
   carfax_exclude_accident: true
 
 scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
@@ -79,6 +84,7 @@ scoring:            # higher = better; weights sum is arbitrary, score scaled 0-
     ground_clearance: 5
     spare_tire: 6
     awd: 10         # medium: all-wheel / four-wheel drive (Oct 25 2026: nice-to-have, no longer required)
+    interior_color: 8   # black interior preferred; brown / saddle allowed but score none (Oct 28 2026)
   premium_audio: ["bang & olufsen", "b&o", "lexicon", "harman/kardon", "harman kardon",
                   "burmester", "bowers & wilkins", "bowers and wilkins", "mark levinson"]
   fake_leather: [leatherette, "mb-tex", "mb tex", sensatec, startex, softex, "synthetic leather",
@@ -199,7 +205,6 @@ models:
     tokens: [cx-5, cx5, cx-50, cx50, cx-70, cx70]
     feed_models: [CX5, C50, 50H, C70, C7P]       # mazdausa.com carline codes: CX-5, CX-50, CX-50 Hybrid, CX-70, CX-70 PHEV
     rules:
-      - {if: turbo signature, then: fail, why: 'CX-5 Turbo Signature: Caturra Brown Nappa interior only (no black)'}
       - {if: carbon turbo, then: fail, why: 'CX-5 Carbon Turbo: Terracotta interior only (paint Zircon Sand / Rhodium White)'}
       - {if: turbo.*meridian|meridian.*turbo, then: fail, why: 'CX-50 Turbo Meridian Edition: Terracotta leather only (no black)'}
       - {if: meridian, unless: turbo|\bs meridian, then: call, why: 'CX-50 Meridian Edition: 2023-25 (all Turbo) are Terracotta-only; the 2026 2.5 S Meridian is black - confirm which'}
@@ -207,7 +212,7 @@ models:
       - {if: phev sc|\bsc plus\b, then: fail, why: '2026 CX-70 PHEV SC / SC Plus: no sunroof offered'}
       - {if: \bs select\b|select package, then: fail, why: 'CX-5 / CX-50 Select: no sunroof (any year)'}
       - {if: carbon edition, then: note, why: 'CX-5 Carbon Edition: Polymetal Gray; black (red-stitched) or red leather - check interior'}
-      - {if: terracotta|caturra|parchment|greige|sport tan|tan nappa|tan leather|white leather|red leather, then: fail, why: non-black Mazda interior named in the listing}
+      - {if: terracotta|parchment|greige|sport tan|tan nappa|tan leather|white leather|red leather, then: fail, why: non-black Mazda interior named in the listing}
 
   Kia:
     allow: 'sportage|\bev6\b'
