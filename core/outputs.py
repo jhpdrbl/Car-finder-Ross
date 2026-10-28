@@ -815,8 +815,8 @@ td.warr { min-width:190px; font-size:13px; }
 <button type="button" id="totop" aria-label="Back to top" title="Back to top">&#8593;</button>
 <header class="hero"><a class="switch" id="switch" href="/">&#8592; Ross or Jenna</a><h1>__TITLE__</h1><div class="sub">Refreshed __DATE__ · every car links to the dealer's own listing</div></header>
 <div class="tiles">
-  <div class="tile"><b>__MATCHES__</b><span class="muted">meet all criteria</span></div>
-  <div class="tile"><b>__CALLS__</b><span class="muted">need a call</span></div>
+  <div class="tile"><b id="nmatch">__MATCHES__</b><span class="muted">meet all criteria</span></div>
+  <div class="tile"><b id="ncall">__CALLS__</b><span class="muted">need a call</span></div>
   <div class="tile"><b>__OK__</b><span class="muted">sources read</span></div>
   <div class="tile"><b>__FAILED__</b><span class="muted">sources failed</span></div>
   <div class="tile"><b>__SKIPPED__</b><span class="muted">covered by brand feeds</span></div>
@@ -825,7 +825,7 @@ td.warr { min-width:190px; font-size:13px; }
 __SCOREHELP__
 <details id="cov"><summary><b>Coverage:</b> <span id="covsum"></span></summary><ul id="covlist"></ul></details>
 <div class="tabs" role="tablist">
-  <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail"><span class="lg">Available</span><span class="sh">Cars</span><span class="n">__NAVAIL__</span></button>
+  <button class="tab" role="tab" id="tab-avail" aria-selected="true" aria-controls="panel-avail"><span class="lg">Available</span><span class="sh">Cars</span><span class="n" id="navail">__NAVAIL__</span></button>
   <button class="tab" role="tab" id="tab-fav" aria-selected="false" aria-controls="panel-avail">&#9829; <span class="lg">Favorites</span><span class="n" id="nfav">0</span></button>
   <button class="tab" role="tab" id="tab-cmp" aria-selected="false" aria-controls="panel-cmp">Compare<span class="n" id="ncmp">0</span></button>
   <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
@@ -1390,6 +1390,7 @@ function applyMinePrices() {
     }
     priceInfo(c);
   }
+  for (const k in negCache) delete negCache[k];        // prices changed: work the offers out again
 }
 function saveMine() {
   try { localStorage.setItem(PK + "mine", JSON.stringify({seen: mineSeen, gone: mineGone, price: minePrice})); } catch (e) {}
@@ -1473,7 +1474,9 @@ function negotiate(c) {
   if (negCache[c.vin]) return negCache[c.vin];
   const ask = num(c.price_total), miles = num(c.mileage), yr = num(c.year);
   const me = trimSet(c.trim, c.model);
-  let all = MK.filter(m => m.k === c.mkey && m.v !== c.vin && Math.abs(m.y - yr) <= 1);
+  // copies: each car's comparison writes its own similarity / adjusted price onto them (shared objects got overwritten
+  // by the next car's numbers, so a dialog could show another car's "at these miles" figures)
+  let all = MK.filter(m => m.k === c.mkey && m.v !== c.vin && Math.abs(m.y - yr) <= 1).map(m => ({...m}));
   all.forEach(m => m.sim = jac(me, trimSet(m.t, c.model)));
   const close = all.filter(m => m.y === yr && m.sim >= 0.5), same = all.filter(m => m.y === yr);
   let set, basis;
@@ -1790,11 +1793,14 @@ let sortK = "score", dir = -1, gK = "removed_on", gDir = -1;
 // ("Lowest price") over a list still sorted by score (Oct 28 2026)
 try { const sv = JSON.parse(localStorage.getItem(PK + "sort") || "null");
   if (sv && sv.k) { sortK = sv.k; dir = +sv.d || 1; } if (sv && sv.gk) { gK = sv.gk; gDir = +sv.gd || 1; } } catch (e) {}
+const TEXT_KEYS = /^(title|dealer|fuel|drive|colors|roof|snd|seat|carfax_status|fail_reasons)$|_(seen|on)$/;
 const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
-  const ex = x == null || x === "", ey = y == null || y === ""; if (ex || ey) return ex - ey;   // blanks last
+  // blanks last; on a number column a word ("?", "Not sure") counts as blank
+  const blank = v => v == null || v === "" || (!TEXT_KEYS.test(k) && num(v) == null);
+  const ex = blank(x), ey = blank(y); if (ex || ey) return ex - ey;
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
-function render() { renderRows(); stickHeads();
+function render() { renderRows(); stickHeads(); if (typeof updateCounts === "function") updateCounts();
   try { localStorage.setItem(PK + "sort", JSON.stringify({k: sortK, d: dir, gk: gK, gd: gDir})); } catch (e) {} }
 
 // ---- Map: dealers of the cars the filters show (OpenStreetMap via Leaflet, loaded only when the map is opened) ----
@@ -2014,8 +2020,13 @@ document.getElementById("sort-g").addEventListener("change", e => { const [k, d]
 [["sort-a", () => sortK + ":" + dir], ["sort-g", () => gK + ":" + gDir]].forEach(([id, v]) => { const el = document.getElementById(id);
   if (el) el.value = [...el.options].some(o => o.value === v()) ? v() : ""; });
 render();
-document.getElementById("nnew").textContent = D.cars.filter(c => c.is_new).length;
-document.getElementById("ncut").textContent = document.getElementById("ncut-tile").textContent = D.cars.filter(c => c.dropped).length;
+// counts at the top: leave out cars added by you that you've marked no longer available (and count new price cuts)
+function updateCounts() {
+  const live = D.cars.filter(c => !mineGone[c.vin]), set = (id, n) => { const el = document.getElementById(id); if (el) el.textContent = n; };
+  set("navail", live.length); set("nmatch", live.filter(c => !c.needs_call).length); set("ncall", live.filter(c => c.needs_call).length);
+  set("nnew", live.filter(c => c.is_new).length); set("ncut", live.filter(c => c.dropped).length); set("ncut-tile", live.filter(c => c.dropped).length);
+}
+updateCounts();
 // turning on "Price cut" (the filter or the tile at the top) also sorts biggest cut first
 const sortByCut = () => { sortK = "cut"; dir = -1; const sa = document.getElementById("sort-a"); if (sa) sa.value = "cut:-1"; };
 document.getElementById("only-cut").addEventListener("change", e => { if (e.target.checked) { sortByCut(); render(); } });
@@ -2041,7 +2052,7 @@ function mpgFromGuide(c) {
   if (num(c.mpg_combined) != null || c.fuel_type === "ev") return;
   const r = guideCall(c, t => { const m = String(t.mpg || "").match(/^(\d+)\/(\d+)\/(\d+)/);
     return m ? {v: m[3], t: m[1] + "/" + m[2]} : {v: "Not sure", t: ""}; });
-  if (!r) return;
+  if (!r || num(r.v) == null) return;          // trims disagree: leave it unknown (a "Not sure" here sorted ahead of real MPGs)
   c.mpg_combined = r.v; c.mpg_source = "guide";
   const ch = /^(\d+)\/(\d+)$/.exec(r.t || ""); if (ch) { c.mpg_city = ch[1]; c.mpg_hwy = ch[2]; }
 }

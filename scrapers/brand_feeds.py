@@ -96,7 +96,6 @@ def genesis() -> tuple[list[Listing], dict]:
 def subaru() -> tuple[list[Listing], dict]:
     dealers = _dealers("Subaru")
     raw = json.loads((ROOT / "data" / "locator_raw" / "subaru.json").read_text(encoding="utf-8"))
-    edge = CONFIG["home"]["edge_radius_miles"]
     by_code = {r["dealer"]["id"]: r["dealer"] for r in raw}
     codes = [r["dealer"]["id"] for r in raw if _match_dealer(dealers, r["dealer"]["name"], r["dealer"].get("siteUrl", ""))]
     out, stats, page = [], {"seen": 0, "in_area": 0}, 0

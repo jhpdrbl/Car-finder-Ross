@@ -379,6 +379,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
   dealer's cars must not be marked sold (first iPad run wrongly 'sold' 2 Galpin Volvo cars; restored).
 
 ## Gotchas
+- **Bug sweep (Oct 28 2026, user asked)**: Best MPG sort put 'Not sure' first (`mpgFromGuide` wrote 'Not sure' when trims disagreed; the sorter now treats any non-number on a number column as blank, `TEXT_KEYS`); the What to offer helper wrote each car's adjusted prices onto shared `D.market` objects (now copies; `negCache` is cleared when you update a price); the top counts / tab counts now leave out cars you marked no longer available (`updateCounts`). Checked clean: every filter pill, sort, tab, Compare with 6 cars, all 122 offer dialogs, map, Mine buttons (phone + desktop, no JS errors), data (no duplicate VINs, active cars all pass the hard rules, price history matches), a cloud `refresh --brands Genesis,Subaru` (only those brands changed; data not committed).
 
 - Windows consoles are cp1252; `run.py` reconfigures stdout to UTF-8. Open files with `encoding="utf-8"`.
 - `.bat` files must keep CRLF (`.gitattributes` enforces it).
