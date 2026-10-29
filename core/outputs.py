@@ -306,6 +306,7 @@ def score_help(P) -> str:
         "awd": "All-wheel drive (not shown: 30%)",
         "interior_color": "Black interior (brown / saddle are allowed but get none; not shown: 30%)",
         "sunroof": "Sunroof (not shown: 30%)",
+        "roof_opens": "Sunroof that opens (a fixed glass roof is allowed but gets none; not sure: 40%)",
         "exterior_color": "Exterior color, in this order: " + " › ".join(rank) + " › anything else" if rank else "Exterior color",
         "mileage": "Mileage: full points at 0 miles, none at 40,000",
         "real_leather": "Real leather seats: full points; synthetic leather 40%",
@@ -395,6 +396,20 @@ def _market(rows: list[dict], hist: dict, cars: list[dict]) -> list[dict]:
     return out
 
 
+def roof_open(r: dict) -> str:
+    """'Opens' / 'Fixed glass' / 'Not sure' for a car whose listing row says it has a sunroof ('' otherwise)."""
+    from core import criteria
+    from scrapers.listing import Listing
+    try:
+        year = int(r.get("year") or 0) or None
+    except ValueError:
+        year = None
+    L = Listing(vin=r.get("vin", ""), make=r.get("make", ""), model=r.get("model", ""), trim=r.get("trim", ""), year=year,
+                listing_url=r.get("listing_url", ""), sunroof={"True": True, "False": False}.get(r.get("sunroof")))
+    L.sunroof_note = r.get("sunroof_note", "")
+    return criteria.roof_opens(L)
+
+
 def interior_kind(color: str, P=None) -> str:
     """Interior filter group: Black (or a two-tone with black) / Brown / saddle / Not sure (not shown)."""
     rules = ((P.cfg if P else CONFIG).get("filters") or {}).get("interior_colors") or {}
@@ -466,7 +481,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
                        "score_parts": criteria.score_breakdown(r) if r.get("score") not in ("", None) else []}
-                    | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P)})
+                    | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P), "roof_open": roof_open(r)})
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)
@@ -489,7 +504,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
               for q in profiles.all_profiles()]
     for c in cars + gone:
         c["mkey"] = market_key(c)
-    data = json.dumps({"cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
+    data = json.dumps({"mustOpen": bool((P.cfg.get("filters") or {}).get("sunroof_must_open", True)), "cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
                        "profile": {"id": P.id, "label": P.label, "default": P.is_default}, "people": people,
                        "miles_per_year": P.cfg.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
@@ -724,6 +739,7 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .ck .btns { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .ck a.cbtn { text-decoration:none; display:inline-block; }
 .ck.done { border-color:var(--ok); background:var(--checked); } .ck.stale { border-color:var(--warn); }  /* checked in the last 7 days = gray fill */
+.roofop.ok { color:var(--ok); } .roofop.fx { color:var(--warn); }
 .ck.mine h3 a { color:inherit; } .ck.gonemk { opacity:.6; } .ck.gonemk .ckstate { color:var(--bad); }
 .cbtn.bad { color:var(--bad); border-color:var(--bad); } .minesec { font-size:15px; margin:18px 0 2px; }
 .ckstate { font-size:12px; font-weight:600; margin-left:4px; } .ck.done .ckstate { color:var(--ok); } .ck.stale .ckstate { color:var(--warn); }
@@ -881,6 +897,7 @@ __SCOREHELP__
   </details>
   <details class="fsec" open><summary>Features</summary>
     <fieldset class="group" id="f-roof"><legend>Sunroof</legend></fieldset>
+    <fieldset class="group" id="f-open"><legend>Sunroof opens</legend></fieldset>
     <fieldset class="group" id="f-sound"><legend>Upgraded sound</legend></fieldset>
     <fieldset class="group" id="f-seat"><legend>Seats</legend></fieldset>
   </details>
@@ -1034,6 +1051,7 @@ pills("f-body", ["SUV", "Sedan"]);
 pills("f-int", ["Black", "Brown / saddle", "Other", "Not sure"].filter(k => D.cars.some(c => c.int_kind === k)));
 pills("f-drive", ["AWD", "RWD", "FWD", "2WD", "Not sure"].filter(v => ["AWD", "RWD", "FWD"].includes(v) || D.cars.some(c => c.drive === v)));
 pills("f-roof", ["Yes", "No", "Not sure"]);
+pills("f-open", ["Opens", "Fixed glass", "Not sure"]);
 pills("f-sound", ["Yes", "No", "Not sure"]);
 pills("f-seat", ["Leather", "Synthetic leather", "Cloth", "Not sure"]);
 // price sliders: $500 steps between the cheapest and the dearest car on the page
@@ -1640,6 +1658,12 @@ function roofCall(t) {
   const s = String(t.sunroof || "").toLowerCase();
   // the roof must open (Oct 24 2026): a fixed glass roof is a "No"; fixed standard with an opening one optional = not sure
   const fixed = /fixed|does ?n[o']?t open|non-opening|sky lounge/.test(s), opens = /\bopens\b|tilt|slid|opening|power skyglass/.test(s);
+  if (!D.mustOpen) {       // fixed glass roofs count since Oct 29 2026 (an opening one is preferred): say which it is
+    if (/^(not standard|not available|not offered|none|no\b)/.test(s)) return {v: "No", t: "not on this trim"};
+    if (fixed && !opens) return /optional|package|available/.test(s) && !/^standard/.test(s)
+      ? {v: "Not sure", t: "optional on this trim"} : {v: "Yes", t: "standard on this trim", open: "Fixed glass"};
+    if (fixed && opens) return {v: "Yes", t: "fixed roof standard; opening roof optional", open: "Not sure"};
+  }
   if (fixed && !opens) return {v: "No", t: "fixed glass roof (doesn't open)"};
   if (fixed && opens && !/^standard (tilt|slid|opening|power)/.test(s)) return {v: "Not sure", t: "fixed roof standard; opening roof optional"};
   if (/^(standard|yes)/.test(s)) return {v: "Yes", t: "standard on this trim"};
@@ -1663,6 +1687,15 @@ function roofOf(c) {       // sunroof: the dealer's page / brand feed / your che
           : roofFromGuide(c);
   c.roof = r.v; return c._roof = r;
 }
+// does the sunroof open? (fixed glass roofs are allowed since Oct 29 2026, but an opening one is preferred)
+function roofOpen(c) {
+  if (roofOf(c).v !== "Yes") return "";
+  if (c.roof_open) return c.roof_open;
+  if (roofOf(c).open) return roofOf(c).open;                        // from the Trim guide
+  return /fixed|doesn.t open|non-?opening/i.test(roofOf(c).t || "") ? "Fixed glass" : "Opens";
+}
+const OPEN_LABEL = {"Opens": "opens", "Fixed glass": "fixed glass, doesn't open", "Not sure": "not sure it opens"};
+const openTag = c => roofOpen(c) ? `<div class="small roofop ${roofOpen(c) === "Opens" ? "ok" : roofOpen(c) === "Fixed glass" ? "fx" : ""}">${OPEN_LABEL[roofOpen(c)]}</div>` : "";
 function soundFromGuide(c) {
   const r = guideCall(c, t => { const x = soundCall(t.premium_audio);
     return x.v === "Not sure" && /optional|package|available/i.test(String(t.premium_audio || "")) ? {v: "Optional", t: ""} : x; });
@@ -1694,7 +1727,7 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
 // Compare tab rows: [label, show(car), value(car) for the ★, "low"/"high" = which is better]; a label alone = section heading
 const SCORE_NAMES = {price: "Price", phev: "Plug-in / electric", mpg: "Gas mileage", audio: "Premium sound", leather: "Leather",
   real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire",
-  sunroof: "Sunroof", awd: "All-wheel drive", interior_color: "Black interior", exterior_color: "Color", mileage: "Mileage"};
+  sunroof: "Sunroof", awd: "All-wheel drive", interior_color: "Black interior", roof_opens: "Sunroof opens", exterior_color: "Color", mileage: "Mileage"};
 const yesNo = v => v === "True" ? "Yes" : v === "False" ? "No" : "Not shown";
 const ageYears = c => { const y = num(c.year); if (!y) return null;      // in service ~April of the model year (as the warranty column)
   return Math.max(0.25, (Date.now() - new Date(y, 3, 1)) / (365.25 * 864e5)); };
@@ -1765,7 +1798,9 @@ const FIELDS = [
   ["Towing", c => num(pf(c).tow_lb) != null ? num(pf(c).tow_lb).toLocaleString() + " lb" : NONE, c => num(pf(c).tow_lb), "high"],
   ["Where these specs come from", c => pf(c).source ? `<span class="small">${esc(pf(c).source)}</span>` : NONE, null, null],
   ["Features"],
-  ["Sunroof", c => esc(roofOf(c).v) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
+  ["Sunroof", c => esc(roofOf(c).v) + openTag(c) + (roofOf(c).t ? ` <span class="small">${esc(roofOf(c).t)}</span>` : ""), null, null],
+  ["Sunroof opens", c => roofOpen(c) ? esc({"Opens": "Yes", "Fixed glass": "No (fixed glass)", "Not sure": "Not sure"}[roofOpen(c)]) : "—",
+      c => ({"Opens": 2, "Not sure": 1, "Fixed glass": 0})[roofOpen(c)] ?? null, "high"],
   ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
   ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
   ["Ventilated (cooled) seats", c => c.ventilated_seats ? yesNo(c.ventilated_seats) : (trimInfo(c) && /ventilat|cooled/i.test(trimInfo(c).seats || "") && !/no (ventilat|cool)|not? ventilat|without (ventilat|cool)/i.test(trimInfo(c).seats || "")
@@ -1933,13 +1968,13 @@ document.addEventListener("click", e => {
 });
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"), ik = picked("f-int"),
-        rf = picked("f-roof"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
+        rf = picked("f-roof"), op = picked("f-open"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
                     && (!yr.size || yr.has(String(c.year))) && (!bd.size || bd.has(c.body || "SUV")) && (!dv.size || dv.has(c.drive || "Not sure"))
                     && (!ik.size || ik.has(c.int_kind || "Not sure"))
-                    && (!rf.size || rf.has(roofOf(c).v)) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
+                    && (!rf.size || rf.has(roofOf(c).v)) && (!op.size || op.has(roofOpen(c) || "none")) && (!sd.size || sd.has(soundOf(c).v)) && (!st.size || st.has(seatOf(c).v))
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
                     && (!clearS.on() || clearS.ok(num(c.clearance))) && (!rangeS.on() || rangeS.ok(num(c.ev_range)))
@@ -1976,7 +2011,7 @@ function renderRows() {
     <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
     <td data-l="Fuel">${esc(c.fuel)}</td><td data-l="Drive">${esc(c.drive)}</td>
     <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? '—<div class="small">electric</div>' : "?") : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : c.mpg_source === "guide" ? " trim guide" : ""}</div></td>
-    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
+    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${openTag(c)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
     <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
     <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
     <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
@@ -2065,7 +2100,7 @@ document.getElementById("cut-tile").addEventListener("click", () => {
   const box = document.getElementById("only-cut"); box.checked = !box.checked;
   if (box.checked) { sortByCut(); showTab("avail"); }
   render(); document.getElementById("shown-a").scrollIntoView({behavior: "smooth", block: "start"}); });
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-int", "f-roof", "f-sound", "f-seat", "f-mine", "f-src", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-int", "f-roof", "f-open", "f-sound", "f-seat", "f-mine", "f-src", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });

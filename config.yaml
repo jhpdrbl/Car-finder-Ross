@@ -38,6 +38,9 @@ filters:
     doc_fee: 85               # California dealer doc-fee cap
     other_fees: 100           # electronic filing etc.
   sunroof_required: true
+  # a fixed (non-opening) glass roof counts as a sunroof (user, Oct 29 2026: "allow fixed sunroofs but preference is still it opens");
+  # true = only roofs that open pass (the Oct 24 - 29 rule). Opening roofs score higher (scoring.weights.roof_opens).
+  sunroof_must_open: false
   sedans:                     # plug-in hybrid / electric sedans (and hybrids with 40+ mpg), AWD (user, Oct 19 2026); full-size too since Oct 21 2026
     fuels: [phev, ev, hybrid]
     hybrid_min_mpg: 40        # regular hybrid sedans only if they average 40+ mpg (EPA combined; user, Oct 19 2026)
@@ -85,6 +88,7 @@ scoring:            # higher = better; weights sum is arbitrary, score scaled 0-
     spare_tire: 6
     awd: 10         # medium: all-wheel / four-wheel drive (Oct 25 2026: nice-to-have, no longer required)
     interior_color: 8   # black interior preferred; brown / saddle allowed but score none (Oct 28 2026)
+    roof_opens: 6       # an opening sunroof preferred; a fixed glass roof is allowed but scores none (Oct 29 2026)
   premium_audio: ["bang & olufsen", "b&o", "lexicon", "harman/kardon", "harman kardon",
                   "burmester", "bowers & wilkins", "bowers and wilkins", "mark levinson"]
   fake_leather: [leatherette, "mb-tex", "mb tex", sensatec, startex, softex, "synthetic leather",
@@ -324,16 +328,16 @@ sunroof_standard:
 # glass roof counted). opening: never = the car fails even when the dealer's page says "sunroof" (dealers call fixed glass
 # roofs that too); opening: optional = fixed roof standard, an opening one only as an option, so it passes only when the
 # listing says the roof tilts / slides (or you confirm it), else it's a call. Matching works like sunroof_standard.
-fixed_roofs:
-  - {make: "BMW", model: "iX", opening: never, note: "every iX roof is fixed glass (panoramic / Eclipsing roof doesn't open)"}
+fixed_roofs:   # glass_standard: every car of it has the glass roof (so it counts as a sunroof when fixed roofs are allowed)
+  - {make: "BMW", model: "iX", opening: never, glass_standard: true, note: "every iX roof is fixed glass (panoramic / Eclipsing roof doesn't open)"}
   - {make: "BMW", model: "i7", opening: never, note: "the i7's Sky Lounge glass roof is fixed"}
   - {make: "BMW", model: "7 series", trim_regex: "750e", opening: never, note: "the 750e's Sky Lounge glass roof is fixed"}
   - {make: "BMW", model: "750e", opening: never, note: "the 750e's Sky Lounge glass roof is fixed"}
-  - {make: "Genesis", model: "GV60", opening: never, note: "the GV60's Vision Roof is fixed glass"}
+  - {make: "Genesis", model: "GV60", opening: never, glass_standard: true, note: "the GV60's Vision Roof is fixed glass"}
   - {make: "Volkswagen", model: "ID.4", opening: never, note: "the ID.4's panoramic glass roof is fixed"}
   - {make: "Volvo", model: "C40", not_model: "xc40", opening: never, note: "the C40's panoramic roof is fixed glass"}
   - {make: "Volvo", model: "EC40", opening: never, note: "the EC40's panoramic roof is fixed glass"}
-  - {make: "Lexus", model: "RZ", opening: never, note: "the RZ's panoramic glass roof is fixed"}
+  - {make: "Lexus", model: "RZ", opening: never, glass_standard: true, note: "the RZ's panoramic glass roof is fixed"}
   - {make: "Toyota", model: "bZ4X", opening: never, note: "the bZ4X's panoramic glass roof is fixed"}
   - {make: "Toyota", model: "bZ", opening: never, note: "the bZ's panoramic glass roof is fixed"}
   - {make: "Subaru", model: "Solterra", opening: never, note: "the Solterra's panoramic glass roof is fixed"}
@@ -341,10 +345,10 @@ fixed_roofs:
   - {make: "Audi", model: "e-tron GT", opening: never, note: "the e-tron GT's panoramic glass roof is fixed"}
   - {make: "Audi", model: "A6", trim_regex: "e.?tron", opening: never, note: "the A6 Sportback e-tron's panoramic glass roof is fixed"}
   - {make: "Audi", model: "S6", trim_regex: "e.?tron", opening: never, note: "the S6 Sportback e-tron's panoramic glass roof is fixed"}
-  - {make: "Cadillac", model: "Optiq", opening: never, note: "every Optiq has a fixed glass roof (no opening roof offered)"}
-  - {make: "Cadillac", model: "Lyriq", max_year: 2023, opening: never, note: "the 2023 Lyriq's glass roof is fixed (no opening roof offered)"}
-  - {make: "Cadillac", model: "Lyriq", min_year: 2024, opening: optional, note: "fixed glass roof standard; an opening sunroof was an option"}
-  - {make: "Jaguar", model: "E-Pace", min_year: 2024, max_year: 2024, opening: never, note: "the 2024 E-Pace's panoramic roof is fixed (standard)"}
+  - {make: "Cadillac", model: "Optiq", opening: never, glass_standard: true, note: "every Optiq has a fixed glass roof (no opening roof offered)"}
+  - {make: "Cadillac", model: "Lyriq", max_year: 2023, opening: never, glass_standard: true, note: "the 2023 Lyriq's glass roof is fixed (no opening roof offered)"}
+  - {make: "Cadillac", model: "Lyriq", min_year: 2024, opening: optional, glass_standard: true, note: "fixed glass roof standard; an opening sunroof was an option"}
+  - {make: "Jaguar", model: "E-Pace", min_year: 2024, max_year: 2024, opening: never, glass_standard: true, note: "the 2024 E-Pace's panoramic roof is fixed (standard)"}
   - {make: "Jaguar", model: "E-Pace", max_year: 2023, opening: optional, note: "the 2023 E-Pace's optional panoramic roof is probably fixed (no sliding roof found)"}
   - {make: "Jaguar", model: "I-Pace", opening: never, note: "the I-Pace's panoramic roof is fixed glass"}
   - {make: "Jaguar", model: "F-Pace", opening: optional, note: "F-Pace roofs are either sliding or fixed panoramic"}

@@ -180,6 +180,29 @@ def sunroof_inferred(L: Listing, d: dict) -> str:
 OPENS = re.compile(r"tilt|slid|vent|opening|power[- ]?skyglass|open(?:s|able)\b", re.I)
 
 
+def glass_roof_standard(L: Listing, d: dict) -> bool:
+    """True when config fixed_roofs says every car of this model/year has the glass roof (glass_standard)."""
+    row = _roof_row(CFG.get("fixed_roofs", []), L, d)
+    return bool(row and row.get("glass_standard"))
+
+
+def roof_opens(L: Listing, d: dict | None = None) -> str:
+    """'Opens' / 'Fixed glass' / 'Not sure' for a car with a sunroof ('' when it has none or it isn't known)."""
+    if L.sunroof is not True:
+        return ""
+    note = L.sunroof_note or ""
+    if re.search(r"doesn't open|fixed glass roof, doesn", note):
+        return "Fixed glass"
+    if "may not open" in note:
+        return "Not sure"
+    kind, _ = fixed_roof(L, d or {})
+    if kind == "never" and note != "confirmed by you":
+        return "Fixed glass"
+    if kind == "optional":
+        return "Opens" if OPENS.search(note) else "Not sure"
+    return "Opens"                 # a regular sunroof / moonroof: models with fixed-only roofs are in config fixed_roofs
+
+
 def fixed_roof(L: Listing, d: dict) -> tuple[str, str]:
     """('never' | 'optional' | '', note) from config `fixed_roofs`: a glass roof that never opens on this
     model/trim, or a fixed one as standard with an opening roof only as an option."""
@@ -479,6 +502,17 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         kind, why = fr
         if L.sunroof is False:
             fails.append(f"no sunroof ({L.sunroof_note})")
+        elif not F.get("sunroof_must_open", True):        # a fixed glass roof is fine (Oct 29 2026); say whether it opens
+            if L.sunroof is None and sunroof_inferred(L, d):
+                L.sunroof, L.sunroof_note = True, f"standard on this trim ({sunroof_inferred(L, d)})"
+            if L.sunroof is None and glass_roof_standard(L, d):
+                L.sunroof = True
+            if L.sunroof is None:
+                unknown.append("sunroof not shown")
+            elif kind == "never":
+                L.sunroof_note = f"fixed glass roof, doesn't open ({why})"
+            elif not OPENS.search(L.sunroof_note or ""):
+                L.sunroof_note = f"glass roof, may not open ({why})"
         elif kind == "never":
             L.sunroof, L.sunroof_note = False, f"glass roof doesn't open ({why})"
             fails.append(f"glass roof doesn't open ({why})")
@@ -581,6 +615,7 @@ def score_parts(L: Listing) -> dict[str, float]:
     parts["spare_tire"] = tri(L.spare_tire)
     parts["awd"] = 1.0 if L.drivetrain in ("AWD", "4WD") else (0.0 if L.drivetrain in ("FWD", "RWD", "2WD") else 0.3)
     parts["sunroof"] = 1.0 if L.sunroof is True else (0.0 if L.sunroof is False else 0.3)
+    parts["roof_opens"] = {"Opens": 1.0, "Not sure": 0.4, "Fixed glass": 0.0}.get(roof_opens(L), 0.0)
     ic = (L.int_color or "").lower()          # black preferred; brown / saddle allowed (Oct 28 2026)
     blk = (F.get("interior_colors") or {}).get("include") or []
     parts["interior_color"] = 1.0 if ic and any(w in ic for w in blk) else (0.0 if ic.strip() else 0.3)
@@ -603,6 +638,7 @@ def score_breakdown(r: dict) -> list[list]:
                 leather=b.get(r.get("leather")), seats=r.get("seats", ""), sunroof=b.get(r.get("sunroof")),
                 ventilated_seats=b.get(r.get("ventilated_seats")), spare_tire=b.get(r.get("spare_tire")),
                 ground_clearance_in=f(r.get("ground_clearance_in")), drivetrain=r.get("drivetrain", ""))
+    L.sunroof_note = r.get("sunroof_note", "")
     parts, total = score_parts(L), sum(S["weights"].values()) or 1
     # scaled the same way as score(): each item's share of 100 points
     return [[k, round(100 * w * parts.get(k, 0.0) / total, 1), round(100 * w / total, 1)] for k, w in S["weights"].items()]

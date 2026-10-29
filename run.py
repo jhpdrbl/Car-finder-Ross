@@ -440,6 +440,8 @@ def _lifted(reason: str, fuel: str) -> bool:
     from core import criteria
     if DRIVE_ONLY.search(reason):
         return not criteria.F.get("awd_required", True)
+    if reason.startswith("glass roof doesn't open"):        # fixed roofs allowed again (Oct 29 2026)
+        return not criteria.F.get("sunroof_must_open", True)
     if reason.startswith("interior ") and not reason.startswith("interior color"):   # a color allowed since (brown, Oct 28 2026)
         return criteria.interior_ok(re.sub(r" \(black only\)$", "", reason[9:]))[0] != "fail"   # a "check" shade comes back as a call
     if criteria.FUEL_FAIL.match(reason) or reason in ("not a hybrid (gas only)",):
@@ -466,6 +468,8 @@ def revive_drive_only(rows: list[dict], excluded: dict, confirmed: dict) -> int:
         L = _row_listing(r)
         L.cert_text = f"title:certified {r.get('cpo_program') or ''}".strip()
         L.sunroof = {"True": True, "False": False}.get(r.get("sunroof"))
+        if "glass roof doesn't open" in r.get("fail_reasons", ""):
+            L.sunroof, L.sunroof_note = None, ""          # re-decide: a glass roof standard on the trim passes, else a call
         new = evaluate_row(L, dealers.get(r["dealer"], {}), decodes.get(L.vin) or {}, [], excluded, confirmed, latest)
         keep = {k: r.get(k, "") for k in ("first_seen", "last_seen", "seen_run", "new_run", "price_history", "removed_on", "last_read")}
         r.update({k: ("" if v is None else v) for k, v in new.items() if k in r}, **keep)
@@ -537,6 +541,18 @@ def rescore(args) -> None:
                     r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "sunroof" not in x)
             fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
             kind, why = criteria.fixed_roof(L, {}) if confirmed.get(L.vin.upper(), {}).get("sunroof") != "yes" else ("", "")
+            L.sunroof_note = r.get("sunroof_note", "")
+            if not criteria.F.get("sunroof_must_open", True):     # fixed glass roofs allowed (Oct 29 2026): note whether it opens
+                if kind and L.sunroof is None and (criteria.sunroof_inferred(L, {}) or criteria.glass_roof_standard(L, {})):   # e.g. the Lyriq's standard glass roof
+                    L.sunroof = True
+                    r["sunroof"] = "True"
+                if kind == "never" and L.sunroof:
+                    r["sunroof_note"] = L.sunroof_note = f"fixed glass roof, doesn't open ({why})"
+                elif kind == "optional" and L.sunroof and not criteria.OPENS.search(L.sunroof_note):
+                    r["sunroof_note"] = L.sunroof_note = f"glass roof, may not open ({why})"
+                calls = (r.get("needs_call") or "").replace("fixed glass roof standard; an opening sunroof", "fixed glass roof standard, an opening sunroof")
+                r["needs_call"] = "; ".join(x for x in calls.split("; ") if x and "roof opens" not in x)
+                kind = ""
             if kind == "never":                          # the roof must open (Oct 24 2026)
                 fails.append(f"glass roof doesn't open ({why})")
                 r["sunroof"] = "False"
