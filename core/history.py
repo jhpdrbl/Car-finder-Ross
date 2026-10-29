@@ -98,6 +98,20 @@ def update(current: list[dict], scraped_dealers_ok: set[str], gone_urls: dict[st
             prev["fail_reasons"] = gone_urls.get(prev.get("listing_url"), "no longer listed by the dealer")
             changes["removed"].append(prev)
         rows.append(prev)
+    mark_sold_by_hand(rows, data, today)
     write_csv(data / "listings.csv", rows, LISTING_COLS)
     write_csv(data / "price_history.csv", hist, ["vin", "date", "price"])
     return rows, changes
+
+
+def mark_sold_by_hand(rows: list[dict], data: Path = DATA, today: str | None = None) -> int:
+    """Cars the user said are sold (exclusions.csv reason starting with "sold") stay on the Sold tab even while
+    the dealer's ad is still up (Oct 29 2026: WBY73AW02RFR76812 came back after the user said it sold)."""
+    sold = {v: why for v, why in load_exclusions(data).items() if why.lower().startswith("sold")}
+    n = 0
+    for r in rows:
+        if r.get("vin", "").upper() in sold and r.get("status") != "sold":
+            r.update(status="sold", removed_on=r.get("removed_on") or today or date.today().isoformat(),
+                     fail_reasons="you said it sold", needs_call="", score="")
+            n += 1
+    return n

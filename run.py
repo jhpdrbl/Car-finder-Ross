@@ -499,6 +499,11 @@ def rescore(args) -> None:
         for r in rows:
             if r.get("status") != "active":
                 continue
+            if r["vin"] in excluded and excluded[r["vin"]].lower().startswith("sold"):    # you said it sold
+                r.update(status="sold", removed_on=r.get("removed_on") or date.today().isoformat(),
+                         fail_reasons="you said it sold", needs_call="", score="")
+                n_out += 1
+                continue
             if r["vin"] in excluded:                  # ruled out by hand since the last search
                 r.update(status="excluded", fail_reasons=f"manually excluded: {excluded[r['vin']]}", needs_call="", score="")
                 n_out += 1

@@ -277,7 +277,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
 8. **Facts the user checked by hand** go in `data/confirmed.csv` (vin, trim, sunroof yes/no, ext_color, audio = system name or `none`, msrp_new = window-sticker total, seats = leather/synthetic/cloth, listed_price + fees = the fee total the user saw for that price (0 = price already includes fees; ignored once the price changes), note; sticker = yes when the user sent the car's ORIGINAL window sticker (not a dealer/CPO card): the dashboard shows a white check in a green circle at the top right of that car (`.stickerok`, Oct 24 2026, user asked; hovering or tapping it shows "Features verified by window sticker"); `rescore` applies them too). `run.py:apply_confirmed`
    applies them before the rules on every run, adds a "checked by you" note, and such VINs are never carried
    forward unread. Use it when the user says "I checked, it's a Select / it has the sunroof". (To rule a car
-   out by hand, use `data/exclusions.csv`.)
+   out by hand, use `data/exclusions.csv`; a reason starting with **"sold"** keeps a search-found car on the Sold tab even while the dealer's ad is still up: `history.mark_sold_by_hand`, also in `rescore`; Oct 29 2026 WBY73AW02RFR76812 came back after the user said it sold.)
 9. **Brand-wide CPO searches** (user found them, Oct 15 2026; checked robots.txt + network calls). Feeds now: Genesis, Subaru,
    Volvo (browser only), Lexus (supplement), Volkswagen, Kia (supplement), Mazda (`brand_feeds.FEEDS`):
    Audi audiusa.com = 403 even from the iPad on home Wi-Fi (no Audi feed). Toyota toyotacertified.com =
