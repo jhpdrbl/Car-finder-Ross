@@ -1,6 +1,33 @@
 {
  "clearance": [
   {
+   "make": "BMW",
+   "model": "3 Series",
+   "trim_regex": "330e",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 5.6,
+   "source": "BMW Group press kit May 2024 (outside US): 330e Sedan 141 mm"
+  },
+  {
+   "make": "Volvo",
+   "model": "S60",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 5.4,
+   "source": "approximate: AutoPadre spec pages for the 2023-24 S60 T8 (no Volvo figure found)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "trim_regex": "",
+   "from_year": 2022,
+   "to_year": 2026,
+   "inches": 4.9,
+   "source": "BMW Australia technical data (outside US): 125 mm"
+  },
+  {
    "make": "Mercedes-Benz",
    "model": "EQS",
    "trim_regex": "^(?!.*suv)(?=.*amg)",
@@ -938,6 +965,46 @@
   }
  ],
  "ev_range": [
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "edrive ?35",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 276,
+   "source": "fueleconomy.gov via InsideEVs/BMWBlog (18-in; 252 on 19-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "edrive ?40",
+   "from_year": 2024,
+   "to_year": 2024,
+   "miles": 301,
+   "source": "fueleconomy.gov via InsideEVs/BMWBlog (18-in; 283 on 19-in)"
+  },
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "edrive ?40",
+   "from_year": 2022,
+   "to_year": 2023,
+   "miles": 301,
+   "source": "fueleconomy.gov (18-in; 282 on 19-in)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQB",
+   "fuel": "ev",
+   "trim_regex": "250|fwd|2wd",
+   "from_year": 2024,
+   "to_year": 2025,
+   "miles": 251,
+   "source": "fueleconomy.gov via InsideEVs (EQB 250+)"
+  },
   {
    "make": "Mercedes-Benz",
    "model": "EQS",
@@ -3205,6 +3272,20 @@
   {
    "make": "Mercedes-Benz",
    "model": "EQS",
+   "trim_regex": "suv.*450|450.*suv",
+   "from_year": 2023,
+   "to_year": 2024,
+   "hp": 355,
+   "battery_kwh": 108.4,
+   "dc_kw": 200,
+   "dc_min": 31,
+   "dc_window": "10-80%",
+   "ac_kw": 9.6,
+   "source": "maker figures as quoted by press releases / spec sites (EQS 450+ / 450 4MATIC SUV)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
    "trim_regex": "^(?!.*suv).*450",
    "from_year": 2023,
    "to_year": 2024,
@@ -3269,6 +3350,48 @@
    "battery_kwh": 18.8,
    "cargo_cu_ft": 11.6,
    "source": "maker figures as quoted by press releases / spec sites, searched Oct 27 2026 (T8 plug-in; no DC fast charging)"
+  }
+ ],
+ "gas_mpg": [
+  {
+   "make": "BMW",
+   "model": "3 Series",
+   "fuel": "phev",
+   "trim_regex": "xdrive",
+   "from_year": 2023,
+   "to_year": 2024,
+   "combined": 26,
+   "source": "fueleconomy.gov (330e xDrive, gas only)"
+  },
+  {
+   "make": "BMW",
+   "model": "3 Series",
+   "fuel": "phev",
+   "trim_regex": "330e",
+   "from_year": 2023,
+   "to_year": 2024,
+   "combined": 27,
+   "source": "fueleconomy.gov (330e, gas only)"
+  },
+  {
+   "make": "Kia",
+   "model": "Sportage",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2025,
+   "combined": 35,
+   "source": "fueleconomy.gov 2024 rating (gas only; same powertrain 2023-25)"
+  },
+  {
+   "make": "Volvo",
+   "model": "S60",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2024,
+   "to_year": 2024,
+   "combined": 31,
+   "source": "EPA window sticker (7JRH60FL7RG282985, gas only)"
   }
  ]
 }

@@ -413,6 +413,8 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
         dt = "AWD"
     if not dt and re.search(r"\bq4\b", name) and re.search(r"\b(40|45) e-?tron\b", name) and "quattro" not in name:
         dt = "RWD"            # Q4 40 / 45 e-tron = rear-wheel drive (the 50 / 55 quattro are AWD); vPIC often leaves it out
+    if not dt and re.search(r"\beq[es] ?\d{3} ?\+", name):
+        dt = "RWD"            # Mercedes EQE / EQS "350+" / "450+" = one motor, rear-wheel drive (the EQB 250+ is front: "2WD" above)
     if dt == "2WD":
         dt = two_wd_axle(L.make or L.dealer_brand, L.model, f"{L.trim} {L.title}") or dt
     if F.get("awd_required", True):

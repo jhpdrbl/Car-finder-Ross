@@ -342,8 +342,13 @@ def _spec_fields(r: dict, page_cl: dict | None = None) -> dict:
     er = specs.ev_range(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), r.get("fuel_type", ""))
     pf = specs.perf(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), r.get("drivetrain", ""),
                     r.get("fuel_type", ""))
-    return {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else "",
-            "perf": pf}
+    out = {"clearance": cl if cl else "", "clearance_src": src, "ev_range": er[0] if er else "", "ev_range_src": "EPA" if er and "fueleconomy" in er[1].lower() else "",
+           "perf": pf}
+    if not r.get("mpg_combined") and r.get("fuel_type") in ("phev", "hybrid"):     # researched EPA figure (data/specs.json gas_mpg)
+        g = specs.gas_mpg(r.get("make", ""), r.get("model", ""), f'{r.get("trim", "")} {extra}', r.get("year"), r.get("fuel_type", ""))
+        if g:
+            out.update(mpg_combined=g[0], mpg_source="EPA")
+    return out
 
 
 def market_key(r: dict) -> str:
@@ -1188,10 +1193,14 @@ document.getElementById("g-jump").addEventListener("change", e => {
   document.querySelectorAll("#g-make input").forEach(i => i.checked = false); renderGuide();
   const el = document.getElementById(id); if (el) el.scrollIntoView({block: "start"}); e.target.value = ""; });
 function guideFor(c) {      // the guide entry for a listed car: same make, longest model name contained in the car's model
-  const mk = String(c.make).toLowerCase(), md = " " + String(c.model + " " + c.trim).toLowerCase().replace(/-/g, " ") + " ";
+  const mk = String(c.make).toLowerCase(), md = " " + String(c.model + " " + c.trim).toLowerCase().replace(/-/g, " ").replace(/\b(eq[a-z])(\d)/g, "$1 $2") + " ";
   const has = w => md.includes(String(w).toLowerCase().replace(/-/g, " "));
+  // "EQE SUV" / "EQS SUV" entries: the VIN's body type decides when the dealer just says "EQE350 4MATIC"
+  const suvTwin = m => G.some(o => o.make === m.make && o.model.toLowerCase() === m.model.toLowerCase() + " suv");
   // an entry's optional "match" ({model, fuel}) also catches cars listed under the base name, e.g. a GLC that's a plug-in = GLC 350e
-  const fits = m => has(m.model) || (m.match && has(m.match.model) && (!m.match.fuel || String(c.fuel_type).toLowerCase().includes(m.match.fuel)));
+  const fits = m => / suv$/i.test(m.model) ? (has(m.model) || ((c.body || "SUV") === "SUV" && has(m.model.replace(/ suv$/i, ""))))
+    : (has(m.model) && !((c.body || "SUV") === "SUV" && suvTwin(m) && !/sedan/.test(md)))
+      || (m.match && has(m.match.model) && (!m.match.fuel || String(c.fuel_type).toLowerCase().includes(m.match.fuel)));
   return G.filter(m => m.make.toLowerCase() === mk && fits(m))
           .sort((a, b) => (b.match && b.match.fuel ? 1 : 0) - (a.match && a.match.fuel ? 1 : 0) || b.model.length - a.model.length)[0];
 }
@@ -1592,7 +1601,7 @@ document.addEventListener("click", e => { const b = e.target.closest(".cmpbtn");
 // the grade part of a trim name: "40 TFSI Premium quattro" and "2.5 S Premium Plus Package" -> premium / premium plus
 const gradeWords = name => trimWords(name).filter(w => !/^(\d[\d.]*[a-z]*|tfsi|tdi|tsi|s|line|turbo|t|quattro|package|pkg|sport|utility|4d|awd)$/.test(w));
 const sameWords = (a, b) => a.length === b.length && a.every(w => b.includes(w));
-const trimWords = name => String(name || "").toLowerCase().split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
+const trimWords = name => String(name || "").toLowerCase().replace(/\([^)]*\)/g, " ").split(/[^a-z0-9.+]+/).filter(w => w && !/^(awd|4wd|4matic|xdrive|quattro|4motion|suv)$/.test(w));
 const SOUND_BRANDS = /harman|kardon|bang|olufsen|b&o|lexicon|burmester|bowers|mark levinson|bose|sonos|meridian|jbl|els studio|revel|krell|premium sound|premium audio/i;
 function soundCall(pa) {   // a Trim guide premium_audio line -> {v, t}
   pa = String(pa || "");
@@ -1673,7 +1682,7 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
   const y = (m.years || []).find(y => y.year === parseInt(c.year)); if (!y) return null;
   // the car's name plus the words in its web address, which often name the trim (".../2023-Toyota-bZ4X-XLE-JTM...")
   const slug = decodeURIComponent(String(c.listing_url || "").split("?")[0]).split("/").slice(3).join(" ").replace(/[_+.]/g, " ");
-  const title = (" " + c.title + " " + slug + " ").toLowerCase().replace(/-/g, " ");     // "X-Line" = "x line"
+  const title = (" " + c.title + " " + slug + " ").toLowerCase().replace(/[-\/]/g, " ").replace(/\b(eq[a-z])(\d)/g, "$1 $2");     // "X-Line" = "x line"
   let best = null, bestScore = 0, bestN = 0;
   (y.trims || []).forEach(t => {
     const words = trimWords(t.name);

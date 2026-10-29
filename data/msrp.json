@@ -2,6 +2,61 @@
 "about": "Base MSRP when new, destination included, by make/model/year/trim (first matching row wins; rows most specific first). Researched Oct 2026 from makers' press/pricing pages (some rows 'unconfirmed'). Used by verify/msrp.py when the dealer page doesn't state the original sticker price.",
 "rows": [
 {
+"make": "BMW",
+"model": "i4",
+"trim_regex": "edrive ?35",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "ev",
+"msrp": 53195.0,
+"note": "2024 i4 eDrive35 base incl. destination",
+"source": "$52,200 + $995 destination (BMW build sheet of WBY43AW07RFR81149)"
+},
+{
+"make": "BMW",
+"model": "i4",
+"trim_regex": "edrive ?40",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "ev",
+"msrp": 58295.0,
+"note": "2024 i4 eDrive40 base incl. destination",
+"source": "$57,300 + $995 destination (iSeeCars / Arena EV pricing)"
+},
+{
+"make": "BMW",
+"model": "i4",
+"trim_regex": "edrive ?40",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "ev",
+"msrp": 56895.0,
+"note": "2023 i4 eDrive40 base incl. destination",
+"source": "unconfirmed: $56,895 incl. $995 destination (Electrek launch pricing)"
+},
+{
+"make": "BMW",
+"model": "3 Series",
+"trim_regex": "330e(?!.*xdrive)",
+"min_year": 2024,
+"max_year": 2024,
+"fuel": "phev",
+"msrp": 46595.0,
+"note": "2024 330e sedan base incl. destination",
+"source": "$45,600 + $995 destination (Cars.com, iSeeCars, dealer pages)"
+},
+{
+"make": "Mercedes-Benz",
+"model": "EQE",
+"trim_regex": "^(?!.*\\bsuv\\b).*350 ?\\+",
+"min_year": 2023,
+"max_year": 2024,
+"fuel": "ev",
+"msrp": 76050.0,
+"note": "EQE 350+ sedan base incl. destination",
+"source": "$74,900 + $1,150 destination (MBUSA press: EQE sedan starts from $74,900); 2024 assumed unchanged"
+},
+{
 "make": "Mercedes-Benz",
 "model": "EQS",
 "trim_regex": "^(?!.*suv)(?=.*amg)",

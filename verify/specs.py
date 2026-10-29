@@ -63,7 +63,7 @@ def best_clearance(make: str, model: str, trim: str, year, page_value=None) -> t
     hit = clearance(make, model, trim, year)
     if hit:
         how = hit[1].lower()
-        return hit[0], ("Car and Driver" if "car and driver" in how else "maker's spec (outside US)" if "outside us" in how
+        return hit[0], ("approximate" if how.startswith("approximate") else "Car and Driver" if "car and driver" in how else "maker's spec (outside US)" if "outside us" in how
                         else "dealer spec data" if how.startswith("same model") else "maker's spec")
     try:
         pv = float(page_value) if page_value not in (None, "") else None
@@ -91,3 +91,9 @@ def perf(make: str, model: str, trim: str, year, drive: str = "", fuel: str = ""
     from the two-motor one). Empty when the version isn't in data/specs.json."""
     e = _find("perf", make, model, f"{trim} {drive} {fuel}", year)
     return {k: e[k] for k in PERF_KEYS if k in e} | {"source": e.get("source", "")} if e else {}
+
+
+def gas_mpg(make: str, model: str, trim: str, year, fuel: str) -> tuple[float, str] | None:
+    """(combined mpg on gas, source) for plug-in hybrids / hybrids whose MPG the search couldn't get from fueleconomy.gov."""
+    e = _find("gas_mpg", make, model, trim, year, fuel)
+    return (float(e["combined"]), e.get("source", "")) if e else None

@@ -16448,7 +16448,10 @@
     "https://media.audiusa.com/releases/491",
     "https://electrichasgoneaudi.net/models/q4-e-tron/exterior/panoramicroof/",
     "https://www.fueleconomy.gov/ws/rest/vehicle/menu/model"
-   ]
+   ],
+   "match": {
+    "model": "Q4 Sportback"
+   }
   },
   {
    "make": "Audi",

@@ -518,6 +518,8 @@ def rescore(args) -> None:
                         msrp_source=r.get("msrp_source", ""), body=r.get("body", ""), drivetrain=r.get("drivetrain", ""))
             apply_confirmed(L, confirmed.get(L.vin.upper()))
             L.make = r["make"] = canon_make(L.make)
+            if not r.get("drivetrain") and re.search(r"\beq[es] ?\d{3} ?\+", f"{L.model} {L.trim}".lower()):
+                r["drivetrain"] = L.drivetrain = "RWD"          # EQE / EQS "+" = rear-wheel drive
             if r.get("drivetrain") == "2WD":                    # which axle (Drive filter), from what the maker builds
                 r["drivetrain"] = criteria.two_wd_axle(L.make, L.model, L.trim) or "2WD"
                 L.drivetrain = r["drivetrain"]
