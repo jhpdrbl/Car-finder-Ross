@@ -543,6 +543,8 @@ def rescore(args) -> None:
                 calls = [x for x in (r.get("needs_call") or "").split("; ") if x]
                 if not any("roof opens" in x for x in calls):
                     r["needs_call"] = "; ".join(calls + [f"{why}: confirm the roof opens"])
+            if L.sunroof is False and kind != "never" and criteria.F.get("sunroof_required", True):
+                fails.append("no sunroof" + (" (window sticker)" if (confirmed.get(L.vin.upper()) or {}).get("sunroof") == "no" else ""))
             spec = criteria.MODELS.get(L.make)            # a model taken off the list since the last search
             if spec and not re.search(spec["allow"], L.model.lower()):
                 fails.append(f"model {L.model} not on the {L.make} list ({spec['list']})")
