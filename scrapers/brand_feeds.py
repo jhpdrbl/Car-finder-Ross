@@ -591,7 +591,79 @@ def _mazda_search(codes, ids, years, out, stats, detail_cache, dealers):
     return out, stats
 
 
-FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw, "Kia": kia, "Mazda": mazda}
+# --------------------------------------------------------------------------
+# Lucid: lucidmotors.com certified pre-owned (Lucid sells direct; its store's own inventory service)
+# --------------------------------------------------------------------------
+# The "Available vehicles" page (lucidmotors.com/available-vehicles?condition=used&cpo=true) loads its cars from
+# buynow.lucidmotors.com/api/v4/en_us/store/inventory/vehicles (that host's robots.txt answers 403 = no rules).
+# Lucid ships a car from wherever it is (hubs nationwide) to a Lucid studio near you, so every US certified car
+# counts; the car's current city is shown in its note (user, Oct 30 2026: "Add lucid cpo").
+
+LUCID_SEARCH = ("https://buynow.lucidmotors.com/api/v4/en_us/store/inventory/vehicles?long={lon}&lat={lat}&type=used&cpo=true"
+                "&modelVariant=PURE,AT,GT,TRIMO,DREAM,SAPPHIRE&modelYear={years}&sortType=price&sortOrder=asc&distance=10000"
+                "&zipState=CA&zipCountry=US&requestedVehiclesNum=500")
+LUCID_TRIMS = {"PURE": "Pure", "AT": "Touring", "GT": "Grand Touring", "TRIMO": "Sapphire", "DREAM": "Dream Edition",
+               "SAPPHIRE": "Sapphire"}
+
+
+def lucid() -> tuple[list[Listing], dict]:
+    dealers = _dealers("Lucid")
+    if not dealers:
+        raise FetchError("no Lucid row in data/dealers.csv")
+    d = dealers[0]                                  # Lucid's own store (delivery at a Lucid studio near home)
+    home = CONFIG["home"]
+    years = ",".join(str(y) for y in range(2021, date.today().year + 2))
+    data = fetcher().get_json(LUCID_SEARCH.format(lat=home["lat"], lon=home["lon"], years=years))
+    out, stats = [], {"seen": 0, "in_area": 0}
+    for v in data.get("data") or []:
+        stats["seen"] += 1
+        lst = v.get("listing") or {}
+        if not (v.get("isCPO") or lst.get("isCPO")) or not v.get("VIN"):
+            continue
+        model = ((v.get("model") or {}).get("technicalName") or "").split()[0] or "Air"       # "Air Pure" -> Air
+        year = integer(v.get("modelYear"))
+        if not could_want("Lucid", model, year or 0):
+            continue
+        stats["in_area"] += 1
+        L = Listing(vin=v["VIN"].upper(), source="lucidmotors.com Certified Pre-Owned")
+        L.listing_url = (f"https://lucidmotors.com/inventory-vehicle?UUID={v.get('uuid', '')}&shortCode={v.get('shortCode', '')}"
+                         f"&id={v.get('batchNumber', '')}&zip={home['zip']}")
+        L.year, L.make, L.model = year, "Lucid", model
+        L.trim = LUCID_TRIMS.get((v.get("modelVariant") or {}).get("sapCode") or "", (v.get("modelVariant") or {}).get("technicalName") or "")
+        L.price = money(lst.get("currentSalePrice"))
+        L.mileage = integer(lst.get("odometer"))
+        L.ext_color = (v.get("color") or {}).get("technicalName") or ""
+        L.int_color = (v.get("interior") or {}).get("technicalName") or ""
+        drive = ((v.get("motorDrive") or {}).get("technicalName") or "").upper()
+        L.drivetrain = "AWD" if "AWD" in drive else "RWD" if "RWD" in drive else ""
+        roof = ((v.get("roof") or {}).get("technicalName") or "").lower()
+        if "glass" in roof:
+            L.sunroof, L.sunroof_note = True, "glass canopy roof (fixed, doesn't open)"
+        elif roof:
+            L.sunroof, L.sunroof_note = False, f"{roof} roof (no glass roof)"
+        sound = ((v.get("soundSystem") or {}).get("technicalName") or "")
+        L.audio = sound if "pro" in sound.lower() else ""        # Surreal Sound Pro (21 speakers); plain Surreal Sound isn't premium
+        L.leather = True if "leather" in L.int_color.lower() and "alternative" not in L.int_color.lower() else (
+            False if "purluxe" in L.int_color.lower() else None)
+        L.seats = "leather" if L.leather else ("synthetic" if "purluxe" in L.int_color.lower() else "")
+        msrp = money((v.get("price") or {}).get("value"))
+        if msrp and msrp > (L.price or 0):
+            L.msrp_new, L.msrp_source = msrp, "listing"           # the car's price when new, as Lucid lists it
+        L.condition = "used"
+        L.cert_text = "lucid certified pre-owned (lucidmotors.com CPO inventory)"
+        L.cpo_program = "Lucid Certified Pre-Owned"
+        if v.get("cpoWarrantyTermDuration"):
+            L.cpo_warranty_terms = f"Lucid CPO limited warranty: {v['cpoWarrantyTermDuration']} / {v.get('cpoWarrantyTermMileage', '')} mi"
+        a = v.get("address") or {}
+        where = ", ".join(x for x in (a.get("city"), a.get("state")) if x)
+        L.link_note = (f"Lucid sells direct: the car is in {where} now and Lucid delivers it to a studio near you"
+                       f" ({(v.get('availability') or '').lower()})").replace(" ()", "")
+        L.dealer, L.dealer_brand, L.dealer_url = d["dealer_name"], "Lucid", d["homepage"]
+        out.append(L)
+    return out, stats
+
+
+FEEDS = {"Genesis": genesis, "Subaru": subaru, "Volvo": volvo, "Lexus": lexus, "Volkswagen": vw, "Kia": kia, "Mazda": mazda, "Lucid": lucid}
 # Feeds that don't cover every dealer of the brand, or have no link to the car's own page on the dealer's site:
 # their brand's dealer sites are still read (dedupe keeps the best record of each car).
 SUPPLEMENT_FEEDS = {"Lexus", "Kia"}       # Mazda's covers every Mazda dealer on our list (its dealer locator), so their sites are skipped

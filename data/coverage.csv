@@ -1,11 +1,4 @@
 brand,dealer,status,reason,listings,distance_mi,homepage,method
-Genesis,Genesis brand CPO feed,success,104 certified listings at our dealers,104,,,
-Subaru,Subaru brand CPO feed,success,223 certified listings at our dealers,223,,,
-Volvo,Volvo brand CPO feed,success,98 certified listings at our dealers,98,,,
-Lexus,Lexus brand CPO feed,success,196 certified listings at our dealers,196,,,
-Volkswagen,Volkswagen brand CPO feed,success,115 certified listings at our dealers,115,,,
-Kia,Kia brand CPO feed,success,101 certified listings at our dealers,101,,,
-Mazda,Mazda brand CPO feed,success,217 certified listings at our dealers,217,,,
 Acura,Acura of Glendale,success,"no matching Acura models listed (sitemap: 296 urls, 4 candidates)",0,2.1,https://www.acuraofglendale.com,"sitemap: 296 urls, 4 candidates"
 Acura,Acura of Sherman Oaks,success,"1 listings read, 0 unchanged exclusions reused",1,11.4,https://www.acurashermanoaks.com,dealer.com search: 1 candidates
 Acura,AutoNation Acura South Bay,success,"2 listings read, 0 unchanged exclusions reused",2,22.3,https://www.autonationacurasouthbay.com,dealer.com search: 2 candidates
@@ -103,6 +96,7 @@ Ford,Ford of Orange,failed,blocked: HTTP 403 (HTTP 403),0,32.3,https://www.fordo
 Ford,Tuttle-Click Ford,failed,blocked: HTTP 403 (HTTP 403),0,38.5,https://www.tuttleclickford.com,
 Ford,Diamond Ford,failed,"couldn't see this site's inventory (sitemap: 51 urls, 0 candidates; browser: 0 inventory pages, 0 candidates)",0,40.3,https://diamondford.com,"sitemap: 51 urls, 0 candidates; browser: 0 inventory pages, 0 candidates"
 Ford,Raceway Ford,failed,blocked: Cloudflare bot protection (HTTP 403),0,50.6,https://www.racewayford.com,
+Genesis,Genesis brand CPO feed,success,104 certified listings at our dealers,104,,,
 Genesis,Genesis Santa Monica,skipped,covered by the Genesis brand CPO feed,0,13.4,https://www.genesissantamonica.com,
 Genesis,Norm Reeves Genesis Of Cerritos,skipped,covered by the Genesis brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,19.7,https://www.genesisofcerritos.com,
 Genesis,Genesis Of South Bay,skipped,covered by the Genesis brand CPO feed,0,22.0,https://www.genesisofsouthbay.com,
@@ -122,6 +116,7 @@ Jaguar,Jaguar South Bay Authorized Service,failed,"couldn't see this site's inve
 Jaguar,Jaguar Riverside,failed,blocked: HTTP 403 (HTTP 403),0,48.2,https://www.jaguarriverside.com,
 Jaguar,Jaguar Mission Viejo,failed,blocked: HTTP 403 (HTTP 403),0,51.2,https://www.jaguarmissionviejo.com,
 Jaguar,Jaguar Ventura,failed,"couldn't see this site's inventory (dealer.com search: 0 candidates; sitemap: 179 urls, 0 candidates; browser: browser blocked (HTTP 403))",0,54.4,https://www.landroverventura.com,"dealer.com search: 0 candidates; sitemap: 179 urls, 0 candidates; browser: browser blocked (HTTP 403)"
+Kia,Kia brand CPO feed,success,101 certified listings at our dealers,101,,,
 Kia,Car Pros Kia Glendale,success,"7 listings read, 0 unchanged exclusions reused",7,2.1,https://www.glendalekia.com,dealer.com search: 7 candidates
 Kia,Kia Downtown Los Angeles,success,"5 listings read, 0 unchanged exclusions reused",5,5.5,https://www.kiaofdtla.com,"sitemap: 639 urls, 44 candidates"
 Kia,Van Nuys Kia,success,"2 listings read, 0 unchanged exclusions reused",2,11.9,https://www.vannuyskia.com,dealer.com search: 2 candidates
@@ -144,6 +139,7 @@ Kia,Trust Palmdale Kia,failed,blocked: Akamai bot protection (HTTP 403),0,34.0,h
 Kia,Citrus Kia,failed,blocked: Akamai bot protection (HTTP 403),0,39.4,https://www.citruskia.net,
 Kia,Riverside Kia,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,50.0,https://www.riversidekia.com,
 Kia,Allstar Kia,failed,blocked: Akamai bot protection (HTTP 403),0,55.1,https://www.allstarkiasanbernardino.com,
+Lexus,Lexus brand CPO feed,success,196 certified listings at our dealers,196,,,
 Lexus,Lexus of Glendale,success,"29 listings read, 0 unchanged exclusions reused",29,1.5,https://www.lexusofglendale.com,dealer.com search: 29 candidates
 Lexus,Keyes Lexus,success,"58 listings read, 0 unchanged exclusions reused",58,11.8,https://www.keyeslexus.com,dealer.com search: 58 candidates
 Lexus,Longo Lexus,success,"28 listings read, 0 unchanged exclusions reused",28,13.8,https://www.longolexus.com,"sitemap: 1354 urls, 46 candidates; dealeron search: 0 more"
@@ -161,6 +157,9 @@ Lexus,Lexus of Westminster,failed,blocked: HTTP 403 (HTTP 403) (dealer site bloc
 Lexus,Tustin Lexus,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,37.6,https://www.tustinlexus.com,
 Lexus,Newport Lexus,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,38.6,https://www.newportlexus.com,
 Lexus,Lexus of Oxnard,failed,blocked: HTTP 403 (HTTP 403) (dealer site blocked; cars still covered by the brand feed),0,51.7,https://www.lexusofoxnard.com,
+Lucid,Lucid brand CPO feed,success,7 certified listings at our dealers,7,,,
+Lucid,Lucid Motors (online store),skipped,covered by the Lucid brand CPO feed,0,8.2,https://lucidmotors.com,
+Mazda,Mazda brand CPO feed,success,217 certified listings at our dealers,217,,,
 Mazda,Star Mazda,skipped,covered by the Mazda brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,1.2,https://www.starmazda.com,
 Mazda,New Century Mazda,skipped,covered by the Mazda brand CPO feed,0,7.1,https://www.newcenturymazda.com,
 Mazda,Culver City Mazda,skipped,covered by the Mazda brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,11.3,https://www.culvercitymazda.com,
@@ -203,6 +202,7 @@ Mercedes-Benz,Mercedes-Benz of Foothill Ranch,failed,blocked: HTTP 403 (HTTP 403
 Mercedes-Benz,Walter's Mercedes-Benz,failed,blocked: HTTP 403 (HTTP 403),0,50.6,https://www.waltersmercedesbenzofriverside.com,
 Mercedes-Benz,Mercedes-Benz of Laguna Niguel,failed,blocked: HTTP 403 (HTTP 403),0,51.5,https://www.mblaguna.com,
 Mercedes-Benz,Mercedes-Benz of Oxnard,failed,blocked: HTTP 403 (HTTP 403),0,52.8,https://www.mbofoxnard.com,
+Subaru,Subaru brand CPO feed,success,223 certified listings at our dealers,223,,,
 Subaru,Subaru of Glendale,skipped,covered by the Subaru brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,1.4,https://subaruofglendale.net,
 Subaru,Subaru of Downtown Los Angeles,skipped,covered by the Subaru brand CPO feed,0,5.4,https://dtlasubaru.com,
 Subaru,Subaru Sherman Oaks,skipped,covered by the Subaru brand CPO feed,0,11.7,https://www.subarushermanoaks.com,
@@ -266,6 +266,7 @@ Toyota,Tustin Toyota,failed,blocked: HTTP 403 (HTTP 403),0,37.4,https://www.tust
 Toyota,Toyota of Lancaster,failed,blocked: HTTP 403 (HTTP 403),0,39.2,https://www.toyotaoflancaster.com,
 Toyota,Toyota of Corona,failed,blocked: Akamai bot protection (HTTP 403),0,41.1,https://www.coronatoyota.com,
 Toyota,Santa Margarita Toyota,failed,blocked: HTTP 403 (HTTP 403),0,49.9,https://www.santamargaritatoyota.com,
+Volkswagen,Volkswagen brand CPO feed,success,115 certified listings at our dealers,115,,,
 Volkswagen,New Century Volkswagen,skipped,covered by the Volkswagen brand CPO feed (dealer site blocked; cars still covered by the brand feed),0,1.5,https://www.newcenturyvw.com,
 Volkswagen,Volkswagen of Downtown LA,skipped,covered by the Volkswagen brand CPO feed,0,5.3,,
 Volkswagen,Volkswagen Pasadena,skipped,covered by the Volkswagen brand CPO feed,0,9.5,https://www.volkswagenpasadena.com,
@@ -286,6 +287,7 @@ Volkswagen,Riverside Volkswagen,skipped,covered by the Volkswagen brand CPO feed
 Volkswagen,Ventura Volkswagen,skipped,covered by the Volkswagen brand CPO feed,0,54.6,https://www.venturavw.com,
 Volkswagen,Capistrano Volkswagen,skipped,covered by the Volkswagen brand CPO feed,0,55.1,https://www.capovw.com,
 Volkswagen,Volkswagen San Bernardino,skipped,covered by the Volkswagen brand CPO feed,0,55.2,https://www.vwsb.com,
+Volvo,Volvo brand CPO feed,success,98 certified listings at our dealers,98,,,
 Volvo,Rusnak Volvo Cars Pasadena,skipped,covered by the Volvo brand CPO feed,0,7.1,https://www.rusnakvolvocars.com,
 Volvo,Culver City Volvo Cars,skipped,covered by the Volvo brand CPO feed,0,10.0,https://www.culvercityvolvocars.com,
 Volvo,Volvo Cars Santa Monica,skipped,covered by the Volvo brand CPO feed,0,14.0,https://www.volvocarsofsantamonica.com,
