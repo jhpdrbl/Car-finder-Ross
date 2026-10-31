@@ -46,7 +46,8 @@ def sync_manual_gone() -> None:
         if v in gone:
             continue
         x = prices.get(v)
-        if x and str(int(float(r["price"] or 0))) != str(x["p"]):
+        # a price read off the dealer's page later than your mark (column price_on) wins over the mark
+        if x and str(int(float(r["price"] or 0))) != str(x["p"]) and x["d"] >= (r.get("price_on") or ""):
             log(f"{r['year']} {r['make']} {r['model']} {v}: price ${float(r['price'] or 0):,.0f} -> ${x['p']:,} (you updated it {x['d']})")
             r["price"] = str(x["p"])
         keep.append(r)

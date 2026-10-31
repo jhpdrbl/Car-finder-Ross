@@ -1427,7 +1427,8 @@ function applyMinePrices() {
     if (!c._was) c._was = {price: c.price, price_total: c.price_total, hist: (c.hist || []).slice()};
     const w = c._was, x = minePrice[c.vin];
     c.price = w.price; c.price_total = w.price_total; c.hist = w.hist.slice(); c.priceByYou = null;
-    if (x && num(x.p) != null && Math.round(num(x.p)) !== Math.round(num(w.price) ?? -1)) {
+    // a mark older than the car's last read is out of date: that read (e.g. via your browser) has the newer price
+    if (x && num(x.p) != null && x.d >= (c.last_seen || "") && Math.round(num(x.p)) !== Math.round(num(w.price) ?? -1)) {
       const fees = num(w.price_total) != null && num(w.price) != null ? num(w.price_total) - num(w.price) : 0;
       c.price = String(x.p); c.price_total = String(Math.round(x.p + fees)); c.priceByYou = x.d;
       const h = c.hist; if (!h.length || num(h[h.length - 1][1]) !== num(c.price_total)) h.push([x.d, num(c.price_total)]);

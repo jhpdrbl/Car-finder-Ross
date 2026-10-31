@@ -85,7 +85,13 @@ def load_manual() -> list[Listing]:
                     ext_color=r["ext_color"], int_color=r["int_color"],
                     sunroof={"yes": True, "no": False}.get((r.get("sunroof") or "").strip().lower()),
                     cert_text=f'url:certified; title:certified; {r.get("cert_text") or ""}'.strip("; "),
-                    link_note="")
+                    link_note="", audio=(r.get("audio") or "").strip())
+        if (r.get("seats") or "").strip():
+            from scrapers.generic_jsonld import seat_material
+            L.seats = seat_material(r["seats"], L.int_color)
+        if (r.get("carfax") or "").strip():     # badge text as the dealer page shows it (never from carfax.com)
+            from scrapers.generic_jsonld import CARFAX_BADGE
+            L.carfax_badges = ",".join(sorted({b.lower().replace("_", "-").replace(" ", "-") for b in CARFAX_BADGE.findall(r["carfax"])}))
         out.append(L)
     return out
 
