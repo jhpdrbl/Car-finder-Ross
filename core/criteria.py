@@ -98,7 +98,7 @@ def full_color_name(make: str, color: str) -> str:
 
 def exterior_ok(color: str) -> tuple[str, str]:
     """('pass'|'fail'|'unknown', reason)."""
-    c = (color or "").lower()
+    c = (color or "").lower().replace("_", " ")      # some feeds write 'ALPINE_GREY'
     rules = F.get("exterior_colors") or {}
     if rules.get("include") is None:          # "any color except ..." (e.g. Jenna: no red/orange)
         bad = rules.get("exclude") or []

@@ -1321,6 +1321,7 @@ async function pullFav() {
     }
     favImport = [];
     saveFav(); paintFavButtons(); if (favOnly) render();
+    if (!document.getElementById("panel-plan").hidden) renderPlan();
   } catch (e) { favSync = false; }
   setSyncNote();
 }
@@ -1330,6 +1331,7 @@ function toggleFav(vin) {
   document.querySelectorAll(`.favbtn[data-vin="${vin}"]`).forEach(b => { const on = fav.includes(vin);
     b.setAttribute("aria-pressed", String(on)); b.innerHTML = on ? "&#9829; Saved" : "&#9825; Save"; });
   if (favOnly) render();
+  if (!document.getElementById("panel-plan").hidden) renderPlan();     // the test-drive plans follow your favorites at once
 }
 document.addEventListener("click", e => { const b = e.target.closest(".favbtn"); if (b) toggleFav(b.dataset.vin); });
 pullFav();
@@ -2073,7 +2075,8 @@ toTop.addEventListener("click", () => window.scrollTo({top: 0,
   behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}));
 window.addEventListener("resize", stickHeads);
 // ---- Test drives tab: one-day and two-day plans from the favorites, worked out from today's data on every load ----
-const PLAN_MAX_STOPS = 5, PLAN_REACH = 18;      // stops a day; a stop must be within this many miles of another stop that day
+const PLAN_MAX_STOPS = 5, PLAN_REACH = 18, PLAN_MAX_MI = 70;   // stops a day; a stop must be within this many miles of another stop;
+                                                                 // Uber miles a day at most, out from home and back included
 const roadMi = (a, b) => miles(a, b) * 1.3;     // straight line -> rough road miles
 const legMin = m => Math.round(m * 2.2 + 6);    // LA traffic, door to door by Uber
 function planValue(c) {                         // the user's order: price, then opening sunroof, then AWD (SUVs), then premium sound
@@ -2110,9 +2113,10 @@ function planRoute(stops) {                     // the shortest order from home 
   go([], stops);
   return best;
 }
-function planDay(stops) {                       // the best day: grow a cluster from each dealer, adding the neighbor worth the most for the extra miles
+function planDay(stops, bonus) {                // the best day: grow a cluster from each dealer, adding the neighbor worth the most for the extra miles
+  const worth = s => s.value + (bonus ? bonus(s) : 0);
   const between = r => r.miles - r.stops[0].leg;
-  const cost = r => 0.3 * between(r) + 0.08 * (r.stops[0].leg + r.back);     // Uber miles: between dealers, and out from / back home
+  const cost = r => 0.25 * (r.miles + r.back) + (r.miles + r.back > PLAN_MAX_MI ? 99 : 0);   // every Uber mile counts the same; a day over the cap is out
   let best = null;
   stops.forEach(seed => {
     let pick = [seed], r = planRoute(pick);
@@ -2120,12 +2124,23 @@ function planDay(stops) {                       // the best day: grow a cluster 
       let add = null, addR = null, gain = 0;
       stops.forEach(s => {
         if (pick.includes(s) || !pick.some(x => miles(x.p, s.p) <= PLAN_REACH)) return;
-        const r2 = planRoute(pick.concat([s])), g = s.value - (cost(r2) - cost(r));
+        const r2 = planRoute(pick.concat([s])), g = worth(s) - (cost(r2) - cost(r));
         if (g > gain) { gain = g; add = s; addR = r2; } });
       if (!add) break;
       pick.push(add); r = addR;
     }
-    const score = pick.reduce((t, x) => t + x.value, 0) - cost(r);
+    for (let again = true, n = 0; again && n < 10; n++) {     // then swap a stop for a better one nearby while that helps
+      again = false;
+      const now = pick.reduce((t, x) => t + worth(x), 0) - cost(r);
+      for (const out of pick) for (const s of stops) {
+        if (again || pick.includes(s)) continue;
+        const trial = pick.filter(x => x !== out).concat([s]);
+        if (!trial.some(x => miles(x.p, s.p) <= PLAN_REACH && x !== s)) continue;   // the new stop must be near one of the others
+        const r2 = planRoute(trial), sc = trial.reduce((t, x) => t + worth(x), 0) - cost(r2);
+        if (sc > now + 0.01) { pick = trial; r = r2; again = true; }
+      }
+    }
+    const score = pick.reduce((t, x) => t + worth(x), 0) - cost(r);
     if (!best || score > best.score) best = {...r, score};
   });
   return best;
@@ -2143,8 +2158,9 @@ function planTwo(stops) {                       // two days that don't share a d
   if (best && best.days.length === 2 && best.days[1].score > best.days[0].score) best.days.reverse();
   return best;
 }
+let planRank = {};                              // VIN -> 1, 2, 3... over all favorites, by the user's order
 function planTags(c) {
-  const t = [];
+  const t = [`<b>#${planRank[c.vin]}</b> of your favorites`];
   const ro = roofOpen(c); t.push(ro === "Opens" ? "sunroof opens" : ro === "Fixed glass" ? "fixed glass roof" : roofOf(c).v === "Yes" ? "sunroof" : "no sunroof shown");
   t.push(/awd|4wd|4x4|all/i.test(c.drivetrain || "") ? "AWD" : (c.drivetrain || "drive ?"));
   if (soundOf(c).v === "Yes") t.push(esc(soundOf(c).t).split("(")[0].trim() || "premium sound");
@@ -2166,6 +2182,7 @@ function planDayHtml(d, label) {
       <div class="leg">${i ? `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from the last stop` : `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from home`}
         · <a href="${gmSearch(s.name)}" target="_blank" rel="noopener">map</a></div>
       <ul class="pc">${s.cars.map(c => `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
+        <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="true" title="Tap to take it off your favorites (and out of the plans)">&#9829; Saved</button>
         <b>${fmt$(c.price_total)}</b> · ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi · ${esc(c.ext_color || "?")} / ${esc(c.int_color || "?")}
         <div class="tags">${planTags(c)}</div></li>`).join("")}</ul></li>`).join("")}</ol>
     <a class="cbtn" href="${url}" target="_blank" rel="noopener">Open this day's route in Google Maps</a>`;
@@ -2174,14 +2191,21 @@ function renderPlan() {
   const box = document.getElementById("planbox");
   const cars = planCars(), stops = planStops(cars);
   if (!stops.length) { box.innerHTML = '<p class="small">Tap <b>&#9825; Save</b> on the cars you want to test drive, and the plans show up here.</p>'; return; }
-  const one = planDay(stops), two = planTwo(stops);
+  cars.slice().sort((a, b) => planValue(b) - planValue(a)).forEach((c, i) => planRank[c.vin] = i + 1);
+  // one day: the best-ranked favorites count extra, so a top car isn't left for a second day that may not happen
+  const TOP = Math.max(3, Math.min(8, Math.ceil(cars.length / 5)));
+  const topBonus = s => s.cars.reduce((t, c) => t + (planRank[c.vin] <= TOP ? 4 * (1 + (TOP - planRank[c.vin]) / TOP) : 0), 0);
+  const one = planDay(stops, topBonus), two = planTwo(stops);
+  const missed = cars.filter(c => planRank[c.vin] <= TOP && !one.stops.some(s => s.name === c.dealer)).sort((a, b) => planRank[a.vin] - planRank[b.vin]);
   const used1 = new Set(one.stops.map(s => s.name)), used2 = new Set(two.days.flatMap(d => d.stops.map(s => s.name)));
   const left = used => stops.filter(s => !used.has(s.name)).sort((a, b) => b.value - a.value);
   const leftHtml = used => { const l = left(used); return l.length ? `<details><summary class="small">Favorites not in this plan (${l.reduce((s, x) => s + x.cars.length, 0)} cars at ${l.length} dealers, too far to fit)</summary>
     <ul class="pc">${l.map(s => `<li>${esc(s.name)}, ${esc(s.p.city || "")} (${Math.round(roadMi(HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : s.p, s.p))} mi from home): ${s.cars.map(c => `${esc(c.title)} ${fmt$(c.price_total)}`).join("; ")}</li>`).join("")}</ul></details>` : ""; };
   box.innerHTML = `<div class="small">Planned from ${cars.length} favorite${cars.length > 1 ? "s" : ""} still for sale at ${stops.length} dealers (worked out ${esc(shortDate(todayISO()))}, from the search of ${esc(shortDate(D.today || ""))}).
-      Within each stop, cars are cheapest first.</div>
-    <div class="plan"><h3>One day</h3>${planDayHtml(one, "Day")}${leftHtml(used1)}</div>
+      Within each stop, cars are cheapest first; #1 is your best favorite by price, then opening sunroof, then AWD, then premium sound.
+      Tap <b>&#9829; Saved</b> on a car to take it off your favorites, and both plans are worked out again right away.</div>
+    <div class="plan"><h3>One day</h3><div class="small">Built to take in as many of your top ${TOP} favorites as one day of Ubering allows.</div>${planDayHtml(one, "Day")}
+      ${missed.length ? `<div class="small" style="margin-top:8px"><b>Top-ranked favorites not on this day</b> (too far to add): ${missed.map(c => `#${planRank[c.vin]} ${esc(c.title)} ${fmt$(c.price_total)} at ${esc(c.dealer)}, ${esc((PL[c.dealer] || {}).city || "")}`).join("; ")}</div>` : `<div class="small" style="margin-top:8px">All of your top ${TOP} favorites are on this day.</div>`}${leftHtml(used1)}</div>
     <div class="plan"><h3>Two days</h3>${two.days.map((d, i) => planDayHtml(d, "Day " + (i + 1))).join("")}${leftHtml(used2)}</div>
     <div class="small"><b>Before you go:</b> call or email each dealer the day before to confirm the car is there and book a drive (cars added by you can't be checked by the search),
       ask for an out-the-door price in writing, look at <b>$ What to offer</b> on each car, and bring your license and proof of insurance. Distances are rough (straight line × 1.3).</div>`;
