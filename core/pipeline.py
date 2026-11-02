@@ -85,7 +85,10 @@ def load_manual() -> list[Listing]:
                     ext_color=r["ext_color"], int_color=r["int_color"],
                     sunroof={"yes": True, "no": False}.get((r.get("sunroof") or "").strip().lower()),
                     cert_text=f'url:certified; title:certified; {r.get("cert_text") or ""}'.strip("; "),
-                    link_note="", audio=(r.get("audio") or "").strip())
+                    link_note="")
+        a = (r.get("audio") or "").strip()      # only a named upgraded system counts (a basic "Hi-Fi" stereo doesn't)
+        if a and any(w in a.lower() for w in (CONFIG.get("scoring") or {}).get("premium_audio", []) + ["sonos"]):
+            L.audio = a
         if (r.get("seats") or "").strip():
             from scrapers.generic_jsonld import seat_material
             L.seats = seat_material(r["seats"], L.int_color)

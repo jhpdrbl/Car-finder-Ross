@@ -504,7 +504,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
               for q in profiles.all_profiles()]
     for c in cars + gone:
         c["mkey"] = market_key(c)
-    data = json.dumps({"mustOpen": bool((P.cfg.get("filters") or {}).get("sunroof_must_open", True)), "cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
+    data = json.dumps({"today": today, "mustOpen": bool((P.cfg.get("filters") or {}).get("sunroof_must_open", True)), "cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
                        "profile": {"id": P.id, "label": P.label, "default": P.is_default}, "people": people,
                        "miles_per_year": P.cfg.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
@@ -699,6 +699,13 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .mpop h4 { margin:0 0 2px; font-size:14px; } .mpop ul { margin:6px 0; padding-left:16px; } .mpop li { margin:2px 0; }
 .mpop .acts { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
 .mpop button, #trip button { font:inherit; cursor:pointer; }
+.plan { border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:10px 0; }
+.plan h3 { margin:4px 0 6px; } .plan h4 { margin:12px 0 4px; }
+.plan ol.stops { margin:6px 0; padding-left:22px; } .plan ol.stops > li { margin:8px 0; }
+.plan .leg { color:var(--muted); font-size:13px; margin:2px 0 0; }
+.plan ul.pc { margin:3px 0; padding-left:18px; } .plan ul.pc li { margin:2px 0; }
+.plan .tags { font-size:12px; color:var(--muted); }
+.planopts { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 4px; }
 #trip ol { margin:6px 0; padding-left:22px; } #trip li { margin:3px 0; }
 #trip .x { border:0; background:none; color:var(--muted); font-size:16px; padding:0 6px; }
 .shown .clear { margin-left:8px; font-weight:400; }
@@ -866,6 +873,7 @@ __SCOREHELP__
   <button class="tab" role="tab" id="tab-guide" aria-selected="false" aria-controls="panel-guide"><span class="lg">Trim guide</span><span class="sh">Trims</span></button>
   <button class="tab" role="tab" id="tab-check" aria-selected="false" aria-controls="panel-check"><span class="lg">Check yourself</span><span class="sh">Check</span><span class="n" id="ncheck">0</span></button>
   <button class="tab" role="tab" id="tab-mine" aria-selected="false" aria-controls="panel-mine"><span class="lg">Added by you</span><span class="sh">Mine</span><span class="n" id="nmine">0</span></button>
+  <button class="tab" role="tab" id="tab-plan" aria-selected="false" aria-controls="panel-plan"><span class="lg">Test drives</span><span class="sh">Drives</span></button>
   <button class="tab" role="tab" id="tab-gone" aria-selected="false" aria-controls="panel-gone"><span class="lg">No longer available</span><span class="sh">Sold</span><span class="n" id="ngone">__NGONE__</span></button>
 </div>
 <div class="layout">
@@ -960,6 +968,12 @@ Checks older than a week turn yellow as a reminder. A car you mark no longer ava
 <button type="button" class="cbtn ghost" id="mine-clear">Clear all checks</button>
 <span class="small" id="mine-sync"></span></div>
 <div id="minelist"></div>
+</div>
+<div id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
+<p class="muted" style="margin-top:0">Test-drive days planned from your <b>&#9829; favorites</b>: dealers close together (for Ubering between them),
+cars picked by lowest price first, then a sunroof that opens, then all-wheel drive (SUVs; sedans can be any drive), then premium sound.
+The plan is worked out again every time this page loads, so new searches, price changes, sold cars and changes to your favorites update it.</p>
+<div id="planbox"></div>
 </div>
 <div id="panel-check" role="tabpanel" aria-labelledby="tab-check" hidden>
 <p class="muted" style="margin-top:0">Dealers the search couldn't read by any method, so their cars may be missing from this page.
@@ -1866,7 +1880,7 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const ex = blank(x), ey = blank(y); if (ex || ey) return ex - ey;
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
-function render() { renderRows(); stickHeads(); if (typeof updateCounts === "function") updateCounts();
+function render() { renderRows(); stickHeads(); if (!document.getElementById("panel-plan").hidden) renderPlan(); if (typeof updateCounts === "function") updateCounts();
   try { localStorage.setItem(PK + "sort", JSON.stringify({k: sortK, d: dir, gk: gK, gd: gDir})); } catch (e) {} }
 
 // ---- Map: dealers of the cars the filters show (OpenStreetMap via Leaflet, loaded only when the map is opened) ----
@@ -2058,16 +2072,131 @@ window.addEventListener("scroll", showTop, {passive: true}); showTop();
 toTop.addEventListener("click", () => window.scrollTo({top: 0,
   behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}));
 window.addEventListener("resize", stickHeads);
+// ---- Test drives tab: one-day and two-day plans from the favorites, worked out from today's data on every load ----
+const PLAN_MAX_STOPS = 5, PLAN_REACH = 18;      // stops a day; a stop must be within this many miles of another stop that day
+const roadMi = (a, b) => miles(a, b) * 1.3;     // straight line -> rough road miles
+const legMin = m => Math.round(m * 2.2 + 6);    // LA traffic, door to door by Uber
+function planValue(c) {                         // the user's order: price, then opening sunroof, then AWD (SUVs), then premium sound
+  const p = num(c.price_total) ?? 45000;
+  let v = 8 * Math.max(0, Math.min(1, (42000 - p) / 14000));       // price counts most
+  v += roofOpen(c) === "Opens" ? 1.5 : roofOf(c).v === "Yes" ? 0.5 : 0;
+  v += c.body === "Sedan" ? 1 : (/awd|4wd|4x4|all/i.test(c.drivetrain || "") ? 1 : 0);
+  v += soundOf(c).v === "Yes" ? 0.8 : 0;
+  return (v + 0.5) * (c.needs_call ? 0.85 : 1);
+}
+function planCars() {
+  return D.cars.filter(c => fav.includes(c.vin) && !mineGone[c.vin] && !dis.includes(c.vin) && PL[c.dealer]);
+}
+function planStops(cars) {                      // one entry per dealer with its favorites, best first
+  const by = {};
+  cars.forEach(c => (by[c.dealer] = by[c.dealer] || []).push(c));
+  return Object.entries(by).map(([name, cs]) => {
+    cs.sort((a, b) => (num(a.price_total) ?? 1e9) - (num(b.price_total) ?? 1e9));
+    const vs = cs.map(planValue).sort((a, b) => b - a);
+    return {name, p: PL[name], cars: cs, value: vs[0] + 0.35 * (vs[1] || 0) + 0.15 * vs.slice(2).reduce((s, x) => s + x, 0)};
+  });
+}
+function planRoute(stops) {                     // the shortest order from home through every stop and back (5 stops = 120 orders)
+  const home = HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : stops[0].p;
+  let best = null;
+  const go = (order, left) => {
+    if (!left.length) {
+      let at = home, total = 0; const out = order.map(n => { const m = roadMi(at, n.p); total += m; at = n.p; return {...n, leg: m}; });
+      const back = roadMi(at, home);
+      if (!best || total + back < best.miles + best.back) best = {stops: out, miles: total, back};
+      return; }
+    left.forEach((n, k) => go(order.concat([n]), left.filter((_, x) => x !== k)));
+  };
+  go([], stops);
+  return best;
+}
+function planDay(stops) {                       // the best day: grow a cluster from each dealer, adding the neighbor worth the most for the extra miles
+  const between = r => r.miles - r.stops[0].leg;
+  const cost = r => 0.3 * between(r) + 0.08 * (r.stops[0].leg + r.back);     // Uber miles: between dealers, and out from / back home
+  let best = null;
+  stops.forEach(seed => {
+    let pick = [seed], r = planRoute(pick);
+    while (pick.length < PLAN_MAX_STOPS) {
+      let add = null, addR = null, gain = 0;
+      stops.forEach(s => {
+        if (pick.includes(s) || !pick.some(x => miles(x.p, s.p) <= PLAN_REACH)) return;
+        const r2 = planRoute(pick.concat([s])), g = s.value - (cost(r2) - cost(r));
+        if (g > gain) { gain = g; add = s; addR = r2; } });
+      if (!add) break;
+      pick.push(add); r = addR;
+    }
+    const score = pick.reduce((t, x) => t + x.value, 0) - cost(r);
+    if (!best || score > best.score) best = {...r, score};
+  });
+  return best;
+}
+function planTwo(stops) {                       // two days that don't share a dealer, best total
+  let best = null;
+  const firsts = stops.slice().sort((a, b) => b.value - a.value).slice(0, 8);
+  firsts.forEach(seed => {
+    const d1 = planDay(stops.filter(s => miles(seed.p, s.p) <= 2 * PLAN_REACH));
+    const rest = stops.filter(s => !d1.stops.some(x => x.name === s.name));
+    const d2 = rest.length ? planDay(rest) : null;
+    const score = d1.score + (d2 ? d2.score : 0);
+    if (!best || score > best.score) best = {days: [d1, d2].filter(Boolean), score};
+  });
+  if (best && best.days.length === 2 && best.days[1].score > best.days[0].score) best.days.reverse();
+  return best;
+}
+function planTags(c) {
+  const t = [];
+  const ro = roofOpen(c); t.push(ro === "Opens" ? "sunroof opens" : ro === "Fixed glass" ? "fixed glass roof" : roofOf(c).v === "Yes" ? "sunroof" : "no sunroof shown");
+  t.push(/awd|4wd|4x4|all/i.test(c.drivetrain || "") ? "AWD" : (c.drivetrain || "drive ?"));
+  if (soundOf(c).v === "Yes") t.push(esc(soundOf(c).t).split("(")[0].trim() || "premium sound");
+  if (c.needs_call) t.push("needs a call: " + esc(c.needs_call));
+  if (isMine(c)) t.push("added by you: call to confirm it's still there");
+  return t.join(" · ");
+}
+function planDayHtml(d, label) {
+  const stopsQ = d.stops.map(s => placeQ(s.name));
+  const url = "https://www.google.com/maps/dir/?api=1&travelmode=driving" + (HOME_Q ? "&origin=" + encodeURIComponent(HOME_Q) : "")
+    + "&destination=" + encodeURIComponent(stopsQ[stopsQ.length - 1])
+    + (stopsQ.length > 1 ? "&waypoints=" + encodeURIComponent(stopsQ.slice(0, -1).join("|")) : "");
+  const n = d.stops.reduce((s, x) => s + x.cars.length, 0);
+  const between = d.miles - d.stops[0].leg;
+  return `<h4>${label}: ${esc([...new Set(d.stops.map(s => s.p.city).filter(Boolean))].join(" → "))}</h4>
+    <div class="small">${d.stops.length} dealer${d.stops.length > 1 ? "s" : ""}, ${n} car${n > 1 ? "s" : ""} · about ${Math.round(between)} mi of Uber between dealers
+      (${Math.round(d.stops[0].leg)} mi from home to the first, ${Math.round(d.back)} mi back)</div>
+    <ol class="stops">${d.stops.map((s, i) => `<li><b>${esc(s.name)}</b>, ${esc(s.p.city || "")}
+      <div class="leg">${i ? `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from the last stop` : `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from home`}
+        · <a href="${gmSearch(s.name)}" target="_blank" rel="noopener">map</a></div>
+      <ul class="pc">${s.cars.map(c => `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
+        <b>${fmt$(c.price_total)}</b> · ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi · ${esc(c.ext_color || "?")} / ${esc(c.int_color || "?")}
+        <div class="tags">${planTags(c)}</div></li>`).join("")}</ul></li>`).join("")}</ol>
+    <a class="cbtn" href="${url}" target="_blank" rel="noopener">Open this day's route in Google Maps</a>`;
+}
+function renderPlan() {
+  const box = document.getElementById("planbox");
+  const cars = planCars(), stops = planStops(cars);
+  if (!stops.length) { box.innerHTML = '<p class="small">Tap <b>&#9825; Save</b> on the cars you want to test drive, and the plans show up here.</p>'; return; }
+  const one = planDay(stops), two = planTwo(stops);
+  const used1 = new Set(one.stops.map(s => s.name)), used2 = new Set(two.days.flatMap(d => d.stops.map(s => s.name)));
+  const left = used => stops.filter(s => !used.has(s.name)).sort((a, b) => b.value - a.value);
+  const leftHtml = used => { const l = left(used); return l.length ? `<details><summary class="small">Favorites not in this plan (${l.reduce((s, x) => s + x.cars.length, 0)} cars at ${l.length} dealers, too far to fit)</summary>
+    <ul class="pc">${l.map(s => `<li>${esc(s.name)}, ${esc(s.p.city || "")} (${Math.round(roadMi(HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : s.p, s.p))} mi from home): ${s.cars.map(c => `${esc(c.title)} ${fmt$(c.price_total)}`).join("; ")}</li>`).join("")}</ul></details>` : ""; };
+  box.innerHTML = `<div class="small">Planned from ${cars.length} favorite${cars.length > 1 ? "s" : ""} still for sale at ${stops.length} dealers (worked out ${esc(shortDate(todayISO()))}, from the search of ${esc(shortDate(D.today || ""))}).
+      Within each stop, cars are cheapest first.</div>
+    <div class="plan"><h3>One day</h3>${planDayHtml(one, "Day")}${leftHtml(used1)}</div>
+    <div class="plan"><h3>Two days</h3>${two.days.map((d, i) => planDayHtml(d, "Day " + (i + 1))).join("")}${leftHtml(used2)}</div>
+    <div class="small"><b>Before you go:</b> call or email each dealer the day before to confirm the car is there and book a drive (cars added by you can't be checked by the search),
+      ask for an out-the-door price in writing, look at <b>$ What to offer</b> on each car, and bring your license and proof of insurance. Distances are rough (straight line × 1.3).</div>`;
+}
 function showTab(which) {
   favOnly = which === "fav";
   const panel = favOnly ? "avail" : which;
-  ["avail", "fav", "gone", "cmp", "guide", "check", "mine"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
-  ["avail", "gone", "cmp", "guide", "check", "mine"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
+  ["avail", "fav", "gone", "cmp", "guide", "check", "mine", "plan"].forEach(t => document.getElementById("tab-" + t).setAttribute("aria-selected", String(t === which)));
+  ["avail", "gone", "cmp", "guide", "check", "mine", "plan"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
   document.getElementById("fav-extra").hidden = !favOnly;
   render();
-  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check" || which === "mine";   // car filters don't apply there
-  document.getElementById("footnote").hidden = which === "guide" || which === "check" || which === "mine";
+  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check" || which === "mine" || which === "plan";   // car filters don't apply there
+  document.getElementById("footnote").hidden = which === "guide" || which === "check" || which === "mine" || which === "plan";
   if (which === "cmp") renderCompare();
+  if (which === "plan") renderPlan();
   try { localStorage.setItem(PK + "tab", which); } catch (e) {}
   stickHeads();
 }
@@ -2078,8 +2207,9 @@ document.getElementById("tab-cmp").addEventListener("click", () => showTab("cmp"
 document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"));
 document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
 document.getElementById("tab-mine").addEventListener("click", () => showTab("mine"));
+document.getElementById("tab-plan").addEventListener("click", () => showTab("plan"));
 renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
-try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine"].includes(t)) showTab(t); } catch (e) {}
+try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine", "plan"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
 document.getElementById("sort-g").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); gK = k; gDir = +d; render(); });
