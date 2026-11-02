@@ -70,6 +70,16 @@ def model_check(L: Listing, d: dict) -> tuple[list[str], list[str], list[str]]:
 DARK_GREENS = ["autumn green", "cypress green", "british racing", "racing green", "dark green", "forest green",
                "eruption green", "district green", "verde", "jungle green", "hunter green",
                "emerald green"]   # Mercedes Emerald Green (user, Oct 25 2026: "4JGGM1CB9PA033049 is a great green")
+# Dark blues pass (user, Nov 2 2026: "start allowing dark blue as an exterior color"; config exterior_colors.dark_blue_ok);
+# bright / light blues still fail; any other blue is a call. Sorted by eye from the blues the search has seen.
+DARK_BLUES = ["navy", "midnight", "dark blue", "deep blue", "deep crystal", "tanzanite", "blue ridge", "opulent",
+              "alto blue", "antimatter", "gravity blue", "vesta", "eternal blue", "nautical", "twilight", "sapphire blue",
+              "cavalry", "atlantic", "denim", "navarra", "imperial blue", "abyss", "deep ocean",
+              "ink", "indigo", "marina bay"]
+LIGHT_BLUES = ["portimao", "arctic race", "grabber", "velocity", "vapor blue", "ceres", "celestial blue", "ultrasonic",
+               "daybreak", "geyser", "horizon", "blue crush", "heritage", "cloud blue", "starling", "ultra blue",
+               "electric", "sky", "ice blue", "baby blue", "light blue", "pale", "misty", "glacier blue", "aqua", "teal",
+               "turquoise", "nimbus"]
 OTHER_COLOR_WORDS = ["blue", "red", "white", "beige", "brown", "orange", "yellow", "gold", "bronze", "copper",
                      "tan", "ivory", "cream", "champagne", "purple", "pink", "mahogany", "burgundy", "maroon",
                      "wine", "garnet", "ruby", "copper", "sand", "khaki"]
@@ -107,6 +117,12 @@ def exterior_ok(color: str) -> tuple[str, str]:
         if light:                              # a named light green (Sage, Mint, Lime...)
             return "fail", f"exterior {color} (not a dark green)"
         return "unknown", f"green ({color}): confirm it's a dark green"
+    if "blue" in c and rules.get("dark_blue_ok"):
+        if any(re.search(rf"\b{re.escape(w)}", c) for w in LIGHT_BLUES):
+            return "fail", f"exterior {color} (not a dark blue)"
+        if any(re.search(rf"\b{re.escape(w)}", c) for w in DARK_BLUES):
+            return "pass", ""
+        return "unknown", f"blue ({color}): confirm it's a dark blue"
     grayish = re.search(r"\b(gr[ae]y|graphite|silver)\b", c)
     for w in F["exterior_colors"]["exclude"]:
         if w in ("silver", "glacier") and grayish:
@@ -117,7 +133,7 @@ def exterior_ok(color: str) -> tuple[str, str]:
         return "pass", ""
     if any(w in c for w in OTHER_COLOR_WORDS):
         return "fail", f"exterior {color}"
-    return "unknown", f"exterior color '{color}': confirm it's black/gray/silver/dark green"
+    return "unknown", f"exterior color '{color}': confirm it's black/gray/silver/dark green" + ("/dark blue" if rules.get("dark_blue_ok") else "")
 
 
 def interior_ok(color: str) -> tuple[str, str]:

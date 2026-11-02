@@ -445,6 +445,8 @@ def _lifted(reason: str, fuel: str) -> bool:
         return not criteria.F.get("sunroof_must_open", True)
     if reason.startswith("interior ") and not reason.startswith("interior color"):   # a color allowed since (brown, Oct 28 2026)
         return criteria.interior_ok(re.sub(r" \(black only\)$", "", reason[9:]))[0] != "fail"   # a "check" shade comes back as a call
+    if reason.startswith("exterior ") and "blue" in reason.lower():        # dark blue allowed (Nov 2 2026)
+        return criteria.exterior_ok(re.sub(r" \(not a dark \w+\)$", "", reason[9:]))[0] != "fail"
     if criteria.FUEL_FAIL.match(reason) or reason in ("not a hybrid (gas only)",):
         fuels = criteria.F.get("fuels")
         return not fuels or fuel in fuels

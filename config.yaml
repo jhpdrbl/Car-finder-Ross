@@ -58,6 +58,7 @@ filters:
     exclude: [white, pearl white, wind chill, beige, blue, red, matte, frozen, glacier, ivory,
               cream, champagne, bronze, orange, yellow, brown, copper, gold, tan,
               sage, mint, lime, seafoam, pistachio, snowfall, rosso, giallo, bianco, "tiger eye", amethyst, purple, nimbus, "magnus metal"]   # Cadillac: Nimbus = blue (GM's own data); Magnus Metal Frost = matte   # light greens (user, Oct 19 2026: "Sage green is not dark green")
+    dark_blue_ok: true       # dark blues pass (user, Nov 2 2026); bright/light blues fail, others are a call (criteria.DARK_BLUES / LIGHT_BLUES); false = every blue fails again
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:
     include: [black, obsidian, charcoal, "slate black", ebony, jet, onyx, "black/black", noir]   # Cadillac: "Noir with ... accents"   # two-tones with one of these pass too
