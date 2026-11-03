@@ -36,6 +36,11 @@ LAPTOP = os.name == "nt"           # Windows laptop; otherwise the iPad (a-Shell
 DEVICE = "laptop" if LAPTOP else "iPad"
 UPLOAD_DIRS = ("data", "output")
 NEVER_UPLOAD = ("data/cache/", "data/run_state.json")
+# What the search itself writes: the laptop's copy wins. Every other file (sold marks, cars you added, facts you
+# confirmed, research data) keeps GitHub's copy when it changed there during the search (Nov 2 2026: a laptop run that
+# started before a cloud edit put back a car the user had said was sold).
+RUN_OUTPUT = ("data/listings.csv", "data/price_history.csv", "data/coverage.csv", "data/dealers.csv", "output/")
+START: dict[str, str] = {}         # GitHub's files when this run began (path -> git blob id)
 KEEP_LOCAL = (".venv/", "data/cache/", "logs/", ".github_token", "data/run_state.json")
 
 
@@ -124,12 +129,31 @@ def local_files() -> dict[str, bytes]:
     return out
 
 
-def changed_files(session: requests.Session) -> tuple[str, str, dict[str, bytes]]:
+def remote_tree(session: requests.Session) -> tuple[str, str, dict[str, str]]:
     head = session.get(f"{API}/git/ref/heads/{BRANCH}", timeout=60).json()["object"]["sha"]
     tree = session.get(f"{API}/git/commits/{head}", timeout=60).json()["tree"]["sha"]
     remote = {e["path"]: e["sha"] for e in
               session.get(f"{API}/git/trees/{tree}?recursive=1", timeout=60).json()["tree"] if e["type"] == "blob"}
+    return head, tree, remote
+
+
+def snapshot() -> None:
+    """Remember GitHub's files as this run starts, so the upload can tell what someone else changed meanwhile."""
+    try:
+        START.update(remote_tree(requests.Session())[2])
+    except Exception:                  # no connection: the upload then sends everything that differs, as before
+        START.clear()
+
+
+def changed_files(session: requests.Session) -> tuple[str, str, dict[str, bytes]]:
+    head, tree, remote = remote_tree(session)
     changed = {p: d for p, d in local_files().items() if remote.get(p) != blob_sha(d)}
+    if START:
+        kept = [p for p in changed if not p.startswith(RUN_OUTPUT) and remote.get(p) != START.get(p)]
+        for p in kept:
+            del changed[p]
+        if kept:
+            say("  kept GitHub's newer copy of " + ", ".join(sorted(kept)) + " (changed there during this search)")
     return head, tree, changed
 
 
@@ -195,6 +219,7 @@ def main() -> None:
     if args[:1] == ["update"]:
         return update()
     token()            # ask for the GitHub key now (first run only), not after a 20-minute search
+    snapshot()
     if "--no-update" not in args:
         update()
         if LAPTOP:         # pick up any new libraries the latest version needs (a-Shell can't start pip from here)

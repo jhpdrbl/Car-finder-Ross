@@ -7,7 +7,7 @@ name: Publish dashboard
 on:
   push:
     branches: [main, claude/la-cpo-suv-scraper-x0pl15]
-    paths: ["output/**", "functions/**"]   # new results from the laptop (or the favorites-sync function), not other code/settings changes
+    paths: ["output/**", "functions/**", "data/**"]   # new results from the laptop, marks changed by hand, or the favorites-sync function
   workflow_dispatch:
 
 concurrency:
@@ -30,7 +30,8 @@ jobs:
 
       - name: Build site
         run: |
-          pip install pyyaml==6.0.2 markdown==3.7
+          pip install -r requirements.txt
+          python -m tools.rebuild_dashboard   # the page from the latest data with the latest code (a search that began before a code change uploads an older page)
           python -m tools.build_site
 
       - name: Check Cloudflare secrets
