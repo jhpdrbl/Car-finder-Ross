@@ -1983,6 +1983,41 @@ document.addEventListener("click", e => {
   try { localStorage.setItem(PK + "trip", JSON.stringify(trip)); } catch (err) {}
   if (map) { map.closePopup(); const f = mapFit; mapFit = false; drawMap(); mapFit = f; } else drawTrip();
 });
+// The car list is drawn ROW_BATCH cars at a time, the rest as you scroll near the end (drawing all ~200 at once made every tap slow)
+const ROW_BATCH = 40;
+let pendingRows = [];
+const rowHtml = c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
+    <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
+    <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<button type="button" class="stickerok" data-tip="Features verified by window sticker" aria-label="Features verified by window sticker">&#10003;</button>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
+      ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
+      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button><button type="button" class="negbtn" data-vin="${esc(c.vin)}">$ What to offer</button></td>
+    <td class="num p-year" data-l="Year">${esc(c.year)}</td>
+    <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div><div class="small">${esc(c.cpo_program)}</div></td>
+    <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
+    <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
+    <td data-l="Fuel">${esc(c.fuel)}</td><td data-l="Drive">${esc(c.drive)}</td>
+    <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? '—<div class="small">electric</div>' : "?") : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : c.mpg_source === "guide" ? " trim guide" : ""}</div></td>
+    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${openTag(c)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
+    <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
+    <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
+    <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
+    <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`;
+const moreObs = "IntersectionObserver" in window ? new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) showMoreRows(); }, {rootMargin: "1200px"}) : null;
+function addMoreRow(tb) {
+  if (!pendingRows.length) return;
+  tb.insertAdjacentHTML("beforeend", `<tr id="more-rows"><td colspan="20"><button type="button" class="cbtn ghost" id="more-btn">Show ${Math.min(ROW_BATCH, pendingRows.length)} more of ${pendingRows.length} left</button></td></tr>`);
+  const m = document.getElementById("more-rows");
+  if (moreObs) moreObs.observe(m);
+}
+function showMoreRows() {
+  const tb = document.getElementById("rows"), m = document.getElementById("more-rows");
+  if (m) { if (moreObs) moreObs.unobserve(m); m.remove(); }
+  if (!pendingRows.length) return;
+  tb.insertAdjacentHTML("beforeend", pendingRows.slice(0, ROW_BATCH).map(rowHtml).join(""));
+  pendingRows = pendingRows.slice(ROW_BATCH);
+  addMoreRow(tb); stickHeads();
+}
+document.addEventListener("click", e => { if (e.target.id === "more-btn") showMoreRows(); });
 function renderRows() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"), ik = picked("f-int"),
         rf = picked("f-roof"), op = picked("f-open"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
@@ -2006,7 +2041,7 @@ function renderRows() {
   const G = goneAll();
   document.getElementById("ngone").textContent = G.length;
   const gone = G.filter(c => base(c) && (!show.size || show.has(wasStatus(c)))).sort(sorter(gK, gDir));
-  document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
+  if (!document.getElementById("panel-gone").hidden) document.getElementById("gone-rows").innerHTML = gone.map(c => `<tr>
     <td class="car"><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><div class="vin">${esc(c.vin)}</div>
       <div class="small">was ${c.needs_call ? "needs a call" : "a match"}</div><button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button></td>
     <td class="num" data-l="Year">${esc(c.year)}</td>
@@ -2017,23 +2052,11 @@ function renderRows() {
     <td class="small" data-l="Gone since">${esc(c.removed_on || c.last_seen)}</td><td class="num" data-l="Days listed">${esc(c.days)}</td>
     <td class="small wide" data-l="Why">${esc(c.fail_reasons)}</td></tr>`).join("")
     || `<tr><td colspan="12" class="muted">${G.length ? "No cars match these filters." : "Nothing yet. Cars that leave the dashboard because they sold or were taken down will show up here."}</td></tr>`;
-  document.getElementById("rows").innerHTML = cars.map(c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
-    <td class="num p-score" data-l="Score">${esc(c.score)}<br>${c.needs_call ? '<span class="chip call">needs a call</span>' : '<span class="chip match">match</span>'}</td>
-    <td class="car${c.sticker ? " has-sticker" : ""}">${c.sticker ? '<button type="button" class="stickerok" data-tip="Features verified by window sticker" aria-label="Features verified by window sticker">&#10003;</button>' : ""}<a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>${c.is_new ? '<span class="newchip" title="New since the last refresh">NEW</span>' : ""}<div class="vin">${esc(c.vin)}${guideLink(c)}</div>
-      ${c.needs_call ? `<div class="small">Ask about: ${esc(c.needs_call)}</div>` : ""}${c.notes ? `<div class="small">${esc(c.notes)}</div>` : ""}
-      <button type="button" class="favbtn" data-vin="${esc(c.vin)}" aria-pressed="${fav.includes(c.vin)}">${fav.includes(c.vin) ? "&#9829; Saved" : "&#9825; Save"}</button><button type="button" class="cmpbtn" data-vin="${esc(c.vin)}" aria-pressed="${cmp.includes(c.vin)}">${cmp.includes(c.vin) ? "✓ Comparing" : "+ Compare"}</button><button type="button" class="disbtn" data-vin="${esc(c.vin)}" aria-pressed="${dis.includes(c.vin)}">${dis.includes(c.vin) ? "&#10005; Disliked" : "Dislike"}</button><button type="button" class="negbtn" data-vin="${esc(c.vin)}">$ What to offer</button></td>
-    <td class="num p-year" data-l="Year">${esc(c.year)}</td>
-    <td class="span2" data-l="Dealer">${esc(c.dealer)}<div class="small">${esc(c.distance_mi)} mi</div><div class="small">${esc(c.cpo_program)}</div></td>
-    <td class="num p-price" data-l="Price">${priceCell(c)}${c.fees_estimated === "True" ? '<div class="small">fees est.</div>' : ""}</td>
-    <td class="num" data-l="Original price">${origCell(c)}</td><td class="num" data-l="Sticker when new">${msrpCell(c)}</td><td class="num" data-l="Miles">${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()}</td>
-    <td data-l="Fuel">${esc(c.fuel)}</td><td data-l="Drive">${esc(c.drive)}</td>
-    <td class="num" data-l="MPG">${num(c.mpg_combined) == null ? (c.fuel_type === "ev" ? '—<div class="small">electric</div>' : "?") : Math.round(num(c.mpg_combined))}<div class="small">${num(c.mpg_city) != null ? Math.round(num(c.mpg_city)) + "/" + Math.round(num(c.mpg_hwy)) : ""}${c.fuel_type === "phev" ? " gas" : ""}${c.mpg_source === "EPA" ? " EPA" : c.mpg_source === "guide" ? " trim guide" : ""}</div></td>
-    <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${openTag(c)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
-    <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
-    <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
-    <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
-    <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`).join("")
+  const tb = document.getElementById("rows");
+  pendingRows = cars.slice(ROW_BATCH);
+  tb.innerHTML = cars.slice(0, ROW_BATCH).map(rowHtml).join("")
     || `<tr><td colspan="20" class="muted">${favOnly && !fav.some(v => D.cars.some(c => c.vin === v)) ? "No favorites yet. Tap &#9825; Save on a car in the Available tab." : "No cars match these filters."}</td></tr>`;
+  addMoreRow(tb);
   // how many cars these filters leave, out of how many on this tab
   const totA = D.cars.filter(c => !mineGone[c.vin] && (!favOnly || fav.includes(c.vin))).length;
   const shownLine = (n, tot, what) => !tot ? "" : n === tot ? `Showing all ${tot} ${what}`
@@ -2101,7 +2124,14 @@ function planStops(cars) {                      // one entry per dealer with its
     return {name, p: PL[name], cars: cs, value: vs[0] + 0.35 * (vs[1] || 0) + 0.15 * vs.slice(2).reduce((s, x) => s + x, 0)};
   });
 }
-function planRoute(stops) {                     // the shortest order from home through every stop and back (5 stops = 120 orders)
+const routeMemo = new Map();                    // the same set of dealers comes up over and over while planning
+function planRoute(stops) {
+  const key = stops.map(s => s.name).sort().join("|");
+  let r = routeMemo.get(key);
+  if (!r) { r = planRouteNew(stops); routeMemo.set(key, r); }
+  return r;
+}
+function planRouteNew(stops) {                  // the shortest order from home through every stop and back (5 stops = 120 orders)
   const home = HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : stops[0].p;
   let best = null;
   const go = (order, left) => {
@@ -2189,9 +2219,14 @@ function planDayHtml(d, label) {
         <div class="tags">${planTags(c)}</div></li>`).join("")}</ul></li>`).join("")}</ol>
     <a class="cbtn" href="${url}" target="_blank" rel="noopener">Open this day's route in Google Maps</a>`;
 }
+let planKey = "";
 function renderPlan() {
   const box = document.getElementById("planbox");
-  const cars = planCars(), stops = planStops(cars);
+  const cars = planCars();
+  const key = cars.map(c => c.vin + ":" + c.price_total).join(",");   // same favorites and prices: the plan on screen is still right
+  if (key === planKey && box.innerHTML) return;
+  planKey = key;
+  const stops = planStops(cars);
   const over = planFavs().length - cars.length;
   const overNote = over ? ` ${over} favorite${over > 1 ? "s" : ""} over ${fmt$(PLAN_MAX_PRICE)} (or with no price shown) ${over > 1 ? "are" : "is"} left out.` : "";
   if (!stops.length) { box.innerHTML = `<p class="small">Tap <b>&#9825; Save</b> on cars at ${fmt$(PLAN_MAX_PRICE)} or less (fees included) that you want to test drive, and the plans show up here.${overNote}</p>`; return; }
