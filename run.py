@@ -555,7 +555,16 @@ def rescore(args) -> None:
                 r["sunroof"] = str(L.sunroof)
                 if (confirmed.get(L.vin.upper()) or {}).get("sunroof"):   # the open question is answered
                     r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "sunroof" not in x)
-            fails = [why for st, why in (criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)) if st == "fail"]
+            ext_st, int_st = criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)
+            fails = [why for st, why in (ext_st, int_st) if st == "fail"]
+            gone_q = []                                         # a color question the current rules now answer (e.g. a blue now allowed)
+            if ext_st[0] == "pass" and L.ext_color:
+                gone_q.append(re.compile(r"^(blue|green|exterior color)\b", re.I))
+            if int_st[0] == "pass" and L.int_color:
+                gone_q.append(re.compile(r"^interior\b(?! color not shown)", re.I))
+            if gone_q:
+                r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ")
+                                            if x and not any(q.search(x) for q in gone_q))
             kind, why = criteria.fixed_roof(L, {}) if confirmed.get(L.vin.upper(), {}).get("sunroof") != "yes" else ("", "")
             L.sunroof_note = r.get("sunroof_note", "")
             if not criteria.F.get("sunroof_must_open", True):     # fixed glass roofs allowed (Oct 29 2026): note whether it opens

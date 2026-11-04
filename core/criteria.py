@@ -76,7 +76,8 @@ DARK_GREENS = ["autumn green", "cypress green", "british racing", "racing green"
 DARK_BLUES = ["navy", "midnight", "dark blue", "deep blue", "deep crystal", "tanzanite", "blue ridge", "opulent",
               "alto blue", "antimatter", "gravity blue", "vesta", "eternal blue", "nautical", "twilight", "sapphire blue",
               "cavalry", "atlantic", "denim", "navarra", "imperial blue", "abyss", "deep ocean",
-              "ink", "indigo", "marina bay"]
+              "ink", "indigo", "marina bay",
+              "ingot", "fjord", "tourmaline"]   # Ford Ingot, Subaru Fjord, Audi Tourmaline (user allowed them, Nov 4 2026)
 LIGHT_BLUES = ["portimao", "arctic race", "grabber", "velocity", "vapor blue", "ceres", "celestial blue", "ultrasonic",
                "daybreak", "geyser", "horizon", "blue crush", "heritage", "cloud blue", "starling", "ultra blue",
                "electric", "sky", "ice blue", "baby blue", "light blue", "pale", "misty", "glacier blue", "aqua", "teal",
@@ -150,9 +151,7 @@ def interior_ok(color: str) -> tuple[str, str]:
     if any(w in c for w in F["interior_colors"]["include"]):
         return "pass", ""                      # black, or a two-tone that includes black (user, Oct 19 2026)
     if any(re.search(rf"\b{re.escape(w)}", c) for w in F["interior_colors"].get("also_ok") or []):
-        if re.search(r"\bgr[ae]y|silver|stone|ash\b", c):   # half gray ("Neva Grey/Sable Brown"): gray alone isn't allowed
-            return "unknown", f"interior {color}: brown with gray, confirm the seats look brown"
-        return "pass", ""                      # brown / dark tan / saddle (user, Oct 28 2026; black still scores higher)
+        return "pass", ""                      # brown with gray too ("Neva Grey/Sable Brown": user allowed it, Nov 4 2026)                      # brown / dark tan / saddle (user, Oct 28 2026; black still scores higher)
     if any(re.search(rf"\b{re.escape(w)}", c) for w in F["interior_colors"].get("check") or []):
         return "unknown", f"interior {color}: confirm it's a dark tan / brown, not a light one"
     for w in F["interior_colors"]["exclude"]:

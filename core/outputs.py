@@ -1054,8 +1054,9 @@ The earlier of the two is shown.</p>
 <dialog id="neg" aria-labelledby="neg-title"><div class="nhead"><h2 id="neg-title"></h2><button type="button" class="nx" aria-label="Close">&times;</button></div><div class="nbody" id="neg-body"></div></dialog>
 <p class="small" id="footnote">Price = advertised price + dealer fees (estimated when the page didn't list them), before tax. Monthly = $8,000 down, 60 months at 5.34%, 9.75% tax, $400 gov't fees. MPG = combined (city/hwy below); "EPA" means the listing didn't show it, so it's the official rating from fueleconomy.gov; plug-in hybrids show gas-only MPG.</p>
 </main>
+<script type="application/json" id="data">__DATA__</script>
 <script>
-const D = __DATA__;
+const D = JSON.parse(document.getElementById("data").textContent);   // JSON text parses ~2x faster than a JS literal (speed, Nov 4 2026)
 // Each buyer has their own favorites, compare list and "checked" marks: saved under their own keys here and online.
 const PK = D.profile.default ? "" : D.profile.id + ":";
 const API = name => "/api/" + name + (D.profile.default ? "" : "?p=" + encodeURIComponent(D.profile.id));
@@ -1161,7 +1162,8 @@ pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || ""))
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
 document.getElementById("covlist").innerHTML = D.failed.map(f => `<li><b>${esc(f.brand)} · ${esc(f.dealer)}</b>: ${esc(f.reason)}</li>`).join("") || "<li>Nothing failed.</li>";
-const shortDate = d => { const t = Date.parse(d); return isNaN(t) ? d : new Date(t).toLocaleDateString("en-US", {month: "short", day: "numeric", timeZone: "UTC"}); };
+const SD_FMT = new Intl.DateTimeFormat("en-US", {month: "short", day: "numeric", timeZone: "UTC"});
+const shortDate = d => { const t = Date.parse(d); return isNaN(t) ? d : SD_FMT.format(new Date(t)); };
 function priceCell(c) {
   if (!c.dropped) return fmt$(c.price_total);
   const last = c.lastCut ? `<div class="cutline">&#9660; ${fmt$(c.lastCut.amt)} on ${esc(shortDate(c.lastCut.on))}</div>` : "";
@@ -1185,7 +1187,8 @@ const NOW = new Date(), MPY = D.miles_per_year || 12000;      // assumed future 
 const kmi = n => n == null ? "unlimited miles" : (n >= 1000 ? Math.round(n / 1000) + "k" : n) + " mi";
 const addYears = (d, y) => Number.isInteger(y) ? new Date(d.getFullYear() + y, d.getMonth(), d.getDate())
   : new Date(d.getTime() + y * 365.25 * 864e5);
-const monthYr = d => d.toLocaleDateString("en-US", {month: "short", year: "numeric"});
+const MY_FMT = new Intl.DateTimeFormat("en-US", {month: "short", year: "numeric"});   // one formatter, reused: toLocaleDateString builds a new one per call
+const monthYr = d => MY_FMT.format(d);
 // A model-year car is usually first sold between July of the year before and December of its model year;
 // the expected in-service date is the middle of that window (about April of the model year).
 const inService = my => ({lo: new Date(my - 1, 6, 1), mid: new Date(my, 3, 1), hi: new Date(my, 11, 31)});
@@ -1248,6 +1251,7 @@ const host = u => String(u).replace(/^https?:\/\/(www\.)?/, "").split("/")[0];
 const srcLinks = urls => [...new Map((urls || []).map(u => [host(u), u])).values()]
   .map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(host(u))}</a>`).join(", ");
 function renderWarranty() {
+  if (document.getElementById("panel-guide").hidden) { lazyStale.add("warranty"); return; }
   const brands = (D.warranty && D.warranty.brands) || [];
   document.getElementById("g-warranty").hidden = !brands.length;
   const line = f => `<li><b>${esc(f.name)}:</b> ${f.years ? f.years + " yr / " : ""}${kmi(f.miles)}${f.starts ? ", from " + esc(f.starts) : ""}${f.transfers && !/^yes/i.test(f.transfers) ? " (" + esc(f.transfers === "no" ? "first owner only" : f.transfers) + ")" : ""}${f.note ? " · " + esc(f.note) : ""}</li>`;
@@ -1298,6 +1302,7 @@ function trimCard(t) {
       <ul>${t.highlights.map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}</div>`;
 }
 let guideStale = false;      // the Trim guide (~9,000 page elements) is built only while its tab is open (speed, Nov 4 2026)
+const lazyStale = new Set();   // other hidden tabs whose lists wait until they're opened
 function renderGuide() {
   if (document.getElementById("panel-guide").hidden) { guideStale = true; return; }
   guideStale = false;
@@ -1446,6 +1451,7 @@ function renderCheck() {
   const hide = document.getElementById("chk-hide").checked;
   const isDone = d => checked[d.dealer] && daysAgo(checked[d.dealer]) <= 7;
   document.getElementById("ncheck").textContent = CK.filter(d => !isDone(d)).length;
+  if (document.getElementById("panel-check").hidden) { lazyStale.add("check"); return; }
   const brands = [...new Set(CK.map(d => d.brand))];
   let html = "";
   for (const b of brands) {
@@ -1526,6 +1532,7 @@ function renderMine() {
   const fresh = c => age(c) != null && age(c) <= 7;
   const live = all.filter(c => !mineGone[c.vin]), gone = all.filter(c => mineGone[c.vin]);
   document.getElementById("nmine").textContent = live.filter(c => !fresh(c)).length;
+  if (document.getElementById("panel-mine").hidden) { lazyStale.add("mine"); return; }   // the list is built when the tab opens
   live.sort((a, b) => (fresh(a) - fresh(b)) || (age(b) ?? 1e9) - (age(a) ?? 1e9) || a.dealer.localeCompare(b.dealer));
   const card = c => {
     const g = mineGone[c.vin], a = age(c), state = g ? "gonemk" : a == null ? "" : a <= 7 ? "done" : "stale";
@@ -2141,7 +2148,12 @@ document.querySelectorAll("th[data-g]").forEach(th => th.addEventListener("click
 // Keep each table's header row visible at the top of the screen while its rows scroll past.
 // (CSS position:sticky can't do this here: the table sits in a sideways-scrolling box for phones.)
 const safeTop = () => { const el = document.getElementById("safe-top"); return el ? el.getBoundingClientRect().height : 0; };
+let stickQueued = false;    // measure once per screen frame, not after every redraw (each measurement forces a full layout)
 function stickHeads() {
+  if (stickQueued) return; stickQueued = true;
+  requestAnimationFrame(() => { stickQueued = false; stickNow(); });
+}
+function stickNow() {
   const top = safeTop();
   document.querySelectorAll(".wrap").forEach(w => {
     const head = w.querySelector("thead");
@@ -2477,6 +2489,9 @@ function showTab(which) {
   if (which === "cmp") renderCompare();
   if (which === "plan") renderPlan();
   if (which === "guide" && guideStale) renderGuide();
+  if (which === "guide" && lazyStale.delete("warranty")) renderWarranty();
+  if (which === "check" && lazyStale.delete("check")) renderCheck();
+  if (which === "mine" && lazyStale.delete("mine")) renderMine();
   try { localStorage.setItem(PK + "tab", which); } catch (e) {}
   stickHeads();
 }
