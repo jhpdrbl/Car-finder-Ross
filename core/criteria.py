@@ -8,6 +8,7 @@ evaluate() returns three lists for a listing:
 from __future__ import annotations
 
 import re
+from datetime import date
 import statistics
 
 from scrapers.base import CONFIG
@@ -622,7 +623,10 @@ def score_parts(L: Listing) -> dict[str, float]:
         parts["price"] = max(0.0, min(1.0, 1 - (L.price_total - S.get("price_target", 30000)) / 10000))
     parts["phev"] = 1.0 if L.fuel_type in ("phev", "ev") else 0.0      # electric cars plug in too
     mpg = L.mpg_combined
-    parts["mpg"] = max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type in ("hybrid", "phev") else 0.3)
+    if L.fuel_type in ("ev", "phev"):         # plug-ins and electrics: full points (user, Nov 4 2026: "they don't really have mpg")
+        parts["mpg"] = 1.0
+    else:
+        parts["mpg"] = max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type == "hybrid" else 0.3)
     parts["audio"] = 1.0 if L.audio else 0.0
     parts["leather"] = tri(L.leather)
     parts["real_leather"] = 1.0 if (L.leather is True or L.seats == "leather") else (0.4 if L.seats == "synthetic" or L.leather is False else 0.2)
@@ -638,6 +642,9 @@ def score_parts(L: Listing) -> dict[str, float]:
     rank = S.get("color_rank") or []
     fam = color_family(L.ext_color)
     parts["exterior_color"] = (len(rank) - rank.index(fam)) / len(rank) if fam in rank else (0.0 if fam else 0.3)
+    lo = F.get("min_year") or 2023             # newer is better (user, Nov 4 2026): the oldest year allowed none, this year or newer full
+    top = max(date.today().year, lo + 1)
+    parts["year"] = max(0.0, min(1.0, (L.year - lo) / (top - lo))) if L.year else 0.3
     cap = F.get("max_mileage") or 40000
     parts["mileage"] = max(0.0, 1 - L.mileage / cap) if L.mileage is not None else 0.3
     return parts
@@ -668,21 +675,3 @@ def score(L: Listing) -> float:
     return round(100 * pts / sum(w.values()), 1)
 
 
-def _old_score(L: Listing) -> float:     # kept for reference: the formula before Oct 2026 (same result as score() for Ross)
-    w = S["weights"]
-    pts = 0.0
-    if L.price_total:
-        pts += w["price"] * max(0.0, min(1.0, 1 - (L.price_total - S["price_target"]) / 10000))
-    pts += w.get("phev", 0) * (1.0 if L.fuel_type == "phev" else 0.0)
-    mpg = L.mpg_combined
-    pts += w["mpg"] * (max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type in ("hybrid", "phev") else 0.3))
-    pts += w["audio"] * (1.0 if L.audio else 0.0)
-
-    def tri(v):
-        return 1.0 if v is True else (0.0 if v is False else 0.4)
-    pts += w.get("leather", 0) * tri(L.leather)
-    pts += w.get("sunroof", 0) * tri(L.sunroof)
-    pts += w["ventilated_seats"] * tri(L.ventilated_seats)
-    pts += w["ground_clearance"] * (1.0 if (_clearance(L) or 0) >= 8 else 0.0)
-    pts += w["spare_tire"] * tri(L.spare_tire)
-    return round(100 * pts / sum(w.values()), 1)

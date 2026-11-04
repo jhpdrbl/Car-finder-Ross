@@ -297,7 +297,8 @@ def score_help(P) -> str:
     label = {
         "price": f"Price: full points at ${tgt:,} or less, none at ${tgt + 10000:,}",
         "phev": "Plug-in hybrid or electric: all or nothing",
-        "mpg": "Gas mileage: none at 20 mpg, full at 40 mpg",
+        "mpg": "Gas mileage: none at 20 mpg, full at 40 mpg (plug-in hybrids and electrics: full)",
+        "year": "Model year: newer is better (the oldest year allowed gets none, this year's full)",
         "audio": "Premium sound system (Harman Kardon, B&O, Burmester…)",
         "leather": "Real leather seats (not shown on the listing: 40%)",
         "ventilated_seats": "Cooled seats (not shown: 40%)",
@@ -1780,7 +1781,7 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
 }
 // Compare tab rows: [label, show(car), value(car) for the ★, "low"/"high" = which is better]; a label alone = section heading
 const SCORE_NAMES = {price: "Price", phev: "Plug-in / electric", mpg: "Gas mileage", audio: "Premium sound", leather: "Leather",
-  real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire",
+  real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire", year: "Model year",
   sunroof: "Sunroof", awd: "All-wheel drive", interior_color: "Black interior", roof_opens: "Sunroof opens", exterior_color: "Color", mileage: "Mileage"};
 const yesNo = v => v === "True" ? "Yes" : v === "False" ? "No" : "Not shown";
 const ageYears = c => { const y = num(c.year); if (!y) return null;      // in service ~April of the model year (as the warranty column)

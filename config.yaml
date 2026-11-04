@@ -81,12 +81,12 @@ scoring:            # higher = better; weights sum is arbitrary, score scaled 0-
   weights:
     price: 30       # high
     phev: 25        # high (electric cars get it too: they plug in)
-    mpg: 12         # medium
+    mpg: 12         # medium; plug-in hybrids and electrics get full points (Nov 4 2026)
     audio: 12       # medium
     leather: 5      # low
     ventilated_seats: 5
     ground_clearance: 5
-    spare_tire: 6
+    year: 8         # newer is better: 2023 none, 2026+ full (Nov 4 2026; spare_tire (6) taken out the same day)
     awd: 10         # medium: all-wheel / four-wheel drive (Oct 25 2026: nice-to-have, no longer required)
     interior_color: 8   # black interior preferred; brown / saddle allowed but score none (Oct 28 2026)
     roof_opens: 6       # an opening sunroof preferred; a fixed glass roof is allowed but scores none (Oct 29 2026)
