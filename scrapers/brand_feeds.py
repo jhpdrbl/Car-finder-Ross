@@ -284,7 +284,7 @@ def _lexus_listing(doc: dict, dealers: list[dict]) -> Listing | None:
     if not could_want("Lexus", series, year or 0) or not ov.get("vin"):
         return None
     d = _match_dealer(dealers, di.get("name", ""), di.get("webUrl", ""))
-    inv = (di.get("dealerPreOwnedInventoryUrl") or di.get("webUrl") or "").rstrip("?&")
+    inv = (di.get("dealerPreOwnedInventoryUrl") or di.get("webUrl") or "").split("#")[0].rstrip("?&")   # a '#...' part would swallow the search
     if not d or not inv:
         return None
     vin = ov["vin"].upper()
@@ -432,7 +432,7 @@ def kia() -> tuple[list[Listing], dict]:
                 L = Listing(vin=v["vin"].upper(), source="kia.com CPO search")
                 L.listing_url = v.get("vdpUrl") or ""
                 if not L.listing_url:       # no link to the car's page: the dealer's certified inventory, searched by VIN
-                    inv = (d.get("inventory_url") or d["homepage"]).rstrip("?&")
+                    inv = (d.get("inventory_url") or d["homepage"]).split("#")[0].rstrip("?&")
                     L.listing_url = f"{inv}{'&' if '?' in inv else '?'}search={v['vin'].upper()}"
                     L.link_note = "link opens the dealer's certified inventory searched for this VIN"
                 L.year, L.make, L.model = year, "Kia", v.get("model") or model
@@ -581,7 +581,7 @@ def _mazda_search(codes, ids, years, out, stats, detail_cache, dealers):
                 if not L.seats:
                     L.seats = seat_material(hay, L.int_color)
                 if not L.listing_url:
-                    inv = (d.get("inventory_url") or d["homepage"]).rstrip("?&")
+                    inv = (d.get("inventory_url") or d["homepage"]).split("#")[0].rstrip("?&")
                     L.listing_url = f"{inv}{'&' if '?' in inv else '?'}search={L.vin}"
                     L.link_note = "link opens the dealer's certified inventory searched for this VIN"
                 out.append(L)

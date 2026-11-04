@@ -376,6 +376,8 @@ def apply_confirmed(L, c: dict | None) -> None:
         L.leather = seats == "leather"
     if _fees_confirmed(c, L.price):            # the user read the dealer's fee breakdown for this price
         L.doc_fee, L.other_fees = float(c["fees"]), 0.0
+    if (c.get("listing_url") or "").strip():   # the car's own page, when the user sent it (the feed only had a search link)
+        L.listing_url, L.link_note = c["listing_url"].strip(), ""
     if (c.get("msrp_new") or "").strip():      # the window sticker's total
         L.msrp_new, L.msrp_source = float(c["msrp_new"]), "listing"
 
