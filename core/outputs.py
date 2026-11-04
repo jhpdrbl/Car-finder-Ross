@@ -634,6 +634,7 @@ input, select { font:inherit; padding:6px 8px; border:1px solid var(--line); bor
 .fsec { padding:0; border:0; background:none; }
 .fsec > summary { font-size:13px; font-weight:700; cursor:pointer; padding:6px 0; color:var(--fg); }
 .fsec > .group { margin:2px 0 8px; }
+.fsec > summary .fon { font-weight:600; color:var(--accent); margin-left:4px; }
 .hint { display:block; text-transform:none; letter-spacing:0; font-size:12px; }
 /* desktop: the filters live in a panel on the left that stays in view while the list scrolls */
 @media (min-width: 1100px) {
@@ -908,7 +909,8 @@ __SCOREHELP__
     <button type="button" class="cbtn" id="cmpbar-view">View comparison</button>
     <button type="button" class="cbtn ghost" id="cmpbar-clear">Clear compare</button></div>
   <div class="controls"><input id="q" placeholder="Search: dealer, model, color…" aria-label="Search">
-    <button class="clear" id="clear" type="button">Clear filters</button><span class="small" id="shown-f"></span></div>
+    <button class="clear" id="clear" type="button">Clear filters</button>
+    <button class="clear" id="fsec-all" type="button" aria-label="Collapse or expand every filter section">Collapse all</button><span class="small" id="shown-f"></span></div>
   <details class="fsec" open><summary>Status &amp; your marks</summary>
     <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
     <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
@@ -2417,6 +2419,29 @@ document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"
 document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
 document.getElementById("tab-mine").addEventListener("click", () => showTab("mine"));
 document.getElementById("tab-plan").addEventListener("click", () => showTab("plan"));
+// Collapse all / Expand all for the filter sections (Nov 4 2026, user asked), remembered per viewer; a closed
+// section's title says how many of its filters are set, so nothing is hidden by surprise
+const FSECS = [...document.querySelectorAll(".fsec")];
+FSECS.forEach(d => { const sm = d.querySelector("summary"); sm.dataset.t = sm.textContent; });
+function fsecBadges() {
+  FSECS.forEach(d => {
+    const n = d.querySelectorAll(".group input:checked").length
+      + (d.contains(pmin) && (+pmin.value > P_LO || +pmax.value < P_HI) ? 1 : 0) + (d.contains(mmin) && (+mmin.value > M_LO || +mmax.value < M_HI) ? 1 : 0)
+      + (d.querySelector("#clmin") && clearS.on() ? 1 : 0) + (d.querySelector("#ermin") && rangeS.on() ? 1 : 0);
+    d.querySelector("summary").innerHTML = esc(d.querySelector("summary").dataset.t) + (n ? `<span class="fon">(${n} set)</span>` : ""); });
+}
+function fsecButton() { document.getElementById("fsec-all").textContent = FSECS.every(d => !d.open) ? "Expand all" : "Collapse all"; }
+document.getElementById("fsec-all").addEventListener("click", () => {
+  const open = FSECS.every(d => !d.open);
+  FSECS.forEach(d => d.open = open);
+  try { localStorage.setItem(PK + "fsec", open ? "open" : "closed"); } catch (e) {}
+  fsecButton(); });
+FSECS.forEach(d => d.addEventListener("toggle", fsecButton));
+try { if (localStorage.getItem(PK + "fsec") === "closed") FSECS.forEach(d => d.open = false); } catch (e) {}
+document.querySelector(".filters").addEventListener("input", fsecBadges);
+document.querySelector(".filters").addEventListener("change", fsecBadges);
+document.querySelector(".filters").addEventListener("click", () => setTimeout(fsecBadges, 0));
+fsecButton();
 planOptsInit(); renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
 try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine", "plan"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
