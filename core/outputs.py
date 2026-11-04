@@ -971,8 +971,16 @@ Checks older than a week turn yellow as a reminder. A car you mark no longer ava
 </div>
 <div id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
 <p class="muted" style="margin-top:0">Test-drive days planned from your <b>&#9829; favorites</b>: dealers close together (for Ubering between them),
-only cars at $35,500 or less (fees included), picked by lowest price first, then a sunroof that opens, then all-wheel drive (SUVs; sedans can be any drive), then premium sound.
-The plan is worked out again every time this page loads, so new searches, price changes, sold cars and changes to your favorites update it.</p>
+cars at $35,500 or less (fees included; change it below) picked by lowest price first, then a sunroof that opens, then all-wheel drive (SUVs; sedans can be any drive), then premium sound.
+The plan is worked out again every time this page loads, so new searches, price changes, sold cars and changes to your favorites update it.
+<b>The filters apply here too</b> (make, fuel, drive, sunroof, sound, miles...): change them to try other routes.</p>
+<div class="controls planopts" id="planopts">
+  <label class="small">Plan from <select id="po-from"><option value="fav">My &#9829; favorites</option><option value="all">All matching cars</option></select></label>
+  <label class="small">Price up to <select id="po-max"><option value="30000">$30,000</option><option value="32500">$32,500</option><option value="35500">$35,500</option><option value="38000">$38,000</option><option value="40500">$40,500</option><option value="0">Any price</option></select></label>
+  <label class="small">Dealers a day <select id="po-stops"><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+  <label class="pill"><input type="checkbox" id="po-calls"><span>Include "needs a call" cars</span></label>
+  <button type="button" class="cbtn ghost" id="po-reset">Reset</button>
+</div>
 <div id="planbox"></div>
 </div>
 <div id="panel-check" role="tabpanel" aria-labelledby="tab-check" hidden>
@@ -2018,7 +2026,8 @@ function showMoreRows() {
   addMoreRow(tb); stickHeads();
 }
 document.addEventListener("click", e => { if (e.target.id === "more-btn") showMoreRows(); });
-function renderRows() {
+// the filter panel's choices as one test, shared by the car list and the Test drives plans
+function carBase() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"), ik = picked("f-int"),
         rf = picked("f-roof"), op = picked("f-open"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
@@ -2031,7 +2040,16 @@ function renderRows() {
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
                     && (!clearS.on() || clearS.ok(num(c.clearance))) && (!rangeS.on() || rangeS.ok(num(c.ev_range)))
                     && (!mn.size || mn.has(mark(c))) && (!sr.size || sr.has(isMine(c) ? "Added by you" : "The search"));
-  const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
+  return base;
+}
+const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
+function carPass() {                // everything the Cars list applies: the filters, the status pills and the NEW / price-cut toggles
+  const base = carBase(), show = picked("f-show");
+  const onlyNew = document.getElementById("only-new").checked, onlyCut = document.getElementById("only-cut").checked;
+  return c => base(c) && (!show.size || show.has(wasStatus(c))) && (!onlyNew || c.is_new) && (!onlyCut || c.dropped);
+}
+function renderRows() {
+  const base = carBase(), show = picked("f-show");
   const onlyNew = document.getElementById("only-new").checked, onlyCut = document.getElementById("only-cut").checked;
   document.getElementById("cut-tile").setAttribute("aria-pressed", onlyCut);
   let cars = D.cars.filter(c => !mineGone[c.vin] && base(c) && (!show.size || show.has(wasStatus(c))) && (!favOnly || fav.includes(c.vin))
@@ -2111,9 +2129,35 @@ function planValue(c) {                         // the user's order: price, then
   return (v + 0.5) * (c.needs_call ? 0.85 : 1);
 }
 const PLAN_MAX_PRICE = 35500;                   // test drives only for cars at or under this, fees included (user, Nov 2 2026)
-const planFavs = () => D.cars.filter(c => fav.includes(c.vin) && !mineGone[c.vin] && !dis.includes(c.vin) && PL[c.dealer]);
+// the planner's own settings (Nov 4 2026, user: "make the test drive tab able to support filters so that i can vary the
+// test drive routes"); the filter panel applies too. Kept per viewer.
+let planOpt = {from: "fav", max: PLAN_MAX_PRICE, stops: PLAN_MAX_STOPS, calls: true};
+try { planOpt = {...planOpt, ...(JSON.parse(localStorage.getItem(PK + "planopt") || "{}") || {})}; } catch (e) {}
+const planPool = () => D.cars.filter(c => (planOpt.from === "all" || fav.includes(c.vin)) && !mineGone[c.vin] && !dis.includes(c.vin) && PL[c.dealer]
+                                          && (planOpt.calls || !c.needs_call));
+const PLAN_ALL_TOP = 40;                        // "all matching cars": the best 40 by the plan's order (more makes planning slow)
+let planCounts = {pool: 0, shown: 0, priced: 0};
 function planCars() {
-  return planFavs().filter(c => num(c.price_total) != null && num(c.price_total) <= PLAN_MAX_PRICE);
+  const pass = carPass(), pool = planPool(), shown = pool.filter(pass);
+  let cars = shown.filter(c => !+planOpt.max || (num(c.price_total) != null && num(c.price_total) <= +planOpt.max));
+  planCounts = {pool: pool.length, shown: shown.length, priced: cars.length};
+  if (planOpt.from === "all") cars = cars.sort((a, b) => planValue(b) - planValue(a)).slice(0, PLAN_ALL_TOP);
+  return cars;
+}
+function planOptsInit() {
+  const box = document.getElementById("planopts"); if (!box) return;
+  const set = (id, v) => { const el = document.getElementById(id); if (el.type === "checkbox") el.checked = !!v; else el.value = String(v); };
+  set("po-from", planOpt.from); set("po-max", planOpt.max); set("po-stops", planOpt.stops); set("po-calls", planOpt.calls);
+  box.addEventListener("change", () => {
+    planOpt = {from: document.getElementById("po-from").value, max: +document.getElementById("po-max").value,
+               stops: +document.getElementById("po-stops").value, calls: document.getElementById("po-calls").checked};
+    try { localStorage.setItem(PK + "planopt", JSON.stringify(planOpt)); } catch (e) {}
+    planKey = ""; renderPlan(); });
+  document.getElementById("po-reset").addEventListener("click", () => {
+    planOpt = {from: "fav", max: PLAN_MAX_PRICE, stops: PLAN_MAX_STOPS, calls: true};
+    try { localStorage.removeItem(PK + "planopt"); } catch (e) {}
+    set("po-from", planOpt.from); set("po-max", planOpt.max); set("po-stops", planOpt.stops); set("po-calls", planOpt.calls);
+    planKey = ""; renderPlan(); });
 }
 function planStops(cars) {                      // one entry per dealer with its favorites, best first
   const by = {};
@@ -2152,7 +2196,7 @@ function planDay(stops, bonus, maxMi = PLAN_MAX_MI, reach = PLAN_REACH) {       
   let best = null;
   stops.forEach(seed => {
     let pick = [seed], r = planRoute(pick);
-    while (pick.length < PLAN_MAX_STOPS) {
+    while (pick.length < (+planOpt.stops || PLAN_MAX_STOPS)) {
       let add = null, addR = null, gain = 0;
       stops.forEach(s => {
         if (pick.includes(s) || !pick.some(x => miles(x.p, s.p) <= reach)) return;
@@ -2192,7 +2236,7 @@ function planTwo(stops) {                       // two days that don't share a d
 }
 let planRank = {};                              // VIN -> 1, 2, 3... over all favorites, by the user's order
 function planTags(c) {
-  const t = [`<b>#${planRank[c.vin]}</b> of your favorites`];
+  const t = [`<b>#${planRank[c.vin]}</b> of ${planOpt.from === "all" ? "these cars" : "your favorites"}`];
   const ro = roofOpen(c); t.push(ro === "Opens" ? "sunroof opens" : ro === "Fixed glass" ? "fixed glass roof" : roofOf(c).v === "Yes" ? "sunroof" : "no sunroof shown");
   t.push(/awd|4wd|4x4|all/i.test(c.drivetrain || "") ? "AWD" : (c.drivetrain || "drive ?"));
   if (soundOf(c).v === "Yes") t.push(esc(soundOf(c).t).split("(")[0].trim() || "premium sound");
@@ -2223,13 +2267,16 @@ let planKey = "";
 function renderPlan() {
   const box = document.getElementById("planbox");
   const cars = planCars();
-  const key = cars.map(c => c.vin + ":" + c.price_total).join(",");   // same favorites and prices: the plan on screen is still right
+  const key = JSON.stringify(planOpt) + cars.map(c => c.vin + ":" + c.price_total).join(",");   // same favorites and prices: the plan on screen is still right
   if (key === planKey && box.innerHTML) return;
   planKey = key;
   const stops = planStops(cars);
-  const over = planFavs().length - cars.length;
-  const overNote = over ? ` ${over} favorite${over > 1 ? "s" : ""} over ${fmt$(PLAN_MAX_PRICE)} (or with no price shown) ${over > 1 ? "are" : "is"} left out.` : "";
-  if (!stops.length) { box.innerHTML = `<p class="small">Tap <b>&#9825; Save</b> on cars at ${fmt$(PLAN_MAX_PRICE)} or less (fees included) that you want to test drive, and the plans show up here.${overNote}</p>`; return; }
+  const what = planOpt.from === "all" ? "matching car" : "favorite", pl = n => n === 1 ? "" : "s";
+  const hidden = planCounts.pool - planCounts.shown, over = planCounts.shown - planCounts.priced;
+  const overNote = (hidden ? ` ${hidden} ${what}${pl(hidden)} hidden by the filters.` : "")
+    + (over ? ` ${over} over ${fmt$(+planOpt.max)} (or with no price shown) left out.` : "")
+    + (planOpt.from === "all" && planCounts.priced > PLAN_ALL_TOP ? ` Planned from the best ${PLAN_ALL_TOP} of ${planCounts.priced}.` : "");
+  if (!stops.length) { box.innerHTML = `<p class="small">No ${what}s fit these settings and filters.${overNote} ${planOpt.from === "fav" ? "Tap <b>&#9825; Save</b> on cars you want to test drive, or pick <b>All matching cars</b> above." : ""}</p>`; return; }
   cars.slice().sort((a, b) => planValue(b) - planValue(a)).forEach((c, i) => planRank[c.vin] = i + 1);
   // one day: the best-ranked favorites count extra, so a top car isn't left for a second day that may not happen
   const TOP = Math.max(3, Math.min(8, Math.ceil(cars.length / 5)));
@@ -2240,8 +2287,8 @@ function renderPlan() {
   const left = used => stops.filter(s => !used.has(s.name)).sort((a, b) => b.value - a.value);
   const leftHtml = used => { const l = left(used); return l.length ? `<details><summary class="small">Favorites not in this plan (${l.reduce((s, x) => s + x.cars.length, 0)} cars at ${l.length} dealers, too far to fit)</summary>
     <ul class="pc">${l.map(s => `<li>${esc(s.name)}, ${esc(s.p.city || "")} (${Math.round(roadMi(HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : s.p, s.p))} mi from home): ${s.cars.map(c => `${esc(c.title)} ${fmt$(c.price_total)}`).join("; ")}</li>`).join("")}</ul></details>` : ""; };
-  box.innerHTML = `<div class="small">Planned from ${cars.length} favorite${cars.length > 1 ? "s" : ""} still for sale at ${stops.length} dealers (worked out ${esc(shortDate(todayISO()))}, from the search of ${esc(shortDate(D.today || ""))}).
-      Only cars at ${fmt$(PLAN_MAX_PRICE)} or less, fees included, are planned.${overNote}
+  box.innerHTML = `<div class="small">Planned from ${cars.length} ${what}${pl(cars.length)} still for sale at ${stops.length} dealers (worked out ${esc(shortDate(todayISO()))}, from the search of ${esc(shortDate(D.today || ""))}).
+      ${+planOpt.max ? `Only cars at ${fmt$(+planOpt.max)} or less, fees included.` : "Any price."}${overNote}
       Within each stop, cars are cheapest first; #1 is your best favorite by price, then opening sunroof, then AWD, then premium sound.
       Tap <b>&#9829; Saved</b> on a car to take it off your favorites, and both plans are worked out again right away.</div>
     <div class="plan"><h3>One day</h3><div class="small">Built to take in as many of your top ${TOP} favorites as one day of Ubering allows.</div>${planDayHtml(one, "Day")}
@@ -2257,7 +2304,7 @@ function showTab(which) {
   ["avail", "gone", "cmp", "guide", "check", "mine", "plan"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
   document.getElementById("fav-extra").hidden = !favOnly;
   render();
-  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check" || which === "mine" || which === "plan";   // car filters don't apply there
+  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check" || which === "mine";   // car filters (they apply to the Test drives plans too) don't apply there
   document.getElementById("footnote").hidden = which === "guide" || which === "check" || which === "mine" || which === "plan";
   if (which === "cmp") renderCompare();
   if (which === "plan") renderPlan();
@@ -2272,7 +2319,7 @@ document.getElementById("tab-fav").addEventListener("click", () => showTab("fav"
 document.getElementById("tab-check").addEventListener("click", () => showTab("check"));
 document.getElementById("tab-mine").addEventListener("click", () => showTab("mine"));
 document.getElementById("tab-plan").addEventListener("click", () => showTab("plan"));
-renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
+planOptsInit(); renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
 try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine", "plan"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
 document.getElementById("sort-a").addEventListener("change", e => { const [k, d] = e.target.value.split(":"); sortK = k; dir = +d; render(); });
