@@ -705,7 +705,9 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .plan .leg { color:var(--muted); font-size:13px; margin:2px 0 0; }
 .plan ul.pc { margin:3px 0; padding-left:18px; } .plan ul.pc li { margin:2px 0; }
 .plan .tags { font-size:12px; color:var(--muted); }
-.planopts { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 4px; }
+.planopts { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 4px; align-items:center; }
+.pinbtn { font-size:12px; padding:2px 8px; margin-left:4px; } .pinbtn[aria-pressed="true"] { background:var(--accent, #2c6e57); color:#fff; }
+.podist { display:flex; flex-direction:column; min-width:220px; } .podist input { width:100%; }
 #trip ol { margin:6px 0; padding-left:22px; } #trip li { margin:3px 0; }
 #trip .x { border:0; background:none; color:var(--muted); font-size:16px; padding:0 6px; }
 .shown .clear { margin-left:8px; font-weight:400; }
@@ -978,6 +980,7 @@ The plan is worked out again every time this page loads, so new searches, price 
   <label class="small">Plan from <select id="po-from"><option value="fav">My &#9829; favorites</option><option value="all">All matching cars</option></select></label>
   <label class="small">Price up to <select id="po-max"><option value="30000">$30,000</option><option value="32500">$32,500</option><option value="35500">$35,500</option><option value="38000">$38,000</option><option value="40500">$40,500</option><option value="0">Any price</option></select></label>
   <label class="small">Dealers a day <select id="po-stops"><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+  <label class="small podist">Dealers within <b id="po-dist-v"></b> of home<input type="range" id="po-dist" min="5" max="60" step="5" aria-label="How far from home a dealer can be"></label>
   <label class="pill"><input type="checkbox" id="po-calls"><span>Include "needs a call" cars</span></label>
   <button type="button" class="cbtn ghost" id="po-reset">Reset</button>
 </div>
@@ -2131,10 +2134,12 @@ function planValue(c) {                         // the user's order: price, then
 const PLAN_MAX_PRICE = 35500;                   // test drives only for cars at or under this, fees included (user, Nov 2 2026)
 // the planner's own settings (Nov 4 2026, user: "make the test drive tab able to support filters so that i can vary the
 // test drive routes"); the filter panel applies too. Kept per viewer.
-let planOpt = {from: "fav", max: PLAN_MAX_PRICE, stops: PLAN_MAX_STOPS, calls: true};
+const PLAN_DIST = 60;                           // the search's own edge: dealers up to 60 mi from home
+let planOpt = {from: "fav", max: PLAN_MAX_PRICE, stops: PLAN_MAX_STOPS, calls: true, dist: PLAN_DIST};
 try { planOpt = {...planOpt, ...(JSON.parse(localStorage.getItem(PK + "planopt") || "{}") || {})}; } catch (e) {}
 const planPool = () => D.cars.filter(c => (planOpt.from === "all" || fav.includes(c.vin)) && !mineGone[c.vin] && !dis.includes(c.vin) && PL[c.dealer]
-                                          && (planOpt.calls || !c.needs_call));
+                                          && (planOpt.calls || !c.needs_call)
+                                          && (+planOpt.dist >= PLAN_DIST || (num(c.distance_mi) != null && num(c.distance_mi) <= +planOpt.dist)));
 const PLAN_ALL_TOP = 40;                        // "all matching cars": the best 40 by the plan's order (more makes planning slow)
 let planCounts = {pool: 0, shown: 0, priced: 0};
 function planCars() {
@@ -2147,16 +2152,20 @@ function planCars() {
 function planOptsInit() {
   const box = document.getElementById("planopts"); if (!box) return;
   const set = (id, v) => { const el = document.getElementById(id); if (el.type === "checkbox") el.checked = !!v; else el.value = String(v); };
-  set("po-from", planOpt.from); set("po-max", planOpt.max); set("po-stops", planOpt.stops); set("po-calls", planOpt.calls);
+  const distLabel = () => { const v = +document.getElementById("po-dist").value;
+    document.getElementById("po-dist-v").textContent = v >= PLAN_DIST ? `any (up to ${PLAN_DIST} mi)` : `${v} mi`; };
+  set("po-from", planOpt.from); set("po-max", planOpt.max); set("po-stops", planOpt.stops); set("po-calls", planOpt.calls); set("po-dist", planOpt.dist); distLabel();
+  document.getElementById("po-dist").addEventListener("input", distLabel);
   box.addEventListener("change", () => {
     planOpt = {from: document.getElementById("po-from").value, max: +document.getElementById("po-max").value,
-               stops: +document.getElementById("po-stops").value, calls: document.getElementById("po-calls").checked};
+               stops: +document.getElementById("po-stops").value, calls: document.getElementById("po-calls").checked,
+               dist: +document.getElementById("po-dist").value, pins: planOpt.pins || []};
     try { localStorage.setItem(PK + "planopt", JSON.stringify(planOpt)); } catch (e) {}
     planKey = ""; renderPlan(); });
   document.getElementById("po-reset").addEventListener("click", () => {
-    planOpt = {from: "fav", max: PLAN_MAX_PRICE, stops: PLAN_MAX_STOPS, calls: true};
+    planOpt = {from: "fav", max: PLAN_MAX_PRICE, stops: PLAN_MAX_STOPS, calls: true, dist: PLAN_DIST};
     try { localStorage.removeItem(PK + "planopt"); } catch (e) {}
-    set("po-from", planOpt.from); set("po-max", planOpt.max); set("po-stops", planOpt.stops); set("po-calls", planOpt.calls);
+    set("po-from", planOpt.from); set("po-max", planOpt.max); set("po-stops", planOpt.stops); set("po-calls", planOpt.calls); set("po-dist", planOpt.dist); distLabel();
     planKey = ""; renderPlan(); });
 }
 function planStops(cars) {                      // one entry per dealer with its favorites, best first
@@ -2189,13 +2198,14 @@ function planRouteNew(stops) {                  // the shortest order from home 
   go([], stops);
   return best;
 }
-function planDay(stops, bonus, maxMi = PLAN_MAX_MI, reach = PLAN_REACH) {                // the best day: grow a cluster from each dealer, adding the neighbor worth the most for the extra miles
+function planDay(stops, bonus, maxMi = PLAN_MAX_MI, reach = PLAN_REACH, pins = []) {   // the best day: grow a cluster from each dealer, adding the neighbor worth the most for the extra miles
   const worth = s => s.value + (bonus ? bonus(s) : 0);
-  const between = r => r.miles - r.stops[0].leg;
+  const pinned = stops.filter(s => pins.includes(s.name));      // dealers you pinned are always in the day; the rest is built around them
+  if (pinned.length) { const r0 = planRoute(pinned); maxMi = Math.max(maxMi, r0.miles + r0.back + 25); }
   const cost = r => 0.25 * (r.miles + r.back) + (r.miles + r.back > maxMi ? 99 : 0);   // every Uber mile counts the same; a day over the cap is out
   let best = null;
-  stops.forEach(seed => {
-    let pick = [seed], r = planRoute(pick);
+  (pinned.length ? [pinned] : stops.map(s => [s])).forEach(start => {
+    let pick = start.slice(), r = planRoute(pick);
     while (pick.length < (+planOpt.stops || PLAN_MAX_STOPS)) {
       let add = null, addR = null, gain = 0;
       stops.forEach(s => {
@@ -2209,7 +2219,7 @@ function planDay(stops, bonus, maxMi = PLAN_MAX_MI, reach = PLAN_REACH) {       
       again = false;
       const now = pick.reduce((t, x) => t + worth(x), 0) - cost(r);
       for (const out of pick) for (const s of stops) {
-        if (again || pick.includes(s)) continue;
+        if (again || pick.includes(s) || pinned.includes(out)) continue;
         const trial = pick.filter(x => x !== out).concat([s]);
         if (!trial.some(x => miles(x.p, s.p) <= reach && x !== s)) continue;   // the new stop must be near one of the others
         const r2 = planRoute(trial), sc = trial.reduce((t, x) => t + worth(x), 0) - cost(r2);
@@ -2221,8 +2231,12 @@ function planDay(stops, bonus, maxMi = PLAN_MAX_MI, reach = PLAN_REACH) {       
   });
   return best;
 }
-function planTwo(stops) {                       // two days that don't share a dealer, best total
+function planTwo(stops, pins = []) {           // two days that don't share a dealer, best total
   let best = null;
+  if (stops.some(s => pins.includes(s.name))) {   // pinned dealers go on Day 1, the second day is the best of the rest
+    const d1 = planDay(stops, null, PLAN_MAX_MI, PLAN_REACH, pins), rest = stops.filter(s => !d1.stops.some(x => x.name === s.name));
+    return {days: [d1, rest.length ? planDay(rest) : null].filter(Boolean)};
+  }
   const firsts = stops.slice().sort((a, b) => b.value - a.value).slice(0, 8);
   firsts.forEach(seed => {
     const d1 = planDay(stops.filter(s => miles(seed.p, s.p) <= 2 * PLAN_REACH));
@@ -2234,6 +2248,14 @@ function planTwo(stops) {                       // two days that don't share a d
   if (best && best.days.length === 2 && best.days[1].score > best.days[0].score) best.days.reverse();
   return best;
 }
+const isPinned = n => (planOpt.pins || []).includes(n);
+const pinBtn = n => `<button type="button" class="cbtn ghost pinbtn" data-pin="${esc(n)}" aria-pressed="${isPinned(n)}" title="A pinned dealer is always in the plans">${isPinned(n) ? "&#128204; Pinned (tap to unpin)" : "&#128204; Pin to the plan"}</button>`;
+document.addEventListener("click", e => {
+  const b = e.target.closest(".pinbtn"); if (!b) return;
+  const n = b.dataset.pin, pins = planOpt.pins || [];
+  planOpt.pins = pins.includes(n) ? pins.filter(x => x !== n) : pins.concat([n]);
+  try { localStorage.setItem(PK + "planopt", JSON.stringify(planOpt)); } catch (err) {}
+  planKey = ""; renderPlan(); });
 let planRank = {};                              // VIN -> 1, 2, 3... over all favorites, by the user's order
 function planTags(c) {
   const t = [`<b>#${planRank[c.vin]}</b> of ${planOpt.from === "all" ? "these cars" : "your favorites"}`];
@@ -2254,7 +2276,7 @@ function planDayHtml(d, label) {
   return `<h4>${label}: ${esc([...new Set(d.stops.map(s => s.p.city).filter(Boolean))].join(" → "))}</h4>
     <div class="small">${d.stops.length} dealer${d.stops.length > 1 ? "s" : ""}, ${n} car${n > 1 ? "s" : ""} · about ${Math.round(between)} mi of Uber between dealers
       (${Math.round(d.stops[0].leg)} mi from home to the first, ${Math.round(d.back)} mi back)</div>
-    <ol class="stops">${d.stops.map((s, i) => `<li><b>${esc(s.name)}</b>, ${esc(s.p.city || "")}
+    <ol class="stops">${d.stops.map((s, i) => `<li><b>${esc(s.name)}</b>, ${esc(s.p.city || "")} ${pinBtn(s.name)}
       <div class="leg">${i ? `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from the last stop` : `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from home`}
         · <a href="${gmSearch(s.name)}" target="_blank" rel="noopener">map</a></div>
       <ul class="pc">${s.cars.map(c => `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
@@ -2273,7 +2295,10 @@ function renderPlan() {
   const stops = planStops(cars);
   const what = planOpt.from === "all" ? "matching car" : "favorite", pl = n => n === 1 ? "" : "s";
   const hidden = planCounts.pool - planCounts.shown, over = planCounts.shown - planCounts.priced;
-  const overNote = (hidden ? ` ${hidden} ${what}${pl(hidden)} hidden by the filters.` : "")
+  const far = +planOpt.dist < PLAN_DIST ? D.cars.filter(c => (planOpt.from === "all" || fav.includes(c.vin)) && !mineGone[c.vin] && !dis.includes(c.vin)
+                                                           && !(num(c.distance_mi) != null && num(c.distance_mi) <= +planOpt.dist)).length : 0;
+  const overNote = (far ? ` ${far} ${what}${pl(far)} at dealers more than ${+planOpt.dist} mi away left out.` : "")
+    + (hidden ? ` ${hidden} ${what}${pl(hidden)} hidden by the filters.` : "")
     + (over ? ` ${over} over ${fmt$(+planOpt.max)} (or with no price shown) left out.` : "")
     + (planOpt.from === "all" && planCounts.priced > PLAN_ALL_TOP ? ` Planned from the best ${PLAN_ALL_TOP} of ${planCounts.priced}.` : "");
   if (!stops.length) { box.innerHTML = `<p class="small">No ${what}s fit these settings and filters.${overNote} ${planOpt.from === "fav" ? "Tap <b>&#9825; Save</b> on cars you want to test drive, or pick <b>All matching cars</b> above." : ""}</p>`; return; }
@@ -2281,12 +2306,13 @@ function renderPlan() {
   // one day: the best-ranked favorites count extra, so a top car isn't left for a second day that may not happen
   const TOP = Math.max(3, Math.min(8, Math.ceil(cars.length / 5)));
   const topBonus = s => s.cars.reduce((t, c) => t + (planRank[c.vin] <= TOP ? 4 * (1 + (TOP - planRank[c.vin]) / TOP) : 0), 0);
-  const one = planDay(stops, topBonus, PLAN_ONE_MI, 1.5 * PLAN_REACH), two = planTwo(stops);
+  const pins = (planOpt.pins || []).filter(n => stops.some(s => s.name === n));
+  const one = planDay(stops, topBonus, PLAN_ONE_MI, 1.5 * PLAN_REACH, pins), two = planTwo(stops, pins);
   const missed = cars.filter(c => planRank[c.vin] <= TOP && !one.stops.some(s => s.name === c.dealer)).sort((a, b) => planRank[a.vin] - planRank[b.vin]);
   const used1 = new Set(one.stops.map(s => s.name)), used2 = new Set(two.days.flatMap(d => d.stops.map(s => s.name)));
   const left = used => stops.filter(s => !used.has(s.name)).sort((a, b) => b.value - a.value);
-  const leftHtml = used => { const l = left(used); return l.length ? `<details><summary class="small">Favorites not in this plan (${l.reduce((s, x) => s + x.cars.length, 0)} cars at ${l.length} dealers, too far to fit)</summary>
-    <ul class="pc">${l.map(s => `<li>${esc(s.name)}, ${esc(s.p.city || "")} (${Math.round(roadMi(HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : s.p, s.p))} mi from home): ${s.cars.map(c => `${esc(c.title)} ${fmt$(c.price_total)}`).join("; ")}</li>`).join("")}</ul></details>` : ""; };
+  const leftHtml = used => { const l = left(used); return l.length ? `<details><summary class="small">${planOpt.from === "all" ? "Cars" : "Favorites"} not in this plan (${l.reduce((s, x) => s + x.cars.length, 0)} cars at ${l.length} dealers, too far to fit): tap &#128204; to add a dealer</summary>
+    <ul class="pc">${l.map(s => `<li>${pinBtn(s.name)} ${esc(s.name)}, ${esc(s.p.city || "")} (${Math.round(roadMi(HOME.lat != null ? {lat: +HOME.lat, lon: +HOME.lon} : s.p, s.p))} mi from home): ${s.cars.map(c => `${esc(c.title)} ${fmt$(c.price_total)}`).join("; ")}</li>`).join("")}</ul></details>` : ""; };
   box.innerHTML = `<div class="small">Planned from ${cars.length} ${what}${pl(cars.length)} still for sale at ${stops.length} dealers (worked out ${esc(shortDate(todayISO()))}, from the search of ${esc(shortDate(D.today || ""))}).
       ${+planOpt.max ? `Only cars at ${fmt$(+planOpt.max)} or less, fees included.` : "Any price."}${overNote}
       Within each stop, cars are cheapest first; #1 is your best favorite by price, then opening sunroof, then AWD, then premium sound.
