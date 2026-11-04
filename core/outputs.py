@@ -2302,18 +2302,40 @@ function dayRoute(d) {                          // Google Maps driving route: ho
 }
 const dayCities = d => [...new Set(d.stops.map(s => s.p.city).filter(Boolean))].join(" → ");
 // the itinerary as plain text, for copying, a text message or the share sheet (Nov 4 2026, user asked)
+// tidy pieces for the text version: "2023 Mercedes-Benz EQB 4WD Sport Utility Vehicles" -> "2023 Mercedes-Benz EQB"
+const tidyTitle = c => String(c.title || "").replace(/\b(4wd|awd|fwd|rwd|4x4)?\s*sport utility( vehicles?)?\b/ig, "").replace(/\s+/g, " ").trim();
+const tidyColor = v => String(v || "?").replace(/\s*(\/|\bw\/|\bwith\b)\s*[a-z ]+?\s+(top)?stitching\b/ig, "").replace(/\b(metallic|pearl(coat)?|tri-?coat|tinted clearcoat|clearcoat|mica)\b/ig, "").replace(/\s+/g, " ").replace(/\s*\/\s*/g, "/").trim() || "?";
+const kMiles = v => num(v) == null ? "? mi" : (num(v) >= 1000 ? Math.round(num(v) / 1000) + "k mi" : Math.round(num(v)) + " mi");
+function carLine(c) {                           // features in a few words: sunroof, drive, sound
+  const f = [], ro = roofOpen(c);
+  f.push(ro === "Opens" ? "sunroof opens" : ro === "Fixed glass" ? "fixed glass roof" : roofOf(c).v === "Yes" ? "sunroof" : "no sunroof listed");
+  f.push(/awd|4wd|4x4|all/i.test(c.drivetrain || "") ? "AWD" : (c.drivetrain || ""));
+  if (soundOf(c).v === "Yes") f.push(String(soundOf(c).t).split("(")[0].replace(/premium sound system/i, "").trim() || "premium sound");
+  const t = f.filter(Boolean).join(" · ");
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+// the itinerary as plain text, for copying, a text message or the share sheet (Nov 4 2026, user asked; reformatted the same day:
+// short lines that read well in Messages, the day's route link at the top of each day, one link per car)
 function planText(days, title) {
-  const L = [`${title}, from Ross's CPO Finder (${shortDate(todayISO())})`];
+  const d0 = new Date(), when = d0.toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric"});
+  const L = [`🚗 ${title.replace(/^Test drives: /, "Test drives, ")} (${when})`];
   days.forEach((d, k) => {
-    L.push("", `${days.length > 1 ? "DAY " + (k + 1) : "THE DAY"}: ${dayCities(d)}`, `Route: ${dayRoute(d)}`);
+    const n = d.stops.reduce((t, s) => t + s.cars.length, 0), mi = Math.round(d.miles + d.back);
+    L.push("", "━━━━━━━━━━━━", `${days.length > 1 ? "DAY " + (k + 1) : "THE DAY"}: ${dayCities(d)}`,
+           `${d.stops.length} dealers · ${n} car${n === 1 ? "" : "s"} · about ${mi} mi of Uber in all`, "", `🗺 Route: ${dayRoute(d)}`);
     d.stops.forEach((s, i) => {
-      L.push("", `${i + 1}. ${s.name}${s.p.address ? ", " + s.p.address : ""}${s.p.city ? ", " + s.p.city : ""}`
-        + ` (about ${Math.round(s.leg)} mi from ${i ? "the last stop" : "home"})`);
-      s.cars.forEach(c => L.push(`   - ${c.title}: ${fmt$(c.price_total)}, ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi, `
-        + `${c.ext_color || "?"} / ${c.int_color || "?"}${c.needs_call ? " (ask: " + c.needs_call + ")" : ""}`, `     VIN ${c.vin}  ${c.listing_url}`));
+      L.push("", `📍 ${i + 1}. ${s.name}${isPinned(s.name) ? " (pinned)" : ""}`);
+      if (s.p.address) L.push(`${s.p.address}, ${s.p.city || ""}`.replace(/, $/, ""));
+      else if (s.p.city) L.push(s.p.city);
+      L.push(`${Math.round(s.leg)} mi (~${legMin(s.leg)} min) from ${i ? "the last stop" : "home"}`);
+      s.cars.forEach(c => {
+        L.push("", `• ${tidyTitle(c)}: ${fmt$(c.price_total)}`, `  ${kMiles(c.mileage)} · ${tidyColor(c.ext_color)} / ${tidyColor(c.int_color)}`, `  ${carLine(c)}`);
+        if (c.needs_call) L.push(`  Ask: ${c.needs_call}`);
+        L.push(`  ${c.listing_url}`);
+      });
     });
   });
-  L.push("", "Call ahead to confirm each car is still there, and ask for an out-the-door price.");
+  L.push("", "━━━━━━━━━━━━", "Before going: call each dealer to confirm the car is there, and ask for the out-the-door price.");
   return L.join("\n");
 }
 let planShown = {};                              // the plans on screen, for the copy / text / print buttons
