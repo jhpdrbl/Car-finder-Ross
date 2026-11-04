@@ -23,7 +23,7 @@ SITE = ROOT / "site"
 
 PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
-<title>CPO SUV Digest</title>
+<title>CPO Digest</title>
 <style>
 :root {{ --bg:#f5f6f4; --fg:#1d211f; --muted:#5f6862; --accent:#2c6e57; color-scheme: light; }}
 @media (prefers-color-scheme: dark) {{ :root {{ --bg:#121513; --fg:#e5e9e6; --muted:#9aa49e; --accent:#7cc7a8; color-scheme: dark; }} }}

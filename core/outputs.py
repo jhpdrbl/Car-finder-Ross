@@ -513,7 +513,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
         .replace("__CALLS__", str(sum(1 for c in cars if c["needs_call"]))) \
         .replace("__NAVAIL__", str(len(cars))) \
         .replace("__MPY__", f'{P.cfg.get("warranty", {}).get("miles_per_year", 12000):,}').replace("__NGONE__", str(len(gone))) \
-        .replace("__TITLE__", f"{html.escape(P.label)}'s CPO SUV Finder").replace("__SCOREHELP__", score_help(P))
+        .replace("__TITLE__", f"{html.escape(P.label)}'s CPO Finder").replace("__SCOREHELP__", score_help(P))
     for k, v in theme_vars(P).items():
         page = page.replace(k, v)
     if len(profiles.all_profiles()) < 2:        # nobody to switch to
@@ -547,7 +547,7 @@ def write_chooser(today: str = "") -> Path:
 
 CHOOSER = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CPO SUV Finder</title>
+<title>CPO Finder</title>
 <style>
 :root { --bg:#f6f6f5; --fg:#1d211f; --muted:#5f6862; color-scheme: light; }
 @media (prefers-color-scheme: dark) { :root { --bg:#111312; --fg:#e5e9e6; --muted:#9aa49e; color-scheme: dark; } }
@@ -559,7 +559,7 @@ h1 { margin:0; font-size:26px; } p { margin:0; color:var(--muted); }
 .who b { font-size:28px; } .who span { font-size:15px; opacity:.92; } .who small { font-size:12px; opacity:.75; }
 .who:focus-visible { outline:3px solid var(--fg); outline-offset:3px; }
 </style></head><body><main>
-<h1>CPO SUV Finder</h1><p>Whose search do you want to see?</p>
+<h1>CPO Finder</h1><p>Whose search do you want to see?</p>
 __CARDS__
 <p style="font-size:13px">Last search __DATE__</p>
 </main>
