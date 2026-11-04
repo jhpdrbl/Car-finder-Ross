@@ -712,9 +712,10 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .plan ol.stops > li.pinned { background:color-mix(in srgb, var(--accent) 18%, transparent); border-left:4px solid var(--accent);
   border-radius:8px; padding:6px 10px; margin-left:-14px; list-style-position:inside; }
 .plan ul.pc li.pinned { background:color-mix(in srgb, var(--accent) 12%, transparent); border-radius:6px; padding:2px 6px; }
-.podist { display:flex; flex-direction:column; min-width:220px; }
+.podist { display:flex; flex-direction:column; min-width:220px; margin-right:8px; }
 /* the distance slider, drawn like the price / miles sliders: theme-colored fill up to the handle */
-.podist input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:24px; margin:4px 0 0; background:none; cursor:pointer; }
+.podist input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:24px; margin:4px 0 0; background:none; cursor:pointer;
+  padding:0 11px; border:0; border-radius:0; box-sizing:border-box; }   /* no input box around it; the side padding keeps the round handle inside at either end */
 .podist input[type=range]::-webkit-slider-runnable-track { height:6px; border-radius:3px;
   background:linear-gradient(to right, var(--accent) 0 var(--p, 100%), var(--line) var(--p, 100%) 100%); }
 .podist input[type=range]::-moz-range-track { height:6px; border-radius:3px; background:var(--line); }
