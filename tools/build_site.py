@@ -68,6 +68,33 @@ def _page(out: Path, dest: Path, cfg: dict) -> None:
     (dest / "index.html").write_text(page, encoding="utf-8")
 
 
+def slug(name: str) -> str:
+    """A dealer's short name for links: "Pacific BMW" -> "pacific-bmw" (the dashboard's JS makes the same)."""
+    return re.sub(r"[^a-z0-9]+", "-", (name or "").lower()).strip("-")
+
+
+def short_links(cfg: dict) -> None:
+    """Short links for the texted test-drive itinerary (Nov 4 2026, user asked for links instead of long addresses):
+    /c/<VIN> -> the dealer's listing (Cloudflare Pages _redirects, cars still listed or recently sold), and
+    places.json for /r/<dealer>/<dealer>/... (functions/r/[[path]].js turns it into a Google Maps route)."""
+    import csv
+    import json
+    data = ROOT / "data"
+    lines = []
+    with (data / "listings.csv").open(encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            url = (r.get("listing_url") or "").strip()
+            if r.get("status") in ("active", "sold") and re.fullmatch(r"[A-HJ-NPR-Z0-9]{17}", r.get("vin", "")) and url.startswith("http") and " " not in url:
+                lines.append(f"/c/{r['vin']} {url} 302")
+    (SITE / "_redirects").write_text("\n".join(lines[:1900]) + "\n", encoding="utf-8")   # Pages allows 2,000 static redirects
+    places = {}
+    with (data / "dealers.csv").open(encoding="utf-8", newline="") as f:
+        for d in csv.DictReader(f):
+            places[slug(d["dealer_name"])] = ", ".join(x for x in (d["dealer_name"], d.get("address", ""), d.get("city", ""), "CA") if x)
+    home = (cfg.get("home") or {}).get("zip", "")
+    (SITE / "places.json").write_text(json.dumps({"home": str(home), "d": places}), encoding="utf-8")
+
+
 def build() -> Path:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     if SITE.exists():
@@ -88,6 +115,7 @@ def build() -> Path:
         if pid != "ross" and (OUT / pid / "dashboard.html").exists():
             _page(OUT / pid, SITE / pid, cfg)
     (SITE / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n", encoding="utf-8")
+    short_links(cfg)
     return SITE
 
 

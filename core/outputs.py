@@ -504,7 +504,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
               for q in profiles.all_profiles()]
     for c in cars + gone:
         c["mkey"] = market_key(c)
-    data = json.dumps({"today": today, "mustOpen": bool((P.cfg.get("filters") or {}).get("sunroof_must_open", True)), "cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
+    data = json.dumps({"today": today, "site": ((P.cfg.get("publish") or {}).get("site_url") or "").rstrip("/"), "mustOpen": bool((P.cfg.get("filters") or {}).get("sunroof_must_open", True)), "cars": cars, "gone": gone, "market": _market(rows, hist, cars), "places": _places(cars, P), "failed": failed, "guide": guide, "warranty": warranty, "check": check_list(cov, P),
                        "profile": {"id": P.id, "label": P.label, "default": P.is_default}, "people": people,
                        "miles_per_year": P.cfg.get("warranty", {}).get("miles_per_year", 12000)}, ensure_ascii=False).replace("</", "<\\/")
     page = TEMPLATE.replace("__DATA__", data).replace("__DATE__", html.escape(today)) \
@@ -2316,13 +2316,18 @@ function carLine(c) {                           // features in a few words: sunr
 }
 // the itinerary as plain text, for copying, a text message or the share sheet (Nov 4 2026, user asked; reformatted the same day:
 // short lines that read well in Messages, the day's route link at the top of each day, one link per car)
+// short links through the website itself (tools/build_site.py: /c/<VIN> = _redirects, /r/<dealer>/... = functions/r)
+const SITE = /^https?:$/.test(location.protocol) && !/localhost|127\.0\.0\.1/.test(location.host) ? location.origin : (D.site || "");
+const dslug = n => String(n || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const carLink = c => SITE && /^[A-HJ-NPR-Z0-9]{17}$/.test(c.vin) ? `${SITE}/c/${c.vin}` : c.listing_url;
+const routeLink = d => SITE ? `${SITE}/r/${d.stops.map(s => dslug(s.name)).join("/")}` : dayRoute(d);
 function planText(days, title) {
   const d0 = new Date(), when = d0.toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric"});
   const L = [`🚗 ${title.replace(/^Test drives: /, "Test drives, ")} (${when})`];
   days.forEach((d, k) => {
     const n = d.stops.reduce((t, s) => t + s.cars.length, 0), mi = Math.round(d.miles + d.back);
     L.push("", "━━━━━━━━━━━━", `${days.length > 1 ? "DAY " + (k + 1) : "THE DAY"}: ${dayCities(d)}`,
-           `${d.stops.length} dealers · ${n} car${n === 1 ? "" : "s"} · about ${mi} mi of Uber in all`, "", `🗺 Route: ${dayRoute(d)}`);
+           `${d.stops.length} dealers · ${n} car${n === 1 ? "" : "s"} · about ${mi} mi of Uber in all`, "", `🗺 Route: ${routeLink(d)}`);
     d.stops.forEach((s, i) => {
       L.push("", `📍 ${i + 1}. ${s.name}${isPinned(s.name) ? " (pinned)" : ""}`);
       if (s.p.address) L.push(`${s.p.address}, ${s.p.city || ""}`.replace(/, $/, ""));
@@ -2331,15 +2336,35 @@ function planText(days, title) {
       s.cars.forEach(c => {
         L.push("", `• ${tidyTitle(c)}: ${fmt$(c.price_total)}`, `  ${kMiles(c.mileage)} · ${tidyColor(c.ext_color)} / ${tidyColor(c.int_color)}`, `  ${carLine(c)}`);
         if (c.needs_call) L.push(`  Ask: ${c.needs_call}`);
-        L.push(`  ${c.listing_url}`);
+        L.push(`  ${carLink(c)}`);
       });
     });
   });
   L.push("", "━━━━━━━━━━━━", "Before going: call each dealer to confirm the car is there, and ask for the out-the-door price.");
   return L.join("\n");
 }
+// the same itinerary with real links ("Open listing", "Route in Google Maps"), for Notes, Mail or a document
+function planHtml(days, title) {
+  const when = new Date().toLocaleDateString("en-US", {weekday: "short", month: "short", day: "numeric"});
+  let h = `<p><b>🚗 ${esc(title.replace(/^Test drives: /, "Test drives, "))} (${esc(when)})</b></p>`;
+  days.forEach((d, k) => {
+    const n = d.stops.reduce((t, s) => t + s.cars.length, 0), mi = Math.round(d.miles + d.back);
+    h += `<p><b>${days.length > 1 ? "Day " + (k + 1) : "The day"}: ${esc(dayCities(d))}</b><br>${d.stops.length} dealers · ${n} car${n === 1 ? "" : "s"} · about ${mi} mi of Uber in all<br>`
+      + `🗺 <a href="${esc(dayRoute(d))}">Route in Google Maps</a></p><ol>`;
+    d.stops.forEach((s, i) => {
+      h += `<li><b>${esc(s.name)}</b>${isPinned(s.name) ? " (pinned)" : ""}<br>${esc(s.p.address ? s.p.address + ", " + (s.p.city || "") : s.p.city || "")}`
+        + `<br>${Math.round(s.leg)} mi (~${legMin(s.leg)} min) from ${i ? "the last stop" : "home"}<ul>`;
+      s.cars.forEach(c => { h += `<li>${esc(tidyTitle(c))}: <b>${fmt$(c.price_total)}</b>, ${kMiles(c.mileage)}, ${esc(tidyColor(c.ext_color))} / ${esc(tidyColor(c.int_color))}`
+        + `<br>${esc(carLine(c))}${c.needs_call ? "<br>Ask: " + esc(c.needs_call) : ""}<br><a href="${esc(c.listing_url)}">Open listing</a></li>`; });
+      h += "</ul></li>";
+    });
+    h += "</ol>";
+  });
+  return h + "<p>Before going: call each dealer to confirm the car is there, and ask for the out-the-door price.</p>";
+}
 let planShown = {};                              // the plans on screen, for the copy / text / print buttons
 const planActs = k => `<div class="planact"><button type="button" class="cbtn ghost" data-pact="copy" data-plan="${k}">&#128203; Copy as text</button>
+  <button type="button" class="cbtn ghost" data-pact="rich" data-plan="${k}" title="For Notes, Mail or a document: the links show as words">&#128279; Copy with links</button>
   <button type="button" class="cbtn ghost" data-pact="share" data-plan="${k}">&#128172; Text it</button>
   <button type="button" class="cbtn ghost" data-pact="print" data-plan="${k}">&#128424; Print</button></div>`;
 async function copyText(t) {
@@ -2353,6 +2378,12 @@ document.addEventListener("click", async e => {
   const text = planText(p.days, p.title), act = b.dataset.pact, was = b.innerHTML;
   const flash = msg => { b.innerHTML = msg; setTimeout(() => b.innerHTML = was, 2000); };
   if (act === "copy") flash(await copyText(text) ? "&#10003; Copied: paste it anywhere" : "Couldn't copy");
+  else if (act === "rich") {
+    let ok = false;
+    try { await navigator.clipboard.write([new ClipboardItem({"text/html": new Blob([planHtml(p.days, p.title)], {type: "text/html"}),
+                                                             "text/plain": new Blob([text], {type: "text/plain"})})]); ok = true; } catch (err) {}
+    flash(ok ? "&#10003; Copied: paste into Notes or Mail" : (await copyText(text) ? "&#10003; Copied as text" : "Couldn't copy"));
+  }
   else if (act === "share") {
     if (navigator.share) { try { await navigator.share({title: p.title, text}); } catch (err) {} }    // iPad / iPhone: the share sheet has Messages
     else location.href = "sms:?&body=" + encodeURIComponent(text);
