@@ -705,6 +705,14 @@ a { color:var(--accent); } .car a { font-weight:600; color:var(--fg); text-decor
 .plan .leg { color:var(--muted); font-size:13px; margin:2px 0 0; }
 .plan ul.pc { margin:3px 0; padding-left:18px; } .plan ul.pc li { margin:2px 0; }
 .plan .tags { font-size:12px; color:var(--muted); }
+.planact { display:flex; gap:6px; flex-wrap:wrap; margin:2px 0 6px; } .planact .cbtn { font-size:13px; padding:4px 10px; }
+.leg.addr { margin-top:0; }
+@media print {   /* Print: only the plan whose Print button was tapped, without buttons */
+  body.print-plan > *:not(#printbox) { display:none !important; }
+  #printbox .planact, #printbox .pinbtn, #printbox .favbtn, #printbox details, #printbox .cbtn { display:none; }
+  #printbox .plan { border:0; margin:0; padding:0; } #printbox li.pinned { background:none; }
+}
+#printbox { display:none; } @media print { body.print-plan #printbox { display:block; } }
 .planopts { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 4px; align-items:center; }
 .pinbtn { font-size:12px; padding:2px 8px; margin-left:4px; }
 .cbtn.pinbtn[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--on-accent); font-weight:600; }
@@ -2284,17 +2292,62 @@ function planTags(c) {
   if (isMine(c)) t.push("added by you: call to confirm it's still there");
   return t.join(" · ");
 }
-function planDayHtml(d, label) {
+function dayRoute(d) {                          // Google Maps driving route: home, then every stop in order
   const stopsQ = d.stops.map(s => placeQ(s.name));
-  const url = "https://www.google.com/maps/dir/?api=1&travelmode=driving" + (HOME_Q ? "&origin=" + encodeURIComponent(HOME_Q) : "")
+  return "https://www.google.com/maps/dir/?api=1&travelmode=driving" + (HOME_Q ? "&origin=" + encodeURIComponent(HOME_Q) : "")
     + "&destination=" + encodeURIComponent(stopsQ[stopsQ.length - 1])
     + (stopsQ.length > 1 ? "&waypoints=" + encodeURIComponent(stopsQ.slice(0, -1).join("|")) : "");
+}
+const dayCities = d => [...new Set(d.stops.map(s => s.p.city).filter(Boolean))].join(" → ");
+// the itinerary as plain text, for copying, a text message or the share sheet (Nov 4 2026, user asked)
+function planText(days, title) {
+  const L = [`${title}, from Ross's CPO Finder (${shortDate(todayISO())})`];
+  days.forEach((d, k) => {
+    L.push("", `${days.length > 1 ? "DAY " + (k + 1) : "THE DAY"}: ${dayCities(d)}`, `Route: ${dayRoute(d)}`);
+    d.stops.forEach((s, i) => {
+      L.push("", `${i + 1}. ${s.name}${s.p.address ? ", " + s.p.address : ""}${s.p.city ? ", " + s.p.city : ""}`
+        + ` (about ${Math.round(s.leg)} mi from ${i ? "the last stop" : "home"})`);
+      s.cars.forEach(c => L.push(`   - ${c.title}: ${fmt$(c.price_total)}, ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi, `
+        + `${c.ext_color || "?"} / ${c.int_color || "?"}${c.needs_call ? " (ask: " + c.needs_call + ")" : ""}`, `     VIN ${c.vin}  ${c.listing_url}`));
+    });
+  });
+  L.push("", "Call ahead to confirm each car is still there, and ask for an out-the-door price.");
+  return L.join("\n");
+}
+let planShown = {};                              // the plans on screen, for the copy / text / print buttons
+const planActs = k => `<div class="planact"><button type="button" class="cbtn ghost" data-pact="copy" data-plan="${k}">&#128203; Copy as text</button>
+  <button type="button" class="cbtn ghost" data-pact="share" data-plan="${k}">&#128172; Text it</button>
+  <button type="button" class="cbtn ghost" data-pact="print" data-plan="${k}">&#128424; Print</button></div>`;
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); return true; } catch (e) {}
+  const ta = document.createElement("textarea"); ta.value = t; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch (e) {} ta.remove(); return ok;
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-pact]"); if (!b) return;
+  const p = planShown[b.dataset.plan]; if (!p) return;
+  const text = planText(p.days, p.title), act = b.dataset.pact, was = b.innerHTML;
+  const flash = msg => { b.innerHTML = msg; setTimeout(() => b.innerHTML = was, 2000); };
+  if (act === "copy") flash(await copyText(text) ? "&#10003; Copied: paste it anywhere" : "Couldn't copy");
+  else if (act === "share") {
+    if (navigator.share) { try { await navigator.share({title: p.title, text}); } catch (err) {} }    // iPad / iPhone: the share sheet has Messages
+    else location.href = "sms:?&body=" + encodeURIComponent(text);
+  } else if (act === "print") {
+    let pb = document.getElementById("printbox");          // a copy of just this plan, the only thing printed
+    if (!pb) { pb = document.createElement("div"); pb.id = "printbox"; document.body.appendChild(pb); }
+    pb.innerHTML = `<div class="small">Ross's CPO Finder, ${esc(shortDate(todayISO()))}</div>` + b.closest(".plan").outerHTML; document.body.classList.add("print-plan");
+    const done = () => { document.body.classList.remove("print-plan"); pb.innerHTML = ""; window.removeEventListener("afterprint", done); };
+    window.addEventListener("afterprint", done); window.print(); setTimeout(done, 60000);
+  }
+});
+function planDayHtml(d, label) {
+  const url = dayRoute(d);
   const n = d.stops.reduce((s, x) => s + x.cars.length, 0);
   const between = d.miles - d.stops[0].leg;
-  return `<h4>${label}: ${esc([...new Set(d.stops.map(s => s.p.city).filter(Boolean))].join(" → "))}</h4>
+  return `<h4>${label}: ${esc(dayCities(d))}</h4>
     <div class="small">${d.stops.length} dealer${d.stops.length > 1 ? "s" : ""}, ${n} car${n > 1 ? "s" : ""} · about ${Math.round(between)} mi of Uber between dealers
       (${Math.round(d.stops[0].leg)} mi from home to the first, ${Math.round(d.back)} mi back)</div>
-    <ol class="stops">${d.stops.map((s, i) => `<li${isPinned(s.name) ? ' class="pinned"' : ""}>${isPinned(s.name) ? "&#128204; " : ""}<b>${esc(s.name)}</b>, ${esc(s.p.city || "")} ${pinBtn(s.name)}
+    <ol class="stops">${d.stops.map((s, i) => `<li${isPinned(s.name) ? ' class="pinned"' : ""}>${isPinned(s.name) ? "&#128204; " : ""}<b>${esc(s.name)}</b>, ${esc(s.p.city || "")} ${pinBtn(s.name)}${s.p.address ? `<div class="leg addr">${esc(s.p.address)}, ${esc(s.p.city || "")}</div>` : ""}
       <div class="leg">${i ? `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from the last stop` : `about ${Math.round(s.leg)} mi, ~${legMin(s.leg)} min from home`}
         · <a href="${gmSearch(s.name)}" target="_blank" rel="noopener">map</a></div>
       <ul class="pc">${s.cars.map(c => `<li><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a>
@@ -2326,6 +2379,7 @@ function renderPlan() {
   const topBonus = s => s.cars.reduce((t, c) => t + (planRank[c.vin] <= TOP ? 4 * (1 + (TOP - planRank[c.vin]) / TOP) : 0), 0);
   const pins = (planOpt.pins || []).filter(n => stops.some(s => s.name === n));
   const one = planDay(stops, topBonus, PLAN_ONE_MI, 1.5 * PLAN_REACH, pins), two = planTwo(stops, pins);
+  planShown = {one: {title: "Test drives: one day", days: [one]}, two: {title: "Test drives: two days", days: two.days}};
   const missed = cars.filter(c => planRank[c.vin] <= TOP && !one.stops.some(s => s.name === c.dealer)).sort((a, b) => planRank[a.vin] - planRank[b.vin]);
   const used1 = new Set(one.stops.map(s => s.name)), used2 = new Set(two.days.flatMap(d => d.stops.map(s => s.name)));
   const left = used => stops.filter(s => !used.has(s.name)).sort((a, b) => b.value - a.value);
@@ -2335,9 +2389,9 @@ function renderPlan() {
       ${+planOpt.max ? `Only cars at ${fmt$(+planOpt.max)} or less, fees included.` : "Any price."}${overNote}
       Within each stop, cars are cheapest first; #1 is your best favorite by price, then opening sunroof, then AWD, then premium sound.
       Tap <b>&#9829; Saved</b> on a car to take it off your favorites, and both plans are worked out again right away.</div>
-    <div class="plan"><h3>One day</h3><div class="small">Built to take in as many of your top ${TOP} favorites as one day of Ubering allows.</div>${planDayHtml(one, "Day")}
+    <div class="plan"><h3>One day</h3>${planActs("one")}<div class="small">Built to take in as many of your top ${TOP} favorites as one day of Ubering allows.</div>${planDayHtml(one, "Day")}
       ${missed.length ? `<div class="small" style="margin-top:8px"><b>Top-ranked favorites not on this day</b> (too far to add): ${missed.map(c => `#${planRank[c.vin]} ${esc(c.title)} ${fmt$(c.price_total)} at ${esc(c.dealer)}, ${esc((PL[c.dealer] || {}).city || "")}`).join("; ")}</div>` : `<div class="small" style="margin-top:8px">All of your top ${TOP} favorites are on this day.</div>`}${leftHtml(used1)}</div>
-    <div class="plan"><h3>Two days</h3>${two.days.map((d, i) => planDayHtml(d, "Day " + (i + 1))).join("")}${leftHtml(used2)}</div>
+    <div class="plan"><h3>Two days</h3>${planActs("two")}${two.days.map((d, i) => planDayHtml(d, "Day " + (i + 1))).join("")}${leftHtml(used2)}</div>
     <div class="small"><b>Before you go:</b> call or email each dealer the day before to confirm the car is there and book a drive (cars added by you can't be checked by the search),
       ask for an out-the-door price in writing, look at <b>$ What to offer</b> on each car, and bring your license and proof of insurance. Distances are rough (straight line × 1.3).</div>`;
 }
