@@ -378,6 +378,9 @@ def apply_confirmed(L, c: dict | None) -> None:
         L.doc_fee, L.other_fees = float(c["fees"]), 0.0
     if (c.get("listing_url") or "").strip():   # the car's own page, when the user sent it (the feed only had a search link)
         L.listing_url, L.link_note = c["listing_url"].strip(), ""
+    hud = (c.get("hud") or "").strip().lower()
+    if hud in ("yes", "no"):                   # head-up display, from the window sticker / listing the user sent
+        L.hud = hud == "yes"
     if (c.get("msrp_new") or "").strip():      # the window sticker's total
         L.msrp_new, L.msrp_source = float(c["msrp_new"]), "listing"
 
@@ -527,7 +530,7 @@ def rescore(args) -> None:
                         mileage=int(float(r["mileage"])) if r["mileage"] else None, fuel_type=r["fuel_type"],
                         ext_color=r["ext_color"], int_color=r["int_color"], mpg_combined=f(r["mpg_combined"]),
                         audio=r["audio"], leather=b.get(r["leather"]), seats=r.get("seats", ""), sunroof=b.get(r["sunroof"]),
-                        ventilated_seats=b.get(r["ventilated_seats"]), spare_tire=b.get(r["spare_tire"]),
+                        ventilated_seats=b.get(r["ventilated_seats"]), hud=b.get(r.get("hud")), spare_tire=b.get(r["spare_tire"]),
                         ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
                         msrp_source=r.get("msrp_source", ""), body=r.get("body", ""), drivetrain=r.get("drivetrain", ""))
             apply_confirmed(L, confirmed.get(L.vin.upper()))
@@ -545,6 +548,7 @@ def rescore(args) -> None:
             L.ext_color = criteria.full_color_name(L.make, L.ext_color)
             r["msrp_new"], r["msrp_source"], r["ext_color"] = L.msrp_new or "", L.msrp_source, L.ext_color
             r["trim"], r["audio"], r["seats"], r["leather"] = L.trim, L.audio, L.seats, "" if L.leather is None else str(L.leather)
+            r["hud"] = "" if L.hud is None else str(L.hud)
             if L.sunroof is not None:
                 r["sunroof"] = str(L.sunroof)
                 if (confirmed.get(L.vin.upper()) or {}).get("sunroof"):   # the open question is answered

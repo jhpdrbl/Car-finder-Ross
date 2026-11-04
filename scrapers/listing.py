@@ -77,6 +77,7 @@ class Listing:
     leather: bool | None = None      # True = genuine leather, False = synthetic leather, None = not shown
     seats: str = ""                  # seat material: leather / synthetic / cloth ("" = not shown)
     ventilated_seats: bool | None = None
+    hud: bool | None = None          # head-up display named on the dealer's page (or confirmed); else the Trim guide decides
     spare_tire: bool | None = None
     spare_note: str = ""
     ground_clearance_in: float | None = None

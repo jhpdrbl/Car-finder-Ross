@@ -302,6 +302,7 @@ def score_help(P) -> str:
         "audio": "Premium sound system (Harman Kardon, B&O, Burmester…)",
         "leather": "Real leather seats (not shown on the listing: 40%)",
         "ventilated_seats": "Cooled seats (not shown: 40%)",
+        "hud": "Head-up display (not shown: 40%)",
         "ground_clearance": "Ground clearance of 8 inches or more",
         "spare_tire": "Spare tire (not shown: 40%)",
         "awd": "All-wheel drive (not shown: 30%)",
@@ -397,6 +398,15 @@ def _market(rows: list[dict], hist: dict, cars: list[dict]) -> list[dict]:
     return out
 
 
+def hud_of(r: dict) -> str:
+    """Head-up display: 'Yes' when the dealer's page / your check names one or the Trim guide lists it as standard, else ''."""
+    from core import criteria
+    if r.get("hud") in ("True", "False"):
+        return "Yes" if r["hud"] == "True" else "No"
+    year = int(r["year"]) if str(r.get("year") or "").isdigit() else None
+    return "Yes" if criteria.hud_standard(r.get("make", ""), r.get("model", ""), r.get("trim", ""), year, r.get("body", ""), r.get("listing_url", "")) else ""
+
+
 def roof_open(r: dict) -> str:
     """'Opens' / 'Fixed glass' / 'Not sure' for a car whose listing row says it has a sunroof ('' otherwise)."""
     from core import criteria
@@ -482,7 +492,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
                        "score_parts": criteria.score_breakdown(r) if r.get("score") not in ("", None) else []}
-                    | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P), "roof_open": roof_open(r)})
+                    | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P), "roof_open": roof_open(r), "hud": hud_of(r)})
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
     skipped = sum(c["status"] == "skipped" for c in cov)
@@ -1781,7 +1791,7 @@ function trimInfo(c) {      // this car's trim card in the Trim guide, when the 
 }
 // Compare tab rows: [label, show(car), value(car) for the ★, "low"/"high" = which is better]; a label alone = section heading
 const SCORE_NAMES = {price: "Price", phev: "Plug-in / electric", mpg: "Gas mileage", audio: "Premium sound", leather: "Leather",
-  real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire", year: "Model year",
+  real_leather: "Real leather", ventilated_seats: "Cooled seats", ground_clearance: "8+ in clearance", spare_tire: "Spare tire", year: "Model year", hud: "Head-up display",
   sunroof: "Sunroof", awd: "All-wheel drive", interior_color: "Black interior", roof_opens: "Sunroof opens", exterior_color: "Color", mileage: "Mileage"};
 const yesNo = v => v === "True" ? "Yes" : v === "False" ? "No" : "Not shown";
 const ageYears = c => { const y = num(c.year); if (!y) return null;      // in service ~April of the model year (as the warranty column)
@@ -1858,6 +1868,7 @@ const FIELDS = [
       c => ({"Opens": 2, "Not sure": 1, "Fixed glass": 0})[roofOpen(c)] ?? null, "high"],
   ["Upgraded sound", c => esc(soundOf(c).v) + (soundOf(c).t ? ` <span class="small">${esc(soundOf(c).t)}</span>` : ""), null, null],
   ["Seats", c => esc(seatOf(c).v) + (seatOf(c).t ? ` <span class="small">${esc(seatOf(c).t)}</span>` : ""), null, null],
+  ["Head-up display", c => c.hud || "Not sure", c => c.hud === "Yes" ? 1 : 0, "high"],
   ["Ventilated (cooled) seats", c => c.ventilated_seats ? yesNo(c.ventilated_seats) : (trimInfo(c) && /ventilat|cooled/i.test(trimInfo(c).seats || "") && !/no (ventilat|cool)|not? ventilat|without (ventilat|cool)/i.test(trimInfo(c).seats || "")
       ? "Yes <span class=\"small\">trim guide</span>" : "Not shown"), null, null],
   ["Spare tire", c => c.spare_tire === "True" ? "Yes" : c.spare_tire === "False" ? "No (repair kit)" : (trimInfo(c) && trimInfo(c).spare ? esc(trimInfo(c).spare) + ' <span class="small">trim guide</span>' : "Not shown"), null, null],

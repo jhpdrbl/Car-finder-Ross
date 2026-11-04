@@ -324,7 +324,7 @@ def enrich_from_dealer_page(L: Listing) -> None:
         return      # e.g. a dealer search page showing other cars: take nothing from it
     if "catcher.esl" in L.listing_url and P.listing_url and "catcher.esl" not in P.listing_url:
         L.listing_url = P.listing_url   # feeds now hand out dealer.com's redirect address; keep the page it leads to
-    for attr in ("sunroof", "sunroof_note", "audio", "leather", "ventilated_seats", "spare_tire", "spare_note",
+    for attr in ("sunroof", "sunroof_note", "audio", "leather", "ventilated_seats", "hud", "spare_tire", "spare_note",
                  "third_row", "carfax_badges", "carfax_status", "cpo_warranty_terms", "doc_fee", "other_fees",
                  "seats", "msrp_new", "features", "ground_clearance_in"):
         val = getattr(P, attr)

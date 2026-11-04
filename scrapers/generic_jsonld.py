@@ -278,6 +278,7 @@ def seat_material(hay: str, int_color: str) -> str:
 
 ORIG_MSRP = re.compile(r"(?:original|orig\.|factory|window[- ]sticker|when new|new[- ]vehicle)\s+(?:sticker\s+)?(?:msrp|sticker price|price)"
                        r"\s*(?:when new)?\s*[:\-]?\s*\$\s?([\d,]{5,7})", re.I)
+HUD = re.compile(r"\bhead[- ]?s?[- ]?up (?:display|dash)|\bHUD\b|windshield (?:projected|projection) display", re.I)
 VENT = re.compile(r"(ventilated|cooled) (?:front )?seats?|seat ventilation|ventilated (?:driver|front)", re.I)
 SPARE_YES = re.compile(r"(full[- ]size spare|compact spare|temporary spare|spare tire|space[- ]saver spare|spare wheel)", re.I)
 SPARE_NO = re.compile(r"(tire (?:mobility|repair|inflat\w*) kit|inflator kit|tire sealant|run[- ]flat|no spare)", re.I)
@@ -490,6 +491,8 @@ def parse_vdp(html: str, url: str) -> Listing | None:
     L.seats = seat_material(hay, L.int_color)
     if VENT.search(hay):
         L.ventilated_seats = True
+    if HUD.search(hay):
+        L.hud = True
     if SPARE_NO.search(hay):
         L.spare_tire, L.spare_note = False, SPARE_NO.search(hay).group(1)
     elif SPARE_YES.search(hay):

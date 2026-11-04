@@ -615,6 +615,80 @@ def color_family(color: str) -> str:
     return min(hits)[2]
 
 
+# ---- head-up display (Nov 4 2026, user: "Add heads up display as a nice to have of the lowest point value") ----
+HUD_WORDS = re.compile(r"\bhead[- ]?s?[- ]?up\b|\bHUD\b", re.I)
+OPTIONAL = re.compile(r"\b(pkg|package|optional|option|available|opt)\b", re.I)
+_GUIDE = None
+
+
+def _guide() -> list:
+    global _GUIDE
+    if _GUIDE is None:
+        import json
+        from pathlib import Path
+        p = Path(__file__).resolve().parent.parent / "data" / "trim_guide.json"
+        try:
+            _GUIDE = json.loads(p.read_text(encoding="utf-8")).get("models", [])
+        except (OSError, ValueError):
+            _GUIDE = []
+    return _GUIDE
+
+
+def guide_trim(make: str, model: str, trim: str, year, body: str = "", url: str = "") -> tuple[dict | None, dict | None]:
+    """The car's Trim guide year entry and trim card, matched roughly the way the dashboard does (model name in the car's
+    name, the trim name's words in its name or web address): (year entry, trim) or (None, None)."""
+    hay = f" {model} {trim} {url.split('?')[0].rsplit('/', 2)[-2] if url.count('/') > 3 else ''} ".lower()
+    hay = re.sub(r"[-_/]", " ", hay).replace("eqe350", "eqe 350").replace("eqs450", "eqs 450")
+    best, best_len = None, 0
+    for m in _guide():
+        if (m.get("make") or "").lower() != (make or "").lower():
+            continue
+        names = [n.strip().lower() for n in m.get("model", "").split("/")]
+        hit = [n for n in names if n and f" {n} " in f" {model.lower()} " or (n and n in hay)]
+        if not hit:
+            continue
+        ln = max(len(n) for n in hit) + (5 if "suv" in m.get("model", "").lower() and body == "SUV" else 0)
+        if ln > best_len:
+            best, best_len = m, ln
+    if not best:
+        return None, None
+    y = next((y for y in best.get("years", []) if str(y.get("year")) == str(year)), None)
+    if not y:
+        return None, None
+    mw = set(re.findall(r"[a-z0-9+]+", best.get("model", "").lower()))
+    pick, score = None, 0.0
+    for t in y.get("trims", []):
+        words = [w for w in re.findall(r"[a-z0-9+]+", re.sub(r"\(.*?\)", "", t.get("name", "")).lower()) if w not in mw]
+        if not words:
+            continue
+        n = sum(1 for w in words if f" {w} " in hay or (len(w) > 2 and f" {w}" in hay))
+        if n / len(words) > score or (n / len(words) == score and pick and len(words) > len(pick["_w"])):
+            pick, score = dict(t, _w=words), n / len(words)
+    return (y, pick) if score >= 0.6 else (y, None)
+
+
+def hud_standard(make, model, trim, year, body="", url="") -> bool | None:
+    """True when the Trim guide lists a head-up display as standard on this trim (or a trim it builds on)."""
+    y, t = guide_trim(make, model, trim, year, body, url)
+    if not t:
+        return None
+    seen, cur = set(), t
+    while cur and cur.get("name") not in seen:
+        seen.add(cur.get("name"))
+        for h in cur.get("highlights") or []:
+            if HUD_WORDS.search(h) and not OPTIONAL.search(h):
+                return True
+        b = (cur.get("builds_on") or "").lower()
+        cur = next((x for x in y.get("trims", []) if b and (x.get("name", "").lower().startswith(b) or b in x.get("name", "").lower())), None)
+    return None
+
+
+def has_hud(L: Listing) -> bool | None:
+    if L.hud is not None:
+        return L.hud
+    return hud_standard(L.make, L.model, L.trim, L.year, getattr(L, "body", ""), L.listing_url or "")
+
+
 def score_parts(L: Listing) -> dict[str, float]:
     """Each scored item as 0..1 (how good this car is on it). score() weights them; the dashboard explains them."""
     tri = lambda v: 1.0 if v is True else (0.0 if v is False else 0.4)
@@ -631,6 +705,7 @@ def score_parts(L: Listing) -> dict[str, float]:
     parts["leather"] = tri(L.leather)
     parts["real_leather"] = 1.0 if (L.leather is True or L.seats == "leather") else (0.4 if L.seats == "synthetic" or L.leather is False else 0.2)
     parts["ventilated_seats"] = tri(L.ventilated_seats)
+    parts["hud"] = tri(has_hud(L))
     parts["ground_clearance"] = 1.0 if (_clearance(L) or 0) >= 8 else 0.0
     parts["spare_tire"] = tri(L.spare_tire)
     parts["awd"] = 1.0 if L.drivetrain in ("AWD", "4WD") else (0.0 if L.drivetrain in ("FWD", "RWD", "2WD") else 0.3)
@@ -659,7 +734,8 @@ def score_breakdown(r: dict) -> list[list]:
                 mileage=int(float(r["mileage"])) if r.get("mileage") else None, fuel_type=r.get("fuel_type", ""),
                 ext_color=r.get("ext_color", ""), int_color=r.get("int_color", ""), mpg_combined=f(r.get("mpg_combined")), audio=r.get("audio", ""),
                 leather=b.get(r.get("leather")), seats=r.get("seats", ""), sunroof=b.get(r.get("sunroof")),
-                ventilated_seats=b.get(r.get("ventilated_seats")), spare_tire=b.get(r.get("spare_tire")),
+                ventilated_seats=b.get(r.get("ventilated_seats")), hud=b.get(r.get("hud")), spare_tire=b.get(r.get("spare_tire")),
+                listing_url=r.get("listing_url", ""), body=r.get("body", ""),
                 ground_clearance_in=f(r.get("ground_clearance_in")), drivetrain=r.get("drivetrain", ""))
     L.sunroof_note = r.get("sunroof_note", "")
     parts, total = score_parts(L), sum(S["weights"].values()) or 1
