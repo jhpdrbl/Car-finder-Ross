@@ -962,9 +962,28 @@
    "to_year": 2026,
    "inches": 6.0,
    "source": "cadillac.com spec pages"
+  },
+  {
+   "make": "BMW",
+   "model": "330e",
+   "trim_regex": "330e",
+   "from_year": 2023,
+   "to_year": 2025,
+   "inches": 5.6,
+   "source": "BMW Group press kit May 2024 (outside US): 330e Sedan 141 mm"
   }
  ],
  "ev_range": [
+  {
+   "make": "BMW",
+   "model": "i4",
+   "fuel": "ev",
+   "trim_regex": "edrive ?35",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 256,
+   "source": "EPA (InsideEVs, Nov 2022): 256 mi on 18-in wheels, 235 on 19-in"
+  },
   {
    "make": "BMW",
    "model": "i4",
@@ -1004,6 +1023,16 @@
    "to_year": 2025,
    "miles": 251,
    "source": "fueleconomy.gov via InsideEVs (EQB 250+)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQS",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?=.*450\\s*\\+)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 350,
+   "source": "EPA est. as cited by InsideEVs 2023 EQS sedan overview (some dealer pages say 340)"
   },
   {
    "make": "Mercedes-Benz",
@@ -2014,6 +2043,36 @@
    "to_year": 2026,
    "miles": 253,
    "source": "fueleconomy.gov"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?=.*350\\s*\\+)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 305,
+   "source": "EPA est. as cited by Kelley Blue Book / Green Car Reports / InsideEVs (2023 sedan; no 2023 record on fueleconomy.gov)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*500)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 260,
+   "source": "EPA est. as cited by Kelley Blue Book / Green Car Reports / InsideEVs (2023 sedan; no 2023 record on fueleconomy.gov)"
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "EQE",
+   "fuel": "ev",
+   "trim_regex": "^(?!.*suv)(?!.*amg)(?=.*350)",
+   "from_year": 2023,
+   "to_year": 2023,
+   "miles": 260,
+   "source": "EPA est. as cited by Kelley Blue Book / Green Car Reports / InsideEVs (2023 sedan; no 2023 record on fueleconomy.gov)"
   },
   {
    "make": "Mercedes-Benz",
@@ -3379,9 +3438,9 @@
    "fuel": "phev",
    "trim_regex": "",
    "from_year": 2023,
-   "to_year": 2025,
+   "to_year": 2026,
    "combined": 35,
-   "source": "fueleconomy.gov 2024 rating (gas only; same powertrain 2023-25)"
+   "source": "fueleconomy.gov 2024 rating (gas only; same powertrain 2023-25); 2026 assumed the same (same 1.6T plug-in powertrain)"
   },
   {
    "make": "Volvo",
@@ -3392,6 +3451,26 @@
    "to_year": 2024,
    "combined": 31,
    "source": "EPA window sticker (7JRH60FL7RG282985, gas only)"
+  },
+  {
+   "make": "BMW",
+   "model": "330e",
+   "fuel": "phev",
+   "trim_regex": "xdrive",
+   "from_year": 2023,
+   "to_year": 2024,
+   "combined": 26,
+   "source": "fueleconomy.gov (330e xDrive, gas only)"
+  },
+  {
+   "make": "BMW",
+   "model": "330e",
+   "fuel": "phev",
+   "trim_regex": "",
+   "from_year": 2023,
+   "to_year": 2024,
+   "combined": 27,
+   "source": "fueleconomy.gov (330e, gas only)"
   }
  ]
 }

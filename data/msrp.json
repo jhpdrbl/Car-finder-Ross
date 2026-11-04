@@ -5,6 +5,17 @@
 "make": "BMW",
 "model": "i4",
 "trim_regex": "edrive ?35",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "ev",
+"msrp": 52395.0,
+"note": "2023 i4 eDrive35 base incl. destination",
+"source": "$51,400 + $995 destination (BMW USA press release; KBB later lists $52,995 after a price rise)"
+},
+{
+"make": "BMW",
+"model": "i4",
+"trim_regex": "edrive ?35",
 "min_year": 2024,
 "max_year": 2024,
 "fuel": "ev",
@@ -88,6 +99,17 @@
 "msrp": 148700.0,
 "note": "2025 AMG EQS 4MATIC+ base incl. destination",
 "source": "$147,550 + $1,150 destination, media.mbusa.com/news/2025-mercedes-benz-model-line-updates"
+},
+{
+"make": "Mercedes-Benz",
+"model": "EQS",
+"trim_regex": "^(?!.*suv)(?=.*450\\s*\\+)",
+"min_year": 2023,
+"max_year": 2023,
+"fuel": "ev",
+"msrp": 105550.0,
+"note": "2023 EQS 450+ sedan base incl. destination",
+"source": "$104,400 + $1,150 destination (dealer pricing pages; KBB / InsideEVs $105,550)"
 },
 {
 "make": "Mercedes-Benz",

@@ -16208,7 +16208,7 @@
         "heated steering wheel"
        ],
        "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
-       "premium_audio": "SONOS optional (Technology package) on Premium Plus, standard on Prestige",
+       "premium_audio": "SONOS standard: part of the Premium Plus package on three 2023 Q4 / Q4 Sportback window stickers the user sent (Nov 4 2026)",
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
@@ -16282,7 +16282,7 @@
         "heated steering wheel"
        ],
        "sunroof": "standard panoramic, opens (two-part glass, front panel tilts/slides; opening per owner/enthusiast sources, standard per Audi)",
-       "premium_audio": "SONOS optional (Technology package) on Premium Plus, standard on Prestige",
+       "premium_audio": "SONOS standard (assumed the same as 2023, where the Premium Plus package includes it)",
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
@@ -18007,6 +18007,42 @@
      "year": 2023,
      "what_changed": "Trims Standard/S (62 kWh, RWD), Pro, Pro S, Pro S Plus (82 kWh; RWD or AWD). AWD 295 hp.",
      "trims": [
+      {
+       "name": "Standard",
+       "on_list": false,
+       "why_not": "no glass roof listed for this trim (unconfirmed)",
+       "powertrain": "single rear motor, 62 kWh, RWD",
+       "builds_on": "",
+       "highlights": [
+        "Heated front seats",
+        "12-inch touchscreen"
+       ],
+       "sunroof": "not listed (the panoramic glass roof comes on the S; unconfirmed)",
+       "premium_audio": "none (Harman Kardon only on the Pro S Plus)",
+       "seats": "unconfirmed: cloth",
+       "black_interior": "check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "62 kWh, about 209 mi"
+      },
+      {
+       "name": "S",
+       "on_list": true,
+       "why_not": "",
+       "powertrain": "single rear motor, 62 kWh, RWD",
+       "builds_on": "Standard",
+       "highlights": [
+        "Panoramic fixed glass roof with power sunshade",
+        "Perforated leatherette seats; massaging front seats",
+        "Heated steering wheel",
+        "Adaptive LED headlights, 20-inch wheels"
+       ],
+       "sunroof": "standard panoramic fixed glass roof with power sunshade (doesn't open)",
+       "premium_audio": "none (Harman Kardon only on the Pro S Plus)",
+       "seats": "leatherette (synthetic)",
+       "black_interior": "check the listing",
+       "spare": "tire mobility kit (no spare)",
+       "mpg": "62 kWh, about 206 mi"
+      },
       {
        "name": "AWD Pro",
        "on_list": false,

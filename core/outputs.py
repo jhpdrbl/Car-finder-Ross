@@ -1297,7 +1297,10 @@ function trimCard(t) {
     ${(t.highlights || []).length ? `<div class="small">${t.builds_on ? "Adds over " + esc(t.builds_on) + ":" : "Comes with:"}</div>
       <ul>${t.highlights.map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}</div>`;
 }
+let guideStale = false;      // the Trim guide (~9,000 page elements) is built only while its tab is open (speed, Nov 4 2026)
 function renderGuide() {
+  if (document.getElementById("panel-guide").hidden) { guideStale = true; return; }
+  guideStale = false;
   const mk = picked("g-make"), only = document.getElementById("g-only").checked;
   const html = G.filter(m => !mk.size || mk.has(m.make)).map(m => {
     const y = (m.years || []).find(y => y.year === gYear[m.id]) || (m.years || [])[0] || {trims: []};
@@ -2473,6 +2476,7 @@ function showTab(which) {
   document.getElementById("footnote").hidden = which === "guide" || which === "check" || which === "mine" || which === "plan";
   if (which === "cmp") renderCompare();
   if (which === "plan") renderPlan();
+  if (which === "guide" && guideStale) renderGuide();
   try { localStorage.setItem(PK + "tab", which); } catch (e) {}
   stickHeads();
 }

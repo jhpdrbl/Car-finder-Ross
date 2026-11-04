@@ -537,6 +537,8 @@ def rescore(args) -> None:
             L.make = r["make"] = canon_make(L.make)
             if not r.get("drivetrain") and re.search(r"\beq[es] ?\d{3} ?\+", f"{L.model} {L.trim}".lower()):
                 r["drivetrain"] = L.drivetrain = "RWD"          # EQE / EQS "+" = rear-wheel drive
+            if not r.get("drivetrain") and L.model.upper().startswith("RZ") and re.search(r"\b(300e|350e)\b", f"{L.model} {L.trim}".lower()):
+                r["drivetrain"] = L.drivetrain = "FWD"          # Lexus RZ 300e / 350e = one front motor
             if r.get("drivetrain") == "2WD":                    # which axle (Drive filter), from what the maker builds
                 r["drivetrain"] = criteria.two_wd_axle(L.make, L.model, L.trim) or "2WD"
                 L.drivetrain = r["drivetrain"]

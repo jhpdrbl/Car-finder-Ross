@@ -62,6 +62,25 @@ def manual_marks() -> dict:
         return {}
 
 
+SYNTH_SEAT = re.compile(r"mb-?tex|sensatec|leatherette|v-?tex|softex|sensaf|nuluxe|purluxe|inteluxe|vegan|synthetic|artificial|duo ?leather|luxtec", re.I)
+
+
+def manual_seats(text: str, int_color: str = "") -> str:
+    """Seat material as a browser read wrote it ("MB-Tex", "Valcona leather", "Leather seating surfaces (leatherette seat
+    backs)") -> leather / synthetic / cloth. Audi's "leather seating surfaces" is real leather where you sit."""
+    t = text.lower()
+    if "leather seating surface" in t:
+        return "leather"
+    if SYNTH_SEAT.search(t):
+        return "synthetic"
+    if "leather" in t or "nappa" in t:
+        return "leather"
+    if re.search(r"cloth|fabric|textile|microfiber", t):
+        return "cloth"
+    from scrapers.generic_jsonld import seat_material
+    return seat_material(text, int_color)
+
+
 def load_manual() -> list[Listing]:
     """Cars the user added by hand from a dealer listing the search can't read (data/manual_listings.csv:
     the dealer's own page, price, fees, miles, colors). They go through the same rules as every other car,
@@ -90,8 +109,7 @@ def load_manual() -> list[Listing]:
         if a and any(w in a.lower() for w in (CONFIG.get("scoring") or {}).get("premium_audio", []) + ["sonos"]):
             L.audio = a
         if (r.get("seats") or "").strip():
-            from scrapers.generic_jsonld import seat_material
-            L.seats = seat_material(r["seats"], L.int_color)
+            L.seats = manual_seats(r["seats"], L.int_color)
         if (r.get("carfax") or "").strip():     # badge text as the dealer page shows it (never from carfax.com)
             from scrapers.generic_jsonld import CARFAX_BADGE
             L.carfax_badges = ",".join(sorted({b.lower().replace("_", "-").replace(" ", "-") for b in CARFAX_BADGE.findall(r["carfax"])}))
