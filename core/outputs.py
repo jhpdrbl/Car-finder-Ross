@@ -404,7 +404,8 @@ def hud_of(r: dict) -> str:
     if r.get("hud") in ("True", "False"):
         return "Yes" if r["hud"] == "True" else "No"
     year = int(r["year"]) if str(r.get("year") or "").isdigit() else None
-    return "Yes" if criteria.hud_standard(r.get("make", ""), r.get("model", ""), r.get("trim", ""), year, r.get("body", ""), r.get("listing_url", "")) else ""
+    g = criteria.hud_standard(r.get("make", ""), r.get("model", ""), r.get("trim", ""), year, r.get("body", ""), r.get("listing_url", ""))
+    return "Yes" if g else "No" if g is False else ""
 
 
 def roof_open(r: dict) -> str:
@@ -1305,7 +1306,7 @@ function trimCard(t) {
   return `<div class="trim${t.on_list ? "" : " off"}"><h3>${esc(t.name)}</h3>
     ${t.on_list ? '<span class="chip match">on your list</span>' : `<span class="chip off-chip">not on your list</span> <span class="small">${esc(t.why_not)}</span>`}
     <dl>${row("Engine", t.powertrain)}${row("Sunroof", t.sunroof)}${row("Audio", t.premium_audio)}${row("Seats", t.seats)}
-      ${row("Black interior", t.black_interior)}${row("Spare", t.spare)}${row("MPG", t.mpg ? t.mpg + " (city/hwy/comb.)" : "")}</dl>
+      ${row("Head-up display", t.hud ? t.hud[0].toUpperCase() + t.hud.slice(1) + (t.hud_note ? " (" + t.hud_note + ")" : "") : "")}${row("Black interior", t.black_interior)}${row("Spare", t.spare)}${row("MPG", t.mpg ? t.mpg + " (city/hwy/comb.)" : "")}</dl>
     ${(t.highlights || []).length ? `<div class="small">${t.builds_on ? "Adds over " + esc(t.builds_on) + ":" : "Comes with:"}</div>
       <ul>${t.highlights.map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}</div>`;
 }

@@ -674,6 +674,13 @@ def hud_standard(make, model, trim, year, body="", url="") -> bool | None:
     y, t = guide_trim(make, model, trim, year, body, url)
     if not t:
         return None
+    v = (t.get("hud") or "").lower()          # researched per trim (Nov 5 2026): standard / optional / not available
+    if v == "standard":
+        return True
+    if v == "not available":
+        return False
+    if v == "optional":
+        return None
     seen, cur = set(), t
     while cur and cur.get("name") not in seen:
         seen.add(cur.get("name"))
@@ -695,9 +702,12 @@ def audio_standard(make, model, trim, year, body="", url="") -> bool:
 
 
 def has_hud(L: Listing) -> bool | None:
+    g = hud_standard(L.make, L.model, L.trim, L.year, getattr(L, "body", ""), L.listing_url or "")
+    if L.hud is True and g is False and not getattr(L, "hud_confirmed", False):
+        return False      # the maker never offered one on this trim: a "head-up" on the dealer page is boilerplate
     if L.hud is not None:
         return L.hud
-    return hud_standard(L.make, L.model, L.trim, L.year, getattr(L, "body", ""), L.listing_url or "")
+    return g
 
 
 def score_parts(L: Listing) -> dict[str, float]:

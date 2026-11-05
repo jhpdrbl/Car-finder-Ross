@@ -3841,7 +3841,9 @@
        "seats": "genuine leather (standard on this trim); heated + ventilated front; no heated steering wheel",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": ""
+       "mpg": "",
+       "hud": "not available",
+       "hud_note": "head-up display is a Prestige item (Genesis 2023 pricing)"
       },
       {
        "name": "Prestige AWD",
@@ -3864,7 +3866,9 @@
        "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; heated rear",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": ""
+       "mpg": "",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       }
      ]
     },
@@ -3893,7 +3897,9 @@
        "seats": "genuine leather (standard on this trim); heated + ventilated front; no heated steering wheel",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": "98/83/91 MPGe (236 mi range)"
+       "mpg": "98/83/91 MPGe (236 mi range)",
+       "hud": "not available",
+       "hud_note": "head-up display is a Prestige item (Genesis 2023 pricing)"
       },
       {
        "name": "Prestige AWD",
@@ -3916,7 +3922,9 @@
        "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; heated rear",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": "98/83/91 MPGe (236 mi range)"
+       "mpg": "98/83/91 MPGe (236 mi range)",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       }
      ]
     },
@@ -3945,7 +3953,9 @@
        "seats": "genuine leather (standard on this trim); heated + ventilated front; no heated steering wheel",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": "98/83/91 MPGe (236 mi range)"
+       "mpg": "98/83/91 MPGe (236 mi range)",
+       "hud": "not available",
+       "hud_note": "head-up display is a Prestige item (Genesis 2023 pricing)"
       },
       {
        "name": "Prestige AWD",
@@ -3968,7 +3978,9 @@
        "seats": "genuine Nappa leather (standard on this trim) (quilted); heated + ventilated front; heated rear",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": "98/83/91 MPGe (236 mi range)"
+       "mpg": "98/83/91 MPGe (236 mi range)",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       }
      ]
     },
@@ -4043,7 +4055,9 @@
        "seats": "genuine Nappa leather (standard on this trim); heated + ventilated front; heated rear outboard",
        "black_interior": "yes",
        "spare": "tire repair kit / run-flats",
-       "mpg": "96/80/88 MPGe (243 mi range)"
+       "mpg": "96/80/88 MPGe (243 mi range)",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       }
      ]
     },
@@ -14280,7 +14294,9 @@
        "seats": "half leatherette, heated front",
        "black_interior": "yes (black)",
        "spare": "temporary (compact) spare",
-       "mpg": "39/37/38"
+       "mpg": "39/37/38",
+       "hud": "not available",
+       "hud_note": "Active Driving Display comes with Premium Plus"
       },
       {
        "name": "CX-50 Hybrid Premium",
@@ -14299,7 +14315,9 @@
        "seats": "leather-trimmed, heated front; ventilated only on Premium Plus",
        "black_interior": "yes (black; red also offered - check listing)",
        "spare": "temporary (compact) spare",
-       "mpg": "39/37/38"
+       "mpg": "39/37/38",
+       "hud": "not available",
+       "hud_note": "Active Driving Display comes with Premium Plus"
       },
       {
        "name": "CX-50 Hybrid Premium Plus",
@@ -14318,7 +14336,9 @@
        "seats": "leather-trimmed; heated and ventilated front",
        "black_interior": "yes (black; red also offered - check listing)",
        "spare": "temporary (compact) spare",
-       "mpg": "39/37/38"
+       "mpg": "39/37/38",
+       "hud": "standard",
+       "hud_note": "Active Driving Display (head-up) standard on Hybrid Premium Plus (Mazda USA / KBB)"
       },
       {
        "name": "2.5 Turbo Meridian Edition",
@@ -14476,7 +14496,9 @@
        "seats": "half leatherette, heated front",
        "black_interior": "yes (black)",
        "spare": "temporary (compact) spare",
-       "mpg": "39/37/38"
+       "mpg": "39/37/38",
+       "hud": "not available",
+       "hud_note": "Active Driving Display comes with Premium Plus"
       },
       {
        "name": "CX-50 Hybrid Premium",
@@ -14495,7 +14517,9 @@
        "seats": "leather-trimmed; heated and ventilated front",
        "black_interior": "yes (black; red also offered - check listing)",
        "spare": "temporary (compact) spare",
-       "mpg": "39/37/38"
+       "mpg": "39/37/38",
+       "hud": "not available",
+       "hud_note": "Active Driving Display comes with Premium Plus"
       },
       {
        "name": "CX-50 Hybrid Premium Plus",
@@ -14514,7 +14538,9 @@
        "seats": "leather-trimmed; heated and ventilated front",
        "black_interior": "yes (black; red also offered - check listing)",
        "spare": "temporary (compact) spare",
-       "mpg": "39/37/38"
+       "mpg": "39/37/38",
+       "hud": "standard",
+       "hud_note": "Active Driving Display (head-up) standard on Hybrid Premium Plus (Mazda USA / KBB)"
       },
       {
        "name": "2.5 Turbo",
@@ -14924,7 +14950,9 @@
        "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Plug-in Hybrid X-Line Prestige",
@@ -14944,7 +14972,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid LX",
@@ -14962,7 +14992,9 @@
        "seats": "cloth",
        "black_interior": "yes",
        "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
-       "mpg": "AWD 38/38/38; FWD 42/44/43"
+       "mpg": "AWD 38/38/38; FWD 42/44/43",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid EX",
@@ -14981,7 +15013,9 @@
        "seats": "SynTex synthetic leather, standard; heated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
-       "mpg": "38/38/38"
+       "mpg": "38/38/38",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid SX-Prestige",
@@ -15001,7 +15035,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
-       "mpg": "38/38/38"
+       "mpg": "38/38/38",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage LX AWD",
@@ -15020,7 +15056,9 @@
        "seats": "cloth; not heated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/28/25; FWD 25/32/28"
+       "mpg": "AWD 23/28/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage EX AWD",
@@ -15040,7 +15078,9 @@
        "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/28/25; FWD 25/32/28"
+       "mpg": "AWD 23/28/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Line AWD",
@@ -15060,7 +15100,9 @@
        "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/28/25"
+       "mpg": "AWD 23/28/25",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage SX AWD",
@@ -15080,7 +15122,9 @@
        "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/28/25; FWD 25/32/28"
+       "mpg": "AWD 23/28/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage SX-Prestige AWD",
@@ -15100,7 +15144,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/28/25; FWD 25/32/28"
+       "mpg": "AWD 23/28/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Pro AWD",
@@ -15120,7 +15166,9 @@
        "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/28/25 (EPA lists X-Pro with AWD; all-terrain tires, confirm)"
+       "mpg": "23/28/25 (EPA lists X-Pro with AWD; all-terrain tires, confirm)",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Pro Prestige AWD",
@@ -15139,7 +15187,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/28/25 (EPA lists X-Pro with AWD; all-terrain tires, confirm)"
+       "mpg": "23/28/25 (EPA lists X-Pro with AWD; all-terrain tires, confirm)",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       }
      ]
     },
@@ -15165,7 +15215,9 @@
        "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Plug-in Hybrid X-Line Prestige",
@@ -15185,7 +15237,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid LX",
@@ -15203,7 +15257,9 @@
        "seats": "cloth",
        "black_interior": "yes",
        "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
-       "mpg": "AWD 38/38/38; FWD 42/44/43"
+       "mpg": "AWD 38/38/38; FWD 42/44/43",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid EX",
@@ -15222,7 +15278,9 @@
        "seats": "SynTex synthetic leather, standard; heated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
-       "mpg": "38/38/38"
+       "mpg": "38/38/38",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid SX-Prestige",
@@ -15242,7 +15300,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
-       "mpg": "38/38/38"
+       "mpg": "38/38/38",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage LX AWD",
@@ -15261,7 +15321,9 @@
        "seats": "cloth; not heated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/26/25; FWD 25/33/28"
+       "mpg": "AWD 23/26/25; FWD 25/33/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage EX AWD",
@@ -15281,7 +15343,9 @@
        "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/26/25; FWD 25/33/28"
+       "mpg": "AWD 23/26/25; FWD 25/33/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Line AWD",
@@ -15301,7 +15365,9 @@
        "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/26/25"
+       "mpg": "AWD 23/26/25",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage SX (FWD)",
@@ -15320,7 +15386,9 @@
        "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "FWD 25/33/28"
+       "mpg": "FWD 25/33/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage SX-Prestige AWD",
@@ -15340,7 +15408,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/26/25; FWD 25/33/28"
+       "mpg": "AWD 23/26/25; FWD 25/33/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Pro AWD",
@@ -15360,7 +15430,9 @@
        "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/30/26"
+       "mpg": "23/30/26",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Pro Prestige AWD",
@@ -15379,7 +15451,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/30/26"
+       "mpg": "23/30/26",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       }
      ]
     },
@@ -15405,7 +15479,9 @@
        "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Plug-in Hybrid X-Line Prestige",
@@ -15425,7 +15501,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric"
+       "mpg": "35 mpg gas-only (36/35/35); 84 MPGe; 34 mi electric",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid LX",
@@ -15443,7 +15521,9 @@
        "seats": "cloth",
        "black_interior": "yes",
        "spare": "tire repair kit standard; compact spare optional (2025 Kia specs)",
-       "mpg": "AWD 38/38/38; FWD 42/44/43"
+       "mpg": "AWD 38/38/38; FWD 42/44/43",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid EX",
@@ -15462,7 +15542,9 @@
        "seats": "SynTex synthetic leather, standard; heated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs)",
-       "mpg": "38/38/38"
+       "mpg": "38/38/38",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage Hybrid SX-Prestige",
@@ -15482,7 +15564,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs)",
-       "mpg": "38/38/38"
+       "mpg": "38/38/38",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage LX AWD",
@@ -15501,7 +15585,9 @@
        "seats": "cloth; not heated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/27/25; FWD 25/32/28"
+       "mpg": "AWD 23/27/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage EX AWD",
@@ -15521,7 +15607,9 @@
        "seats": "SynTex synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/27/25; FWD 25/32/28"
+       "mpg": "AWD 23/27/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Line AWD",
@@ -15541,7 +15629,9 @@
        "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/27/25"
+       "mpg": "AWD 23/27/25",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage SX (FWD)",
@@ -15560,7 +15650,9 @@
        "seats": "SynTex synthetic leather (Premium optional); heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "FWD 25/32/28"
+       "mpg": "FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage SX-Prestige AWD",
@@ -15580,7 +15672,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 23/27/25; FWD 25/32/28"
+       "mpg": "AWD 23/27/25; FWD 25/32/28",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Pro AWD",
@@ -15600,7 +15694,9 @@
        "seats": "SynTex Premium synthetic leather, standard; heated front; not ventilated",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/30/26"
+       "mpg": "23/30/26",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       },
       {
        "name": "Sportage X-Pro Prestige AWD",
@@ -15619,7 +15715,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/30/26"
+       "mpg": "23/30/26",
+       "hud": "not available",
+       "hud_note": "no head-up display on the Sportage before the 2026 update (Kia)"
       }
      ]
     },
@@ -15665,7 +15763,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric"
+       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       },
       {
        "name": "Sportage Hybrid LX",
@@ -15760,7 +15860,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
-       "mpg": "35/36/35"
+       "mpg": "35/36/35",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       },
       {
        "name": "Sportage LX AWD",
@@ -15858,7 +15960,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 24/30/26; FWD 25/33/28"
+       "mpg": "AWD 24/30/26; FWD 25/33/28",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       },
       {
        "name": "Sportage X-Pro Prestige AWD",
@@ -15878,7 +15982,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "23/26/24"
+       "mpg": "23/26/24",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       }
      ]
     },
@@ -15924,7 +16030,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "unknown (likely tire mobility kit, battery under floor: confirm)",
-       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric"
+       "mpg": "36 mpg gas-only (35/36/36); 83 MPGe; 33 mi electric",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       },
       {
        "name": "Sportage Hybrid LX",
@@ -16019,7 +16127,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes",
        "spare": "temporary compact spare (standard on EX/SX-Prestige per Kia 2025 specs; assumed same this year, confirm)",
-       "mpg": "35/36/35"
+       "mpg": "35/36/35",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       },
       {
        "name": "Sportage LX AWD",
@@ -16117,7 +16227,9 @@
        "seats": "premium SynTex synthetic leather, standard; heated and ventilated front",
        "black_interior": "yes (Saturn Black offered on every trim); other colors vary by trim/year (gray; from 2025 Sage Green on X-Line/X-Pro, Carmine Red on SX/SX-Prestige): confirm on listing",
        "spare": "temporary compact spare under the cargo floor (seen on X-Pro listings; assumed for all gas trims, confirm)",
-       "mpg": "AWD 24/30/26; FWD 25/33/28"
+       "mpg": "AWD 24/30/26; FWD 25/33/28",
+       "hud": "optional",
+       "hud_note": "10-inch head-up display new for 2026, 'available' on the Prestige trims (Kia release)"
       },
       {
        "name": "Sportage X-Pro AWD",
@@ -16176,7 +16288,9 @@
        "seats": "leatherette (unconfirmed)",
        "black_interior": "yes (unconfirmed)",
        "spare": "unknown",
-       "mpg": ""
+       "mpg": "",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Premium quattro",
@@ -16194,7 +16308,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "97/87/93 MPGe (236 mi range)"
+       "mpg": "97/87/93 MPGe (236 mi range)",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Premium Plus quattro",
@@ -16212,7 +16328,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "97/87/93 MPGe (236 mi range)"
+       "mpg": "97/87/93 MPGe (236 mi range)",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Prestige quattro",
@@ -16230,7 +16348,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "97/87/93 MPGe (236 mi range)"
+       "mpg": "97/87/93 MPGe (236 mi range)",
+       "hud": "standard",
+       "hud_note": "augmented-reality head-up display standard on Prestige"
       }
      ]
     },
@@ -16250,7 +16370,9 @@
        "seats": "leatherette (unconfirmed)",
        "black_interior": "yes (unconfirmed)",
        "spare": "unknown",
-       "mpg": ""
+       "mpg": "",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Premium quattro",
@@ -16268,7 +16390,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)"
+       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Premium Plus quattro",
@@ -16286,7 +16410,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)"
+       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Prestige quattro",
@@ -16304,7 +16430,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)"
+       "mpg": "97/87/93 MPGe (236 mi range); 55: 107/92/100 MPGe (258 mi range)",
+       "hud": "standard",
+       "hud_note": "augmented-reality head-up display standard on Prestige"
       }
      ]
     },
@@ -16324,7 +16452,9 @@
        "seats": "leatherette (unconfirmed)",
        "black_interior": "yes (unconfirmed)",
        "spare": "unknown",
-       "mpg": ""
+       "mpg": "",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Premium quattro",
@@ -16342,7 +16472,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "107/92/100 MPGe (258 mi range)"
+       "mpg": "107/92/100 MPGe (258 mi range)",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Premium Plus quattro",
@@ -16360,7 +16492,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "107/92/100 MPGe (258 mi range)"
+       "mpg": "107/92/100 MPGe (258 mi range)",
+       "hud": "not available",
+       "hud_note": "AR head-up display is a Prestige feature (Audi / dealer trim lists, Nov 2026)"
       },
       {
        "name": "Prestige quattro",
@@ -16378,7 +16512,9 @@
        "seats": "leatherette standard; real leather unconfirmed; ventilated seats not found as an option (unconfirmed)",
        "black_interior": "yes (black available; full interior color list unconfirmed)",
        "spare": "unknown (likely tire repair kit)",
-       "mpg": "107/92/100 MPGe (258 mi range)"
+       "mpg": "107/92/100 MPGe (258 mi range)",
+       "hud": "standard",
+       "hud_note": "augmented-reality head-up display standard on Prestige"
       }
      ]
     },
@@ -16478,7 +16614,9 @@
        "seats": "leather (unconfirmed for Premium); not ventilated",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)"
+       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)",
+       "hud": "not available",
+       "hud_note": "head-up display only on Prestige (trim lists)"
       },
       {
        "name": "Premium Plus",
@@ -16494,7 +16632,9 @@
        "seats": "leather; ventilated front seats",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)"
+       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)",
+       "hud": "optional",
+       "hud_note": "Prestige has it standard; not listed on Premium Plus"
       },
       {
        "name": "Prestige",
@@ -16511,7 +16651,9 @@
        "seats": "Valcona/Milano leather; ventilated + massage",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)"
+       "mpg": "78/79/79 MPGe (226 mi range); Sportback 77/80/78 MPGe (225 mi range)",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       },
       {
        "name": "SQ8 / e-tron S (all)",
@@ -16548,7 +16690,9 @@
        "seats": "leather (unconfirmed for Premium); not ventilated",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)"
+       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)",
+       "hud": "not available",
+       "hud_note": "head-up display only on Prestige (trim lists)"
       },
       {
        "name": "Premium Plus",
@@ -16564,7 +16708,9 @@
        "seats": "leather; ventilated front seats",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)"
+       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)",
+       "hud": "optional",
+       "hud_note": "Prestige has it standard; not listed on Premium Plus"
       },
       {
        "name": "Prestige",
@@ -16581,7 +16727,9 @@
        "seats": "Valcona/Milano leather; ventilated + massage",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)"
+       "mpg": "80/83/81 MPGe (285 mi range); Sportback 84/90/87 MPGe (296 mi range)",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       },
       {
        "name": "SQ8 / e-tron S (all)",
@@ -16618,7 +16766,9 @@
        "seats": "leather (unconfirmed for Premium); not ventilated",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)"
+       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)",
+       "hud": "not available",
+       "hud_note": "head-up display only on Prestige (trim lists)"
       },
       {
        "name": "Premium Plus",
@@ -16634,7 +16784,9 @@
        "seats": "leather; ventilated front seats",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)"
+       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)",
+       "hud": "optional",
+       "hud_note": "Prestige has it standard; not listed on Premium Plus"
       },
       {
        "name": "Prestige",
@@ -16651,7 +16803,9 @@
        "seats": "Valcona/Milano leather; ventilated + massage",
        "black_interior": "yes (black available; full list unconfirmed)",
        "spare": "unknown",
-       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)"
+       "mpg": "77/80/78 MPGe (272 mi range) on 20-in wheels (254 mi on 21-in)",
+       "hud": "standard",
+       "hud_note": "head-up display standard on Prestige"
       },
       {
        "name": "SQ8 / e-tron S (all)",
@@ -18322,7 +18476,9 @@
        "seats": "NuLuxe (synthetic); heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "115/98/107 MPGe, 220 mi (18\"); 102/87/95, 196 mi (20\")"
+       "mpg": "115/98/107 MPGe, 220 mi (18\"); 102/87/95, 196 mi (20\")",
+       "hud": "optional",
+       "hud_note": "head-up display in the Technology Package on Premium (Lexus / C&D)"
       },
       {
        "name": "450e Luxury AWD",
@@ -18341,7 +18497,9 @@
        "seats": "Ultrasuede + synthetic; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "102/87/95 MPGe, 196 mi"
+       "mpg": "102/87/95 MPGe, 196 mi",
+       "hud": "standard",
+       "hud_note": "10-inch head-up display standard on Luxury"
       }
      ]
     },
@@ -18364,7 +18522,9 @@
        "seats": "NuLuxe; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "115/98/107 MPGe, 220 mi (18\")"
+       "mpg": "115/98/107 MPGe, 220 mi (18\")",
+       "hud": "optional",
+       "hud_note": "head-up display in the Technology Package on Premium (Lexus / C&D)"
       },
       {
        "name": "450e Luxury AWD",
@@ -18381,7 +18541,9 @@
        "seats": "Ultrasuede; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "102/87/95 MPGe, 196 mi"
+       "mpg": "102/87/95 MPGe, 196 mi",
+       "hud": "standard",
+       "hud_note": "10-inch head-up display standard on Luxury"
       },
       {
        "name": "300e Premium / Luxury",
@@ -18437,7 +18599,9 @@
        "seats": "NuLuxe; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "115/98/107 MPGe, 220 mi (18\")"
+       "mpg": "115/98/107 MPGe, 220 mi (18\")",
+       "hud": "optional",
+       "hud_note": "head-up display in the Technology Package on Premium (Lexus / C&D)"
       },
       {
        "name": "450e Luxury AWD",
@@ -18454,7 +18618,9 @@
        "seats": "Ultrasuede; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "102/87/95 MPGe, 196 mi"
+       "mpg": "102/87/95 MPGe, 196 mi",
+       "hud": "standard",
+       "hud_note": "10-inch head-up display standard on Luxury"
       },
       {
        "name": "300e (any grade)",
@@ -18508,7 +18674,9 @@
        "seats": "NuLuxe; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "120/100/110 MPGe, 264 mi (18\")"
+       "mpg": "120/100/110 MPGe, 264 mi (18\")",
+       "hud": "optional",
+       "hud_note": "head-up display in the Technology Package on Premium (Lexus / C&D)"
       },
       {
        "name": "450e Luxury AWD",
@@ -18525,7 +18693,9 @@
        "seats": "Ultrasuede; heated + ventilated front",
        "black_interior": "unconfirmed: Lexus lists Thunderstorm (dark, check if it reads black), Macadamia, Palomino, Dapple Gray (2023-25); listings also show Hazel, Lt. Gray, Grayscale (all excluded). 2026 550e F SPORT = Black Ultrasuede (yes)",
        "spare": "tire mobility kit (no spare)",
-       "mpg": "117/99/108 or 102/87/95 MPGe (20\" tire sizes), 257 / 228 mi"
+       "mpg": "117/99/108 or 102/87/95 MPGe (20\" tire sizes), 257 / 228 mi",
+       "hud": "standard",
+       "hud_note": "10-inch head-up display standard on Luxury"
       },
       {
        "name": "550e F SPORT AWD",
@@ -19496,7 +19666,9 @@
        "seats": "suede/vegan leather sport seats with neon accents; heated; not ventilated (manual sport seats)",
        "black_interior": "yes (black with neon-green accents)",
        "spare": "tire mobility kit",
-       "mpg": "85/74/79 MPGe (206 mi)"
+       "mpg": "85/74/79 MPGe (206 mi)",
+       "hud": "standard",
+       "hud_note": "augmented-reality head-up display on the EV6 GT (KBB)"
       }
      ]
     },
@@ -19575,7 +19747,9 @@
        "seats": "suede/vegan leather sport seats with neon accents; heated; not ventilated (manual sport seats)",
        "black_interior": "yes (black with neon-green accents)",
        "spare": "tire mobility kit",
-       "mpg": "88/77/83 MPGe (218 mi)"
+       "mpg": "88/77/83 MPGe (218 mi)",
+       "hud": "standard",
+       "hud_note": "augmented-reality head-up display on the EV6 GT (KBB)"
       }
      ]
     },
@@ -19654,7 +19828,9 @@
        "seats": "suede/vegan leather sport seats with neon accents; heated + ventilated",
        "black_interior": "yes (black with neon-green accents)",
        "spare": "tire mobility kit",
-       "mpg": "87/79/83 MPGe (231 mi)"
+       "mpg": "87/79/83 MPGe (231 mi)",
+       "hud": "standard",
+       "hud_note": "augmented-reality head-up display on the EV6 GT (KBB)"
       }
      ]
     },
@@ -22001,7 +22177,9 @@
        "seats": "perforated Milano leather with microsuede; heated + ventilated front",
        "black_interior": "yes - Ebony (also Red, Orchid)",
        "spare": "none - self-sealing tires",
-       "mpg": "96/83/90 MPGe city/hwy/comb; 313 mi range"
+       "mpg": "96/83/90 MPGe city/hwy/comb; 313 mi range",
+       "hud": "not available",
+       "hud_note": "Acura's 2024 ZDX spec sheet: head-up display on Type S only"
       },
       {
        "name": "A-Spec AWD (dual motor)",
@@ -22023,7 +22201,9 @@
        "seats": "perforated Milano leather with microsuede; heated + ventilated front",
        "black_interior": "yes - Ebony (also Red, Orchid; depends on paint)",
        "spare": "none - self-sealing tires",
-       "mpg": "94/80/87 MPGe; 304 mi range"
+       "mpg": "94/80/87 MPGe; 304 mi range",
+       "hud": "not available",
+       "hud_note": "Acura's 2024 ZDX spec sheet: head-up display on Type S only"
       },
       {
        "name": "Type S (dual motor AWD)",
@@ -22044,7 +22224,9 @@
        "seats": "perforated Milano leather with microsuede, embossed Type S logo; heated + ventilated front",
        "black_interior": "yes - Ebony (also Red, Orchid; depends on paint)",
        "spare": "none - self-sealing tires",
-       "mpg": "83/74/78 MPGe; 278 mi range"
+       "mpg": "83/74/78 MPGe; 278 mi range",
+       "hud": "standard",
+       "hud_note": "Acura's 2024 ZDX spec sheet: head-up display standard on Type S"
       }
      ]
     }

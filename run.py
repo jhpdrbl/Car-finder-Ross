@@ -381,10 +381,17 @@ def steady_feed_prices(listings, log) -> None:
         log(f"   kept the dealer's own page price for {n} cars whose brand-feed price was 15%+ higher")
 
 
+def criteria_hud(L):
+    from core import criteria
+    return criteria.hud_standard(L.make, L.model, L.trim, L.year, getattr(L, "body", ""), L.listing_url or "")
+
+
 def apply_confirmed(L, c: dict | None) -> None:
     """Apply what the user confirmed by hand for this VIN (data/confirmed.csv) before the rules run."""
     if L.audio and re.search(r"harman", L.audio, re.I) and re.search(r"mercedes", L.make or "", re.I):
         L.audio = ""        # Mercedes-Benz hasn't offered Harman/Kardon in the US for years (Burmester): dealer-page boilerplate (sweep, Nov 5 2026)
+    if L.hud is True and not (c or {}).get("hud") and criteria_hud(L) is False:
+        L.hud = False       # the maker never offered a head-up display on this trim: the dealer page's mention is boilerplate
     if not c:
         return
     if c.get("trim"):
