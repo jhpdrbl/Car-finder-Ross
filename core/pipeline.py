@@ -327,6 +327,9 @@ def scrape_dealer(dealer: dict, prev_rows: dict | None = None, today: str = "") 
     return res
 
 
+GONE_PAGE_NOTE = "⚠ the dealer's own page for this car is gone (it may have just sold): call before going"
+
+
 def enrich_from_dealer_page(L: Listing) -> None:
     """Brand-feed cars: read the dealer's own page (when reachable) for sunroof, audio, seats, CARFAX..."""
     if not L.listing_url:
@@ -337,8 +340,13 @@ def enrich_from_dealer_page(L: Listing) -> None:
         return
     if P is None:
         L.location_note = L.location_note or ""
+        if "sold/removed" in (err or "") or (err or "").startswith("gone"):
+            L.link_note = GONE_PAGE_NOTE      # the brand feed may lag a sale by a day or two
         return
     if P.vin and P.vin.upper() != L.vin.upper():
+        if re.search(r"redirectFromMissingVDP|vehicle-not-found|vdp-?missing|no-?longer-?available", P.listing_url or "", re.I):
+            # dealer.com sends a car whose page is gone to the inventory (Rusnak Volvo XC60, Nov 5 2026): the brand feed may lag a sale
+            L.link_note = GONE_PAGE_NOTE
         return      # e.g. a dealer search page showing other cars: take nothing from it
     if "catcher.esl" in L.listing_url and P.listing_url and "catcher.esl" not in P.listing_url:
         L.listing_url = P.listing_url   # feeds now hand out dealer.com's redirect address; keep the page it leads to

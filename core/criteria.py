@@ -92,6 +92,9 @@ FULL_COLOR_NAMES = {("kia", r"^\s*shadow\s*$"): "Shadow Matte Gray"}
 
 
 def full_color_name(make: str, color: str) -> str:
+    color = re.sub(r"\s+", " ", (color or "").replace("_", " ")).strip()    # "ALPINE_GREY" (Calstar's page) -> "ALPINE GREY"
+    if color.isupper() and len(color) > 3:
+        color = color.title()
     for (mk, rx), full in FULL_COLOR_NAMES.items():
         if mk in (make or "").lower() and re.search(rx, color or "", re.I):
             return full
