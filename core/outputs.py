@@ -603,6 +603,10 @@ h1 { margin:0; font-size:26px; letter-spacing:-.01em; }
 .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
 .tile { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
 .tile b { display:block; font-size:24px; font-variant-numeric:tabular-nums; }
+/* iPad / phone: the number tiles in one compact row (or two rows of three on a phone) so the cars start higher up (Nov 5 2026) */
+@media (max-width: 1099px) { .tiles { grid-template-columns:repeat(6, minmax(0,1fr)); gap:6px; } .tile { padding:6px 8px; }
+  .tile b { font-size:18px; } .tile .muted { display:block; font-size:12px; line-height:1.25; } }
+@media (max-width: 600px) { .tiles { grid-template-columns:repeat(3, minmax(0,1fr)); } }
 .tilebtn { font:inherit; color:inherit; text-align:left; cursor:pointer; }
 .tilebtn b { color:var(--ok); }
 .tilebtn[aria-pressed=true] { outline:2px solid var(--ok); }
@@ -872,8 +876,8 @@ td.car.has-sticker { padding-right:34px; }
 .wcard h3 { margin:0 0 4px; font-size:16px; } .wcard ul { margin:4px 0; padding-left:18px; } .wcard li { margin:2px 0; }
 .wline { white-space:normal; } .wline + .wline { margin-top:3px; } .wexp { color:var(--muted); text-decoration:line-through; }
 td.warr { min-width:190px; font-size:13px; }
-/* Phones: each car becomes a card, so nothing needs sideways scrolling */
-@media (max-width: 760px) {
+/* Phones and iPads held upright: each car becomes a card, so nothing needs sideways scrolling (iPad portrait since Nov 5 2026) */
+@media (max-width: 1099px) {
   .phone-only { display:flex; } .sortbar select { max-width:none; }
   .wrap { overflow:visible; background:none; border:0; border-radius:0; }
   table, tbody { display:block; min-width:0; width:auto; }
@@ -890,6 +894,7 @@ td.warr { min-width:190px; font-size:13px; }
   td[colspan] { grid-column:1 / -1; }
   tbody tr:has(td[colspan]) { display:block; }
 }
+@media (min-width: 761px) and (max-width: 1099px) { tbody tr { grid-template-columns:repeat(5, minmax(0,1fr)); } }
 </style></head><body><main>
 <div id="safe-top" aria-hidden="true"></div>
 <button type="button" id="totop" aria-label="Back to top" title="Back to top">&#8593;</button>
@@ -1068,6 +1073,9 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 })();
 const num = v => { const n = parseFloat(v); return isNaN(n) ? null : n; };
 const FUEL = {gas: "Gas", hybrid: "Hybrid", phev: "Plug-in hybrid", ev: "Electric"};
+// one shared number formatter: Number.toLocaleString() builds a new one on every call (hundreds per draw; speed, Nov 5 2026)
+const NUM_FMT = new Intl.NumberFormat(), _numTL = Number.prototype.toLocaleString;
+Number.prototype.toLocaleString = function (l, o) { return l === undefined && o === undefined ? NUM_FMT.format(this) : _numTL.call(this, l, o); };
 const fmt$ = v => num(v) == null ? "?" : "$" + Math.round(num(v)).toLocaleString();
 const squash = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 D.cars.concat(D.gone).forEach(c => {   // "EQB 300" + trim "EQB 300 4MATIC" -> "EQB 300 4MATIC", not the model twice
@@ -2521,7 +2529,9 @@ document.getElementById("fsec-all").addEventListener("click", () => {
   try { localStorage.setItem(PK + "fsec", open ? "open" : "closed"); } catch (e) {}
   fsecButton(); });
 FSECS.forEach(d => d.addEventListener("toggle", fsecButton));
-try { if (localStorage.getItem(PK + "fsec") === "closed") FSECS.forEach(d => d.open = false); } catch (e) {}
+// closed by default below laptop width (iPad / phone: the filters pushed the cars a screen down); your Collapse / Expand choice is remembered
+try { const f = localStorage.getItem(PK + "fsec"); if (f === "closed" || (!f && innerWidth < 1100)) FSECS.forEach(d => d.open = false); }
+catch (e) { if (innerWidth < 1100) FSECS.forEach(d => d.open = false); }
 document.querySelector(".filters").addEventListener("input", fsecBadges);
 document.querySelector(".filters").addEventListener("change", fsecBadges);
 document.querySelector(".filters").addEventListener("click", () => setTimeout(fsecBadges, 0));
