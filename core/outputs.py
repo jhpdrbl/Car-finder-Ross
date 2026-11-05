@@ -2581,8 +2581,9 @@ function updateCounts() {
   set("nnew", live.filter(c => c.is_new).length); set("ncut", live.filter(c => c.dropped).length); set("ncut-tile", live.filter(c => c.dropped).length);
 }
 updateCounts();
-// turning on "Price cut" (the filter or the tile at the top) also sorts biggest cut first
-const sortByCut = () => { sortK = "cut"; dir = -1; const sa = document.getElementById("sort-a"); if (sa) sa.value = "cut:-1"; };
+// turning on "Price cut" (the filter or the tile at the top) also sorts the most recent cut first (user, Nov 5 2026;
+// was biggest cut first, still in the Sort menu)
+const sortByCut = () => { sortK = "cut_on"; dir = -1; const sa = document.getElementById("sort-a"); if (sa) sa.value = "cut_on:-1"; };
 document.getElementById("only-cut").addEventListener("change", e => { if (e.target.checked) { sortByCut(); render(); } });
 document.getElementById("cut-tile").addEventListener("click", () => {
   const box = document.getElementById("only-cut"); box.checked = !box.checked;
