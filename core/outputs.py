@@ -1113,7 +1113,7 @@ pills("f-fuel", ["Gas", "Hybrid", "Plug-in hybrid", "Electric"].filter(f => D.ca
 pills("f-body", ["SUV", "Sedan"]);
 pills("f-int", ["Black", "Brown / saddle", "Other", "Not sure"].filter(k => D.cars.some(c => c.int_kind === k)));
 pills("f-drive", ["AWD", "RWD", "FWD", "2WD", "Not sure"].filter(v => ["AWD", "RWD", "FWD"].includes(v) || D.cars.some(c => c.drive === v)));
-pills("f-roof", ["Yes", "No", "Not sure"]);
+pills("f-roof", ["Yes", "No", "Probably not", "Not sure"]);
 pills("f-open", ["Opens", "Fixed glass", "Not sure"]);
 pills("f-sound", ["Yes", "No", "Not sure"]);
 pills("f-seat", ["Leather", "Synthetic leather", "Cloth", "Not sure"]);
@@ -1753,7 +1753,7 @@ function seatOf(c) {       // seat material: the dealer's page, else what the Tr
 function roofFromGuide(c) {   // like soundFromGuide: optional + a full equipment list that never mentions a roof = no roof
   const r = guideCall(c, t => { const x = roofCall(t); return x.v === "Not sure" && x.t ? {v: "Optional", t: ""} : x; });
   if (r && r.v !== "Optional") return r;
-  if (r && num(c.page_features) >= 25) return {v: "No", t: "not on the dealer's equipment list"};
+  if (r && num(c.page_features) >= 25) return {v: "Probably not", t: "optional on this trim and not on the dealer's equipment list"};   // the roof is required: say how sure (Nov 5 2026)
   return {v: "Not sure", t: r ? "optional on this trim" : ""};
 }
 function roofOf(c) {       // sunroof: the dealer's page / brand feed / your check, else the Trim guide
@@ -2540,6 +2540,20 @@ for (const c of D.cars.concat(D.gone || [])) {
   const sv = seatOf(c).v;
   set("leather", sv === "Leather" ? 1 : sv === "Cloth" ? 0 : null);
 }
+// Filter options no car for sale has (Gas, Sunroof "No"...) are left out, and a filter left with one option is hidden
+// (user, Nov 5 2026: "If there are no cars with gas or no sunroof on the tracker those can be removed from the filters")
+(function pruneFilters() {
+  const of = {"f-make": c => c.make, "f-fuel": c => c.fuel, "f-year": c => String(c.year), "f-body": c => c.body || "SUV",
+              "f-drive": c => c.drive || "Not sure", "f-int": c => c.int_kind || "Not sure", "f-roof": c => roofOf(c).v,
+              "f-open": c => roofOpen(c) || "none", "f-sound": c => soundOf(c).v, "f-seat": c => seatOf(c).v};
+  const forSale = D.cars.filter(c => !mineGone[c.vin]);
+  for (const [id, fn] of Object.entries(of)) {
+    const box = document.getElementById(id); if (!box) continue;
+    const have = new Set(forSale.map(fn));
+    box.querySelectorAll("label.pill").forEach(l => { const i = l.querySelector("input"); if (!have.has(i.value) && !i.checked) l.remove(); });
+    box.hidden = box.querySelectorAll("label.pill").length < 2 && !box.querySelector("input:checked");
+  }
+})();
 planOptsInit(); renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
 try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine", "plan"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.
