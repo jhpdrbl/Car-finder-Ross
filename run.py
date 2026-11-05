@@ -146,6 +146,7 @@ def refresh(args) -> None:
 
     log("2/4 VIN decode (NHTSA vPIC) and filters")
     listings = pipeline.dedupe(feed_listings + [L for r in results for L in r.listings] + pipeline.load_manual())
+    steady_feed_prices(listings, log)
     decodes = vin_decode.decode_many([L.vin for L in listings])
     prepare(listings, decodes)
     ok_dealers = {r.dealer["dealer_name"] for r in results if r.status == "success"}
@@ -355,8 +356,35 @@ def add_manual(args) -> None:
     criteria.use(profiles.get().cfg)
 
 
+def steady_feed_prices(listings, log) -> None:
+    """A brand feed's price that is far above the dealer's own page price of the last few days is the feed's
+    'lot price' (often near the price when new), not a real change: the Lexus feed and Lexus dealer pages
+    alternated run by run (2024 RZ 300e: $58,600 / $30,279 / $58,600 ...; sweep, Nov 5 2026). Keep the page's."""
+    from core import history
+    last = {r["vin"]: r for r in history.read_csv(history.DATA / "listings.csv")}
+    today = date.today()
+    n = 0
+    for L in listings:
+        r = last.get(L.vin)
+        if not r or not L.price or "search" not in (L.source or "").lower() and "certified" not in (L.source or "").lower():
+            continue
+        if "search" in (r.get("source") or "").lower() or "certified" in (r.get("source") or "").lower():
+            continue                                    # last run's price came from the feed too
+        try:
+            old, seen = float(r.get("price") or 0), date.fromisoformat((r.get("last_read") or r.get("last_seen") or "")[:10])
+        except ValueError:
+            continue
+        if old and L.price > old * 1.15 and (today - seen).days <= 4:
+            L.price = old
+            n += 1
+    if n:
+        log(f"   kept the dealer's own page price for {n} cars whose brand-feed price was 15%+ higher")
+
+
 def apply_confirmed(L, c: dict | None) -> None:
     """Apply what the user confirmed by hand for this VIN (data/confirmed.csv) before the rules run."""
+    if L.audio and re.search(r"harman", L.audio, re.I) and re.search(r"mercedes", L.make or "", re.I):
+        L.audio = ""        # Mercedes-Benz hasn't offered Harman/Kardon in the US for years (Burmester): dealer-page boilerplate (sweep, Nov 5 2026)
     if not c:
         return
     if c.get("trim"):
@@ -370,6 +398,7 @@ def apply_confirmed(L, c: dict | None) -> None:
     audio = (c.get("audio") or "").strip()
     if audio:                                  # 'none' = checked: no premium system
         L.audio = "" if audio.lower() == "none" else audio
+        L.audio_none = audio.lower() == "none"
     seats = (c.get("seats") or "").strip().lower()
     if seats in ("leather", "synthetic", "cloth"):
         L.seats = seats
@@ -531,8 +560,8 @@ def rescore(args) -> None:
                         ext_color=r["ext_color"], int_color=r["int_color"], mpg_combined=f(r["mpg_combined"]),
                         audio=r["audio"], leather=b.get(r["leather"]), seats=r.get("seats", ""), sunroof=b.get(r["sunroof"]),
                         ventilated_seats=b.get(r["ventilated_seats"]), hud=b.get(r.get("hud")), spare_tire=b.get(r["spare_tire"]),
-                        ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=f(r.get("msrp_new")),
-                        msrp_source=r.get("msrp_source", ""), body=r.get("body", ""), drivetrain=r.get("drivetrain", ""))
+                        ground_clearance_in=f(r["ground_clearance_in"]), msrp_new=None if r.get("msrp_source") == "trim base" else f(r.get("msrp_new")),   # a trim-base guess is looked up again (msrp.json improves)
+                        msrp_source="" if r.get("msrp_source") == "trim base" else r.get("msrp_source", ""), body=r.get("body", ""), drivetrain=r.get("drivetrain", ""))
             apply_confirmed(L, confirmed.get(L.vin.upper()))
             L.make = r["make"] = canon_make(L.make)
             if not r.get("drivetrain") and re.search(r"\beq[es] ?\d{3} ?\+", f"{L.model} {L.trim}".lower()):

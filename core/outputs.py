@@ -491,7 +491,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "cpo_warranty_terms", "packages", "price", "last_seen", "source")}
                     | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
-                       "score_parts": criteria.score_breakdown(r) if r.get("score") not in ("", None) else []}
+                       "score_parts": criteria.score_breakdown(r, r["vin"].upper() in no_audio) if r.get("score") not in ("", None) else []}
                     | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P), "roof_open": roof_open(r), "hud": hud_of(r)})
     ok = sum(c["status"] == "success" for c in cov)
     failed = [c for c in cov if c["status"] == "failed"]
@@ -2526,6 +2526,20 @@ document.querySelector(".filters").addEventListener("input", fsecBadges);
 document.querySelector(".filters").addEventListener("change", fsecBadges);
 document.querySelector(".filters").addEventListener("click", () => setTimeout(fsecBadges, 0));
 fsecButton();
+// The score's sound points follow what this page shows under Upgraded sound (its Trim guide matching is the fuller one),
+// so a car listed as "Yes" always gets them and a "No" / "Not sure" never does (sweep, Nov 5 2026)
+// The same for seats: Leather = full points, Cloth = none (synthetic and not sure keep what the search found)
+for (const c of D.cars.concat(D.gone || [])) {
+  if (num(c.score) == null) continue;
+  const set = (key, share) => {           // share of the item's points this car should get
+    const p = (c.score_parts || []).find(x => x[0] === key); if (!p || share == null) return;
+    const pts = Math.round(p[2] * share * 10) / 10;
+    if (Math.abs(pts - p[1]) > 0.05) { c.score = String(Math.round((num(c.score) + pts - p[1]) * 10) / 10); p[1] = pts; }
+  };
+  set("audio", soundOf(c).v === "Yes" ? 1 : ((c.score_parts || []).find(x => x[0] === "audio") || [0, 0])[1] > 0 ? 0 : null);
+  const sv = seatOf(c).v;
+  set("leather", sv === "Leather" ? 1 : sv === "Cloth" ? 0 : null);
+}
 planOptsInit(); renderGuide(); renderWarranty(); renderCheck(); pullChecked(); applyMinePrices(); renderMine(); render(); pullMine();
 try { const t = location.hash.slice(1) || localStorage.getItem(PK + "tab"); if (t === "favorites") showTab("fav"); else if (["gone", "guide", "cmp", "fav", "check", "mine", "plan"].includes(t)) showTab(t); } catch (e) {}
 // Phone card view has no column headers to tap, so it sorts with a menu instead.

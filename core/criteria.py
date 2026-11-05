@@ -682,6 +682,15 @@ def hud_standard(make, model, trim, year, body="", url="") -> bool | None:
     return None
 
 
+def audio_standard(make, model, trim, year, body="", url="") -> bool:
+    """True when the Trim guide says a named premium sound system is standard on this trim (the dashboard's
+    'Upgraded sound: Yes' from the guide), so the score agrees with the page (sweep, Nov 5 2026)."""
+    y, t = guide_trim(make, model, trim, year, body, url)
+    pa = re.sub(r"\([^)]*\)", "", (t or {}).get("premium_audio") or "").lower()
+    names = [w.lower() for w in (CFG.get("scoring") or {}).get("premium_audio", [])] + ["sonos"]
+    return bool(pa and any(w in pa for w in names) and re.search(r"\bstandard\b", pa) and not re.search(r"\b(optional|option|available)\b", pa))
+
+
 def has_hud(L: Listing) -> bool | None:
     if L.hud is not None:
         return L.hud
@@ -700,7 +709,8 @@ def score_parts(L: Listing) -> dict[str, float]:
         parts["mpg"] = 1.0
     else:
         parts["mpg"] = max(0.0, min(1.0, (mpg - 20) / 20)) if mpg else (0.6 if L.fuel_type == "hybrid" else 0.3)
-    parts["audio"] = 1.0 if L.audio else 0.0
+    parts["audio"] = 1.0 if L.audio or (not getattr(L, "audio_none", False)        # 'none' = the user checked: no premium system
+                                         and audio_standard(L.make, L.model, L.trim, L.year, getattr(L, "body", ""), L.listing_url or "")) else 0.0
     parts["leather"] = tri(L.leather)
     parts["real_leather"] = 1.0 if (L.leather is True or L.seats == "leather") else (0.4 if L.seats == "synthetic" or L.leather is False else 0.2)
     parts["ventilated_seats"] = tri(L.ventilated_seats)
@@ -724,7 +734,7 @@ def score_parts(L: Listing) -> dict[str, float]:
     return parts
 
 
-def score_breakdown(r: dict) -> list[list]:
+def score_breakdown(r: dict, audio_none: bool = False) -> list[list]:
     """A listings.csv row's score item by item: [item, points, out of], for the dashboard's Compare tab."""
     f = lambda v: float(v) if v not in ("", None) else None
     b = {"True": True, "False": False}
@@ -737,6 +747,7 @@ def score_breakdown(r: dict) -> list[list]:
                 listing_url=r.get("listing_url", ""), body=r.get("body", ""),
                 ground_clearance_in=f(r.get("ground_clearance_in")), drivetrain=r.get("drivetrain", ""))
     L.sunroof_note = r.get("sunroof_note", "")
+    L.audio_none = audio_none
     parts, total = score_parts(L), sum(S["weights"].values()) or 1
     # scaled the same way as score(): each item's share of 100 points
     return [[k, round(100 * w * parts.get(k, 0.0) / total, 1), round(100 * w / total, 1)] for k, w in S["weights"].items()]
