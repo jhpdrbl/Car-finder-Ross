@@ -1,6 +1,6 @@
 """Re-check the cars added by hand (data/manual_listings.csv) with Claude in Chrome, in the user's own browser.
 
-    python -m tools.chrome_recheck list  [out.txt]   # the instruction to paste into Claude in Chrome + every car's own link
+    python -m tools.chrome_recheck list  [out.txt]   # parts of 10 cars, each with the instruction; cars checked in the last 2 days left out
     python -m tools.chrome_recheck apply lines.txt   # read its answer lines back: price / fees / miles, and gone cars
 
 The dealers of these cars block automated reading, so the user's browser opens each car's own page (one at a time,
@@ -17,7 +17,7 @@ import json
 import re
 import sys
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -36,10 +36,12 @@ VIN | STATUS | PRICE | FEES | MILES
 - MILES: the odometer reading.
 For a gone car, leave PRICE, FEES and MILES empty.
 
-When you're done, put all the lines together in one code block at the end, nothing else in it.
+IMPORTANT: write each car's line in your reply as soon as you've checked that car, before opening the next one,
+so nothing is lost if you have to stop early. Don't save them up for the end.
 
-The cars:
+The cars ({part}):
 """
+PART_SIZE = 10          # cars per part: a part fits in one Claude in Chrome session even on a slow day
 
 
 def _get_json(path: str) -> dict:
@@ -64,24 +66,46 @@ def write_rows(cols: list[str], rows: list[dict]) -> None:
     MANUAL.write_text(out.getvalue(), encoding="utf-8", newline="")
 
 
-def cmd_list(out: str | None) -> None:
+def cmd_list(out: str | None, fresh_days: int = 2) -> None:
+    """Parts of PART_SIZE cars, each with its own instruction, so each can be pasted on its own. Cars whose price was
+    read in the last `fresh_days` days (an earlier part already done) are left out: running `list` again after an
+    interrupted session picks up where it stopped."""
     fav = set(_get_json("/api/favs").get("fav") or [])
     gone = set((_get_json("/api/mine").get("gone") or {}).keys())
     _, rows = read_rows()
     listed = {r["vin"]: r["status"] for r in csv.DictReader((DATA / "listings.csv").open(encoding="utf-8"))}
-    by = defaultdict(list)
+    cutoff = (date.today() - timedelta(days=fresh_days)).isoformat()
+    by, done = defaultdict(list), 0
     for r in rows:                      # only cars on the page now (one the rules rule out isn't worth a visit)
-        if r.get("vin") and r["vin"] not in gone and listed.get(r["vin"]) == "active":
-            by[r["dealer"]].append(r)
-    lines = [INSTRUCTION]
-    for d in sorted(by, key=lambda d: (-sum(x["vin"] in fav for x in by[d]), d)):     # dealers with favorites first
-        lines.append(f"\n{d}")
-        for x in sorted(by[d], key=lambda x: (x["vin"] not in fav, x["model"])):
-            lines.append(f"{x['vin']} | {x['year']} {x['model']} {x['trim']}".strip() + f" | {x['listing_url']}")
-    text = "\n".join(lines) + "\n"
+        if not (r.get("vin") and r["vin"] not in gone and listed.get(r["vin"]) == "active"):
+            continue
+        if (r.get("price_on") or "") > cutoff:
+            done += 1                   # checked lately: skip
+            continue
+        by[r["dealer"]].append(r)
+    cars = []                           # dealers with favorites first, favorites first within a dealer
+    for d in sorted(by, key=lambda d: (-sum(x["vin"] in fav for x in by[d]), d)):
+        cars += sorted(by[d], key=lambda x: (x["vin"] not in fav, x["model"]))
+    parts = [cars[i:i + PART_SIZE] for i in range(0, len(cars), PART_SIZE)]
+    blocks = []
+    for n, part in enumerate(parts, 1):
+        body, last = [], None
+        for x in part:
+            if x["dealer"] != last:
+                body.append(f"\n{x['dealer']}")
+                last = x["dealer"]
+            body.append(f"{x['vin']} | {x['year']} {x['model']} {x['trim']}".strip() + f" | {x['listing_url']}")
+        blocks.append(f"===== PART {n} of {len(parts)}: copy from here =====\n\n"
+                      + INSTRUCTION.format(part=f"part {n} of {len(parts)}") + "\n".join(body)
+                      + f"\n\n===== end of part {n} =====\n")
+    head = (f"{len(cars)} cars to check in {len(parts)} parts of up to {PART_SIZE}"
+            + (f" ({done} checked in the last {fresh_days} days are left out)" if done else "") + ".\n"
+            "Paste one part at a time into Claude in Chrome. After each part, send the lines it wrote to Claude here\n"
+            "(even if it stopped partway: the lines it did write are kept).\n\n")
+    text = head + "\n".join(blocks)
     if out:
         Path(out).write_text(text, encoding="utf-8")
-        print(f"wrote {out}: {sum(len(v) for v in by.values())} cars at {len(by)} dealers")
+        print(f"wrote {out}: {len(cars)} cars in {len(parts)} parts ({done} checked lately left out)")
     else:
         print(text)
 
@@ -95,10 +119,11 @@ def cmd_apply(src: str) -> None:
     by = {r["vin"].upper(): r for r in rows if r.get("vin")}
     updated, gone, unknown, odd = [], [], [], []
     for line in Path(src).read_text(encoding="utf-8").splitlines():
-        f = [x.strip() for x in line.strip().strip("`").split("|")]
-        if len(f) < 2 or not re.fullmatch(r"[A-HJ-NPR-Z0-9]{17}", f[0].upper()):
+        f = [x.strip().strip("`*") for x in line.strip().strip("`").split("|")]
+        m = re.search(r"\b[A-HJ-NPR-Z0-9]{17}\b", f[0].upper()) if len(f) >= 2 else None   # "1. VIN", "- VIN", "**VIN**" all fine
+        if not m:
             continue
-        vin, status = f[0].upper(), f[1].lower()
+        vin, status = m.group(0), f[1].lower()
         r = by.get(vin)
         if not r:
             unknown.append(vin)
