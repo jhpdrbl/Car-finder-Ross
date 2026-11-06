@@ -46,10 +46,18 @@ def sync_manual_gone() -> None:
         if v in gone:
             continue
         x = prices.get(v)
-        # a price read off the dealer's page later than your mark (column price_on) wins over the mark
-        if x and str(int(float(r["price"] or 0))) != str(x["p"]) and x["d"] >= (r.get("price_on") or ""):
-            log(f"{r['year']} {r['make']} {r['model']} {v}: price ${float(r['price'] or 0):,.0f} -> ${x['p']:,} (you updated it {x['d']})")
-            r["price"] = str(x["p"])
+        # a price read off the dealer's page later than your mark (column price_on) wins over the mark.
+        # Your mark is the ALL-IN price, dealer fees included, before tax (user, Nov 6 2026: "I'm putting all in"):
+        # the fees on file come off it; with no fees on file it's taken as the whole price (no estimate added)
+        if x and x["d"] >= (r.get("price_on") or ""):
+            f = lambda k: float(r.get(k) or 0)
+            known = (r.get("doc_fee") or "").strip() != "" or (r.get("other_fees") or "").strip() != ""
+            base = round(float(x["p"]) - (f("doc_fee") + f("other_fees") if known else 0))
+            if str(int(float(r["price"] or 0))) != str(base) or not known:
+                log(f"{r['year']} {r['make']} {r['model']} {v}: price ${float(r['price'] or 0):,.0f} -> ${base:,} + fees = ${x['p']:,} all in (you updated it {x['d']})")
+                r["price"] = str(base)
+                if not known:
+                    r["doc_fee"], r["other_fees"] = "0", "0"
         keep.append(r)
     out = io.StringIO()
     w = csv.DictWriter(out, fieldnames=cols, lineterminator="\n")

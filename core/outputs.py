@@ -1011,7 +1011,7 @@ __SCOREHELP__
 <div id="panel-cmp" role="tabpanel" aria-labelledby="tab-cmp" hidden><div id="cmp"></div></div>
 <div id="panel-mine" role="tabpanel" aria-labelledby="tab-mine" hidden>
 <p class="muted" style="margin-top:0">Cars you sent in from dealers the search can't read. The search can't tell when these sell,
-so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b>, <b>Update price</b> (if it changed) or <b>No longer available</b>.
+so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b>, <b>Update price</b> (if it changed; type the price with the dealer's fees included, before tax) or <b>No longer available</b>.
 Checks older than a week turn yellow as a reminder. A car you mark no longer available moves to the Sold tab at once (the next search makes it permanent).</p>
 <div class="controls" style="margin-bottom:6px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
 <label class="pill"><input type="checkbox" id="mine-fav"><span>&#9829; Favorites only</span></label>
@@ -1521,9 +1521,10 @@ function applyMinePrices() {
     const w = c._was, x = minePrice[c.vin];
     c.price = w.price; c.price_total = w.price_total; c.hist = w.hist.slice(); c.priceByYou = null;
     // a mark older than the car's last read is out of date: that read (e.g. via your browser) has the newer price
-    if (x && num(x.p) != null && x.d >= (c.last_seen || "") && Math.round(num(x.p)) !== Math.round(num(w.price) ?? -1)) {
-      const fees = num(w.price_total) != null && num(w.price) != null ? num(w.price_total) - num(w.price) : 0;
-      c.price = String(x.p); c.price_total = String(Math.round(x.p + fees)); c.priceByYou = x.d;
+    if (x && num(x.p) != null && x.d >= (c.last_seen || "") && Math.round(num(x.p)) !== Math.round(num(w.price_total) ?? -1)) {
+      // your price is ALL IN (dealer fees included, before tax; Nov 6 2026): the fees on file come off it for the "price"
+      const fees = c.fees_estimated !== "True" && num(w.price_total) != null && num(w.price) != null ? num(w.price_total) - num(w.price) : 0;
+      c.price = String(Math.round(x.p - fees)); c.price_total = String(Math.round(x.p)); c.priceByYou = x.d;
       const h = c.hist; if (!h.length || num(h[h.length - 1][1]) !== num(c.price_total)) h.push([x.d, num(c.price_total)]);
     }
     priceInfo(c);
@@ -1599,8 +1600,7 @@ document.getElementById("minelist").addEventListener("click", e => {
   else if (act === "gone") { if (!confirm(`Mark the ${c ? c.title : v} as no longer available?`)) return; mineGone[v] = todayISO(); }
   else if (act === "undo") delete mineGone[v];
   else if (act === "price") {
-    const fees = num(c.price_total) != null && num(c.price) != null ? Math.round(num(c.price_total) - num(c.price)) : 0;
-    const ans = prompt(`Price on the dealer's page now, before fees (now ${fmt$(c.price)}${fees ? `; ${fmt$(fees)} in fees is added` : ""}):`, Math.round(num(c.price) || 0));
+    const ans = prompt(`Price on the dealer's page now, ALL IN: dealer fees included, before tax (now ${fmt$(c.price_total)}):`, Math.round(num(c.price_total) || 0));
     if (ans == null) return;
     const p = Math.round(parseFloat(String(ans).replace(/[$,\s]/g, "")));
     if (!(p >= 3000 && p <= 500000)) { alert("That doesn't look like a price. Type just the number, e.g. 34995."); return; }
