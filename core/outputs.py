@@ -470,6 +470,10 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     conf = history_mod.load_confirmed(P.data)
     no_audio = {v for v, c in conf.items() if (c.get("audio") or "").strip().lower() == "none"}
     stickers = {v for v, c in conf.items() if (c.get("sticker") or "").strip().lower() == "yes"}   # original window sticker seen
+    import csv as _csv
+    _mp = ROOT / "data" / "manual_listings.csv"
+    price_read = {m["vin"].upper(): (m.get("price_on") or m.get("added_on") or "") for m in _csv.DictReader(_mp.open(encoding="utf-8"))
+                  if m.get("vin")} if _mp.exists() else {}      # Added by you tab: when the price was last read
     cars = []
     # the dealers' spec-data clearance for each year / make / model, so every car of it shows the same figure
     from collections import Counter
@@ -490,7 +494,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "msrp_new", "msrp_source", "body", "page_features", "drivetrain",
                                                "ventilated_seats", "spare_tire", "leather", "recall_flags", "carfax_badges",
                                                "cpo_warranty_terms", "packages", "price", "last_seen", "source")}
-                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers,
+                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers, "price_read": price_read.get(r["vin"].upper(), ""),
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
                        "score_parts": criteria.score_breakdown(r, r["vin"].upper() in no_audio) if r.get("score") not in ("", None) else []}
                     | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P), "roof_open": roof_open(r), "hud": hud_of(r)})
@@ -1009,9 +1013,16 @@ __SCOREHELP__
 <p class="muted" style="margin-top:0">Cars you sent in from dealers the search can't read. The search can't tell when these sell,
 so check them now and then: tap the car to open the dealer's page, then tap <b>Still available</b>, <b>Update price</b> (if it changed) or <b>No longer available</b>.
 Checks older than a week turn yellow as a reminder. A car you mark no longer available moves to the Sold tab at once (the next search makes it permanent).</p>
-<div class="controls" style="margin-bottom:10px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
+<div class="controls" style="margin-bottom:6px"><label class="pill"><input type="checkbox" id="mine-hide"><span>Hide ones I checked this week</span></label>
+<label class="pill"><input type="checkbox" id="mine-fav"><span>&#9829; Favorites only</span></label>
 <button type="button" class="cbtn ghost" id="mine-clear">Clear all checks</button>
 <span class="small" id="mine-sync"></span></div>
+<div class="controls minectl" style="margin-bottom:10px">
+<label class="small">Dealer <select id="mine-dealer"><option value="">All dealers</option></select></label>
+<label class="small">Sort <select id="mine-sort">
+<option value="check">Needs checking first</option><option value="fav">Favorites first</option><option value="score">Best score</option>
+<option value="price">Lowest price</option><option value="read">Oldest price reading</option><option value="dealer">Dealer A–Z</option></select></label>
+<span class="small" id="mine-shown"></span></div>
 <div id="minelist"></div>
 </div>
 <div id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
@@ -1542,21 +1553,42 @@ function renderMine() {
   const live = all.filter(c => !mineGone[c.vin]), gone = all.filter(c => mineGone[c.vin]);
   document.getElementById("nmine").textContent = live.filter(c => !fresh(c)).length;
   if (document.getElementById("panel-mine").hidden) { lazyStale.add("mine"); return; }   // the list is built when the tab opens
-  live.sort((a, b) => (fresh(a) - fresh(b)) || (age(b) ?? 1e9) - (age(a) ?? 1e9) || a.dealer.localeCompare(b.dealer));
+  // filters (Nov 6 2026, user: "add filters so that i can prioritize updating specific ones"): the filter panel,
+  // ♥ favorites only, one dealer, and a sort; remembered per viewer
+  const pass = carPass(), favOnlyM = document.getElementById("mine-fav").checked;
+  const dsel = document.getElementById("mine-dealer"), ssel = document.getElementById("mine-sort");
+  const dealers = [...new Set(live.map(c => c.dealer))].sort();
+  if (dsel.options.length !== dealers.length + 1) {
+    const keep = dsel.value;
+    dsel.innerHTML = '<option value="">All dealers</option>' + dealers.map(d => `<option value="${esc(d)}">${esc(d)} (${live.filter(c => c.dealer === d).length})</option>`).join("");
+    dsel.value = dealers.includes(keep) ? keep : "";
+  }
+  const readAge = c => { const d = c.priceByYou || c.price_read; return d ? daysAgo(d) : 1e9; };
+  const shown = live.filter(c => pass(c) && (!favOnlyM || fav.includes(c.vin)) && (!dsel.value || c.dealer === dsel.value));
+  const byCheck = (a, b) => (fresh(a) - fresh(b)) || (age(b) ?? 1e9) - (age(a) ?? 1e9);
+  const SORTS = {check: byCheck, fav: (a, b) => (fav.includes(b.vin) - fav.includes(a.vin)) || byCheck(a, b),
+    score: (a, b) => (num(b.score) ?? -1) - (num(a.score) ?? -1), price: (a, b) => (num(a.price_total) ?? 1e9) - (num(b.price_total) ?? 1e9),
+    read: (a, b) => readAge(b) - readAge(a), dealer: (a, b) => a.dealer.localeCompare(b.dealer) || byCheck(a, b)};
+  shown.sort((a, b) => (SORTS[ssel.value] || byCheck)(a, b) || a.dealer.localeCompare(b.dealer));
+  try { localStorage.setItem(PK + "mineopt", JSON.stringify({s: ssel.value, d: dsel.value, f: favOnlyM, h: hide})); } catch (e) {}
+  const hidden = live.length - shown.length;
+  document.getElementById("mine-shown").innerHTML = `Showing ${shown.filter(c => !(hide && fresh(c))).length} of ${live.length}` +
+    (hidden ? ` · <a href="#" id="mine-reset">show all</a>` : "");
   const card = c => {
     const g = mineGone[c.vin], a = age(c), state = g ? "gonemk" : a == null ? "" : a <= 7 ? "done" : "stale";
     const label = g ? `marked no longer available on ${shortDate(g)}` : a == null ? "not checked yet" : a === 0 ? "still available, checked today"
       : a <= 7 ? `still available, checked ${a} day${a > 1 ? "s" : ""} ago` : `checked ${a} days ago, check again`;
     return `<div class="ck mine ${state}"><h3><a href="${esc(c.listing_url)}" target="_blank" rel="noopener">${esc(c.title)}</a><span class="ckstate">${g ? "✕" : a != null ? "✓" : "•"} ${esc(label)}</span></h3>
       <div class="small why">${esc(c.dealer)} · ${esc(c.distance_mi)} mi · <b>${fmt$(c.price_total)}</b>${c.priceByYou ? ` (price updated by you ${esc(shortDate(c.priceByYou))})` : ""} · ${num(c.mileage) == null ? "?" : Math.round(num(c.mileage)).toLocaleString()} mi
-        · ${c.needs_call ? "needs a call" : "match"} · added ${esc(shortDate(c.first_seen))}<div class="vin">${esc(c.vin)}</div></div>
+        · ${c.needs_call ? "needs a call" : "match"}${fav.includes(c.vin) ? " · &#9829;" : ""} · added ${esc(shortDate(c.first_seen))}${(c.priceByYou || c.price_read) ? ` · price read ${esc(shortDate(c.priceByYou || c.price_read))}` : ""}<div class="vin">${esc(c.vin)}</div></div>
       <div class="btns">${g ? `<button type="button" class="cbtn ghost minebtn" data-act="undo" data-vin="${esc(c.vin)}">Undo: it's still for sale</button>`
         : `<a class="cbtn" href="${esc(c.listing_url)}" target="_blank" rel="noopener">Open the dealer's page</a>
         <button type="button" class="cbtn ghost minebtn" data-act="seen" data-vin="${esc(c.vin)}">${fresh(c) ? "Undo check" : "✓ Still available"}</button>
         <button type="button" class="cbtn ghost minebtn" data-act="price" data-vin="${esc(c.vin)}">$ Update price</button>
         <button type="button" class="cbtn ghost minebtn bad" data-act="gone" data-vin="${esc(c.vin)}">✕ No longer available</button>`}</div></div>`; };
-  let html = live.filter(c => !(hide && fresh(c))).map(card).join("");
-  if (!html) html = `<p class="small muted">${all.length ? "All checked this week." : "No cars added by you yet. Send Claude a dealer's listing when the search misses a car."}</p>`;
+  let html = shown.filter(c => !(hide && fresh(c))).map(card).join("");
+  if (!html) html = `<p class="small muted">${!all.length ? "No cars added by you yet. Send Claude a dealer's listing when the search misses a car."
+    : shown.length ? "All of these checked this week." : "No cars match these filters."}</p>`;
   if (gone.length) html += `<h3 class="minesec">Marked no longer available (${gone.length})</h3><p class="small muted">These are on the Sold tab now; the next search makes it permanent and stops adding them.</p>` + gone.map(card).join("");
   document.getElementById("minelist").innerHTML = html;
 }
@@ -1577,6 +1609,15 @@ document.getElementById("minelist").addEventListener("click", e => {
   }
   saveMine(); renderMine(); render(); });
 document.getElementById("mine-hide").addEventListener("input", renderMine);
+["mine-fav", "mine-dealer", "mine-sort"].forEach(id => document.getElementById(id).addEventListener("input", renderMine));
+document.getElementById("minelist").parentElement.addEventListener("click", e => {
+  if (e.target.id !== "mine-reset") return; e.preventDefault();
+  document.getElementById("mine-fav").checked = false; document.getElementById("mine-dealer").value = "";
+  const cl = document.getElementById("clear"); if (cl) cl.click(); renderMine(); });
+try { const o = JSON.parse(localStorage.getItem(PK + "mineopt") || "{}");
+  if (o.s) document.getElementById("mine-sort").value = o.s; if (o.f) document.getElementById("mine-fav").checked = true;
+  if (o.h) document.getElementById("mine-hide").checked = true;
+  if (o.d) { const ds = document.getElementById("mine-dealer"); ds.add(new Option(o.d, o.d)); ds.value = o.d; } } catch (e) {}
 // start a new round of checking: forget every "still available" date (prices you updated and cars marked gone stay)
 document.getElementById("mine-clear").addEventListener("click", () => {
   if (!Object.keys(mineSeen).length || !confirm("Clear the \"still available\" checks on all your added cars (on all your devices)?\nPrices you updated and cars you marked no longer available stay as they are.")) return;
@@ -1950,7 +1991,8 @@ const sorter = (k, d) => (a, b) => { let x = a[k], y = b[k];
   const ex = blank(x), ey = blank(y); if (ex || ey) return ex - ey;
   const nx = num(x), ny = num(y); if (nx != null && ny != null && !/_(seen|on)$/.test(k)) return (nx - ny) * d;
   return String(x ?? "").localeCompare(String(y ?? "")) * d; };
-function render() { renderRows(); stickHeads(); if (!document.getElementById("panel-plan").hidden) renderPlan(); if (typeof updateCounts === "function") updateCounts();
+function render() { renderRows(); stickHeads(); if (!document.getElementById("panel-plan").hidden) renderPlan();
+  if (!document.getElementById("panel-mine").hidden) renderMine(); if (typeof updateCounts === "function") updateCounts();
   try { localStorage.setItem(PK + "sort", JSON.stringify({k: sortK, d: dir, gk: gK, gd: gDir})); } catch (e) {} }
 
 // ---- Map: dealers of the cars the filters show (OpenStreetMap via Leaflet, loaded only when the map is opened) ----
@@ -2493,7 +2535,7 @@ function showTab(which) {
   ["avail", "gone", "cmp", "guide", "check", "mine", "plan"].forEach(t => document.getElementById("panel-" + t).hidden = t !== panel);
   document.getElementById("fav-extra").hidden = !favOnly;
   render();
-  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check" || which === "mine";   // car filters (they apply to the Test drives plans too) don't apply there
+  document.querySelector(".filters").hidden = which === "guide" || which === "cmp" || which === "check";   // car filters apply to the Test drives plans and the Added by you list too
   document.getElementById("footnote").hidden = which === "guide" || which === "check" || which === "mine" || which === "plan";
   if (which === "cmp") renderCompare();
   if (which === "plan") renderPlan();
