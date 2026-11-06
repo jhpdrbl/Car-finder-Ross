@@ -715,7 +715,9 @@ def score_parts(L: Listing) -> dict[str, float]:
     tri = lambda v: 1.0 if v is True else (0.0 if v is False else 0.4)
     parts = {}
     if L.price_total:
-        parts["price"] = max(0.0, min(1.0, 1 - (L.price_total - S.get("price_target", 30000)) / 10000))
+        lo = S.get("price_target", 30000)
+        hi = S.get("price_zero", lo + 10000)
+        parts["price"] = max(0.0, min(1.0, (hi - L.price_total) / max(1, hi - lo)))
     parts["phev"] = 1.0 if L.fuel_type in ("phev", "ev") else 0.0      # electric cars plug in too
     mpg = L.mpg_combined
     if L.fuel_type in ("ev", "phev"):         # plug-ins and electrics: full points (user, Nov 4 2026: "they don't really have mpg")

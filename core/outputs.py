@@ -295,7 +295,7 @@ def score_help(P) -> str:
     tgt = sc.get("price_target", 30000)
     rank = sc.get("color_rank") or []
     label = {
-        "price": f"Price: full points at ${tgt:,} or less, none at ${tgt + 10000:,}",
+        "price": f"Price: full points at ${tgt:,} or less, none at ${sc.get('price_zero', tgt + 10000):,}",
         "phev": "Plug-in hybrid or electric: all or nothing",
         "mpg": "Gas mileage: none at 20 mpg, full at 40 mpg (plug-in hybrids and electrics: full)",
         "year": "Model year: newer is better (the oldest year allowed gets none, this year's full)",

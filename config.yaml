@@ -77,7 +77,8 @@ filters:
   carfax_exclude_accident: true
 
 scoring:            # higher = better; weights sum is arbitrary, score scaled 0-100
-  price_target: 30000
+  price_target: 25000   # price item: full points at or under this (incl. fees)...
+  price_zero: 40000     # ...none at or over this (user, Nov 6 2026: "range from 25k to 40k"; was 30k-40k)
   weights:
     price: 30       # high
     phev: 25        # high (electric cars get it too: they plug in)
