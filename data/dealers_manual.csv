@@ -23,7 +23,7 @@ BMW,BMW of Beverly Hills,Los Angeles,5070 Wilshire Blvd,90036,34.061994,-118.340
 BMW,BMW Santa Monica,Santa Monica,,,,,https://www.bmwsantamonica.com/,,,confirmed,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 BMW,BMW of Downtown LA,Los Angeles,6333 S. Alameda Street,90001,33.982616,-118.2371295,https://www.bmwdtla.com/,,,confirmed,web research (brand locator blocked),
 BMW,Valencia BMW,Valencia,23435 Valencia Blvd,91355,34.4207534,-118.5492702,https://www.valenciabmw.com/,,,confirmed,web research (brand locator blocked),
-BMW,Bob Smith BMW,Calabasas,24500 Calabasas Rd,91302,34.1493801,-118.6612567,https://bobsmithbmw.com/,,,confirmed,web research (brand locator blocked),
+BMW,Bob Smith BMW,Calabasas,24500 Calabasas Rd,91302,34.1493801,-118.6612567,https://bobsmithbmw.com/,,https://bobsmithbmw.com/collections/certified-pre-owned,confirmed,web research (brand locator blocked),
 BMW,South Bay BMW,Torrance,,,,,https://www.southbaybmw.com/,,,confirmed,web research (brand locator blocked),
 BMW,Century West BMW,North Hollywood,,,,,https://www.centurywestbmw.com/,,,unverified,web research (brand locator blocked),homepage blocked from cloud (HTTP 403)
 BMW,BMW of Sherman Oaks,Sherman Oaks,5201 Van Nuys Blvd,91401,34.16663,-118.44878,https://www.bmwshermanoaks.com/,,,unverified,web research (brand locator blocked),

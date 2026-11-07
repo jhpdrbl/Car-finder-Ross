@@ -28,7 +28,7 @@ BMW,BMW of Monrovia,Monrovia,,,34.1442,-118.0019,14.9,https://www.bmwofmonrovia.
 BMW,McKenna BMW,Norwalk,,,33.9022,-118.0817,17.6,https://www.mckennabmw.com,team_velocity,,unverified,web research (brand locator blocked),2026-11-07,distance from city center
 BMW,South Bay BMW,Torrance,,,33.8358,-118.3406,19.5,https://www.southbaybmw.com,dealer_com,,confirmed,web research (brand locator blocked),2026-11-07,distance from city center
 BMW,Long Beach BMW,Long Beach,1660 E Spring St,90755,33.811529,-118.171322,21.3,https://www.longbeachbmw.com,dealer_com,,unverified,web research (brand locator blocked),2026-11-07,
-BMW,Bob Smith BMW,Calabasas,24500 Calabasas Rd,91302,34.1493801,-118.6612567,23.1,https://bobsmithbmw.com,dealer_com,,confirmed,web research (brand locator blocked),2026-11-06,
+BMW,Bob Smith BMW,Calabasas,24500 Calabasas Rd,91302,34.1493801,-118.6612567,23.1,https://bobsmithbmw.com,dealer_com,https://bobsmithbmw.com/collections/certified-pre-owned,confirmed,web research (brand locator blocked),2026-11-06,
 BMW,Valencia BMW,Valencia,23435 Valencia Blvd,91355,34.4207534,-118.5492702,27.1,https://www.valenciabmw.com,dealer_com,,confirmed,web research (brand locator blocked),2026-11-07,
 BMW,Crevier BMW,Santa Ana,,,33.7455,-117.8677,33.8,https://www.crevierbmw.com,dealer_inspire,,unverified,web research (brand locator blocked),,homepage blocked from cloud (HTTP 403); distance from city center; homepage blocked (cloudflare); has /llm/inventory
 BMW,BMW of Ontario,Ontario,,,34.0633,-117.6509,35.0,https://www.bmwofontario.com,dealer_inspire,,unverified,web research (brand locator blocked),,homepage blocked from cloud (HTTP 403); distance from city center; homepage blocked (cloudflare); has /llm/inventory
