@@ -10,3 +10,4 @@ logs/
 .github_token
 probe_report.txt
 chrome-recheck*.txt
+chrome-find*.txt

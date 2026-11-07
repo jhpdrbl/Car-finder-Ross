@@ -170,10 +170,155 @@ def cmd_apply(src: str) -> None:
         print("  check:", x)
 
 
+# ---------------------------------------------------------------------------------------------------------------
+# Finding NEW cars at the dealers the search can't read (Nov 7 2026, user: "prioritize finding new cars").
+#     python -m tools.chrome_recheck find [out.txt]      # parts of 3 dealers: their certified inventory + models wanted
+#     python -m tools.chrome_recheck addnew lines.txt    # its answer lines -> new rows in manual_listings.csv
+
+FIND_INSTRUCTION = """Please look through each dealer's CERTIFIED pre-owned inventory below, in a normal tab of this browser, one page at a time
+(wait a few seconds between pages). If a page asks you to prove you're human (CAPTCHA, "are you a robot", "checking your
+browser"), stop there and tell me which dealer; don't try to get past it.
+
+I want certified cars I don't know about yet. Report a car only if ALL of these are true:
+- it's certified pre-owned (the page or the listing says certified / CPO),
+- it's one of the models listed for that dealer, model year {min_year} or newer, and NOT gas-only
+  (plug-in hybrid, hybrid or electric; for Mercedes / BMW / Audi plug-ins the name has an "e", e.g. GLC 350e, 330e, 55 TFSI e),
+- the price is under $41,000 and the miles are under 40,000,
+- its VIN doesn't end in one of the "already known" endings listed for that dealer.
+Use the site's own filters (certified, model, price) if it has them, and go through every page of results.
+
+For each car you report, open its own page and write ONE line:
+VIN | DEALER | YEAR | MAKE | MODEL | TRIM | PRICE | FEES | MILES | EXTERIOR COLOR | INTERIOR COLOR | SUNROOF | SOUND SYSTEM | SEATS | CARFAX | LINK
+- DEALER: the dealer's name exactly as written below.
+- PRICE: the advertised price before taxes and fees (for example $31,995). FEES: each dealer fee the page lists with its name
+  ("Doc $85; EVR $37"), or "none listed".
+- SUNROOF: yes / no / not shown (a panoramic or glass roof counts as yes).
+- SOUND SYSTEM: the brand name if the page names one (Bang & Olufsen, Burmester, Harman Kardon, Mark Levinson, Bose, SONOS...),
+  else "not shown".
+- SEATS: leather / synthetic (MB-Tex, SensaTec, Vernasca, NuLuxe, Inteluxe...) / cloth / not shown.
+- CARFAX: any CARFAX badge the page shows ("CARFAX 1-Owner", "No Accident"), else "none". Don't open carfax.com.
+- LINK: the address of the car's own page.
+After each dealer, write one line: "DONE | <dealer> | <how many certified cars you looked at>".
+
+IMPORTANT: write each car's line as soon as you have it, before moving on, so nothing is lost if you have to stop early.
+
+The dealers ({part}):
+"""
+FIND_PART = 3            # dealers per part
+FIND_ORDER = ["Audi", "Mercedes-Benz", "BMW", "Acura", "Cadillac", "Ford", "Toyota", "Alfa Romeo", "Jaguar"]
+NOT_GAS_MODELS = {       # models worth a visit while gas cars are off (filters.fuels); the rest are gas-only
+    "Audi": "Q4 e-tron, Q5 55 TFSI e (plug-in), Q6 e-tron, Q8 e-tron / SQ8 e-tron, e-tron / e-tron S, e-tron GT, A6 / S6 Sportback e-tron",
+    "Mercedes-Benz": "GLC 350e, GLE 450e, EQB, EQE SUV, EQS SUV, EQE sedan, EQS sedan, AMG E 53 HYBRID, AMG C 63 S E PERFORMANCE, S 580e",
+    "BMW": "X5 xDrive50e, iX, i4, i5, i7, 330e, 530e, 550e, 750e",
+    "Acura": "ZDX",
+    "Cadillac": "Lyriq, Optiq",
+    "Ford": "Mustang Mach-E",
+    "Toyota": "bZ4X / bZ, 4Runner hybrid (i-FORCE MAX), Land Cruiser (hybrid, 2024+)",
+    "Alfa Romeo": "Tonale (plug-in hybrid)",
+    "Jaguar": "I-Pace",
+}
+
+
+def cmd_find(out: str | None) -> None:
+    sys.path.insert(0, str(ROOT))
+    from core import outputs, history
+    cl = outputs.check_list(history.read_csv(DATA / "coverage.csv"))
+    known = defaultdict(set)
+    for r in csv.DictReader((DATA / "listings.csv").open(encoding="utf-8")):
+        known[r["dealer"]].add(r["vin"].upper())
+    for r in read_rows()[1]:
+        known[r["dealer"]].add(r["vin"].upper())
+    rank = {b: i for i, b in enumerate(FIND_ORDER)}
+    cl = [c for c in cl if c["brand"] in NOT_GAS_MODELS]
+    cl.sort(key=lambda c: (rank.get(c["brand"], 99), float(c["distance_mi"] or 999)))
+    parts = [cl[i:i + FIND_PART] for i in range(0, len(cl), FIND_PART)]
+    blocks = []
+    for n, part in enumerate(parts, 1):
+        body = []
+        for c in part:
+            kv = sorted(v[-8:] for v in known.get(c["dealer"], ()))
+            body.append(f"\n{c['dealer']} ({c['brand']}, {float(c['distance_mi'] or 0):.0f} mi)\n"
+                        f"  Certified inventory: {c['cpo'] or c['homepage']}\n"
+                        f"  Models: {NOT_GAS_MODELS[c['brand']]}\n"
+                        f"  Already known (VIN ends in): {', '.join(kv) if kv else 'none'}")
+        blocks.append(f"===== PART {n} of {len(parts)}: copy from here =====\n\n"
+                      + FIND_INSTRUCTION.format(part=f"part {n} of {len(parts)}", min_year=2023) + "\n".join(body)
+                      + f"\n\n===== end of part {n} =====\n")
+    text = (f"{len(cl)} dealers the search can't read, in {len(parts)} parts of {FIND_PART}. Brands with the most cars for you first.\n"
+            "Paste one part at a time into Claude in Chrome and send Claude here the lines it writes (partial is fine).\n\n"
+            + "\n".join(blocks))
+    if out:
+        Path(out).write_text(text, encoding="utf-8")
+        print(f"wrote {out}: {len(cl)} dealers in {len(parts)} parts")
+    else:
+        print(text)
+
+
+def cmd_addnew(src: str) -> None:
+    sys.path.insert(0, str(ROOT))
+    from urllib.parse import urlparse
+    today = date.today().isoformat()
+    cols, rows = read_rows()
+    have = {r["vin"].upper() for r in rows}
+    dealers = list(csv.DictReader((DATA / "dealers.csv").open(encoding="utf-8")))
+    by_name = {d["dealer_name"].lower(): d for d in dealers}
+    host = lambda u: urlparse(u if "//" in u else "https://" + u).netloc.lower().removeprefix("www.")
+    by_host = {host(d["homepage"]): d for d in dealers if d.get("homepage")}
+    added, skipped, odd, done = [], [], [], []
+    for line in Path(src).read_text(encoding="utf-8").splitlines():
+        f = [x.strip().strip("`*") for x in line.strip().strip("`").split("|")]
+        if f and f[0].upper().startswith("DONE") and len(f) >= 2:
+            done.append(" | ".join(f[1:]))
+            continue
+        m = re.search(r"\b[A-HJ-NPR-Z0-9]{17}\b", f[0].upper()) if len(f) >= 10 else None
+        if not m:
+            continue
+        f += [""] * (16 - len(f))
+        vin = m.group(0)
+        if vin in have:
+            skipped.append(vin)
+            continue
+        link = f[15]
+        d = by_name.get(f[1].lower()) or by_host.get(host(link)) if link else by_name.get(f[1].lower())
+        if not d:
+            odd.append(f"{vin}: dealer '{f[1]}' not on file")
+            continue
+        price, fees = money(f[6]), money(re.sub(r"\([^)]*\)", "", f[7]))
+        none = lambda s: "" if re.match(r"(not shown|none|n/?a|unknown|-)$", s.strip(), re.I) else s.strip()
+        roof = f[11].lower()
+        r = {c: "" for c in cols}
+        r.update(vin=vin, listing_url=link, dealer=d["dealer_name"], year=re.sub(r"\D", "", f[2])[:4], make=f[3], model=f[4],
+                 trim=none(f[5]), price=str(round(price[0])) if price else "",
+                 doc_fee=str(round(fees[0])) if fees else ("0" if "none" in f[7].lower() else ""),
+                 other_fees=str(round(sum(fees[1:]))) if fees else ("0" if "none" in f[7].lower() else ""),
+                 mileage=re.sub(r"[^\d]", "", f[8]), ext_color=none(f[9]), int_color=none(f[10]),
+                 sunroof="yes" if roof.startswith("yes") else "no" if roof.startswith("no") else "",
+                 cert_text=f"{f[3]} Certified pre-owned (dealer's certified inventory, read in your browser)",
+                 added_on=today, price_on=today, audio=none(f[12]), seats=none(f[13]), carfax=none(f[14]))
+        if not (r["year"] and r["price"] and link):
+            odd.append(f"{vin}: missing year, price or link")
+            continue
+        rows.append(r)
+        have.add(vin)
+        added.append(f"{vin}: {r['year']} {r['make']} {r['model']} {r['trim']} ${float(r['price']):,.0f} at {r['dealer']}")
+    write_rows(cols, rows)
+    print(f"added {len(added)} new cars, {len(skipped)} already on file")
+    for x in added:
+        print("  +", x)
+    for x in odd:
+        print("  check:", x)
+    for x in done:
+        print("  done:", x)
+
+
 if __name__ == "__main__":
     if len(sys.argv) >= 2 and sys.argv[1] == "list":
         cmd_list(sys.argv[2] if len(sys.argv) > 2 else None)
     elif len(sys.argv) >= 3 and sys.argv[1] == "apply":
         cmd_apply(sys.argv[2])
+    elif len(sys.argv) >= 2 and sys.argv[1] == "find":
+        cmd_find(sys.argv[2] if len(sys.argv) > 2 else None)
+    elif len(sys.argv) >= 3 and sys.argv[1] == "addnew":
+        cmd_addnew(sys.argv[2])
     else:
         print(__doc__)
