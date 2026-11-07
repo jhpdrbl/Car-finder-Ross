@@ -470,6 +470,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
     conf = history_mod.load_confirmed(P.data)
     no_audio = {v for v, c in conf.items() if (c.get("audio") or "").strip().lower() == "none"}
     stickers = {v for v, c in conf.items() if (c.get("sticker") or "").strip().lower() == "yes"}   # original window sticker seen
+    carfax_reports = {v for v, c in conf.items() if (c.get("carfax") or "").strip()}                  # a CARFAX report the user sent
     import csv as _csv
     _mp = ROOT / "data" / "manual_listings.csv"
     price_read = {m["vin"].upper(): (m.get("price_on") or m.get("added_on") or "") for m in _csv.DictReader(_mp.open(encoding="utf-8"))
@@ -494,7 +495,7 @@ def write_dashboard(rows: list[dict], history: list[dict], cov: list[dict], toda
                                                "msrp_new", "msrp_source", "body", "page_features", "drivetrain",
                                                "ventilated_seats", "spare_tire", "leather", "recall_flags", "carfax_badges",
                                                "cpo_warranty_terms", "packages", "price", "last_seen", "source")}
-                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers, "price_read": price_read.get(r["vin"].upper(), ""),
+                    | {"hist": hist.get(r["vin"], []), "audio_none": r["vin"].upper() in no_audio, "sticker": r["vin"].upper() in stickers, "carfax_report": r["vin"].upper() in carfax_reports, "price_read": price_read.get(r["vin"].upper(), ""),
                        "is_new": bool(latest_run) and r.get("new_run") == latest_run,
                        "score_parts": criteria.score_breakdown(r, r["vin"].upper() in no_audio) if r.get("score") not in ("", None) else []}
                     | _spec_fields(r, page_cl) | {"int_kind": interior_kind(r.get("int_color", ""), P), "roof_open": roof_open(r), "hud": hud_of(r)})
@@ -936,6 +937,8 @@ __SCOREHELP__
     <fieldset class="group" id="f-show"><legend>Status</legend></fieldset>
     <fieldset class="group" id="f-mine"><legend>Your marks</legend></fieldset>
     <fieldset class="group" id="f-src"><legend>Found by</legend></fieldset>
+    <fieldset class="group" id="f-stk"><legend>Window sticker</legend></fieldset>
+    <fieldset class="group" id="f-cfx"><legend>CARFAX report</legend></fieldset>
     <fieldset class="group" id="f-new"><legend>Show</legend><label class="pill"><input type="checkbox" id="only-new" value="new"><span>Only NEW (<span id="nnew">0</span>)</span></label><label class="pill"><input type="checkbox" id="only-cut" value="cut"><span>&#9660; Price cut (<span id="ncut">0</span>)</span></label></fieldset>
   </details>
   <details class="fsec" open><summary>The car</summary>
@@ -1178,6 +1181,8 @@ const clearS = makeSlider("cl", D.cars.map(c => num(c.clearance)).filter(v => v 
 const rangeS = makeSlider("er", D.cars.map(c => num(c.ev_range)).filter(v => v != null), 5, v => Math.round(v) + " mi");
 pills("f-mine", ["Favorite", "No mark", "Disliked"]);
 pills("f-src", ["Added by you", "The search"]);
+pills("f-stk", ["Have it", "Missing"]);       // documents you've sent (Nov 7 2026: "filter by carfax report recieved and by window sticker")
+pills("f-cfx", ["Have it", "Missing"]);
 pills("f-year", [...new Set(D.cars.concat(D.gone).map(c => String(c.year || "")).filter(Boolean))].sort().reverse());
 const picked = id => new Set([...document.querySelectorAll(`#${id} input:checked`)].map(i => i.value));
 document.getElementById("covsum").textContent = D.failed.length ? `${D.failed.length} sources failed (tap to see why)` : "all sources read";
@@ -2110,7 +2115,7 @@ const rowHtml = c => `<tr${dis.includes(c.vin) ? ' class="disliked"' : ""}>
     <td class="wide" data-l="Colors">${esc(c.colors)}</td><td data-l="Sunroof">${esc(roofOf(c).v)}${openTag(c)}${roofOf(c).t ? `<div class="small">${esc(roofOf(c).t)}</div>` : ""}</td><td data-l="Upgraded sound">${esc(soundOf(c).v)}${soundOf(c).t ? `<div class="small">${esc(soundOf(c).t)}</div>` : ""}</td><td data-l="Seats">${esc(seatOf(c).v)}${seatOf(c).t ? `<div class="small">${esc(seatOf(c).t)}</div>` : ""}</td>
     <td class="num" data-l="Ground clearance">${num(c.clearance) == null ? "?" : num(c.clearance).toFixed(1) + " in" + (c.clearance_src ? `<div class="small">${esc(c.clearance_src)}</div>` : "")}</td>
     <td class="num" data-l="Electric range">${num(c.ev_range) != null ? Math.round(num(c.ev_range)) + " mi" + (c.ev_range_src ? `<div class="small">${esc(c.ev_range_src)}</div>` : "") : (c.fuel_type === "ev" || c.fuel_type === "phev" ? "?" : "—")}</td>
-    <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}</td>
+    <td class="${esc(c.carfax_status)}" data-l="CARFAX">${esc({clean:"no accidents", accident:"accident", not_verified:"not verified"}[c.carfax_status] || c.carfax_status)}${c.carfax_report ? '<div class="small">from the report you sent</div>' : ""}</td>
     <td class="num p-mo" data-l="Est./mo">${fmt$(c.est_monthly_cost)}</td><td class="warr wide" data-l="Warranty (estimated)">${c.warr_html}</td><td class="small wide" data-l="First seen">${esc(c.first_seen)}</td></tr>`;
 const moreObs = "IntersectionObserver" in window ? new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) showMoreRows(); }, {rootMargin: "1200px"}) : null;
 function addMoreRow(tb) {
@@ -2131,7 +2136,7 @@ document.addEventListener("click", e => { if (e.target.id === "more-btn") showMo
 // the filter panel's choices as one test, shared by the car list and the Test drives plans
 function carBase() {
   const q = document.getElementById("q").value.toLowerCase(), show = picked("f-show"), mk = picked("f-make"), fu = picked("f-fuel"), yr = picked("f-year"), bd = picked("f-body"), dv = picked("f-drive"), ik = picked("f-int"),
-        rf = picked("f-roof"), op = picked("f-open"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"),
+        rf = picked("f-roof"), op = picked("f-open"), sd = picked("f-sound"), st = picked("f-seat"), mn = picked("f-mine"), sr = picked("f-src"), sk = picked("f-stk"), cx = picked("f-cfx"),
         lo = +pmin.value, hi = +pmax.value, priced = lo > P_LO || hi < P_HI,
         mlo = +mmin.value, mhi = +mmax.value, milesSet = mlo > M_LO || mhi < M_HI;
   const base = c => (!q || JSON.stringify(c).toLowerCase().includes(q)) && (!mk.size || mk.has(c.make)) && (!fu.size || fu.has(c.fuel))
@@ -2141,7 +2146,8 @@ function carBase() {
                     && (!priced || (num(c.price_total) != null && num(c.price_total) >= lo && num(c.price_total) <= hi))
                     && (!milesSet || (num(c.mileage) != null && num(c.mileage) >= mlo && num(c.mileage) <= mhi))
                     && (!clearS.on() || clearS.ok(num(c.clearance))) && (!rangeS.on() || rangeS.ok(num(c.ev_range)))
-                    && (!mn.size || mn.has(mark(c))) && (!sr.size || sr.has(isMine(c) ? "Added by you" : "The search"));
+                    && (!mn.size || mn.has(mark(c))) && (!sr.size || sr.has(isMine(c) ? "Added by you" : "The search"))
+                    && (!sk.size || sk.has(c.sticker ? "Have it" : "Missing")) && (!cx.size || cx.has(c.carfax_report ? "Have it" : "Missing"));
   return base;
 }
 const wasStatus = c => c.needs_call ? "Needs a call" : "Meets all criteria";
@@ -2631,7 +2637,7 @@ document.getElementById("cut-tile").addEventListener("click", () => {
   const box = document.getElementById("only-cut"); box.checked = !box.checked;
   if (box.checked) { sortByCut(); showTab("avail"); }
   render(); document.getElementById("shown-a").scrollIntoView({behavior: "smooth", block: "start"}); });
-["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-int", "f-roof", "f-open", "f-sound", "f-seat", "f-mine", "f-src", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
+["q", "f-show", "f-make", "f-fuel", "f-year", "f-body", "f-drive", "f-int", "f-roof", "f-open", "f-sound", "f-seat", "f-mine", "f-src", "f-stk", "f-cfx", "f-new"].forEach(id => document.getElementById(id).addEventListener("input", render));
 [pmin, pmax].forEach(el => el.addEventListener("input", () => { showPrice(); render(); }));
 [mmin, mmax].forEach(el => el.addEventListener("input", () => { showMiles(); render(); }));
 document.addEventListener("click", e => { if (e.target.closest("[data-clearall]")) document.getElementById("clear").click(); });
