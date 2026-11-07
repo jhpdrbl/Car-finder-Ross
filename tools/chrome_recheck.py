@@ -206,6 +206,11 @@ The dealers ({part}):
 """
 FIND_PART = 3            # dealers per part
 FIND_ORDER = ["Audi", "Mercedes-Benz", "BMW", "Acura", "Cadillac", "Ford", "Toyota", "Alfa Romeo", "Jaguar"]
+LUXURY = {"Audi", "Mercedes-Benz", "BMW", "Acura", "Cadillac"}
+LAST = {"Jaguar", "Alfa Romeo"}   # luxury too, but only the I-Pace / Tonale plug-in could pass (Oct 25: no certified I-Pace within 60 mi)
+NEAR_MI = 25             # luxury dealers within this distance come first (user, Nov 7 2026: "prioritize close dealerships at the luxury brands")
+FIND_DONE = DATA / "chrome_find_done.csv"   # dealer,date: dealers Claude in Chrome went through (DONE lines)
+FIND_FRESH_DAYS = 14     # a dealer searched in the last 14 days is left out of the next list
 NOT_GAS_MODELS = {       # models worth a visit while gas cars are off (filters.fuels); the rest are gas-only
     "Audi": "Q4 e-tron, Q5 55 TFSI e (plug-in), Q6 e-tron, Q8 e-tron / SQ8 e-tron, e-tron / e-tron S, e-tron GT, A6 / S6 Sportback e-tron",
     "Mercedes-Benz": "GLC 350e, GLE 450e, EQB, EQE SUV, EQS SUV, EQE sedan, EQS sedan, AMG E 53 HYBRID, AMG C 63 S E PERFORMANCE, S 580e",
@@ -219,6 +224,12 @@ NOT_GAS_MODELS = {       # models worth a visit while gas cars are off (filters.
 }
 
 
+def _find_done() -> dict:
+    if not FIND_DONE.exists():
+        return {}
+    return {r["dealer"]: r["date"] for r in csv.DictReader(FIND_DONE.open(encoding="utf-8"))}
+
+
 def cmd_find(out: str | None) -> None:
     sys.path.insert(0, str(ROOT))
     from core import outputs, history
@@ -228,9 +239,14 @@ def cmd_find(out: str | None) -> None:
         known[r["dealer"]].add(r["vin"].upper())
     for r in read_rows()[1]:
         known[r["dealer"]].add(r["vin"].upper())
-    rank = {b: i for i, b in enumerate(FIND_ORDER)}
-    cl = [c for c in cl if c["brand"] in NOT_GAS_MODELS]
-    cl.sort(key=lambda c: (rank.get(c["brand"], 99), float(c["distance_mi"] or 999)))
+    done = _find_done()
+    cutoff = (date.today() - timedelta(days=FIND_FRESH_DAYS)).isoformat()
+    skipped = [c["dealer"] for c in cl if done.get(c["dealer"], "") >= cutoff]
+    cl = [c for c in cl if c["brand"] in NOT_GAS_MODELS and c["dealer"] not in skipped
+          and "authorized service" not in c["dealer"].lower()]   # service-only locations sell no cars
+    dist = lambda c: float(c["distance_mi"] or 999)
+    tier = lambda c: 0 if c["brand"] in LUXURY and dist(c) <= NEAR_MI else 1 if c["brand"] in LUXURY else 3 if c["brand"] in LAST else 2
+    cl.sort(key=lambda c: (tier(c), dist(c)))     # close luxury dealers, then farther luxury, then Ford / Toyota
     parts = [cl[i:i + FIND_PART] for i in range(0, len(cl), FIND_PART)]
     blocks = []
     for n, part in enumerate(parts, 1):
@@ -244,7 +260,8 @@ def cmd_find(out: str | None) -> None:
         blocks.append(f"===== PART {n} of {len(parts)}: copy from here =====\n\n"
                       + FIND_INSTRUCTION.format(part=f"part {n} of {len(parts)}", min_year=2023) + "\n".join(body)
                       + f"\n\n===== end of part {n} =====\n")
-    text = (f"{len(cl)} dealers the search can't read, in {len(parts)} parts of {FIND_PART}. Brands with the most cars for you first.\n"
+    text = (f"{len(cl)} dealers the search can't read, in {len(parts)} parts of {FIND_PART}: luxury brands within {NEAR_MI} mi first, "
+            f"then farther luxury dealers, then Ford and Toyota, then Jaguar and Alfa Romeo ({len(skipped)} searched in the last {FIND_FRESH_DAYS} days left out).\n"
             "Paste one part at a time into Claude in Chrome and send Claude here the lines it writes (partial is fine).\n\n"
             + "\n".join(blocks))
     if out:
@@ -302,6 +319,17 @@ def cmd_addnew(src: str) -> None:
         have.add(vin)
         added.append(f"{vin}: {r['year']} {r['make']} {r['model']} {r['trim']} ${float(r['price']):,.0f} at {r['dealer']}")
     write_rows(cols, rows)
+    if done:                                      # remember which dealers were gone through, so 'find' moves on
+        names = {d["dealer_name"].lower(): d["dealer_name"] for d in dealers}
+        seen = _find_done()
+        for x in done:
+            n = names.get(x.split("|")[0].strip().lower())
+            if n:
+                seen[n] = today
+        with FIND_DONE.open("w", encoding="utf-8", newline="") as fh:
+            w = csv.writer(fh, lineterminator="\n")
+            w.writerow(["dealer", "date"])
+            w.writerows(sorted(seen.items()))
     print(f"added {len(added)} new cars, {len(skipped)} already on file")
     for x in added:
         print("  +", x)
