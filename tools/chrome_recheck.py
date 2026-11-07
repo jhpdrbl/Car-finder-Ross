@@ -239,7 +239,8 @@ def cmd_find(out: str | None) -> None:
     cl = outputs.check_list(history.read_csv(DATA / "coverage.csv"))
     known = defaultdict(set)
     for r in csv.DictReader((DATA / "listings.csv").open(encoding="utf-8")):
-        known[r["dealer"]].add(r["vin"].upper())
+        if r.get("fuel_type") != "gas" and (r.get("year") or "9999") >= "2023":   # a gas car isn't reported anyway: keep the list short
+            known[r["dealer"]].add(r["vin"].upper())
     for r in read_rows()[1]:
         known[r["dealer"]].add(r["vin"].upper())
     done = _find_done()
