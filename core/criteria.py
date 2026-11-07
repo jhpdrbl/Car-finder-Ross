@@ -410,6 +410,9 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     seats = (d.get("Seats") or "").strip()
     if not F.get("max_rows"):
         pass                                   # this buyer is fine with a third row
+    elif getattr(L, "rows_confirmed", None):  # seat rows from the window sticker (confirmed.csv 'rows')
+        if L.rows_confirmed >= 3:
+            fails.append("third-row seats (window sticker)")
     elif seats.isdigit() and int(seats) >= 6:
         fails.append(f"third-row seating ({seats} seats)")
     elif seats.isdigit() and int(seats) <= 5:

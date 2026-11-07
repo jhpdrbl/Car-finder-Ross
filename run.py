@@ -410,6 +410,10 @@ def apply_confirmed(L, c: dict | None) -> None:
         L.trim = c["trim"]
     if (c.get("ext_color") or "").strip():
         L.ext_color = c["ext_color"].strip()
+    if (c.get("int_color") or "").strip():      # from the window sticker (Nov 7 2026)
+        L.int_color = c["int_color"].strip()
+    if (c.get("rows") or "").strip() in ("2", "3"):   # seat rows on the window sticker (Mercedes option 847 = third row)
+        L.rows_confirmed = int(c["rows"])
     roof = (c.get("sunroof") or "").strip().lower()
     if roof in ("yes", "no"):
         L.sunroof = roof == "yes"
@@ -603,8 +607,19 @@ def rescore(args) -> None:
                 r["sunroof"] = str(L.sunroof)
                 if (confirmed.get(L.vin.upper()) or {}).get("sunroof"):   # the open question is answered
                     r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "sunroof" not in x)
+            r["int_color"] = L.int_color
             ext_st, int_st = criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)
             fails = [why for st, why in (ext_st, int_st) if st == "fail"]
+            rc = getattr(L, "rows_confirmed", None)
+            if rc == 3 and criteria.F.get("max_rows"):
+                fails.append("third-row seats (window sticker)")
+            elif rc == 2:                                   # the third-row question is answered
+                r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "third" not in x)
+                r["notes"] = "; ".join(x for x in (r.get("notes") or "").split("; ") if x and "third row" not in x)
+            if int_st[0] in ("call", "unknown") and L.int_color:         # an interior read from the window sticker that needs a look
+                calls = [x for x in (r.get("needs_call") or "").split("; ") if x]
+                if not any(x.startswith("interior") for x in calls):
+                    r["needs_call"] = "; ".join(calls + [int_st[1]])
             cf = ((confirmed.get(L.vin.upper()) or {}).get("carfax") or "").strip().lower()
             if cf in ("clean", "accident"):                 # a CARFAX report the user sent: noted, never a reason to rule
                 r["carfax_status"] = cf                     # the car out (user, Nov 7 2026: "you dont need to exclude it, just note it")
