@@ -313,7 +313,7 @@ def cmd_addnew(src: str) -> None:
                  doc_fee=str(round(fees[0])) if fees else ("0" if "none" in f[7].lower() else ""),
                  other_fees=str(round(sum(fees[1:]))) if fees else ("0" if "none" in f[7].lower() else ""),
                  mileage=re.sub(r"[^\d]", "", f[8]), ext_color=none(f[9]), int_color=none(f[10]),
-                 sunroof="yes" if roof.startswith("yes") else "no" if roof.startswith("no") else "",
+                 sunroof="yes" if roof.startswith("yes") else "no" if re.match(r"no\b(?! ?t)", roof) else "",   # "not shown" isn't "no"
                  cert_text=f"{f[3]} Certified pre-owned (dealer's certified inventory, read in your browser)",
                  added_on=today, price_on=today, audio=none(f[12]), seats=none(f[13]), carfax=none(f[14]))
         if not (r["year"] and r["price"] and link):
