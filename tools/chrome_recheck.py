@@ -30,7 +30,9 @@ If a page asks you to prove you're human (CAPTCHA, "are you a robot", "checking 
 
 For each car, open its link and write ONE line:
 VIN | STATUS | PRICE | FEES | MILES
-- STATUS: "for sale" if the page shows this exact VIN; "gone" if it says sold / no longer available, sends you to the inventory list, or shows a different car.
+Open every link in a normal tab of this browser (don't fetch pages any other way: some dealer sites send other requests to their inventory list).
+- STATUS: "for sale" if the page shows this exact VIN; "gone" only if the page itself says sold / no longer available, or shows a
+  different car. If you land on the inventory list instead, search that list for the VIN: "for sale" if it's there, else "gone".
 - PRICE: the advertised price before taxes and fees, as shown (for example $31,995). If the page shows several prices, use the one the dealer is asking now.
 - FEES: each dealer fee the page lists, with its name (for example "Doc $85; EVR $37"), or "none listed".
 - MILES: the odometer reading.
