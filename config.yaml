@@ -57,7 +57,7 @@ filters:
               "selenite", "titanium", "ash", silver, quicksilver, sterling, argento, grigio, nero, "verde fangio", "verde montreal", celestial, "black raven", "emerald lake", argent]   # silver allowed (user, Oct 21 2026: "start allowing silver"); Alfa: grigio = gray, nero = black, Verde Fangio/Montreal = dark greens   # list reviewed per-run in fail_reasons
     exclude: [white, pearl white, wind chill, beige, blue, red, matte, frozen, glacier, ivory,
               cream, champagne, bronze, orange, yellow, brown, copper, gold, tan,
-              sage, mint, lime, seafoam, pistachio, snowfall, rosso, giallo, bianco, "tiger eye", amethyst, purple, nimbus, "magnus metal"]   # Cadillac: Nimbus = blue (GM's own data); Magnus Metal Frost = matte   # light greens (user, Oct 19 2026: "Sage green is not dark green")
+              sage, mint, lime, seafoam, pistachio, snowfall, rosso, giallo, bianco, "tiger eye", amethyst, purple, nimbus, "magnus metal", "alpine grey", "alpine gray"]   # Alpine Grey (user, Nov 7 2026: "exclude Alpine Grey i dont like it")   # Cadillac: Nimbus = blue (GM's own data); Magnus Metal Frost = matte   # light greens (user, Oct 19 2026: "Sage green is not dark green")
     dark_blue_ok: true       # dark blues pass (user, Nov 2 2026); bright/light blues fail, others are a call (criteria.DARK_BLUES / LIGHT_BLUES); false = every blue fails again
     green_must_be_dark: true  # light greens (e.g. "Sage", "Lime") excluded
   interior_colors:
