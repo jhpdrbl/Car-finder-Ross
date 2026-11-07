@@ -185,7 +185,10 @@ I want certified cars I don't know about yet. Report a car only if ALL of these 
   (plug-in hybrid, hybrid or electric; for Mercedes / BMW / Audi plug-ins the name has an "e", e.g. GLC 350e, 330e, 55 TFSI e),
 - the price is under $41,000 and the miles are under 40,000,
 - its VIN doesn't end in one of the "already known" endings listed for that dealer.
-Use the site's own filters (certified, model, price) if it has them, and go through every page of results.
+Use the site's own filters (certified, model, price) if it has them, and go through every page of results with the site's own
+Next button (typing a page address can drop the certified filter).
+A "checking your browser" screen that clears by itself while you wait is fine; if it asks you to click or solve anything, stop.
+Only report cars at the dealer named; some sites also list cars from sister stores, which have their own entry.
 
 For each car you report, open its own page and write ONE line:
 VIN | DEALER | YEAR | MAKE | MODEL | TRIM | PRICE | FEES | MILES | EXTERIOR COLOR | INTERIOR COLOR | SUNROOF | SOUND SYSTEM | SEATS | CARFAX | LINK
