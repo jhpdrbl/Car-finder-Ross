@@ -258,6 +258,7 @@ refresh: about 80 dealers will fail as "blocked". What to do:
    infers it where Subaru makes it standard (every Forester but Base; Outback Touring/XT; Outback Limited
    2025+). Still a call: 2023–24 Outback Limited and Outback Wilderness (optional package), unless the
    dealer page (`pipeline.enrich_from_dealer_page`, works from the laptop) or `data/confirmed.csv` says so.
+5. **CARFAX reports the user sends** (Nov 7 2026: 11 PDFs the dealers gave them): confirmed.csv column `carfax` = clean / accident (+ the summary in `note`, starting 'CARFAX (user, <date>): ...'); `run.apply_confirmed` sets `carfax_status` and `L.carfax_keep` so `criteria.evaluate` does **not** exclude for it (user: "you dont need to exclude it, just note it"), and `rescore` writes the status plus a '⚠ CARFAX report you sent: ...' note. First accident: Pacific BMW i4 WBY43AW01PFR21994 (minor, right rear, Jun 2024). Reading a PDF the user sends is fine; never fetch carfax.com.
 5. CARFAX is almost always `not_verified` (dealer pages rarely say "no accidents" explicitly).
    That's per spec; don't loosen it without asking.
 6. **Trim guide / warranty data** (`data/trim_guide.json`, `data/warranty.json`) were researched Oct 2026

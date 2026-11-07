@@ -581,7 +581,7 @@ def evaluate(L: Listing, d: dict, dealer: dict, pool: list[Listing], excluded: d
     # CARFAX
     from verify.carfax_badge import status
     L.carfax_status = status(L)
-    if L.carfax_status == "accident" and F.get("carfax_exclude_accident", True):
+    if L.carfax_status == "accident" and F.get("carfax_exclude_accident", True) and not getattr(L, "carfax_keep", False):
         fails.append("CARFAX: accident reported")
 
     # nice-to-have defaults

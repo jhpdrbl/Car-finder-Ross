@@ -402,6 +402,10 @@ def apply_confirmed(L, c: dict | None) -> None:
         L.hud = False       # the maker never offered a head-up display on this trim: the dealer page's mention is boilerplate
     if not c:
         return
+    cf = (c.get("carfax") or "").strip().lower()      # from a CARFAX report the user sent (Nov 7 2026)
+    if cf in ("clean", "accident"):
+        L.carfax_status = cf
+        L.carfax_keep = True       # the user's own CARFAX report: noted, not a reason to exclude (Nov 7 2026)
     if c.get("trim"):
         L.trim = c["trim"]
     if (c.get("ext_color") or "").strip():
@@ -601,6 +605,13 @@ def rescore(args) -> None:
                     r["needs_call"] = "; ".join(x for x in (r.get("needs_call") or "").split("; ") if x and "sunroof" not in x)
             ext_st, int_st = criteria.exterior_ok(L.ext_color), criteria.interior_ok(L.int_color)
             fails = [why for st, why in (ext_st, int_st) if st == "fail"]
+            cf = ((confirmed.get(L.vin.upper()) or {}).get("carfax") or "").strip().lower()
+            if cf in ("clean", "accident"):                 # a CARFAX report the user sent: noted, never a reason to rule
+                r["carfax_status"] = cf                     # the car out (user, Nov 7 2026: "you dont need to exclude it, just note it")
+                m = re.search(r"CARFAX \(user[^)]*\):\s*([^;]+)", (confirmed.get(L.vin.upper()) or {}).get("note") or "")
+                warn = "⚠ CARFAX report you sent: " + (m.group(1).strip() if m else "accident reported")
+                if cf == "accident" and "⚠ CARFAX report you sent" not in (r.get("notes") or ""):
+                    r["notes"] = (warn + "; " + (r.get("notes") or "")).strip("; ")
             gone_q = []                                         # a color question the current rules now answer (e.g. a blue now allowed)
             if ext_st[0] == "pass" and L.ext_color:
                 gone_q.append(re.compile(r"^(blue|green|exterior color)\b", re.I))
